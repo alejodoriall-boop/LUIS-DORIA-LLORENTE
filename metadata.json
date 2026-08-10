@@ -1,0 +1,6 @@
+{
+  "name": "GanaderIA",
+  "description": "Plataforma integral de gestión ganadera multi-predio con georreferenciación satelital y relieve topográfico de fincas, delimitación de potreros, aforos forrajeros y capacidad de carga (UGM/UGG), curvas de nivel, acueductos, sincronización de básculas ganaderas y pedigrí.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,40 @@
+import { BrandingIron } from '../types';
+
+export const INITIAL_BRANDING_IRONS: BrandingIron[] = [
+  {
+    id: 'iron-1',
+    name: 'Hierro Principal Ganadería (H1)',
+    code: 'H1',
+    symbolIcon: '🔥',
+    bodyLocation: 'Anca Derecha',
+    type: 'propiedad',
+    registrationNumber: 'ICA-R-9842',
+    farmName: 'Finca Principal El Triunfo',
+    notes: 'Hierro oficial registrado para marca a fuego de crías nacidas en el predio.',
+    createdAt: '2025-01-15',
+  },
+  {
+    id: 'iron-2',
+    name: 'Hierro Hacienda San José (SJ)',
+    code: 'SJ',
+    symbolIcon: '👑',
+    bodyLocation: 'Pierna Izquierda',
+    type: 'propiedad',
+    registrationNumber: 'RUP-88392',
+    farmName: 'Hacienda San José',
+    notes: 'Hierro insignia con corona real para reproductoras y vacas puros de registro.',
+    createdAt: '2025-02-01',
+  },
+  {
+    id: 'iron-3',
+    name: 'Hierro Ventanilla / Venta (V)',
+    code: 'V',
+    symbolIcon: '⚡',
+    bodyLocation: 'Paleta Derecha',
+    type: 'ventanilla',
+    registrationNumber: 'ICA-V-1204',
+    farmName: 'Todas las Fincas',
+    notes: 'Contra-marca o hierro de salida para animales comerciales destinados a subasta o frigorífico.',
+    createdAt: '2025-03-10',
+  },
+];
