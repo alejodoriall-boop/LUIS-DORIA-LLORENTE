@@ -207,7 +207,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   return (
     <div className="space-y-6 max-w-7xl mx-auto w-full pb-10">
       {/* Top Welcome & Quick Actions Bar with Official GanaderIA Logo */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-gradient-to-r from-[#012d1d] via-[#083d28] to-[#012d1d] p-5 rounded-3xl border border-[#1b4332] shadow-lg text-white">
+      <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4 bg-gradient-to-r from-[#012d1d] via-[#083d28] to-[#012d1d] p-5 md:p-6 rounded-3xl border border-[#1b4332] shadow-lg text-white">
         <div className="space-y-1">
           <div className="flex items-center gap-2 mb-1">
             <span className="bg-[#ffba38] text-[#523700] text-[9.5px] font-mono font-black uppercase px-2 py-0.5 rounded shadow-2xs">
@@ -220,22 +220,22 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <GanaderIALogo variant="banner" size="lg" theme="dark" />
         </div>
 
-        <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
+        <div className="flex items-center gap-2 w-full xl:w-auto flex-wrap">
           {onOpenFarmManagerModal && (
             <button
               onClick={onOpenFarmManagerModal}
-              className="bg-[#f0f4f1] hover:bg-[#e2eae4] text-[#012d1d] font-bold text-xs md:text-sm px-3 py-2.5 rounded-xl border border-[#c1c8c2] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              className="bg-[#f0f4f1] hover:bg-[#e2eae4] text-[#012d1d] font-bold text-xs md:text-sm px-3.5 py-2.5 rounded-xl border border-[#c1c8c2] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               title="Administrar fincas"
             >
               <Settings className="w-4 h-4 text-[#2d6a4f]" />
-              <span className="hidden sm:inline">Gestionar</span>
+              <span>Gestionar</span>
             </button>
           )}
 
           {onOpenCreateFarmModal && (
             <button
               onClick={onOpenCreateFarmModal}
-              className="bg-[#012d1d] text-white hover:bg-[#1b4332] font-bold text-xs md:text-sm px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+              className="bg-[#1b4332] hover:bg-[#2d6a4f] text-white font-bold text-xs md:text-sm px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm border border-[#2d6a4f]"
             >
               <Building className="w-4 h-4 text-[#ffba38]" />
               <span>+ Crear Finca</span>
@@ -244,135 +244,38 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           <button
             onClick={() => onOpenNewEventModal('compra')}
-            className="flex-1 sm:flex-none bg-[#ffba38] text-[#523700] hover:brightness-95 font-bold text-xs md:text-sm px-4 py-2.5 rounded-xl tactical-shadow transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="bg-[#ffba38] text-[#523700] hover:brightness-95 font-extrabold text-xs md:text-sm px-4 py-2.5 rounded-xl tactical-shadow transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Nuevo Registro</span>
           </button>
-        </div>
-      </div>
 
-      {/* ========================================================================= */}
-      {/* MÓDULOS DE REGISTRO EN HOME (MONTA, SANIDAD Y PESAJE) */}
-      {/* ========================================================================= */}
-      <div className="bg-white border-2 border-[#c1c8c2] rounded-3xl p-4 md:p-5 card-shadow space-y-3.5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eeeeee] pb-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shadow-xs">
-              <Activity className="w-5 h-5" />
-            </div>
-            <div>
-              <h2 className="text-sm md:text-base font-extrabold text-[#012d1d] flex items-center gap-2">
-                <span>Módulos de Registro Directo en Home</span>
-                <span className="text-[10px] bg-[#c1ecd4] text-[#002114] font-mono font-bold px-2 py-0.5 rounded-full uppercase">
-                  Acceso Directo
-                </span>
-              </h2>
-              <p className="text-xs text-[#717973]">
-                Haga clic en un módulo para realizar el registro rápido
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-          {/* 1. MONTA / REPRODUCCIÓN */}
+          {/* ACCESOS RÁPIDOS DIRECTOS: MONTA, SANIDAD Y PESAJE */}
           <button
             type="button"
             onClick={() => onOpenNewEventModal('monta')}
-            className="group p-4 rounded-2xl border-2 border-[#d6e2db] bg-gradient-to-br from-[#fdf2f8] to-[#ffffff] hover:border-[#be185d] hover:shadow-md transition-all text-left flex flex-col justify-between cursor-pointer relative overflow-hidden"
+            className="bg-[#083d28] hover:bg-[#0c4e34] border border-[#2d6a4f] hover:border-pink-400 text-white font-bold text-xs md:text-sm px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs group"
           >
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <div className="w-9 h-9 rounded-xl bg-[#be185d] text-pink-200 flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <Heart className="w-4 h-4" />
-                </div>
-                <span className="text-[9px] font-bold uppercase bg-pink-100 text-pink-900 px-2 py-0.5 rounded-full">
-                  Reproducción
-                </span>
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xs text-[#012d1d] group-hover:text-[#be185d] transition-colors">
-                  Monta & Inseminación
-                </h3>
-                <p className="text-[10.5px] text-[#717973] leading-tight mt-1">
-                  Monta directa, IA, IATF, pajillas, toro y técnico.
-                </p>
-              </div>
-            </div>
-            <div className="mt-3 pt-2.5 border-t border-[#eeeeee] flex items-center justify-between text-xs font-bold text-[#be185d]">
-              <span className="flex items-center gap-1 text-[11px]">
-                <PlusCircle className="w-3.5 h-3.5 text-pink-600" />
-                Registrar Servicio
-              </span>
-              <ChevronRight className="w-4 h-4 text-[#717973] group-hover:translate-x-1 transition-transform" />
-            </div>
+            <Heart className="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform" />
+            <span>Monta & Inseminación</span>
           </button>
 
-          {/* 2. SANIDAD */}
           <button
             type="button"
             onClick={() => onOpenNewEventModal('health')}
-            className="group p-4 rounded-2xl border-2 border-[#d6e2db] bg-gradient-to-br from-[#fff1f2] to-[#ffffff] hover:border-[#b91c1c] hover:shadow-md transition-all text-left flex flex-col justify-between cursor-pointer relative overflow-hidden"
+            className="bg-[#083d28] hover:bg-[#0c4e34] border border-[#2d6a4f] hover:border-rose-400 text-white font-bold text-xs md:text-sm px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs group"
           >
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <div className="w-9 h-9 rounded-xl bg-[#9f1239] text-rose-200 flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <Stethoscope className="w-4 h-4" />
-                </div>
-                <span className="text-[9px] font-bold uppercase bg-rose-100 text-rose-900 px-2 py-0.5 rounded-full">
-                  Sanidad
-                </span>
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xs text-[#012d1d] group-hover:text-[#9f1239] transition-colors">
-                  Sanidad & Tratamientos
-                </h3>
-                <p className="text-[10.5px] text-[#717973] leading-tight mt-1">
-                  Vacunación oficial, desparasitaciones, dosis y tiempo retiro.
-                </p>
-              </div>
-            </div>
-            <div className="mt-3 pt-2.5 border-t border-[#eeeeee] flex items-center justify-between text-xs font-bold text-[#9f1239]">
-              <span className="flex items-center gap-1 text-[11px]">
-                <PlusCircle className="w-3.5 h-3.5 text-rose-600" />
-                Aplicar Sanidad
-              </span>
-              <ChevronRight className="w-4 h-4 text-[#717973] group-hover:translate-x-1 transition-transform" />
-            </div>
+            <Stethoscope className="w-4 h-4 text-rose-400 group-hover:scale-110 transition-transform" />
+            <span>Sanidad</span>
           </button>
 
-          {/* 3. PESAJE */}
           <button
             type="button"
             onClick={() => onOpenNewEventModal('weigh')}
-            className="group p-4 rounded-2xl border-2 border-[#d6e2db] bg-gradient-to-br from-[#fefce8] to-[#ffffff] hover:border-[#a16207] hover:shadow-md transition-all text-left flex flex-col justify-between cursor-pointer relative overflow-hidden"
+            className="bg-[#083d28] hover:bg-[#0c4e34] border border-[#2d6a4f] hover:border-amber-400 text-white font-bold text-xs md:text-sm px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs group"
           >
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <div className="w-9 h-9 rounded-xl bg-[#854d0e] text-yellow-200 flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <Scale className="w-4 h-4" />
-                </div>
-                <span className="text-[9px] font-bold uppercase bg-yellow-100 text-yellow-900 px-2 py-0.5 rounded-full">
-                  Pesaje
-                </span>
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xs text-[#012d1d] group-hover:text-[#854d0e] transition-colors">
-                  Control de Pesaje
-                </h3>
-                <p className="text-[10.5px] text-[#717973] leading-tight mt-1">
-                  Pesaje individual o de lote, control de GDP y básculas.
-                </p>
-              </div>
-            </div>
-            <div className="mt-3 pt-2.5 border-t border-[#eeeeee] flex items-center justify-between text-xs font-bold text-[#854d0e]">
-              <span className="flex items-center gap-1 text-[11px]">
-                <PlusCircle className="w-3.5 h-3.5 text-yellow-700" />
-                Pesaje en Báscula
-              </span>
-              <ChevronRight className="w-4 h-4 text-[#717973] group-hover:translate-x-1 transition-transform" />
-            </div>
+            <Scale className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
+            <span>Pesaje</span>
           </button>
         </div>
       </div>
