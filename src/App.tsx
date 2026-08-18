@@ -215,6 +215,7 @@ export default function App() {
   const [isFarmManagerModalOpen, setIsFarmManagerModalOpen] = useState(false);
   const [pendingFarmSwitch, setPendingFarmSwitch] = useState<string | null>(null);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Synchronize farms to local storage
   useEffect(() => {
@@ -1779,7 +1780,7 @@ export default function App() {
     farms.find((f) => f.profile.id === editingFarmTargetId)?.profile || currentFarm.profile;
 
   return (
-    <div className="min-h-screen bg-[#f9f9f9] text-[#1a1c1c] flex flex-col md:flex-row font-sans antialiased selection:bg-[#c1ecd4] selection:text-[#002114]">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f9f9f9] text-[#1a1c1c] flex flex-col md:flex-row font-sans antialiased selection:bg-[#c1ecd4] selection:text-[#002114]">
       {/* Left Vertical Sidebar Navigation */}
       <Sidebar
         activeTab={activeTab}
@@ -1793,10 +1794,12 @@ export default function App() {
         activeUser={activeUser}
         onLogoutUser={handleLogoutUser}
         onOpenAuthModal={() => setIsAuthModalOpen(true)}
+        isMobileOpen={isMobileMenuOpen}
+        onMobileClose={() => setIsMobileMenuOpen(false)}
       />
 
       {/* Main App Content Column */}
-      <div className="flex-1 flex flex-col min-w-0 min-h-screen">
+      <div className="flex-1 flex flex-col min-w-0 max-w-full w-full min-h-screen overflow-x-hidden">
         {/* Top Application Header */}
         <Header
           activeTab={activeTab}
@@ -1824,11 +1827,12 @@ export default function App() {
           onOpenAuthModal={() => setIsAuthModalOpen(true)}
           onLogoutUser={handleLogoutUser}
           onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
+          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
         />
 
       {/* Main Content & Right Lateral Panel Workspace */}
-      <div className="flex-1 flex min-w-0">
-        <main className="flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-4 md:py-6 w-full pb-24 md:pb-10 min-w-0">
+      <div className="flex-1 flex flex-col md:flex-row min-w-0 max-w-full w-full">
+        <main className="flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden">
         {activeTab === 'home' && (
           <HomeView
             setActiveTab={setActiveTab}
@@ -2469,6 +2473,15 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Fixed Bottom Navigation Bar for Mobile (< 768px) */}
+      <BottomNav
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        unreadAlertsCount={alerts.length}
+        isDairyEnabled={isDairyEnabled}
+        onOpenMoreMenu={() => setIsMobileMenuOpen(true)}
+      />
       </div>
     </div>
   );

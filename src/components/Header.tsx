@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MainTab, FarmDataPackage, AdminUser } from '../types';
 import {
@@ -23,11 +23,13 @@ import {
   Layers,
   Activity,
   Smartphone,
+  Menu,
 } from 'lucide-react';
 import {
   ProductionCategoryKey,
   filterFarmsByCategory,
 } from '../utils/farmCategoryUtils';
+import { useClickOutside } from '../hooks/useClickOutside';
 
 interface HeaderProps {
   activeTab: MainTab;
@@ -55,6 +57,7 @@ interface HeaderProps {
   onOpenAuthModal?: () => void;
   onLogoutUser?: () => void;
   onOpenWhatsAppModal?: () => void;
+  onOpenMobileMenu?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -83,11 +86,16 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenAuthModal,
   onLogoutUser,
   onOpenWhatsAppModal,
+  onOpenMobileMenu,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showFarmMenu, setShowFarmMenu] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [headerCategoryFilter, setHeaderCategoryFilter] = useState<ProductionCategoryKey>('all');
+
+  const farmMenuRef = useClickOutside<HTMLDivElement>(() => setShowFarmMenu(false), showFarmMenu);
+  const notifMenuRef = useClickOutside<HTMLDivElement>(() => setShowNotifications(false), showNotifications);
+  const userMenuRef = useClickOutside<HTMLDivElement>(() => setShowUserMenu(false), showUserMenu);
 
   const activeFarm = farms.find((f) => f.profile.id === currentFarmId) || farms[0];
 
@@ -96,30 +104,41 @@ export const Header: React.FC<HeaderProps> = ({
   }, [farms, headerCategoryFilter]);
 
   return (
-    <header className="sticky top-0 z-40 flex items-center justify-between px-3.5 sm:px-5 md:px-6 h-14 md:h-16 w-full bg-white/85 backdrop-blur-xl border-b border-black/[0.06] transition-all duration-300">
-      {/* Left: Active Farm Selector / Quick Switcher */}
-      <div className="flex items-center gap-2 relative">
+    <header className="sticky top-0 z-40 flex items-center justify-between px-2.5 sm:px-4 md:px-6 h-14 md:h-16 w-full max-w-full bg-white/95 backdrop-blur-xl border-b border-black/[0.06] transition-all duration-300 gap-1.5 overflow-x-hidden">
+      {/* Left: Mobile Drawer Trigger + Active Farm Selector / Quick Switcher */}
+      <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 relative" ref={farmMenuRef}>
+        {onOpenMobileMenu && (
+          <motion.button
+            whileTap={{ scale: 0.94 }}
+            onClick={onOpenMobileMenu}
+            className="md:hidden p-2 rounded-xl bg-emerald-950/10 text-[#043825] hover:bg-emerald-950/20 active:scale-95 transition-all cursor-pointer shrink-0"
+            title="Abrir menú de navegación de módulos"
+          >
+            <Menu className="w-4 h-4" />
+          </motion.button>
+        )}
+
         <motion.button
           whileHover={{ y: -1, scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: 'spring', stiffness: 400, damping: 25 }}
           onClick={() => setShowFarmMenu(!showFarmMenu)}
-          className="flex items-center gap-2 bg-[#043825] hover:bg-[#064e3b] text-white px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-[0_2px_8px_rgba(4,56,37,0.15)] border border-emerald-800/40 transition-all cursor-pointer group"
+          className="flex items-center gap-1 sm:gap-1.5 bg-[#043825] hover:bg-[#064e3b] text-white px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-[0_2px_8px_rgba(4,56,37,0.15)] border border-emerald-800/40 transition-all cursor-pointer group shrink-0"
           title="Cambiar de Predio o Administrar"
         >
           <Building2 className="w-3.5 h-3.5 text-[#facc15] shrink-0" />
-          <span className="font-bold tracking-tight truncate max-w-[140px] sm:max-w-[200px]">
+          <span className="font-bold tracking-tight truncate max-w-[85px] xs:max-w-[120px] sm:max-w-[200px]">
             {activeFarm?.profile.name || 'SAN JUAN'}
           </span>
-          <ChevronDown className="w-3 h-3 text-emerald-300 opacity-80 group-hover:opacity-100 transition-opacity" />
+          <ChevronDown className="w-3 h-3 text-emerald-300 opacity-80 group-hover:opacity-100 transition-opacity shrink-0" />
         </motion.button>
 
-        {/* Quick Farm Switcher Dropdown */}
+        {/* Quick Farm Switcher Dropdown / Mobile Modal Sheet */}
         <AnimatePresence>
           {showFarmMenu && (
             <>
               <div
-                className="fixed inset-0 z-40"
+                className="fixed inset-0 z-40 bg-black/40 backdrop-blur-2xs"
                 onClick={() => setShowFarmMenu(false)}
               />
               <motion.div
@@ -127,25 +146,33 @@ export const Header: React.FC<HeaderProps> = ({
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 4, scale: 0.96 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-                className="absolute left-0 top-full mt-2 w-72 sm:w-80 bg-white/95 backdrop-blur-2xl rounded-2xl border border-black/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.12)] p-3 z-50 space-y-2"
+                className="fixed sm:absolute left-3 right-3 sm:left-0 sm:right-auto top-16 sm:top-full mt-1 sm:mt-2 sm:w-80 bg-white rounded-2xl border border-black/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.18)] p-3.5 z-50 space-y-2 max-w-sm mx-auto sm:mx-0"
               >
-                <div className="flex items-center justify-between px-2 py-1 border-b border-slate-100 pb-2">
+                <div className="flex items-center justify-between px-1 py-1 border-b border-slate-100 pb-2">
                   <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                     Predios Ganaderos
                   </span>
-                  <button
-                    onClick={() => {
-                      setShowFarmMenu(false);
-                      onOpenFarmManagerModal();
-                    }}
-                    className="text-[11px] text-emerald-800 hover:text-emerald-950 font-bold flex items-center gap-1 cursor-pointer"
-                  >
-                    <Settings className="w-3 h-3" />
-                    <span>Gestionar</span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => {
+                        setShowFarmMenu(false);
+                        onOpenFarmManagerModal();
+                      }}
+                      className="text-[11px] text-emerald-800 hover:text-emerald-950 font-bold flex items-center gap-1 cursor-pointer"
+                    >
+                      <Settings className="w-3 h-3" />
+                      <span>Gestionar</span>
+                    </button>
+                    <button
+                      onClick={() => setShowFarmMenu(false)}
+                      className="sm:hidden p-1 text-slate-400 hover:text-slate-700"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
 
-                <div className="max-h-56 overflow-y-auto custom-scrollbar space-y-1 pr-1">
+                <div className="max-h-60 overflow-y-auto custom-scrollbar space-y-1 pr-1">
                   {farms.map((f) => {
                     const isSelected = f.profile.id === activeFarm?.profile.id;
                     return (
@@ -162,7 +189,7 @@ export const Header: React.FC<HeaderProps> = ({
                         }`}
                       >
                         <div className="flex items-center gap-2 truncate">
-                          <span className={`w-2 h-2 rounded-full ${isSelected ? 'bg-emerald-600' : 'bg-slate-300'}`} />
+                          <span className={`w-2 h-2 rounded-full shrink-0 ${isSelected ? 'bg-emerald-600' : 'bg-slate-300'}`} />
                           <span className="truncate">{f.profile.name}</span>
                         </div>
                         <span className="text-[10px] font-mono text-slate-400 shrink-0">
@@ -192,13 +219,13 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Right: Operational Controls & Status Badges */}
-      <div className="flex items-center gap-1.5 sm:gap-2">
+      <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 max-w-full">
         {/* Toggle Mode: LECHERÍA */}
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => onToggleDairyModule?.()}
-          className={`flex items-center gap-1.5 h-8 px-2.5 rounded-full font-semibold text-xs transition-all cursor-pointer border whitespace-nowrap ${
+          className={`flex items-center gap-1 sm:gap-1.5 h-7 sm:h-8 px-2 sm:px-2.5 rounded-full font-semibold text-xs transition-all cursor-pointer border whitespace-nowrap shrink-0 ${
             isDairyEnabled
               ? 'bg-blue-50/80 border-blue-200/80 text-blue-950 shadow-xs'
               : 'bg-slate-50/60 border-slate-200/60 text-slate-500 hover:bg-slate-100/80'
@@ -222,11 +249,11 @@ export const Header: React.FC<HeaderProps> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             onClick={onOpenScaleModal}
-            className="hidden sm:flex items-center gap-1.5 h-8 px-2.5 rounded-full bg-slate-50/80 hover:bg-slate-100 border border-slate-200/70 text-slate-800 transition-colors shadow-2xs cursor-pointer text-xs font-semibold whitespace-nowrap"
+            className="flex items-center gap-1 sm:gap-1.5 h-7 sm:h-8 px-2 sm:px-2.5 rounded-full bg-slate-50/80 hover:bg-slate-100 border border-slate-200/70 text-slate-800 transition-colors shadow-2xs cursor-pointer text-xs font-semibold whitespace-nowrap shrink-0"
             title="Configurar Báscula Bluetooth / Tru-Test"
           >
             <Bluetooth className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-            <span className="font-mono text-[11px] truncate max-w-[120px]">
+            <span className="font-mono text-[11px] truncate max-w-[85px] sm:max-w-[120px]">
               {scaleName ? `${scaleName.split(' ')[0]} (${scaleWeight ?? 0} kg)` : 'Báscula BT'}
             </span>
           </motion.button>
@@ -238,11 +265,11 @@ export const Header: React.FC<HeaderProps> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             onClick={onOpenWhatsAppModal}
-            className="flex items-center gap-1.5 h-8 px-2.5 rounded-full bg-[#075e54] text-white hover:bg-[#064e3b] transition-all shadow-xs cursor-pointer text-xs font-semibold whitespace-nowrap"
+            className="flex items-center gap-1 sm:gap-1.5 h-7 sm:h-8 px-2 sm:px-2.5 rounded-full bg-[#075e54] text-white hover:bg-[#064e3b] transition-all shadow-xs cursor-pointer text-xs font-semibold whitespace-nowrap shrink-0"
             title="Vincular y Probar Asistente Virtual en WhatsApp"
           >
             <Smartphone className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
-            <span className="hidden lg:inline">WhatsApp Bot</span>
+            <span className="hidden sm:inline">WhatsApp Bot</span>
             <span className="bg-[#25D366] text-slate-950 text-[9.5px] font-black px-1.5 py-0.2 rounded-full font-mono">
               IA
             </span>
@@ -255,7 +282,7 @@ export const Header: React.FC<HeaderProps> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             onClick={onOpenPendingActivitiesModal}
-            className="flex items-center gap-1.5 h-8 px-2.5 rounded-full bg-[#043825] text-white hover:bg-[#064e3b] transition-all shadow-xs cursor-pointer text-xs font-semibold whitespace-nowrap"
+            className="flex items-center gap-1 sm:gap-1.5 h-7 sm:h-8 px-2 sm:px-2.5 rounded-full bg-[#043825] text-white hover:bg-[#064e3b] transition-all shadow-xs cursor-pointer text-xs font-semibold whitespace-nowrap shrink-0"
             title="Ver y gestionar Reporte de Actividades Diarias Pendientes"
           >
             <CalendarDays className="w-3.5 h-3.5 text-[#facc15] shrink-0" />

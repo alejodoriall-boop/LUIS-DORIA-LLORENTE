@@ -215,17 +215,17 @@ export const RightNotificationSidebar: React.FC<RightNotificationSidebarProps> =
   }
 
   return (
-    <aside className="w-80 md:w-88 shrink-0 bg-white border-l border-slate-200 flex flex-col h-[calc(100vh-3.5rem)] md:h-[calc(100vh-4rem)] sticky top-14 md:top-16 z-30 transition-all overflow-hidden">
+    <aside className="w-full md:w-80 lg:w-88 shrink-0 bg-white border-t md:border-t-0 md:border-l border-slate-200 flex flex-col md:h-[calc(100vh-4rem)] md:sticky md:top-16 z-30 transition-all overflow-hidden">
       {/* Minimal Header */}
       <div className="p-3.5 md:p-4 border-b border-slate-100 flex items-center justify-between shrink-0 bg-white">
         <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100">
+          <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 shrink-0">
             <Activity className="w-3.5 h-3.5" />
           </div>
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <h3 className="font-semibold text-xs text-slate-900 leading-none">Operación & Avisos</h3>
-              <span className="bg-slate-100 text-slate-600 text-[10px] font-medium px-1.5 py-0.5 rounded-full">
+              <h3 className="font-semibold text-xs text-slate-900 leading-none truncate">Operación & Avisos</h3>
+              <span className="bg-slate-100 text-slate-600 text-[10px] font-medium px-1.5 py-0.5 rounded-full shrink-0">
                 {displayActivities.length}
               </span>
             </div>
@@ -237,7 +237,7 @@ export const RightNotificationSidebar: React.FC<RightNotificationSidebarProps> =
 
         <button
           onClick={onToggle}
-          className="text-slate-400 hover:text-slate-700 hover:bg-slate-50 p-1.5 rounded-lg transition-colors cursor-pointer"
+          className="text-slate-400 hover:text-slate-700 hover:bg-slate-50 p-1.5 rounded-lg transition-colors cursor-pointer shrink-0"
           title="Ocultar panel"
         >
           <ChevronRight className="w-4 h-4" />
@@ -245,27 +245,27 @@ export const RightNotificationSidebar: React.FC<RightNotificationSidebarProps> =
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-y-auto p-3.5 space-y-4">
+      <div className="flex-1 overflow-y-auto p-3.5 space-y-4 max-w-full">
         {/* WhatsApp Bot Quick Access Card */}
         {onOpenWhatsAppModal && (
           <div
             onClick={onOpenWhatsAppModal}
-            className="bg-[#075e54] hover:bg-[#064e3b] text-white p-3 rounded-2xl shadow-xs border border-[#25D366]/30 cursor-pointer transition-all flex items-center justify-between group"
+            className="w-full bg-[#004D38] hover:bg-[#064e3b] text-white p-3.5 rounded-xl shadow-xs border border-[#25D366]/30 cursor-pointer transition-all flex items-center justify-between gap-2 group"
           >
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 min-w-0">
               <div className="w-8 h-8 rounded-xl bg-[#25D366] text-slate-950 flex items-center justify-center font-bold shrink-0 shadow-xs">
                 <Smartphone className="w-4 h-4" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <h4 className="text-xs font-bold text-white leading-tight">WhatsApp de Campo</h4>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                  <h4 className="text-xs font-bold text-white leading-tight truncate">WhatsApp de Campo</h4>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse shrink-0" />
                 </div>
-                <p className="text-[10px] text-emerald-200 mt-0.5">Audios, fotos y textos en tiempo real</p>
+                <p className="text-[10px] text-emerald-200 mt-0.5 truncate">Audios, fotos y textos en tiempo real</p>
               </div>
             </div>
 
-            <span className="text-[10px] bg-white/10 group-hover:bg-white/20 px-2 py-1 rounded-lg font-bold text-white transition-colors">
+            <span className="text-[10px] bg-white/10 group-hover:bg-white/20 px-2.5 py-1 rounded-lg font-bold text-white transition-colors shrink-0">
               Probar
             </span>
           </div>
@@ -274,7 +274,7 @@ export const RightNotificationSidebar: React.FC<RightNotificationSidebarProps> =
         {/* ========================================================================= */}
         {/* REGISTROS Y EVENTOS RECIENTES */}
         {/* ========================================================================= */}
-        <section className="space-y-2 relative" ref={menuRef}>
+        <section className="space-y-2 relative max-w-full" ref={menuRef}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <h4 className="text-xs font-semibold text-slate-800">
@@ -286,10 +286,10 @@ export const RightNotificationSidebar: React.FC<RightNotificationSidebarProps> =
             </div>
 
             {/* + Registrar Module Picker Button */}
-            <div className="relative">
+            <div className="relative shrink-0">
               <button
                 onClick={() => setShowModuleMenu(!showModuleMenu)}
-                className="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/80 px-2.5 py-1 rounded-lg flex items-center gap-1.5 cursor-pointer transition-colors border border-emerald-200/60 shadow-2xs"
+                className="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/80 px-2.5 py-1 rounded-lg flex items-center gap-1.5 cursor-pointer transition-colors border border-emerald-200/60 shadow-2xs shrink-0"
                 title="Registrar tarea o evento en un módulo específico"
               >
                 <Plus className="w-3.5 h-3.5 text-emerald-700" />
@@ -495,7 +495,7 @@ export const RightNotificationSidebar: React.FC<RightNotificationSidebarProps> =
           </div>
 
           {/* List of Recent Activities with Direct Navigation */}
-          <div className="bg-white border border-slate-200/80 rounded-xl divide-y divide-slate-100 overflow-hidden">
+          <div className="bg-white border border-slate-200/80 rounded-xl divide-y divide-slate-100 overflow-hidden w-full">
             {displayActivities.slice(0, 5).map((act, idx) => {
               const meta = getCategoryMeta(act.category);
               const IconComp = meta.icon;
@@ -503,39 +503,39 @@ export const RightNotificationSidebar: React.FC<RightNotificationSidebarProps> =
               return (
                 <div
                   key={`${act.id}-${idx}`}
-                  className="p-2.5 flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer group"
+                  className="p-2.5 sm:p-3 flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer group gap-2 w-full"
                   onClick={() => handleActivityClick(act)}
                   title={`Clic para ir al módulo: ${meta.module}`}
                 >
-                  <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                  <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                     <div
                       className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border ${meta.bg} ${meta.text} ${meta.border}`}
                     >
                       <IconComp className="w-3.5 h-3.5" />
                     </div>
 
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5 min-w-0">
                         <p className="text-xs font-semibold text-slate-800 truncate group-hover:text-emerald-800 transition-colors">
                           {act.title}
                         </p>
                       </div>
-                      <div className="flex items-center gap-1 text-[10px] text-slate-400 truncate">
-                        <span className={`px-1 py-0.2 rounded font-medium text-[9px] ${meta.badgeBg}`}>
+                      <div className="flex items-center gap-1 text-[10px] text-slate-400 truncate mt-0.5">
+                        <span className={`px-1 py-0.2 rounded font-medium text-[9px] shrink-0 ${meta.badgeBg}`}>
                           {meta.module}
                         </span>
-                        <span>•</span>
+                        <span className="shrink-0">•</span>
                         <span className="truncate">{act.subtitle}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="text-right shrink-0 flex flex-col items-end">
-                    <span className="text-[11px] font-mono font-medium text-slate-700 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-200/80 inline-flex items-center gap-1 group-hover:border-emerald-300">
+                  <div className="text-right shrink-0 flex flex-col items-end pl-1">
+                    <span className="text-[11px] font-mono font-medium text-slate-700 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-200/80 inline-flex items-center gap-1 group-hover:border-emerald-300 whitespace-nowrap">
                       <span>{act.weightOrMetric}</span>
-                      <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-emerald-600 transition-colors" />
+                      <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-emerald-600 transition-colors shrink-0" />
                     </span>
-                    <p className="text-[9.5px] text-slate-400 mt-0.5">
+                    <p className="text-[9.5px] text-slate-400 mt-0.5 whitespace-nowrap">
                       {act.timestamp}
                     </p>
                   </div>

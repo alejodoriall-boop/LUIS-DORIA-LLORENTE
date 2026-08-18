@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { MainTab, AdminUser } from '../types';
 import { CowIcon } from './icons/CowIcon';
 import { HorseIcon } from './icons/HorseIcon';
@@ -32,6 +32,7 @@ import {
   Lock,
   KeyRound,
   Shield,
+  X,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -46,6 +47,8 @@ interface SidebarProps {
   activeUser?: AdminUser | null;
   onLogoutUser?: () => void;
   onOpenAuthModal?: () => void;
+  isMobileOpen?: boolean;
+  onMobileClose?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -60,6 +63,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   activeUser,
   onLogoutUser,
   onOpenAuthModal,
+  isMobileOpen = false,
+  onMobileClose,
 }) => {
   const navItems = [
     {
@@ -183,20 +188,39 @@ export const Sidebar: React.FC<SidebarProps> = ({
     ? navItems
     : [...navItems.filter((i) => i.id !== 'dairy'), navItems.find((i) => i.id === 'dairy')!];
 
-  return (
-    <aside className="hidden md:flex flex-col w-64 lg:w-72 bg-[#042e1f] text-white border-r border-emerald-950/60 h-screen sticky top-0 shrink-0 z-40 shadow-2xl overflow-y-auto select-none">
+  const handleItemClick = (tab: MainTab) => {
+    setActiveTab(tab);
+    if (onMobileClose) {
+      onMobileClose();
+    }
+  };
+
+  const renderContent = (isMobile: boolean = false) => (
+    <div className="flex flex-col h-full select-none">
       {/* Brand Header */}
-      <div className="p-4 sm:p-5 border-b border-emerald-900/60 bg-[#032418]/80 backdrop-blur-xl flex items-center justify-between">
+      <div className="p-4 sm:p-5 border-b border-emerald-900/60 bg-[#032418]/80 backdrop-blur-xl flex items-center justify-between shrink-0">
         <div className="flex items-center justify-between w-full">
           <GanaderIALogo
             variant="full"
             size="md"
             theme="dark"
-            onClick={() => setActiveTab('home')}
+            onClick={() => handleItemClick('home')}
           />
-          <span className="inline-flex items-center gap-1 text-[9px] uppercase font-bold tracking-wider bg-emerald-900/80 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-700/40 shrink-0 font-mono">
-            <ShieldCheck className="w-2.5 h-2.5 text-[#facc15]" /> PRO
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1 text-[9px] uppercase font-bold tracking-wider bg-emerald-900/80 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-700/40 shrink-0 font-mono">
+              <ShieldCheck className="w-2.5 h-2.5 text-[#facc15]" /> PRO
+            </span>
+            {isMobile && onMobileClose && (
+              <button
+                type="button"
+                onClick={onMobileClose}
+                className="p-1 text-emerald-300 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+                title="Cerrar menú"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -205,7 +229,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Module Management header */}
         <button
           type="button"
-          onClick={onOpenModuleManagerModal}
+          onClick={() => {
+            if (onOpenModuleManagerModal) onOpenModuleManagerModal();
+            if (isMobile && onMobileClose) onMobileClose();
+          }}
           className="w-full px-2.5 py-1.5 flex items-center justify-between cursor-pointer group hover:bg-white/5 rounded-xl transition-all text-left"
           title="Abrir Gestor de Módulos"
         >
@@ -219,7 +246,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         {/* Predios vs Lotes Switch Pill */}
         <div
-          onClick={onToggleLotsModule}
+          onClick={() => {
+            if (onToggleLotsModule) onToggleLotsModule();
+          }}
           className="mx-1 mb-2 px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-800/40 hover:border-[#facc15]/50 flex items-center justify-between text-[11px] cursor-pointer transition-all active:scale-[0.98] group"
           title={isLotsEnabled ? 'Manejo por Lotes activo. Clic para volver a Predios.' : 'Manejo por Predios activo por defecto. Clic para habilitar Lotes.'}
         >
@@ -263,7 +292,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 whileHover={{ x: 2 }}
                 whileTap={{ scale: 0.98 }}
                 type="button"
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => handleItemClick(item.id)}
                 className={`w-full h-11 rounded-xl transition-all duration-200 flex items-center justify-between px-3 cursor-pointer text-left group relative ${
                   isDairy && !isDairyEnabled
                     ? 'opacity-60 bg-rose-950/30 text-rose-300 border border-rose-900/30 hover:opacity-90'
@@ -369,6 +398,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   type="button"
                   onClick={() => {
                     if (onLogoutUser) onLogoutUser();
+                    if (isMobile && onMobileClose) onMobileClose();
                   }}
                   className="flex-1 py-1.5 px-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-[10px] rounded-xl transition shadow-xs flex items-center justify-center gap-1 cursor-pointer active:scale-95"
                 >
@@ -380,6 +410,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   type="button"
                   onClick={() => {
                     if (onOpenAuthModal) onOpenAuthModal();
+                    if (isMobile && onMobileClose) onMobileClose();
                   }}
                   className="flex-1 py-1.5 px-2.5 bg-[#facc15] hover:bg-[#fde047] text-[#042e1f] font-bold text-[10px] rounded-xl transition shadow-xs flex items-center justify-center gap-1 cursor-pointer active:scale-95"
                 >
@@ -392,6 +423,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 type="button"
                 onClick={() => {
                   if (onOpenAuthModal) onOpenAuthModal();
+                  if (isMobile && onMobileClose) onMobileClose();
                 }}
                 className="p-1.5 bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 rounded-xl transition border border-emerald-700/40 cursor-pointer"
                 title="Ver perfil o verificar PIN"
@@ -404,7 +436,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Cloud Sync Status */}
-      <div className="p-3 m-3 rounded-2xl bg-emerald-950/80 border border-emerald-900/50 text-xs">
+      <div className="p-3 m-3 rounded-2xl bg-emerald-950/80 border border-emerald-900/50 text-xs shrink-0">
         <div className="flex items-center justify-between text-[11px] font-semibold text-emerald-200">
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#facc15]" /> Sincronización
@@ -414,7 +446,44 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </span>
         </div>
       </div>
-    </aside>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Desktop Fixed Sidebar */}
+      <aside className="hidden md:flex flex-col w-64 lg:w-72 bg-[#042e1f] text-white border-r border-emerald-950/60 h-screen sticky top-0 shrink-0 z-40 shadow-2xl overflow-y-auto select-none">
+        {renderContent(false)}
+      </aside>
+
+      {/* Mobile Drawer (Slide-over) */}
+      <AnimatePresence>
+        {isMobileOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={onMobileClose}
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs md:hidden"
+            />
+
+            {/* Drawer Panel */}
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 280 }}
+              className="fixed top-0 left-0 bottom-0 z-50 w-[85vw] max-w-[320px] bg-[#042e1f] text-white shadow-2xl flex flex-col md:hidden overflow-hidden"
+            >
+              {renderContent(true)}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

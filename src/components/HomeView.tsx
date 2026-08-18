@@ -242,7 +242,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         <div className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-3">
           {/* Action Buttons Toolbar */}
-          <div className="flex items-center gap-1.5 flex-wrap">
+          <div className="flex items-center gap-1.5 flex-wrap sm:flex-nowrap sm:overflow-x-auto no-scrollbar w-full md:w-auto py-0.5">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.96 }}

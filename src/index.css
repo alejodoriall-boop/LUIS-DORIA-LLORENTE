@@ -71,6 +71,15 @@
   }
 }
 
+/* No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Apple-grade Flat/Soft UI Shadows */
 .apple-card {
   background-color: #ffffff;
