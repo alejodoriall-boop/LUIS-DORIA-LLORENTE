@@ -34,7 +34,10 @@ import {
   BubalineAnimal,
   AdminUser,
   LivestockSaleRecord,
+  AdminContextMode,
+  TenantRecord,
 } from './types';
+import { SuperadminDashboardView } from './components/SuperadminDashboardView';
 import { INITIAL_MASTITIS_RECORDS } from './data/mockMastitisData';
 import { INITIAL_PENDING_ACTIVITIES } from './data/mockPendingActivities';
 import { INITIAL_BRANDING_IRONS } from './data/mockBrandingIrons';
@@ -200,6 +203,23 @@ export default function App() {
   const handleLogoutUser = () => {
     setActiveUser(null);
     showToast('Ha cerrado la sesión del sistema.');
+  };
+
+  // Superadmin Multi-Tenant Context State
+  const [adminContextMode, setAdminContextMode] = useState<AdminContextMode>('my_farms');
+  const [impersonatedTenant, setImpersonatedTenant] = useState<TenantRecord | null>(null);
+  const [isSuperadmin, setIsSuperadmin] = useState<boolean>(true);
+
+  const handleStartImpersonation = (tenant: TenantRecord) => {
+    setImpersonatedTenant(tenant);
+    setAdminContextMode('support_impersonation');
+    showToast(`Modo Soporte: Impersonando a ${tenant.farmName} (${tenant.tenantCode})`);
+  };
+
+  const handleExitImpersonation = () => {
+    setImpersonatedTenant(null);
+    setAdminContextMode('global_platform');
+    showToast('Ha salido del Modo Soporte. Retornando a Panel Global.');
   };
 
   // Multi-Farm Management State with Local Storage Persistence
@@ -1800,6 +1820,27 @@ export default function App() {
 
       {/* Main App Content Column */}
       <div className="flex-1 flex flex-col min-w-0 max-w-full w-full min-h-screen overflow-x-hidden">
+        {/* Support Impersonation Persistent Banner */}
+        {adminContextMode === 'support_impersonation' && impersonatedTenant && (
+          <div className="sticky top-0 z-50 bg-amber-400 text-neutral-950 px-3 sm:px-5 py-2 text-xs font-extrabold flex items-center justify-between shadow-md border-b border-amber-500 gap-2 animate-in slide-in-from-top duration-300">
+            <div className="flex items-center gap-2 truncate">
+              <span className="text-base shrink-0 animate-pulse">⚠️</span>
+              <span className="truncate">
+                Modo Soporte Activo: Impersonando a{' '}
+                <strong className="underline">{impersonatedTenant.farmName}</strong> (Tenant:{' '}
+                <span className="font-mono">{impersonatedTenant.tenantCode}</span>) • Propietario: {impersonatedTenant.ownerName}
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={handleExitImpersonation}
+              className="px-3 py-1 bg-neutral-950 hover:bg-neutral-800 text-amber-300 text-xs font-extrabold rounded-lg transition-colors cursor-pointer shrink-0 shadow-xs"
+            >
+              Salir de Soporte
+            </button>
+          </div>
+        )}
+
         {/* Top Application Header */}
         <Header
           activeTab={activeTab}
@@ -1828,11 +1869,30 @@ export default function App() {
           onLogoutUser={handleLogoutUser}
           onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+          adminContextMode={adminContextMode}
+          onAdminContextModeChange={(mode) => {
+            setAdminContextMode(mode);
+            if (mode === 'global_platform') {
+              showToast('Cambiado a: Panel de Administración Global');
+            } else if (mode === 'my_farms') {
+              showToast('Cambiado a: Mis Fincas Propias');
+            }
+          }}
+          impersonatedTenant={impersonatedTenant}
+          onExitImpersonation={handleExitImpersonation}
+          isSuperadmin={isSuperadmin}
         />
 
       {/* Main Content & Right Lateral Panel Workspace */}
       <div className="flex-1 flex flex-col md:flex-row min-w-0 max-w-full w-full">
         <main className="flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden">
+        {adminContextMode === 'global_platform' ? (
+          <SuperadminDashboardView
+            onStartImpersonation={handleStartImpersonation}
+            onExitToMyFarms={() => setAdminContextMode('my_farms')}
+          />
+        ) : (
+          <>
         {activeTab === 'home' && (
           <HomeView
             setActiveTab={setActiveTab}
@@ -2091,6 +2151,8 @@ export default function App() {
             initialSubTab={menuInitialSubTab}
             onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
           />
+        )}
+          </>
         )}
       </main>
 

@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MainTab, FarmDataPackage, AdminUser } from '../types';
+import { MainTab, FarmDataPackage, AdminUser, AdminContextMode, TenantRecord } from '../types';
 import {
   Bell,
   ShieldCheck,
@@ -31,6 +31,7 @@ import {
 } from '../utils/farmCategoryUtils';
 import { useClickOutside } from '../hooks/useClickOutside';
 import { FarmSelector } from './FarmSelector';
+import { AdminContextSwitcher } from './AdminContextSwitcher';
 
 interface HeaderProps {
   activeTab: MainTab;
@@ -59,6 +60,11 @@ interface HeaderProps {
   onLogoutUser?: () => void;
   onOpenWhatsAppModal?: () => void;
   onOpenMobileMenu?: () => void;
+  adminContextMode?: AdminContextMode;
+  onAdminContextModeChange?: (mode: AdminContextMode) => void;
+  impersonatedTenant?: TenantRecord | null;
+  onExitImpersonation?: () => void;
+  isSuperadmin?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -88,6 +94,11 @@ export const Header: React.FC<HeaderProps> = ({
   onLogoutUser,
   onOpenWhatsAppModal,
   onOpenMobileMenu,
+  adminContextMode = 'my_farms',
+  onAdminContextModeChange,
+  impersonatedTenant,
+  onExitImpersonation,
+  isSuperadmin = true,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -104,8 +115,8 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 flex items-center justify-between px-2.5 sm:px-4 md:px-6 h-14 md:h-16 w-full max-w-full bg-white/95 backdrop-blur-xl border-b border-black/[0.06] transition-all duration-300 gap-1.5">
-      {/* Left: Mobile Drawer Trigger + Active Farm Selector / Quick Switcher */}
-      <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+      {/* Left: Mobile Drawer Trigger + Farm Selector + Context Switcher */}
+      <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
         {onOpenMobileMenu && (
           <motion.button
             whileTap={{ scale: 0.94 }}
@@ -124,6 +135,16 @@ export const Header: React.FC<HeaderProps> = ({
           onOpenCreateFarmModal={onOpenCreateFarmModal}
           onOpenFarmManagerModal={onOpenFarmManagerModal}
         />
+
+        {isSuperadmin && onAdminContextModeChange && (
+          <AdminContextSwitcher
+            currentMode={adminContextMode}
+            onModeChange={onAdminContextModeChange}
+            impersonatedTenant={impersonatedTenant}
+            onExitImpersonation={onExitImpersonation || (() => {})}
+            isSuperadmin={isSuperadmin}
+          />
+        )}
       </div>
 
       {/* Right: Operational Controls & Status Badges */}

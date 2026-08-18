@@ -2332,4 +2332,108 @@ export interface BubalineAnimal {
   sanitaryNotes?: string;
 }
 
+// ==========================================
+// SAAS MULTI-TENANT & SUPERADMIN TYPES
+// ==========================================
+
+export type AdminContextMode = 'global_platform' | 'my_farms' | 'support_impersonation';
+
+export type TenantStatus = 'active' | 'trial' | 'suspended' | 'canceled';
+export type TenantPlan = 'starter_finca' | 'pro_ganadero' | 'enterprise_corporativo' | 'custom_agro';
+
+export interface TenantFeatureFlags {
+  enableBuffaloModule: boolean;
+  enableWhatsAppAIAssistant: boolean;
+  enableAdvancedSanitaryPlan: boolean;
+  enableSupplementationMRP: boolean;
+  enableInventoryApprovalFlow: boolean;
+  enableGisAdvancedMapping: boolean;
+  enablePedigreeCertificate: boolean;
+  enableFinancePayrollSync: boolean;
+}
+
+export interface TenantQuotas {
+  maxAnimalsLimit: number;
+  usedAnimalsCount: number;
+  whatsAppMonthlyQuota: number;
+  whatsAppMessagesSentThisMonth: number;
+  aiQueriesMonthlyQuota: number;
+  aiQueriesUsedThisMonth: number;
+  storageMbQuota: number;
+  storageMbUsed: number;
+  maxUsersAllowed: number;
+  activeUsersCount: number;
+}
+
+export interface TenantRecord {
+  id: string;
+  tenantCode: string; // e.g. "TNT-CO-0842"
+  farmName: string;
+  legalBusinessName: string;
+  nitOrDocument: string;
+  ownerName: string;
+  ownerEmail: string;
+  ownerPhone: string;
+  department: string;
+  municipality: string;
+  plan: TenantPlan;
+  status: TenantStatus;
+  monthlyFeeUsd: number;
+  annualFeeUsd: number;
+  billingCycle: 'monthly' | 'annual';
+  trialEndsAt?: string;
+  subscriptionStartedAt: string;
+  nextBillingDate: string;
+  totalHeads: number;
+  totalHectares: number;
+  featureFlags: TenantFeatureFlags;
+  quotas: TenantQuotas;
+  lastActiveAt: string;
+  isPolicyLockBypassed?: boolean;
+  supportNotes?: string;
+  stripeCustomerId?: string;
+}
+
+export interface SuperadminGlobalMetrics {
+  mrrUsd: number;
+  arrUsd: number;
+  mrrGrowthPct: number;
+  totalTenantsCount: number;
+  activeTenantsCount: number;
+  trialTenantsCount: number;
+  suspendedTenantsCount: number;
+  totalManagedAnimals: number;
+  totalCattleCount: number;
+  totalBuffaloCount: number;
+  whatsAppMessagesSentTotal: number;
+  aiQueriesExecutedTotal: number;
+  storageGigabytesTotal: number;
+  activeUsers24h: number;
+  avgLtvUsd: number;
+  churnRatePct: number;
+}
+
+export interface SuperadminAuditLog {
+  id: string;
+  timestamp: string;
+  superadminEmail: string;
+  actionType:
+    | 'impersonation_session_start'
+    | 'impersonation_session_end'
+    | 'tenant_status_change'
+    | 'feature_flag_toggle'
+    | 'quota_adjusted'
+    | 'trial_extended'
+    | 'subscription_upgrade'
+    | 'policy_lock_reset'
+    | 'security_alert'
+    | 'database_migration';
+  tenantId?: string;
+  tenantName?: string;
+  details: string;
+  ipAddress: string;
+  userAgent?: string;
+  status: 'success' | 'warning' | 'failed';
+}
+
 
