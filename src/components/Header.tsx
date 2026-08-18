@@ -65,6 +65,7 @@ interface HeaderProps {
   impersonatedTenant?: TenantRecord | null;
   onExitImpersonation?: () => void;
   isSuperadmin?: boolean;
+  onGoToLanding?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -99,6 +100,7 @@ export const Header: React.FC<HeaderProps> = ({
   impersonatedTenant,
   onExitImpersonation,
   isSuperadmin = true,
+  onGoToLanding,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -143,6 +145,7 @@ export const Header: React.FC<HeaderProps> = ({
             impersonatedTenant={impersonatedTenant}
             onExitImpersonation={onExitImpersonation || (() => {})}
             isSuperadmin={isSuperadmin}
+            onGoToLanding={onGoToLanding}
           />
         )}
       </div>
@@ -447,6 +450,19 @@ export const Header: React.FC<HeaderProps> = ({
                           <KeyRound className="w-4 h-4 text-amber-600" />
                           <span>Cambiar de Usuario / PIN</span>
                         </button>
+
+                        {onGoToLanding && (
+                          <button
+                            onClick={() => {
+                              setShowUserMenu(false);
+                              onGoToLanding();
+                            }}
+                            className="w-full text-left p-2 hover:bg-amber-50 text-amber-900 rounded-xl font-semibold flex items-center gap-2 cursor-pointer transition-colors"
+                          >
+                            <Sparkles className="w-4 h-4 text-amber-600" />
+                            <span>Ver Home Page Pública</span>
+                          </button>
+                        )}
 
                         <button
                           onClick={() => {

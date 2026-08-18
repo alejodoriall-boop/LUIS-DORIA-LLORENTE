@@ -23,6 +23,7 @@ export interface AdminContextSwitcherProps {
   userEmail?: string;
   isSuperadmin?: boolean;
   className?: string;
+  onGoToLanding?: () => void;
 }
 
 export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
@@ -33,6 +34,7 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
   userEmail = 'superadmin@ganaderia.cloud',
   isSuperadmin = true,
   className = '',
+  onGoToLanding,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useClickOutside<HTMLDivElement>(() => setIsOpen(false), isOpen);
@@ -177,7 +179,31 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                   )}
                 </button>
 
-                {/* 3. Support Impersonation Option */}
+                {/* 3. Public Home Page */}
+                {onGoToLanding && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onGoToLanding();
+                      setIsOpen(false);
+                    }}
+                    className="w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between transition-all cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-t border-neutral-100 dark:border-neutral-800 pt-2"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0 border border-amber-500/20">
+                        <Sparkles className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <p className="font-bold leading-tight">🏠 Home Page Pública</p>
+                        <p className="text-[10px] text-neutral-400 dark:text-neutral-500">
+                          Presentación oficial y portal público
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                )}
+
+                {/* 4. Support Impersonation Option */}
                 {impersonatedTenant && (
                   <div className="pt-1">
                     <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800/60 space-y-2">
