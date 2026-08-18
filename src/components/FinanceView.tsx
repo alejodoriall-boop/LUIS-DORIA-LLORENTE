@@ -288,12 +288,23 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffba38]/20 border border-[#ffba38]/40 text-[#ffba38] text-xs font-extrabold uppercase tracking-widest mb-3">
               <DollarSign className="w-3.5 h-3.5" /> MÓDULO FINANCIERO
             </div>
-            <h1 className="text-2xl lg:text-4xl font-black text-white tracking-tight">
-              Análisis Financiero x Hectárea
-            </h1>
-            <p className="text-sm lg:text-base text-[#c1ecd4]/80 mt-1 max-w-2xl font-medium">
-              Indicadores clave de rentabilidad, margen operativo ($/Ha, $/Ha/mes, $/Ha/año) y estados financieros consolidados multipredio.
-            </p>
+            <div className="flex items-center gap-2.5">
+              <h1 className="text-2xl lg:text-4xl font-black text-white tracking-tight">
+                Análisis Financiero x Hectárea
+              </h1>
+              <div className="group relative inline-flex items-center">
+                <button
+                  type="button"
+                  className="text-[#a3b8ad] hover:text-[#ffba38] transition-colors p-0.5 rounded cursor-pointer"
+                  title="Indicadores clave de rentabilidad, margen operativo ($/Ha, $/Ha/mes, $/Ha/año) y estados financieros consolidados multipredio."
+                >
+                  <Info className="w-4 h-4" />
+                </button>
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                  Indicadores clave de rentabilidad, margen operativo ($/Ha, $/Ha/mes, $/Ha/año) y estados financieros consolidados multipredio.
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">

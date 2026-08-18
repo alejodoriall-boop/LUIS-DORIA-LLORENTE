@@ -205,8 +205,8 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
-      <div className="bg-white rounded-3xl border-2 border-[#012d1d] shadow-2xl max-w-xl w-full overflow-hidden flex flex-col my-6">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-3xl border-2 border-[#012d1d] shadow-2xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden flex flex-col my-6">
         {/* Modal Header */}
         <div className="bg-[#012d1d] text-white p-5 flex items-center justify-between border-b-2 border-[#ffba38]">
           <div className="flex items-center gap-3">

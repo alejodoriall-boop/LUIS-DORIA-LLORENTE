@@ -1,5 +1,6 @@
 import React from 'react';
 import { PedigreeAnimal } from '../../types';
+import { safePrint } from '../../utils/printUtils';
 import { Award, X, Printer, Download, CheckCircle, ShieldCheck, QrCode } from 'lucide-react';
 
 interface PedigreeCertificateModalProps {
@@ -16,12 +17,12 @@ export const PedigreeCertificateModal: React.FC<PedigreeCertificateModalProps> =
   if (!isOpen) return null;
 
   const handlePrint = () => {
-    window.print();
+    safePrint();
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-3 md:p-6 overflow-y-auto">
-      <div className="bg-white rounded-2xl max-w-3xl w-full p-6 md:p-8 border-4 border-[#012d1d] shadow-2xl animate-in fade-in zoom-in-95 my-auto relative">
+    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-3 md:p-6 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-2xl max-w-5xl lg:max-w-6xl w-full p-6 md:p-8 border-4 border-[#012d1d] shadow-2xl animate-in fade-in zoom-in-95 my-auto relative">
         {/* Close button */}
         <button
           onClick={onClose}

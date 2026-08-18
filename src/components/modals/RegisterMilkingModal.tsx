@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
-import { DairyRecord, RfidMilkingConfig, IndividualCowMilkingRecord, RfidChipStandard } from '../../types';
+import React, { useState, useEffect } from 'react';
+import {
+  DairyRecord,
+  RfidMilkingConfig,
+  IndividualCowMilkingRecord,
+  RfidChipStandard,
+  MastitisRecord,
+  WithdrawalAnimal,
+} from '../../types';
 import { DEFAULT_RFID_MILKING_CONFIG, INITIAL_MILKING_COWS_RFID } from '../../data/mockMilkingRfidData';
 import { scaleSound } from '../../services/scaleSound';
 import { MilkGlassIcon } from '../icons/MilkGlassIcon';
@@ -31,6 +38,8 @@ interface RegisterMilkingModalProps {
   onClose: () => void;
   currentData: DairyRecord;
   onSaveMilking: (morning: number, evening: number, fat: number, protein: number) => void;
+  mastitisRecords?: MastitisRecord[];
+  withdrawalAnimals?: WithdrawalAnimal[];
 }
 
 export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
@@ -38,6 +47,8 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
   onClose,
   currentData,
   onSaveMilking,
+  mastitisRecords = [],
+  withdrawalAnimals = [],
 }) => {
   // Modal Navigation Tab
   const [activeTab, setActiveTab] = useState<'manual' | 'rfid_auto' | 'rfid_config'>('rfid_auto');
@@ -72,11 +83,113 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
   const [newCowStandard, setNewCowStandard] = useState<RfidChipStandard>('FDX-B');
   const [newCowMorningLiters, setNewCowMorningLiters] = useState<number>(15);
 
+  // Helper to cross-reference active veterinary prescription & withdrawal period for a cow
+  const checkCowPrescriptionWithdrawal = (cow: IndividualCowMilkingRecord) => {
+    const cowTagUpper = cow.cowTag.toUpperCase();
+    const tagClean = cowTagUpper.replace('VACA-', '').replace('#', '').trim();
+
+    // 1. Check Mastitis Records with active withdrawal / prescription
+    if (mastitisRecords && mastitisRecords.length > 0) {
+      const activeMastitis = mastitisRecords.find((m) => {
+        if (m.status === 'curado') return false;
+        const mTagClean = m.cowTag.toUpperCase().replace('VACA-', '').replace('#', '').trim();
+        return (
+          mTagClean === tagClean ||
+          cowTagUpper.includes(mTagClean) ||
+          m.cowTag.toUpperCase().includes(tagClean) ||
+          (Boolean(m.eidChip) && m.eidChip === cow.eidChip)
+        );
+      });
+
+      if (activeMastitis) {
+        return {
+          isUnderWithdrawal: true,
+          medication: activeMastitis.treatmentApplied || `Tratamiento Mastitis (${activeMastitis.testType})`,
+          reason: `Mastitis ${activeMastitis.mastitisType.replace('_', ' ')} - Cuarto: ${Object.entries(activeMastitis.quartersAffected || {}).filter(([, v]) => v).map(([k]) => k.toUpperCase()).join(', ') || 'Infección unilateral'}`,
+          veterinarian: activeMastitis.veterinarian || 'Dr. Médico Veterinario',
+          daysRemaining: activeMastitis.withdrawalDays || 4,
+          endDate: activeMastitis.withdrawalEndDate || 'Período activo',
+        };
+      }
+    }
+
+    // 2. Check Sanitario Withdrawal Animals list
+    if (withdrawalAnimals && withdrawalAnimals.length > 0) {
+      const activeWithdrawal = withdrawalAnimals.find((w) => {
+        const wTagClean = w.tagId.toUpperCase().replace('VACA-', '').replace('#', '').trim();
+        return wTagClean === tagClean || cowTagUpper.includes(wTagClean);
+      });
+
+      if (activeWithdrawal) {
+        return {
+          isUnderWithdrawal: true,
+          medication: activeWithdrawal.medication,
+          reason: activeWithdrawal.reason,
+          veterinarian: 'Prescripción Veterinaria Activa',
+          daysRemaining: activeWithdrawal.daysRemaining,
+          endDate: 'Período activo',
+        };
+      }
+    }
+
+    // 3. Check existing medicine alert flag on the record
+    if (cow.hasMedicineAlert) {
+      return {
+        isUnderWithdrawal: true,
+        medication: cow.medicineNotes || 'Tratamiento por Antibiótico Prescrito',
+        reason: 'Carencia farmacológica de leche activa',
+        veterinarian: 'Veterinario Sanitario',
+        daysRemaining: cow.prescriptionWithdrawalDaysRemaining || 3,
+        endDate: cow.prescriptionEndDate || 'Período activo',
+      };
+    }
+
+    return null;
+  };
+
+  // Synchronize cow list with active veterinary prescription withdrawal when modal is opened or props update
+  useEffect(() => {
+    if (!isOpen) return;
+
+    setCowList((prevList) =>
+      prevList.map((cow) => {
+        const prescription = checkCowPrescriptionWithdrawal(cow);
+        if (prescription) {
+          const autoWithdrawEnabled = rfidConfig.autoPrescriptionWithdrawal !== false;
+          const targetVol = cow.recordedMorningLiters > 0 ? cow.recordedMorningLiters : cow.targetMorningLiters || 18.0;
+
+          return {
+            ...cow,
+            hasMedicineAlert: true,
+            medicineNotes: `¡RETIRO AUTOMÁTICO VETERINARIO! ${prescription.medication} (${prescription.daysRemaining} días carencia restantes)`,
+            prescriptionName: prescription.medication,
+            prescriptionWithdrawalDaysRemaining: prescription.daysRemaining,
+            prescriptionEndDate: prescription.endDate,
+            recordedMorningLiters: autoWithdrawEnabled ? 0 : cow.recordedMorningLiters,
+            withdrawnLiters: autoWithdrawEnabled ? targetVol : 0,
+            status: 'retenido_antibiotico' as const,
+          };
+        }
+        return cow;
+      })
+    );
+  }, [isOpen, mastitisRecords, withdrawalAnimals, rfidConfig.autoPrescriptionWithdrawal]);
+
   if (!isOpen) return null;
 
   const totalCalculatedFromCows = cowList.reduce(
     (acc, cow) => acc + (cow.recordedMorningLiters || 0) + (cow.recordedEveningLiters || 0),
     0
+  );
+
+  const totalWithdrawnLiters = cowList.reduce(
+    (acc, cow) => acc + (cow.withdrawnLiters || 0),
+    0
+  );
+
+  const totalGrossLitersProduced = totalCalculatedFromCows + totalWithdrawnLiters;
+  const cowsWithActiveWithdrawal = cowList.filter(
+    (c) => c.hasMedicineAlert || (c.withdrawnLiters && c.withdrawnLiters > 0)
   );
 
   // Handle Manual Save
@@ -102,34 +215,62 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
     onClose();
   };
 
-  // Simulate Scan RFID Ear Tag (Chapeta)
+  // Simulate Scan RFID Ear Tag (Chapeta) with Automatic Veterinary Prescription Milk Withdrawal
   const handleSimulateRfidScan = () => {
     setIsScanning(true);
     const nextCow = cowList[scannedIndex % cowList.length];
 
     setTimeout(() => {
-      if (rfidConfig.beepConfirmation) {
-        if (nextCow.hasMedicineAlert) {
-          scaleSound.playTareBeep(); // Warning sound
-        } else {
-          scaleSound.playRFIDChime(); // Success RFID sound
+      const prescription = checkCowPrescriptionWithdrawal(nextCow);
+      const autoWithdrawalActive = rfidConfig.autoPrescriptionWithdrawal !== false;
+
+      if (prescription && autoWithdrawalActive) {
+        if (rfidConfig.beepConfirmation) {
+          scaleSound.playTareBeep(); // Warning acoustic alarm for medication withdrawal
         }
+
+        const volProduced = nextCow.recordedMorningLiters > 0 
+          ? nextCow.recordedMorningLiters 
+          : nextCow.targetMorningLiters || 18.0;
+
+        const updatedCow: IndividualCowMilkingRecord = {
+          ...nextCow,
+          chipStandard: rfidConfig.standard,
+          scannedAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          hasMedicineAlert: true,
+          medicineNotes: `¡RETIRO AUTOMÁTICO EN FOSA! Prescripción: ${prescription.medication} (${prescription.daysRemaining} días carencia restantes)`,
+          prescriptionName: prescription.medication,
+          prescriptionWithdrawalDaysRemaining: prescription.daysRemaining,
+          prescriptionEndDate: prescription.endDate,
+          recordedMorningLiters: 0, // 0 Litros al tanque general
+          withdrawnLiters: volProduced, // Leche desviada por electroválvula a balde de hospital
+          status: 'retenido_antibiotico',
+        };
+
+        setCowList((prev) => prev.map((c) => (c.id === nextCow.id ? updatedCow : c)));
+        setSelectedCowForMilking(updatedCow);
+      } else {
+        if (rfidConfig.beepConfirmation) {
+          scaleSound.playRFIDChime(); // Normal success RFID sound
+        }
+
+        const autoLitersMorning = nextCow.recordedMorningLiters > 0 
+          ? nextCow.recordedMorningLiters 
+          : nextCow.targetMorningLiters;
+
+        const updatedCow: IndividualCowMilkingRecord = {
+          ...nextCow,
+          chipStandard: rfidConfig.standard,
+          scannedAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          recordedMorningLiters: autoLitersMorning,
+          withdrawnLiters: 0,
+          status: 'en_puesto',
+        };
+
+        setCowList((prev) => prev.map((c) => (c.id === nextCow.id ? updatedCow : c)));
+        setSelectedCowForMilking(updatedCow);
       }
 
-      const autoLitersMorning = nextCow.recordedMorningLiters > 0 
-        ? nextCow.recordedMorningLiters 
-        : nextCow.targetMorningLiters;
-
-      const updatedCow: IndividualCowMilkingRecord = {
-        ...nextCow,
-        chipStandard: rfidConfig.standard,
-        scannedAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        status: nextCow.hasMedicineAlert ? 'retenido_antibiotico' : 'en_puesto',
-        recordedMorningLiters: nextCow.hasMedicineAlert ? 0 : autoLitersMorning,
-      };
-
-      setCowList((prev) => prev.map((c) => (c.id === nextCow.id ? updatedCow : c)));
-      setSelectedCowForMilking(updatedCow);
       setScannedIndex((prev) => prev + 1);
       setIsScanning(false);
     }, 600);
@@ -186,8 +327,8 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
   );
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/65 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-4xl w-full border border-[#c1c8c2] shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh] animate-in fade-in zoom-in-95">
+    <div className="fixed inset-0 z-50 bg-black/65 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-3xl max-w-5xl lg:max-w-6xl w-full border border-[#c1c8c2] shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh] animate-in fade-in zoom-in-95">
         
         {/* Modal Header */}
         <div className="bg-gradient-to-r from-[#012d1d] via-[#02402a] to-[#15803d] text-white p-4 sm:p-5 flex items-center justify-between shrink-0">
@@ -323,42 +464,91 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                   <div className="mt-4 pt-4 border-t border-white/15 animate-in fade-in slide-in-from-top-2">
                     <div className={`p-3.5 rounded-xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 ${
                       selectedCowForMilking.hasMedicineAlert 
-                        ? 'bg-red-950/80 border-red-500 text-red-100' 
+                        ? 'bg-red-950/90 border-red-500 text-red-100 shadow-md' 
                         : 'bg-white/10 border-white/20 text-white'
                     }`}>
-                      <div className="flex items-center gap-3">
-                        <div className={`p-3 rounded-xl ${selectedCowForMilking.hasMedicineAlert ? 'bg-red-600 text-white animate-bounce' : 'bg-[#ffba38] text-[#523700]'}`}>
+                      <div className="flex items-start gap-3">
+                        <div className={`p-3 rounded-xl shrink-0 ${selectedCowForMilking.hasMedicineAlert ? 'bg-red-600 text-white animate-bounce' : 'bg-[#ffba38] text-[#523700]'}`}>
                           {selectedCowForMilking.hasMedicineAlert ? <ShieldAlert className="w-6 h-6" /> : <Milk className="w-6 h-6" />}
                         </div>
                         <div>
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 flex-wrap">
                             <span className="font-mono font-black text-sm">{selectedCowForMilking.cowTag}</span>
                             <span className="font-bold text-xs">({selectedCowForMilking.cowName})</span>
                             <span className="text-[10px] font-mono bg-white/20 px-2 py-0.5 rounded text-[#ffba38]">
                               EID: {selectedCowForMilking.eidChip} [{selectedCowForMilking.chipStandard}]
                             </span>
+                            {selectedCowForMilking.hasMedicineAlert && (
+                              <span className="text-[10px] font-black uppercase bg-red-600 text-white px-2 py-0.5 rounded-md flex items-center gap-1">
+                                <Zap className="w-3 h-3 fill-current" />
+                                Retiro Automático
+                              </span>
+                            )}
                           </div>
                           <p className="text-[11px] opacity-90 mt-0.5">
                             Raza: <b>{selectedCowForMilking.breed || 'Lechera'}</b> • DEL: <b>{selectedCowForMilking.lactationDays} Días</b> • Puesto: <b>{selectedCowForMilking.stallsPuesto}</b>
                           </p>
                           {selectedCowForMilking.hasMedicineAlert && (
-                            <div className="mt-1 flex items-center gap-1.5 text-xs font-black text-red-300 bg-red-900/60 px-2.5 py-1 rounded-lg border border-red-500/50">
-                              <AlertTriangle className="w-4 h-4 shrink-0 text-red-400" />
-                              <span>{selectedCowForMilking.medicineNotes || '¡ALERTA DE RETIRO POR MEDICAMENTOS! NO MEZCLAR CON TANQUE.'}</span>
+                            <div className="mt-2 space-y-1">
+                              <div className="flex items-center gap-1.5 text-xs font-black text-red-200 bg-red-900/80 px-2.5 py-1 rounded-lg border border-red-500/50">
+                                <AlertTriangle className="w-4 h-4 shrink-0 text-red-400" />
+                                <span>{selectedCowForMilking.medicineNotes || '¡ALERTA DE RETIRO POR MEDICAMENTOS!'}</span>
+                              </div>
+                              <div className="text-[11px] text-red-200/90 font-mono pl-1">
+                                🛑 <b>Acción Electroválvula:</b> 0 Litros al Tanque General. <b>{selectedCowForMilking.withdrawnLiters || selectedCowForMilking.targetMorningLiters || 18} Litros</b> derivados a balde hospitalario durante los días de prescripción.
+                              </div>
                             </div>
                           )}
                         </div>
                       </div>
 
                       <div className="text-right shrink-0 bg-white/10 p-2.5 rounded-xl border border-white/10 w-full sm:w-auto">
-                        <span className="text-[10px] uppercase font-bold text-[#c1ecd4] block">Leche Capturada Flujómetro:</span>
-                        <span className="text-xl font-mono font-black text-[#ffba38]">
+                        <span className="text-[10px] uppercase font-bold text-[#c1ecd4] block">Tanque General (Apta):</span>
+                        <span className={`text-xl font-mono font-black ${selectedCowForMilking.hasMedicineAlert ? 'text-red-400 line-through' : 'text-[#ffba38]'}`}>
                           {selectedCowForMilking.recordedMorningLiters} Litros
                         </span>
+                        {selectedCowForMilking.hasMedicineAlert && (
+                          <span className="block text-[11px] font-mono font-bold text-red-300 mt-1">
+                            Desviados: {selectedCowForMilking.withdrawnLiters || selectedCowForMilking.targetMorningLiters || 18} L
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
                 )}
+              </div>
+
+              {/* Automated Milk Withdrawal Summary Bar */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="bg-[#f0f7f4] border border-[#c1ecd4] rounded-2xl p-3.5 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10.5px] font-bold uppercase text-[#717973] block">Tanque General (Apta)</span>
+                    <span className="text-lg font-mono font-black text-[#012d1d]">{totalCalculatedFromCows.toFixed(1)} L</span>
+                  </div>
+                  <div className="p-2 bg-[#e2efe8] text-[#15803d] rounded-xl font-mono text-[10px] font-bold">
+                    100% Sin Antibiótico
+                  </div>
+                </div>
+
+                <div className="bg-red-50 border border-red-200 rounded-2xl p-3.5 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10.5px] font-bold uppercase text-red-800 block">Retirados por Prescripción</span>
+                    <span className="text-lg font-mono font-black text-red-700">{totalWithdrawnLiters.toFixed(1)} L</span>
+                  </div>
+                  <div className="p-2 bg-red-100 text-red-800 rounded-xl font-mono text-[10px] font-bold">
+                    Segregados / Hospital
+                  </div>
+                </div>
+
+                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 flex items-center justify-between">
+                  <div>
+                    <span className="text-[10.5px] font-bold uppercase text-amber-800 block">Vacas en Carencia Veterinaria</span>
+                    <span className="text-lg font-mono font-black text-amber-900">{cowsWithActiveWithdrawal.length} Reses</span>
+                  </div>
+                  <div className="p-2 bg-amber-100 text-amber-900 rounded-xl font-mono text-[10px] font-bold">
+                    Desvío Automático
+                  </div>
+                </div>
               </div>
 
               {/* Individual Cows RFID Milking Table */}
@@ -395,19 +585,26 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     <thead>
                       <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold text-[10.5px] uppercase border-b border-[#c1c8c2]">
                         <th className="p-2.5">Vaca / Caravana</th>
-                        <th className="p-2.5">Chapeta RFID (EID ISO 11784)</th>
+                        <th className="p-2.5">Chapeta RFID (EID ISO)</th>
                         <th className="p-2.5">Chip</th>
                         <th className="p-2.5 text-center">DEL</th>
-                        <th className="p-2.5 text-right">Mañana (L)</th>
-                        <th className="p-2.5 text-right">Tarde (L)</th>
-                        <th className="p-2.5 text-center">Estado</th>
+                        <th className="p-2.5 text-right">Tanque (L)</th>
+                        <th className="p-2.5 text-right">Retenido (L)</th>
+                        <th className="p-2.5 text-center">Estado / Prescripción</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-[#eeeeee] font-mono">
                       {filteredCowList.map((cow) => (
-                        <tr key={cow.id} className="hover:bg-[#f9fbf9] transition-colors">
+                        <tr key={cow.id} className={`hover:bg-[#f9fbf9] transition-colors ${cow.hasMedicineAlert ? 'bg-red-50/50' : ''}`}>
                           <td className="p-2.5">
-                            <div className="font-sans font-extrabold text-[#012d1d]">{cow.cowTag}</div>
+                            <div className="font-sans font-extrabold text-[#012d1d] flex items-center gap-1.5">
+                              <span>{cow.cowTag}</span>
+                              {cow.hasMedicineAlert && (
+                                <span className="text-[9px] bg-red-100 text-red-800 font-bold px-1.5 py-0.2 rounded font-sans">
+                                  Carencia
+                                </span>
+                              )}
+                            </div>
                             <div className="font-sans text-[10px] text-[#717973]">{cow.cowName}</div>
                           </td>
 
@@ -433,32 +630,37 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                             <input
                               type="number"
                               step="0.1"
+                              disabled={cow.hasMedicineAlert}
                               value={cow.recordedMorningLiters}
                               onChange={(e) => handleUpdateCowLiters(cow.id, 'recordedMorningLiters', Number(e.target.value))}
-                              className="w-16 bg-[#f9f9f9] border border-[#c1c8c2] rounded-lg px-2 py-1 text-right font-bold text-[#012d1d] focus:bg-white focus:border-[#012d1d]"
+                              className={`w-16 border rounded-lg px-2 py-1 text-right font-bold focus:outline-none ${
+                                cow.hasMedicineAlert 
+                                  ? 'bg-red-100 text-red-700 border-red-300 cursor-not-allowed' 
+                                  : 'bg-[#f9f9f9] border-[#c1c8c2] text-[#012d1d] focus:bg-white focus:border-[#012d1d]'
+                              }`}
                             />
                           </td>
 
-                          <td className="p-2.5 text-right">
-                            <input
-                              type="number"
-                              step="0.1"
-                              value={cow.recordedEveningLiters}
-                              onChange={(e) => handleUpdateCowLiters(cow.id, 'recordedEveningLiters', Number(e.target.value))}
-                              className="w-16 bg-[#f9f9f9] border border-[#c1c8c2] rounded-lg px-2 py-1 text-right font-bold text-[#012d1d] focus:bg-white focus:border-[#012d1d]"
-                            />
+                          <td className="p-2.5 text-right font-bold">
+                            {cow.withdrawnLiters && cow.withdrawnLiters > 0 ? (
+                              <span className="text-red-700 bg-red-100 px-2 py-0.5 rounded-md">
+                                {cow.withdrawnLiters} L
+                              </span>
+                            ) : (
+                              <span className="text-gray-400">0 L</span>
+                            )}
                           </td>
 
                           <td className="p-2.5 text-center font-sans">
                             {cow.hasMedicineAlert ? (
-                              <span className="bg-red-100 text-red-800 text-[9.5px] font-bold px-2 py-0.5 rounded-md inline-flex items-center gap-1">
-                                <AlertTriangle className="w-3 h-3 text-red-600" />
-                                Retenido
+                              <span className="bg-red-100 text-red-800 text-[9.5px] font-bold px-2 py-1 rounded-md inline-flex items-center gap-1 border border-red-300" title={cow.medicineNotes}>
+                                <AlertTriangle className="w-3 h-3 text-red-600 shrink-0" />
+                                Retiro Auto ({cow.prescriptionWithdrawalDaysRemaining || 3}d carencia)
                               </span>
                             ) : cow.recordedMorningLiters > 0 || cow.recordedEveningLiters > 0 ? (
-                              <span className="bg-emerald-100 text-emerald-800 text-[9.5px] font-bold px-2 py-0.5 rounded-md inline-flex items-center gap-1">
+                              <span className="bg-emerald-100 text-emerald-800 text-[9.5px] font-bold px-2 py-1 rounded-md inline-flex items-center gap-1">
                                 <Check className="w-3 h-3 text-emerald-600" />
-                                Ordeñada
+                                Ordeñada (Apta)
                               </span>
                             ) : (
                               <span className="bg-amber-100 text-amber-800 text-[9.5px] font-bold px-2 py-0.5 rounded-md">
@@ -785,8 +987,8 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       className="w-4 h-4 accent-red-600 rounded"
                     />
                     <div>
-                      <span className="font-bold text-xs text-red-900 block">Alerta de Medicamentos</span>
-                      <span className="text-[10px] text-[#717973]">Alerta sonora/visual si vaca tiene retiro farmacológico</span>
+                      <span className="font-bold text-xs text-red-900 block">Alerta de Medicamentos (Fosa)</span>
+                      <span className="text-[10px] text-[#717973]">Alerta sonora/visual si la res tiene retiro farmacológico</span>
                     </div>
                   </label>
 
@@ -803,6 +1005,25 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       <option value={60}>60 seg</option>
                     </select>
                   </div>
+
+                  {/* Automated Milk Withdrawal Toggle */}
+                  <label className="flex items-start gap-3 p-3.5 rounded-xl bg-red-50 border border-red-200 cursor-pointer sm:col-span-2">
+                    <input
+                      type="checkbox"
+                      checked={rfidConfig.autoPrescriptionWithdrawal !== false}
+                      onChange={(e) => setRfidConfig({ ...rfidConfig, autoPrescriptionWithdrawal: e.target.checked })}
+                      className="w-4 h-4 accent-red-600 rounded mt-0.5"
+                    />
+                    <div>
+                      <span className="font-extrabold text-xs text-red-950 flex items-center gap-1.5">
+                        <ShieldAlert className="w-4 h-4 text-red-600 shrink-0" />
+                        <span>Retiro Automático por Prescripción Veterinaria (Días de Carencia)</span>
+                      </span>
+                      <span className="text-[10.5px] text-red-800/90 block mt-1 leading-relaxed">
+                        Al detectar por chip RFID a una res con tratamiento activo (Mastitis o Prescripción Veterinaria), la electroválvula de fosa asigna <b>0 Litros al tanque general</b> y deriva el 100% de la leche a balde de hospital/descarte durante todos los días indicados en la prescripción médica.
+                      </span>
+                    </div>
+                  </label>
                 </div>
 
               </div>

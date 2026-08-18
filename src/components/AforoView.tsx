@@ -117,14 +117,24 @@ export const AforoView: React.FC<AforoViewProps> = ({
                 {currentFarmPackage?.profile.name || 'Todas las Fincas'}
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2.5">
-              <GrassIcon className="w-6 h-6 text-[#ffba38]" />
-              Control de Aforos de Pastos
-            </h1>
-            <p className="text-xs sm:text-sm text-[#c1ecd4]/90 max-w-2xl leading-relaxed">
-              Mide la oferta de forraje verde y materia seca (MS) por cuadro. Calcula la capacidad de carga
-              real en Unidades Animales (UA/Ha) y optimiza los días de ocupación y descanso por potrero.
-            </p>
+            <div className="flex items-center gap-2.5">
+              <h1 className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2.5">
+                <GrassIcon className="w-6 h-6 text-[#ffba38]" />
+                Control de Aforos de Pastos
+              </h1>
+              <div className="group relative inline-flex items-center">
+                <button
+                  type="button"
+                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  title="Mide la oferta de forraje verde y materia seca (MS) por cuadro. Calcula la capacidad de carga real en Unidades Animales (UA/Ha) y optimiza los días de ocupación y descanso por potrero."
+                >
+                  <Info className="w-4 h-4" />
+                </button>
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                  Mide la oferta de forraje verde y materia seca (MS) por cuadro. Calcula la capacidad de carga real en Unidades Animales (UA/Ha) y optimiza los días de ocupación y descanso por potrero.
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 shrink-0">
@@ -724,7 +734,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
       {/* DETAIL MODAL DRAWER */}
       {selectedSamplingDetails && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4" onClick={(e) => { if (e.target === e.currentTarget) setSelectedSamplingDetails(null); }}>
           <div className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200">
             <div className="bg-[#012d1d] text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-2">

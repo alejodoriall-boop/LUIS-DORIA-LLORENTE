@@ -103,7 +103,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow max-w-2xl w-full overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="bg-[#1b4332] text-white p-5 flex items-center justify-between shrink-0">
@@ -141,7 +141,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 <input
                   type="text"
                   required
-                  value={formData.code}
+                  value={formData.code ?? ''}
                   onChange={(e) => setFormData({ ...formData, code: e.target.value })}
                   className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
                 />
@@ -154,7 +154,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 <input
                   type="text"
                   required
-                  value={formData.name}
+                  value={formData.name ?? ''}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
                 />
@@ -170,7 +170,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   type="number"
                   step="0.1"
                   required
-                  value={formData.areaHa}
+                  value={formData.areaHa ?? 15.0}
                   onChange={(e) => {
                     const ha = parseFloat(e.target.value) || 0;
                     setFormData({
@@ -189,7 +189,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 </label>
                 <input
                   type="number"
-                  value={formData.perimeterM}
+                  value={formData.perimeterM ?? 1600}
                   onChange={(e) =>
                     setFormData({ ...formData, perimeterM: parseInt(e.target.value) || 0 })
                   }
@@ -202,7 +202,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   Tipo de Cerca
                 </label>
                 <select
-                  value={formData.fenceType}
+                  value={formData.fenceType ?? 'electrica'}
                   onChange={(e) =>
                     setFormData({ ...formData, fenceType: e.target.value as any })
                   }
@@ -221,7 +221,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 </label>
                 <input
                   type="color"
-                  value={formData.color}
+                  value={formData.color ?? '#22c55e'}
                   onChange={(e) => setFormData({ ...formData, color: e.target.value })}
                   className="w-full h-9 bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl p-1 cursor-pointer"
                 />
@@ -241,7 +241,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   Especie Forrajera
                 </label>
                 <select
-                  value={formData.pastureType}
+                  value={formData.pastureType ?? PASTURE_SPECIES[0]}
                   onChange={(e) => setFormData({ ...formData, pastureType: e.target.value })}
                   className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
                 >
@@ -258,7 +258,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   Condición del Pasto
                 </label>
                 <select
-                  value={formData.pastureCondition}
+                  value={formData.pastureCondition ?? 'bueno'}
                   onChange={(e) =>
                     setFormData({ ...formData, pastureCondition: e.target.value as any })
                   }
@@ -280,7 +280,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 <input
                   type="number"
                   step="0.1"
-                  value={formData.forageYieldKgM2}
+                  value={formData.forageYieldKgM2 ?? 3.5}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -297,7 +297,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 </label>
                 <input
                   type="number"
-                  value={formData.occupancyDaysTarget}
+                  value={formData.occupancyDaysTarget ?? 2}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -314,7 +314,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 </label>
                 <input
                   type="number"
-                  value={formData.restDaysTarget}
+                  value={formData.restDaysTarget ?? 30}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -340,7 +340,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   Topografía
                 </label>
                 <select
-                  value={formData.topography}
+                  value={formData.topography ?? 'plana'}
                   onChange={(e) =>
                     setFormData({ ...formData, topography: e.target.value as any })
                   }
@@ -359,7 +359,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 </label>
                 <input
                   type="number"
-                  value={formData.elevationMsnm}
+                  value={formData.elevationMsnm ?? 130}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -375,7 +375,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   Inundabilidad
                 </label>
                 <select
-                  value={formData.floodRisk}
+                  value={formData.floodRisk ?? 'ninguno'}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -399,13 +399,21 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   Tipo de Suelo
                 </label>
                 <select
-                  value={formData.soilAnalysis?.soilType}
+                  value={formData.soilAnalysis?.soilType ?? 'Franco Arcilloso'}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
                       soilAnalysis: {
-                        ...formData.soilAnalysis!,
                         soilType: e.target.value,
+                        ph: formData.soilAnalysis?.ph ?? 6.0,
+                        organicMatterPct: formData.soilAnalysis?.organicMatterPct ?? 4.2,
+                        phosphorusPpm: formData.soilAnalysis?.phosphorusPpm ?? 18.0,
+                        potassiumMeq: formData.soilAnalysis?.potassiumMeq ?? 0.35,
+                        cationExchangeCap: formData.soilAnalysis?.cationExchangeCap ?? 22.0,
+                        aluminumSaturationPct: formData.soilAnalysis?.aluminumSaturationPct ?? 4.0,
+                        fertilityLevel: formData.soilAnalysis?.fertilityLevel ?? 'media',
+                        limingRecommendationTonHa: formData.soilAnalysis?.limingRecommendationTonHa ?? 0.5,
+                        fertilizerRecommendation: formData.soilAnalysis?.fertilizerRecommendation ?? 'Mantenimiento con 50 kg/ha N tras rotación',
                       },
                     })
                   }
@@ -426,13 +434,21 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 <input
                   type="number"
                   step="0.1"
-                  value={formData.soilAnalysis?.ph}
+                  value={formData.soilAnalysis?.ph ?? 6.0}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
                       soilAnalysis: {
-                        ...formData.soilAnalysis!,
+                        soilType: formData.soilAnalysis?.soilType ?? 'Franco Arcilloso',
                         ph: parseFloat(e.target.value) || 6.0,
+                        organicMatterPct: formData.soilAnalysis?.organicMatterPct ?? 4.2,
+                        phosphorusPpm: formData.soilAnalysis?.phosphorusPpm ?? 18.0,
+                        potassiumMeq: formData.soilAnalysis?.potassiumMeq ?? 0.35,
+                        cationExchangeCap: formData.soilAnalysis?.cationExchangeCap ?? 22.0,
+                        aluminumSaturationPct: formData.soilAnalysis?.aluminumSaturationPct ?? 4.0,
+                        fertilityLevel: formData.soilAnalysis?.fertilityLevel ?? 'media',
+                        limingRecommendationTonHa: formData.soilAnalysis?.limingRecommendationTonHa ?? 0.5,
+                        fertilizerRecommendation: formData.soilAnalysis?.fertilizerRecommendation ?? 'Mantenimiento con 50 kg/ha N tras rotación',
                       },
                     })
                   }
@@ -447,13 +463,21 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 <input
                   type="number"
                   step="0.1"
-                  value={formData.soilAnalysis?.organicMatterPct}
+                  value={formData.soilAnalysis?.organicMatterPct ?? 4.2}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
                       soilAnalysis: {
-                        ...formData.soilAnalysis!,
+                        soilType: formData.soilAnalysis?.soilType ?? 'Franco Arcilloso',
+                        ph: formData.soilAnalysis?.ph ?? 6.0,
                         organicMatterPct: parseFloat(e.target.value) || 4.0,
+                        phosphorusPpm: formData.soilAnalysis?.phosphorusPpm ?? 18.0,
+                        potassiumMeq: formData.soilAnalysis?.potassiumMeq ?? 0.35,
+                        cationExchangeCap: formData.soilAnalysis?.cationExchangeCap ?? 22.0,
+                        aluminumSaturationPct: formData.soilAnalysis?.aluminumSaturationPct ?? 4.0,
+                        fertilityLevel: formData.soilAnalysis?.fertilityLevel ?? 'media',
+                        limingRecommendationTonHa: formData.soilAnalysis?.limingRecommendationTonHa ?? 0.5,
+                        fertilizerRecommendation: formData.soilAnalysis?.fertilizerRecommendation ?? 'Mantenimiento con 50 kg/ha N tras rotación',
                       },
                     })
                   }
@@ -475,7 +499,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   Fuente de Agua
                 </label>
                 <select
-                  value={formData.waterSource}
+                  value={formData.waterSource ?? 'bebedero_gravedad'}
                   onChange={(e) =>
                     setFormData({ ...formData, waterSource: e.target.value as any })
                   }
@@ -494,7 +518,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 </label>
                 <input
                   type="number"
-                  value={formData.troughCapacityLiters}
+                  value={formData.troughCapacityLiters ?? 2000}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -511,7 +535,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 </label>
                 <input
                   type="number"
-                  value={formData.waterTroughDistanceM}
+                  value={formData.waterTroughDistanceM ?? 60}
                   onChange={(e) =>
                     setFormData({
                       ...formData,

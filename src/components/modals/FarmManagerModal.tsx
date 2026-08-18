@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FarmDataPackage } from '../../types';
+import { safeConfirm } from '../../utils/printUtils';
 import {
   X,
   PlusCircle,
@@ -17,6 +18,10 @@ import {
   ChevronRight,
   ShieldCheck,
   AlertTriangle,
+  Power,
+  ShieldAlert,
+  CheckCircle2,
+  EyeOff,
 } from 'lucide-react';
 import { exportPaddocksToGeoJSON } from '../../utils/geoUtils';
 
@@ -32,6 +37,7 @@ interface FarmManagerModalProps {
   onDuplicateFarm: (farmId: string) => void;
   onResetFarms: () => void;
   onNavigateGis?: () => void;
+  onToggleDisableFarm?: (farmId: string) => void;
 }
 
 export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
@@ -46,15 +52,17 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
   onDuplicateFarm,
   onResetFarms,
   onNavigateGis,
+  onToggleDisableFarm,
 }) => {
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
+  const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'disabled'>('all');
   const [toast, setToast] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
   const showToast = (msg: string) => {
     setToast(msg);
-    setTimeout(() => setToast(null), 3000);
+    setTimeout(() => setToast(null), 3500);
   };
 
   const handleExportGeoJSON = (farmPkg: FarmDataPackage) => {
@@ -74,13 +82,13 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
   const totalPaddocksAllFarms = farms.reduce((acc, f) => acc + f.paddocks.length, 0);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#c1c8c2] shadow-2xl w-full max-w-4xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
         <div className="bg-[#012d1d] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-[#2d6a4f]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#1b4332] text-[#c1ecd4] rounded-2xl border border-[#2d6a4f]">
-              <Building className="w-6 h-6" />
+            <div className="p-2 bg-[#1b4332] text-[#c1ecd4] rounded-xl border border-[#2d6a4f]">
+              <Building className="w-4 h-4" />
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -136,25 +144,74 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
 
         {/* Farms List */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-3 flex-1">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-extrabold text-[#414844] uppercase tracking-wider">
-              Listado de Predios Registrados
-            </span>
-            <button
-              onClick={() => {
-                onClose();
-                onOpenCreateFarm();
-              }}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
-            >
-              <PlusCircle className="w-4 h-4 text-[#ffba38]" />
-              <span>+ Crear Nueva Finca</span>
-            </button>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <span className="text-xs font-extrabold text-[#414844] uppercase tracking-wider block">
+                Listado de Predios Registrados
+              </span>
+              <p className="text-[11px] text-[#717973]">
+                Deshabilita predios fuera de servicio conservando intacta toda su información e historial.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              {/* Status Filters */}
+              <div className="flex items-center bg-[#f0f4f1] p-1 rounded-xl border border-[#c1c8c2]">
+                <button
+                  onClick={() => setStatusFilter('all')}
+                  className={`text-[10px] font-extrabold px-2.5 py-1 rounded-lg transition-all ${
+                    statusFilter === 'all'
+                      ? 'bg-[#012d1d] text-white shadow-xs'
+                      : 'text-[#414844] hover:text-[#012d1d]'
+                  }`}
+                >
+                  Todos ({farms.length})
+                </button>
+                <button
+                  onClick={() => setStatusFilter('active')}
+                  className={`text-[10px] font-extrabold px-2.5 py-1 rounded-lg transition-all ${
+                    statusFilter === 'active'
+                      ? 'bg-[#012d1d] text-white shadow-xs'
+                      : 'text-[#414844] hover:text-[#012d1d]'
+                  }`}
+                >
+                  Activos ({farms.filter((f) => !f.profile.isDisabled).length})
+                </button>
+                <button
+                  onClick={() => setStatusFilter('disabled')}
+                  className={`text-[10px] font-extrabold px-2.5 py-1 rounded-lg transition-all ${
+                    statusFilter === 'disabled'
+                      ? 'bg-amber-800 text-white shadow-xs'
+                      : 'text-amber-900 hover:text-amber-950'
+                  }`}
+                >
+                  Deshabilitados ({farms.filter((f) => !!f.profile.isDisabled).length})
+                </button>
+              </div>
+
+              <button
+                onClick={() => {
+                  onClose();
+                  onOpenCreateFarm();
+                }}
+                className="bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer shrink-0"
+              >
+                <PlusCircle className="w-4 h-4 text-[#ffba38]" />
+                <span className="hidden sm:inline">+ Crear Nueva Finca</span>
+              </button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-            {farms.map((f) => {
+            {farms
+              .filter((f) => {
+                if (statusFilter === 'active') return !f.profile.isDisabled;
+                if (statusFilter === 'disabled') return !!f.profile.isDisabled;
+                return true;
+              })
+              .map((f) => {
               const isActive = f.profile.id === currentFarmId;
+              const isDisabled = !!f.profile.isDisabled;
               const prodLabel =
                 f.profile.productionType === 'ceba'
                   ? 'Ceba Intensiva'
@@ -170,7 +227,9 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                 <div
                   key={f.profile.id}
                   className={`rounded-2xl border-2 p-4 transition-all relative flex flex-col justify-between ${
-                    isActive
+                    isDisabled
+                      ? 'border-amber-300 bg-amber-50/50 opacity-90'
+                      : isActive
                       ? 'border-[#012d1d] bg-[#f4fbf7] shadow-md ring-1 ring-[#012d1d]'
                       : 'border-[#c1c8c2] bg-white hover:border-[#717973]'
                   }`}
@@ -179,18 +238,23 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                   <div>
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <h4 className="font-extrabold text-base text-[#012d1d]">
                             {f.profile.name}
                           </h4>
-                          {isActive && (
+                          {isActive && !isDisabled && (
                             <span className="text-[10px] uppercase font-bold bg-[#012d1d] text-[#c1ecd4] px-2 py-0.5 rounded-md flex items-center gap-1">
-                              <Check className="w-3 h-3 text-[#ffba38]" /> Activa
+                              <Check className="w-3 h-3 text-[#ffba38]" /> Selección Activa
+                            </span>
+                          )}
+                          {isDisabled && (
+                            <span className="text-[10px] font-extrabold bg-amber-200 text-amber-950 px-2 py-0.5 rounded-md flex items-center gap-1 border border-amber-300">
+                              <ShieldAlert className="w-3 h-3 text-amber-700" /> Deshabilitada
                             </span>
                           )}
                         </div>
                         <p className="text-xs text-[#414844] flex items-center gap-1 mt-0.5">
-                          <MapPin className="w-3.5 h-3.5 text-[#2d6a4f]" />
+                          <MapPin className="w-2.5 h-2.5 text-[#2d6a4f]" />
                           <span>
                             {f.profile.municipality}, {f.profile.department} • {f.profile.vereda}
                           </span>
@@ -239,21 +303,60 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                         <span>{f.profile.elevationMsnm} msnm</span>
                       </div>
                     </div>
+
+                    {isDisabled && (
+                      <div className="mt-2.5 p-2 bg-amber-100/80 border border-amber-300 rounded-xl text-[10px] text-amber-900 font-semibold flex items-center gap-1.5">
+                        <ShieldAlert className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                        <span>Información e historial conservados. Activa nuevamente este predio cuando requieras registrar operaciones.</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Actions toolbar */}
                   <div className="pt-3 mt-3 border-t border-[#c1c8c2]/60 flex items-center justify-between gap-1.5">
-                    <div className="flex items-center gap-1">
-                      {!isActive && (
+                    <div className="flex items-center gap-1 flex-wrap">
+                      {!isActive && !isDisabled && (
                         <button
                           onClick={() => {
                             onSelectFarm(f.profile.id);
                             showToast(`Finca ${f.profile.name} activada.`);
                           }}
-                          className="px-3 py-1.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1"
+                          className="px-3 py-1.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer"
                         >
                           <Check className="w-3.5 h-3.5 text-[#ffba38]" />
-                          <span>Activar</span>
+                          <span>Seleccionar</span>
+                        </button>
+                      )}
+
+                      {isDisabled && (
+                        <button
+                          onClick={() => {
+                            if (onToggleDisableFarm) {
+                              onToggleDisableFarm(f.profile.id);
+                              showToast(`Finca ${f.profile.name} re-habilitada.`);
+                            }
+                          }}
+                          className="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer shadow-xs"
+                          title="Volver a habilitar esta finca"
+                        >
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-200" />
+                          <span>Habilitar</span>
+                        </button>
+                      )}
+
+                      {!isDisabled && (
+                        <button
+                          onClick={() => {
+                            if (onToggleDisableFarm) {
+                              onToggleDisableFarm(f.profile.id);
+                              showToast(`Finca ${f.profile.name} deshabilitada (Información resguardada).`);
+                            }
+                          }}
+                          className="px-2.5 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-950 border border-amber-300 text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer"
+                          title="Deshabilitar finca sin eliminar datos"
+                        >
+                          <EyeOff className="w-3.5 h-3.5 text-amber-700" />
+                          <span className="hidden sm:inline">Deshabilitar</span>
                         </button>
                       )}
 
@@ -263,7 +366,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                           onClose();
                           if (onNavigateGis) onNavigateGis();
                         }}
-                        className="px-2.5 py-1.5 bg-white hover:bg-[#eeeeee] text-[#012d1d] border border-[#c1c8c2] text-xs font-bold rounded-xl transition-colors flex items-center gap-1"
+                        className="px-2.5 py-1.5 bg-white hover:bg-[#eeeeee] text-[#012d1d] border border-[#c1c8c2] text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer"
                         title="Ver mapa SIG"
                       >
                         <Compass className="w-3.5 h-3.5 text-[#2d6a4f]" />
@@ -272,15 +375,15 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
 
                       <button
                         onClick={() => onOpenEditFarm(f.profile.id)}
-                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-[#c1c8c2]"
-                        title="Editar datos del predio"
+                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-[#c1c8c2] cursor-pointer"
+                        title="Editar datos o estado del predio"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                       </button>
 
                       <button
                         onClick={() => handleExportGeoJSON(f)}
-                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-[#c1c8c2]"
+                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-[#c1c8c2] cursor-pointer"
                         title="Exportar GeoJSON"
                       >
                         <Download className="w-3.5 h-3.5" />
@@ -290,7 +393,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                     <div className="flex items-center gap-1">
                       <button
                         onClick={() => onDuplicateFarm(f.profile.id)}
-                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors"
+                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors cursor-pointer"
                         title="Duplicar como plantilla"
                       >
                         <Copy className="w-3.5 h-3.5" />
@@ -303,13 +406,13 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                               onDeleteFarm(f.profile.id);
                               setDeleteConfirmId(null);
                             }}
-                            className="px-2 py-1 bg-[#ba1a1a] text-white text-[10px] font-bold rounded-lg"
+                            className="px-2 py-1 bg-[#ba1a1a] text-white text-[10px] font-bold rounded-lg cursor-pointer"
                           >
                             Confirmar
                           </button>
                           <button
                             onClick={() => setDeleteConfirmId(null)}
-                            className="px-1.5 py-1 text-[10px] text-[#93000a] font-bold"
+                            className="px-1.5 py-1 text-[10px] text-[#93000a] font-bold cursor-pointer"
                           >
                             No
                           </button>
@@ -321,7 +424,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                           className={`p-1.5 rounded-xl transition-colors ${
                             farms.length <= 1
                               ? 'opacity-30 cursor-not-allowed text-[#717973]'
-                              : 'hover:bg-[#ffdad6] text-[#ba1a1a]'
+                              : 'hover:bg-[#ffdad6] text-[#ba1a1a] cursor-pointer'
                           }`}
                           title={
                             farms.length <= 1
@@ -345,7 +448,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
           <button
             onClick={() => {
               if (
-                window.confirm(
+                safeConfirm(
                   '¿Deseas restablecer las fincas de ejemplo (La Esperanza, El Roble, Los Robles)? Los predios personalizados se reiniciarán.',
                 )
               ) {

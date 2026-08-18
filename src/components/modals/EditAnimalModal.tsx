@@ -39,8 +39,8 @@ export const EditAnimalModal: React.FC<EditAnimalModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-md w-full p-6 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-2xl max-w-2xl lg:max-w-3xl w-full p-6 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95">
         <div className="flex items-center justify-between pb-3 border-b border-[#eeeeee]">
           <div className="flex items-center gap-2">
             <div className="p-2 bg-[#ffba38]/30 rounded-xl text-[#523700]">

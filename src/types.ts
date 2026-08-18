@@ -1,6 +1,26 @@
-export type MainTab = 'home' | 'cattle' | 'dairy' | 'genetics' | 'gis' | 'aforo' | 'finance' | 'rainfall' | 'inventory' | 'menu';
+export type MainTab =
+  | 'home'
+  | 'cattle'
+  | 'buffalo'
+  | 'sales'
+  | 'dairy'
+  | 'genetics'
+  | 'equines'
+  | 'herd_traceability'
+  | 'gis'
+  | 'aforo'
+  | 'finance'
+  | 'payroll'
+  | 'rainfall'
+  | 'inventory'
+  | 'calf_rearing'
+  | 'supplementation'
+  | 'analytics_report'
+  | 'admin'
+  | 'menu';
 
 export type SexType = 'toro' | 'vaca' | 'novillo' | 'vaquillona' | 'ternero' | 'ternera';
+export type LivestockSexCode = 'TO' | 'VE' | 'HV' | 'HL' | 'ML' | 'MC' | 'VP';
 export type LotCategory = 'ceba' | 'cria' | 'leche' | 'genetica';
 
 // ==========================================
@@ -50,6 +70,7 @@ export interface FarmGeoProfile {
   notes?: string;
   isDefault?: boolean;
   colorTag?: string;
+  isDisabled?: boolean;
 }
 
 export interface FarmDataPackage {
@@ -362,6 +383,12 @@ export interface SynchronizationProtocol {
   femaleCategoryOverrides?: Record<string, 'Vaca' | 'Novilla'>;
   status: 'En Proceso' | 'Inseminado / Transferido' | 'Finalizado con DG';
   hormonalProtocolUsed: 'DIB + Benzoato + Prostaglandina' | 'CIDR + GnRH + PGF2a' | 'Otro';
+  // Palpation Susceptibility & Expiration (30-day rule)
+  palpationLotName?: string;
+  palpationDate?: string; // YYYY-MM-DD date when females were palpated
+  susceptibilityType?: 'Inseminación (IATF)' | 'Transferencia de Embriones (TETF)' | 'Ambas Susceptibles';
+  expirationDays?: number; // Default 30 days
+  isPalpationExpired?: boolean; // Derived or flagged if >30 days without sync
 }
 
 export interface EmbryoItem {
@@ -468,6 +495,8 @@ export interface RfidMilkingConfig {
   autoCaptureMilk: boolean;
   beepConfirmation: boolean;
   withholdingAlert: boolean;
+  autoPrescriptionWithdrawal?: boolean;
+  withdrawalHandlingMethod?: 'desvio_automatico' | 'bloqueo_fosa';
   antiDuplicateSeconds: number;
 }
 
@@ -489,6 +518,10 @@ export interface IndividualCowMilkingRecord {
   somaticCellK: number;
   hasMedicineAlert: boolean;
   medicineNotes?: string;
+  prescriptionWithdrawalDaysRemaining?: number;
+  prescriptionName?: string;
+  prescriptionEndDate?: string;
+  withdrawnLiters?: number;
   scannedAt?: string;
   status: 'en_espera' | 'en_puesto' | 'completado' | 'retenido_antibiotico';
 }
@@ -507,6 +540,39 @@ export interface DairyRecord {
   avgLitersPerCow: number;
   rfidConfig?: RfidMilkingConfig;
   cowMilkingList?: IndividualCowMilkingRecord[];
+}
+
+export type MastitisQuarterScore = 'negativo' | 'trazas' | 'positivo_1' | 'positivo_2' | 'positivo_3';
+export type MastitisType = 'subclinica' | 'clinica_aguda' | 'clinica_cronica';
+export type MastitisTestType = 'CMT (California Mastitis Test)' | 'Recuento Celular Somático (RCS)' | 'Observación Clínica (Grumos/Ubre Inflamada)' | 'Cultivo Microbiológico / Antibiograma';
+export type MastitisStatus = 'en_tratamiento' | 'en_observacion' | 'curado' | 'cuarto_perdido';
+
+export interface UdderQuarters {
+  anteriorIzquierdo: MastitisQuarterScore; // Front Left (FL)
+  anteriorDerecho: MastitisQuarterScore;   // Front Right (FR)
+  posteriorIzquierdo: MastitisQuarterScore; // Rear Left (RL)
+  posteriorDerecho: MastitisQuarterScore;   // Rear Right (RR)
+}
+
+export interface MastitisRecord {
+  id: string;
+  cowTag: string;
+  cowName: string;
+  eidChip?: string;
+  testDate: string;
+  testType: MastitisTestType;
+  mastitisType: MastitisType;
+  quarters: UdderQuarters;
+  pathogenIsolated?: string; // e.g. Staphylococcus aureus, Streptococcus agalactiae, E. coli
+  somaticCellCountK?: number;
+  treatmentApplied: string;
+  withdrawalDays: number;
+  withdrawalStartDate: string;
+  withdrawalEndDate: string;
+  severity: 'critica' | 'moderada' | 'leve';
+  status: MastitisStatus;
+  veterinarian?: string;
+  notes?: string;
 }
 
 export interface UpcomingCowEvent {
@@ -532,12 +598,94 @@ export interface SanitarioAlert {
   severity: 'error' | 'warning' | 'info';
 }
 
+export type SanitaryCategory =
+  | 'vacunacion_oficial'
+  | 'vacunacion_reproductiva'
+  | 'clostridiosis'
+  | 'control_parasitario'
+  | 'vitaminas_minerales'
+  | 'podologia'
+  | 'diagnostico_pruebas'
+  | 'tratamiento_especifico';
+
+export type SanitaryFrequency =
+  | 'anual'
+  | 'semestral'
+  | 'trimestral'
+  | 'mensual'
+  | 'al_destete'
+  | 'al_nacer'
+  | 'al_secado'
+  | 'pre_servicio'
+  | 'estrategica'
+  | 'unica';
+
+export type SanitaryStatus =
+  | 'programado'
+  | 'urgente'
+  | 'en_progreso'
+  | 'completado'
+  | 'vencido';
+
+export interface SanitaryProtocol {
+  id: string;
+  farmId?: string;
+  name: string;
+  category: SanitaryCategory;
+  targetGroup: string;
+  frequency: SanitaryFrequency;
+  productName: string;
+  activeIngredient?: string;
+  laboratory?: string;
+  dosage: string;
+  route: 'subcutanea' | 'intramuscular' | 'oral' | 'pour_on' | 'topica' | 'intramamaria' | 'ocular' | 'inmersion';
+  meatWithdrawalDays: number;
+  milkWithdrawalHoursOrDays: number;
+  costPerDose: number;
+  scheduledDate: string; // YYYY-MM-DD
+  lastAppliedDate?: string; // YYYY-MM-DD
+  nextScheduledDate?: string; // YYYY-MM-DD
+  status: SanitaryStatus;
+  icaRegistration?: string;
+  batchNumber?: string;
+  veterinarian?: string;
+  notes?: string;
+  autoCreateWithdrawal?: boolean;
+}
+
+export interface SanitaryApplicationRecord {
+  id: string;
+  protocolId?: string;
+  farmId: string;
+  farmName?: string;
+  date: string; // YYYY-MM-DD
+  treatmentName: string;
+  category: SanitaryCategory;
+  productName: string;
+  laboratory?: string;
+  batchNumber?: string;
+  icaRegistration?: string;
+  dosage: string;
+  route: string;
+  targetLotOrGroup: string;
+  headcount: number;
+  animalTags?: string[];
+  meatWithdrawalDays: number;
+  milkWithdrawalDays: number;
+  costPerHead?: number;
+  totalCost?: number;
+  veterinarian: string;
+  vetLicense?: string;
+  notes?: string;
+  adverseReactions?: string;
+}
+
 export interface RecentActivity {
   id: string;
   title: string;
   subtitle: string;
   weightOrMetric: string;
-  category: 'birth' | 'weigh' | 'dairy' | 'health' | 'genetics';
+  category: 'birth' | 'weigh' | 'dairy' | 'health' | 'genetics' | 'buffalo';
   timestamp: string;
 }
 
@@ -612,14 +760,47 @@ export interface PurebredRegistryInfo {
   certificateUrl?: string;
 }
 
+export type BirthDeliveryType = 'eutocico' | 'distocico_asistido' | 'cesarea' | 'mortinato';
+export type CalvingCondition = 'simple' | 'multiple'; // Cría simple o mellos/gemelos
+export type ConceptionMethod = 'monta_natural' | 'ia' | 'iatf' | 'te_fiv';
+
 export interface BornOnFarmInfo {
-  damTag: string; // Madre (Arete / Nombre) - Obligatorio
-  sireTagOrBull?: string; // Padre / Toro / Semen - Opcional
-  birthDate: string; // Fecha de nacimiento
-  birthWeightKg?: number; // Peso al nacer (kg)
-  earTagInitial?: string; // Chapeta / Marca de oreja al nacer
+  // 1. Identificación y Datos Básicos
+  tag?: string; // ID / Chapeta única (arete, SINIGAN/ICA o RFID)
+  rfidTag?: string; // Chip RFID / DIN / SINIGAN
+  birthDate: string; // Fecha exacta del parto
+  birthTime?: string; // Hora exacta del parto (HH:mm)
+  sex?: 'macho' | 'hembra'; // Sexo
+  breed?: string; // Raza / Composición genética
+  purityPct?: string; // Pura o % de cruce (ej. 100% Puro, 50% F1, 3/4)
+  color?: string; // Color / Capa
+  brandingIronId?: string; // Hierro / Marca a fuego
+  brandingIronName?: string;
+
+  // 2. Datos del Parto y Ternero
+  birthWeightKg?: number; // Peso al nacer en kg
+  deliveryType?: BirthDeliveryType; // Eutócico (normal), asistido, cesárea o mortinato
+  calvingCondition?: CalvingCondition; // Cría simple o múltiple (mellos/gemelos)
+  vigorScore?: number; // Vigor / vitalidad (escala 1 a 5)
+
+  // 3. Genealogía
+  damTag: string; // ID Madre Biológica (Chapeta)
+  surrogateDamTag?: string; // ID Madre Receptora (si aplica para TE / FIV)
+  sireTagOrBull?: string; // ID Padre (Toro de monta o código de pajilla IA/IATF)
+  conceptionMethod?: ConceptionMethod; // Método de concepción: Monta natural, IA, IATF o TE
+
+  // 4. Manejo Inicial y Ubicación
+  colostrumFed?: boolean; // Calostro suministrado (Sí / No)
+  colostrumHoursPostCalving?: number; // Tiempo posparto de toma de calostro (horas)
+  navelDisinfected?: boolean; // Curación de ombligo realizada (Sí / No)
+  initialTreatments?: string; // Tratamientos aplicados (Vitaminas, hierro, selenio, medicamentos)
+  originFarmId?: string;
+  originFarmName?: string; // Finca
+  paddockMaternityName?: string; // Potrero / lote de maternidad
+  operatorResponsible?: string; // Operario / responsable del registro
+  earTagInitial?: string; // Chapeta inicial / oreja
   tattooNumber?: string; // Tatuaje inicial en oreja
-  originFarmName?: string; // Predio de origen donde nació
+  notes?: string;
 }
 
 export interface WeaningInfo {
@@ -642,18 +823,43 @@ export interface PurchasedInfo {
   purchasePricePerKg?: number; // $/kg
   purchaseWeightKg?: number; // Peso de compra
   invoiceOrReceipt?: string; // Guía / Factura
+  sellerDoc?: string;
+  sellerPhone?: string;
+  sellerLocation?: string;
+  sellerSanitaryStatus?: string;
+
+  // Parámetros Zootécnicos de Nacimiento & Genealogía del animal comprado
+  birthDate?: string;
+  birthTime?: string;
+  birthWeightKg?: number;
+  deliveryType?: BirthDeliveryType;
+  calvingCondition?: CalvingCondition;
+  vigorScore?: number;
+  damTag?: string;
+  surrogateDamTag?: string;
+  sireTagOrBull?: string;
+  conceptionMethod?: ConceptionMethod;
+  colostrumFed?: boolean;
+  colostrumHoursPostCalving?: number;
+  navelDisinfected?: boolean;
+  initialTreatments?: string;
+  originFarmName?: string;
+  paddockMaternityName?: string;
+  operatorResponsible?: string;
 }
 
 export interface ImportedAnimalRecord {
   id: string;
-  tag: string; // Arete / ID Bovino
+  tag: string; // Arete / ID Bovino / Número
   name?: string; // Nombre / Alias del animal
-  weightKg: number; // Peso actual / entrada
+  weightKg: number; // Peso actual / entrada en kg
   sex: 'macho' | 'hembra';
+  sexCode?: LivestockSexCode | string; // TO, VE, HV, HL, ML, MC, VP
   breed: string; // Raza / fenotipo (ej. Brahman Blanco, Nelore, Brangus, Gyr, Simbrah)
   category?: LotCategory | string;
   pricePerKg?: number; // Precio por kg COP
   totalPrice?: number; // Precio total
+  movementGuideNumber?: string; // Guía de Movilización Sanitaria ICA / GSMI
   lotCode?: string; // Código de lote
   lotId?: string; // ID de lote
   farmId?: string; // Predio
@@ -736,18 +942,44 @@ export interface CategoryTransitionAlert {
 }
 
 export interface LivestockMovementInput {
-  movementType: 'transferencia_interna' | 'salida_muerte' | 'salida_sacrificio' | 'salida_venta';
+  movementType: 'transferencia_interna' | 'salida_muerte' | 'salida_sacrificio' | 'salida_venta' | 'rotacion_interna';
   animalIds?: string[];
   lotId?: string;
+  lotName?: string;
+  category?: LotCategory | string;
+  categoryLabel?: string;
+  sexLabel?: string;
+  breed?: string;
+  ageRange?: string;
+  brandingIron?: string;
+  commercialPurpose?: string;
+  sourceFarmId?: string;
+  sourceFarmName?: string;
+  sourcePaddockId?: string;
+  sourcePaddockName?: string;
   targetFarmId?: string; // Para transferencia interna a otro predio
+  targetFarmName?: string;
+  targetPaddockId?: string;
+  targetPaddockName?: string;
   targetLotId?: string;
+  headsMoved?: number;
+  avgWeightKg?: number;
+  totalWeightKg?: number;
   date: string;
   causeOrReason?: string; // ej. Muerte por enfermedad, Venta comercial, Subasta, etc.
   buyerOrDestination?: string; // Comprador / Destino / Matadero / Predio Destino
+  buyerDoc?: string;
+  buyerPhone?: string;
   salePriceTotal?: number; // En caso de venta
   salePricePerKg?: number;
-  totalWeightKg?: number;
   invoiceOrGuideNumber?: string;
+  sanitaryClearanceVerified?: boolean;
+  transporterName?: string;
+  transporterPhone?: string;
+  truckPlate?: string;
+  freightCost?: number;
+  dispatcherName?: string;
+  receiverName?: string;
   notes?: string;
 }
 
@@ -756,19 +988,35 @@ export interface NewLotRegistrationInput {
   lotName: string;
   category: LotCategory;
   categoryLabel?: string;
-  sourceType: 'subasta' | 'compra_directa' | 'nacimiento_lote' | 'traslado' | 'inventario_inicial';
+  sourceType: 'subasta' | 'compra_directa' | 'nacimiento_lote' | 'traslado' | 'inventario_inicial' | 'sociedad';
   sourceEntity?: string; // e.g. "Subastar S.A. - Planeta Rica", "Subacasanare", "Cogasucre"
   invoiceNumber?: string; // N° Factura / Liquidación
+  movementGuideNumber?: string; // Guía Sanitaria de Movilización Interna ICA / GSMI
   purchaseDate: string;
   paddockId?: string; // Potrero asignado en el predio
   pricePerKg?: number;
+  totalPrice?: number;
   freightCost?: number;
   heads: number;
   currentAvgWeight: number;
   targetWeight?: number;
   ageRange?: string;
   sexLabel?: string;
+  sexCode?: LivestockSexCode | string;
+  breed?: string;
+  color?: string;
+  brandingIronId?: string;
+  brandingIron?: string;
+  commercialPurpose?: string;
+  sanitaryStatus?: string;
   pastureType?: string;
+  sourceFarmName?: string;
+  targetPaddockName?: string;
+  sanitaryClearanceVerified?: boolean;
+  partnerName?: string;
+  partnerDoc?: string;
+  partnerPhone?: string;
+  shareScheme?: string;
   animals: ImportedAnimalRecord[];
   notes?: string;
 }
@@ -973,6 +1221,7 @@ export interface BusinessUnitInfo {
 }
 
 export type IncomeCategory =
+  | 'venta_ganado'
   | 'venta_ganado_ceba'
   | 'venta_leche'
   | 'venta_genetica'
@@ -1130,6 +1379,957 @@ export interface BrandingIron {
   createdAt: string;
 }
 
+// ============================================================================
+// MÓDULO DE NÓMINA & PERSONAL DE CAMPO (ENLAZADO A FINANZAS)
+// ============================================================================
 
+export type WorkerRole =
+  | 'Administrador / Mayordomo'
+  | 'Vaquero / Ordeñador'
+  | 'Operario Maquinaria'
+  | 'Jornalero / Temporal'
+  | 'Veterinario / Zootecnista'
+  | 'Auxiliar de Campo';
+
+export type ContractType =
+  | 'Término Indefinido'
+  | 'Término Fijo'
+  | 'Obra o Labor'
+  | 'Fijo Mensual'
+  | 'Jornal Diario'
+  | 'Prestación de Servicios'
+  | 'Destajo / Por Tarea'
+  | 'Aprendizaje / Pasantía';
+
+export interface Employee {
+  id: string;
+  farmId: string;
+  farmName: string;
+  documentId: string; // Cédula o NIT
+  fullName: string;
+  role: WorkerRole;
+  contractType: ContractType;
+  baseRate: number; // $ Base mensual o tarifa diaria
+  dailyJornalRate?: number; // $ Tarifa fija por jornal diario
+  paymentFrequency: 'Quincenal' | 'Mensual' | 'Semanal';
+  bankName: string; // Bancolombia, Nequi, Daviplata, Efectivo
+  bankAccount?: string;
+  phone?: string;
+  startDate: string;
+  status: 'Activo' | 'Inactivo' | 'Vacaciones';
+  socialSecurityNotes?: string;
+  epsName?: string; // EPS (ej. Sura, Nueva EPS, Sanitas)
+  pensionFund?: string; // Fondo de Pensión (ej. Porvenir, Protección, Colpensiones)
+  arlRiskLevel?: string; // Nivel de Riesgo ARL (ej. Nivel III - Agropecuario 2.436%)
+  cajaCompensacion?: string; // Caja de Compensación (ej. Comfama, Colsubsidio)
+  ibcSalary?: number; // Ingreso Base de Cotización (IBC)
+}
+
+export interface SocialSecurityBreakdown {
+  ibc: number; // Ingreso Base de Cotización
+  epsName: string;
+  pensionFund: string;
+  arlRiskLevel: string;
+  cajaCompensacion: string;
+  workerHealth: number; // 4% Salud
+  workerPension: number; // 4% Pensión
+  employerHealth: number; // 8.5% Salud
+  employerPension: number; // 12% Pensión
+  employerArl: number; // ARL según nivel
+  employerCaja: number; // 4% Caja Compensación
+  employerSenaIcbf: number; // Parafiscales
+  totalWorkerDeduction: number; // Total aportes empleado
+  totalEmployerContribution: number; // Total aportes empleador
+  totalCombined: number; // Total a pagar por este empleado
+}
+
+export interface PayrollItem {
+  employeeId: string;
+  employeeName: string;
+  role: string;
+  daysWorked: number;
+  dailyJornalRate?: number; // Tarifa de jornal por día ($/jornal)
+  jornalesCount?: number; // Número de jornales trabajados
+  jornalTaskType?: string; // Tarea ejecutada (ej. Guadaña, Cercas, Limpieza)
+  basePay: number;
+  overtimeHours?: number;
+  overtimePay: number;
+  bonuses: number; // Bonificación por ordeño, nacimientos, metas
+  deductions: number; // Anticipos, prestamos, aportes
+  netPayable: number; // basePay + overtimePay + bonuses - deductions
+  socialSecurity?: SocialSecurityBreakdown; // Desglose completo de Seguridad Social
+  notes?: string;
+}
+
+export type PilaNovedadCode = 'NINGUNA' | 'SLN' | 'IGE' | 'LMA' | 'VAC' | 'VST' | 'ING' | 'RET';
+
+export interface PilaItemNovedad {
+  code: PilaNovedadCode;
+  days?: number;
+  startDate?: string;
+  endDate?: string;
+  newIbc?: number;
+  notes?: string;
+}
+
+export interface PayrollRun {
+  id: string;
+  farmId: string; // Finca asociada
+  farmName: string;
+  periodName: string; // ej: "Nómina 1ra Quincena Agosto 2026"
+  periodType: 'Quincenal' | 'Mensual' | 'Semanal' | 'Jornales / Ocasional' | 'Vacaciones' | 'Bonificaciones' | 'Cesantías';
+  startDate: string;
+  endDate: string;
+  paymentDate: string;
+  status: 'Borrador' | 'Aprobada' | 'Pagada';
+  businessUnit: BusinessUnitId; // Default 'corporativo_general' or 'lecheria'
+  items: PayrollItem[];
+  totalBase: number;
+  totalOvertime: number;
+  totalBonuses: number;
+  totalDeductions: number;
+  totalNetPayable: number;
+  totalSocialSecurityEmployer?: number; // Total aportes patronales
+  pilaPin?: string; // PIN o número de planilla PILA
+  pilaStatus?: 'Pendiente' | 'Pagada PSE';
+  disbursementStatus?: 'Pendiente' | 'Dispersada ACH';
+  disbursementBatchCode?: string;
+  disbursementBank?: string;
+  disbursementDate?: string;
+  financialTransactionId?: string; // ID del egreso registrado en Finanzas al pagar
+  createdAt: string;
+}
+
+export interface SocialSecurityPilaPlanilla {
+  id: string;
+  farmId: string;
+  farmName: string;
+  period: string; // e.g. "2026-08"
+  operatorName: 'Aportes en Línea' | 'Mi Planilla' | 'SOI' | 'Asopagos' | 'Simple';
+  pilaPin: string; // PIN PILA generado (ej: "8830194021")
+  generationDate: string;
+  paymentDate?: string;
+  totalEmployees: number;
+  totalIbc: number;
+  totalHealth: number;
+  totalPension: number;
+  totalArl: number;
+  totalCaja: number;
+  totalEmployerContributions: number;
+  totalWorkerDeductions: number;
+  grandTotalPila: number; // Total a pagar vía PSE
+  status: 'Borrador' | 'Generada PILA' | 'Pagada PSE';
+  isAutoGeneratedDraft?: boolean;
+  draftBasePeriod?: string;
+  pseReference?: string;
+  financialTransactionId?: string;
+  items: {
+    employeeName: string;
+    documentId: string;
+    epsName: string;
+    pensionFund: string;
+    arlRiskLevel: string;
+    cajaCompensacion: string;
+    ibc: number;
+    healthWorker: number;
+    healthEmployer: number;
+    pensionWorker: number;
+    pensionEmployer: number;
+    arlEmployer: number;
+    cajaEmployer: number;
+    totalItem: number;
+    daysWorked?: number;
+    novedad?: PilaItemNovedad;
+  }[];
+}
+
+export interface PayrollAdvance {
+  id: string;
+  farmId: string;
+  farmName: string;
+  employeeId: string;
+  employeeName: string;
+  date: string;
+  amount: number;
+  reason: string;
+  status: 'Pendiente' | 'Descontado';
+  payrollRunId?: string;
+}
+
+// ==========================================
+// PENDING DAILY ACTIVITIES & TASK REPORT MODELS
+// ==========================================
+
+export type PendingActivityPriority = 'alta' | 'media' | 'normal';
+
+export type PendingActivityCategory =
+  | 'sanitario'
+  | 'ordeno'
+  | 'nutricion'
+  | 'pastoreo'
+  | 'mantenimiento'
+  | 'inventario'
+  | 'personal'
+  | 'reproduccion';
+
+export type PendingActivityStatus = 'pendiente' | 'en_progreso' | 'completada' | 'postergada';
+
+export interface PendingDailyActivity {
+  id: string;
+  title: string;
+  category: PendingActivityCategory;
+  priority: PendingActivityPriority;
+  status: PendingActivityStatus;
+  scheduledDate: string; // YYYY-MM-DD
+  scheduledTime?: string; // HH:MM
+  responsibleWorker?: string;
+  assignedLotOrAnimal?: string;
+  locationPaddock?: string;
+  notes?: string;
+  farmId?: string;
+  createdAt: string;
+  completedAt?: string;
+  completedBy?: string;
+  completionNotes?: string;
+}
+
+export interface ProgenyOffspringRecord {
+  id: string;
+  offspringTag: string;
+  offspringName: string;
+  damTag: string;
+  sex: 'Macho' | 'Hembra';
+  birthDate: string;
+  birthWeightKg: number;
+  weaningWeight210dKg: number;
+  finalWeight18mKg?: number;
+  dailyWeightGainGrams: number;
+  milk305dLiters?: number;
+  calvingEaseScore: number;
+  conformationScore: number;
+  notes?: string;
+}
+
+export interface ProgenyTestRecord {
+  id: string;
+  testCode: string;
+  sireId: string;
+  sireName: string;
+  sireRegister: string;
+  sireBreed: string;
+  aptitude: 'Leche' | 'Carne' | 'Doble Propósito';
+  evaluatorVeterinarian: string;
+  evaluationDate: string;
+  evaluationStatus: 'probado_excelente' | 'probado_positivo' | 'en_evaluacion' | 'descartado';
+  offspringCountMeasured: number;
+  offspringRecords: ProgenyOffspringRecord[];
+  depMilkKg: number;
+  depWeaningWeightKg: number;
+  depBirthWeightKg: number;
+  depCalvingEasePercent: number;
+  reliabilityPercent: number;
+  recommendations?: string;
+}
+
+// ==========================================
+// CRIANZA ARTIFICIAL DE TERNEROS TYPES
+// ==========================================
+
+export type CalfHealthStatus = 'excelente' | 'bueno' | 'en_observacion' | 'tratamiento' | 'critico';
+export type CalfFeedingType = 'calostro' | 'leche_entera' | 'sustituto_lacteo' | 'transicion_mixta' | 'destetado';
+export type CalfHousingType = 'cuna_individual' | 'jaula_elevada' | 'corral_colectivo' | 'pastoreo_terneril';
+
+export type CalfRearingModelId = 
+  | 'crianza_artificial_intensiva'
+  | 'crianza_vaca_nodriza'
+  | 'crianza_colectiva_automatica'
+  | 'crianza_pastoreo_creep_feeding'
+  | 'crianza_tradicional_balde';
+
+export interface CalfRearingModel {
+  id: CalfRearingModelId;
+  name: string;
+  category: 'Lechería Especializada' | 'Doble Propósito' | 'Tecnificada / Estabulada' | 'Cría a Campo' | 'Tradicional';
+  description: string;
+  durationDays: number;
+  housingRecommended: string;
+  feedingProtocol: string;
+  weaningCriteria: string;
+  targetGDPGrams: number;
+  estimatedCostPerCalfUSD: number;
+  pros: string[];
+  cons: string[];
+  recommendedBreeds: string[];
+}
+
+export interface CalfColostrumRecord {
+  id: string;
+  calfId: string;
+  colostrumDate: string;
+  litersFed: number;
+  brixQualityPercent: number;
+  timePostBirthHours: number;
+  umbilicalDisinfectionDone: boolean;
+  iggPassivitySuccess: boolean;
+  notes?: string;
+}
+
+export interface CalfDailyFeedingRecord {
+  id: string;
+  calfId: string;
+  date: string;
+  morningLiters: number;
+  afternoonLiters: number;
+  liquidType: 'Leche Entera' | 'Sustituto Lácteo Premium' | 'Transición Calostral';
+  starterFeedGrams: number;
+  forageGrams: number;
+  waterAvailable: boolean;
+  appetiteScore: 1 | 2 | 3 | 4 | 5;
+  notes?: string;
+}
+
+export interface CalfGrowthWeightRecord {
+  id: string;
+  calfId: string;
+  date: string;
+  weightKg: number;
+  heartGirthCm?: number;
+  dailyGainGrams: number;
+  ageDays: number;
+}
+
+export interface CalfHealthEventRecord {
+  id: string;
+  calfId: string;
+  date: string;
+  eventType: 'diarrea_neonatal' | 'neumonia' | 'omfalitis' | 'vacunacion' | 'descorne' | 'desparasitacion' | 'podologia';
+  description: string;
+  medication?: string;
+  dose?: string;
+  vetInCharge?: string;
+  resolved: boolean;
+}
+
+export interface ArtificialCalfRecord {
+  id: string;
+  earTag: string;
+  name: string;
+  sex: 'Macho' | 'Hembra';
+  breed: string;
+  birthDate: string;
+  birthWeightKg: number;
+  currentWeightKg: number;
+  damTag: string;
+  damName?: string;
+  sireTag: string;
+  housingType: CalfHousingType;
+  housingNumber: string;
+  healthStatus: CalfHealthStatus;
+  feedingType: CalfFeedingType;
+  currentDailyMilkLiters: number;
+  starterFeedConsumptionGrams: number;
+  colostrumRecord?: CalfColostrumRecord;
+  feedingHistory: CalfDailyFeedingRecord[];
+  growthHistory: CalfGrowthWeightRecord[];
+  healthHistory: CalfHealthEventRecord[];
+  targetWeaningDate: string;
+  weaned: boolean;
+  rearingModelId?: CalfRearingModelId;
+  notes?: string;
+}
+
+// ==========================================
+// PLAN DE SUPLEMENTACIÓN MULTI-ETAPA
+// ==========================================
+
+export type SupplementStage =
+  | 'cria'
+  | 'levante'
+  | 'preceba'
+  | 'ceba'
+  | 'crianza_artificial';
+
+export interface FeedIngredient {
+  id: string;
+  name: string;
+  category: 'energetico' | 'proteico' | 'mineral' | 'fibra_forraje' | 'aditivo' | 'lacteo';
+  dryMatterPercent: number; // DM % (Materia Seca)
+  crudeProteinPercent: number; // CP % (Proteína Cruda)
+  tdnPercent: number; // TDN % (Nutrientes Digestibles Totales)
+  netEnergyMcalKg: number; // Mcal/kg (Energía Neta)
+  costPerKgUSD: number; // $ USD / kg
+  unit: string;
+  notes?: string;
+}
+
+export interface FormulaComponent {
+  ingredientId: string;
+  ingredientName: string;
+  percentageInclusion: number; // % en la mezcla seca o fresca
+  kgPerTon: number; // kg por tonelada (1000 kg)
+  costContributionUSD: number; // Aporte al costo por kg
+}
+
+export interface SupplementPlan {
+  id: string;
+  name: string;
+  stage: SupplementStage;
+  stageLabel: string;
+  description: string;
+  seasonSuitability: 'epoca_seca' | 'lluvias' | 'transicion' | 'todo_el_ano';
+  targetWeightMinKg: number;
+  targetWeightMaxKg: number;
+  targetGDPGrams: number; // Ganancia Diaria de Peso proyectada (g/día)
+  inclusionPercentBW: number; // Consumo recomendado como % del Peso Vivo (ej. 0.5%, 1.2%, 2.0%)
+  recommendedDoseKgPerHead: number; // Dosis promedio en kg/cabeza/día
+  crudeProteinPercent: number; // % Proteína Cruda de la mezcla
+  energyMcalKg: number; // Mcal/kg de la mezcla
+  costPerKgUSD: number; // Costo $/kg preparado
+  costPerHeadDayUSD: number; // Costo $/animal/día
+  formula: FormulaComponent[];
+  feedingFrequency: string; // ej: "1 toma matutina", "2 tomas (AM/PM)", "Libre acceso en saladero"
+  recommendations: string[];
+  isPreconfigured?: boolean;
+}
+
+export type PurchaseHorizonDays = 7 | 15 | 30 | 90 | 180 | 365;
+
+export interface FeedPurchaseOrderProjection {
+  materialId: string;
+  materialName: string;
+  category: string;
+  packageWeightKg: number;
+  unitCostPerKgUSD: number;
+  currentStockKg: number;
+  safetyStockKg: number;
+  dailyDemandHatoKg: number;
+  projectedDemandKg: number;
+  netShortageKg: number;
+  suggestedPackages: number;
+  totalOrderKg: number;
+  totalEstimatedCostUSD: number;
+  daysOfAutonomy: number;
+  isUrgentReorder: boolean;
+  supplier?: string;
+  supplierPhone?: string;
+}
+
+export interface SupplementDispatchLog {
+  id: string;
+  date: string;
+  stage: SupplementStage;
+  lotName: string;
+  planName: string;
+  animalCount: number;
+  kgOfferedTotal: number;
+  kgRefusalTotal: number; // Desperdicio / Rechazo en comedero
+  kgConsumedNet: number;
+  kgConsumedPerHead: number;
+  costTotalUSD: number;
+  operatorName: string;
+  notes?: string;
+}
+
+// ==========================================
+// EQUINES, MULES & DONKEYS INVENTORY MODELS
+// ==========================================
+
+export type EquineSpecies = 'caballar' | 'mular' | 'asnal';
+export type EquineSex = 'macho' | 'hembra' | 'capon';
+export type EquineAptitude = 'trabajo_vaqueria' | 'carga_enjalma' | 'reproduccion_cria' | 'paseo_exposicion' | 'tiro';
+export type EquineSanitaryStatus = 'excelente' | 'atencion' | 'tratamiento' | 'cuarentena';
+
+export interface EquineHerrajeRecord {
+  id: string;
+  date: string;
+  type: 'completo' | 'delantero' | 'recorte_cascos';
+  farrierName: string; // Herrador
+  costCop: number;
+  notes?: string;
+}
+
+export interface EquineSanitaryEvent {
+  id: string;
+  date: string;
+  type: 'aie_coggins' | 'encefalitis' | 'tetanos' | 'desparasitacion' | 'vitamina' | 'otro';
+  title: string;
+  laboratoryOrMedication: string;
+  resultOrDose: string;
+  nextDueDate?: string;
+  costCop?: number;
+}
+
+export interface EquineAnimal {
+  id: string;
+  earTagOrIron: string; // Arete, Hierro o Número
+  name: string;
+  rfidChip?: string;
+  species: EquineSpecies; // caballar, mular, asnal
+  sex: EquineSex; // macho, hembra, capon
+  breed: string; // Ej: Criollo Colombiano, Cuarto de Milla, Mula de Carga, Asno Zamorano
+  coatColor: string; // Pelaje/Capa: Ej: Castaño, Alazán, Bayo, Roano, Muro, Zano
+  ageYears: number;
+  weightKg: number;
+  farmName: string;
+  aptitude: EquineAptitude;
+  status: 'activo' | 'reposo' | 'gestacion' | 'retirado' | 'vendido';
+  sanitaryStatus: EquineSanitaryStatus;
+  lastHerrajeDate?: string;
+  nextHerrajeDueDate?: string;
+  lastAieTestDate?: string; // Test de Anemia Infecciosa Equina
+  aieCertificateCode?: string;
+  cogginsValidUntil?: string;
+  photoUrl?: string;
+  fatherName?: string;
+  motherName?: string;
+  assignedRiderOrWorker?: string; // Encargado / Arriero / Vaquero
+  observations?: string;
+  herrajeHistory?: EquineHerrajeRecord[];
+  sanitaryHistory?: EquineSanitaryEvent[];
+}
+
+// ==========================================
+// ADMINISTRATIVE MODULE & ROLE MANAGEMENT TYPES
+// ==========================================
+
+export type SystemRoleType =
+  | 'propietario'
+  | 'administrador'
+  | 'veterinario'
+  | 'mayordomo'
+  | 'financiero_contador'
+  | 'otro';
+
+export interface AdminUserPermissions {
+  cattle: boolean; // Control de Ganado y Pesajes
+  dairy: boolean; // Lechería y Ordeño
+  genetics: boolean; // Genética y Trasplante de Embrio
+  finance: boolean; // Finanzas, Costos e Ingresos
+  payroll: boolean; // Nómina, PILA y Pagos
+  sanitary: boolean; // Sanidad, Vacunación y Recetas
+  inventory: boolean; // Almacén e Inventarios
+  gis: boolean; // SIG Potreros y Mapas
+  admin: boolean; // Configuración y Gestión de Usuarios
+  reports: boolean; // Informe Ejecutivo y Exportación Excel/PDF
+}
+
+export interface AdminUser {
+  id: string;
+  fullName: string;
+  documentId: string; // Cédula de Ciudadanía / NIT
+  email: string;
+  phone: string;
+  roleType: SystemRoleType;
+  customRoleTitle?: string; // Título exacto de cargo (ej: "Zootecnista Principal", "Auditor Externo")
+  assignedFarms: string[]; // IDs de fincas asignadas o ['all'] para todas
+  status: 'activo' | 'inactivo' | 'suspendido';
+  securityPin: string; // PIN de 4 a 6 dígitos para firmas o aprobaciones
+  
+  // Specific role metadata
+  ownershipPercentage?: number; // Para Propietarios (% participación de la finca/empresa)
+  maxDisbursementApproval?: number; // Para Administradores / Financieros ($ Límite de desembolso)
+  professionalLicenseNo?: string; // Para Veterinarios / Zootecnistas (COMVEZCOL/ICA) o Contadores (TP)
+  digitalSignatureUrl?: string; // Firma digital para recetas o balances
+  assignedPaddocksOrLotsScope?: string[]; // Para Mayordomos/Caporales (Scope específico)
+  
+  permissions: AdminUserPermissions;
+  createdAt: string;
+  lastLogin?: string;
+  notes?: string;
+}
+
+export interface SystemAuditLog {
+  id: string;
+  timestamp: string;
+  userId: string;
+  userName: string;
+  userRole: string;
+  module: string;
+  action: string;
+  details: string;
+  ipOrDevice?: string;
+}
+
+// ============================================================================
+// MÓDULO DE VENTAS: PARÁMETROS Y AFECTACIÓN DEL INVENTARIO
+// ============================================================================
+
+export type SaleReasonType =
+  | 'ceba_terminada'       // Ceba Terminada / Carne Comercial: Animal que completó su ciclo de engorde.
+  | 'pie_de_cria'          // Pie de Cría / Reproducción: Hembras o machos aptos para cría comercial.
+  | 'genetica_elite'       // Genética de Registro / Élite: Reproductores, donantes, novillas preñadas con embriones o terneros puros.
+  | 'descarte_productivo'  // Descarte Productivo: Vacas por baja producción de leche, problemas reproductivos (días abiertos excesivos) o edad.
+  | 'descarte_sanitario';  // Descarte Sanitario / Emergencia: Problemas de aplomos, mastitis crónica o accidentes (venta forzosa).
+
+export type SaleSettlementMode =
+  | 'kilo_en_pie'          // Al Kilo en Pie: Peso final en báscula × Precio por kg.
+  | 'kilo_en_canal'        // Al Kilo en Canal: Peso canal caliente (PCC) × Rendimiento (%) × Precio canal.
+  | 'por_cabeza'           // Por Cabeza (Precio Fijo / Lote): Valor acordado por animal.
+  | 'valor_genetico';      // Valor Genético / Subasta: Precio base + prima por mérito genético/preñez.
+
+export type SaleDestinationType =
+  | 'frigorifico'          // Frigorífico / Planta de Beneficio
+  | 'subasta'              // Subasta Ganadera
+  | 'particular'           // Comprador Particular / Comisionista
+  | 'finca_receptora';     // Finca Receptora / Predio de Destino
+
+export interface SaleDeductions {
+  freightCost: number;       // Fletes de salida ($)
+  auctionCommission: number; // Comisiones de subasta o corretaje ($)
+  auctionCommissionPct?: number; // % comisión
+  weighingCost: number;      // Báscula y pesaje ($)
+  withholdingTax: number;    // Retención en la fuente ($)
+  withholdingTaxPct?: number;// % retención (ej. 1.5% o 2.5%)
+  livestockFundFee: number;  // Cuota de fomento ganadero / FEDEGAN ($)
+  livestockFundPct?: number; // % cuota (ej. 0.75%)
+  otherDeductions: number;   // Otras deducciones ($)
+  totalDeductions: number;   // Total deducciones acumuladas ($)
+}
+
+export interface SaleZootecnicMetrics {
+  grossWeightKg: number;        // Pesaje Final de Salida (kg bruto en báscula)
+  shrinkagePercent: number;     // % de Desbaste Acordado (ej. 3% - 5%)
+  shrinkageKg: number;          // Kilos descontados por desbaste
+  netWeightKg: number;          // Peso Neto Liquidado (kg reales cobrados)
+  bodyConditionScore: number;   // Condición Corporal (CC) al Despacho (Escala 1 a 5)
+  carcassYieldPercent: number;  // Rendimiento en Canal Estimado / Real (%)
+  hotCarcassWeightKg: number;   // Peso Canal Caliente (PCC) en kg
+  avgAgeMonths?: number;        // Edad promedio al momento de venta
+}
+
+export interface SaleEconomicMetrics {
+  daysInFarm: number;           // Días Totales en Finca (DEF) = Fecha Venta - Fecha Ingreso/Nacimiento
+  entryDate: string;            // Fecha de Ingreso / Nacimiento
+  entryWeightKg: number;        // Peso de Entrada / Nacimiento (kg)
+  totalWeightGainKg: number;    // Ganancia Total de Peso = Peso Neto Salida - Peso de Entrada (kg)
+  dailyWeightGainKg: number;    // Ganancia Diaria de Peso (GDP) = Ganancia Total / DEF (kg/día)
+  dailyWeightGainGrams: number; // GDP en g/día
+  grossSaleIncome: number;      // Ingreso Bruto de Venta ($)
+  totalDeductions: number;      // Deducciones (Fletes, comisiones, impuestos) ($)
+  netSaleIncome: number;        // Ingreso Neto de Venta = Ingreso Bruto - Deducciones ($)
+  initialCost: number;          // Costo de Compra / Entrada ($)
+  accumulatedSanitaryCost: number; // Costos acumulados de Sanidad ($)
+  accumulatedFeedingCost: number;  // Costos acumulados de Alimentación y Suplementación ($)
+  accumulatedLaborCost: number;    // Costos de Mano de Obra y Manejo ($)
+  totalAccumulatedCosts: number;   // Costos acumulados totales (Sanidad + Alimentación + Manejo) ($)
+  grossMargin: number;          // Margen Bruto Total = Ingreso Neto - Costo de Compra ($)
+  realNetProfitability: number; // Rentabilidad Neta Real = Margen Bruto - Costos acumulados ($)
+  roiPercent: number;           // Retorno sobre la inversión (%)
+  profitPerDay: number;         // Ganancia neta por día en finca ($/día)
+  costPerKgProduced: number;    // Costo por kg producido ($/kg)
+}
+
+export interface SoldAnimalItem {
+  id: string;
+  tag: string;
+  name?: string;
+  breed: string;
+  sex: 'macho' | 'hembra' | string;
+  category: string;
+  lotId?: string;
+  lotName?: string;
+  paddockId?: string;
+  paddockName?: string;
+  entryDate: string;
+  entryWeightKg: number;
+  grossExitWeightKg: number;
+  shrinkagePercent: number;
+  netExitWeightKg: number;
+  bodyConditionScore: number;
+  carcassYieldPercent?: number;
+  hotCarcassWeightKg?: number;
+  daysInFarm: number;
+  totalWeightGainKg: number;
+  gdpKgDay: number;
+  initialCost: number;
+  accumulatedCosts: number;
+  individualGrossIncome: number;
+  individualDeductions: number;
+  individualNetIncome: number;
+  grossMargin: number;
+  netProfit: number;
+  roiPercent: number;
+  brandingIron?: string;
+  saleReason: SaleReasonType;
+}
+
+export interface LivestockSaleRecord {
+  id: string;
+  saleCode: string;             // ej. VTA-2026-0042
+  saleDate: string;             // Fecha de Salida / Facturación
+  farmId: string;               // Predio de Origen
+  farmName: string;
+  lotId?: string;               // Lote de procedencia
+  lotName?: string;
+  paddockId?: string;           // Potrero de salida
+  paddockName?: string;
+  saleReason: SaleReasonType;   // Motivo de venta / Causa de salida
+  saleReasonLabel: string;
+  settlementMode: SaleSettlementMode; // Modalidad de liquidación
+  settlementModeLabel: string;
+  destinationType: SaleDestinationType;
+  buyerName: string;            // Cliente / Frigorífico / Subasta / Particular
+  buyerDoc: string;             // Cédula / NIT
+  buyerPhone: string;
+  destinationLocation: string;  // Frigorífico, subasta, comprador particular o finca receptora
+  icaGuideNumber: string;       // Guía Sanitaria de Movilización Oficial ICA
+  invoiceNumber: string;        // Número de Factura o Liquidación Comercial
+  headsCount: number;           // Cantidad de cabezas vendidas
+  animals: SoldAnimalItem[];    // Detalle por animal individual
+  zootecnicMetrics: SaleZootecnicMetrics; // Parámetros Zootécnicos consolidados
+  deductions: SaleDeductions;   // Costos y Deducciones de Venta
+  economicMetrics: SaleEconomicMetrics;   // Indicadores Económicos calculados al cierre
+  
+  // Parámetros de Precio según modalidad
+  pricePerKg?: number;          // $/kg en pie
+  pricePerCarcassKg?: number;   // $/kg en canal
+  pricePerHead?: number;        // $/cabeza
+  geneticBasePrice?: number;    // Precio base genético
+  geneticPremium?: number;      // Prima por mérito genético / preñez
+
+  // Logística y Transporte
+  transporterName?: string;
+  transporterPhone?: string;
+  truckPlate?: string;
+  dispatcherName?: string;
+  veterinarianCertification?: string;
+  sanitaryClearanceVerified: boolean; // Certificación de cumplimiento de tiempos de retiro
+  
+  // Afectación de Inventario ejecutada
+  inventoryReleased: {
+    heads: number;
+    biomassKg: number;
+    uggCount: number; // Unidades Gran Ganado liberadas (kg / 450)
+    paddockFreedId?: string;
+    paddockFreedName?: string;
+    lotFreedId?: string;
+    lotFreedName?: string;
+    closedIndividualSheets: boolean;
+    archivedInTraceability: boolean;
+    herdBookUpdated: boolean;
+  };
+
+  operatorResponsible: string;
+  status: 'completada' | 'anulada';
+  notes?: string;
+  createdTimestamp: string;
+}
+
+export interface SaleFilterOptions {
+  searchTerm: string;
+  farmId: string;
+  saleReason: SaleReasonType | 'all';
+  settlementMode: SaleSettlementMode | 'all';
+  destinationType: SaleDestinationType | 'all';
+  dateFrom?: string;
+  dateTo?: string;
+  minPrice?: number;
+  maxPrice?: number;
+}
+
+export interface SaleSimulationInput {
+  lotId?: string;
+  animalIds?: string[];
+  headsCount: number;
+  avgGrossWeightKg: number;
+  saleReason: SaleReasonType;
+  settlementMode: SaleSettlementMode;
+  shrinkagePercent: number;
+  bodyConditionScore: number;
+  carcassYieldPercent: number;
+  pricePerKg: number;
+  pricePerCarcassKg: number;
+  pricePerHead: number;
+  geneticBasePrice: number;
+  geneticPremium: number;
+  freightCost: number;
+  auctionCommissionPct: number;
+  weighingCost: number;
+  withholdingTaxPct: number;
+  livestockFundPct: number;
+  otherDeductions: number;
+  avgDaysInFarm: number;
+  avgEntryWeightKg: number;
+  avgInitialCostPerHead: number;
+  avgSanitaryCostPerHead: number;
+  avgFeedingCostPerHead: number;
+  avgLaborCostPerHead: number;
+}
+
+export interface MasterTraceabilityAnimal {
+  id: string;
+  tag: string;
+  dinNumber?: string;
+  name?: string;
+  breed: string;
+  sex: 'macho' | 'hembra' | string;
+  category?: string;
+  weightKg: number;
+  lotId?: string;
+  lotName?: string;
+  paddockId?: string;
+  paddockName?: string;
+  birthDate?: string;
+  entryDate?: string;
+  entryWeightKg?: number;
+  status: 'activo' | 'vendido' | 'muerto' | 'trasladado';
+}
+
+// ==========================================
+// EMAIL NOTIFICATION RECIPIENTS & CHANNELS
+// ==========================================
+
+export interface NotificationPreferences {
+  // A. Alertas Críticas e Inmediatas
+  alertSalesDispatch: boolean;       // Ventas y liquidación de inventario
+  alertMortalityRecorded: boolean;   // Bajas / muertes diagnosticadas
+  alertWithdrawalActive: boolean;    // Períodos de retiro en carne/leche
+  alertCriticalStockOut: boolean;    // Quiebre de stock en bodega (<7 días)
+  
+  // B. Notificaciones Operativas y Reproductivas
+  notifyNewBirths: boolean;          // Partos y registros de crías
+  notifyCalvingForecast: boolean;    // Próximos partos y secados (7 días)
+  notifyHealthReinforcement: boolean;// Refuerzos de vacunas y tratamientos
+  
+  // C. Reportes Periódicos Consolidados
+  reportDailyDigest: boolean;        // Resumen diario de cierre (06:00 PM)
+  reportWeeklyExecutive: boolean;    // Balance semanal ejecutivo (Lunes 08:00 AM)
+  reportMonthlyMrp: boolean;         // Proyección mensual de compras MRP
+}
+
+export interface EmailNotificationRecipient {
+  id: string;
+  fullName: string;
+  email: string;
+  role: 'propietario' | 'administrador' | 'veterinario' | 'contador' | 'zootecnista';
+  isAllFarmsAccess: boolean;
+  assignedFarmNames?: string[];
+  status: 'active' | 'pending_verification' | 'paused' | 'bounced';
+  verificationCode?: string;
+  verifiedAt?: string;
+  quietHoursEnabled: boolean;
+  quietHoursStart: string; // ej: "21:00"
+  quietHoursEnd: string;   // ej: "06:00"
+  preferences: NotificationPreferences;
+  lastSentAt?: string;
+  createdAt: string;
+}
+
+export interface NotificationDeliveryLog {
+  id: string;
+  recipientEmail: string;
+  recipientName: string;
+  eventCategory: string;
+  severity: 'CRITICAL' | 'WARNING' | 'INFO';
+  subject: string;
+  sentAt: string;
+  deliveryStatus: 'delivered' | 'sent' | 'bounced' | 'opened';
+}
+
+// ==========================================
+// BUBALINE / WATER BUFFALO MODULE TYPES
+// ==========================================
+
+export type BubalineBreed =
+  | 'Murrah'
+  | 'Mediterránea'
+  | 'Jafarabadi'
+  | 'Carabao'
+  | 'Nili-Ravi'
+  | 'Mestizo Lechero'
+  | 'Cruce Comercial';
+
+export type BubalineCategory =
+  | 'bucerro_lactante' // 0-10 meses macho
+  | 'bucerra_lactante' // 0-10 meses hembra
+  | 'bubillo_levante'  // 10-24 meses macho
+  | 'bubilla_levante'  // 10-24 meses hembra
+  | 'bufala_primipara' // 24-34 meses (1er vientre)
+  | 'bufala_produccion'// Vientre en ordeño
+  | 'bufala_seca'      // Vientre en descanso
+  | 'bufalo_reproductor' // Padrón / Torete
+  | 'bufalo_ceba';     // Engorde / Carne
+
+export type BubalineMarkingMethod =
+  | 'ear_tag_rfid'
+  | 'rumen_bolus'
+  | 'tattoo_inguinal'
+  | 'tattoo_ear'
+  | 'hot_iron';
+
+export interface BubalineMilkQualityRecord {
+  id: string;
+  animalId: string;
+  animalTag: string;
+  animalName: string;
+  date: string;
+  shift: 'mañana' | 'tarde' | 'unico';
+  liters: number;
+  fatPercentage: number;       // 6.5% - 9.0%
+  proteinPercentage: number;   // 3.8% - 4.8%
+  totalSolidsPercentage: number; // 16.0% - 19.5%
+  sccK: number;                // Conteo Células Somáticas en miles/mL (normal < 150)
+  estimatedMozzarellaKg: number; // Algoritmo: L * (0.075*Grasa + 0.080*Prot)
+  notes?: string;
+}
+
+export interface BubalineReproductionRecord {
+  id: string;
+  femaleId: string;
+  femaleTag: string;
+  femaleName: string;
+  serviceType: 'IA' | 'Monta Natural' | 'Transferencia Embrion';
+  serviceDate: string;
+  sireNameOrStraw: string;
+  gestationDaysConstant: 312; // Específica bubalina
+  expectedCalvingDate: string; // serviceDate + 312 días
+  expectedDryOffDate: string;   // serviceDate + 250 días
+  pregnancyConfirmed: boolean;
+  pregnancyCheckDate?: string;
+  isSeasonalPhotoperiod: boolean;
+  status: 'gestante' | 'vacia' | 'parida' | 'en_servicio';
+}
+
+export interface BubalineAnimal {
+  id: string;
+  earTag: string;
+  name: string;
+  rfidOrTattoo?: string;
+  markingMethod: BubalineMarkingMethod;
+  breed: BubalineBreed;
+  category: BubalineCategory;
+  sex: 'macho' | 'hembra';
+  birthDate: string;
+  ageMonths: number;
+  weightKg: number;
+  lastWeighDate: string;
+  dailyWeightGainG: number; // GDP en gramos/día
+  farmId: string;
+  farmName: string;
+  paddockName: string;
+  hasWallowAccess: boolean; // Acceso a poza/revolcadero
+  shadeCoveragePct: number; // Cobertura de sombra en potrero (%)
+  
+  // Eje Lechero
+  isMilking: boolean;
+  dailyMilkLiters?: number;
+  currentLactationDays?: number;
+  lastFatPercentage?: number;
+  lastProteinPercentage?: number;
+  lastSolidsPercentage?: number;
+  
+  // Eje Reproductivo
+  reproductiveStatus: 'vacia' | 'servida' | 'gestante' | 'seca' | 'reproductor_activo';
+  lastServiceDate?: string;
+  expectedCalvingDate?: string; // 312 días
+  daysInGestation?: number;
+  totalCalvings: number;
+  lastCalvingDate?: string;
+  
+  // Sanidad
+  toxocaraDewormed: boolean;
+  toxocaraDewormingDate?: string;
+  sanitaryNotes?: string;
+}
 
 

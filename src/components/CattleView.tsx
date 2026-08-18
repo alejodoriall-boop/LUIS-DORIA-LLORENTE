@@ -15,6 +15,10 @@ import { RegisterNewAnimalModal } from './modals/RegisterNewAnimalModal';
 import { RegisterLivestockMovementModal } from './modals/RegisterLivestockMovementModal';
 import { WeaningProcessModal } from './modals/WeaningProcessModal';
 import { CategoryTransitionApprovalModal } from './modals/CategoryTransitionApprovalModal';
+import { NumberingPolicySettingsModal } from './modals/NumberingPolicySettingsModal';
+import { MigrateInventoryModal, MigrationResult } from './modals/MigrateInventoryModal';
+import { FarmNumberingPolicy } from '../types/numberingPolicy';
+import { getSavedFarmNumberingPolicy } from '../utils/numberingPolicyEngine';
 import {
   getSavedCategoryRules,
   saveCategoryRules,
@@ -54,6 +58,7 @@ import {
   Table,
   Calculator,
   Tag,
+  Database,
   ChevronDown,
   ChevronUp,
   Eye,
@@ -68,6 +73,7 @@ import {
   Truck,
   FileText,
   UserCheck,
+  Info,
 } from 'lucide-react';
 import {
   ProductionCategoryKey,
@@ -97,6 +103,10 @@ interface CattleViewProps {
   activeScale?: ScaleDevice | null;
   reading?: ScaleReading;
   onSelectLotDetail?: (lot: LotRecord) => void;
+  isDairyEnabled?: boolean;
+  onToggleDairyModule?: () => void;
+  isLotsEnabled?: boolean;
+  onToggleLotsModule?: (enabled?: boolean) => void;
 }
 
 export const CattleView: React.FC<CattleViewProps> = ({
@@ -111,6 +121,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
   onOpenNewLotModal,
   activeScale,
   reading,
+  isDairyEnabled = true,
+  onToggleDairyModule,
+  isLotsEnabled = false,
+  onToggleLotsModule,
 }) => {
   const [selectedSex, setSelectedSex] = useState<string>('');
   const [selectedAge, setSelectedAge] = useState<string>('');
@@ -125,9 +139,15 @@ export const CattleView: React.FC<CattleViewProps> = ({
   const [isMovementModalOpen, setIsMovementModalOpen] = useState<boolean>(false);
   const [isWeaningModalOpen, setIsWeaningModalOpen] = useState<boolean>(false);
   const [isCategoryApprovalModalOpen, setIsCategoryApprovalModalOpen] = useState<boolean>(false);
+  const [isNumberingPolicyModalOpen, setIsNumberingPolicyModalOpen] = useState<boolean>(false);
+  const [isMigrateModalOpen, setIsMigrateModalOpen] = useState<boolean>(false);
+  const [farmNumberingPolicy, setFarmNumberingPolicy] = useState<FarmNumberingPolicy>(() =>
+    getSavedFarmNumberingPolicy(currentFarm?.profile.id || 'all')
+  );
   const [selectedAnimalForFicha, setSelectedAnimalForFicha] = useState<ImportedAnimalRecord | null>(null);
   const [inventoryBannerMessage, setInventoryBannerMessage] = useState<string | null>(null);
   const [customAnimals, setCustomAnimals] = useState<ImportedAnimalRecord[]>([]);
+  const [customLots, setCustomLots] = useState<LotRecord[]>([]);
 
   // Category Progression Rule Engine States
   const [categoryRules, setCategoryRules] = useState<CategoryProgressionRule[]>(() => getSavedCategoryRules());
@@ -202,6 +222,19 @@ export const CattleView: React.FC<CattleViewProps> = ({
     }, 6000);
   };
 
+  const handleCompleteMigration = (result: MigrationResult) => {
+    setCustomAnimals((prev) => [...result.importedAnimals, ...prev]);
+    setCustomLots((prev) => [...result.createdLots, ...prev]);
+
+    setInventoryBannerMessage(
+      `🎉 Migración Exitosa: Se importaron ${result.totalImported} bovinos y ${result.createdLots.length} lotes a ${result.targetFarmName}.`
+    );
+
+    setTimeout(() => {
+      setInventoryBannerMessage(null);
+    }, 8000);
+  };
+
   // Lot Detail Modal Internal State
   const [modalTab, setModalTab] = useState<'animals' | 'weights'>('animals');
   const [animalSearchQuery, setAnimalSearchQuery] = useState<string>('');
@@ -244,11 +277,12 @@ export const CattleView: React.FC<CattleViewProps> = ({
 
     // If no farms in list, fallback to lots prop
     if (allEligibleLots.length === 0) {
-      return lots.map((l) => ({ ...l, farmName: currentFarm?.profile?.name || 'Predio Principal' }));
+      const base = lots.map((l) => ({ ...l, farmName: currentFarm?.profile?.name || 'Predio Principal' }));
+      return [...customLots, ...base];
     }
 
-    return allEligibleLots;
-  }, [farms, eligibleFarms, effectiveFarmFilter, lots, currentFarm]);
+    return [...customLots, ...allEligibleLots];
+  }, [farms, eligibleFarms, effectiveFarmFilter, lots, currentFarm, customLots]);
 
   // Aggregate all animals in active inventory across lots to evaluate rules
   const allInventoryAnimals = useMemo(() => {
@@ -268,10 +302,22 @@ export const CattleView: React.FC<CattleViewProps> = ({
   // Evaluate rules on all animals whenever inventory animals or rules change
   useEffect(() => {
     if (allInventoryAnimals.length > 0) {
-      const updatedAlerts = evaluateCategoryTransitions(allInventoryAnimals, categoryRules, transitionAlerts);
-      setTransitionAlerts(updatedAlerts);
+      setTransitionAlerts((prevAlerts) => {
+        const updatedAlerts = evaluateCategoryTransitions(allInventoryAnimals, categoryRules, prevAlerts);
+        if (
+          updatedAlerts.length === prevAlerts.length &&
+          updatedAlerts.every(
+            (a, idx) =>
+              a.id === prevAlerts[idx]?.id &&
+              a.status === prevAlerts[idx]?.status
+          )
+        ) {
+          return prevAlerts;
+        }
+        return updatedAlerts;
+      });
     }
-  }, [allInventoryAnimals, categoryRules]);
+  }, [allInventoryAnimals.length, categoryRules]);
 
   const handleApproveTransition = (
     alertId: string,
@@ -433,7 +479,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
   };
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto w-full pb-12">
+    <div className="space-y-6 w-full pb-12">
       {/* Inventory Feedback Banner */}
       {inventoryBannerMessage && (
         <div className="bg-[#1b4332] text-[#c1ecd4] px-4 py-3 rounded-2xl shadow-lg border border-[#c1ecd4]/30 flex items-center justify-between animate-in fade-in slide-in-from-top-2">
@@ -450,92 +496,161 @@ export const CattleView: React.FC<CattleViewProps> = ({
         </div>
       )}
 
-      {/* Header */}
-      <div>
-        <div className="flex items-center gap-2">
-          <span className="bg-[#012d1d] text-[#c1ecd4] text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded font-mono">
-            Inventario de Ganado Multi-Predio
-          </span>
-          <span className="text-xs text-[#717973] font-medium">
-            {eligibleFarms.length} {eligibleFarms.length === 1 ? 'Predio activo' : 'Predios activos'}
-          </span>
-        </div>
-        <h1 className="text-2xl md:text-3xl font-bold text-[#012d1d] tracking-tight mt-1">
-          Control de Inventario de Ganado
-        </h1>
-        <p className="text-xs md:text-sm text-[#414844] mt-0.5">
-          Altas individuales y por lote (Nacidos, Comprados, Puros), control de pesaje, transferencias internas y salidas.
-        </p>
-      </div>
-
-      {/* Category Progression Alert Banner */}
-      {pendingCategoryAlerts.length > 0 && (
-        <div className="bg-[#fff8e7] border-2 border-[#ffba38] p-4 rounded-3xl shadow-md flex flex-wrap items-center justify-between gap-3 animate-in fade-in">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#ffba38] text-[#523700] rounded-2xl shadow-xs shrink-0">
-              <Zap className="w-6 h-6 text-[#523700]" />
+      {/* Top Main Header & Operational Controls */}
+      <div className="bg-[#012d1d] text-white rounded-3xl p-5 md:p-6 shadow-lg border border-[#1b4332] space-y-4">
+        {/* Header Title, Metadata & Action */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="bg-[#1b4332] text-[#c1ecd4] text-[10px] font-bold uppercase px-2.5 py-0.5 rounded font-mono border border-[#2d6a4f]">
+                Inventario Multi-Predio
+              </span>
+              <span className="text-xs text-[#a3b8ad] font-medium">
+                {eligibleFarms.length} {eligibleFarms.length === 1 ? 'Predio activo' : 'Predios activos'}
+              </span>
+              <span className="text-[#2d6a4f] text-xs">•</span>
+              <span className="text-xs text-[#c1ecd4] font-medium">
+                Modo: {!isLotsEnabled ? 'Manejo por Predios' : 'Manejo por Lotes Activo'}
+              </span>
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xs text-[#523700] uppercase tracking-wide">
-                  Regla de Reclasificación por Peso O Edad Requerida
-                </span>
-                <span className="bg-[#e63946] text-white text-[10px] font-mono font-black px-2 py-0.5 rounded-full animate-pulse shadow-xs">
-                  {pendingCategoryAlerts.length} PENDIENTES
-                </span>
-              </div>
-              <p className="text-xs text-[#8c6500] font-medium mt-0.5">
-                {pendingCategoryAlerts.length === 1
-                  ? `El ejemplar #${pendingCategoryAlerts[0].animalTag} ha cumplido el umbral de ${pendingCategoryAlerts[0].triggerType === 'peso' ? 'peso' : 'edad'} para reclasificación a ${pendingCategoryAlerts[0].targetCategoryLabel}.`
-                  : `${pendingCategoryAlerts.length} bovinos alcanzaron peso límite (ej. Novillos ≥ 350 kg ➔ Ceba) O edad. Requieren aprobación del administrador.`}
-              </p>
-            </div>
+            <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight pt-0.5">
+              Control de Inventario de Ganado
+            </h1>
           </div>
 
-          <button
-            onClick={() => setIsCategoryApprovalModalOpen(true)}
-            className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-black text-xs px-4 py-2.5 rounded-2xl shadow-sm transition-all flex items-center gap-2 cursor-pointer border border-[#012d1d]"
-          >
-            <Zap className="w-4 h-4 text-[#ffba38]" />
-            <span>Revisar y Aprobar Reclasificaciones ({pendingCategoryAlerts.length})</span>
-          </button>
-        </div>
-      )}
+          {/* Quick toggle mode button & Migration button */}
+          <div className="flex items-center gap-2 flex-wrap shrink-0">
+            <button
+              type="button"
+              onClick={() => setIsMigrateModalOpen(true)}
+              className="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition-all cursor-pointer whitespace-nowrap shadow-sm active:scale-95 flex items-center gap-2 border border-emerald-400/40"
+            >
+              <Database className="w-4 h-4 text-emerald-100" />
+              <span>Migrar Inventario Existente</span>
+            </button>
 
-      {/* Grid de Acciones Rápidas (Cuadrícula de Botones) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
+            {!isLotsEnabled ? (
+              <button
+                type="button"
+                onClick={() => onToggleLotsModule?.(true)}
+                className="px-4 py-2.5 bg-[#ffba38] hover:bg-[#ffdeac] text-[#012d1d] font-bold text-xs rounded-xl transition-all cursor-pointer whitespace-nowrap shadow-sm active:scale-95 flex items-center gap-2"
+              >
+                <Layers className="w-4 h-4 text-[#012d1d]" />
+                <span>Habilitar Manejo por Lotes</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => onToggleLotsModule?.(false)}
+                className="px-4 py-2.5 bg-[#1b4332] hover:bg-[#2d6a4f] text-[#c1ecd4] font-bold text-xs rounded-xl transition-all cursor-pointer whitespace-nowrap border border-[#2d6a4f] flex items-center gap-2"
+              >
+                <Building2 className="w-4 h-4 text-[#ffba38]" />
+                <span>Volver a Manejo por Predios</span>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Category Progression Alert Banner */}
+        {pendingCategoryAlerts.length > 0 && (
+          <div className="bg-[#523700]/40 border border-[#ffba38]/70 p-3.5 px-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-[#ffba38] text-[#523700] rounded-xl shrink-0 shadow-xs">
+                <Zap className="w-4 h-4 text-[#523700]" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="font-bold text-xs text-[#ffba38] uppercase tracking-wide">
+                    Reclasificación por Peso o Edad
+                  </span>
+                  <span className="bg-rose-600 text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-full">
+                    {pendingCategoryAlerts.length} pendientes
+                  </span>
+                </div>
+                <p className="text-[11px] text-[#ffdeac] mt-0.5 leading-normal">
+                  {pendingCategoryAlerts.length === 1
+                    ? `El ejemplar #${pendingCategoryAlerts[0].animalTag} cumplió el umbral para pase a ${pendingCategoryAlerts[0].targetCategoryLabel}.`
+                    : `${pendingCategoryAlerts.length} bovinos alcanzaron el peso límite o edad para cambio de etapa productiva.`}
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setIsCategoryApprovalModalOpen(true)}
+              className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#012d1d] font-bold text-xs px-4 py-2 rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+            >
+              <Zap className="w-3.5 h-3.5 text-[#012d1d]" />
+              <span>Revisar y Aprobar ({pendingCategoryAlerts.length})</span>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Grid de Acciones Rápidas (Estilizada y sin textos cortados) */}
+      <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-7 gap-3">
         {/* 1. Ingreso Nuevo Individual / Lote */}
         <button
           onClick={() => setIsNewAnimalModalOpen(true)}
-          className="bg-[#012d1d] hover:bg-[#1b4332] text-white p-3 rounded-2xl border border-[#012d1d] shadow-md transition-all flex items-center gap-3 group cursor-pointer text-left"
+          className="bg-white hover:bg-slate-50 text-slate-900 p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
-          <div className="p-2.5 bg-[#1b4332] group-hover:bg-[#2d6a4f] text-[#c1ecd4] rounded-xl shrink-0 transition-colors">
-            <PlusCircle className="w-5 h-5 text-[#c1ecd4]" />
+          <div className="flex items-center justify-between w-full">
+            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:scale-105 transition-transform">
+              <PlusCircle className="w-4 h-4" />
+            </div>
+            <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded">Alta</span>
           </div>
-          <div className="min-w-0">
-            <span className="block font-black text-xs text-white leading-tight">
-              + Ingreso Nuevo
+          <div>
+            <span className="block font-bold text-xs text-slate-900 leading-tight">
+              Ingreso Nuevo
             </span>
-            <span className="block text-[10px] text-[#a3b8ad] font-medium leading-tight mt-0.5 truncate">
-              Nacido (Marca Oreja), Compra, Puro
+            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+              Nacidos & Compras
             </span>
           </div>
         </button>
 
-        {/* 2. Módulo de Destete (Nuevo) */}
+        {/* 2. Migrar Inventario Existente */}
+        <button
+          onClick={() => setIsMigrateModalOpen(true)}
+          className="bg-emerald-50/60 hover:bg-emerald-100/70 text-slate-900 p-3.5 rounded-2xl border border-emerald-300 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
+        >
+          <div className="flex items-center justify-between w-full">
+            <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center border border-emerald-500 group-hover:scale-105 transition-transform shadow-xs">
+              <Database className="w-4 h-4" />
+            </div>
+            <span className="text-[9px] font-bold bg-emerald-200 text-emerald-950 px-1.5 py-0.5 rounded uppercase font-mono">
+              Excel/CSV
+            </span>
+          </div>
+          <div>
+            <span className="block font-bold text-xs text-slate-900 leading-tight">
+              Migrar Inventario
+            </span>
+            <span className="block text-[10.5px] text-emerald-800 font-medium leading-tight mt-0.5">
+              Planillas Previas
+            </span>
+          </div>
+        </button>
+
+        {/* 2. Módulo de Destete */}
         <button
           onClick={() => setIsWeaningModalOpen(true)}
-          className="bg-[#fff3cd] hover:bg-[#ffe699] text-[#523700] p-3 rounded-2xl border-2 border-[#ffc107] shadow-xs transition-all flex items-center gap-3 group cursor-pointer text-left"
+          className="bg-white hover:bg-amber-50/50 text-slate-900 p-3.5 rounded-2xl border border-amber-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
-          <div className="p-2.5 bg-[#ffba38] group-hover:bg-[#ffa000] text-[#523700] rounded-xl shrink-0 transition-colors">
-            <Flame className="w-5 h-5 text-[#523700]" />
-          </div>
-          <div className="min-w-0">
-            <span className="block font-black text-xs text-[#523700] leading-tight flex items-center gap-1">
-              Proceso de Destete <span className="text-[9px] bg-[#523700] text-white px-1.5 py-0.2 rounded font-mono">NUEVO</span>
+          <div className="flex items-center justify-between w-full">
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100 group-hover:scale-105 transition-transform">
+              <Flame className="w-4 h-4" />
+            </div>
+            <span className="text-[9px] font-bold bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded uppercase font-mono">
+              Nuevo
             </span>
-            <span className="block text-[10px] text-[#8c6500] font-medium leading-tight mt-0.5 truncate">
-              Hierro/Chapeta, Pesaje & Asocebú
+          </div>
+          <div>
+            <span className="block font-bold text-xs text-slate-900 leading-tight">
+              Proceso Destete
+            </span>
+            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+              Hierro & Asocebú
             </span>
           </div>
         </button>
@@ -543,29 +658,31 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 3. Reclasificación Automática (Peso / Edad) */}
         <button
           onClick={() => setIsCategoryApprovalModalOpen(true)}
-          className={`p-3 rounded-2xl border-2 shadow-xs transition-all flex items-center gap-3 group cursor-pointer text-left relative ${
+          className={`p-3.5 rounded-2xl border shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer ${
             pendingCategoryAlerts.length > 0
-              ? 'bg-[#012d1d] hover:bg-[#1b4332] text-white border-[#ffba38]'
-              : 'bg-white hover:bg-[#f9f9f9] text-[#012d1d] border-[#c1c8c2]'
+              ? 'bg-amber-50/70 border-amber-300 text-slate-900 hover:bg-amber-50'
+              : 'bg-white hover:bg-slate-50 border-slate-200/90 text-slate-900'
           }`}
         >
-          <div className={`p-2.5 rounded-xl shrink-0 transition-colors ${
-            pendingCategoryAlerts.length > 0 ? 'bg-[#ffba38] text-[#523700]' : 'bg-[#e8f5ec] text-[#012d1d]'
-          }`}>
-            <Zap className={`w-5 h-5 ${pendingCategoryAlerts.length > 0 ? 'text-[#523700] animate-bounce' : 'text-[#1b4332]'}`} />
-          </div>
-          <div className="min-w-0">
-            <span className="block font-black text-xs leading-tight flex items-center gap-1">
-              Reclasificación
-              {pendingCategoryAlerts.length > 0 && (
-                <span className="text-[9px] bg-[#ff4d4d] text-white px-1.5 py-0.2 rounded-full font-mono animate-pulse">
-                  {pendingCategoryAlerts.length}
-                </span>
-              )}
-            </span>
-            <span className={`block text-[10px] font-medium leading-tight mt-0.5 truncate ${
-              pendingCategoryAlerts.length > 0 ? 'text-[#a3b8ad]' : 'text-[#717973]'
+          <div className="flex items-center justify-between w-full">
+            <div className={`w-8 h-8 rounded-xl flex items-center justify-center border transition-transform group-hover:scale-105 ${
+              pendingCategoryAlerts.length > 0
+                ? 'bg-amber-100 text-amber-800 border-amber-200'
+                : 'bg-slate-100 text-slate-700 border-slate-200'
             }`}>
+              <Zap className="w-4 h-4" />
+            </div>
+            {pendingCategoryAlerts.length > 0 && (
+              <span className="text-[10px] font-mono font-bold bg-rose-600 text-white px-1.5 py-0.5 rounded-full">
+                {pendingCategoryAlerts.length}
+              </span>
+            )}
+          </div>
+          <div>
+            <span className="block font-bold text-xs text-slate-900 leading-tight">
+              Reclasificación
+            </span>
+            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
               Reglas Peso & Edad
             </span>
           </div>
@@ -574,17 +691,20 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 4. Control de Pesaje */}
         <button
           onClick={() => onOpenWeightModal()}
-          className="bg-white hover:bg-[#f9f9f9] text-[#012d1d] p-3 rounded-2xl border border-[#c1c8c2] shadow-2xs transition-all flex items-center gap-3 group cursor-pointer text-left"
+          className="bg-white hover:bg-slate-50 text-slate-900 p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
-          <div className="p-2.5 bg-[#e8f5ec] group-hover:bg-[#c1ecd4] text-[#012d1d] rounded-xl shrink-0 transition-colors">
-            <Scale className="w-5 h-5 text-[#1b4332]" />
+          <div className="flex items-center justify-between w-full">
+            <div className="w-8 h-8 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center border border-sky-100 group-hover:scale-105 transition-transform">
+              <Scale className="w-4 h-4" />
+            </div>
+            <span className="text-[10px] font-semibold text-sky-800 bg-sky-50 px-1.5 py-0.5 rounded">GDP</span>
           </div>
-          <div className="min-w-0">
-            <span className="block font-black text-xs text-[#012d1d] leading-tight">
-              Control de Pesaje
+          <div>
+            <span className="block font-bold text-xs text-slate-900 leading-tight">
+              Control Pesaje
             </span>
-            <span className="block text-[10px] text-[#717973] font-medium leading-tight mt-0.5 truncate">
-              Registrar pesos y GDP
+            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+              Registrar Pesos & GDP
             </span>
           </div>
         </button>
@@ -592,51 +712,58 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 5. Transferencias & Salidas */}
         <button
           onClick={() => setIsMovementModalOpen(true)}
-          className="bg-white hover:bg-[#f4fbf7] text-[#012d1d] p-3 rounded-2xl border border-[#c1c8c2] shadow-2xs transition-all flex items-center gap-3 group cursor-pointer text-left"
+          className="bg-white hover:bg-slate-50 text-slate-900 p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
-          <div className="p-2.5 bg-[#e8f5ec] group-hover:bg-[#c1ecd4] text-[#012d1d] rounded-xl shrink-0 transition-colors">
-            <ArrowRightLeft className="w-5 h-5 text-[#2d6a4f]" />
+          <div className="flex items-center justify-between w-full">
+            <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center border border-indigo-100 group-hover:scale-105 transition-transform">
+              <ArrowRightLeft className="w-4 h-4" />
+            </div>
+            <span className="text-[10px] font-semibold text-indigo-800 bg-indigo-50 px-1.5 py-0.5 rounded">Mov</span>
           </div>
-          <div className="min-w-0">
-            <span className="block font-black text-xs text-[#012d1d] leading-tight">
+          <div>
+            <span className="block font-bold text-xs text-slate-900 leading-tight">
               Transferencias
             </span>
-            <span className="block text-[10px] text-[#717973] font-medium leading-tight mt-0.5 truncate">
-              Traslado predios y ventas
+            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+              Traslados & Salidas
             </span>
           </div>
         </button>
 
-        {/* 6. Báscula BT */}
-        {onOpenScaleModal && (
-          <button
-            onClick={onOpenScaleModal}
-            className={`p-3 rounded-2xl border shadow-2xs transition-all flex items-center gap-3 group cursor-pointer text-left ${
-              activeScale
-                ? 'bg-[#e8f5ec] hover:bg-[#d8f0e2] border-[#c1ecd4] text-[#002114]'
-                : 'bg-white hover:bg-[#f3f3f3] border-[#c1c8c2] text-[#012d1d]'
-            }`}
-          >
-            <div className={`p-2.5 rounded-xl shrink-0 transition-colors ${
-              activeScale ? 'bg-[#c1ecd4] text-[#012d1d]' : 'bg-[#f0f0f0] text-[#717973]'
+        {/* 6. Políticas de Numeración e Identificación */}
+        <button
+          onClick={() => setIsNumberingPolicyModalOpen(true)}
+          className={`p-3.5 rounded-2xl border shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer ${
+            farmNumberingPolicy.isLocked
+              ? 'bg-amber-50/50 hover:bg-amber-50 border-amber-200/90 text-slate-900'
+              : 'bg-white hover:bg-emerald-50/50 border-emerald-200/90 text-slate-900'
+          }`}
+        >
+          <div className="flex items-center justify-between w-full">
+            <div className={`w-8 h-8 rounded-xl flex items-center justify-center border transition-transform group-hover:scale-105 ${
+              farmNumberingPolicy.isLocked
+                ? 'bg-amber-100 text-amber-800 border-amber-200'
+                : 'bg-emerald-100 text-emerald-800 border-emerald-200'
             }`}>
-              <Bluetooth className={`w-5 h-5 ${activeScale ? 'text-[#1b4332] animate-pulse' : 'text-[#717973]'}`} />
+              <Tag className="w-4 h-4" />
             </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-1">
-                <span className="font-black text-xs leading-tight truncate">
-                  {activeScale ? activeScale.name.split(' ')[0] : 'Báscula BT'}
-                </span>
-                <span className="text-[9px] font-mono font-extrabold px-1 py-0.2 rounded bg-black/5 border border-black/10">
-                  {activeScale ? `${reading?.weight.toFixed(1) || '0.0'} kg` : 'OFF'}
-                </span>
-              </div>
-              <span className="block text-[10px] text-[#717973] font-medium leading-tight mt-0.5 truncate">
-                {activeScale ? 'Báscula conectada' : 'Sincronizar báscula'}
-              </span>
-            </div>
-          </button>
-        )}
+            <span className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${
+              farmNumberingPolicy.isLocked
+                ? 'bg-amber-200/80 text-amber-900'
+                : 'bg-emerald-200/80 text-emerald-900'
+            }`}>
+              {farmNumberingPolicy.isLocked ? 'BLOQUEADO' : 'CONFIGURAR'}
+            </span>
+          </div>
+          <div>
+            <span className="block font-bold text-xs text-slate-900 leading-tight">
+              Numeración Hato
+            </span>
+            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+              {farmNumberingPolicy.isLocked ? 'Política Inmutable' : '4 Esquemas & Adopción'}
+            </span>
+          </div>
+        </button>
       </div>
 
       {/* ========================================================================= */}
@@ -697,11 +824,68 @@ export const CattleView: React.FC<CattleViewProps> = ({
         </div>
 
         {/* ========================================================================= */}
-        {/* 2. DYNAMIC PREDIOS / FINCAS SELECTOR (Filtered strictly by category) */}
+        {/* 2. DYNAMIC PREDIOS / FINCAS SELECTOR & VIEW MODE TABS */}
         {/* ========================================================================= */}
-        <div className="pt-2 border-t border-[#e5e7eb] flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-bold text-[#414844] flex items-center gap-1">
+        <div className="pt-3 border-t border-[#c1c8c2] space-y-3">
+          {/* Row 1: View Mode Tabs */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-[#f0f4f1] p-1.5 rounded-2xl border border-[#c1c8c2]">
+            <div className="flex items-center gap-1.5 px-2">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#012d1d]">
+                Modo de Visualización:
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1 overflow-x-auto w-full sm:w-auto">
+              <button
+                onClick={() => setViewMode('lots')}
+                className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
+                  viewMode === 'lots'
+                    ? 'bg-[#012d1d] text-white shadow-xs'
+                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-[#012d1d]'
+                }`}
+              >
+                {isLotsEnabled ? (
+                  <>
+                    <Beef className="w-3.5 h-3.5 text-[#ffba38]" />
+                    <span>Lotes por Tarjeta ({filteredLots.length})</span>
+                  </>
+                ) : (
+                  <>
+                    <Building2 className="w-3.5 h-3.5 text-[#ffba38]" />
+                    <span>Predios por Tarjeta ({grandMetrics.farmSummaries.length})</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                onClick={() => setViewMode('totalized')}
+                className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
+                  viewMode === 'totalized'
+                    ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
+                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-[#012d1d]'
+                }`}
+              >
+                <Table className="w-3.5 h-3.5 text-[#ffba38]" />
+                <span>{isLotsEnabled ? 'Ver Totalizado Consolidado' : 'Tabla Consolidada por Predio'}</span>
+              </button>
+
+              <button
+                onClick={() => setViewMode('paddocks')}
+                className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
+                  viewMode === 'paddocks'
+                    ? 'bg-[#012d1d] text-white shadow-xs'
+                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-[#012d1d]'
+                }`}
+              >
+                <Leaf className="w-3.5 h-3.5 text-[#c1ecd4]" />
+                <span>Potreros por Predio</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Row 2: Filter by Farm */}
+          <div className="flex items-center gap-2 flex-wrap pt-1">
+            <span className="text-xs font-bold text-[#414844] flex items-center gap-1.5 pr-1 whitespace-nowrap">
               <Building2 className="w-3.5 h-3.5 text-[#012d1d]" />
               Predios con este inventario:
             </span>
@@ -709,7 +893,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
             {/* All button */}
             <button
               onClick={() => setActiveFarmFilter('all')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap ${
                 effectiveFarmFilter === 'all'
                   ? 'bg-[#012d1d] text-white shadow-xs'
                   : 'bg-[#f4fbf7] text-[#012d1d] hover:bg-[#c1ecd4]/50 border border-[#c1c8c2]'
@@ -730,59 +914,20 @@ export const CattleView: React.FC<CattleViewProps> = ({
                     setActiveFarmFilter(f.profile.id);
                     if (onSelectFarm) onSelectFarm(f.profile.id);
                   }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 border ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 border whitespace-nowrap ${
                     isSelected
                       ? 'bg-[#1b4332] text-white border-[#1b4332] shadow-xs'
-                      : 'bg-white text-[#1a1c1c] border-[#c1c8c2] hover:border-[#012d1d]'
+                      : 'bg-white text-[#1a1c1c] border-[#c1c8c2] hover:border-[#012d1d] hover:bg-[#f8fbf9]'
                   }`}
                 >
                   <MapPin className={`w-3 h-3 ${isSelected ? 'text-[#ffba38]' : 'text-[#717973]'}`} />
                   <span>{f.profile.name}</span>
-                  <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded ${isSelected ? 'bg-white/20 text-white' : 'bg-[#eef2ef] text-[#2d6a4f]'}`}>
+                  <span className={`text-[10px] font-mono font-bold px-1.5 py-0.2 rounded ${isSelected ? 'bg-white/20 text-white' : 'bg-[#eef2ef] text-[#2d6a4f]'}`}>
                     {heads} cab.
                   </span>
                 </button>
               );
             })}
-          </div>
-
-          {/* 3-WAY VIEW MODE TOGGLE (Tarjeta, Totalizados Consolidado, Potreros) */}
-          <div className="flex items-center gap-1 bg-[#eef2ef] p-1 rounded-xl shrink-0 self-start lg:self-auto border border-[#c1c8c2] flex-wrap sm:flex-nowrap">
-            <button
-              onClick={() => setViewMode('lots')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                viewMode === 'lots'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'text-[#414844] hover:text-[#012d1d]'
-              }`}
-            >
-              <Beef className="w-3.5 h-3.5" />
-              <span>Lotes por Tarjeta ({filteredLots.length})</span>
-            </button>
-
-            <button
-              onClick={() => setViewMode('totalized')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                viewMode === 'totalized'
-                  ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
-                  : 'text-[#414844] hover:text-[#012d1d]'
-              }`}
-            >
-              <Table className="w-3.5 h-3.5 text-[#ffba38]" />
-              <span>Ver Totalizado Consolidado</span>
-            </button>
-
-            <button
-              onClick={() => setViewMode('paddocks')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                viewMode === 'paddocks'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'text-[#414844] hover:text-[#012d1d]'
-              }`}
-            >
-              <Leaf className="w-3.5 h-3.5 text-[#c1ecd4]" />
-              <span>Potreros por Predio</span>
-            </button>
           </div>
         </div>
       </div>
@@ -857,11 +1002,106 @@ export const CattleView: React.FC<CattleViewProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* VIEW MODE 1: LOTES DE GANADO (TARJETAS CON NOMBRE DE FINCA PROMINENTE) */}
+      {/* VIEW MODE 1: TARJETAS DE PREDIOS O LOTES DE GANADO */}
       {/* ========================================================================= */}
       {viewMode === 'lots' && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredLots.map((lot) => {
+          {!isLotsEnabled ? (
+            /* PREDIO CARDS (When Lots Disabled) */
+            grandMetrics.farmSummaries.map((farmSum) => {
+              const allFarmAnimals = farmSum.lots.flatMap((l) => generateAnimalsForLot(l, farmSum.farmName));
+              const firstLotId = farmSum.lots[0]?.id || '';
+
+              return (
+                <article
+                  key={farmSum.farmName}
+                  className="bg-white rounded-2xl border-2 border-[#012d1d]/30 shadow-sm overflow-hidden flex flex-col hover:border-[#012d1d] transition-all hover:shadow-md"
+                >
+                  {/* Header */}
+                  <div className="px-4 py-3 bg-[#012d1d] text-white flex justify-between items-center border-b border-[#012d1d]">
+                    <div className="flex items-center gap-2">
+                      <Building2 className="w-5 h-5 text-[#ffba38]" />
+                      <span className="font-mono text-xs font-bold text-white tracking-wider uppercase">
+                        {farmSum.farmName}
+                      </span>
+                    </div>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-extrabold tracking-widest uppercase bg-[#c1ecd4] text-[#002114]">
+                      PREDIO ACTIVO
+                    </span>
+                  </div>
+
+                  {/* Body */}
+                  <div className="p-4 md:p-5 flex flex-col gap-4 flex-grow justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-[#012d1d] leading-snug">
+                        {farmSum.farmName}
+                      </h3>
+                      <p className="text-xs text-[#414844] mt-0.5 font-medium">
+                        Consolidado General • {farmSum.totalHeads} Bovinos Registrados
+                      </p>
+                    </div>
+
+                    {/* Key KPIs Box */}
+                    <div className="bg-[#f4fbf7] p-3 rounded-xl border border-[#c1ecd4] grid grid-cols-2 gap-2 text-xs">
+                      <div>
+                        <span className="text-[10px] text-[#717973] uppercase font-bold block">Peso Promedio</span>
+                        <span className="font-mono text-lg font-bold text-[#012d1d]">{farmSum.avgWeightPerHead} kg</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-[#717973] uppercase font-bold block">Peso Total</span>
+                        <span className="font-mono text-lg font-bold text-[#012d1d]">{farmSum.totalWeightTon} Ton</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-[#717973] uppercase font-bold block">GDP Ponderada</span>
+                        <span className="font-mono text-lg font-bold text-emerald-800">+{farmSum.avgGdpWeighted} kg/d</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-[#717973] uppercase font-bold block">Valor Comercial</span>
+                        <span className="font-mono text-lg font-bold text-[#523700]">${(farmSum.totalEstimatedValueCop / 1000000).toFixed(1)}M</span>
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="pt-3 border-t border-[#eeeeee] flex items-center justify-between gap-2">
+                      <button
+                        onClick={() => onOpenWeightModal(firstLotId)}
+                        className="flex-1 text-xs font-bold py-2 px-3 rounded-xl bg-[#f3f3f3] hover:bg-[#e8e8e8] text-[#012d1d] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                      >
+                        <Scale className="w-3.5 h-3.5 text-[#2d6a4f]" />
+                        Pesar Predio
+                      </button>
+
+                      <button
+                        onClick={() => setActiveLotDetail({
+                          id: `farm-combined-${farmSum.farmName}`,
+                          code: 'PREDIO',
+                          name: `Bovinos en ${farmSum.farmName}`,
+                          category: 'ceba',
+                          categoryLabel: 'CONSOLIDADO PREDIO',
+                          heads: farmSum.totalHeads,
+                          currentAvgWeight: farmSum.avgWeightPerHead,
+                          gdpCurrent: farmSum.avgGdpWeighted,
+                          pastureType: 'Pasturas Predio',
+                          farmName: farmSum.farmName,
+                          sexLabel: 'Macho / Hembra',
+                          ageRange: 'Consolidado Predio',
+                          targetWeight: 450,
+                          estDaysToExit: 60,
+                          estimatedValueCop: farmSum.totalEstimatedValueCop,
+                          animals: allFarmAnimals,
+                        })}
+                        className="text-xs font-bold py-2 px-3 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-[#ffba38]" />
+                        Ver Bovinos ({farmSum.totalHeads})
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              );
+            })
+          ) : (
+            filteredLots.map((lot) => {
             const progressPercent = Math.min(
               100,
               Math.round((lot.currentAvgWeight / (lot.targetWeight || 450)) * 100),
@@ -1044,7 +1284,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 </div>
               </article>
             );
-          })}
+          })
+          )}
 
           {/* Global Summary Card */}
           <article className="bg-[#eeeeee] rounded-2xl border-2 border-[#c1c8c2] shadow-sm p-5 flex flex-col justify-between">
@@ -1103,61 +1344,71 @@ export const CattleView: React.FC<CattleViewProps> = ({
       {viewMode === 'totalized' && (
         <div className="space-y-6">
           {/* Consolidated Top Metric Bar (6 KPIs) */}
-          <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-              <div className="flex items-center justify-between text-[#79564b]">
-                <span className="text-[10px] font-extrabold uppercase">Total Lotes</span>
-                <Layers className="w-4 h-4 text-[#012d1d]" />
+          <section className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+                <span className="text-[10px] font-bold uppercase truncate">
+                  {isLotsEnabled ? 'Total Lotes' : 'Total Predios'}
+                </span>
+                {isLotsEnabled ? (
+                  <Layers className="w-4 h-4 text-emerald-800 shrink-0" />
+                ) : (
+                  <Building2 className="w-4 h-4 text-emerald-800 shrink-0" />
+                )}
               </div>
-              <p className="text-2xl font-black font-mono text-[#012d1d] mt-2">{grandMetrics.totalLots}</p>
-              <p className="text-[10px] text-[#717973] mt-1 font-medium">Lotes registrados</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
+                {isLotsEnabled ? grandMetrics.totalLots : grandMetrics.farmSummaries.length}
+              </p>
+              <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">
+                {isLotsEnabled ? 'Lotes registrados' : 'Predios con inventario'}
+              </p>
             </div>
 
-            <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-              <div className="flex items-center justify-between text-[#79564b]">
-                <span className="text-[10px] font-extrabold uppercase">Total Cabezas</span>
-                <Beef className="w-4 h-4 text-[#ffba38]" />
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+                <span className="text-[10px] font-bold uppercase truncate">Total Cabezas</span>
+                <Beef className="w-4 h-4 text-amber-600 shrink-0" />
               </div>
-              <p className="text-2xl font-black font-mono text-[#012d1d] mt-2">{grandMetrics.totalHeads.toLocaleString()}</p>
-              <p className="text-[10px] text-[#2d6a4f] font-bold mt-1">Bovinos en inventario</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">{grandMetrics.totalHeads.toLocaleString()}</p>
+              <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">Bovinos en inventario</p>
             </div>
 
-            <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-              <div className="flex items-center justify-between text-[#79564b]">
-                <span className="text-[10px] font-extrabold uppercase">Peso Total Hato</span>
-                <Scale className="w-4 h-4 text-[#012d1d]" />
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+                <span className="text-[10px] font-bold uppercase truncate">Peso Total</span>
+                <Scale className="w-4 h-4 text-emerald-800 shrink-0" />
               </div>
-              <p className="text-2xl font-black font-mono text-[#012d1d] mt-2">{grandMetrics.totalWeightTon} Ton</p>
-              <p className="text-[10px] text-[#717973] mt-1 font-mono font-semibold">{grandMetrics.totalWeightKg.toLocaleString()} kg</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">{grandMetrics.totalWeightTon} Ton</p>
+              <p className="text-[10px] text-slate-500 mt-1 font-mono font-medium truncate">{grandMetrics.totalWeightKg.toLocaleString()} kg</p>
             </div>
 
-            <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-              <div className="flex items-center justify-between text-[#79564b]">
-                <span className="text-[10px] font-extrabold uppercase">Peso Prom. Cabeza</span>
-                <TrendingUp className="w-4 h-4 text-[#2d6a4f]" />
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+                <span className="text-[10px] font-bold uppercase truncate">Peso Promedio</span>
+                <TrendingUp className="w-4 h-4 text-emerald-700 shrink-0" />
               </div>
-              <p className="text-2xl font-black font-mono text-[#012d1d] mt-2">{grandMetrics.avgWeightGlobal} kg</p>
-              <p className="text-[10px] text-[#717973] mt-1 font-medium">Promedio ponderado</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">{grandMetrics.avgWeightGlobal} kg</p>
+              <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">Promedio ponderado</p>
             </div>
 
-            <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-              <div className="flex items-center justify-between text-[#79564b]">
-                <span className="text-[10px] font-extrabold uppercase">GDP Ponderada</span>
-                <Zap className="w-4 h-4 text-amber-600" />
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+                <span className="text-[10px] font-bold uppercase truncate">GDP Ponderada</span>
+                <Zap className="w-4 h-4 text-amber-600 shrink-0" />
               </div>
-              <p className="text-2xl font-black font-mono text-emerald-800 mt-2">+{grandMetrics.avgGdpGlobal}</p>
-              <p className="text-[10px] text-emerald-700 font-bold mt-1">kg / animal / día</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-emerald-800 mt-2 truncate tracking-tight">+{grandMetrics.avgGdpGlobal}</p>
+              <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">kg / animal / día</p>
             </div>
 
-            <div className="bg-[#012d1d] text-white rounded-2xl p-4 card-shadow border-2 border-[#012d1d]">
-              <div className="flex items-center justify-between text-[#ffba38]">
-                <span className="text-[10px] font-extrabold uppercase">Valor Est. Hato</span>
-                <DollarSign className="w-4 h-4 text-[#ffba38]" />
+            <div className="bg-[#043825] text-white rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-[#facc15] gap-1 min-w-0">
+                <span className="text-[10px] font-bold uppercase truncate">Valor Est. Hato</span>
+                <DollarSign className="w-4 h-4 text-[#facc15] shrink-0" />
               </div>
-              <p className="text-2xl font-black font-mono text-[#ffba38] mt-2">
+              <p className="text-xl sm:text-2xl font-bold font-mono text-[#facc15] mt-2 truncate tracking-tight">
                 ${(grandMetrics.totalEstimatedValueCop / 1000000).toFixed(1)}M
               </p>
-              <p className="text-[10px] text-[#c1ecd4] mt-1 font-mono font-semibold">COP Comercial</p>
+              <p className="text-[10px] text-emerald-200 mt-1 font-mono font-medium truncate">COP Comercial</p>
             </div>
           </section>
 
@@ -1169,7 +1420,9 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   RESUMEN TOTALIZADO MULTI-PREDIO
                 </span>
                 <h2 className="text-xl font-bold mt-1 text-white">
-                  Consolidado General de Lotes por Finca o Predio
+                  {isLotsEnabled
+                    ? 'Consolidado General de Lotes por Finca o Predio'
+                    : 'Consolidado General de Inventario por Predio o Finca'}
                 </h2>
                 <p className="text-xs text-[#c1ecd4]">
                   Información totalizada con número de cabezas, peso total, GDP promedio y valorización comercial.
@@ -1193,11 +1446,11 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 <thead>
                   <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold uppercase tracking-wider text-[11px] border-b-2 border-[#c1c8c2]">
                     <th className="p-3">Predio / Finca</th>
-                    <th className="p-3">Código y Lote</th>
+                    {isLotsEnabled && <th className="p-3">Código y Lote</th>}
                     <th className="p-3">Categoría</th>
                     <th className="p-3 text-center">Cabezas</th>
                     <th className="p-3 text-right">Peso Prom. (kg)</th>
-                    <th className="p-3 text-right">Peso Total Lote (kg)</th>
+                    <th className="p-3 text-right">Peso Total (kg)</th>
                     <th className="p-3 text-right">GDP (kg/d)</th>
                     <th className="p-3">Pastura / Potrero</th>
                     <th className="p-3 text-right">Valor Est. ($ COP)</th>
@@ -1207,25 +1460,32 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 <tbody className="divide-y divide-[#eeeeee]">
                   {grandMetrics.farmSummaries.map((farmSum) => {
                     const isCollapsed = expandedFarms[farmSum.farmName] === false;
+                    const allFarmAnimals = farmSum.lots.flatMap((l) => generateAnimalsForLot(l, farmSum.farmName));
 
                     return (
                       <React.Fragment key={farmSum.farmName}>
                         {/* Farm Header Row */}
                         <tr
-                          onClick={() => toggleFarmExpand(farmSum.farmName)}
-                          className="bg-[#eef5f1] hover:bg-[#e2efe8] font-bold text-[#012d1d] cursor-pointer transition-colors border-t-2 border-[#c1c8c2]"
+                          onClick={() => isLotsEnabled && toggleFarmExpand(farmSum.farmName)}
+                          className={`bg-[#eef5f1] hover:bg-[#e2efe8] font-bold text-[#012d1d] transition-colors border-t-2 border-[#c1c8c2] ${
+                            isLotsEnabled ? 'cursor-pointer' : ''
+                          }`}
                         >
-                          <td colSpan={3} className="p-3">
+                          <td colSpan={isLotsEnabled ? 3 : 2} className="p-3">
                             <div className="flex items-center gap-2">
-                              {isCollapsed ? (
-                                <ChevronRight className="w-4 h-4 text-[#012d1d]" />
-                              ) : (
-                                <ChevronDown className="w-4 h-4 text-[#012d1d]" />
+                              {isLotsEnabled && (
+                                isCollapsed ? (
+                                  <ChevronRight className="w-4 h-4 text-[#012d1d]" />
+                                ) : (
+                                  <ChevronDown className="w-4 h-4 text-[#012d1d]" />
+                                )
                               )}
                               <Building2 className="w-4 h-4 text-[#2d6a4f]" />
                               <span className="text-sm font-black">{farmSum.farmName}</span>
                               <span className="text-[10px] bg-[#012d1d] text-[#ffba38] px-2 py-0.5 rounded font-mono">
-                                {farmSum.totalLots} {farmSum.totalLots === 1 ? 'Lote' : 'Lotes'}
+                                {isLotsEnabled
+                                  ? `${farmSum.totalLots} ${farmSum.totalLots === 1 ? 'Lote' : 'Lotes'}`
+                                  : 'Predio Activo'}
                               </span>
                             </div>
                           </td>
@@ -1248,14 +1508,45 @@ export const CattleView: React.FC<CattleViewProps> = ({
                             ${(farmSum.totalEstimatedValueCop / 1000000).toFixed(2)}M
                           </td>
                           <td className="p-3 text-center">
-                            <span className="text-[10px] font-bold text-[#2d6a4f] underline">
-                              {isCollapsed ? 'Expandir' : 'Contraer'}
-                            </span>
+                            {isLotsEnabled ? (
+                              <span className="text-[10px] font-bold text-[#2d6a4f] underline">
+                                {isCollapsed ? 'Expandir' : 'Contraer'}
+                              </span>
+                            ) : (
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setActiveLotDetail({
+                                    id: `farm-combined-${farmSum.farmName}`,
+                                    code: 'PREDIO',
+                                    name: `Bovinos en ${farmSum.farmName}`,
+                                    category: 'ceba',
+                                    categoryLabel: 'CONSOLIDADO PREDIO',
+                                    heads: farmSum.totalHeads,
+                                    currentAvgWeight: farmSum.avgWeightPerHead,
+                                    gdpCurrent: farmSum.avgGdpWeighted,
+                                    pastureType: 'Pasturas Predio',
+                                    farmName: farmSum.farmName,
+                                    sexLabel: 'Macho / Hembra',
+                                    ageRange: 'Consolidado Predio',
+                                    targetWeight: 450,
+                                    estDaysToExit: 60,
+                                    estimatedValueCop: farmSum.totalEstimatedValueCop,
+                                    animals: allFarmAnimals,
+                                  });
+                                }}
+                                className="px-2.5 py-1 bg-[#012d1d] hover:bg-[#1b4332] text-white rounded-lg font-bold text-[10px] transition-all cursor-pointer flex items-center gap-1 mx-auto"
+                              >
+                                <Eye className="w-3 h-3 text-[#ffba38]" />
+                                <span>Ver Bovinos</span>
+                              </button>
+                            )}
                           </td>
                         </tr>
 
-                        {/* Lot Detail Rows for this Farm */}
-                        {!isCollapsed &&
+                        {/* Lot Detail Rows for this Farm (ONLY WHEN isLotsEnabled IS TRUE) */}
+                        {isLotsEnabled &&
+                          !isCollapsed &&
                           farmSum.lots.map((lot) => {
                             const pricePerKg = getPricePerKgByCategory(lot.category);
                             const lotWeightKg = (lot.heads || 0) * (lot.currentAvgWeight || 0);
@@ -1319,7 +1610,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 {/* Grand Total Footer Row */}
                 <tfoot>
                   <tr className="bg-[#012d1d] text-white font-extrabold border-t-4 border-[#ffba38]">
-                    <td colSpan={3} className="p-4 text-sm uppercase tracking-wider">
+                    <td colSpan={isLotsEnabled ? 3 : 2} className="p-4 text-sm uppercase tracking-wider">
                       GRAND TOTAL CONSOLIDADO MULTI-PREDIO
                     </td>
                     <td className="p-4 text-center font-mono text-base text-[#ffba38]">
@@ -1335,7 +1626,9 @@ export const CattleView: React.FC<CattleViewProps> = ({
                       +{grandMetrics.avgGdpGlobal} kg/d
                     </td>
                     <td className="p-4 text-xs font-normal text-[#c1ecd4]">
-                      {grandMetrics.totalLots} Lotes Registrados
+                      {isLotsEnabled
+                        ? `${grandMetrics.totalLots} Lotes Registrados`
+                        : `${grandMetrics.farmSummaries.length} Predios Registrados`}
                     </td>
                     <td className="p-4 text-right font-mono text-base text-[#ffba38]">
                       ${(grandMetrics.totalEstimatedValueCop / 1000000).toFixed(2)}M COP
@@ -1508,7 +1801,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
       {/* LOT DETAIL MODAL (CON PREDIO Y LISTADO INDIVIDUAL DE ANIMALES ENFRENTE) */}
       {/* ========================================================================= */}
       {activeLotDetail && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4" onClick={(e) => { if (e.target === e.currentTarget) setActiveLotDetail(null); }}>
           <div className="bg-white rounded-2xl max-w-4xl w-full p-5 md:p-6 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] overflow-y-auto flex flex-col justify-between">
             {/* Modal Header */}
             <div>
@@ -1792,7 +2085,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
       {/* 3. FICHA INDIVIDUAL DEL BOVINO MODAL */}
       {/* ========================================================================= */}
       {selectedAnimalForFicha && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) setSelectedAnimalForFicha(null); }}>
           <div className="bg-white rounded-3xl max-w-xl w-full p-5 md:p-6 border border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[92vh] flex flex-col justify-between">
             <div>
               {/* Header */}
@@ -2001,6 +2294,25 @@ export const CattleView: React.FC<CattleViewProps> = ({
         onRejectTransition={handleRejectTransition}
         onApproveAllPending={handleApproveAllPending}
         onSaveRules={handleSaveRules}
+      />
+
+      {/* Numbering Policy & Identification Settings Modal */}
+      <NumberingPolicySettingsModal
+        isOpen={isNumberingPolicyModalOpen}
+        onClose={() => setIsNumberingPolicyModalOpen(false)}
+        farmId={currentFarm?.profile.id || 'all'}
+        farmName={currentFarm?.profile.name || 'Predio Activo'}
+        currentPolicy={farmNumberingPolicy}
+        onPolicyUpdated={(newPolicy) => setFarmNumberingPolicy(newPolicy)}
+      />
+
+      {/* Migrate Existing Inventory Modal */}
+      <MigrateInventoryModal
+        isOpen={isMigrateModalOpen}
+        onClose={() => setIsMigrateModalOpen(false)}
+        farms={farms}
+        currentFarmId={currentFarm?.profile.id || 'all'}
+        onCompleteMigration={handleCompleteMigration}
       />
     </div>
   );

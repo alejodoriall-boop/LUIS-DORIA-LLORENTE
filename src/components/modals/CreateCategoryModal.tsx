@@ -92,8 +92,8 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
     AVAILABLE_ICONS.find((i) => i.name === selectedIconName)?.Icon || Package;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200 my-auto">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-3xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200 my-auto">
         {/* Header */}
         <div className="bg-[#012d1d] text-white p-4 sm:p-5 flex items-center justify-between">
           <div className="flex items-center gap-2.5">

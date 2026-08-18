@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FarmGeoProfile, FarmProductionType } from '../../types';
-import { X, Save, Edit3, Building, MapPin, AlertCircle, FileText } from 'lucide-react';
+import { X, Save, Edit3, Building, MapPin, AlertCircle, FileText, Power, ShieldAlert, CheckCircle2 } from 'lucide-react';
 
 interface EditFarmModalProps {
   isOpen: boolean;
@@ -27,10 +27,11 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
   const [totalAreaHa, setTotalAreaHa] = useState<number>(100);
   const [productionType, setProductionType] = useState<FarmProductionType>('ceba');
   const [notes, setNotes] = useState('');
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
-    if (farm) {
+    if (isOpen && farm) {
       setName(farm.name || '');
       setLegalOwner(farm.legalOwner || '');
       setRegistrationNumber(farm.registrationNumber || '');
@@ -43,9 +44,10 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
       setTotalAreaHa(farm.totalAreaHa || 100);
       setProductionType(farm.productionType || 'ceba');
       setNotes(farm.notes || '');
+      setIsDisabled(!!farm.isDisabled);
       setErrorMsg(null);
     }
-  }, [farm, isOpen]);
+  }, [farm?.id, isOpen]);
 
   if (!isOpen || !farm) return null;
 
@@ -70,6 +72,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
       totalAreaHa: Number(totalAreaHa),
       productionType,
       notes: notes.trim(),
+      isDisabled,
       lastUpdated: new Date().toLocaleDateString('es-CO', {
         day: '2-digit',
         month: 'short',
@@ -82,7 +85,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#c1c8c2] shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="bg-[#012d1d] text-white px-5 py-4 sm:px-6 flex items-center justify-between border-b border-[#2d6a4f]">
@@ -270,6 +273,57 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
               onChange={(e) => setNotes(e.target.value)}
               className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
             />
+          </div>
+
+          {/* Estado del Predio (Habilitado / Deshabilitado) */}
+          <div className="p-3.5 rounded-2xl bg-[#f8faf8] border-2 border-[#c1c8c2] space-y-2">
+            <div className="flex items-center justify-between">
+              <div>
+                <label className="font-extrabold text-xs text-[#012d1d] flex items-center gap-1.5">
+                  <Power className={`w-4 h-4 ${isDisabled ? 'text-amber-600' : 'text-emerald-700'}`} />
+                  <span>Estado del Predio / Finca:</span>
+                </label>
+                <p className="text-[11px] text-[#555] mt-0.5">
+                  {isDisabled ? (
+                    <span className="font-bold text-amber-800">
+                      🚫 Deshabilitado — Conserva potreros, hatos e historial 100% intactos.
+                    </span>
+                  ) : (
+                    <span className="font-bold text-emerald-800">
+                      ● Activo — Totalmente operativo para registros diarios.
+                    </span>
+                  )}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsDisabled(!isDisabled)}
+                className={`px-3.5 py-1.5 rounded-xl font-extrabold text-xs transition-all flex items-center gap-1.5 cursor-pointer border ${
+                  isDisabled
+                    ? 'bg-amber-100 hover:bg-amber-200 text-amber-950 border-amber-300'
+                    : 'bg-emerald-100 hover:bg-emerald-200 text-emerald-950 border-emerald-300'
+                }`}
+              >
+                {isDisabled ? (
+                  <>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-700" />
+                    <span>Re-Habilitar Predio</span>
+                  </>
+                ) : (
+                  <>
+                    <ShieldAlert className="w-3.5 h-3.5 text-rose-700" />
+                    <span>Deshabilitar Predio</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {isDisabled && (
+              <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-[10.5px] text-amber-900 font-medium">
+                💡 <b>Información Segura:</b> Al deshabilitar este predio, <b>no se borra ninguna información</b> (se mantienen intactos potreros, pluviómetros, pesajes, inventario y movimientos). Solo se oculta temporalmente para evitar registros por error.
+              </div>
+            )}
           </div>
 
           {/* Footer buttons */}

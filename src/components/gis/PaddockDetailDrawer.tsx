@@ -1,5 +1,6 @@
 import React from 'react';
 import { PaddockGeo, LotRecord } from '../../types';
+import { safeConfirm } from '../../utils/printUtils';
 import {
   X,
   Scale,
@@ -156,7 +157,7 @@ export const PaddockDetailDrawer: React.FC<PaddockDetailDrawerProps> = ({
 
           <button
             onClick={() => {
-              if (confirm(`¿Eliminar el potrero ${paddock.name} (${paddock.code}) del sistema?`)) {
+              if (safeConfirm(`¿Eliminar el potrero ${paddock.name} (${paddock.code}) del sistema?`)) {
                 onDeletePaddock(paddock.id);
                 onClose();
               }

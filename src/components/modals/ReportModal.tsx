@@ -1,5 +1,6 @@
 import React from 'react';
 import { LotRecord } from '../../types';
+import { safePrint } from '../../utils/printUtils';
 import { BarChart3, X, DollarSign, TrendingUp, Download, Printer } from 'lucide-react';
 
 interface ReportModalProps {
@@ -21,8 +22,8 @@ export const ReportModal: React.FC<ReportModalProps> = ({
   const estimatedGrossValue = totalKg * avgPricePerKg;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-2xl w-full p-6 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-2xl max-w-4xl lg:max-w-5xl w-full p-6 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between pb-3 border-b border-[#eeeeee]">
           <div className="flex items-center gap-2">
             <div className="p-2 bg-[#1b4332] text-white rounded-xl">
@@ -104,7 +105,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
 
         <div className="flex justify-between pt-3 border-t border-[#eeeeee]">
           <button
-            onClick={() => window.print()}
+            onClick={safePrint}
             className="px-4 py-2.5 bg-[#f3f3f3] hover:bg-[#e8e8e8] text-[#012d1d] font-bold rounded-xl text-xs flex items-center gap-1.5 transition-colors"
           >
             <Printer className="w-4 h-4" />

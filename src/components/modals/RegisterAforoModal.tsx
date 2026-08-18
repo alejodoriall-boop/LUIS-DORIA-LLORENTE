@@ -70,7 +70,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
     if (farmPaddocks.length > 0 && (!paddockId || !farmPaddocks.some((p) => p.id === paddockId))) {
       setPaddockId(farmPaddocks[0].id);
     }
-  }, [farmId, farmPaddocks]);
+  }, [farmId, paddockId, farmPaddocks.length]);
 
   const selectedPaddock = farmPaddocks.find((p) => p.id === paddockId);
   const paddockAreaHa = selectedPaddock?.areaHa || 5.0;
@@ -215,8 +215,8 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200 my-auto">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-3xl max-w-4xl lg:max-w-5xl w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200 my-auto">
         {/* Header */}
         <div className="bg-[#012d1d] text-white p-4 sm:p-5 flex items-center justify-between">
           <div className="flex items-center gap-3">

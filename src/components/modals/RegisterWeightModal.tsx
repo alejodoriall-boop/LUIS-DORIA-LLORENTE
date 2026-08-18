@@ -75,7 +75,8 @@ export const RegisterWeightModal: React.FC<RegisterWeightModalProps> = ({
   // Keep manual weight in sync when capturing from scale
   useEffect(() => {
     if (inputMode === 'live_scale' && reading.isStable && !capturedWeight) {
-      setManualWeightInput(reading.weight.toFixed(1));
+      const nextStr = reading.weight.toFixed(1);
+      setManualWeightInput((prev) => (prev === nextStr ? prev : nextStr));
     }
   }, [inputMode, reading.weight, reading.isStable, capturedWeight]);
 
@@ -84,7 +85,7 @@ export const RegisterWeightModal: React.FC<RegisterWeightModalProps> = ({
     if (activeScale?.lastEIDTag && weighingType !== 'lote') {
       const parts = activeScale.lastEIDTag.split(' ');
       const shortTag = parts[parts.length - 1]?.slice(-4) || '4512';
-      setAnimalTag(shortTag);
+      setAnimalTag((prev) => (prev === shortTag ? prev : shortTag));
     }
   }, [activeScale?.lastEIDTag, weighingType]);
 
@@ -172,8 +173,8 @@ export const RegisterWeightModal: React.FC<RegisterWeightModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4 overflow-y-auto animate-in fade-in">
-      <div className="bg-white rounded-3xl max-w-xl w-full border border-[#c1c8c2] shadow-2xl overflow-hidden my-auto">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4 overflow-y-auto animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-3xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full border border-[#c1c8c2] shadow-2xl overflow-hidden my-auto">
         {/* Modal Header */}
         <div className="bg-[#012d1d] text-white px-5 py-3.5 flex items-center justify-between">
           <div className="flex items-center gap-2.5">

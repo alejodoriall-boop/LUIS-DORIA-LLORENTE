@@ -43,28 +43,30 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
   const [notes, setNotes] = useState('');
 
   useEffect(() => {
-    if (initialIron) {
-      setName(initialIron.name || '');
-      setCode(initialIron.code || '');
-      setSymbolIcon(initialIron.symbolIcon || '🔥');
-      setBodyLocation(initialIron.bodyLocation || 'Anca Derecha');
-      setType(initialIron.type || 'propiedad');
-      setRegistrationNumber(initialIron.registrationNumber || '');
-      setSelectedFarmId(initialIron.farmId || '');
-      setImageUrl(initialIron.imageUrl || '');
-      setNotes(initialIron.notes || '');
-    } else {
-      setName('');
-      setCode('');
-      setSymbolIcon('🔥');
-      setBodyLocation('Anca Derecha');
-      setType('propiedad');
-      setRegistrationNumber('');
-      setSelectedFarmId(farms[0]?.profile.id || '');
-      setImageUrl('');
-      setNotes('');
+    if (isOpen) {
+      if (initialIron) {
+        setName(initialIron.name || '');
+        setCode(initialIron.code || '');
+        setSymbolIcon(initialIron.symbolIcon || '🔥');
+        setBodyLocation(initialIron.bodyLocation || 'Anca Derecha');
+        setType(initialIron.type || 'propiedad');
+        setRegistrationNumber(initialIron.registrationNumber || '');
+        setSelectedFarmId(initialIron.farmId || '');
+        setImageUrl(initialIron.imageUrl || '');
+        setNotes(initialIron.notes || '');
+      } else {
+        setName('');
+        setCode('');
+        setSymbolIcon('🔥');
+        setBodyLocation('Anca Derecha');
+        setType('propiedad');
+        setRegistrationNumber('');
+        setSelectedFarmId(farms[0]?.profile.id || '');
+        setImageUrl('');
+        setNotes('');
+      }
     }
-  }, [initialIron, isOpen, farms]);
+  }, [initialIron?.id, isOpen, farms.length]);
 
   if (!isOpen) return null;
 
@@ -113,8 +115,8 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto">
-      <div className="bg-white border-2 border-[#012d1d] rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden my-8">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white border-2 border-[#012d1d] rounded-3xl max-w-4xl lg:max-w-5xl w-full shadow-2xl overflow-hidden my-8">
         {/* Header */}
         <div className="bg-gradient-to-r from-[#012d1d] via-[#083d28] to-[#012d1d] p-5 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">

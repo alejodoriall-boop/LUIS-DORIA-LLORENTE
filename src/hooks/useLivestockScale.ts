@@ -54,6 +54,11 @@ export const useLivestockScale = (): LivestockScaleHook => {
   const lockTimerRef = useRef<NodeJS.Timeout | null>(null);
   const soundEnabledRef = useRef<boolean>(true);
 
+  const isLockedRef = useRef<boolean>(false);
+  useEffect(() => {
+    isLockedRef.current = reading.isLocked;
+  }, [reading.isLocked]);
+
   // Keep sound ref synced
   useEffect(() => {
     soundEnabledRef.current = activeScale ? activeScale.soundFeedback : true;
@@ -66,18 +71,23 @@ export const useLivestockScale = (): LivestockScaleHook => {
     }
 
     const interval = setInterval(() => {
-      if (reading.isLocked) return;
+      if (isLockedRef.current) return;
 
       const target = targetWeightRef.current;
       if (target <= 0.5) {
         // Platform is at zero / tared
-        setReading((prev) => ({
-          ...prev,
-          weight: 0.0,
-          isStable: true,
-          rawFluctuation: 0,
-          timestamp: new Date().toISOString(),
-        }));
+        setReading((prev) => {
+          if (prev.weight === 0.0 && prev.isStable && prev.rawFluctuation === 0) {
+            return prev;
+          }
+          return {
+            ...prev,
+            weight: 0.0,
+            isStable: true,
+            rawFluctuation: 0,
+            timestamp: new Date().toISOString(),
+          };
+        });
         return;
       }
 
@@ -96,22 +106,24 @@ export const useLivestockScale = (): LivestockScaleHook => {
           timestamp: new Date().toISOString(),
         }));
       } else {
-        // Settled / stable with tiny natural load cell micro-drift (+-0.1 kg)
-        const microDrift = (Math.random() - 0.5) * 0.2;
-        const stableWeight = Math.round((target + microDrift) * 10) / 10;
-
-        setReading((prev) => ({
-          ...prev,
-          weight: stableWeight,
-          isStable: true,
-          rawFluctuation: 0,
-          timestamp: new Date().toISOString(),
-        }));
+        // Settled / stable
+        setReading((prev) => {
+          if (prev.weight === target && prev.isStable && prev.rawFluctuation === 0) {
+            return prev;
+          }
+          return {
+            ...prev,
+            weight: target,
+            isStable: true,
+            rawFluctuation: 0,
+            timestamp: new Date().toISOString(),
+          };
+        });
       }
-    }, 120);
+    }, 200);
 
     return () => clearInterval(interval);
-  }, [activeScale, reading.isLocked, filterSensitivity]);
+  }, [activeScale, filterSensitivity]);
 
   // Simulate animal entering the chute/scale
   const simulateNextAnimal = useCallback(

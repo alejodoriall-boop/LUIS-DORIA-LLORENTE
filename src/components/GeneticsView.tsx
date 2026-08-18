@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { safePrint } from '../utils/printUtils';
 import {
   PedigreeAnimal,
   ReproductiveEvent,
@@ -14,7 +15,10 @@ import {
   SemenInventoryItem,
   SynchronizationProtocol,
   EmbryoItem,
+  ProgenyTestRecord,
 } from '../types';
+import { INITIAL_PROGENY_TESTS } from '../data/mockProgenyData';
+import { ProgenyTestingSection } from './ProgenyTestingSection';
 import {
   Award,
   Edit3,
@@ -78,6 +82,17 @@ interface GeneticsViewProps {
   onOpenCertificateModal: () => void;
   onOpenBreedingSimulator: () => void;
   onOpenNewEventModal: () => void;
+  onOpenPalpationModal?: () => void;
+  initialSubTab?:
+    | 'kpis_ia'
+    | 'insemination'
+    | 'embryo_transfer'
+    | 'donors_receptors'
+    | 'bulls_semen'
+    | 'events'
+    | 'females'
+    | 'pedigree'
+    | 'progeny_testing';
 }
 
 export interface GeneticLine {
@@ -204,12 +219,12 @@ const GENETIC_LINES_CATALOG: GeneticLine[] = [
       boneAndFeet: 'Cascos amplios de alta resistencia para caminatas prolongadas en pastos extensivos.'
     },
     reproductiveEfficiency: {
-      epp: '27.0 Meses',
-      iep: '375 Días (12.5 Meses)',
-      conceptionRate: '72% al 1er Servicio',
-      dailyYieldOrWeight: 'Peso Destete (210d): 230 - 250 kg',
-      opuOrTeViability: '84% Retención de embriones en transferencia',
-      usefulLife: '14 - 16 Años en Pastoreo'
+      epp: '30.0 - 33.0 Meses (Óptimo) | 34 - 42m (Comercial)',
+      iep: '365 - 400 Días (1 Ternero/Año) | Gestación: 288-293d',
+      conceptionRate: 'Tasa Preñez Objetivo: >80% - 85% (S/C: 1.2 - 1.5)',
+      dailyYieldOrWeight: 'Peso Destete (210d): Macho 190-240kg | Hembra 170-210kg',
+      opuOrTeViability: 'Circunferencia Escrotal 24m: ≥32-35cm | Tasa Destete >75-80%',
+      usefulLife: '14 - 16 Años en Pastoreo (Monitorear CC ≥3.0 al Parto)'
     },
     couplingStrategy: 'Base rústica ideal para cruce heterótico con razas taurinas especializadas (Angus, Simmental, Senepol).'
   },
@@ -488,6 +503,11 @@ const INITIAL_SYNCHRONIZATIONS: SynchronizationProtocol[] = [
     femaleCategoryOverrides: { 'cow-3341': 'Novilla', 'rec-102': 'Vaca' },
     status: 'Inseminado / Transferido',
     hormonalProtocolUsed: 'DIB + Benzoato + Prostaglandina',
+    palpationLotName: 'Lote Palpación #12 - Potrero El Hato',
+    palpationDate: '2026-07-20',
+    susceptibilityType: 'Inseminación (IATF)',
+    expirationDays: 30,
+    isPalpationExpired: false,
   },
   {
     id: 'sync-2',
@@ -502,6 +522,11 @@ const INITIAL_SYNCHRONIZATIONS: SynchronizationProtocol[] = [
     femaleCategoryOverrides: { 'rec-102': 'Vaca', 'rec-3341': 'Novilla', 'rec-901': 'Novilla' },
     status: 'En Proceso',
     hormonalProtocolUsed: 'CIDR + GnRH + PGF2a',
+    palpationLotName: 'Lote Palpación Receptoras Célula Cero',
+    palpationDate: '2026-07-28',
+    susceptibilityType: 'Transferencia de Embriones (TETF)',
+    expirationDays: 30,
+    isPalpationExpired: false,
   },
 ];
 
@@ -599,11 +624,19 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
   onOpenCertificateModal,
   onOpenBreedingSimulator,
   onOpenNewEventModal,
+  onOpenPalpationModal,
+  initialSubTab,
 }) => {
   // Main Sub-Tab State
   const [activeSubTab, setActiveSubTab] = useState<
-    'kpis_ia' | 'insemination' | 'embryo_transfer' | 'donors_receptors' | 'bulls_semen' | 'events' | 'females' | 'pedigree'
-  >('kpis_ia');
+    'kpis_ia' | 'insemination' | 'embryo_transfer' | 'donors_receptors' | 'bulls_semen' | 'events' | 'females' | 'pedigree' | 'progeny_testing'
+  >(initialSubTab || 'kpis_ia');
+
+  useEffect(() => {
+    if (initialSubTab) {
+      setActiveSubTab(initialSubTab);
+    }
+  }, [initialSubTab]);
 
   // Reproductive Dataset States
   const [females, setFemales] = useState<ReproductiveFemale[]>(INITIAL_FEMALES);
@@ -612,6 +645,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
   const [semenInventory, setSemenInventory] = useState<SemenInventoryItem[]>(INITIAL_SEMEN_INVENTORY);
   const [syncProtocols, setSyncProtocols] = useState<SynchronizationProtocol[]>(INITIAL_SYNCHRONIZATIONS);
   const [embryos, setEmbryos] = useState<EmbryoItem[]>(INITIAL_EMBRYOS);
+  const [progenyTests, setProgenyTests] = useState<ProgenyTestRecord[]>(INITIAL_PROGENY_TESTS);
 
   // Embryo Filter and Modal States
   const [embryoFilterStatus, setEmbryoFilterStatus] = useState<'all' | 'fecundado' | 'transferido' | 'vitrificado'>('all');
@@ -1384,7 +1418,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
     if (activeIaCow && activeIaCow.id !== selectedFemaleIdForForm) {
       setSelectedFemaleIdForForm(activeIaCow.id);
     }
-  }, [activeIaCow]);
+  }, [activeIaCow?.id]);
 
   // Auto-fill mother name and body condition when activeIaCow changes
   useEffect(() => {
@@ -1414,7 +1448,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
     if (activeTeReceptor && activeTeReceptor.id !== teSelectedReceptorId) {
       setTeSelectedReceptorId(activeTeReceptor.id);
     }
-  }, [activeTeReceptor]);
+  }, [activeTeReceptor?.id]);
 
   // Active Donor Cow Auto-Loaded from Inventory
   const activeTeDonor = useMemo(() => {
@@ -1467,6 +1501,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
   const [newSyncTechnique, setNewSyncTechnique] = useState<'IATF (Inseminación a Tiempo Fijo)' | 'TETF (Transferencia a Tiempo Fijo)'>('IATF (Inseminación a Tiempo Fijo)');
   const [newSyncStartDate, setNewSyncStartDate] = useState(new Date().toISOString().split('T')[0]);
   const [newSyncCount, setNewSyncCount] = useState<number>(10);
+  const [newSyncPalpationLotName, setNewSyncPalpationLotName] = useState('Lote Palpación Diagnóstico Vacías');
+  const [newSyncPalpationDate, setNewSyncPalpationDate] = useState(
+    new Date(Date.now() - 10 * 24 * 3600 * 1000).toISOString().split('T')[0]
+  );
+  const [newSyncSusceptibilityType, setNewSyncSusceptibilityType] = useState<
+    'Inseminación (IATF)' | 'Transferencia de Embriones (TETF)' | 'Ambas Susceptibles'
+  >('Ambas Susceptibles');
 
   // Herd KPIs Calculation
   const herdKPIs = useMemo(() => {
@@ -1663,6 +1704,10 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
     const service = new Date(start.getTime() + 9 * 24 * 60 * 60 * 1000);
     const palpation = new Date(start.getTime() + 45 * 24 * 60 * 60 * 1000);
 
+    const palpationTime = new Date(newSyncPalpationDate).getTime();
+    const daysElapsed = Math.floor((start.getTime() - palpationTime) / (1000 * 3600 * 24));
+    const isExpired = daysElapsed > 30;
+
     const protocol: SynchronizationProtocol = {
       id: `sync-${Date.now()}`,
       name: newSyncName,
@@ -1674,6 +1719,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       femaleCount: newSyncCount,
       status: 'En Proceso',
       hormonalProtocolUsed: 'DIB + Benzoato + Prostaglandina',
+      palpationLotName: newSyncPalpationLotName,
+      palpationDate: newSyncPalpationDate,
+      susceptibilityType: newSyncSusceptibilityType,
+      expirationDays: 30,
+      isPalpationExpired: isExpired,
     };
 
     setSyncProtocols([protocol, ...syncProtocols]);
@@ -1684,7 +1734,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
   };
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto w-full pb-16">
+    <div className="space-y-6 w-full pb-16">
       {/* Top Banner & Main Sub-tab Header */}
       <div className="bg-[#012d1d] text-white rounded-3xl p-5 md:p-6 shadow-xl border-2 border-[#1b4332] relative overflow-hidden">
         <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
@@ -1694,23 +1744,36 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative z-10">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="bg-[#ffba38] text-[#523700] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider flex items-center gap-1">
-                <Sparkles className="w-3 h-3" /> Módulo Reproductivo & Genética Integral
-              </span>
-              <span className="bg-[#1b4332] text-[#c1ecd4] font-mono text-[10px] px-2 py-0.5 rounded border border-[#c1ecd4]/20">
-                GANADERIA PRO v4.5
-              </span>
+              <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-2">
+                Reproducción, Inseminación, TE & Genética
+              </h1>
+              <div className="group relative inline-flex items-center">
+                <button
+                  type="button"
+                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  title="Control completo de Inseminación Artificial (IATF), Transferencia de Embriones (TE/FIV), Vacas Donadoras & Receptoras, Inventario de Pajuelas y Fechas Clave."
+                >
+                  <Info className="w-4 h-4" />
+                </button>
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                  Control completo de Inseminación Artificial (IATF), Transferencia de Embriones (TE/FIV), Vacas Donadoras & Receptoras,
+                  Inventario de Pajuelas (Toro Propio vs Semen Comprado) y Fechas Clave (Sincronización, Servicio, DG, Parto).
+                </div>
+              </div>
             </div>
-            <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-2">
-              Reproducción, Inseminación, TE & Genética
-            </h1>
-            <p className="text-xs text-[#c1ecd4]/80 max-w-2xl">
-              Control completo de Inseminación Artificial (IATF), Transferencia de Embriones (TE/FIV), Vacas Donadoras & Receptoras,
-              Inventario de Pajuelas (Toro Propio vs Semen Comprado) y Fechas Clave (Sincronización, Servicio, DG, Parto).
-            </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 shrink-0">
+            {onOpenPalpationModal && (
+              <button
+                onClick={onOpenPalpationModal}
+                className="bg-[#083d28] hover:bg-[#0c4e34] border border-[#2d6a4f] hover:border-pink-400 text-white px-3.5 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer shadow-xs active:scale-95 group"
+                title="Abrir Módulo de Registro de Palpación & Diagnóstico Ginecológico"
+              >
+                <Stethoscope className="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform" />
+                <span>Registrar Palpación / DG</span>
+              </button>
+            )}
             <button
               onClick={onOpenBreedingSimulator}
               className="bg-[#1b4332] hover:bg-[#123627] text-white border border-[#c1ecd4]/30 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-xs active:scale-95"
@@ -1813,6 +1876,18 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             <GitFork className="w-4 h-4" />
             Pedigrí & Sementales
           </button>
+
+          <button
+            onClick={() => setActiveSubTab('progeny_testing')}
+            className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
+              activeSubTab === 'progeny_testing'
+                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+            }`}
+          >
+            <GitFork className="w-4 h-4 text-[#ffba38]" />
+            Prueba de Progenies ({progenyTests.length})
+          </button>
         </div>
       </div>
 
@@ -1834,8 +1909,190 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'kpis_ia' && (
         <div className="space-y-6">
+          {/* Top Herd KPIs */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
+                Tasa de Preñez
+              </span>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.tasaPrenez}%</span>
+                <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
+                  Óptimo
+                </span>
+              </div>
+              <p className="text-[10px] text-[#717973]">Hato preñado active</p>
+            </div>
+
+            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
+                Tasa Concepción
+              </span>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.tasaConcepcion}%</span>
+                <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
+                  IA / TE
+                </span>
+              </div>
+              <p className="text-[10px] text-[#717973]">1er servicio efectivo</p>
+            </div>
+
+            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
+                Días Abiertos (DA)
+              </span>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.avgDA}d</span>
+                <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${herdKPIs.avgDA > 90 ? 'bg-[#ffdad6] text-[#93000a]' : 'bg-[#c1ecd4] text-[#002114]'}`}>
+                  Meta &lt;90d
+                </span>
+              </div>
+              <p className="text-[10px] text-[#717973]">Parto a concepción</p>
+            </div>
+
+            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
+                Intervalo Partos
+              </span>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.avgIEP}d</span>
+                <span className="text-[9px] font-bold bg-[#e8f5ec] text-[#012d1d] px-1.5 py-0.5 rounded">
+                  12.4 Meses
+                </span>
+              </div>
+              <p className="text-[10px] text-[#717973]">Proyección IEP</p>
+            </div>
+
+            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
+                Donadoras Activas
+              </span>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-black text-[#012d1d] font-mono">{donors.length}</span>
+                <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
+                  FIV / OPU
+                </span>
+              </div>
+              <p className="text-[10px] text-[#717973]">Vacas donadoras</p>
+            </div>
+
+            <div className="p-4 bg-[#ffba38]/15 rounded-2xl border-2 border-[#ffba38] card-shadow space-y-1">
+              <span className="text-[10px] font-extrabold text-[#523700] uppercase tracking-wider block flex items-center gap-1">
+                <AlertTriangle className="w-3.5 h-3.5 text-[#b27b00]" /> Días Abiertos &gt;90d
+              </span>
+              <div className="flex items-baseline justify-between">
+                <span className="text-2xl font-black text-[#523700] font-mono">
+                  {herdKPIs.openDaysAlertCount}
+                </span>
+                <span className="text-[9px] font-extrabold bg-[#ffba38] text-[#523700] px-1.5 py-0.5 rounded">
+                  Alertas
+                </span>
+              </div>
+              <p className="text-[10px] text-[#523700]">Revisión veterinaria</p>
+            </div>
+          </div>
+
+          {/* AI Language Assistant */}
+          <div className="bg-gradient-to-br from-white to-[#f4fbf7] rounded-3xl border-2 border-[#1b4332]/30 card-shadow p-5 md:p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-[#c1c8c2] pb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+                  <Bot className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-base md:text-lg font-black text-[#012d1d]">
+                    Procesador Reproductivo en Lenguaje Natural (IA GanaderIA)
+                  </h3>
+                  <p className="text-xs text-[#717973]">
+                    Ingresa en texto libre: &quot;Hoy inseminé a la vaca 504 con la pajuela Cacique 120, se le aplicó protocolo IATF&quot;.
+                  </p>
+                </div>
+              </div>
+              <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-mono font-bold bg-[#c1ecd4] text-[#002114] px-2.5 py-1 rounded-full border border-[#012d1d]/20">
+                <Sparkles className="w-3 h-3 text-[#012d1d]" /> IA ACTIVADA
+              </span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-2">
+              <input
+                type="text"
+                value={naturalInput}
+                onChange={(e) => setNaturalInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleProcessNaturalLanguage(naturalInput);
+                }}
+                placeholder="Ej: Transferimos hoy embrión FIV de Donadora V-504 a la receptora Rosita 102..."
+                className="flex-1 bg-white border-2 border-[#c1c8c2] focus:border-[#012d1d] rounded-2xl px-4 py-3 text-xs md:text-sm text-[#012d1d] font-medium placeholder:text-[#a0a5a2] shadow-inner outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => handleProcessNaturalLanguage(naturalInput)}
+                className="bg-[#012d1d] hover:bg-[#1b4332] text-white px-5 py-3 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-md active:scale-95"
+              >
+                <Send className="w-4 h-4 text-[#ffba38]" />
+                Procesar e Interpretar
+              </button>
+            </div>
+
+            {nlpAnalysis && (
+              <div className="p-5 bg-white border-2 border-[#012d1d] rounded-2xl space-y-4 shadow-lg animate-in fade-in">
+                <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+                    <div>
+                      <h4 className="text-sm font-black text-[#012d1d]">
+                        Evento Extraído ({nlpAnalysis.confidence}% Precisión)
+                      </h4>
+                      <p className="text-xs text-[#717973]">{nlpAnalysis.summaryText}</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold bg-[#ffba38] text-[#523700] px-2.5 py-1 rounded">
+                    {nlpAnalysis.eventType}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
+                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Hembra</span>
+                    <span className="font-mono font-black text-[#012d1d]">{nlpAnalysis.cowTag}</span>
+                  </div>
+                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
+                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Semental / Pajuela</span>
+                    <span className="font-mono font-bold text-[#012d1d]">{nlpAnalysis.bullId}</span>
+                  </div>
+                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
+                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Agendamiento Palpación</span>
+                    <span className="font-mono font-bold text-emerald-800">{nlpAnalysis.scheduledDgDate}</span>
+                  </div>
+                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
+                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Parto Proyectado (FPP)</span>
+                    <span className="font-mono font-bold text-[#012d1d]">{nlpAnalysis.fppDate}</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-end gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setNlpAnalysis(null)}
+                    className="px-4 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl text-xs"
+                  >
+                    Descartar
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleConfirmNlpRecord}
+                    className="px-5 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
+                    Confirmar Registro
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* ------------------------------------------------------------------------- */}
-          {/* PRIMER CUADRO: MÓDULO INFORMATIVO DE LÍNEAS GENÉTICAS, MORFOLOGÍA Y EFICIENCIA */}
+          {/* MÓDULO INFORMATIVO DE LÍNEAS GENÉTICAS, MORFOLOGÍA Y EFICIENCIA (AL FINAL) */}
           {/* ------------------------------------------------------------------------- */}
           <div className="bg-white rounded-3xl p-5 md:p-6 border-2 border-[#012d1d] card-shadow space-y-5 animate-in fade-in">
             {/* Module Header */}
@@ -2127,188 +2384,6 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               );
             })()}
           </div>
-
-          {/* Top Herd KPIs */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
-              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
-                Tasa de Preñez
-              </span>
-              <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.tasaPrenez}%</span>
-                <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
-                  Óptimo
-                </span>
-              </div>
-              <p className="text-[10px] text-[#717973]">Hato preñado active</p>
-            </div>
-
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
-              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
-                Tasa Concepción
-              </span>
-              <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.tasaConcepcion}%</span>
-                <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
-                  IA / TE
-                </span>
-              </div>
-              <p className="text-[10px] text-[#717973]">1er servicio efectivo</p>
-            </div>
-
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
-              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
-                Días Abiertos (DA)
-              </span>
-              <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.avgDA}d</span>
-                <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${herdKPIs.avgDA > 90 ? 'bg-[#ffdad6] text-[#93000a]' : 'bg-[#c1ecd4] text-[#002114]'}`}>
-                  Meta &lt;90d
-                </span>
-              </div>
-              <p className="text-[10px] text-[#717973]">Parto a concepción</p>
-            </div>
-
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
-              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
-                Intervalo Partos
-              </span>
-              <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.avgIEP}d</span>
-                <span className="text-[9px] font-bold bg-[#e8f5ec] text-[#012d1d] px-1.5 py-0.5 rounded">
-                  12.4 Meses
-                </span>
-              </div>
-              <p className="text-[10px] text-[#717973]">Proyección IEP</p>
-            </div>
-
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
-              <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
-                Donadoras Activas
-              </span>
-              <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{donors.length}</span>
-                <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
-                  FIV / OPU
-                </span>
-              </div>
-              <p className="text-[10px] text-[#717973]">Vacas donadoras</p>
-            </div>
-
-            <div className="p-4 bg-[#ffba38]/15 rounded-2xl border-2 border-[#ffba38] card-shadow space-y-1">
-              <span className="text-[10px] font-extrabold text-[#523700] uppercase tracking-wider block flex items-center gap-1">
-                <AlertTriangle className="w-3.5 h-3.5 text-[#b27b00]" /> Días Abiertos &gt;90d
-              </span>
-              <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#523700] font-mono">
-                  {herdKPIs.openDaysAlertCount}
-                </span>
-                <span className="text-[9px] font-extrabold bg-[#ffba38] text-[#523700] px-1.5 py-0.5 rounded">
-                  Alertas
-                </span>
-              </div>
-              <p className="text-[10px] text-[#523700]">Revisión veterinaria</p>
-            </div>
-          </div>
-
-          {/* AI Language Assistant */}
-          <div className="bg-gradient-to-br from-white to-[#f4fbf7] rounded-3xl border-2 border-[#1b4332]/30 card-shadow p-5 md:p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-[#c1c8c2] pb-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
-                  <Bot className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-base md:text-lg font-black text-[#012d1d]">
-                    Procesador Reproductivo en Lenguaje Natural (IA GanaderIA)
-                  </h3>
-                  <p className="text-xs text-[#717973]">
-                    Ingresa en texto libre: &quot;Hoy inseminé a la vaca 504 con la pajuela Cacique 120, se le aplicó protocolo IATF&quot;.
-                  </p>
-                </div>
-              </div>
-              <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-mono font-bold bg-[#c1ecd4] text-[#002114] px-2.5 py-1 rounded-full border border-[#012d1d]/20">
-                <Sparkles className="w-3 h-3 text-[#012d1d]" /> IA ACTIVADA
-              </span>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="text"
-                value={naturalInput}
-                onChange={(e) => setNaturalInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleProcessNaturalLanguage(naturalInput);
-                }}
-                placeholder="Ej: Transferimos hoy embrión FIV de Donadora V-504 a la receptora Rosita 102..."
-                className="flex-1 bg-white border-2 border-[#c1c8c2] focus:border-[#012d1d] rounded-2xl px-4 py-3 text-xs md:text-sm text-[#012d1d] font-medium placeholder:text-[#a0a5a2] shadow-inner outline-none"
-              />
-              <button
-                type="button"
-                onClick={() => handleProcessNaturalLanguage(naturalInput)}
-                className="bg-[#012d1d] hover:bg-[#1b4332] text-white px-5 py-3 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-md active:scale-95"
-              >
-                <Send className="w-4 h-4 text-[#ffba38]" />
-                Procesar e Interpretar
-              </button>
-            </div>
-
-            {nlpAnalysis && (
-              <div className="p-5 bg-white border-2 border-[#012d1d] rounded-2xl space-y-4 shadow-lg animate-in fade-in">
-                <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-700" />
-                    <div>
-                      <h4 className="text-sm font-black text-[#012d1d]">
-                        Evento Extraído ({nlpAnalysis.confidence}% Precisión)
-                      </h4>
-                      <p className="text-xs text-[#717973]">{nlpAnalysis.summaryText}</p>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono font-bold bg-[#ffba38] text-[#523700] px-2.5 py-1 rounded">
-                    {nlpAnalysis.eventType}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
-                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Hembra</span>
-                    <span className="font-mono font-black text-[#012d1d]">{nlpAnalysis.cowTag}</span>
-                  </div>
-                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
-                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Semental / Pajuela</span>
-                    <span className="font-mono font-bold text-[#012d1d]">{nlpAnalysis.bullId}</span>
-                  </div>
-                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
-                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Agendamiento Palpación</span>
-                    <span className="font-mono font-bold text-emerald-800">{nlpAnalysis.scheduledDgDate}</span>
-                  </div>
-                  <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
-                    <span className="text-[10px] text-[#79564b] font-bold block uppercase">Parto Proyectado (FPP)</span>
-                    <span className="font-mono font-bold text-[#012d1d]">{nlpAnalysis.fppDate}</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-end gap-2 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setNlpAnalysis(null)}
-                    className="px-4 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl text-xs"
-                  >
-                    Descartar
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleConfirmNlpRecord}
-                    className="px-5 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
-                    Confirmar Registro
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
         </div>
       )}
 
@@ -2327,9 +2402,6 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <h3 className="text-lg font-black text-[#012d1d]">
                   Módulo de Inseminación Artificial (IA & IATF)
                 </h3>
-                <p className="text-xs text-[#717973]">
-                  Registro individual y masivo por Lote, sincronización IATF, trazabilidad de Padre/Madre y cálculo automático de FPP & DG.
-                </p>
               </div>
             </div>
 
@@ -2368,6 +2440,40 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       {sync.status}
                     </span>
                   </div>
+
+                  {/* Palpation Lot Susceptibility Badge */}
+                  {sync.palpationLotName && (
+                    <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200 space-y-1 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-extrabold text-amber-950 flex items-center gap-1.5 text-[11px]">
+                          <Stethoscope className="w-3.5 h-3.5 text-amber-800" />
+                          {sync.palpationLotName}
+                        </span>
+                        <span className="text-[10px] font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded-full">
+                          {sync.susceptibilityType || 'Susceptible IATF/TETF'}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-amber-900 font-mono">
+                        <span>Palpado: {sync.palpationDate || 'Reciente'}</span>
+                        {(() => {
+                          if (!sync.palpationDate) return null;
+                          const elapsed = Math.floor(
+                            (new Date().getTime() - new Date(sync.palpationDate).getTime()) / (1000 * 3600 * 24),
+                          );
+                          const isExp = sync.isPalpationExpired || elapsed > 30;
+                          return isExp ? (
+                            <span className="text-rose-700 font-black flex items-center gap-1">
+                              ⚠️ VENCIDO ({elapsed}d) - Volver a Palpar
+                            </span>
+                          ) : (
+                            <span className="text-emerald-800 font-bold">
+                              ✅ Válido ({30 - elapsed}d restantes)
+                            </span>
+                          );
+                        })()}
+                      </div>
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-2 gap-2 text-xs font-mono bg-[#f8f9f8] p-3 rounded-xl border border-[#e2e2e2]">
                     <div>
@@ -3058,12 +3164,23 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   <Dna className="w-5 h-5 animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-black text-white">
-                    Banco de Embriones
-                  </h3>
-                  <p className="text-xs text-[#a2b8ad] mt-0.5">
-                    Catálogo de embriones FIV en tarjetas compactas. Colores sutiles: Transparente (Fecundado), Oscuro (Transferido) y Gris (Vitrificado).
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-black text-white">
+                      Banco de Embriones
+                    </h3>
+                    <div className="group relative inline-flex items-center">
+                      <button
+                        type="button"
+                        className="text-[#a2b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                        title="Catálogo de embriones FIV en tarjetas compactas. Colores sutiles: Transparente (Fecundado), Oscuro (Transferido) y Gris (Vitrificado)."
+                      >
+                        <Info className="w-4 h-4" />
+                      </button>
+                      <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                        Catálogo de embriones FIV en tarjetas compactas. Colores sutiles: Transparente (Fecundado), Oscuro (Transferido) y Gris (Vitrificado).
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -4224,7 +4341,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
       {/* MODAL: ADD DONOR */}
       {showAddDonorModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { setShowAddDonorModal(false); setShowAddReceptorModal(false); setShowAddSemenModal(false); setShowAddSyncModal(false); } }}>
           <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95">
             <div className="flex justify-between items-center border-b pb-3">
               <h3 className="text-base font-black text-[#012d1d]">Declarar Nueva Vaca Donadora</h3>
@@ -4445,6 +4562,93 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             </div>
 
             <form onSubmit={handleAddSync} className="space-y-4 text-xs">
+              {/* PALPATION LOT SUSCEPTIBILITY & 30-DAY EXPIRATION RULE */}
+              <div className="p-4 bg-amber-50 rounded-2xl border-2 border-amber-300 space-y-3">
+                <div className="flex items-center justify-between border-b border-amber-200 pb-2">
+                  <div className="flex items-center gap-2">
+                    <Stethoscope className="w-4 h-4 text-amber-800" />
+                    <h4 className="font-black text-amber-900 uppercase text-[11px] tracking-wider">
+                      Identificación de Lote de Palpación & Susceptibilidad
+                    </h4>
+                  </div>
+                  <span className="text-[10px] font-black bg-amber-200 text-amber-900 px-2 py-0.5 rounded-full border border-amber-400">
+                    Regla 30 Días Vencimiento
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div>
+                    <label className="block font-bold text-amber-950 mb-1">Nombre Lote de Palpación</label>
+                    <input
+                      type="text"
+                      value={newSyncPalpationLotName}
+                      onChange={(e) => setNewSyncPalpationLotName(e.target.value)}
+                      placeholder="Ej. Lote Palpación Julio - Potrero 4"
+                      className="w-full p-2 bg-white border border-amber-300 rounded-xl font-bold text-[#012d1d]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-amber-950 mb-1">Fecha Diagnóstico Palpación *</label>
+                    <input
+                      type="date"
+                      value={newSyncPalpationDate}
+                      onChange={(e) => setNewSyncPalpationDate(e.target.value)}
+                      className="w-full p-2 bg-white border border-amber-300 rounded-xl font-mono font-bold text-[#012d1d]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-bold text-amber-950 mb-1">Susceptibilidad Reproductiva</label>
+                    <select
+                      value={newSyncSusceptibilityType}
+                      onChange={(e) => setNewSyncSusceptibilityType(e.target.value as any)}
+                      className="w-full p-2 bg-white border border-amber-300 rounded-xl font-bold text-[#012d1d]"
+                    >
+                      <option value="Inseminación (IATF)">Inseminación (IATF)</option>
+                      <option value="Transferencia de Embriones (TETF)">Transferencia de Embriones (TETF)</option>
+                      <option value="Ambas Susceptibles">Ambas Susceptibles (IATF o TETF)</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Expiration Banner */}
+                {(() => {
+                  const elapsed = Math.floor(
+                    (new Date(newSyncStartDate).getTime() - new Date(newSyncPalpationDate).getTime()) /
+                      (1000 * 3600 * 24),
+                  );
+                  const isExp = elapsed > 30;
+
+                  return isExp ? (
+                    <div className="p-3 bg-rose-100 border-2 border-rose-400 rounded-xl text-rose-900 flex items-start gap-2.5">
+                      <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-black text-xs uppercase">
+                          ⚠️ LOTE DE PALPACIÓN VENCIDO ({elapsed} días transcurridos)
+                        </p>
+                        <p className="text-[11px] mt-0.5 text-rose-800">
+                          Ha pasado más de 1 mes (30 días) desde que las hembras fueron palpadas sin haber realizado la sincronización.
+                          <strong className="block font-bold mt-0.5">
+                            El lote HA PERDIDO SU VALIDEZ Y SUSCEPTIBILIDAD. Se debe volver a palpar en campo obligatoriamente.
+                          </strong>
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="p-2.5 bg-emerald-100 border border-emerald-400 rounded-xl text-emerald-900 flex items-center justify-between text-xs">
+                      <span className="font-bold flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+                        Lote Susceptible Válido para {newSyncSusceptibilityType} ({elapsed} días de palpado)
+                      </span>
+                      <span className="font-mono font-black text-emerald-800">
+                        {30 - elapsed} días restantes de vigencia
+                      </span>
+                    </div>
+                  );
+                })()}
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-[#012d1d] mb-1">Nombre del Protocolo / Lote *</label>
@@ -4642,7 +4846,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
       {/* MODAL: CREAR / GESTIONAR LOTE DE EMBRIONES ENLISTADOS Y ESCANEO DE PLANILLA */}
       {showBatchEmbryoModal && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4" onClick={(e) => { if (e.target === e.currentTarget) setShowBatchEmbryoModal(false); }}>
           <div className="bg-white rounded-3xl max-w-6xl w-full p-4 sm:p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] flex flex-col border-2 border-[#012d1d]">
             {/* Header */}
             <div className="flex justify-between items-center border-b border-[#e2e2e2] pb-3 shrink-0">
@@ -4832,7 +5036,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         <td className="p-1.5">
                           <input
                             type="text"
-                            value={item.code}
+                            value={item.code || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'code', e.target.value)}
                             className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-mono font-bold text-xs text-[#012d1d]"
                           />
@@ -4842,7 +5046,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         <td className="p-1.5">
                           <input
                             type="text"
-                            value={item.strawNumber}
+                            value={item.strawNumber || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'strawNumber', e.target.value)}
                             placeholder="Ej: PAJ-801"
                             className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-mono font-bold text-xs text-[#012d1d]"
@@ -4852,7 +5056,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         {/* Donor */}
                         <td className="p-1.5 min-w-[140px]">
                           <select
-                            value={item.donorId}
+                            value={item.donorId || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'donorId', e.target.value)}
                             className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[11px] text-[#012d1d]"
                           >
@@ -4867,7 +5071,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         {/* Sire */}
                         <td className="p-1.5 min-w-[140px]">
                           <select
-                            value={item.sireName}
+                            value={item.sireName || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'sireName', e.target.value)}
                             className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[11px] text-[#012d1d]"
                           >
@@ -4882,7 +5086,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         {/* Stage */}
                         <td className="p-1.5 min-w-[120px]">
                           <select
-                            value={item.stage}
+                            value={item.stage || 'Blastocisto Grado 1'}
                             onChange={(e) => handleUpdateDraftRow(idx, 'stage', e.target.value)}
                             className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[10.5px] text-[#012d1d]"
                           >
@@ -4896,7 +5100,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         {/* Quality */}
                         <td className="p-1.5">
                           <select
-                            value={item.quality}
+                            value={item.quality || 'Excelente'}
                             onChange={(e) => handleUpdateDraftRow(idx, 'quality', e.target.value)}
                             className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[10.5px] text-[#012d1d]"
                           >
@@ -4909,7 +5113,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         {/* Status */}
                         <td className="p-1.5 min-w-[100px]">
                           <select
-                            value={item.status}
+                            value={item.status || 'fecundado'}
                             onChange={(e) => handleUpdateDraftRow(idx, 'status', e.target.value)}
                             className={`w-full p-1 rounded font-black text-[10.5px] ${
                               item.status === 'fecundado'
@@ -4928,7 +5132,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         {/* Receptor */}
                         <td className="p-1.5 min-w-[130px]">
                           <select
-                            value={item.receptorTag}
+                            value={item.receptorTag || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'receptorTag', e.target.value)}
                             disabled={item.status !== 'transferido'}
                             className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[10.5px] text-[#012d1d] disabled:opacity-40"
@@ -5022,7 +5226,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
       {/* MODAL: PLANILLA DE CAMPO & REPORTE PDF DE TRANSFERENCIA */}
       {showPrintReportModal && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) setShowPrintReportModal(false); }}>
           <div className="bg-white rounded-3xl max-w-4xl w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] overflow-y-auto custom-scrollbar border-2 border-[#012d1d]">
             {/* Header controls (Hidden during print) */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-[#e2e2e2] pb-4">
@@ -5043,7 +5247,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   type="button"
-                  onClick={() => window.print()}
+                  onClick={safePrint}
                   className="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white font-black rounded-xl text-xs flex items-center gap-2 shadow-lg cursor-pointer transition-all"
                 >
                   <Printer className="w-4 h-4" />
@@ -5215,7 +5419,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </button>
               <button
                 type="button"
-                onClick={() => window.print()}
+                onClick={safePrint}
                 className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white font-black rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer"
               >
                 <Printer className="w-4 h-4" />
@@ -5226,9 +5430,21 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
         </div>
       )}
 
+      {/* ========================================================================= */}
+      {/* SUBMODULE 9: PRUEBA DE PROGENIES (REGISTRO & EVALUACIÓN)                  */}
+      {/* ========================================================================= */}
+      {activeSubTab === 'progeny_testing' && (
+        <ProgenyTestingSection
+          progenyTests={progenyTests}
+          onUpdateProgenyTests={setProgenyTests}
+          semenInventory={semenInventory}
+          bullsList={bullsList}
+        />
+      )}
+
       {/* MODAL: CREAR EMBRIÓN EN FORMA CIRCULAR */}
       {showCreateEmbryoModal && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-xs z-50 flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { setShowCreateEmbryoModal(false); setSelectedEmbryoDetail(null); } }}>
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto custom-scrollbar border-2 border-[#012d1d]">
             <div className="flex justify-between items-center border-b border-[#e2e2e2] pb-3">
               <div className="flex items-center gap-2">
@@ -5578,7 +5794,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       )}
       {/* MODAL: PROTOTYPE PHOTO FULL VIEW */}
       {viewingPrototypePhoto && (
-        <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in">
+        <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) setViewingPrototypePhoto(null); }}>
           <div className="bg-white rounded-3xl max-w-4xl w-full p-4 md:p-5 space-y-4 shadow-2xl border-2 border-[#012d1d] flex flex-col">
             <div className="flex justify-between items-center border-b border-[#e2e2e2] pb-3">
               <div className="flex items-center gap-2">

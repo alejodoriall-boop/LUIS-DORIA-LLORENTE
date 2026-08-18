@@ -120,7 +120,7 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow max-w-3xl w-full overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
         {/* Modal Header */}
         <div className="bg-[#1b4332] text-white p-5 flex items-center justify-between shrink-0">

@@ -364,7 +364,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
   const totalHeadsAssigned = paddocks.reduce((sum, p) => sum + (p.currentHeads || 0), 0);
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto pb-12">
+    <div className="space-y-6 w-full pb-12">
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed top-6 right-6 z-50 bg-[#012d1d] text-white border-2 border-[#ffba38] px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-bold animate-in fade-in slide-in-from-top duration-200">
@@ -586,56 +586,56 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
       </div>
 
       {/* KPI Global Stat Strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Área Potreros</p>
-          <p className="text-xl font-mono font-extrabold text-[#012d1d]">
+      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
+        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Área Potreros</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">
             {totalPaddocksAreaHa.toFixed(1)}{' '}
-            <span className="text-xs font-bold text-[#717973]">Ha</span>
+            <span className="text-xs font-medium text-slate-500">Ha</span>
           </p>
-          <p className="text-[10px] text-[#717973]">{paddocks.length} potreros SIG</p>
+          <p className="text-[10px] text-slate-400 truncate mt-0.5">{paddocks.length} potreros SIG</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Capacidad Carga</p>
-          <p className="text-xl font-mono font-extrabold text-[#523700]">
-            {totalUGG.toFixed(0)} <span className="text-xs font-bold text-[#717973]">UGG</span>
+        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Capacidad Carga</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-amber-800 truncate mt-1">
+            {totalUGG.toFixed(0)} <span className="text-xs font-medium text-slate-500">UGG</span>
           </p>
-          <p className="text-[10px] text-emerald-700 font-bold font-mono">{globalUggPerHa} UGG/Ha</p>
+          <p className="text-[10px] text-emerald-700 font-semibold font-mono truncate mt-0.5">{globalUggPerHa} UGG/Ha</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Ganado en Pastoreo</p>
-          <p className="text-xl font-mono font-extrabold text-[#012d1d]">{totalHeadsAssigned}</p>
-          <p className="text-[10px] text-[#717973]">Cabezas pastoreando hoy</p>
+        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Ganado Pastoreo</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">{totalHeadsAssigned}</p>
+          <p className="text-[10px] text-slate-400 truncate mt-0.5">Cabezas en rotación</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Biomasa Forrajera</p>
-          <p className="text-xl font-mono font-extrabold text-[#012d1d]">
+        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Biomasa Total</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">
             {(totalBiomassTon / 1000).toFixed(1)}{' '}
-            <span className="text-xs font-bold text-[#717973]">kTon</span>
+            <span className="text-xs font-medium text-slate-500">kTon</span>
           </p>
-          <p className="text-[10px] text-[#717973]">{totalBiomassTon.toLocaleString()} Ton MV</p>
+          <p className="text-[10px] text-slate-400 truncate mt-0.5">{totalBiomassTon.toLocaleString()} Ton MV</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Red Hídrica</p>
-          <p className="text-xl font-mono font-extrabold text-[#0077b6]">
+        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Red Hídrica</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-sky-800 truncate mt-1">
             {waterInfra.troughs.length}{' '}
-            <span className="text-xs font-bold text-[#717973]">Bebederos</span>
+            <span className="text-xs font-medium text-slate-500">Bebederos</span>
           </p>
-          <p className="text-[10px] text-[#717973]">
+          <p className="text-[10px] text-slate-400 truncate mt-0.5">
             {(waterInfra.pipelines.reduce((s, p) => s + p.lengthM, 0) / 1000).toFixed(1)} km tubería
           </p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Cota Finca</p>
-          <p className="text-xl font-mono font-extrabold text-[#012d1d]">
-            {farm.elevationMsnm} <span className="text-xs font-bold text-[#717973]">msnm</span>
+        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Cota Finca</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">
+            {farm.elevationMsnm} <span className="text-xs font-medium text-slate-500">msnm</span>
           </p>
-          <p className="text-[10px] text-[#717973]">6 curvas de nivel</p>
+          <p className="text-[10px] text-slate-400 truncate mt-0.5">6 curvas de nivel</p>
         </div>
       </div>
 

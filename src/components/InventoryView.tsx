@@ -40,6 +40,7 @@ import {
   Shield,
   Zap,
   Truck,
+  Info,
 } from 'lucide-react';
 
 interface InventoryViewProps {
@@ -178,12 +179,23 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
                   Control en Celular
                 </span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-black text-white leading-tight mt-1">
-                Bodega e Insumos de Campo
-              </h1>
-              <p className="text-xs text-[#c1ecd4] mt-0.5">
-                Control de Sales Mineralizadas (SLA), Sanidad, Agroquímicos y Facturas
-              </p>
+              <div className="flex items-center gap-2 mt-1">
+                <h1 className="text-2xl md:text-3xl font-black text-white leading-tight">
+                  Bodega e Insumos de Campo
+                </h1>
+                <div className="group relative inline-flex items-center">
+                  <button
+                    type="button"
+                    className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                    title="Control de Sales Mineralizadas (SLA), Sanidad, Agroquímicos y Facturas"
+                  >
+                    <Info className="w-4 h-4" />
+                  </button>
+                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                    Control de Sales Mineralizadas (SLA), Sanidad, Agroquímicos y Facturas
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

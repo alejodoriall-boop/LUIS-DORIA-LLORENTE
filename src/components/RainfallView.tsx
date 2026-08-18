@@ -203,7 +203,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
   }, [currentMonthMm, historicalMonthAvg]);
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto w-full pb-12">
+    <div className="space-y-6 w-full pb-12">
       {/* ========================================================================= */}
       {/* 1. HEADER & PRIMARY ACTIONS */}
       {/* ========================================================================= */}
@@ -217,12 +217,23 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
               Sincronizado • {farms.length} Predios Monitoreados
             </span>
           </div>
-          <h1 className="text-2xl md:text-3xl font-bold text-[#012d1d] tracking-tight mt-1">
-            Pluviometría y Registro de Lluvias
-          </h1>
-          <p className="text-xs md:text-sm text-[#414844] mt-0.5">
-            Análisis de precipitaciones por día, mes, año y consolidado multianual con equivalencias hídricas por predio.
-          </p>
+          <div className="flex items-center gap-2 mt-1">
+            <h1 className="text-2xl md:text-3xl font-bold text-[#012d1d] tracking-tight">
+              Pluviometría y Registro de Lluvias
+            </h1>
+            <div className="group relative inline-flex items-center">
+              <button
+                type="button"
+                className="text-[#717973] hover:text-[#012d1d] transition-colors p-0.5 rounded cursor-pointer"
+                title="Análisis de precipitaciones por día, mes, año y consolidado multianual con equivalencias hídricas por predio."
+              >
+                <Info className="w-4 h-4" />
+              </button>
+              <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                Análisis de precipitaciones por día, mes, año y consolidado multianual con equivalencias hídricas por predio.
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto">
@@ -239,89 +250,89 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {/* ========================================================================= */}
       {/* 2. TOP KPI METRICS BAR (6 SUMMARY CARDS) */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
         {/* Card 1: Total Year Rain */}
-        <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-          <div className="flex items-center justify-between text-[#79564b]">
-            <span className="text-[10px] font-extrabold uppercase">Lluvia Año {selectedYear}</span>
-            <Droplet className="w-4 h-4 text-[#0077b6]" />
+        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <span className="text-[10px] font-bold uppercase truncate">Lluvia Año {selectedYear}</span>
+            <Droplet className="w-4 h-4 text-sky-600 shrink-0" />
           </div>
-          <p className="text-2xl font-black font-mono text-[#012d1d] mt-2">
-            {totalYearMm.toLocaleString()} <span className="text-xs font-normal text-[#717973]">mm</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
+            {totalYearMm.toLocaleString()} <span className="text-xs font-medium text-slate-500">mm</span>
           </p>
-          <p className="text-[10px] text-[#2d6a4f] font-bold mt-1">Acumulado anual</p>
+          <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">Acumulado anual</p>
         </div>
 
         {/* Card 2: Selected Month Rain */}
-        <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-          <div className="flex items-center justify-between text-[#79564b]">
-            <span className="text-[10px] font-extrabold uppercase">
+        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <span className="text-[10px] font-bold uppercase truncate">
               {MONTH_SHORT_SPANISH[selectedMonth - 1]} {selectedYear}
             </span>
-            <CloudRain className="w-4 h-4 text-[#0077b6]" />
+            <CloudRain className="w-4 h-4 text-sky-600 shrink-0" />
           </div>
-          <p className="text-2xl font-black font-mono text-[#0077b6] mt-2">
-            {currentMonthMm.toLocaleString()} <span className="text-xs font-normal text-[#717973]">mm</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-sky-700 mt-2 truncate tracking-tight">
+            {currentMonthMm.toLocaleString()} <span className="text-xs font-medium text-slate-500">mm</span>
           </p>
-          <div className="flex items-center gap-1 text-[10px] font-bold mt-1">
+          <div className="flex items-center gap-1 text-[10px] font-medium mt-1 truncate">
             {monthDiffPct >= 0 ? (
-              <span className="text-emerald-700 flex items-center gap-0.5">
-                <ArrowUpRight className="w-3 h-3" /> +{monthDiffPct}% vs Histórico
+              <span className="text-emerald-700 flex items-center gap-0.5 truncate">
+                <ArrowUpRight className="w-3 h-3 shrink-0" /> +{monthDiffPct}% vs Hist.
               </span>
             ) : (
-              <span className="text-amber-700 flex items-center gap-0.5">
-                <ArrowDownRight className="w-3 h-3" /> {monthDiffPct}% vs Histórico
+              <span className="text-amber-700 flex items-center gap-0.5 truncate">
+                <ArrowDownRight className="w-3 h-3 shrink-0" /> {monthDiffPct}% vs Hist.
               </span>
             )}
           </div>
         </div>
 
         {/* Card 3: Rainy Days */}
-        <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-          <div className="flex items-center justify-between text-[#79564b]">
-            <span className="text-[10px] font-extrabold uppercase">Días con Lluvia</span>
-            <Umbrella className="w-4 h-4 text-[#2d6a4f]" />
+        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <span className="text-[10px] font-bold uppercase truncate">Días con Lluvia</span>
+            <Umbrella className="w-4 h-4 text-emerald-700 shrink-0" />
           </div>
-          <p className="text-2xl font-black font-mono text-[#012d1d] mt-2">
-            {totalYearRainyDays} <span className="text-xs font-normal text-[#717973]">días</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
+            {totalYearRainyDays} <span className="text-xs font-medium text-slate-500">días</span>
           </p>
-          <p className="text-[10px] text-[#717973] mt-1 font-medium">Registrados en {selectedYear}</p>
+          <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">En {selectedYear}</p>
         </div>
 
         {/* Card 4: Max Daily Record */}
-        <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-          <div className="flex items-center justify-between text-[#79564b]">
-            <span className="text-[10px] font-extrabold uppercase">Máximo Diario</span>
-            <Gauge className="w-4 h-4 text-amber-600" />
+        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <span className="text-[10px] font-bold uppercase truncate">Máximo Diario</span>
+            <Gauge className="w-4 h-4 text-amber-600 shrink-0" />
           </div>
-          <p className="text-2xl font-black font-mono text-amber-900 mt-2">
-            {maxYearDaily} <span className="text-xs font-normal text-[#717973]">mm/día</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-amber-900 mt-2 truncate tracking-tight">
+            {maxYearDaily} <span className="text-xs font-medium text-slate-500">mm/día</span>
           </p>
-          <p className="text-[10px] text-amber-700 font-bold mt-1">Pico de precipitación</p>
+          <p className="text-[10px] text-amber-700 font-medium mt-1 truncate">Pico de lluvia</p>
         </div>
 
         {/* Card 5: Equivalent Water Volume (m3/Ha) */}
-        <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-4 card-shadow">
-          <div className="flex items-center justify-between text-[#79564b]">
-            <span className="text-[10px] font-extrabold uppercase">Volumen por Ha</span>
-            <Layers className="w-4 h-4 text-[#012d1d]" />
+        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <span className="text-[10px] font-bold uppercase truncate">Volumen por Ha</span>
+            <Layers className="w-4 h-4 text-emerald-800 shrink-0" />
           </div>
-          <p className="text-2xl font-black font-mono text-[#012d1d] mt-2">
-            {(totalYearMm * 10).toLocaleString()} <span className="text-xs font-normal text-[#717973]">m³/Ha</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
+            {(totalYearMm * 10).toLocaleString()} <span className="text-xs font-medium text-slate-500">m³/Ha</span>
           </p>
-          <p className="text-[10px] text-[#2d6a4f] font-bold mt-1">10,000 L x mm caídos</p>
+          <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">10k L x mm caídos</p>
         </div>
 
         {/* Card 6: Hydric Status Indicator */}
-        <div className="bg-[#012d1d] text-white border-2 border-[#012d1d] rounded-2xl p-4 card-shadow">
-          <div className="flex items-center justify-between text-[#ffba38]">
-            <span className="text-[10px] font-extrabold uppercase">Estado Hídrico</span>
-            <Sparkles className="w-4 h-4 text-[#ffba38]" />
+        <div className="bg-[#043825] text-white border border-[#043825] rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#facc15] gap-1 min-w-0">
+            <span className="text-[10px] font-bold uppercase truncate">Estado Hídrico</span>
+            <Sparkles className="w-4 h-4 text-[#facc15] shrink-0" />
           </div>
-          <p className="text-lg font-black font-mono text-[#c1ecd4] mt-2 leading-tight">
-            {currentMonthMm >= historicalMonthAvg ? 'Óptimo para Pastos' : 'Alerta Déficit'}
+          <p className="text-base sm:text-lg font-bold font-mono text-emerald-200 mt-2 truncate leading-tight">
+            {currentMonthMm >= historicalMonthAvg ? 'Óptimo Pastos' : 'Alerta Déficit'}
           </p>
-          <p className="text-[10px] text-white/80 mt-1 font-mono">
+          <p className="text-[10px] text-white/80 mt-1 font-mono truncate">
             {currentMonthMm >= historicalMonthAvg ? 'Suficiente rebrote' : 'Monitorear bebederos'}
           </p>
         </div>

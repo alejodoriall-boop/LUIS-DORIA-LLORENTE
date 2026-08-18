@@ -84,7 +84,7 @@ export const ScaleSyncModal: React.FC<ScaleSyncModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div
         className="bg-white w-full max-w-3xl rounded-3xl border border-[#c1c8c2] shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}

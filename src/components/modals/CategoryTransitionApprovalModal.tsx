@@ -107,8 +107,8 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in">
-      <div className="bg-white rounded-3xl max-w-4xl w-full border border-[#012d1d]/20 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-3xl max-w-5xl lg:max-w-6xl w-full border border-[#012d1d]/20 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
         <div className="bg-[#012d1d] text-white p-4 sm:p-5 flex items-center justify-between border-b border-[#1b4332]">
           <div className="flex items-center gap-3">

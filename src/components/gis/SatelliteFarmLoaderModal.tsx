@@ -375,7 +375,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="bg-[#f9f9f9] w-full max-w-6xl rounded-3xl border-2 border-[#1b4332] shadow-2xl overflow-hidden flex flex-col max-h-[96vh]">
         {/* Header */}
         <div className="bg-[#1b4332] text-white p-4 sm:p-5 flex items-center justify-between border-b border-[#2d6a4f] shrink-0">

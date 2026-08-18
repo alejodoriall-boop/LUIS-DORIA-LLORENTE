@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { WithdrawalAnimal, SanitarioAlert, FarmDataPackage } from '../types';
+import React, { useState, useEffect } from 'react';
+import { WithdrawalAnimal, SanitarioAlert, FarmDataPackage, SanitaryProtocol, SanitaryApplicationRecord } from '../types';
 import { GanaderIALogo } from './GanaderIALogo';
 import {
   Sparkles,
@@ -21,6 +21,16 @@ import {
   Settings,
   MapPin,
   Check,
+  CalendarDays,
+  ClipboardList,
+  FlaskConical,
+  Plus,
+  Pill,
+  Syringe,
+  Layers,
+  Printer,
+  Share2,
+  Smartphone,
 } from 'lucide-react';
 
 interface MenuViewProps {
@@ -33,6 +43,15 @@ interface MenuViewProps {
   onSelectFarm?: (farmId: string) => void;
   onOpenCreateFarmModal?: () => void;
   onOpenFarmManagerModal?: () => void;
+  onOpenPendingActivitiesModal?: () => void;
+  pendingActivitiesCount?: number;
+  onOpenMastitisModal?: () => void;
+  activeMastitisCount?: number;
+  initialSubTab?: 'assistant' | 'sanitario' | 'settings';
+  sanitaryProtocols?: SanitaryProtocol[];
+  sanitaryApplications?: SanitaryApplicationRecord[];
+  onOpenSanitaryPlanModal?: (tab?: 'protocols' | 'apply' | 'withdrawals' | 'history') => void;
+  onOpenWhatsAppModal?: () => void;
 }
 
 export const MenuView: React.FC<MenuViewProps> = ({
@@ -45,10 +64,25 @@ export const MenuView: React.FC<MenuViewProps> = ({
   onSelectFarm,
   onOpenCreateFarmModal,
   onOpenFarmManagerModal,
+  onOpenPendingActivitiesModal,
+  pendingActivitiesCount = 0,
+  onOpenMastitisModal,
+  activeMastitisCount = 0,
+  initialSubTab,
+  sanitaryProtocols = [],
+  sanitaryApplications = [],
+  onOpenSanitaryPlanModal,
+  onOpenWhatsAppModal,
 }) => {
   const [activeSubTab, setActiveSubTab] = useState<'assistant' | 'sanitario' | 'settings'>(
-    'assistant',
+    initialSubTab || 'assistant',
   );
+
+  useEffect(() => {
+    if (initialSubTab) {
+      setActiveSubTab(initialSubTab);
+    }
+  }, [initialSubTab]);
 
   // AI Assistant Chat state
   const [messages, setMessages] = useState<{ sender: 'user' | 'ai'; text: string; time: string }[]>([
@@ -115,7 +149,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
   };
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto w-full pb-12">
+    <div className="space-y-6 w-full pb-12">
       {/* Subtab Navigation */}
       <div className="flex bg-[#eeeeee] p-1.5 rounded-2xl border border-[#c1c8c2] gap-1">
         <button
@@ -172,9 +206,22 @@ export const MenuView: React.FC<MenuViewProps> = ({
                 </p>
               </div>
             </div>
-            <span className="text-xs text-[#c1ecd4] bg-[#012d1d] px-2 py-1 rounded-lg flex items-center gap-1 font-mono">
-              <Wifi className="w-3 h-3 text-emerald-400" /> Online
-            </span>
+            <div className="flex items-center gap-2">
+              {onOpenWhatsAppModal && (
+                <button
+                  type="button"
+                  onClick={onOpenWhatsAppModal}
+                  className="text-xs bg-[#25D366] hover:bg-[#1ebd59] text-slate-950 font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                  title="Vincular Asistente de WhatsApp"
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>Vincular WhatsApp</span>
+                </button>
+              )}
+              <span className="text-xs text-[#c1ecd4] bg-[#012d1d] px-2 py-1 rounded-lg flex items-center gap-1 font-mono">
+                <Wifi className="w-3 h-3 text-emerald-400" /> Online
+              </span>
+            </div>
           </div>
 
           {/* Quick Prompts */}
@@ -243,6 +290,119 @@ export const MenuView: React.FC<MenuViewProps> = ({
       {/* SubTab 2: Plan Sanitario & Retiros */}
       {activeSubTab === 'sanitario' && (
         <div className="space-y-6">
+          {/* Main Sanitary Plan Header Banner */}
+          <div className="bg-[#012d1d] text-white p-5 md:p-6 rounded-3xl border border-[#1b4332] card-shadow flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5">
+            <div className="flex items-start gap-3.5">
+              <div className="p-3.5 bg-[#083d28] border border-[#2d6a4f] text-emerald-300 rounded-2xl shrink-0 shadow-inner">
+                <Stethoscope className="w-7 h-7" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-black text-lg md:text-xl text-white tracking-tight">
+                    Módulo de Plan Sanitario, Vacunación & Inocuidad (ICA/BPG)
+                  </h3>
+                  <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full uppercase">
+                    Editable & 100% Funcional
+                  </span>
+                </div>
+                <p className="text-xs text-[#a3c9b4] mt-1 max-w-2xl leading-relaxed">
+                  Controle cronogramas de vacunación oficial, esquemas reproductivos IATF, vermífugos, registro de lotes de biológicos y monitoreo estricto de tiempos de retiro de carne y leche.
+                </p>
+                <div className="flex flex-wrap items-center gap-3 mt-3 text-xs font-bold">
+                  <span className="text-emerald-300 flex items-center gap-1">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                    {sanitaryProtocols.length} Protocolos Configurados
+                  </span>
+                  <span className="text-slate-400">•</span>
+                  <span className="text-pink-300 flex items-center gap-1">
+                    <Pill className="w-4 h-4 text-pink-400" />
+                    {sanitaryApplications.length} Jornadas en Historial
+                  </span>
+                  <span className="text-slate-400">•</span>
+                  <span className="text-amber-300 flex items-center gap-1">
+                    <Clock className="w-4 h-4 text-amber-400" />
+                    {withdrawalAnimals.length} En Tiempo de Retiro
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2.5 w-full lg:w-auto shrink-0">
+              <button
+                onClick={() => (onOpenSanitaryPlanModal ? onOpenSanitaryPlanModal('apply') : onOpenWithdrawalModal())}
+                className="flex-1 lg:flex-initial bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5 active:scale-95"
+              >
+                <Pill className="w-4 h-4" />
+                <span>⚡ Registrar Jornada</span>
+              </button>
+              <button
+                onClick={() => (onOpenSanitaryPlanModal ? onOpenSanitaryPlanModal('protocols') : onOpenWithdrawalModal())}
+                className="flex-1 lg:flex-initial bg-[#ffba38] hover:bg-[#ffc857] text-[#523700] px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5 active:scale-95"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Gestionar Protocolos</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Pending Activities Banner */}
+          {onOpenPendingActivitiesModal && (
+            <div className="bg-[#012d1d] text-white p-5 rounded-2xl border border-[#1b4332] card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-emerald-800 text-emerald-300 rounded-xl">
+                  <CalendarDays className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-black text-lg text-white flex items-center gap-2">
+                    Reporte de Actividades Diarias Pendientes
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500 text-slate-950">
+                      {pendingActivitiesCount} Tareas
+                    </span>
+                  </h3>
+                  <p className="text-xs text-[#86af99] mt-0.5">
+                    Planifique, filtre, complete y comparta por WhatsApp el reporte diario de trabajo para vaqueros y mayordomo.
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={onOpenPendingActivitiesModal}
+                className="bg-[#ffba38] hover:bg-[#ffc857] text-[#523700] px-5 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md shrink-0 flex items-center gap-1.5"
+              >
+                <ClipboardList className="w-4 h-4" />
+                Abrir Reporte Completo
+              </button>
+            </div>
+          )}
+
+          {/* Registro de Pruebas Positivas de Mastitis Banner */}
+          {onOpenMastitisModal && (
+            <div className="bg-red-950 text-white p-5 rounded-2xl border border-red-800 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-red-900 text-red-200 rounded-xl border border-red-700">
+                  <FlaskConical className="w-6 h-6 text-red-300" />
+                </div>
+                <div>
+                  <h3 className="font-black text-lg text-white flex items-center gap-2">
+                    Pruebas de Mastitis Positivas (CMT)
+                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-red-500 text-white font-mono">
+                      {activeMastitisCount} Activas
+                    </span>
+                  </h3>
+                  <p className="text-xs text-red-200 mt-0.5">
+                    Evaluación anatómica de los 4 cuartos mamarios, patógenos aislados y control estricto de retiro de antibiótico en ordeño.
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={onOpenMastitisModal}
+                className="bg-red-600 hover:bg-red-500 text-white px-5 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md shrink-0 flex items-center gap-1.5"
+              >
+                <Stethoscope className="w-4 h-4" />
+                Gestionar Casos y Diagnósticos
+              </button>
+            </div>
+          )}
+
           {/* Active Withdrawal Banner */}
           <div className="bg-[#ffdeac] text-[#604100] p-5 rounded-2xl border-l-4 border-[#523700] card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
@@ -251,22 +411,92 @@ export const MenuView: React.FC<MenuViewProps> = ({
                 Animales con Periodo de Retiro Activo ({withdrawalAnimals.length})
               </h3>
               <p className="text-xs text-[#604100] mt-1">
-                Bovinos bajo tratamiento farmacológico. Cumplimiento estricto de inocuidad alimentaria.
+                Bovinos bajo tratamiento farmacológico. Cumplimiento estricto de inocuidad alimentaria (prohibición de sacrificio y leche a tanque).
               </p>
             </div>
             <button
-              onClick={onOpenWithdrawalModal}
-              className="bg-[#523700] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#362300] transition-colors"
+              onClick={() => (onOpenSanitaryPlanModal ? onOpenSanitaryPlanModal('withdrawals') : onOpenWithdrawalModal())}
+              className="bg-[#523700] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#362300] transition-colors cursor-pointer"
             >
-              Ver Lista Completa
+              Ver & Administrar Retiros
             </button>
+          </div>
+
+          {/* Protocols Quick List / Cards */}
+          <div className="bg-white rounded-2xl border border-[#c1c8c2] card-shadow p-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <h4 className="font-bold text-sm text-[#012d1d] flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-emerald-700" />
+                Esquemas & Protocolos Sanitarios Programados ({sanitaryProtocols.length})
+              </h4>
+              <button
+                onClick={() => (onOpenSanitaryPlanModal ? onOpenSanitaryPlanModal('protocols') : onOpenWithdrawalModal())}
+                className="text-xs font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 cursor-pointer"
+              >
+                <span>Administrar todos</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {sanitaryProtocols.slice(0, 6).map((prot) => {
+                const isUrgent = prot.status === 'urgente' || prot.status === 'vencido';
+                const isCompleted = prot.status === 'completado';
+
+                return (
+                  <div
+                    key={prot.id}
+                    onClick={() => (onOpenSanitaryPlanModal ? onOpenSanitaryPlanModal('protocols') : onOpenWithdrawalModal())}
+                    className={`p-4 rounded-xl border transition-all cursor-pointer hover:shadow-md ${
+                      isUrgent
+                        ? 'bg-red-50/50 border-red-300'
+                        : isCompleted
+                        ? 'bg-emerald-50/40 border-emerald-200'
+                        : 'bg-[#f9fbf9] border-slate-200'
+                    }`}
+                  >
+                    <div className="flex justify-between items-start gap-2">
+                      <span className="font-bold text-xs text-slate-900 line-clamp-1">{prot.name}</span>
+                      {isUrgent ? (
+                        <span className="text-[10px] font-black bg-red-500 text-white px-1.5 py-0.2 rounded shrink-0 animate-pulse">
+                          URGENTE
+                        </span>
+                      ) : isCompleted ? (
+                        <span className="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded shrink-0">
+                          AL DÍA
+                        </span>
+                      ) : (
+                        <span className="text-[10px] font-bold bg-blue-100 text-blue-800 px-1.5 py-0.2 rounded shrink-0">
+                          {prot.scheduledDate}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[11px] text-slate-600 mt-1">
+                      <strong>Biológico:</strong> {prot.productName} ({prot.dosage})
+                    </p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">
+                      👥 {prot.targetGroup} • ⏳ Retiro: {prot.meatWithdrawalDays}d
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Withdrawal Animals Table */}
           <div className="bg-white rounded-2xl border border-[#c1c8c2] card-shadow overflow-hidden p-4 md:p-5">
-            <h4 className="font-bold text-sm text-[#012d1d] mb-3">
-              Monitoreo Individual de Fármacos
-            </h4>
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-bold text-sm text-[#012d1d]">
+                Monitoreo Individual de Fármacos Residuales
+              </h4>
+              <button
+                onClick={() => (onOpenSanitaryPlanModal ? onOpenSanitaryPlanModal('withdrawals') : onOpenWithdrawalModal())}
+                className="text-xs font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 cursor-pointer"
+              >
+                <span>+ Agregar / Liberar</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
@@ -299,39 +529,6 @@ export const MenuView: React.FC<MenuViewProps> = ({
                   ))}
                 </tbody>
               </table>
-            </div>
-          </div>
-
-          {/* Calendar of Planned Vaccines */}
-          <div className="bg-white rounded-2xl border border-[#c1c8c2] card-shadow p-5">
-            <h4 className="font-bold text-sm text-[#012d1d] mb-4 flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              Calendario Oficial de Vacunación Anual
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-4 bg-[#f3f3f3] rounded-xl border border-[#c1c8c2]">
-                <div className="flex justify-between font-bold text-xs">
-                  <span>Fiebre Aftosa</span>
-                  <span className="text-[#ba1a1a]">En 3 días</span>
-                </div>
-                <p className="text-xs text-[#717973] mt-1">Obligatoria ICA/SENASA • Lotes 1 al 6</p>
-              </div>
-
-              <div className="p-4 bg-[#f3f3f3] rounded-xl border border-[#c1c8c2]">
-                <div className="flex justify-between font-bold text-xs">
-                  <span>Brucelosis Cepa 19</span>
-                  <span className="text-emerald-700">Completado</span>
-                </div>
-                <p className="text-xs text-[#717973] mt-1">Terneras 3-8 meses • 100% Cobertura</p>
-              </div>
-
-              <div className="p-4 bg-[#f3f3f3] rounded-xl border border-[#c1c8c2]">
-                <div className="flex justify-between font-bold text-xs">
-                  <span>Clostridiosis 8 Vías</span>
-                  <span className="text-[#012d1d]">Próx. Mes</span>
-                </div>
-                <p className="text-xs text-[#717973] mt-1">Refuerzo a terneros al destete</p>
-              </div>
             </div>
           </div>
         </div>

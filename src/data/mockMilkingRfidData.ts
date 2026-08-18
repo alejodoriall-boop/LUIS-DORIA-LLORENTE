@@ -11,6 +11,8 @@ export const DEFAULT_RFID_MILKING_CONFIG: RfidMilkingConfig = {
   autoCaptureMilk: true,
   beepConfirmation: true,
   withholdingAlert: true,
+  autoPrescriptionWithdrawal: true,
+  withdrawalHandlingMethod: 'desvio_automatico',
   antiDuplicateSeconds: 15,
 };
 

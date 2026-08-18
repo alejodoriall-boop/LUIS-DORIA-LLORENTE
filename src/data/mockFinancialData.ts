@@ -87,6 +87,7 @@ export function getBusinessUnitForTransaction(tx: FinancialTransaction): Busines
       return 'genetica';
     case 'venta_terneros':
       return 'crias';
+    case 'venta_ganado':
     case 'venta_ganado_ceba':
     case 'compra_ganado':
     case 'fletes_transporte':
@@ -104,6 +105,7 @@ export function getBusinessUnitForTransaction(tx: FinancialTransaction): Busines
 }
 
 export const INCOME_CATEGORY_LABELS: Record<IncomeCategory, { label: string; color: string }> = {
+  venta_ganado: { label: 'Venta de Ganado & Despachos', color: '#2b8a3e' },
   venta_ganado_ceba: { label: 'Venta Ganado / Ceba Machos', color: '#2b8a3e' },
   venta_leche: { label: 'Venta de Leche Fluida', color: '#1098ad' },
   venta_genetica: { label: 'Venta Genética & Pajillas Semen', color: '#ae3ec9' },

@@ -87,8 +87,8 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-[#ffe066] relative animate-in fade-in zoom-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="bg-white rounded-3xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full p-6 shadow-2xl border border-[#ffe066] relative animate-in fade-in zoom-in duration-200">
         <button
           onClick={onClose}
           className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
