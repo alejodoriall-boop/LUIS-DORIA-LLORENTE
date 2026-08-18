@@ -30,6 +30,7 @@ import {
   filterFarmsByCategory,
 } from '../utils/farmCategoryUtils';
 import { useClickOutside } from '../hooks/useClickOutside';
+import { FarmSelector } from './FarmSelector';
 
 interface HeaderProps {
   activeTab: MainTab;
@@ -89,11 +90,9 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenMobileMenu,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
-  const [showFarmMenu, setShowFarmMenu] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [headerCategoryFilter, setHeaderCategoryFilter] = useState<ProductionCategoryKey>('all');
 
-  const farmMenuRef = useClickOutside<HTMLDivElement>(() => setShowFarmMenu(false), showFarmMenu);
   const notifMenuRef = useClickOutside<HTMLDivElement>(() => setShowNotifications(false), showNotifications);
   const userMenuRef = useClickOutside<HTMLDivElement>(() => setShowUserMenu(false), showUserMenu);
 
@@ -104,9 +103,9 @@ export const Header: React.FC<HeaderProps> = ({
   }, [farms, headerCategoryFilter]);
 
   return (
-    <header className="sticky top-0 z-40 flex items-center justify-between px-2.5 sm:px-4 md:px-6 h-14 md:h-16 w-full max-w-full bg-white/95 backdrop-blur-xl border-b border-black/[0.06] transition-all duration-300 gap-1.5 overflow-x-hidden">
+    <header className="sticky top-0 z-40 flex items-center justify-between px-2.5 sm:px-4 md:px-6 h-14 md:h-16 w-full max-w-full bg-white/95 backdrop-blur-xl border-b border-black/[0.06] transition-all duration-300 gap-1.5">
       {/* Left: Mobile Drawer Trigger + Active Farm Selector / Quick Switcher */}
-      <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 relative" ref={farmMenuRef}>
+      <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
         {onOpenMobileMenu && (
           <motion.button
             whileTap={{ scale: 0.94 }}
@@ -118,104 +117,13 @@ export const Header: React.FC<HeaderProps> = ({
           </motion.button>
         )}
 
-        <motion.button
-          whileHover={{ y: -1, scale: 1.01 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-          onClick={() => setShowFarmMenu(!showFarmMenu)}
-          className="flex items-center gap-1 sm:gap-1.5 bg-[#043825] hover:bg-[#064e3b] text-white px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-[0_2px_8px_rgba(4,56,37,0.15)] border border-emerald-800/40 transition-all cursor-pointer group shrink-0"
-          title="Cambiar de Predio o Administrar"
-        >
-          <Building2 className="w-3.5 h-3.5 text-[#facc15] shrink-0" />
-          <span className="font-bold tracking-tight truncate max-w-[85px] xs:max-w-[120px] sm:max-w-[200px]">
-            {activeFarm?.profile.name || 'SAN JUAN'}
-          </span>
-          <ChevronDown className="w-3 h-3 text-emerald-300 opacity-80 group-hover:opacity-100 transition-opacity shrink-0" />
-        </motion.button>
-
-        {/* Quick Farm Switcher Dropdown / Mobile Modal Sheet */}
-        <AnimatePresence>
-          {showFarmMenu && (
-            <>
-              <div
-                className="fixed inset-0 z-40 bg-black/40 backdrop-blur-2xs"
-                onClick={() => setShowFarmMenu(false)}
-              />
-              <motion.div
-                initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 4, scale: 0.96 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-                className="fixed sm:absolute left-3 right-3 sm:left-0 sm:right-auto top-16 sm:top-full mt-1 sm:mt-2 sm:w-80 bg-white rounded-2xl border border-black/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.18)] p-3.5 z-50 space-y-2 max-w-sm mx-auto sm:mx-0"
-              >
-                <div className="flex items-center justify-between px-1 py-1 border-b border-slate-100 pb-2">
-                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
-                    Predios Ganaderos
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => {
-                        setShowFarmMenu(false);
-                        onOpenFarmManagerModal();
-                      }}
-                      className="text-[11px] text-emerald-800 hover:text-emerald-950 font-bold flex items-center gap-1 cursor-pointer"
-                    >
-                      <Settings className="w-3 h-3" />
-                      <span>Gestionar</span>
-                    </button>
-                    <button
-                      onClick={() => setShowFarmMenu(false)}
-                      className="sm:hidden p-1 text-slate-400 hover:text-slate-700"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="max-h-60 overflow-y-auto custom-scrollbar space-y-1 pr-1">
-                  {farms.map((f) => {
-                    const isSelected = f.profile.id === activeFarm?.profile.id;
-                    return (
-                      <button
-                        key={f.profile.id}
-                        onClick={() => {
-                          onSelectFarm(f.profile.id);
-                          setShowFarmMenu(false);
-                        }}
-                        className={`w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-all cursor-pointer ${
-                          isSelected
-                            ? 'bg-emerald-50 text-emerald-950 font-bold border border-emerald-200/70'
-                            : 'hover:bg-slate-50 text-slate-700 font-medium'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2 truncate">
-                          <span className={`w-2 h-2 rounded-full shrink-0 ${isSelected ? 'bg-emerald-600' : 'bg-slate-300'}`} />
-                          <span className="truncate">{f.profile.name}</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-slate-400 shrink-0">
-                          {f.profile.totalAreaHa || 0} Ha
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-                  <button
-                    onClick={() => {
-                      setShowFarmMenu(false);
-                      onOpenCreateFarmModal();
-                    }}
-                    className="w-full py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-800 text-xs font-semibold rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                  >
-                    <Building className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>+ Crear Nuevo Predio</span>
-                  </button>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
+        <FarmSelector
+          farms={farms}
+          currentFarmId={currentFarmId}
+          onSelectFarm={onSelectFarm}
+          onOpenCreateFarmModal={onOpenCreateFarmModal}
+          onOpenFarmManagerModal={onOpenFarmManagerModal}
+        />
       </div>
 
       {/* Right: Operational Controls & Status Badges */}

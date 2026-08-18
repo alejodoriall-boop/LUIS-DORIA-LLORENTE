@@ -1812,7 +1812,7 @@ export default function App() {
           onOpenScaleModal={() => setIsScaleModalOpen(true)}
           farms={farms}
           currentFarmId={selectedFarmId}
-          onSelectFarm={handleSelectFarm}
+          onSelectFarm={doSelectFarm}
           onOpenCreateFarmModal={() => setIsCreateFarmModalOpen(true)}
           onOpenFarmManagerModal={() => setIsFarmManagerModalOpen(true)}
           onOpenPendingActivitiesModal={() => setIsPendingActivitiesModalOpen(true)}

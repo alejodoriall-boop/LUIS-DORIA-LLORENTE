@@ -198,29 +198,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const renderContent = (isMobile: boolean = false) => (
     <div className="flex flex-col h-full select-none">
       {/* Brand Header */}
-      <div className="p-4 sm:p-5 border-b border-emerald-900/60 bg-[#032418]/80 backdrop-blur-xl flex items-center justify-between shrink-0">
+      <div className="p-4 sm:p-5 border-b border-emerald-900/60 bg-[#022419] flex items-center justify-between shrink-0">
         <div className="flex items-center justify-between w-full">
-          <GanaderIALogo
-            variant="full"
-            size="md"
-            theme="dark"
-            onClick={() => handleItemClick('home')}
-          />
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 text-[9px] uppercase font-bold tracking-wider bg-emerald-900/80 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-700/40 shrink-0 font-mono">
+            <GanaderIALogo
+              variant="full"
+              size="md"
+              theme="dark"
+              onClick={() => handleItemClick('home')}
+            />
+            <span className="inline-flex items-center gap-1 text-[9px] uppercase font-bold tracking-wider bg-[#06422b] text-[#22c55e] px-2 py-0.5 rounded-full border border-[#22c55e]/30 shrink-0 font-mono">
               <ShieldCheck className="w-2.5 h-2.5 text-[#facc15]" /> PRO
             </span>
-            {isMobile && onMobileClose && (
-              <button
-                type="button"
-                onClick={onMobileClose}
-                className="p-1 text-emerald-300 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
-                title="Cerrar menú"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            )}
           </div>
+          {isMobile && onMobileClose && (
+            <button
+              type="button"
+              onClick={onMobileClose}
+              className="p-1.5 text-emerald-300 hover:text-white rounded-xl hover:bg-white/10 transition-colors ml-1 cursor-pointer"
+              title="Cerrar menú"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
         </div>
       </div>
 
@@ -236,10 +236,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           className="w-full px-2.5 py-1.5 flex items-center justify-between cursor-pointer group hover:bg-white/5 rounded-xl transition-all text-left"
           title="Abrir Gestor de Módulos"
         >
-          <p className="text-[10px] font-bold text-emerald-300/70 uppercase tracking-widest group-hover:text-emerald-100 transition-colors flex items-center gap-1">
+          <p className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider group-hover:text-emerald-200 transition-colors flex items-center gap-1">
             Módulos del Sistema
           </p>
-          <span className="text-[10px] font-mono text-[#facc15] font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/40">
+          <span className="text-[10px] font-mono text-[#facc15] font-black bg-[#06422b] px-2.5 py-0.5 rounded-full border border-emerald-800/40">
             {isDairyEnabled ? `${navItems.length}/${navItems.length}` : `${navItems.length - 1}/${navItems.length}`}
           </span>
         </button>
@@ -249,10 +249,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           onClick={() => {
             if (onToggleLotsModule) onToggleLotsModule();
           }}
-          className="mx-1 mb-2 px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-800/40 hover:border-[#facc15]/50 flex items-center justify-between text-[11px] cursor-pointer transition-all active:scale-[0.98] group"
+          className="mx-1 mb-2 px-3 py-1.5 rounded-xl bg-[#043321] border border-emerald-800/50 hover:border-[#facc15]/50 flex items-center justify-between text-[11px] cursor-pointer transition-all active:scale-[0.98] group"
           title={isLotsEnabled ? 'Manejo por Lotes activo. Clic para volver a Predios.' : 'Manejo por Predios activo por defecto. Clic para habilitar Lotes.'}
         >
-          <span className="text-emerald-200/90 flex items-center gap-1.5 font-medium truncate">
+          <span className="text-emerald-100 flex items-center gap-1.5 font-medium truncate">
             {isLotsEnabled ? (
               <Layers className="w-3.5 h-3.5 text-[#facc15]" />
             ) : (
@@ -262,8 +262,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
               {isLotsEnabled ? 'Modo: Lotes' : 'Modo: Predios (Default)'}
             </span>
           </span>
-          <span className={`px-1.5 py-0.2 rounded-md font-bold text-[9px] uppercase tracking-wider shrink-0 ${
-            isLotsEnabled ? 'bg-[#facc15] text-[#042e1f]' : 'bg-emerald-900/80 text-emerald-200'
+          <span className={`px-2 py-0.5 rounded-md font-bold text-[9px] uppercase tracking-wider shrink-0 ${
+            isLotsEnabled ? 'bg-[#facc15] text-[#042e1f]' : 'bg-[#074730] text-emerald-300'
           }`}>
             {isLotsEnabled ? 'LOTES' : 'PREDIOS'}
           </span>
@@ -475,8 +475,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 280 }}
-              className="fixed top-0 left-0 bottom-0 z-50 w-[85vw] max-w-[320px] bg-[#042e1f] text-white shadow-2xl flex flex-col md:hidden overflow-hidden"
+              transition={{ type: 'spring', damping: 26, stiffness: 280 }}
+              className="fixed top-0 left-0 bottom-0 z-50 w-[88vw] max-w-[330px] bg-[#022419] text-white shadow-[0_20px_60px_rgba(0,0,0,0.5)] rounded-r-3xl flex flex-col md:hidden overflow-hidden border-r border-emerald-800/40"
             >
               {renderContent(true)}
             </motion.div>

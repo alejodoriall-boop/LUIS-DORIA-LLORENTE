@@ -14,15 +14,22 @@ interface BottomNavProps {
   activeTab: MainTab;
   setActiveTab: (tab: MainTab) => void;
   unreadCount?: number;
+  unreadAlertsCount?: number;
+  isDairyEnabled?: boolean;
   onOpenMobileMenu?: () => void;
+  onOpenMoreMenu?: () => void;
 }
 
 export const BottomNav: React.FC<BottomNavProps> = ({
   activeTab,
   setActiveTab,
   unreadCount = 0,
+  unreadAlertsCount = 0,
   onOpenMobileMenu,
+  onOpenMoreMenu,
 }) => {
+  const handleOpenMenu = onOpenMoreMenu || onOpenMobileMenu;
+  const effectiveUnread = unreadAlertsCount || unreadCount;
   const primaryTabs: { id: MainTab; label: string; icon: React.FC<any> }[] = [
     { id: 'home', label: 'Inicio', icon: Home },
     { id: 'cattle', label: 'Ganado', icon: CowIcon },
@@ -64,8 +71,8 @@ export const BottomNav: React.FC<BottomNavProps> = ({
       <motion.button
         whileTap={{ scale: 0.92 }}
         onClick={() => {
-          if (onOpenMobileMenu) {
-            onOpenMobileMenu();
+          if (handleOpenMenu) {
+            handleOpenMenu();
           } else {
             setActiveTab('menu');
           }
@@ -74,7 +81,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
       >
         <div className="relative">
           <Menu className="w-4 h-4 text-emerald-800 shrink-0" />
-          {unreadCount > 0 && (
+          {effectiveUnread > 0 && (
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-rose-500 rounded-full ring-2 ring-white" />
           )}
         </div>
