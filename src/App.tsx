@@ -97,6 +97,7 @@ import { INITIAL_ADMIN_USERS } from './data/mockAdminData';
 import { INITIAL_EQUINES_MOCK } from './data/mockEquinesData';
 import { INITIAL_BUBALINE_ANIMALS } from './data/mockBubalineData';
 import { INITIAL_SALES_RECORDS } from './data/mockSalesData';
+import { SupabaseSyncService } from './services/SupabaseSyncService';
 import { INITIAL_FINANCIAL_TRANSACTIONS } from './data/mockFinancialData';
 import {
   INITIAL_EMPLOYEES,
@@ -238,6 +239,7 @@ export default function App() {
   useEffect(() => {
     try {
       localStorage.setItem('ganaderia_equines_data', JSON.stringify(equines));
+      SupabaseSyncService.syncEquines(equines);
     } catch (e) {
       console.error('Error saving equines data:', e);
     }
@@ -257,10 +259,15 @@ export default function App() {
   useEffect(() => {
     try {
       localStorage.setItem('ganaderia_bubaline_data', JSON.stringify(bubalineAnimals));
+      SupabaseSyncService.syncBubalines(bubalineAnimals);
     } catch (e) {
       console.error('Error saving bubaline data:', e);
     }
   }, [bubalineAnimals]);
+
+  useEffect(() => {
+    SupabaseSyncService.syncFarms(farms);
+  }, [farms]);
 
   // Current active farm package
   const currentFarm =
@@ -485,6 +492,15 @@ export default function App() {
     }
     return INITIAL_FINANCIAL_TRANSACTIONS;
   });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('ganaderia_financial_transactions', JSON.stringify(financialTransactions));
+      SupabaseSyncService.syncFinancials(financialTransactions);
+    } catch (e) {
+      console.warn('Could not save financial transactions to localStorage:', e);
+    }
+  }, [financialTransactions]);
 
   // Payroll & Employee Management State
   const [employees, setEmployees] = useState<Employee[]>(() => {
@@ -839,6 +855,7 @@ export default function App() {
   useEffect(() => {
     try {
       localStorage.setItem('ganaderia_sales_records', JSON.stringify(salesRecords));
+      SupabaseSyncService.syncSales(salesRecords);
     } catch (e) {
       console.warn('Could not save sales records to localStorage:', e);
     }

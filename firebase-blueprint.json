@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "farms": {
+      "title": "Farms",
+      "description": "Livestock properties managed by users",
+      "properties": {
+        "id": { "type": "string", "description": "Unique farm ID" },
+        "name": { "type": "string", "description": "Farm name" },
+        "location": { "type": "string", "description": "Municipality and department" },
+        "totalAreaHectares": { "type": "number", "description": "Total area in ha" },
+        "effectivePastureAreaHa": { "type": "number", "description": "Pasture area in ha" },
+        "ownerId": { "type": "string", "description": "User ID who owns/manages the farm" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "ownerId"]
+    },
+    "animals": {
+      "title": "Animals",
+      "description": "Bovine, bubaline and equine livestock records",
+      "properties": {
+        "id": { "type": "string", "description": "Unique animal identifier" },
+        "farmId": { "type": "string", "description": "Associated farm ID" },
+        "earTag": { "type": "string", "description": "Primary ear tag or code" },
+        "name": { "type": "string", "description": "Animal name" },
+        "species": { "type": "string", "enum": ["bovine", "bubaline", "equine"], "description": "Species" },
+        "breed": { "type": "string", "description": "Breed" },
+        "sex": { "type": "string", "enum": ["macho", "hembra"], "description": "Sex" },
+        "category": { "type": "string", "description": "Zootechnical category" },
+        "weightKg": { "type": "number", "description": "Current body weight" },
+        "dailyWeightGainG": { "type": "number", "description": "Daily weight gain in grams" },
+        "paddockName": { "type": "string", "description": "Current assigned paddock" },
+        "lotId": { "type": "string", "description": "Lot identifier" },
+        "status": { "type": "string", "description": "Active, sold, deceased, etc." },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["farmId", "earTag", "species", "category"]
+    },
+    "dairyRecords": {
+      "title": "DairyRecords",
+      "description": "Daily milking and milk quality records",
+      "properties": {
+        "id": { "type": "string" },
+        "farmId": { "type": "string" },
+        "date": { "type": "string" },
+        "totalLiters": { "type": "number" },
+        "milkingCowsCount": { "type": "number" },
+        "fatPercentage": { "type": "number" },
+        "proteinPercentage": { "type": "number" },
+        "totalSolids": { "type": "number" },
+        "tankTemperatureC": { "type": "number" }
+      },
+      "required": ["farmId", "date", "totalLiters"]
+    },
+    "salesRecords": {
+      "title": "SalesRecords",
+      "description": "Livestock sales and dispatch records",
+      "properties": {
+        "id": { "type": "string" },
+        "farmId": { "type": "string" },
+        "saleDate": { "type": "string" },
+        "buyerName": { "type": "string" },
+        "headsCount": { "type": "number" },
+        "totalWeightKg": { "type": "number" },
+        "pricePerKg": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["farmId", "saleDate", "totalAmount"]
+    },
+    "financialTransactions": {
+      "title": "FinancialTransactions",
+      "description": "Income, expenses and operational cash flow",
+      "properties": {
+        "id": { "type": "string" },
+        "farmId": { "type": "string" },
+        "date": { "type": "string" },
+        "type": { "type": "string", "enum": ["income", "expense"] },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "description": { "type": "string" }
+      },
+      "required": ["farmId", "date", "type", "amount"]
+    }
+  }
+}

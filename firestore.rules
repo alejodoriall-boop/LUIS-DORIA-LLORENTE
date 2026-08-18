@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Permitir lectura y escritura a usuarios autenticados o modo abierto para demo/operaciones de la finca
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
