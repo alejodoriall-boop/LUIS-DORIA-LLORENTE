@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MainTab, RecentActivity, SanitarioAlert, FarmDataPackage, BrandingIron } from '../types';
 import { CowIcon } from './icons/CowIcon';
-import { GanaderIALogo } from './GanaderIALogo';
 import {
   AlertTriangle,
   Clock,
@@ -235,157 +234,134 @@ export const HomeView: React.FC<HomeViewProps> = ({
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       className="space-y-6 w-full pb-12"
     >
-      {/* Top Banner & Quick Actions Bar */}
-      <div className="bg-gradient-to-br from-[#043825] via-[#074730] to-[#043825] p-5 md:p-6 rounded-3xl text-white shadow-[0_8px_30px_rgba(0,0,0,0.35)] border border-white/[0.12] relative overflow-hidden">
-        {/* Subtle decorative background glow */}
-        <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#C9A35A]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Quick Actions Toolbar (Directly on light operational workspace, no hero banner) */}
+      <div className="w-full flex flex-wrap items-center gap-2 pt-0.5 pb-1">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.96 }}
+          onClick={() => onOpenNewEventModal('compra')}
+          className="bg-[#C9A35A] hover:bg-[#B78F42] text-[#101713] font-bold text-xs sm:text-sm h-10 sm:h-9 px-3.5 rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+        >
+          <PlusCircle className="w-4 h-4 text-[#101713]" />
+          <span>Nuevo Registro</span>
+        </motion.button>
 
-        <div className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-3">
-          {/* Action Buttons Toolbar */}
-          <div className="flex items-center gap-1.5 flex-wrap sm:flex-nowrap sm:overflow-x-auto no-scrollbar w-full md:w-auto py-0.5">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => onOpenNewEventModal('compra')}
-              className="bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] font-bold text-xs h-8 px-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-            >
-              <PlusCircle className="w-3.5 h-3.5 text-[#101713]" />
-              <span>Nuevo Registro</span>
-            </motion.button>
-
-            {onOpenPendingActivitiesModal && (
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.96 }}
-                onClick={onOpenPendingActivitiesModal}
-                className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer relative shrink-0"
-                title="Abrir Reporte Operativo de Actividades Diarias Pendientes"
-              >
-                <ClipboardList className="w-3.5 h-3.5 text-[#39D98A]" />
-                <span>Tareas</span>
-                {pendingActivitiesCount > 0 && (
-                  <span className="bg-rose-500 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full">
-                    {pendingActivitiesCount}
-                  </span>
-                )}
-              </motion.button>
+        {onOpenPendingActivitiesModal && (
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={onOpenPendingActivitiesModal}
+            className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer relative shrink-0 shadow-2xs"
+            title="Abrir Reporte Operativo de Actividades Diarias Pendientes"
+          >
+            <ClipboardList className="w-4 h-4 text-[#39D98A]" />
+            <span>Tareas</span>
+            {pendingActivitiesCount > 0 && (
+              <span className="bg-rose-500 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full font-mono">
+                {pendingActivitiesCount}
+              </span>
             )}
+          </motion.button>
+        )}
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.96 }}
-              type="button"
-              onClick={() => {
-                if (onOpenPalpationModal) {
-                  onOpenPalpationModal();
-                } else {
-                  setActiveTab('genetics');
-                }
-              }}
-              className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-            >
-              <Heart className="w-3.5 h-3.5 text-rose-300" />
-              <span>Palpación</span>
-            </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.96 }}
+          type="button"
+          onClick={() => {
+            if (onOpenPalpationModal) {
+              onOpenPalpationModal();
+            } else {
+              setActiveTab('genetics');
+            }
+          }}
+          className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+        >
+          <Heart className="w-4 h-4 text-rose-300" />
+          <span>Palpación</span>
+        </motion.button>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.96 }}
-              type="button"
-              onClick={() => {
-                if (onOpenSanitaryPlanModal) {
-                  onOpenSanitaryPlanModal();
-                } else {
-                  setActiveTab('menu');
-                  onOpenWithdrawalModal();
-                }
-              }}
-              className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-            >
-              <Stethoscope className="w-3.5 h-3.5 text-teal-300" />
-              <span>Plan Sanitario</span>
-            </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.96 }}
+          type="button"
+          onClick={() => {
+            if (onOpenSanitaryPlanModal) {
+              onOpenSanitaryPlanModal();
+            } else {
+              setActiveTab('menu');
+              onOpenWithdrawalModal();
+            }
+          }}
+          className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+        >
+          <Stethoscope className="w-4 h-4 text-teal-300" />
+          <span>Plan Sanitario</span>
+        </motion.button>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.96 }}
-              type="button"
-              onClick={onOpenWeightModal}
-              className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-            >
-              <Scale className="w-3.5 h-3.5 text-[#C9A35A]" />
-              <span>Pesaje</span>
-            </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.96 }}
+          type="button"
+          onClick={onOpenWeightModal}
+          className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+        >
+          <Scale className="w-4 h-4 text-[#C9A35A]" />
+          <span>Pesaje</span>
+        </motion.button>
 
-            {onOpenWhatsAppModal && (
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.96 }}
-                type="button"
-                onClick={onOpenWhatsAppModal}
-                className="bg-[#25D366]/20 hover:bg-[#25D366]/30 text-emerald-100 backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-[#25D366]/40 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-                title="Vincular Asistente de WhatsApp y Probar Bot"
-              >
-                <Smartphone className="w-3.5 h-3.5 text-[#25D366]" />
-                <span>WhatsApp Bot</span>
-              </motion.button>
-            )}
+        {onOpenWhatsAppModal && (
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.96 }}
+            type="button"
+            onClick={onOpenWhatsAppModal}
+            className="bg-[#128C7E] hover:bg-[#075E54] text-white font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#25D366]/40 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+            title="Vincular Asistente de WhatsApp y Probar Bot"
+          >
+            <Smartphone className="w-4 h-4 text-[#25D366]" />
+            <span>WhatsApp Bot</span>
+          </motion.button>
+        )}
 
-            {onOpenFarmManagerModal && (
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.96 }}
-                onClick={onOpenFarmManagerModal}
-                className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-                title="Administrar fincas"
-              >
-                <Settings className="w-3.5 h-3.5 text-[#B9C3BB]" />
-                <span>Gestionar</span>
-              </motion.button>
-            )}
+        {onOpenFarmManagerModal && (
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={onOpenFarmManagerModal}
+            className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+            title="Administrar fincas"
+          >
+            <Settings className="w-4 h-4 text-[#B9C3BB]" />
+            <span>Gestionar</span>
+          </motion.button>
+        )}
 
-            {onOpenCreateFarmModal && (
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.96 }}
-                onClick={onOpenCreateFarmModal}
-                className="bg-emerald-500/25 hover:bg-emerald-500/35 text-emerald-100 font-semibold text-xs h-8 px-2.5 rounded-xl border border-emerald-400/30 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-              >
-                <Building className="w-3.5 h-3.5 text-emerald-300" />
-                <span>+ Finca</span>
-              </motion.button>
-            )}
+        {onOpenCreateFarmModal && (
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.96 }}
+            onClick={onOpenCreateFarmModal}
+            className="bg-[#043825] hover:bg-[#075239] text-emerald-300 font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-emerald-600/40 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+          >
+            <Building className="w-4 h-4 text-emerald-400" />
+            <span>+ Finca</span>
+          </motion.button>
+        )}
 
-            {onOpenRegisterBrandingIronModal && (
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.96 }}
-                type="button"
-                onClick={onOpenRegisterBrandingIronModal}
-                className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-                title="Registrar nuevo Hierro o Marca a Fuego"
-              >
-                <Flame className="w-3.5 h-3.5 text-[#C9A35A]" />
-                <span>Hierro</span>
-              </motion.button>
-            )}
-          </div>
-
-          {/* Logo */}
-          <div className="flex-shrink-0 self-start md:self-auto">
-            <GanaderIALogo variant="banner" size="lg" theme="dark" />
-          </div>
-        </div>
-
-        {/* Bottom Row */}
-        <div className="pt-3.5 mt-3.5 border-t border-white/10 flex items-center gap-2.5 flex-wrap">
-          <span className="bg-[#C9A35A] text-[#101713] text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-lg shadow-xs">
-            SISTEMA OFICIAL
-          </span>
-          <span className="text-xs md:text-sm text-emerald-100/90 font-medium">
-            {totalFarmsCount} {totalFarmsCount === 1 ? 'Predio Activo' : 'Predios Activos'} • {uniqueDepartments.join(', ')}
-          </span>
-        </div>
+        {onOpenRegisterBrandingIronModal && (
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.96 }}
+            type="button"
+            onClick={onOpenRegisterBrandingIronModal}
+            className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+            title="Registrar nuevo Hierro o Marca a Fuego"
+          >
+            <Flame className="w-4 h-4 text-[#C9A35A]" />
+            <span>Hierro</span>
+          </motion.button>
+        )}
       </div>
 
       {/* ========================================================================= */}
