@@ -27,7 +27,6 @@ import {
 } from '../utils/farmCategoryUtils';
 import { useClickOutside } from '../hooks/useClickOutside';
 import { FarmSelector } from './FarmSelector';
-import { AdminContextSwitcher } from './AdminContextSwitcher';
 
 interface HeaderProps {
   activeTab: MainTab;
@@ -133,17 +132,6 @@ export const Header: React.FC<HeaderProps> = ({
           onOpenCreateFarmModal={onOpenCreateFarmModal}
           onOpenFarmManagerModal={onOpenFarmManagerModal}
         />
-
-        {isSuperadmin && onAdminContextModeChange && (
-          <AdminContextSwitcher
-            currentMode={adminContextMode}
-            onModeChange={onAdminContextModeChange}
-            impersonatedTenant={impersonatedTenant}
-            onExitImpersonation={onExitImpersonation || (() => {})}
-            isSuperadmin={isSuperadmin}
-            onGoToLanding={onGoToLanding}
-          />
-        )}
       </div>
 
       {/* Right: Operational Controls & Status Badges */}

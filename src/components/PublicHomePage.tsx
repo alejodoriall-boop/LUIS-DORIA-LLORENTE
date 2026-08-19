@@ -41,14 +41,12 @@ import { FarmDataPackage } from '../types';
 export interface PublicHomePageProps {
   onEnterPlatform: (targetTab?: string) => void;
   onOpenAuthModal: () => void;
-  onGoToSuperadmin?: () => void;
   farms?: FarmDataPackage[];
 }
 
 export const PublicHomePage: React.FC<PublicHomePageProps> = ({
   onEnterPlatform,
   onOpenAuthModal,
-  onGoToSuperadmin,
   farms = [],
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -381,7 +379,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
     { title: 'Bitácora de actividades', desc: 'Registro inmutable de auditoría con fecha, hora y usuario para cada movimiento registrado.', icon: FileText },
     { title: 'Trazabilidad de operaciones', desc: 'Historial completo de pesajes, partos, ventas y tratamientos con trazabilidad individual.', icon: Activity },
     { title: 'Separación de datos por finca', desc: 'Gestión multi-predio independiente garantizando que cada predio mantenga sus registros propios.', icon: Building2 },
-    { title: 'Control administrativo', desc: 'Supervisión de accesos, bloqueo preventivo y conmutador de contexto para soporte técnico.', icon: Lock },
+    { title: 'Control de accesos y seguridad', desc: 'Supervisión de permisos por rol, bloqueo preventivo de despacho y cifrado institucional.', icon: Lock },
   ];
 
   return (
@@ -552,18 +550,6 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   <span>Acceder a GanaderIA</span>
                   <ArrowRight className="w-4 h-4 text-[#C9A35A]" />
                 </button>
-                {onGoToSuperadmin && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      onGoToSuperadmin();
-                    }}
-                    className="w-full py-2 text-center text-xs font-semibold text-[#C9A35A]"
-                  >
-                    🛡️ Acceso Panel Global Superadmin
-                  </button>
-                )}
               </div>
             </motion.div>
           </>
@@ -1193,11 +1179,6 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 <button type="button" onClick={() => setIsPrivacyModalOpen(true)} className="hover:text-[#F5F2E9] text-left transition-colors">Política de privacidad</button>
                 <button type="button" onClick={() => setIsTermsModalOpen(true)} className="hover:text-[#F5F2E9] text-left transition-colors">Términos y condiciones</button>
                 <button type="button" onClick={() => scrollToSection('seguridad')} className="hover:text-[#F5F2E9] text-left transition-colors">Seguridad de datos</button>
-                {onGoToSuperadmin && (
-                  <button type="button" onClick={onGoToSuperadmin} className="text-[#C9A35A] hover:underline text-left font-bold transition-colors">
-                    Panel Superadmin
-                  </button>
-                )}
               </div>
             </div>
 

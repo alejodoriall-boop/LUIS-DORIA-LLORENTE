@@ -35,6 +35,7 @@ import {
   Phone,
   Mail,
   MapPin,
+  LogOut,
 } from 'lucide-react';
 import {
   TenantRecord,
@@ -53,11 +54,13 @@ import { AdminTenantDrawer } from './AdminTenantDrawer';
 export interface SuperadminDashboardViewProps {
   onStartImpersonation: (tenant: TenantRecord) => void;
   onExitToMyFarms: () => void;
+  onLogout?: () => void;
 }
 
 export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = ({
   onStartImpersonation,
   onExitToMyFarms,
+  onLogout,
 }) => {
   // State
   const [metrics, setMetrics] = useState<SuperadminGlobalMetrics>(INITIAL_SUPERADMIN_METRICS);
@@ -274,8 +277,19 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
             className="px-4 py-2.5 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-bold rounded-xl border border-neutral-700 transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <Building2 className="w-4 h-4 text-emerald-400" />
-            <span>Ir a Mis Fincas</span>
+            <span>Ir a la App</span>
           </button>
+
+          {onLogout && (
+            <button
+              type="button"
+              onClick={onLogout}
+              className="px-4 py-2.5 bg-rose-950/60 hover:bg-rose-900/80 text-rose-300 text-xs font-bold rounded-xl border border-rose-800/60 transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+            >
+              <LogOut className="w-4 h-4 text-rose-400" />
+              <span>Cerrar Sesión Admin</span>
+            </button>
+          )}
         </div>
       </div>
 

@@ -137,12 +137,22 @@ import { ModuleManagerModal } from './components/modals/ModuleManagerModal';
 import { ModuleUnlockPinModal } from './components/modals/ModuleUnlockPinModal';
 import { SaleConfirmationNoticeModal, SaleConfirmationData } from './components/modals/SaleConfirmationNoticeModal';
 import { WhatsAppIntegrationModal } from './components/modals/WhatsAppIntegrationModal';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom';
+import { AdminRouteGuard } from './components/admin/AdminRouteGuard';
+import { AccessDeniedPage } from './components/admin/AccessDeniedPage';
 import { useLivestockScale } from './hooks/useLivestockScale';
 import { INITIAL_SANITARY_PROTOCOLS, INITIAL_SANITARY_APPLICATIONS } from './data/mockSanitaryData';
 import { SanitaryProtocol, SanitaryApplicationRecord, WithdrawalAnimal } from './types';
 import { generateAnimalsForLot } from './utils/lotAnimalUtils';
 
-export default function App() {
+function AppContent() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<MainTab>('home');
   const [geneticsInitialSubTab, setGeneticsInitialSubTab] = useState<
     'kpis_ia' | 'insemination' | 'embryo_transfer' | 'donors_receptors' | 'bulls_semen' | 'events' | 'females' | 'pedigree' | 'progeny_testing'
@@ -196,9 +206,9 @@ export default function App() {
       };
       setActiveUser(updatedUser);
       setActiveTab('home');
-      setCurrentViewMode('app');
       setAdminContextMode('my_farms');
       showToast(`¡Sesión iniciada como ${updatedUser.fullName} (${updatedUser.customRoleTitle || updatedUser.roleType})!`);
+      navigate('/app');
       return true;
     }
     return false;
@@ -207,34 +217,28 @@ export default function App() {
   const handleLogoutUser = () => {
     setActiveUser(null);
     setActiveTab('home');
-    setCurrentViewMode('landing');
     setAdminContextMode('my_farms');
     showToast('Ha cerrado la sesión del sistema.');
+    navigate('/');
   };
 
   // Superadmin Multi-Tenant Context State
   const [adminContextMode, setAdminContextMode] = useState<AdminContextMode>('my_farms');
   const [impersonatedTenant, setImpersonatedTenant] = useState<TenantRecord | null>(null);
   const [isSuperadmin, setIsSuperadmin] = useState<boolean>(true);
-  const [currentViewMode, setCurrentViewMode] = useState<'app' | 'landing'>(() => {
-    try {
-      const stored = localStorage.getItem('ganaderia_active_user');
-      return stored ? 'app' : 'landing';
-    } catch (e) {
-      return 'landing';
-    }
-  });
 
   const handleStartImpersonation = (tenant: TenantRecord) => {
     setImpersonatedTenant(tenant);
     setAdminContextMode('support_impersonation');
     showToast(`Modo Soporte: Impersonando a ${tenant.farmName} (${tenant.tenantCode})`);
+    navigate('/app');
   };
 
   const handleExitImpersonation = () => {
     setImpersonatedTenant(null);
-    setAdminContextMode('global_platform');
+    setAdminContextMode('my_farms');
     showToast('Ha salido del Modo Soporte. Retornando a Panel Global.');
+    navigate('/admin');
   };
 
   // Multi-Farm Management State with Local Storage Persistence
@@ -1814,148 +1818,116 @@ export default function App() {
   const editingFarmTarget =
     farms.find((f) => f.profile.id === editingFarmTargetId)?.profile || currentFarm.profile;
 
-  if (currentViewMode === 'landing' || !activeUser) {
-    return (
-      <>
-        <PublicHomePage
-          onEnterPlatform={(targetTab) => {
-            if (targetTab) {
-              setActiveTab(targetTab as MainTab);
-            }
-            if (activeUser) {
-              setCurrentViewMode('app');
-            } else {
-              setIsAuthModalOpen(true);
-            }
-          }}
-          onOpenAuthModal={() => setIsAuthModalOpen(true)}
-          onGoToSuperadmin={() => {
-            if (activeUser) {
-              setCurrentViewMode('app');
-              setAdminContextMode('global_platform');
-            } else {
-              setIsAuthModalOpen(true);
-            }
-          }}
-          farms={farms}
-        />
-
-        <AuthSessionModal
-          isOpen={isAuthModalOpen}
-          onClose={() => setIsAuthModalOpen(false)}
-          users={adminUsers}
-          activeUser={activeUser}
-          onLoginUser={(user, pin) => {
-            const success = handleLoginUser(user, pin);
-            if (success) {
-              setIsAuthModalOpen(false);
-              setCurrentViewMode('app');
-            }
-            return success;
-          }}
-          onLogoutUser={handleLogoutUser}
-        />
-      </>
-    );
-  }
-
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#0D1410] text-[#F5F2E9] flex flex-col md:flex-row font-sans antialiased selection:bg-[#C9A35A]/30 selection:text-[#F5F2E9]">
-      {/* Left Vertical Sidebar Navigation */}
-      <Sidebar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        unreadAlertsCount={alerts.length}
-        isDairyEnabled={isDairyEnabled}
-        onToggleDairyModule={handleToggleDairyModule}
-        isLotsEnabled={isLotsEnabled}
-        onToggleLotsModule={handleToggleLotsModule}
-        onOpenModuleManagerModal={() => setIsModuleManagerModalOpen(true)}
-        activeUser={activeUser}
-        onLogoutUser={handleLogoutUser}
-        onOpenAuthModal={() => setIsAuthModalOpen(true)}
-        isMobileOpen={isMobileMenuOpen}
-        onMobileClose={() => setIsMobileMenuOpen(false)}
-      />
-
-      {/* Main App Content Column */}
-      <div className="flex-1 flex flex-col min-w-0 max-w-full w-full min-h-screen overflow-x-hidden">
-        {/* Support Impersonation Persistent Banner */}
-        {adminContextMode === 'support_impersonation' && impersonatedTenant && (
-          <div className="sticky top-0 z-50 bg-amber-400 text-neutral-950 px-3 sm:px-5 py-2 text-xs font-extrabold flex items-center justify-between shadow-md border-b border-amber-500 gap-2 animate-in slide-in-from-top duration-300">
-            <div className="flex items-center gap-2 truncate">
-              <span className="text-base shrink-0 animate-pulse">⚠️</span>
-              <span className="truncate">
-                Modo Soporte Activo: Impersonando a{' '}
-                <strong className="underline">{impersonatedTenant.farmName}</strong> (Tenant:{' '}
-                <span className="font-mono">{impersonatedTenant.tenantCode}</span>) • Propietario: {impersonatedTenant.ownerName}
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={handleExitImpersonation}
-              className="px-3 py-1 bg-neutral-950 hover:bg-neutral-800 text-amber-300 text-xs font-extrabold rounded-lg transition-colors cursor-pointer shrink-0 shadow-xs"
-            >
-              Salir de Soporte
-            </button>
-          </div>
-        )}
-
-        {/* Top Application Header */}
-        <Header
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          unreadAlertsCount={alerts.length}
-          onOpenWithdrawalModal={() => setIsWithdrawalModalOpen(true)}
-          onOpenNewEventModal={handleOpenNewEventModal}
-          scaleName={scaleHook.activeScale?.name}
-          scaleWeight={scaleHook.reading?.weight}
-          onOpenScaleModal={() => setIsScaleModalOpen(true)}
-          farms={farms}
-          currentFarmId={selectedFarmId}
-          onSelectFarm={doSelectFarm}
-          onOpenCreateFarmModal={() => setIsCreateFarmModalOpen(true)}
-          onOpenFarmManagerModal={() => setIsFarmManagerModalOpen(true)}
-          onOpenPendingActivitiesModal={() => setIsPendingActivitiesModalOpen(true)}
-          pendingActivitiesCount={pendingActivities.filter((a) => a.status === 'pendiente' || a.status === 'vencida').length}
-          onOpenMastitisModal={() => setIsMastitisModalOpen(true)}
-          activeMastitisCount={mastitisRecords.filter((r) => r.status !== 'curado').length}
-          isDairyEnabled={isDairyEnabled}
-          onToggleDairyModule={handleToggleDairyModule}
-          isLotsEnabled={isLotsEnabled}
-          onToggleLotsModule={handleToggleLotsModule}
-          activeUser={activeUser}
-          onOpenAuthModal={() => setIsAuthModalOpen(true)}
-          onLogoutUser={handleLogoutUser}
-          onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
-          onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
-          adminContextMode={adminContextMode}
-          onAdminContextModeChange={(mode) => {
-            setAdminContextMode(mode);
-            if (mode === 'global_platform') {
-              showToast('Cambiado a: Panel de Administración Global');
-            } else if (mode === 'my_farms') {
-              showToast('Cambiado a: Mis Fincas Propias');
-            }
-          }}
-          impersonatedTenant={impersonatedTenant}
-          onExitImpersonation={handleExitImpersonation}
-          isSuperadmin={isSuperadmin}
-          onGoToLanding={() => setCurrentViewMode('landing')}
+    <>
+      <Routes>
+        {/* Context 1: Public Landing Page (/) */}
+        <Route
+          path="/"
+          element={
+            <PublicHomePage
+              onEnterPlatform={(targetTab) => {
+                if (targetTab) {
+                  setActiveTab(targetTab as MainTab);
+                }
+                if (activeUser) {
+                  navigate('/app');
+                } else {
+                  setIsAuthModalOpen(true);
+                }
+              }}
+              onOpenAuthModal={() => setIsAuthModalOpen(true)}
+              farms={farms}
+            />
+          }
         />
 
-      {/* Main Content & Right Lateral Panel Workspace */}
-      <div className="flex-1 flex flex-col md:flex-row min-w-0 max-w-full w-full">
-        <main className="flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden">
-        {adminContextMode === 'global_platform' ? (
-          <SuperadminDashboardView
-            onStartImpersonation={handleStartImpersonation}
-            onExitToMyFarms={() => setAdminContextMode('my_farms')}
-          />
-        ) : (
-          <>
-        {activeTab === 'home' && (
-          <HomeView
+        {/* Context 2: Operational Software Platform (/app) */}
+        <Route
+          path="/app/*"
+          element={
+            <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#0D1410] text-[#F5F2E9] flex flex-col md:flex-row font-sans antialiased selection:bg-[#C9A35A]/30 selection:text-[#F5F2E9]">
+              {/* Left Vertical Sidebar Navigation */}
+              <Sidebar
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                unreadAlertsCount={alerts.length}
+                isDairyEnabled={isDairyEnabled}
+                onToggleDairyModule={handleToggleDairyModule}
+                isLotsEnabled={isLotsEnabled}
+                onToggleLotsModule={handleToggleLotsModule}
+                onOpenModuleManagerModal={() => setIsModuleManagerModalOpen(true)}
+                activeUser={activeUser}
+                onLogoutUser={handleLogoutUser}
+                onOpenAuthModal={() => setIsAuthModalOpen(true)}
+                isMobileOpen={isMobileMenuOpen}
+                onMobileClose={() => setIsMobileMenuOpen(false)}
+              />
+
+              {/* Main App Content Column */}
+              <div className="flex-1 flex flex-col min-w-0 max-w-full w-full min-h-screen overflow-x-hidden">
+                {/* Support Impersonation Persistent Banner */}
+                {adminContextMode === 'support_impersonation' && impersonatedTenant && (
+                  <div className="sticky top-0 z-50 bg-amber-400 text-neutral-950 px-3 sm:px-5 py-2 text-xs font-extrabold flex items-center justify-between shadow-md border-b border-amber-500 gap-2 animate-in slide-in-from-top duration-300">
+                    <div className="flex items-center gap-2 truncate">
+                      <span className="text-base shrink-0 animate-pulse">⚠️</span>
+                      <span className="truncate">
+                        Modo Soporte Activo: Impersonando a{' '}
+                        <strong className="underline">{impersonatedTenant.farmName}</strong> (Tenant:{' '}
+                        <span className="font-mono">{impersonatedTenant.tenantCode}</span>) • Propietario: {impersonatedTenant.ownerName}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleExitImpersonation}
+                      className="px-3 py-1 bg-neutral-950 hover:bg-neutral-800 text-amber-300 text-xs font-extrabold rounded-lg transition-colors cursor-pointer shrink-0 shadow-xs"
+                    >
+                      Salir de Soporte
+                    </button>
+                  </div>
+                )}
+
+                {/* Top Application Header */}
+                <Header
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  unreadAlertsCount={alerts.length}
+                  onOpenWithdrawalModal={() => setIsWithdrawalModalOpen(true)}
+                  onOpenNewEventModal={handleOpenNewEventModal}
+                  scaleName={scaleHook.activeScale?.name}
+                  scaleWeight={scaleHook.reading?.weight}
+                  onOpenScaleModal={() => setIsScaleModalOpen(true)}
+                  farms={farms}
+                  currentFarmId={selectedFarmId}
+                  onSelectFarm={doSelectFarm}
+                  onOpenCreateFarmModal={() => setIsCreateFarmModalOpen(true)}
+                  onOpenFarmManagerModal={() => setIsFarmManagerModalOpen(true)}
+                  onOpenPendingActivitiesModal={() => setIsPendingActivitiesModalOpen(true)}
+                  pendingActivitiesCount={pendingActivities.filter((a) => a.status === 'pendiente' || a.status === 'vencida').length}
+                  onOpenMastitisModal={() => setIsMastitisModalOpen(true)}
+                  activeMastitisCount={mastitisRecords.filter((r) => r.status !== 'curado').length}
+                  isDairyEnabled={isDairyEnabled}
+                  onToggleDairyModule={handleToggleDairyModule}
+                  isLotsEnabled={isLotsEnabled}
+                  onToggleLotsModule={handleToggleLotsModule}
+                  activeUser={activeUser}
+                  onOpenAuthModal={() => setIsAuthModalOpen(true)}
+                  onLogoutUser={handleLogoutUser}
+                  onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
+                  onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+                  adminContextMode={adminContextMode}
+                  onAdminContextModeChange={(mode) => setAdminContextMode(mode)}
+                  impersonatedTenant={impersonatedTenant}
+                  onExitImpersonation={handleExitImpersonation}
+                  isSuperadmin={isSuperadmin}
+                  onGoToLanding={() => navigate('/')}
+                />
+
+                {/* Main Content & Right Lateral Panel Workspace */}
+                <div className="flex-1 flex flex-col md:flex-row min-w-0 max-w-full w-full">
+                  <main className="flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden">
+                    {activeTab === 'home' && (
+                      <HomeView
             setActiveTab={setActiveTab}
             alerts={alerts}
             activities={activities}
@@ -2213,8 +2185,6 @@ export default function App() {
             onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
           />
         )}
-          </>
-        )}
       </main>
 
       {/* Dedicated Right Lateral Sidebar for Notices & Notifications */}
@@ -2262,13 +2232,6 @@ export default function App() {
         onAddRecord={handleAddMastitisRecord}
         onUpdateStatus={handleUpdateMastitisStatus}
         onDeleteRecord={handleDeleteMastitisRecord}
-      />
-
-      {/* Mobile Bottom Navigation Bar */}
-      <BottomNav
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        unreadCount={alerts.length}
       />
 
       {/* Multi-Farm Management Modals */}
@@ -2597,16 +2560,54 @@ export default function App() {
         </div>
       )}
 
-      {/* Fixed Bottom Navigation Bar for Mobile (< 768px) */}
-      <BottomNav
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        unreadAlertsCount={alerts.length}
-        isDairyEnabled={isDairyEnabled}
-        onOpenMoreMenu={() => setIsMobileMenuOpen(true)}
-      />
-      </div>
-    </div>
+                {/* Fixed Bottom Navigation Bar for Mobile (< 768px) */}
+                <BottomNav
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  unreadAlertsCount={alerts.length}
+                  isDairyEnabled={isDairyEnabled}
+                  onOpenMoreMenu={() => setIsMobileMenuOpen(true)}
+                />
+              </div>
+            </div>
+          }
+        />
+
+        {/* Context 3: Global Platform Superadmin Panel (/admin) */}
+        <Route
+          path="/admin"
+          element={
+            <AdminRouteGuard
+              activeOperationalUser={activeUser}
+              onStartImpersonation={handleStartImpersonation}
+              onExitToOperationalApp={() => navigate('/app')}
+            />
+          }
+        />
+
+        {/* 403 Forbidden Access Page */}
+        <Route
+          path="/403"
+          element={
+            <AccessDeniedPage
+              onNavigateHome={() => navigate('/')}
+              onNavigateApp={() => navigate('/app')}
+            />
+          }
+        />
+
+        {/* Fallback to Public Landing */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
 
