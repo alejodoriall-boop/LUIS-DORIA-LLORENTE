@@ -2213,6 +2213,59 @@ function AppContent() {
       />
     </div>
 
+                {/* Fixed Bottom Navigation Bar for Mobile (< 768px) */}
+                <BottomNav
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  unreadAlertsCount={alerts.length}
+                  isDairyEnabled={isDairyEnabled}
+                  onOpenMoreMenu={() => setIsMobileMenuOpen(true)}
+                />
+              </div>
+            </div>
+          }
+        />
+
+        {/* Context 3: Global Platform Superadmin Panel (/admin) */}
+        <Route
+          path="/admin"
+          element={
+            <AdminRouteGuard
+              activeOperationalUser={activeUser}
+              onStartImpersonation={handleStartImpersonation}
+              onExitToOperationalApp={() => navigate('/app')}
+            />
+          }
+        />
+
+        {/* 403 Forbidden Access Page */}
+        <Route
+          path="/403"
+          element={
+            <AccessDeniedPage
+              onNavigateHome={() => navigate('/')}
+              onNavigateApp={() => navigate('/app')}
+            />
+          }
+        />
+
+        {/* Fallback to Public Landing */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+
+      {/* ================= GLOBAL MODALS & NOTICES (Rendered at root level across all routes) ================= */}
+
+      {/* User Session & Login Authentication Modal */}
+      <AuthSessionModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        users={adminUsers}
+        activeUser={activeUser}
+        onLoginUser={handleLoginUser}
+        onLogoutUser={handleLogoutUser}
+        onNavigateToAdmin={() => setActiveTab('admin')}
+      />
+
       {/* Reporte de Actividades Diarias Pendientes Modal */}
       <PendingActivitiesReportModal
         isOpen={isPendingActivitiesModalOpen}
@@ -2470,17 +2523,6 @@ function AppContent() {
         }}
       />
 
-      {/* User Session & Login Authentication Modal */}
-      <AuthSessionModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-        users={adminUsers}
-        activeUser={activeUser}
-        onLoginUser={handleLoginUser}
-        onLogoutUser={handleLogoutUser}
-        onNavigateToAdmin={() => setActiveTab('admin')}
-      />
-
       {/* Sale Confirmation Notice Modal (Aviso de Confirmación de Venta) */}
       <SaleConfirmationNoticeModal
         isOpen={isSaleConfirmationModalOpen}
@@ -2559,46 +2601,6 @@ function AppContent() {
           </div>
         </div>
       )}
-
-                {/* Fixed Bottom Navigation Bar for Mobile (< 768px) */}
-                <BottomNav
-                  activeTab={activeTab}
-                  setActiveTab={setActiveTab}
-                  unreadAlertsCount={alerts.length}
-                  isDairyEnabled={isDairyEnabled}
-                  onOpenMoreMenu={() => setIsMobileMenuOpen(true)}
-                />
-              </div>
-            </div>
-          }
-        />
-
-        {/* Context 3: Global Platform Superadmin Panel (/admin) */}
-        <Route
-          path="/admin"
-          element={
-            <AdminRouteGuard
-              activeOperationalUser={activeUser}
-              onStartImpersonation={handleStartImpersonation}
-              onExitToOperationalApp={() => navigate('/app')}
-            />
-          }
-        />
-
-        {/* 403 Forbidden Access Page */}
-        <Route
-          path="/403"
-          element={
-            <AccessDeniedPage
-              onNavigateHome={() => navigate('/')}
-              onNavigateApp={() => navigate('/app')}
-            />
-          }
-        />
-
-        {/* Fallback to Public Landing */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
     </>
   );
 }

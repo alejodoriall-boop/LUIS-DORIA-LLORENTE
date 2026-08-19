@@ -225,7 +225,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/75 backdrop-blur-md transition-all duration-200"
+      className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-md transition-all duration-200"
       onClick={(e) => {
         if (modalContainerRef.current && !modalContainerRef.current.contains(e.target as Node)) {
           onClose();
@@ -499,6 +499,23 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                 {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
+
+            {/* Quick Demo PIN Helper */}
+            {selectedUserToLogin && selectedUserToLogin.securityPin && (
+              <div className="flex items-center justify-between text-[11px] px-1 pt-0.5 text-[#A5B8AC]">
+                <span>PIN por defecto: <strong className="font-mono text-[#C9A35A]">{selectedUserToLogin.securityPin}</strong></span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPinInput(selectedUserToLogin.securityPin);
+                    if (loginError) setLoginError(null);
+                  }}
+                  className="text-[#C9A35A] hover:underline font-semibold cursor-pointer"
+                >
+                  Autocompletar PIN
+                </button>
+              </div>
+            )}
 
             {/* Error Message Inline (aria-live) */}
             <AnimatePresence>
