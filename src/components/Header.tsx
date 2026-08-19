@@ -24,6 +24,7 @@ import {
   Activity,
   Smartphone,
   Menu,
+  Sparkles,
 } from 'lucide-react';
 import {
   ProductionCategoryKey,

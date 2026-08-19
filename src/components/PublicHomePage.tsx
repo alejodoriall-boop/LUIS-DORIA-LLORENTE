@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   ShieldCheck,
@@ -16,24 +16,24 @@ import {
   DollarSign,
   TrendingUp,
   Award,
-  Smartphone,
   ChevronRight,
   ArrowRight,
   CheckCircle2,
   Menu as MenuIcon,
   X,
-  Compass,
   Boxes,
   Briefcase,
   Activity,
-  Calendar,
   Lock,
   Stethoscope,
-  Globe,
+  ChevronDown,
+  Shield,
+  KeyRound,
+  FileText,
+  UserCheck,
+  Wheat,
   Sliders,
   Check,
-  ChevronDown,
-  ExternalLink,
 } from 'lucide-react';
 import { GanaderIALogo } from './GanaderIALogo';
 import { FarmDataPackage } from '../types';
@@ -52,10 +52,13 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
   farms = [],
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedRoleIndex, setSelectedRoleIndex] = useState(0);
+  const [selectedFarmPreviewId, setSelectedFarmPreviewId] = useState<string>(farms[0]?.profile?.id || 'farm-1');
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  // Smooth scroll handler for internal links
+  // Smooth scroll helper
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false);
     const element = document.getElementById(sectionId);
@@ -64,1008 +67,1216 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
     }
   };
 
-  // Real 19 modules present in GanaderIA codebase
+  // Close mobile drawer on escape
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    if (mobileMenuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
+  // The 19 real modules present in GanaderIA
   const realModules = [
     {
       id: 'home',
       name: 'Inicio y Resumen de Finca',
-      description: 'Tablero consolidado de KPIs zootécnicos, alertas sanitarias prioritarias y bitácora de actividades diarias.',
-      icon: Activity,
       category: 'Gestión General',
-      color: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+      description: 'Tablero consolidado de KPIs zootécnicos, alertas sanitarias prioritarias y bitácora de actividades.',
+      icon: Activity,
     },
     {
       id: 'cattle',
       name: 'Ganado y Lotes',
-      description: 'Control de inventario bovino, pesajes con sincronización a báscula Bluetooth Tru-Test y ganancias diarias de peso (GDP).',
-      icon: Layers,
       category: 'Inventario Animal',
-      color: 'bg-amber-50 text-amber-800 border-amber-200',
+      description: 'Control de inventario bovino, pesajes con sincronización a báscula Bluetooth y ganancias diarias (GDP).',
+      icon: Layers,
     },
     {
       id: 'dairy',
       name: 'Producción Lechera',
-      description: 'Monitoreo de ordeño individual con chips RFID, control de mastitis (CMT/RCS) y alertas de retiro por antibióticos.',
-      icon: Milk,
       category: 'Producción',
-      color: 'bg-blue-50 text-blue-800 border-blue-200',
+      description: 'Monitoreo de ordeño individual, control de mastitis (CMT/RCS), calidad en tanque y curvas de lactancia.',
+      icon: Milk,
     },
     {
       id: 'genetics',
       name: 'Genética y Reproducción',
-      description: 'Programas de IATF, transferencia de embriones, catálogo de toros, pajillas de semen y simulación de consanguinidad.',
-      icon: Dna,
       category: 'Mejoramiento Genético',
-      color: 'bg-purple-50 text-purple-800 border-purple-200',
+      description: 'Programas de IATF, transferencia de embriones, catálogo de toros, pajillas y simulación de consanguinidad.',
+      icon: Dna,
     },
     {
       id: 'calf_rearing',
       name: 'Cría de Terneros',
+      category: 'Crianza',
       description: 'Protocolos de crianza artificial, suministro de calostro, control de diarreas/neumonías y pesajes predestete.',
       icon: HeartPulse,
-      category: 'Crianza',
-      color: 'bg-rose-50 text-rose-800 border-rose-200',
     },
     {
       id: 'equines',
-      name: 'Equinos de Trabajo',
-      description: 'Registro de caballos, mulares y asnales de vaquería, genealogía, herrero, desparasitación y aptitud física.',
+      name: 'Equinos',
+      category: 'Especies de Trabajo',
+      description: 'Registro de caballos, mulares y asnales de vaquería, genealogía, herraje, desparasitación y aptitud física.',
       icon: Award,
-      category: 'Especies Menores',
-      color: 'bg-stone-50 text-stone-800 border-stone-200',
     },
     {
       id: 'buffalo',
-      name: 'Búfalos de Agua',
-      description: 'Manejo especializado de hatos bubalinos: control de fotoperiodo, leche con altos sólidos y rendimiento para mozzarella.',
-      icon: Boxes,
+      name: 'Búfalos',
       category: 'Especies Especiales',
-      color: 'bg-slate-50 text-slate-800 border-slate-200',
+      description: 'Manejo especializado de hatos bubalinos: curva de gestación (312 días), sólidos de leche y rusticidad.',
+      icon: Boxes,
     },
     {
       id: 'sanitary',
-      name: 'Sanidad y Retiros ICA',
-      description: 'Calendario de vacunación oficial, planes preventivos, registro de patologías y bloqueo de venta por tiempos de retiro.',
-      icon: Stethoscope,
+      name: 'Sanidad',
       category: 'Salud Animal',
-      color: 'bg-teal-50 text-teal-800 border-teal-200',
+      description: 'Calendario de vacunación oficial ICA, planes preventivos y bloqueo de venta por tiempos de retiro farmacológico.',
+      icon: Stethoscope,
     },
     {
       id: 'gis',
-      name: 'Potreros y Gestión Geográfica (GIS)',
-      description: 'Mapeo satelital de perímetros de finca, curvas de nivel, zonas de inundación y estado de rotación de potreros.',
-      icon: MapPin,
+      name: 'Potreros y Gestión Geográfica',
       category: 'Infraestructura',
-      color: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+      description: 'Mapeo satelital de perímetros de finca, curvas de nivel, zonas de inundación y rotación de potreros.',
+      icon: MapPin,
     },
     {
       id: 'rainfall',
-      name: 'Pluviometría y Lluvias',
-      description: 'Registro milimétrico de precipitaciones diarias, comparativas históricas mensuales y análisis de sequías.',
+      name: 'Pluviometría',
+      category: 'Clima y Forraje',
+      description: 'Historial pluviométrico milimétrico (mm/día), análisis estacional de sequías y correlación con biomasa.',
       icon: CloudRain,
-      category: 'Climatología',
-      color: 'bg-cyan-50 text-cyan-800 border-cyan-200',
     },
     {
       id: 'aforo',
       name: 'Aforos y Capacidad de Carga',
-      description: 'Muestreo de pasturas en doble marco botánico, cálculo de materia seca disponible y asignación de Unidades Animales (UA).',
-      icon: Scale,
-      category: 'Nutrición y Pastos',
-      color: 'bg-lime-50 text-lime-800 border-lime-200',
+      category: 'Manejo Forrajero',
+      description: 'Cálculo de biomasa por metro cuadrado, forraje verde disponible, período de descanso y Unidad Gran Ganado (UGG).',
+      icon: Wheat,
     },
     {
       id: 'supplementation',
-      name: 'Suplementación Nutricional',
-      description: 'Planes de sales mineralizadas, concentrados por etapa productiva (cría, levante, ceba) y costeo de ración diaria.',
-      icon: Sparkles,
-      category: 'Nutrición y Pastos',
-      color: 'bg-amber-50 text-amber-800 border-amber-200',
+      name: 'Suplementación',
+      category: 'Nutrición Animal',
+      description: 'Formulación y dosificación de sales mineralizadas, bloques multinutricionales y balance de raciones.',
+      icon: Boxes,
     },
     {
       id: 'inventory',
       name: 'Inventario y Almacén',
-      description: 'Control de existencias de medicamentos, agroquímicos, alimentos e insumos con alertas de stock mínimo y vencimiento.',
+      category: 'Logística de Insumos',
+      description: 'Control de stock en bodega: medicamentos veterinarios, biológicos, semillas, alambres y alertas de vencimiento.',
       icon: Boxes,
-      category: 'Insumos',
-      color: 'bg-indigo-50 text-indigo-800 border-indigo-200',
     },
     {
       id: 'sales',
-      name: 'Ventas y Comercialización',
-      description: 'Registro de ventas de novillos, vacas de descarte, leche y reproductores con cálculo de precio por kg y márgenes.',
+      name: 'Ventas',
+      category: 'Comercialización',
+      description: 'Despacho de animales a frigorífico o subasta, liquidación de peso en báscula, mermas y guías de movilización.',
       icon: DollarSign,
-      category: 'Comercial',
-      color: 'bg-emerald-50 text-emerald-800 border-emerald-200',
     },
     {
       id: 'finance',
-      name: 'Finanzas y Flujo de Caja',
-      description: 'Estado de ingresos y egresos, categorización contable de costos fijos/variables y rentabilidad neta por hectárea.',
+      name: 'Finanzas',
+      category: 'Administración',
+      description: 'Control de ingresos, egresos operacionales, costo por kilo producido y rentabilidad neta por hectárea.',
       icon: TrendingUp,
-      category: 'Economía',
-      color: 'bg-green-50 text-green-800 border-green-200',
     },
     {
       id: 'payroll',
-      name: 'Nómina y Personal de Campo',
-      description: 'Administración de colaboradores, mayordomos, ordeñadores, jornales diarios, anticipos y liquidación periódica.',
-      icon: Briefcase,
-      category: 'Talento Humano',
-      color: 'bg-blue-50 text-blue-800 border-blue-200',
+      name: 'Nómina',
+      category: 'Gestión Humana',
+      description: 'Liquidación de jornales de vaquería, salarios fijos de administradores, anticipos y registro de empleados.',
+      icon: Users,
     },
     {
-      id: 'herd_traceability',
-      name: 'Trazabilidad Genealógica',
-      description: 'Genealogía ascendente y descendente, certificados de pureza Asocebú, control de hierro caliente y marcas a fuego.',
-      icon: FileSpreadsheet,
-      category: 'Trazabilidad',
-      color: 'bg-yellow-50 text-yellow-800 border-yellow-200',
+      id: 'traceability',
+      name: 'Trazabilidad',
+      category: 'Identificación Oficial',
+      description: 'Historial individual de cada animal desde nacimiento: genealogía, eventos médicos, traslados y chapetas DIN.',
+      icon: ShieldCheck,
     },
     {
-      id: 'analytics_report',
-      name: 'Reportes y Analítica Zootécnica',
-      description: 'Informes ejecutivos exportables en PDF y Excel para auditorías bancarias, ICA y juntas de accionistas.',
+      id: 'analytics',
+      name: 'Reportes y Analítica',
+      category: 'Inteligencia de Datos',
+      description: 'Consolidación de indicadores zootécnicos, curvas de crecimiento, intervalos entre partos y exportación a Excel/PDF.',
       icon: FileSpreadsheet,
-      category: 'Analítica',
-      color: 'bg-violet-50 text-violet-800 border-violet-200',
     },
     {
       id: 'admin',
       name: 'Administración y Permisos',
-      description: 'Control granular de usuarios con PIN de seguridad, roles asignados y bitácora inmutable de eventos del sistema.',
-      icon: Users,
-      category: 'Seguridad',
-      color: 'bg-stone-50 text-stone-800 border-stone-200',
+      category: 'Seguridad y Control',
+      description: 'Gestión de usuarios del predio, asignación de roles con PIN de seguridad y bitácora de auditoría de cambios.',
+      icon: Shield,
     },
   ];
 
-  // The 5 real roles identified in the codebase
-  const userRoles = [
-    {
-      role: 'Propietario',
-      badge: 'Acceso Total',
-      description: 'Visión estratégica y consolidada de todas las fincas, estados financieros, inversiones, reportes gerenciales y decisiones globales.',
-      permissions: [
-        'Acceso irrestricto a todas las fincas registradas',
-        'Aprobación de compras y desembolsos mayores',
-        'Consulta de rentabilidad neta por hectárea',
-        'Gestión de usuarios y asignación de fincas',
-        'Exportación de balances consolidados',
-      ],
-      icon: Building2,
-      color: 'border-amber-400 bg-amber-50/70 text-amber-950',
-    },
-    {
-      role: 'Administrador',
-      badge: 'Gestión Operativa',
-      description: 'Control diario de las actividades del predio, rotación de lotes, compras de insumos, ventas de ganado y supervisión del personal.',
-      permissions: [
-        'Creación y movimiento de lotes de ganado',
-        'Aprobación de entradas y salidas de almacén',
-        'Registro de ventas y liquidación de fletes',
-        'Programación de actividades diarias del personal',
-        'Gestión de nómina de campo y jornales',
-      ],
-      icon: Briefcase,
-      color: 'border-emerald-500 bg-emerald-50/70 text-emerald-950',
-    },
-    {
-      role: 'Veterinario o Zootecnista',
-      badge: 'Técnico Especializado',
-      description: 'Responsable técnico del plan sanitario oficial ICA, programas de inseminación artificial (IATF), control de mastitis y retiros.',
-      permissions: [
-        'Registro y certificación de esquemas de vacunación',
-        'Diagnósticos de palpación y ecografías reproductivas',
-        'Control de cuartos mamarios y pruebas CMT',
-        'Activación de alertas por retiro de medicamentos',
-        'Simulador de consanguinidad y catálogo genético',
-      ],
-      icon: Stethoscope,
-      color: 'border-teal-500 bg-teal-50/70 text-teal-950',
-    },
-    {
-      role: 'Mayordomo o Caporal',
-      badge: 'Operación en Campo',
-      description: 'Encargado directo en manga y potreros de los pesajes en báscula, registros de leche diarios, conteos y aplicaciones sanitarias.',
-      permissions: [
-        'Captura de peso directo vía Bluetooth Tru-Test',
-        'Registro de producción de leche turno mañana/tarde',
-        'Movimientos de ganado entre potreros',
-        'Reporte de nacimientos y novedades de hato',
-        'Consulta rápida desde el asistente de WhatsApp',
-      ],
-      icon: Layers,
-      color: 'border-blue-500 bg-blue-50/70 text-blue-950',
-    },
-    {
-      role: 'Financiero o Contador',
-      badge: 'Control Económico',
-      description: 'Supervisión del flujo de caja, categorización contable de ingresos/egresos, comprobantes de pago y balances de rentabilidad.',
-      permissions: [
-        'Registro de ingresos por venta de ganado y leche',
-        'Control de costos fijos y variables de insumos',
-        'Cálculo de costo por kilo producido y litro de leche',
-        'Liquidación de nómina y comprobantes de desembolso',
-        'Generación de reportes tributarios y contables',
-      ],
-      icon: DollarSign,
-      color: 'border-purple-500 bg-purple-50/70 text-purple-950',
-    },
+  // 5 Key capabilities cards row
+  const capabilityCards = [
+    { title: '19 módulos especializados', icon: Layers, accent: 'text-[#C9A35A]' },
+    { title: 'Gestión multifincas', icon: Building2, accent: 'text-[#10B981]' },
+    { title: 'Control de usuarios y permisos', icon: ShieldCheck, accent: 'text-[#C9A35A]' },
+    { title: 'Integración con básculas', icon: Scale, accent: 'text-[#10B981]' },
+    { title: 'Reportes y analítica', icon: TrendingUp, accent: 'text-[#C9A35A]' },
   ];
 
-  // Core benefits
-  const platformBenefits = [
+  // Benefits
+  const benefits = [
     {
-      title: 'Información organizada',
-      desc: 'Centraliza registros genealógicos, productivos y sanitarios en una estructura estandarizada sin planillas de papel.',
-      icon: Boxes,
-    },
-    {
-      title: 'Gestión multifincas',
-      desc: 'Administra varios predios ganaderos desde una sola cuenta, cambiando de contexto con un solo clic.',
-      icon: Building2,
-    },
-    {
-      title: 'Control de animales y lotes',
-      desc: 'Trazabilidad individual con chapeta, RFID y hierro caliente, categorizando por ceba, cría, leche o genética.',
+      title: 'Control integral del hato',
+      description: 'Visualiza en tiempo real el censo de animales por categoría, sexo, raza y ubicación en potreros.',
       icon: Layers,
     },
     {
-      title: 'Seguimiento productivo',
-      desc: 'Medición precisa de ganancia diaria de peso (GDP), curvas de lactancia y rendimiento lechero diario.',
-      icon: TrendingUp,
-    },
-    {
-      title: 'Control sanitario estricto',
-      desc: 'Alertas automáticas por periodos de retiro de medicamentos y cronogramas de vacunación conforme al ICA.',
-      icon: Stethoscope,
-    },
-    {
-      title: 'Administración financiera',
-      desc: 'Flujo de caja en tiempo real, costeo por animal/hectárea y balances de ingresos contra egresos operativos.',
-      icon: DollarSign,
-    },
-    {
-      title: 'Gestión de inventarios',
-      desc: 'Control de existencias de sales, medicamentos e insumos con trazabilidad de lotes y fechas de expiración.',
-      icon: Boxes,
-    },
-    {
-      title: 'Control de usuarios y permisos',
-      desc: 'Acceso seguro con PIN y roles zootécnicos delimitados para propietarios, administradores y personal de campo.',
+      title: 'Trazabilidad animal',
+      description: 'Ficha única e inmutable por animal con historial completo de pesajes, tratamientos y genealogía.',
       icon: ShieldCheck,
     },
     {
-      title: 'Reportes y análisis avanzado',
-      desc: 'Generación instantánea de reportes ejecutivos para auditorías, certificación oficial y toma de decisiones.',
+      title: 'Gestión sanitaria',
+      description: 'Planes preventivos oficiales ICA y bloqueo automático de despacho por tiempos de retiro de medicamentos.',
+      icon: HeartPulse,
+    },
+    {
+      title: 'Reproducción y genética',
+      description: 'Control de servicios, palpaciones, IATF, días abiertos e intervalos entre partos para optimizar preñez.',
+      icon: Dna,
+    },
+    {
+      title: 'Manejo de potreros',
+      description: 'Mapeo satelital y rotación programada para maximizar el aprovechamiento de la biomasa forrajera.',
+      icon: MapPin,
+    },
+    {
+      title: 'Control de lluvias y aforos',
+      description: 'Medición de precipitaciones milimétricas y aforos de pasto para determinar la capacidad de carga (UGG/Ha).',
+      icon: CloudRain,
+    },
+    {
+      title: 'Inventarios y almacén',
+      description: 'Bodega de insumos con control de lotes, fechas de caducidad, consumo promedio y alertas de stock mínimo.',
+      icon: Boxes,
+    },
+    {
+      title: 'Finanzas y flujo de caja',
+      description: 'Cálculo del costo por kilo producido en ceba, margen de utilidad y rentabilidad neta por hectárea.',
+      icon: DollarSign,
+    },
+    {
+      title: 'Nómina y personal',
+      description: 'Liquidación de jornales de campo, registro de contratistas, anticipos y control de tareas asignadas.',
+      icon: Users,
+    },
+    {
+      title: 'Reportes gerenciales',
+      description: 'Informes ejecutivos consolidados listos para exportar a hojas de cálculo o presentar a entidades.',
       icon: FileSpreadsheet,
     },
     {
-      title: 'Información geográfica (GIS)',
-      desc: 'Mapeo satelital de perímetros, cálculo de áreas por potrero, curvas de nivel y fuentes de agua.',
-      icon: MapPin,
+      title: 'Control de usuarios y permisos',
+      description: 'Acceso seguro mediante PIN de seguridad con perfiles específicos para cada miembro del equipo.',
+      icon: Lock,
+    },
+    {
+      title: 'Gestión de múltiples fincas',
+      description: 'Administra varios predios desde una sola cuenta, comparando indicadores consolidados o individuales.',
+      icon: Building2,
     },
   ];
 
+  // 8 Process categories in platform presentation
+  const platformProcesses = [
+    { title: 'Zootécnicos', desc: 'Control de pesajes, ganancias diarias de peso (GDP) y clasificación zootécnica de lotes.', icon: Scale },
+    { title: 'Sanitarios', desc: 'Planes de vacunación oficial ICA, biológicos, antibióticos y control de tiempos de retiro.', icon: Stethoscope },
+    { title: 'Reproductivos', desc: 'Servicios por monta natural e IATF, diagnóstico de gestación por palpación y partos.', icon: Dna },
+    { title: 'Productivos', desc: 'Monitoreo de ordeño, calidad de leche en tanque frío y rendimiento en canal para ceba.', icon: Milk },
+    { title: 'Agronómicos', desc: 'Aforos de biomasa por metro cuadrado, rotación de praderas y registro pluviométrico.', icon: Wheat },
+    { title: 'Administrativos', desc: 'Gestión de personal de vaquería, nómina por jornales y bitácora de novedades diarias.', icon: Briefcase },
+    { title: 'Financieros', desc: 'Contabilidad simplificada ganadera, flujo de caja y rentabilidad calculada por hectárea.', icon: TrendingUp },
+    { title: 'Logísticos', desc: 'Control de bodegas de insumos, traslados entre predios y despacho de lotes para venta.', icon: Boxes },
+  ];
+
+  // Roles
+  const roles = [
+    {
+      title: 'Propietario',
+      roleType: 'propietario',
+      description: 'Acceso total y estratégico a todas las fincas. Supervisión del patrimonio ganadero, decisiones financieras y de inversión.',
+      permissions: [
+        'Visualización consolidada de todas las fincas',
+        'Acceso completo a finanzas, compras y ventas',
+        'Autorización de gastos extraordinarios y nómina',
+        'Configuración de permisos y usuarios del sistema',
+        'Exportación de reportes gerenciales ejecutivos',
+      ],
+      badge: 'Acceso Total',
+    },
+    {
+      title: 'Administrador',
+      roleType: 'administrador',
+      description: 'Gestión operativa, inventarios, compras de insumos, supervisión de personal y control del calendario sanitario.',
+      permissions: [
+        'Registro de entradas, salidas y traslados de ganado',
+        'Control de almacén, insumos y compras de bodega',
+        'Liquidación de nómina de vaquería y jornales',
+        'Programación de aforos y rotación de potreros',
+        'Supervisión de metas de ganancia de peso (GDP)',
+      ],
+      badge: 'Gestión Operativa',
+    },
+    {
+      title: 'Veterinario o Zootecnista',
+      roleType: 'veterinario',
+      description: 'Control estricto de la salud del hato, protocolos reproductivos (IATF), tiempos de retiro y mejoramiento genético.',
+      permissions: [
+        'Registro de diagnósticos de palpación y ecografía',
+        'Aplicación de tratamientos médicos y planes sanitarios',
+        'Bloqueo preventivo de venta por tiempos de retiro',
+        'Gestión del catálogo de toros y pajillas de semen',
+        'Control de calidad de leche y pruebas CMT de mastitis',
+      ],
+      badge: 'Salud & Genética',
+    },
+    {
+      title: 'Mayordomo o Personal de Campo',
+      roleType: 'mayordomo',
+      description: 'Captura ágil de eventos en corral: pesajes en báscula, partos, muertes y movimientos de potrero.',
+      permissions: [
+        'Registro rápido de pesajes individuales y de lote',
+        'Reporte de nacimientos, sexaje e identificación',
+        'Registro de novedades de campo y rotación de pradera',
+        'Consulta básica de fichas de animales en corral',
+      ],
+      badge: 'Operación en Corral',
+    },
+    {
+      title: 'Financiero o Contador',
+      roleType: 'financiero_contador',
+      description: 'Control de cuentas por pagar, facturación de ventas, egresos operativos, liquidación de jornales y rentabilidad.',
+      permissions: [
+        'Registro y conciliación de transacciones financieras',
+        'Liquidación detallada de nómina y pagos al personal',
+        'Reportes de costos por kilo ganado y por hectárea',
+        'Comprobantes de venta y liquidación de báscula',
+      ],
+      badge: 'Finanzas & Costos',
+    },
+  ];
+
+  // Security features
+  const securityFeatures = [
+    { title: 'Inicio de sesión mediante PIN', desc: 'Cada usuario accede con un código PIN de 4 dígitos individualizado para evitar suplantaciones.', icon: KeyRound },
+    { title: 'Roles y permisos granulares', desc: 'Acceso segmentado según la función zootécnica, administrativa o de campo del colaborador.', icon: UserCheck },
+    { title: 'Protección de información', desc: 'Aislamiento estricto de datos con políticas de seguridad en base de datos para cada ganadería.', icon: ShieldCheck },
+    { title: 'Bitácora de actividades', desc: 'Registro inmutable de auditoría con fecha, hora y usuario para cada movimiento registrado.', icon: FileText },
+    { title: 'Trazabilidad de operaciones', desc: 'Historial completo de pesajes, partos, ventas y tratamientos con trazabilidad individual.', icon: Activity },
+    { title: 'Separación de datos por finca', desc: 'Gestión multi-predio independiente garantizando que cada predio mantenga sus registros propios.', icon: Building2 },
+    { title: 'Control administrativo', desc: 'Supervisión de accesos, bloqueo preventivo y conmutador de contexto para soporte técnico.', icon: Lock },
+  ];
+
   return (
-    <div id="inicio" className="min-h-screen bg-[#fcfdfa] text-neutral-900 flex flex-col font-sans selection:bg-[#f2a900]/30 selection:text-[#012d1d]">
-      {/* Top Banner Notice */}
-      <div className="bg-[#012d1d] text-emerald-100 text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2 border-b border-emerald-900/50">
-        <Sparkles className="w-3.5 h-3.5 text-[#f2a900] shrink-0" />
-        <span>Plataforma zootécnica profesional para ganadería de precisión bovina, bubalina y equina.</span>
-        {onGoToSuperadmin && (
-          <button
-            onClick={onGoToSuperadmin}
-            className="ml-2 hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 text-[11px] font-semibold border border-emerald-700/50 cursor-pointer transition-all"
+    <div className="min-h-screen bg-[#101713] text-[#F5F2E9] font-sans antialiased selection:bg-[#043825] selection:text-[#C9A35A] flex flex-col">
+      
+      {/* 1. Encabezado Fijo (Sticky Dark Navbar - 72px) */}
+      <header className="sticky top-0 z-50 h-[72px] bg-[#101713]/95 backdrop-blur-md border-b border-white/[0.07] transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+          
+          {/* Brand Logo (Left) */}
+          <a
+            href="#inicio"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('inicio');
+            }}
+            className="flex items-center gap-3 group transition-transform active:scale-98"
           >
-            <Globe className="w-3 h-3 text-amber-400" />
-            Panel Superadmin Global
-          </button>
-        )}
-      </div>
+            <GanaderIALogo variant="icon" size="md" />
+            <div className="flex flex-col">
+              <span className="text-xl font-bold tracking-tight text-[#F5F2E9]">
+                Ganader<span className="text-[#C9A35A]">IA</span>
+              </span>
+              <span className="text-[10px] font-medium text-[#A5B8AC] tracking-wider uppercase hidden sm:inline">
+                Software Ganadero
+              </span>
+            </div>
+          </a>
 
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-black/[0.06] shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
-          {/* Logo */}
-          <div className="cursor-pointer" onClick={() => scrollToSection('inicio')}>
-            <GanaderIALogo size="md" variant="compact" showSubtitle={true} />
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-medium text-sm text-neutral-700">
-            <button
-              onClick={() => scrollToSection('inicio')}
-              className="hover:text-[#012d1d] transition-colors cursor-pointer"
-            >
-              Inicio
-            </button>
-            <button
-              onClick={() => scrollToSection('plataforma')}
-              className="hover:text-[#012d1d] transition-colors cursor-pointer"
-            >
-              Plataforma
-            </button>
-            <button
-              onClick={() => scrollToSection('modulos')}
-              className="hover:text-[#012d1d] transition-colors cursor-pointer"
-            >
-              Módulos
-            </button>
-            <button
-              onClick={() => scrollToSection('beneficios')}
-              className="hover:text-[#012d1d] transition-colors cursor-pointer"
-            >
-              Beneficios
-            </button>
-            <button
-              onClick={() => scrollToSection('multifincas')}
-              className="hover:text-[#012d1d] transition-colors cursor-pointer"
-            >
-              Multifincas
-            </button>
-            <button
-              onClick={() => scrollToSection('roles')}
-              className="hover:text-[#012d1d] transition-colors cursor-pointer"
-            >
-              Roles
-            </button>
+          {/* Center Navigation Links (Desktop) */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {[
+              { label: 'Inicio', id: 'inicio' },
+              { label: 'Plataforma', id: 'plataforma' },
+              { label: 'Módulos', id: 'modulos' },
+              { label: 'Beneficios', id: 'beneficios' },
+              { label: 'Gestión multifincas', id: 'multifincas' },
+              { label: 'Roles', id: 'roles' },
+            ].map((link) => (
+              <button
+                key={link.id}
+                type="button"
+                onClick={() => scrollToSection(link.id)}
+                className="px-3.5 py-1.5 text-xs xl:text-sm font-medium text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] rounded-lg transition-colors cursor-pointer"
+              >
+                {link.label}
+              </button>
+            ))}
           </nav>
 
-          {/* Action Access Buttons */}
+          {/* Action CTAs (Right) */}
           <div className="hidden sm:flex items-center gap-3">
             <button
+              type="button"
               onClick={onOpenAuthModal}
-              className="px-4 py-2 text-sm font-semibold text-[#012d1d] hover:bg-emerald-50 rounded-xl transition-colors cursor-pointer border border-emerald-200/60"
+              className="px-4 py-2 text-xs xl:text-sm font-semibold text-[#F5F2E9] hover:text-white bg-transparent hover:bg-white/[0.06] rounded-xl border border-white/15 transition-all cursor-pointer active:scale-98"
             >
               Iniciar sesión
             </button>
+
             <button
-              onClick={() => onEnterPlatform()}
-              className="px-5 py-2.5 text-sm font-bold text-neutral-950 bg-[#f2a900] hover:bg-[#df9b00] rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-2 group"
+              type="button"
+              onClick={onOpenAuthModal}
+              className="inline-flex items-center gap-2 px-4.5 py-2 text-xs xl:text-sm font-bold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] rounded-xl border border-white/10 shadow-xs hover:border-white/20 transition-all cursor-pointer active:scale-98"
             >
               <span>Acceder a GanaderIA</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#C9A35A]" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-neutral-700 hover:bg-neutral-100 cursor-pointer"
-            aria-label="Abrir menú"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Dropdown Drawer */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-b border-neutral-200 px-4 pt-2 pb-6 space-y-3 shadow-lg"
+          {/* Mobile Hamburger Toggle Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              type="button"
+              onClick={onOpenAuthModal}
+              className="px-3 py-1.5 text-xs font-semibold text-[#F5F2E9] border border-white/15 rounded-lg bg-white/[0.04]"
             >
-              <div className="flex flex-col space-y-2 text-base font-semibold text-neutral-800">
-                <button
-                  onClick={() => scrollToSection('inicio')}
-                  className="text-left py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-[#012d1d]"
-                >
-                  Inicio
-                </button>
-                <button
-                  onClick={() => scrollToSection('plataforma')}
-                  className="text-left py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-[#012d1d]"
-                >
-                  Plataforma
-                </button>
-                <button
-                  onClick={() => scrollToSection('modulos')}
-                  className="text-left py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-[#012d1d]"
-                >
-                  Módulos
-                </button>
-                <button
-                  onClick={() => scrollToSection('beneficios')}
-                  className="text-left py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-[#012d1d]"
-                >
-                  Beneficios
-                </button>
-                <button
-                  onClick={() => scrollToSection('multifincas')}
-                  className="text-left py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-[#012d1d]"
-                >
-                  Gestión Multifincas
-                </button>
-                <button
-                  onClick={() => scrollToSection('roles')}
-                  className="text-left py-2 px-3 rounded-lg hover:bg-emerald-50 hover:text-[#012d1d]"
-                >
-                  Roles y Permisos
-                </button>
+              Acceder
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.06] rounded-lg transition-colors"
+              aria-label="Abrir menú de navegación"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/70 backdrop-blur-xs z-50 lg:hidden"
+            />
+            <motion.div
+              ref={menuRef}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#101713] z-50 p-6 flex flex-col justify-between shadow-2xl border-l border-white/10 lg:hidden overflow-y-auto"
+            >
+              <div>
+                <div className="flex items-center justify-between pb-5 border-b border-white/10">
+                  <div className="flex items-center gap-2.5">
+                    <GanaderIALogo variant="icon" size="md" />
+                    <span className="text-lg font-bold text-[#F5F2E9]">GanaderIA</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-1.5 rounded-lg text-[#A5B8AC] hover:bg-white/10 hover:text-white"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                <div className="mt-6 flex flex-col gap-1">
+                  {[
+                    { label: 'Inicio', id: 'inicio' },
+                    { label: 'Plataforma', id: 'plataforma' },
+                    { label: 'Módulos', id: 'modulos' },
+                    { label: 'Beneficios', id: 'beneficios' },
+                    { label: 'Gestión multifincas', id: 'multifincas' },
+                    { label: 'Roles', id: 'roles' },
+                    { label: 'Seguridad', id: 'seguridad' },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => scrollToSection(item.id)}
+                      className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] rounded-xl text-left"
+                    >
+                      <span>{item.label}</span>
+                      <ChevronRight className="w-4 h-4 text-[#A5B8AC]/40" />
+                    </button>
+                  ))}
+                </div>
               </div>
 
-              <div className="pt-3 border-t border-neutral-100 flex flex-col gap-2">
+              <div className="pt-6 border-t border-white/10 flex flex-col gap-3">
                 <button
+                  type="button"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenAuthModal();
                   }}
-                  className="w-full py-2.5 text-center font-bold text-[#012d1d] bg-emerald-50 border border-emerald-200 rounded-xl"
+                  className="w-full py-3 px-4 text-center text-sm font-semibold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] border border-white/10 rounded-xl"
                 >
                   Iniciar sesión
                 </button>
                 <button
+                  type="button"
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    onEnterPlatform();
+                    onOpenAuthModal();
                   }}
-                  className="w-full py-3 text-center font-bold text-neutral-950 bg-[#f2a900] rounded-xl shadow-xs"
+                  className="w-full py-3.5 px-4 text-center text-sm font-bold text-[#F5F2E9] bg-[#043825] hover:bg-[#064e3b] border border-emerald-500/30 rounded-xl shadow-md flex items-center justify-center gap-2"
                 >
-                  Acceder a GanaderIA
+                  <span>Acceder a GanaderIA</span>
+                  <ArrowRight className="w-4 h-4 text-[#C9A35A]" />
                 </button>
                 {onGoToSuperadmin && (
                   <button
+                    type="button"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       onGoToSuperadmin();
                     }}
-                    className="w-full py-2 text-center text-xs font-semibold text-neutral-600 bg-neutral-100 rounded-xl flex items-center justify-center gap-1.5"
+                    className="w-full py-2 text-center text-xs font-semibold text-[#C9A35A]"
                   >
-                    <Globe className="w-3.5 h-3.5 text-amber-500" />
-                    Abrir Panel Global Superadmin
+                    🛡️ Acceso Panel Global Superadmin
                   </button>
                 )}
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+          </>
+        )}
+      </AnimatePresence>
 
-      {/* HERO SECTION */}
-      <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-white via-emerald-50/20 to-[#fcfdfa]">
+      {/* 2. Sección Principal (Hero) - Dos Columnas + Tarjetas de Capacidades + Tarjeta Tecnológica */}
+      <section id="inicio" className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-[#101713] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-6">
-            {/* Tag / Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-[#012d1d] text-xs font-bold shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#f2a900] animate-pulse" />
-              Software Inteligente para Gestión Ganadera Integral
-            </div>
+          
+          {/* Main Two-Column Hero Row */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            
+            {/* Columna Izquierda (~43%) */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="lg:col-span-5 flex flex-col justify-center"
+            >
+              {/* Main Headline in Serif Typography with Golden "control." */}
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] text-[#F5F2E9] font-bold tracking-tight leading-[1.12]">
+                Tu ganadería,<br />
+                bajo <span className="text-[#C9A35A] underline decoration-[#C9A35A]/40 decoration-2 underline-offset-4">control.</span>
+              </h1>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#012d1d] leading-[1.1]">
-              Tu ganadería, <span className="text-[#2d6a4f] underline decoration-[#f2a900] decoration-wavy decoration-2">bajo control.</span>
-            </h1>
+              {/* Exact Descriptive Subtitle in greenish-gray */}
+              <p className="mt-5 sm:mt-6 text-base sm:text-lg text-[#A5B8AC] leading-relaxed max-w-lg font-normal">
+                Administra animales, producción, sanidad, potreros, inventarios, finanzas y actividades de todas tus fincas desde una sola plataforma.
+              </p>
 
-            {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-neutral-600 font-normal leading-relaxed max-w-2xl mx-auto">
-              Administra animales, producción, sanidad, potreros, inventarios, finanzas y actividades de tus fincas desde una sola plataforma.
-            </p>
+              {/* Hero Action Buttons */}
+              <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                <button
+                  type="button"
+                  onClick={onOpenAuthModal}
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm sm:text-base font-bold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] border border-white/15 hover:border-white/30 rounded-xl shadow-md transition-all cursor-pointer group active:scale-98"
+                >
+                  <span>Acceder a GanaderIA</span>
+                  <ArrowRight className="w-4 h-4 text-[#C9A35A] group-hover:translate-x-1 transition-transform" />
+                </button>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
-              <button
-                onClick={() => onEnterPlatform()}
-                className="w-full sm:w-auto px-7 py-3.5 text-base font-extrabold text-neutral-950 bg-[#f2a900] hover:bg-[#df9b00] rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2.5 group"
-              >
-                <span>Acceder a la plataforma</span>
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </button>
-
-              <button
-                onClick={() => scrollToSection('modulos')}
-                className="w-full sm:w-auto px-6 py-3.5 text-base font-bold text-[#012d1d] bg-white hover:bg-emerald-50/80 border border-emerald-900/20 rounded-xl shadow-xs transition-all cursor-pointer flex items-center justify-center gap-2"
-              >
-                <span>Conocer los módulos</span>
-                <ChevronRight className="w-4 h-4 text-emerald-700" />
-              </button>
-            </div>
-
-            {/* Quick trust metrics */}
-            <div className="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center border-t border-black/[0.05]">
-              <div className="p-3">
-                <div className="text-2xl sm:text-3xl font-black text-[#012d1d]">19</div>
-                <div className="text-xs text-neutral-500 font-medium">Módulos Especializados</div>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('modulos')}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm sm:text-base font-semibold text-[#A5B8AC] hover:text-[#F5F2E9] bg-transparent hover:bg-white/[0.04] rounded-xl border border-white/10 transition-all cursor-pointer active:scale-98"
+                >
+                  <span>Explorar módulos</span>
+                  <ChevronDown className="w-4 h-4 text-[#A5B8AC]" />
+                </button>
               </div>
-              <div className="p-3">
-                <div className="text-2xl sm:text-3xl font-black text-[#012d1d]">100%</div>
-                <div className="text-xs text-neutral-500 font-medium">Cumplimiento Oficial ICA</div>
+            </motion.div>
+
+            {/* Columna Derecha (~57%) - Fotografía Ganadera Horizontal 16:9 de Vaca Gyr */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.35, delay: 0.1 }}
+              className="lg:col-span-7"
+            >
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#152019]">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/41/Cow%2C_breed_Gir_in_Balacan%2C_Mexico.jpg"
+                  alt="Vaca de raza Gyr lechero en potrero verde bajo luz natural"
+                  className="w-full h-[280px] sm:h-[360px] lg:h-[400px] object-cover object-center"
+                  loading="eager"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.src.includes('Brazilian_Gyr_Cattle')) {
+                      target.src = 'https://commons.wikimedia.org/wiki/Special:FilePath/Brazilian_Gyr_Cattle.jpg';
+                    }
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
               </div>
-              <div className="p-3">
-                <div className="text-2xl sm:text-3xl font-black text-[#012d1d]">Multi-Predio</div>
-                <div className="text-xs text-neutral-500 font-medium">Gestión Centralizada</div>
-              </div>
-              <div className="p-3">
-                <div className="text-2xl sm:text-3xl font-black text-[#012d1d]">Bluetooth</div>
-                <div className="text-xs text-neutral-500 font-medium">Sincronización de Básculas</div>
-              </div>
-            </div>
+            </motion.div>
+
           </div>
 
-          {/* Interactive UI Mockup Representation */}
-          <div className="mt-12 relative max-w-5xl mx-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#012d1d] via-[#2d6a4f] to-[#f2a900] rounded-2xl blur-lg opacity-25" />
-            <div className="relative bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-800 overflow-hidden text-white">
-              {/* Window Header */}
-              <div className="bg-neutral-950 px-4 py-3 border-b border-neutral-800 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 text-xs font-mono text-neutral-400">ganaderia.cloud / dashboard / Hato El Diamante</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    Predio Activo
+          {/* 3. Fila de Cinco Tarjetas de Capacidades */}
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4">
+            {capabilityCards.map((card, idx) => {
+              const IconComp = card.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-[#202B24] border border-white/[0.08] hover:border-white/20 rounded-xl p-5 flex flex-col items-center justify-center text-center h-32 sm:h-36 shadow-xs group transition-colors"
+                >
+                  <div className="mb-3">
+                    <IconComp className={`w-7 h-7 ${card.accent} group-hover:scale-110 transition-transform`} />
+                  </div>
+                  <span className="text-sm font-semibold text-[#F5F2E9] tracking-tight leading-snug">
+                    {card.title}
                   </span>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* 4. Tarjeta Tecnológica Inferior Integrada */}
+          <div className="mt-6 bg-[#152019] border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+            
+            {/* Subtle background glow */}
+            <div className="absolute top-0 right-0 w-80 h-32 bg-emerald-500/5 blur-3xl pointer-events-none" />
+
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+              
+              {/* Left Column: Platform & Sync Badge */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex items-center gap-3">
+                  <GanaderIALogo variant="icon" size="sm" />
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm sm:text-base font-bold text-[#F5F2E9]">
+                        GanaderIA · Tablero General
+                      </span>
+                      <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#043825] text-emerald-300 border border-emerald-500/30">
+                        SISTEMA OFICIAL
+                      </span>
+                    </div>
+                    <div className="text-xs text-[#A5B8AC] mt-0.5">
+                      5 predios activos · Córdoba, Meta y Antioquia
+                    </div>
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold self-start sm:self-center">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Sincronizado</span>
                 </div>
               </div>
 
-              {/* Mockup Dashboard Content */}
-              <div className="p-4 sm:p-6 bg-neutral-900 space-y-5">
-                {/* Top Row KPIs */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
-                  <div className="p-4 rounded-xl bg-neutral-800/80 border border-neutral-700/60">
-                    <div className="text-xs text-neutral-400 font-medium">Inventario Bovino</div>
-                    <div className="text-xl sm:text-2xl font-black text-white mt-1">1,450 <span className="text-xs text-emerald-400 font-normal">cabezas</span></div>
-                    <div className="text-[10px] text-emerald-400 font-medium mt-1">12 Lotes activos en potrero</div>
+              {/* Right Column: Weight Indicator + Mini Ascending Golden Trend Line */}
+              <div className="flex items-center gap-5 sm:gap-8 self-end lg:self-center pt-3 lg:pt-0 border-t lg:border-t-0 border-white/[0.08] w-full lg:w-auto justify-between lg:justify-end">
+                
+                {/* Tru-Test Live Metric */}
+                <div>
+                  <div className="text-[11px] text-[#A5B8AC] uppercase font-semibold tracking-wider">
+                    Báscula Tru-Test
                   </div>
-                  <div className="p-4 rounded-xl bg-neutral-800/80 border border-neutral-700/60">
-                    <div className="text-xs text-neutral-400 font-medium">Producción Lechera Hoy</div>
-                    <div className="text-xl sm:text-2xl font-black text-amber-300 mt-1">3,420 <span className="text-xs text-amber-200/70 font-normal">Lts</span></div>
-                    <div className="text-[10px] text-amber-300 font-medium mt-1">+4.2% vs promedio semanal</div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-neutral-800/80 border border-neutral-700/60">
-                    <div className="text-xs text-neutral-400 font-medium">Ganancia Diaria (GDP)</div>
-                    <div className="text-xl sm:text-2xl font-black text-emerald-400 mt-1">740 <span className="text-xs text-neutral-300 font-normal">g/día</span></div>
-                    <div className="text-[10px] text-emerald-400 font-medium mt-1">Lote Ceba 2 (Brahman)</div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-neutral-800/80 border border-neutral-700/60">
-                    <div className="text-xs text-neutral-400 font-medium">Área Georreferenciada</div>
-                    <div className="text-xl sm:text-2xl font-black text-white mt-1">620 <span className="text-xs text-neutral-300 font-normal">Ha</span></div>
-                    <div className="text-[10px] text-cyan-400 font-medium mt-1">34 Potreros mapeados GIS</div>
+                  <div className="text-base sm:text-lg font-black text-[#C9A35A] tracking-tight">
+                    442.5 kg <span className="text-xs font-normal text-[#A5B8AC]">(+0.88 kg/d)</span>
                   </div>
                 </div>
 
-                {/* Sub-panels */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
-                  <div className="p-4 rounded-xl bg-neutral-800/50 border border-neutral-700/50 md:col-span-2">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold text-neutral-300 flex items-center gap-2">
-                        <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                        Rotación de Potreros y Capacidad de Carga
-                      </span>
-                      <span className="text-[11px] text-neutral-400">Aforo: 1.85 UA/Ha</span>
-                    </div>
-                    <div className="grid grid-cols-4 gap-2">
-                      <div className="p-2.5 rounded-lg bg-emerald-950/60 border border-emerald-700/50 text-center">
-                        <div className="text-xs font-bold text-emerald-300">Potrero 14</div>
-                        <div className="text-[10px] text-emerald-400/80 font-medium mt-0.5">En Ocupación</div>
-                      </div>
-                      <div className="p-2.5 rounded-lg bg-amber-950/40 border border-amber-700/40 text-center">
-                        <div className="text-xs font-bold text-amber-300">Potrero 08</div>
-                        <div className="text-[10px] text-amber-400/80 font-medium mt-0.5">En Descanso (18d)</div>
-                      </div>
-                      <div className="p-2.5 rounded-lg bg-blue-950/40 border border-blue-700/40 text-center">
-                        <div className="text-xs font-bold text-blue-300">Potrero 02</div>
-                        <div className="text-[10px] text-blue-400/80 font-medium mt-0.5">Listo p/ Ingreso</div>
-                      </div>
-                      <div className="p-2.5 rounded-lg bg-neutral-800 border border-neutral-700 text-center">
-                        <div className="text-xs font-bold text-neutral-300">Potrero 21</div>
-                        <div className="text-[10px] text-neutral-400 font-medium mt-0.5">Mantenimiento</div>
-                      </div>
-                    </div>
+                {/* Mini Golden Trend Line Chart (SVG) */}
+                <div className="flex flex-col items-end">
+                  <div className="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+                    <TrendingUp className="w-3 h-3 text-[#C9A35A]" />
+                    <span>Curva de Ganancia</span>
                   </div>
-
-                  <div className="p-4 rounded-xl bg-neutral-800/50 border border-neutral-700/50">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold text-neutral-300 flex items-center gap-2">
-                        <Stethoscope className="w-3.5 h-3.5 text-teal-400" />
-                        Sanidad y Retiros
-                      </span>
-                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded-full">ICA OK</span>
-                    </div>
-                    <div className="space-y-2 text-xs">
-                      <div className="flex items-center justify-between p-2 rounded bg-neutral-900/60 border border-neutral-800">
-                        <span className="text-neutral-300">Fiebre Aftosa / Ciclo II</span>
-                        <span className="text-emerald-400 font-medium">100% Vacunado</span>
-                      </div>
-                      <div className="flex items-center justify-between p-2 rounded bg-neutral-900/60 border border-neutral-800">
-                        <span className="text-neutral-300">Retiro Leche (Mastitis)</span>
-                        <span className="text-amber-400 font-medium">2 vacas retenidas</span>
-                      </div>
-                    </div>
-                  </div>
+                  <svg className="w-28 sm:w-36 h-8 mt-1 overflow-visible" viewBox="0 0 120 30" fill="none">
+                    <defs>
+                      <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#C9A35A" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="#C9A35A" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M0,24 Q20,22 40,16 T80,10 T120,4 L120,30 L0,30 Z"
+                      fill="url(#goldGradient)"
+                    />
+                    <path
+                      d="M0,24 Q20,22 40,16 T80,10 T120,4"
+                      stroke="#C9A35A"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <circle cx="120" cy="4" r="3.5" fill="#C9A35A" className="animate-pulse" />
+                  </svg>
                 </div>
+
               </div>
+
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* PLATFORM PRESENTATION SECTION */}
-      <section id="plataforma" className="py-20 bg-white border-y border-neutral-200/80">
+      {/* 5. Presentación de la Plataforma (Procesos) */}
+      <section id="plataforma" className="py-20 bg-[#152019] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#2d6a4f]">
-              Plataforma Integral
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+              Ecosistema Unificado
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+              Todos los procesos de tu ganadería en un solo sistema
             </h2>
-            <p className="text-3xl sm:text-4xl font-extrabold text-[#012d1d] tracking-tight">
-              Centraliza la operación de una o varias fincas en tiempo real
-            </p>
-            <p className="text-base sm:text-lg text-neutral-600">
-              GanaderIA unifica los procesos zootécnicos, agronómicos, logísticos y financieros en un entorno colaborativo y seguro para propietarios, administradores y personal de campo.
+            <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
+              GanaderIA centraliza e interconecta todas las áreas críticas de la finca para que la información fluya sin fricciones entre el corral, la veterinaria y la gerencia.
             </p>
           </div>
 
-          {/* Benefits Grid */}
-          <div id="beneficios" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {platformBenefits.map((benefit, idx) => {
-              const Icon = benefit.icon;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {platformProcesses.map((proc, idx) => {
+              const IconComp = proc.icon;
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-[#fcfdfa] border border-neutral-200/80 hover:border-emerald-500/40 hover:shadow-md transition-all space-y-3 group"
+                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] hover:border-white/20 transition-all group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-emerald-100/70 border border-emerald-200 flex items-center justify-center text-[#012d1d] group-hover:scale-105 group-hover:bg-[#f2a900]/20 transition-all">
-                    <Icon className="w-6 h-6 text-[#012d1d]" />
+                  <div className="w-11 h-11 rounded-lg bg-[#043825] text-[#C9A35A] flex items-center justify-center mb-4 border border-emerald-500/20 group-hover:scale-105 transition-transform">
+                    <IconComp className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-neutral-900 group-hover:text-[#012d1d]">
-                    {benefit.title}
+                  <h3 className="text-base font-bold text-[#F5F2E9] tracking-tight">
+                    Procesos {proc.title}
                   </h3>
-                  <p className="text-sm text-neutral-600 leading-relaxed">
-                    {benefit.desc}
+                  <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
+                    {proc.desc}
                   </p>
                 </div>
               );
             })}
           </div>
+
         </div>
       </section>
 
-      {/* MODULES SECTION */}
-      <section id="modulos" className="py-20 bg-[#f8faf7]">
+      {/* 6. Beneficios */}
+      <section id="beneficios" className="py-20 bg-[#101713] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#2d6a4f]">
-              Ecosistema Modular
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+              Ventajas Comprobadas
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+              Beneficios estratégicos para el productor ganadero
             </h2>
-            <p className="text-3xl sm:text-4xl font-extrabold text-[#012d1d] tracking-tight">
-              19 Módulos especializados para cada área de tu ganadería
-            </p>
-            <p className="text-base sm:text-lg text-neutral-600">
-              Cada módulo ha sido diseñado conforme a los protocolos zootécnicos de campo, integrando trazabilidad, analítica y alertas sanitarias en tiempo real.
+            <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
+              Herramientas diseñadas para aumentar la rentabilidad por hectárea, reducir pérdidas y garantizar el cumplimiento normativo.
             </p>
           </div>
 
-          {/* Module Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {benefits.map((b, idx) => {
+              const IconComp = b.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] hover:border-white/20 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-10 h-10 rounded-lg bg-[#043825] text-[#C9A35A] border border-emerald-500/20 flex items-center justify-center mb-4">
+                      <IconComp className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-base font-bold text-[#F5F2E9] tracking-tight">
+                      {b.title}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
+                      {b.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 7. Módulos Especializados (Los 19 reales) */}
+      <section id="modulos" className="py-20 bg-[#152019] border-b border-white/[0.07]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+              19 Módulos Especializados
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+              Estructura modular completa de GanaderIA
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
+              Cada módulo resuelve un área operativa específica de la ganadería, interconectado en tiempo real con el resto de la plataforma.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {realModules.map((mod) => {
-              const IconComponent = mod.icon;
+              const IconComp = mod.icon;
               return (
                 <div
                   key={mod.id}
-                  className="bg-white p-5 sm:p-6 rounded-2xl border border-neutral-200 shadow-2xs hover:shadow-md hover:border-emerald-600/50 transition-all flex flex-col justify-between group"
+                  onClick={() => onEnterPlatform(mod.id)}
+                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] hover:border-white/20 transition-all cursor-pointer group flex flex-col justify-between"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className={`p-3 rounded-xl border ${mod.color}`}>
-                        <IconComponent className="w-5 h-5" />
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-11 h-11 rounded-lg bg-[#043825] text-[#C9A35A] border border-emerald-500/20 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <IconComp className="w-5 h-5" />
                       </div>
-                      <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider bg-neutral-100 px-2.5 py-1 rounded-full">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/[0.06] text-[#A5B8AC]">
                         {mod.category}
                       </span>
                     </div>
-                    <h3 className="text-base font-extrabold text-neutral-900 group-hover:text-[#012d1d] transition-colors">
+
+                    <h3 className="text-base font-bold text-[#F5F2E9] group-hover:text-[#C9A35A] transition-colors">
                       {mod.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                    <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
                       {mod.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-bold text-[#012d1d]">
-                    <button
-                      onClick={() => onEnterPlatform(mod.id)}
-                      className="inline-flex items-center gap-1.5 hover:text-[#2d6a4f] cursor-pointer group-hover:underline"
-                    >
-                      <span>Abrir módulo</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                  <div className="mt-5 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-semibold text-[#C9A35A] group-hover:underline">
+                    <span>Acceder al módulo</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               );
             })}
           </div>
+
+          <div className="mt-12 text-center">
+            <button
+              type="button"
+              onClick={onOpenAuthModal}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] font-bold text-sm border border-white/15 cursor-pointer shadow-md transition-all active:scale-98"
+            >
+              <span>Ingresar con tu PIN a los módulos</span>
+              <ArrowRight className="w-4 h-4 text-[#C9A35A]" />
+            </button>
+          </div>
+
         </div>
       </section>
 
-      {/* MULTI-FARM SECTION */}
-      <section id="multifincas" className="py-20 bg-white border-t border-neutral-200">
+      {/* 8. Gestión Multifincas */}
+      <section id="multifincas" className="py-20 bg-[#101713] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-[#012d1d] text-xs font-bold">
-                <Building2 className="w-3.5 h-3.5 text-emerald-800" />
-                Arquitectura Multi-Predio
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#012d1d] tracking-tight">
-                Administra múltiples fincas desde un solo lugar sin mezclar datos
-              </h2>
-              <p className="text-base text-neutral-600 leading-relaxed">
-                Ya sea que manejes una finca de cría, una lechería especializada o un complejo ganadero empresarial de varios predios, GanaderIA te permite:
-              </p>
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+              Arquitectura Multi-Predio
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+              Gestión centralizada de múltiples fincas
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
+              Administra todas tus haciendas desde una sola cuenta. Cambia de predio con un clic o visualiza el balance consolidado de toda tu empresa ganadera.
+            </p>
+          </div>
 
-              <div className="space-y-3.5">
-                <div className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-emerald-100 text-emerald-800 mt-0.5 shrink-0">
-                    <Check className="w-4 h-4" />
+          {/* Multifarm Capability Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3.5 mb-12 text-center">
+            {[
+              { title: 'Selector de finca', desc: 'Conmutación instantánea entre predios desde la cabecera.', icon: Building2 },
+              { title: 'Información consolidada', desc: 'Suma de inventarios, hectáreas y ventas globales.', icon: Layers },
+              { title: 'Indicadores por predio', desc: 'KPIs zootécnicos y climáticos independientes.', icon: TrendingUp },
+              { title: 'Comparación de resultados', desc: 'Análisis comparativo de GDP y costos entre fincas.', icon: Scale },
+              { title: 'Administración centralizada', desc: 'Catálogo de toros y bodega matriz compartida.', icon: Boxes },
+              { title: 'Accesos diferenciados', desc: 'Permisos de mayordomo restringidos a su predio.', icon: UserCheck },
+            ].map((p, idx) => {
+              const IconC = p.icon;
+              return (
+                <div key={idx} className="p-4.5 bg-[#202B24] rounded-xl border border-white/[0.08]">
+                  <div className="w-9 h-9 rounded-lg bg-[#043825] text-[#C9A35A] mx-auto flex items-center justify-center mb-3">
+                    <IconC className="w-4.5 h-4.5" />
                   </div>
-                  <div>
-                    <strong className="text-neutral-900 block text-sm">Selección instantánea de predio:</strong>
-                    <span className="text-neutral-600 text-xs sm:text-sm">Cambia entre fincas en el encabezado con un clic para actualizar el inventario y potreros en pantalla.</span>
-                  </div>
+                  <div className="font-bold text-xs sm:text-sm text-[#F5F2E9]">{p.title}</div>
+                  <div className="text-[11px] text-[#A5B8AC] mt-1 leading-relaxed">{p.desc}</div>
                 </div>
+              );
+            })}
+          </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-emerald-100 text-emerald-800 mt-0.5 shrink-0">
-                    <Check className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-neutral-900 block text-sm">Consulta de información individual y consolidada:</strong>
-                    <span className="text-neutral-600 text-xs sm:text-sm">Audita las métricas productivas y financieras de cada predio por separado o en balances unificados.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-emerald-100 text-emerald-800 mt-0.5 shrink-0">
-                    <Check className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-neutral-900 block text-sm">Traslado de animales entre predios:</strong>
-                    <span className="text-neutral-600 text-xs sm:text-sm">Registra traslados con control de guía sanitaria ICA y actualización automática de inventario.</span>
-                  </div>
-                </div>
+          {/* Live Farm Directory Preview */}
+          <div className="bg-[#152019] rounded-2xl border border-white/10 p-6 sm:p-8 shadow-xl max-w-5xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-white/10 gap-4">
+              <div>
+                <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Directorio de Predios</span>
+                <h3 className="text-lg sm:text-xl font-bold text-[#F5F2E9] mt-0.5">Tus Fincas en Operación</h3>
               </div>
-
-              <div className="pt-2">
-                <button
-                  onClick={() => onEnterPlatform()}
-                  className="px-6 py-3 bg-[#012d1d] text-white hover:bg-[#02442c] font-bold rounded-xl shadow-xs transition-colors cursor-pointer inline-flex items-center gap-2"
-                >
-                  <span>Explorar gestión multifincas</span>
-                  <ArrowRight className="w-4 h-4 text-[#f2a900]" />
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={onOpenAuthModal}
+                className="px-4 py-2 bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] font-bold text-xs rounded-xl border border-white/10 transition-colors self-start sm:self-auto"
+              >
+                + Registrar Nueva Finca
+              </button>
             </div>
 
-            {/* Visual Multi-farm Cards */}
-            <div className="space-y-4 bg-[#f8faf7] p-6 rounded-3xl border border-neutral-200/80">
-              <div className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
-                Fincas registradas en la plataforma
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+              {(farms || []).slice(0, 6).map((farm) => {
+                const totalBovinos =
+                  farm?.headsCount ??
+                  (farm?.lots || []).reduce((acc, l) => acc + (l.animalCount || 0), 0) ??
+                  farm?.profile?.headsCount ??
+                  0;
+                const totalPotreros =
+                  farm?.paddocks?.length ??
+                  farm?.profile?.paddocksCount ??
+                  0;
+                const totalHa = farm?.profile?.totalAreaHa ?? 0;
 
-              {farms.length > 0 ? (
-                farms.slice(0, 3).map((f) => (
+                return (
                   <div
-                    key={f.profile.id}
-                    className="p-4 rounded-xl bg-white border border-neutral-200/80 shadow-2xs flex items-center justify-between"
+                    key={farm.profile.id}
+                    onClick={() => setSelectedFarmPreviewId(farm.profile.id)}
+                    className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                      selectedFarmPreviewId === farm.profile.id
+                        ? 'bg-[#202B24] border-emerald-500/50 ring-1 ring-emerald-500/30'
+                        : 'bg-[#202B24]/60 border-white/[0.08] hover:bg-[#202B24]'
+                    }`}
                   >
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-extrabold text-[#012d1d] text-sm">{f.profile.name}</span>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
-                          {f.profile.department}
-                        </span>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-sm text-[#F5F2E9]">{farm.profile.name}</span>
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#043825] text-emerald-300 border border-emerald-500/20">
+                        {farm.profile.department}
+                      </span>
+                    </div>
+                    <div className="text-xs text-[#A5B8AC] mt-1">{farm.profile.municipality} • {totalHa} HA</div>
+                    
+                    <div className="mt-3 pt-3 border-t border-white/[0.08] grid grid-cols-2 gap-2 text-xs font-semibold text-[#F5F2E9]">
+                      <div>
+                        <span className="text-[10px] text-[#A5B8AC] block">Cabezas</span>
+                        <span>{totalBovinos} bovinos</span>
                       </div>
-                      <div className="text-xs text-neutral-500">
-                        {f.profile.totalAreaHa} Hectáreas • {f.headsCount || 0} Animales • {f.paddocks.length} Potreros
+                      <div>
+                        <span className="text-[10px] text-[#A5B8AC] block">Potreros</span>
+                        <span>{totalPotreros} potreros</span>
                       </div>
                     </div>
-                    <button
-                      onClick={() => onEnterPlatform()}
-                      className="px-3 py-1.5 bg-neutral-100 hover:bg-emerald-50 text-[#012d1d] rounded-lg text-xs font-bold cursor-pointer transition-colors"
-                    >
-                      Ingresar
-                    </button>
                   </div>
-                ))
-              ) : (
-                <div className="p-4 rounded-xl bg-white border border-neutral-200/80 shadow-2xs space-y-2">
-                  <div className="font-bold text-[#012d1d] text-sm">Finca La Esperanza</div>
-                  <div className="text-xs text-neutral-500">620 Ha • 1,450 Cabezas • Montería, Córdoba</div>
-                </div>
-              )}
+                );
+              })}
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* ROLES & PERMISSIONS SECTION */}
-      <section id="roles" className="py-20 bg-[#f8faf7] border-t border-neutral-200">
+      {/* 9. Roles y Permisos (Interactivo) */}
+      <section id="roles" className="py-20 bg-[#152019] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#2d6a4f]">
-              Seguridad y Colaboración
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+              Perfiles y Alcance
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+              Roles y permisos diseñados para cada perfil
             </h2>
-            <p className="text-3xl sm:text-4xl font-extrabold text-[#012d1d] tracking-tight">
-              Roles y permisos zootécnicos especializados
-            </p>
-            <p className="text-base sm:text-lg text-neutral-600">
-              Cada perfil accede únicamente a los módulos autorizados para su labor de campo, garantizando la privacidad de los datos financieros y la integridad operativa.
+            <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
+              Selecciona un perfil para consultar sus facultades operativas, nivel de acceso a datos y alcance dentro de GanaderIA.
             </p>
           </div>
 
-          {/* Role Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {userRoles.map((roleItem, index) => {
-              const RoleIcon = roleItem.icon;
+          {/* Role Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            {roles.map((r, idx) => (
+              <button
+                key={r.roleType}
+                type="button"
+                onClick={() => setSelectedRoleIndex(idx)}
+                className={`px-4.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  selectedRoleIndex === idx
+                    ? 'bg-[#202B24] text-[#F5F2E9] border border-white/20 shadow-md'
+                    : 'bg-transparent text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] border border-transparent'
+                }`}
+              >
+                {r.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Active Role Card Detail */}
+          <div className="max-w-4xl mx-auto bg-[#202B24] rounded-2xl border border-white/10 p-7 sm:p-9 shadow-xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-white/10 gap-4">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#043825] text-emerald-300 border border-emerald-500/30">
+                  {roles[selectedRoleIndex].badge}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#F5F2E9] mt-2">
+                  Perfil de {roles[selectedRoleIndex].title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={onOpenAuthModal}
+                className="px-4 py-2 bg-[#043825] hover:bg-[#064e3b] text-[#F5F2E9] text-xs font-bold rounded-xl border border-emerald-500/30 self-start sm:self-auto"
+              >
+                Iniciar sesión con este rol
+              </button>
+            </div>
+
+            <p className="mt-5 text-sm sm:text-base text-[#A5B8AC] leading-relaxed">
+              {roles[selectedRoleIndex].description}
+            </p>
+
+            <div className="mt-7">
+              <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#A5B8AC] mb-3">
+                Permisos y Facultades en el Sistema:
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {roles[selectedRoleIndex].permissions.map((perm, i) => (
+                  <div key={i} className="flex items-start gap-2.5 p-3 bg-[#152019] rounded-xl border border-white/[0.06] text-xs sm:text-sm font-medium text-[#F5F2E9]">
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A35A] shrink-0 mt-0.5" />
+                    <span>{perm}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 10. Seguridad */}
+      <section id="seguridad" className="py-20 bg-[#101713] border-b border-white/[0.07]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+              Protección y Confianza
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+              Seguridad y control de tu información
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
+              Arquitectura blindada para salvaguardar los datos zootécnicos, patrimoniales y comerciales de tu ganadería.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {securityFeatures.map((sec, idx) => {
+              const IconC = sec.icon;
               return (
                 <div
-                  key={index}
-                  className={`p-6 rounded-2xl bg-white border shadow-2xs hover:shadow-md transition-all flex flex-col justify-between ${
-                    index === 0 ? 'border-amber-300 ring-2 ring-amber-400/20' : 'border-neutral-200'
-                  }`}
+                  key={idx}
+                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] flex flex-col justify-between"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200/60 flex items-center justify-center text-[#012d1d]">
-                        <RoleIcon className="w-5 h-5" />
-                      </div>
-                      <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-neutral-100 text-neutral-700">
-                        {roleItem.badge}
-                      </span>
+                  <div>
+                    <div className="w-10 h-10 rounded-lg bg-[#043825] text-[#C9A35A] flex items-center justify-center mb-4 border border-emerald-500/20">
+                      <IconC className="w-5 h-5" />
                     </div>
-
-                    <div>
-                      <h3 className="text-lg font-black text-neutral-900">{roleItem.role}</h3>
-                      <p className="text-xs text-neutral-600 mt-1 leading-relaxed">{roleItem.description}</p>
-                    </div>
-
-                    <div className="pt-2 border-t border-neutral-100 space-y-2">
-                      <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider block">
-                        Permisos principales:
-                      </span>
-                      {roleItem.permissions.map((perm, pIdx) => (
-                        <div key={pIdx} className="flex items-start gap-2 text-xs text-neutral-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                          <span>{perm}</span>
-                        </div>
-                      ))}
-                    </div>
+                    <h3 className="text-base font-bold text-[#F5F2E9]">
+                      {sec.title}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
+                      {sec.desc}
+                    </p>
                   </div>
                 </div>
               );
             })}
           </div>
+
         </div>
       </section>
 
-      {/* FINAL CTA SECTION */}
-      <section className="py-20 bg-gradient-to-br from-[#012d1d] via-[#023c27] to-[#012014] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#f2a900]/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl" />
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <div className="w-16 h-16 rounded-2xl bg-[#f2a900]/20 border border-[#f2a900]/40 flex items-center justify-center mx-auto text-[#f2a900]">
-            <Sparkles className="w-8 h-8" />
+      {/* 11. Llamado a la Acción (Final CTA) */}
+      <section className="py-20 bg-[#152019] text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          
+          <div className="mx-auto mb-6 flex items-center justify-center">
+            <GanaderIALogo variant="icon" size="xl" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
-            Gestiona tu ganadería con información clara y organizada.
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-[#F5F2E9]">
+            Transforma la información de tu finca en mejores decisiones.
           </h2>
 
-          <p className="text-base sm:text-lg text-emerald-100/80 max-w-2xl mx-auto font-normal">
-            Comienza a monitorear tus animales, potreros, pesajes y finanzas con la tecnología más completa del sector agropecuario.
+          <p className="mt-4 text-base sm:text-lg text-[#A5B8AC] max-w-2xl mx-auto leading-relaxed font-normal">
+            Convierte los registros diarios de pesaje, sanidad, partos y costos en decisiones productivas y financieras certeras para tu ganadería.
           </p>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => onEnterPlatform()}
-              className="w-full sm:w-auto px-8 py-4 text-base font-black text-neutral-950 bg-[#f2a900] hover:bg-[#df9b00] rounded-xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-3 group"
+              type="button"
+              onClick={onOpenAuthModal}
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] font-bold text-sm rounded-xl border border-white/15 shadow-xl transition-all cursor-pointer active:scale-98"
             >
-              <span>Ingresar a GanaderIA</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              Ingresar a GanaderIA
             </button>
             <button
-              onClick={onOpenAuthModal}
-              className="w-full sm:w-auto px-7 py-4 text-base font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-all cursor-pointer"
+              type="button"
+              onClick={() => scrollToSection('modulos')}
+              className="w-full sm:w-auto px-7 py-3.5 bg-transparent hover:bg-white/[0.04] text-[#A5B8AC] hover:text-[#F5F2E9] font-semibold text-sm rounded-xl border border-white/10 transition-all cursor-pointer active:scale-98"
             >
-              Iniciar sesión con PIN
+              Ver los 19 módulos
             </button>
           </div>
+
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-neutral-950 text-neutral-400 py-12 border-t border-neutral-800 text-sm">
+      {/* 12. Pie de Página (Footer) */}
+      <footer className="bg-[#101713] text-[#A5B8AC] py-14 border-t border-white/[0.07] text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div className="space-y-4 md:col-span-2">
-              <GanaderIALogo size="md" variant="compact" theme="dark" showSubtitle={true} />
-              <p className="text-xs sm:text-sm text-neutral-400 max-w-sm leading-relaxed">
-                Plataforma integral e inteligente para la administración zootécnica, agronómica y financiera de fincas ganaderas bovinas, bubalinas y equinas.
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-white/[0.07]">
+            {/* Column 1: Brand Info */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2.5">
+                <GanaderIALogo variant="icon" size="md" />
+                <span className="text-lg font-bold text-[#F5F2E9]">GanaderIA</span>
+              </div>
+              <p className="text-xs text-[#A5B8AC] leading-relaxed max-w-xs">
+                Plataforma integral para la administración ganadera, control zootécnico, sanidad, pesaje e inventarios multi-finca.
               </p>
-              <div className="text-xs text-emerald-400 font-medium">
-                © {new Date().getFullYear()} GanaderIA. Todos los derechos reservados.
+            </div>
+
+            {/* Column 2: Navigation Links */}
+            <div>
+              <div className="font-bold text-[#F5F2E9] text-xs uppercase tracking-wider mb-3">Navegación</div>
+              <div className="flex flex-col gap-2">
+                <button type="button" onClick={() => scrollToSection('inicio')} className="hover:text-[#F5F2E9] text-left transition-colors">Inicio</button>
+                <button type="button" onClick={() => scrollToSection('plataforma')} className="hover:text-[#F5F2E9] text-left transition-colors">Plataforma</button>
+                <button type="button" onClick={() => scrollToSection('modulos')} className="hover:text-[#F5F2E9] text-left transition-colors">Módulos</button>
+                <button type="button" onClick={() => scrollToSection('beneficios')} className="hover:text-[#F5F2E9] text-left transition-colors">Beneficios</button>
+                <button type="button" onClick={() => scrollToSection('multifincas')} className="hover:text-[#F5F2E9] text-left transition-colors">Gestión multifincas</button>
+                <button type="button" onClick={() => scrollToSection('roles')} className="hover:text-[#F5F2E9] text-left transition-colors">Roles y permisos</button>
               </div>
             </div>
 
-            <div className="space-y-2.5">
-              <span className="text-xs font-bold text-white uppercase tracking-wider block">
-                Navegación
-              </span>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <button onClick={() => scrollToSection('inicio')} className="hover:text-white transition-colors cursor-pointer">
-                    Inicio
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('plataforma')} className="hover:text-white transition-colors cursor-pointer">
-                    Plataforma
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('modulos')} className="hover:text-white transition-colors cursor-pointer">
-                    Módulos (19)
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('beneficios')} className="hover:text-white transition-colors cursor-pointer">
-                    Beneficios Reales
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('multifincas')} className="hover:text-white transition-colors cursor-pointer">
-                    Gestión Multifincas
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('roles')} className="hover:text-white transition-colors cursor-pointer">
-                    Roles y Permisos
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-2.5">
-              <span className="text-xs font-bold text-white uppercase tracking-wider block">
-                Acceso Plataforma
-              </span>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <button onClick={() => onEnterPlatform()} className="hover:text-white transition-colors cursor-pointer flex items-center gap-1">
-                    <span>Acceder a la plataforma</span>
-                    <ArrowRight className="w-3 h-3 text-[#f2a900]" />
-                  </button>
-                </li>
-                <li>
-                  <button onClick={onOpenAuthModal} className="hover:text-white transition-colors cursor-pointer">
-                    Iniciar sesión con PIN
-                  </button>
-                </li>
+            {/* Column 3: Legal & Security */}
+            <div>
+              <div className="font-bold text-[#F5F2E9] text-xs uppercase tracking-wider mb-3">Legal y Seguridad</div>
+              <div className="flex flex-col gap-2">
+                <button type="button" onClick={() => setIsPrivacyModalOpen(true)} className="hover:text-[#F5F2E9] text-left transition-colors">Política de privacidad</button>
+                <button type="button" onClick={() => setIsTermsModalOpen(true)} className="hover:text-[#F5F2E9] text-left transition-colors">Términos y condiciones</button>
+                <button type="button" onClick={() => scrollToSection('seguridad')} className="hover:text-[#F5F2E9] text-left transition-colors">Seguridad de datos</button>
                 {onGoToSuperadmin && (
-                  <li>
-                    <button onClick={onGoToSuperadmin} className="hover:text-amber-400 transition-colors cursor-pointer flex items-center gap-1 text-amber-300/90 font-semibold">
-                      <Globe className="w-3 h-3" />
-                      <span>Panel Global Superadmin</span>
-                    </button>
-                  </li>
+                  <button type="button" onClick={onGoToSuperadmin} className="text-[#C9A35A] hover:underline text-left font-bold transition-colors">
+                    Panel Superadmin
+                  </button>
                 )}
-              </ul>
+              </div>
+            </div>
+
+            {/* Column 4: Access */}
+            <div>
+              <div className="font-bold text-[#F5F2E9] text-xs uppercase tracking-wider mb-3">Acceso al Software</div>
+              <p className="text-xs text-[#A5B8AC] mb-3">
+                Ingresa con tu usuario y PIN de seguridad para gestionar tus hatos.
+              </p>
+              <button
+                type="button"
+                onClick={onOpenAuthModal}
+                className="w-full py-2.5 px-4 bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] border border-white/10 font-bold text-xs rounded-xl transition-colors cursor-pointer"
+              >
+                Iniciar sesión ahora
+              </button>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-neutral-900 text-center text-xs text-neutral-500">
-            GanaderIA • Software Inteligente para Ganadería de Precisión • Desarrollado para el sector agropecuario
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#A5B8AC]/60">
+            <div>
+              © {new Date().getFullYear()} GanaderIA. Todos los derechos reservados.
+            </div>
+            <div>
+              Software Ganadero Colombiano • Ganadería Bovina, Bubalina y Equina
+            </div>
           </div>
+
         </div>
       </footer>
+
+      {/* Privacy Policy Modal */}
+      {isPrivacyModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#202B24] text-[#F5F2E9] rounded-2xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl border border-white/10">
+            <div className="flex items-center justify-between pb-4 border-b border-white/10">
+              <h3 className="font-bold text-lg text-[#F5F2E9]">Política de Privacidad</h3>
+              <button type="button" onClick={() => setIsPrivacyModalOpen(false)} className="p-1 rounded-lg text-[#A5B8AC] hover:bg-white/10 hover:text-white">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="mt-4 text-xs text-[#A5B8AC] space-y-3 leading-relaxed">
+              <p>En <strong className="text-[#F5F2E9]">GanaderIA</strong>, la privacidad y seguridad de la información zootécnica, comercial y patrimonial de nuestros clientes es una prioridad institucional.</p>
+              <p>Los datos registrados sobre inventarios animales, pesajes, sanidad y finanzas pertenecen exclusivamente al propietario de la cuenta y no son compartidos con terceros sin autorización expresa.</p>
+              <p>La autenticación se realiza mediante PIN individual y las sesiones se protegen mediante protocolos cifrados en la nube.</p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-white/10 text-right">
+              <button type="button" onClick={() => setIsPrivacyModalOpen(false)} className="px-4 py-2 bg-[#043825] text-white text-xs font-bold rounded-xl border border-emerald-500/30">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Terms & Conditions Modal */}
+      {isTermsModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#202B24] text-[#F5F2E9] rounded-2xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl border border-white/10">
+            <div className="flex items-center justify-between pb-4 border-b border-white/10">
+              <h3 className="font-bold text-lg text-[#F5F2E9]">Términos y Condiciones</h3>
+              <button type="button" onClick={() => setIsTermsModalOpen(false)} className="p-1 rounded-lg text-[#A5B8AC] hover:bg-white/10 hover:text-white">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="mt-4 text-xs text-[#A5B8AC] space-y-3 leading-relaxed">
+              <p>El uso del software <strong className="text-[#F5F2E9]">GanaderIA</strong> implica la aceptación de los presentes términos de servicio.</p>
+              <p>El usuario es responsable de mantener la confidencialidad de su PIN de acceso y de verificar la veracidad de los datos sanitarios y de pesaje ingresados en la plataforma.</p>
+              <p>GanaderIA provee herramientas de cálculo zootécnico y alertas de tiempo de retiro que deben ser supervisadas por médicos veterinarios acreditados.</p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-white/10 text-right">
+              <button type="button" onClick={() => setIsTermsModalOpen(false)} className="px-4 py-2 bg-[#043825] text-white text-xs font-bold rounded-xl border border-emerald-500/30">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

@@ -94,6 +94,7 @@ import { EquinesView } from './components/EquinesView';
 import { BubalineView } from './components/BubalineView';
 import { SalesManagementView } from './components/SalesManagementView';
 import { AdminManagementView } from './components/AdminManagementView';
+import { PublicHomePage } from './components/PublicHomePage';
 import { RightNotificationSidebar } from './components/RightNotificationSidebar';
 import { AuthSessionModal } from './components/modals/AuthSessionModal';
 import { INITIAL_ADMIN_USERS } from './data/mockAdminData';
@@ -169,7 +170,7 @@ export default function App() {
     } catch (e) {
       console.error('Error loading active user session:', e);
     }
-    return INITIAL_ADMIN_USERS[0];
+    return null;
   });
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -194,6 +195,9 @@ export default function App() {
         lastLogin: new Date().toISOString(),
       };
       setActiveUser(updatedUser);
+      setActiveTab('home');
+      setCurrentViewMode('app');
+      setAdminContextMode('my_farms');
       showToast(`¡Sesión iniciada como ${updatedUser.fullName} (${updatedUser.customRoleTitle || updatedUser.roleType})!`);
       return true;
     }
@@ -202,6 +206,9 @@ export default function App() {
 
   const handleLogoutUser = () => {
     setActiveUser(null);
+    setActiveTab('home');
+    setCurrentViewMode('landing');
+    setAdminContextMode('my_farms');
     showToast('Ha cerrado la sesión del sistema.');
   };
 
@@ -209,6 +216,14 @@ export default function App() {
   const [adminContextMode, setAdminContextMode] = useState<AdminContextMode>('my_farms');
   const [impersonatedTenant, setImpersonatedTenant] = useState<TenantRecord | null>(null);
   const [isSuperadmin, setIsSuperadmin] = useState<boolean>(true);
+  const [currentViewMode, setCurrentViewMode] = useState<'app' | 'landing'>(() => {
+    try {
+      const stored = localStorage.getItem('ganaderia_active_user');
+      return stored ? 'app' : 'landing';
+    } catch (e) {
+      return 'landing';
+    }
+  });
 
   const handleStartImpersonation = (tenant: TenantRecord) => {
     setImpersonatedTenant(tenant);
@@ -1799,6 +1814,51 @@ export default function App() {
   const editingFarmTarget =
     farms.find((f) => f.profile.id === editingFarmTargetId)?.profile || currentFarm.profile;
 
+  if (currentViewMode === 'landing' || !activeUser) {
+    return (
+      <>
+        <PublicHomePage
+          onEnterPlatform={(targetTab) => {
+            if (targetTab) {
+              setActiveTab(targetTab as MainTab);
+            }
+            if (activeUser) {
+              setCurrentViewMode('app');
+            } else {
+              setIsAuthModalOpen(true);
+            }
+          }}
+          onOpenAuthModal={() => setIsAuthModalOpen(true)}
+          onGoToSuperadmin={() => {
+            if (activeUser) {
+              setCurrentViewMode('app');
+              setAdminContextMode('global_platform');
+            } else {
+              setIsAuthModalOpen(true);
+            }
+          }}
+          farms={farms}
+        />
+
+        <AuthSessionModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
+          users={adminUsers}
+          activeUser={activeUser}
+          onLoginUser={(user, pin) => {
+            const success = handleLoginUser(user, pin);
+            if (success) {
+              setIsAuthModalOpen(false);
+              setCurrentViewMode('app');
+            }
+            return success;
+          }}
+          onLogoutUser={handleLogoutUser}
+        />
+      </>
+    );
+  }
+
   return (
     <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f9f9f9] text-[#1a1c1c] flex flex-col md:flex-row font-sans antialiased selection:bg-[#c1ecd4] selection:text-[#002114]">
       {/* Left Vertical Sidebar Navigation */}
@@ -1881,6 +1941,7 @@ export default function App() {
           impersonatedTenant={impersonatedTenant}
           onExitImpersonation={handleExitImpersonation}
           isSuperadmin={isSuperadmin}
+          onGoToLanding={() => setCurrentViewMode('landing')}
         />
 
       {/* Main Content & Right Lateral Panel Workspace */}

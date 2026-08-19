@@ -57,6 +57,10 @@ export const GanaderIALogo: React.FC<GanaderIALogoProps> = ({
   const isBanner = variant === 'banner';
   const shouldDisplaySubtitle = showSubtitle ?? (variant === 'full' || variant === 'banner');
 
+  // Main brand colors
+  const darkGreen = '#06442B'; // Deep Forest Emerald
+  const goldenAccent = '#E5A417'; // Rich Golden Yellow
+
   return (
     <div
       onClick={onClick}
@@ -66,72 +70,104 @@ export const GanaderIALogo: React.FC<GanaderIALogoProps> = ({
         onClick ? 'cursor-pointer hover:opacity-95 transition-opacity' : ''
       } ${className}`}
     >
-      {/* Golden Circle Emblem with Pure Zebu/Brahman Line Art (NO AI features) */}
+      {/* Official GanaderIA Stylized Cow Head Symbol (Transparent, no frames/circles) */}
       <div
         className={`relative shrink-0 flex items-center justify-center ${iconSizes[size]} ${
           isBanner ? 'mb-2' : ''
         }`}
       >
-        <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-sm">
-          {/* Golden Yellow Circle */}
-          <circle cx="100" cy="100" r="92" fill="#f2a900" />
+        <svg
+          viewBox="0 0 460 420"
+          className="w-full h-full object-contain"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Top Forehead Crown / Cap */}
+          <path
+            d="M172 84C190 52 212 44 230 44C248 44 270 52 288 84C268 102 248 106 230 96C212 106 192 102 172 84Z"
+            fill={darkGreen}
+          />
 
-          {/* Pure Zebu / Brahman Bovine Line Art */}
-          <g
-            fill="none"
-            stroke="#012d1d"
-            strokeWidth="5"
+          {/* Left Ear */}
+          <path
+            d="M176 84C140 86 92 82 56 102C44 109 44 124 58 130C92 142 134 136 158 122C168 116 174 102 176 84Z"
+            fill={darkGreen}
+          />
+
+          {/* Right Ear */}
+          <path
+            d="M284 84C320 86 368 82 404 102C416 109 416 124 402 130C368 142 326 136 302 122C292 116 286 102 284 84Z"
+            fill={darkGreen}
+          />
+
+          {/* Left Face Patch & Eye */}
+          <path
+            d="M158 122C148 144 154 198 180 250C172 232 164 202 162 176C160 154 166 136 172 124L158 122Z"
+            fill={darkGreen}
+          />
+          <path
+            d="M172 84C166 104 160 140 164 184C168 224 184 256 190 262C186 236 178 196 182 158C186 126 198 104 210 90C196 86 184 84 172 84Z"
+            fill={darkGreen}
+          />
+          {/* Left Eye */}
+          <path
+            d="M160 156C160 150 166 144 176 144C182 144 184 150 180 156C174 164 166 166 160 156Z"
+            fill="#FFFFFF"
+          />
+          <circle cx="170" cy="152" r="3.5" fill={darkGreen} />
+
+          {/* Right Face Patch & Eye */}
+          <path
+            d="M302 122C312 144 306 198 280 250C288 232 296 202 298 176C300 154 294 136 288 124L302 122Z"
+            fill={darkGreen}
+          />
+          <path
+            d="M288 84C294 104 300 140 296 184C292 224 276 256 270 262C274 236 282 196 278 158C274 126 262 104 250 90C264 86 276 84 288 84Z"
+            fill={darkGreen}
+          />
+          {/* Right Eye */}
+          <path
+            d="M300 156C300 150 294 144 284 144C278 144 276 150 280 156C286 164 294 166 300 156Z"
+            fill="#FFFFFF"
+          />
+          <circle cx="290" cy="152" r="3.5" fill={darkGreen} />
+
+          {/* Snout / Muzzle Pad */}
+          <path
+            d="M196 234C188 242 192 272 208 280C220 286 240 286 252 280C268 272 272 242 264 234C252 226 208 226 196 234Z"
+            fill={darkGreen}
+          />
+          {/* Nostrils */}
+          <path
+            d="M208 242C204 246 206 256 212 260C216 262 222 258 222 252C222 246 214 240 208 242Z"
+            fill="#FFFFFF"
+          />
+          <path
+            d="M252 242C256 246 254 256 248 260C244 262 238 258 238 252C238 246 246 240 252 242Z"
+            fill="#FFFFFF"
+          />
+          <path
+            d="M216 272C224 276 236 276 244 272"
+            stroke="#FFFFFF"
+            strokeWidth="3"
             strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            {/* Top Crown / Dome */}
-            <path d="M72,38 C84,32 116,32 128,38" />
-            <path d="M80,44 C90,40 110,40 120,44" />
+          />
 
-            {/* Left Drooping Brahman Ear */}
-            <path d="M68,52 C42,58 12,88 18,118 C24,136 46,122 70,92" />
-            <path d="M26,88 C34,106 48,114 62,106" />
+          {/* Chin / Neck Lower Green Leaf Point */}
+          <path
+            d="M200 292C206 306 218 350 248 382C228 354 218 326 216 300L200 292Z"
+            fill={darkGreen}
+          />
+          <path
+            d="M216 292C224 312 234 352 248 382C244 346 240 316 242 292H216Z"
+            fill={darkGreen}
+          />
 
-            {/* Right Drooping Brahman Ear */}
-            <path d="M132,52 C158,58 188,88 182,118 C176,136 154,122 130,92" />
-            <path d="M174,88 C166,106 152,114 138,106" />
-
-            {/* Head Contour & Facial Ridges */}
-            <path d="M72,62 C70,90 76,120 78,132" />
-            <path d="M128,62 C130,90 124,120 122,132" />
-            <path d="M80,78 C82,100 84,120 86,132" />
-            <path d="M120,78 C118,100 116,120 114,132" />
-
-            {/* Forehead Curves */}
-            <path d="M80,68 C92,74 108,74 120,68" />
-
-            {/* Slanted Eyes */}
-            <path
-              d="M72,80 C76,74 84,78 82,84 C80,88 74,86 72,80 Z"
-              fill="#012d1d"
-            />
-            <path
-              d="M128,80 C124,74 116,78 118,84 C120,88 126,86 128,80 Z"
-              fill="#012d1d"
-            />
-
-            {/* Muzzle & Snout Pad */}
-            <path d="M78,132 C84,122 116,122 122,132 C126,142 118,154 100,154 C82,154 74,142 78,132 Z" />
-            <ellipse cx="90" cy="140" rx="3.5" ry="5" fill="#012d1d" />
-            <ellipse cx="110" cy="140" rx="3.5" ry="5" fill="#012d1d" />
-            <path d="M92,148 C96,150 104,150 108,148" />
-
-            {/* Chin / Jaw Fold */}
-            <path d="M86,154 C92,170 100,182 100,182 C100,182 108,170 114,154" />
-
-            {/* Neck / Dewlap Lines Flowing Down */}
-            <path d="M58,110 C48,136 38,165 36,190" />
-            <path d="M68,122 C60,148 54,172 52,192" />
-            <path d="M76,134 C72,156 68,178 66,194" />
-            <path d="M124,134 C128,156 132,178 134,194" />
-            <path d="M132,122 C140,148 146,172 148,192" />
-            <path d="M142,110 C152,136 162,165 164,190" />
-          </g>
+          {/* Golden Leaf Swoosh */}
+          <path
+            d="M308 216C322 244 332 280 320 324C312 352 298 372 250 374C288 354 302 322 306 290C310 256 304 232 308 216Z"
+            fill={goldenAccent}
+          />
         </svg>
       </div>
 

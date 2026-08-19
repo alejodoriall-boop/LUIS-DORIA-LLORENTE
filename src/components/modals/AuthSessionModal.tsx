@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
-  ShieldCheck,
-  KeyRound,
-  LogOut,
-  UserCheck,
   Lock,
+  KeyRound,
   Eye,
   EyeOff,
   X,
   CheckCircle2,
   AlertCircle,
-  Building2,
-  Award,
-  Users,
-  ChevronRight,
-  Sparkles,
-  RefreshCw,
+  ChevronDown,
+  Search,
+  User,
+  ShieldCheck,
+  LogOut,
+  ArrowRight,
+  Shield,
 } from 'lucide-react';
 import { AdminUser, SystemRoleType } from '../../types';
+import { GanaderIALogo } from '../GanaderIALogo';
 
-interface AuthSessionModalProps {
+export interface AuthSessionModalProps {
   isOpen: boolean;
   onClose: () => void;
   users: AdminUser[];
@@ -41,297 +41,553 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
   const [selectedUserToLogin, setSelectedUserToLogin] = useState<AdminUser | null>(
     activeUser || users[0] || null
   );
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [pinInput, setPinInput] = useState('');
   const [showPin, setShowPin] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
   const [loginSuccessMessage, setLoginSuccessMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const pinInputRef = useRef<HTMLInputElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const modalContainerRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Sync selected user when activeUser changes or modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setSelectedUserToLogin(activeUser || users[0] || null);
+      setPinInput('');
+      setLoginError(null);
+      setLoginSuccessMessage(null);
+      setIsDropdownOpen(false);
+      setSearchQuery('');
+      setIsSubmitting(false);
+
+      // Focus PIN input after modal renders
+      const timer = setTimeout(() => {
+        pinInputRef.current?.focus();
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, activeUser, users]);
+
+  // Handle escape key to close dropdown or modal
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (isDropdownOpen) {
+          setIsDropdownOpen(false);
+        } else {
+          onClose();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, isDropdownOpen, onClose]);
+
+  // Handle clicks outside the dropdown
+  useEffect(() => {
+    if (!isDropdownOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isDropdownOpen]);
+
+  // Focus search input when dropdown opens
+  useEffect(() => {
+    if (isDropdownOpen && users.length > 5) {
+      const timer = setTimeout(() => {
+        searchInputRef.current?.focus();
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isDropdownOpen, users.length]);
 
   if (!isOpen) return null;
 
+  const isSwitchingSession = !!activeUser && activeUser.id !== selectedUserToLogin?.id;
+  const isCurrentlyActiveUser = !!activeUser && activeUser.id === selectedUserToLogin?.id;
+
+  const getInitials = (name: string): string => {
+    const cleanName = name
+      .replace(/^(Don|Doña|Dra\.|Dr\.|Ing\.|Lic\.|Sr\.|Sra\.)\s+/i, '')
+      .trim();
+    const parts = cleanName.split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return 'U';
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  };
+
+  const getRoleLabel = (role: SystemRoleType): string => {
+    switch (role) {
+      case 'propietario':
+        return 'Propietario / Socio';
+      case 'administrador':
+        return 'Administrador General';
+      case 'veterinario':
+        return 'Veterinario / Zootecnista';
+      case 'mayordomo':
+        return 'Mayordomo / Caporal';
+      case 'financiero_contador':
+        return 'Financiero / Contador';
+      default:
+        return 'Usuario Administrativo';
+    }
+  };
+
+  const getRoleBadgeStyle = (role: SystemRoleType): string => {
+    switch (role) {
+      case 'propietario':
+        return 'bg-[#C9A35A]/15 text-[#C9A35A] border-[#C9A35A]/30';
+      case 'administrador':
+        return 'bg-blue-500/15 text-blue-300 border-blue-500/30';
+      case 'veterinario':
+        return 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30';
+      case 'mayordomo':
+        return 'bg-amber-500/15 text-amber-300 border-amber-500/30';
+      case 'financiero_contador':
+        return 'bg-purple-500/15 text-purple-300 border-purple-500/30';
+      default:
+        return 'bg-neutral-500/15 text-neutral-300 border-neutral-500/30';
+    }
+  };
+
   const handleSelectUser = (user: AdminUser) => {
     setSelectedUserToLogin(user);
+    setIsDropdownOpen(false);
+    setSearchQuery('');
     setPinInput('');
     setLoginError(null);
     setLoginSuccessMessage(null);
+    // Auto-focus PIN input
+    setTimeout(() => {
+      pinInputRef.current?.focus();
+    }, 100);
   };
 
   const handlePerformLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError(null);
+    setLoginSuccessMessage(null);
 
     if (!selectedUserToLogin) {
-      setLoginError('Por favor seleccione un perfil de usuario.');
+      setLoginError('Selecciona un perfil para continuar.');
       return;
     }
 
-    if (!pinInput.trim()) {
-      setLoginError('Por favor ingrese su PIN de acceso de 4 dígitos.');
+    const trimmedPin = pinInput.trim();
+    if (!trimmedPin) {
+      setLoginError('Ingresa tu PIN de seguridad.');
+      pinInputRef.current?.focus();
       return;
     }
 
-    const success = onLoginUser(selectedUserToLogin, pinInput.trim());
+    setIsSubmitting(true);
+
+    // Validate using existing authentication logic
+    const success = onLoginUser(selectedUserToLogin, trimmedPin);
     if (success) {
-      setLoginSuccessMessage(`¡Bienvenido de nuevo, ${selectedUserToLogin.fullName}!`);
+      setLoginSuccessMessage(`¡Bienvenido, ${selectedUserToLogin.fullName.split(' ')[0]}!`);
       setTimeout(() => {
-        setLoginSuccessMessage(null);
+        setIsSubmitting(false);
         onClose();
-      }, 1200);
+      }, 600);
     } else {
-      setLoginError('PIN de seguridad incorrecto. Intente de nuevo.');
+      setIsSubmitting(false);
+      setLoginError('El PIN ingresado no es correcto.');
+      setPinInput('');
+      pinInputRef.current?.focus();
     }
   };
 
-  const getRoleBadgeStyle = (role: SystemRoleType) => {
-    switch (role) {
-      case 'propietario':
-        return 'bg-amber-100 text-amber-950 border-amber-300';
-      case 'administrador':
-        return 'bg-blue-100 text-blue-950 border-blue-300';
-      case 'veterinario':
-        return 'bg-emerald-100 text-emerald-950 border-emerald-300';
-      case 'mayordomo':
-        return 'bg-orange-100 text-orange-950 border-orange-300';
-      case 'financiero_contador':
-        return 'bg-purple-100 text-purple-950 border-purple-300';
-      default:
-        return 'bg-gray-100 text-gray-800 border-gray-300';
-    }
-  };
-
-  const getRoleLabel = (role: SystemRoleType) => {
-    switch (role) {
-      case 'propietario':
-        return '👑 Propietario / Socio';
-      case 'administrador':
-        return '🏢 Administrador General';
-      case 'veterinario':
-        return '🩺 Veterinario / Zootecnista';
-      case 'mayordomo':
-        return '🤠 Mayordomo / Caporal';
-      case 'financiero_contador':
-        return '💼 Financiero / Contador';
-      default:
-        return '👤 Usuario Administrativo';
-    }
-  };
+  const filteredUsers = users.filter((u) => {
+    if (!searchQuery.trim()) return true;
+    const query = searchQuery.toLowerCase();
+    return (
+      u.fullName.toLowerCase().includes(query) ||
+      (u.customRoleTitle && u.customRoleTitle.toLowerCase().includes(query)) ||
+      u.roleType.toLowerCase().includes(query) ||
+      u.documentId.toLowerCase().includes(query)
+    );
+  });
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-gray-200 overflow-hidden animate-in fade-in zoom-in-95 my-8">
-        {/* HEADER MODAL */}
-        <div className="bg-gradient-to-r from-[#012d1d] via-[#02402a] to-[#011c12] text-white p-6 relative">
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-white/70 hover:text-white p-2 rounded-xl hover:bg-white/10 transition"
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/75 backdrop-blur-md transition-all duration-200"
+      onClick={(e) => {
+        if (modalContainerRef.current && !modalContainerRef.current.contains(e.target as Node)) {
+          onClose();
+        }
+      }}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auth-modal-title"
+    >
+      <motion.div
+        ref={modalContainerRef}
+        initial={{ opacity: 0, scale: 0.96, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.96, y: 10 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="w-full max-w-[460px] bg-[#101713] border border-white/10 rounded-[22px] shadow-2xl overflow-hidden relative flex flex-col text-[#F5F2E9] my-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Subtle Top Glow Accent */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C9A35A]/60 to-transparent" />
 
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#ffba38] text-[#012d1d] rounded-2xl shadow-md font-black">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <span className="text-[10px] font-mono font-bold text-amber-300 uppercase tracking-widest block">
-                Control de Sesión de Usuario
+        {/* Modal Close Button */}
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Cerrar ventana de acceso"
+          className="absolute top-4 right-4 p-2 text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.06] rounded-xl transition-colors cursor-pointer z-10"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Encabezado del Modal */}
+        <div className="px-6 sm:px-7 pt-7 pb-4 text-left">
+          <div className="flex items-center gap-3 mb-3">
+            <GanaderIALogo variant="icon" size="sm" />
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#043825] border border-emerald-500/25">
+              <ShieldCheck className="w-3 h-3 text-[#C9A35A]" />
+              <span className="text-[10px] font-bold tracking-widest text-[#C9A35A] uppercase font-mono">
+                Acceso Seguro
               </span>
-              <h2 className="text-xl font-black text-white">Inicio & Cierre de Sesión</h2>
             </div>
           </div>
+
+          <h2
+            id="auth-modal-title"
+            className="font-serif text-2xl sm:text-[26px] font-bold text-[#F5F2E9] tracking-tight leading-tight"
+          >
+            {activeUser ? 'Cambiar perfil' : 'Bienvenido de nuevo'}
+          </h2>
+          <p className="text-xs sm:text-sm text-[#A5B8AC] mt-1 leading-relaxed">
+            {activeUser
+              ? 'Selecciona otro perfil para alternar la sesión activa'
+              : 'Selecciona tu perfil e ingresa tu PIN para continuar'}
+          </p>
         </div>
 
-        <div className="p-6 space-y-6">
-          {/* CURRENT USER STATUS CARD */}
-          {activeUser ? (
-            <div className="bg-emerald-50/80 p-4 rounded-2xl border border-emerald-200 space-y-3">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black text-lg shadow-sm border border-[#ffba38]/30">
-                    {activeUser.fullName.charAt(0)}
+        {/* Formulario Principal de Autenticación */}
+        <form onSubmit={handlePerformLogin} className="px-6 sm:px-7 pb-6 space-y-4 text-left">
+          
+          {/* Selector de Perfil Desplegable */}
+          <div className="space-y-1.5" ref={dropdownRef}>
+            <label className="text-xs font-semibold text-[#A5B8AC] block">
+              Perfil de ingreso
+            </label>
+
+            {/* If a user is selected and dropdown is closed, show selected card with "Cambiar" */}
+            {selectedUserToLogin && !isDropdownOpen ? (
+              <div className="p-3 bg-[#202B24] border border-white/10 hover:border-white/20 rounded-xl transition-all flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 overflow-hidden">
+                  {/* Initials Avatar */}
+                  <div className="w-10 h-10 rounded-xl bg-[#043825] border border-[#C9A35A]/30 text-[#C9A35A] flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
+                    {getInitials(selectedUserToLogin.fullName)}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-200/80 px-2 py-0.5 rounded-full">
-                        ● Sesión Activa
-                      </span>
+                      <h4 className="font-bold text-sm text-[#F5F2E9] truncate leading-tight">
+                        {selectedUserToLogin.fullName}
+                      </h4>
+                      {isCurrentlyActiveUser && (
+                        <span className="text-[9px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.2 rounded shrink-0">
+                          En sesión
+                        </span>
+                      )}
                     </div>
-                    <h3 className="font-black text-base text-gray-900 mt-0.5">{activeUser.fullName}</h3>
-                    <p className="text-xs text-gray-600 font-mono">
-                      {getRoleLabel(activeUser.roleType)} • C.C. {activeUser.documentId}
+                    <p className="text-xs text-[#A5B8AC] truncate mt-0.5">
+                      {selectedUserToLogin.customRoleTitle || getRoleLabel(selectedUserToLogin.roleType)}
                     </p>
                   </div>
                 </div>
 
-                <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${getRoleBadgeStyle(activeUser.roleType)}`}>
-                  {activeUser.customRoleTitle || activeUser.roleType}
-                </span>
-              </div>
-
-              <div className="pt-3 border-t border-emerald-200/60 flex items-center justify-between text-xs">
-                <span className="text-gray-600 font-medium">
-                  Matrícula/Pin: <b className="font-mono text-gray-900">•••• ({activeUser.securityPin})</b>
-                </span>
-
-                <div className="flex items-center gap-2">
-                  {onNavigateToAdmin && (
-                    <button
-                      onClick={() => {
-                        onClose();
-                        onNavigateToAdmin();
-                      }}
-                      className="text-xs font-bold text-[#012d1d] bg-white hover:bg-emerald-100/80 px-3 py-1.5 rounded-xl border border-emerald-300 transition"
-                    >
-                      Ver Roles & Permisos →
-                    </button>
-                  )}
-
-                  <button
-                    onClick={() => {
-                      onLogoutUser();
-                      setLoginSuccessMessage('Sesión cerrada correctamente.');
-                      setTimeout(() => setLoginSuccessMessage(null), 2000);
-                    }}
-                    className="text-xs font-black text-rose-700 bg-rose-100 hover:bg-rose-200 px-3 py-1.5 rounded-xl border border-rose-300 transition flex items-center gap-1"
+                <div className="flex items-center gap-2 shrink-0">
+                  <span
+                    className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border hidden sm:inline-block ${getRoleBadgeStyle(
+                      selectedUserToLogin.roleType
+                    )}`}
                   >
-                    <LogOut className="w-3.5 h-3.5" />
-                    <span>Cerrar Sesión</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 text-amber-700 shrink-0" />
-              <div className="text-xs text-amber-900">
-                <b>Sin Sesión Iniciada:</b> Seleccione su usuario a continuación e ingrese su PIN para autenticarse en el sistema.
-              </div>
-            </div>
-          )}
-
-          {/* LOGIN / USER SWITCH FORM */}
-          <form onSubmit={handlePerformLogin} className="space-y-4">
-            <div className="space-y-2">
-              <label className="font-black text-xs uppercase tracking-wider text-gray-800 block">
-                1. Seleccionar Usuario / Perfil de Ingreso:
-              </label>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-56 overflow-y-auto p-1 pr-2">
-                {users.map((u) => {
-                  const isSelected = selectedUserToLogin?.id === u.id;
-                  const isActiveSession = activeUser?.id === u.id;
-
-                  return (
-                    <div
-                      key={u.id}
-                      onClick={() => handleSelectUser(u)}
-                      className={`p-3 rounded-2xl border cursor-pointer transition flex items-center justify-between gap-2 ${
-                        isSelected
-                          ? 'bg-[#012d1d] text-white border-[#ffba38] shadow-md'
-                          : 'bg-gray-50 hover:bg-gray-100 text-gray-800 border-gray-200'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2.5 overflow-hidden">
-                        <div
-                          className={`w-8 h-8 rounded-xl font-black text-xs flex items-center justify-center shrink-0 ${
-                            isSelected
-                              ? 'bg-[#ffba38] text-[#012d1d]'
-                              : 'bg-gray-200 text-gray-800'
-                          }`}
-                        >
-                          {u.fullName.charAt(0)}
-                        </div>
-                        <div className="truncate">
-                          <h4 className="font-bold text-xs truncate leading-tight">{u.fullName}</h4>
-                          <span
-                            className={`text-[10px] block truncate font-mono ${
-                              isSelected ? 'text-amber-200' : 'text-gray-500'
-                            }`}
-                          >
-                            {u.customRoleTitle || getRoleLabel(u.roleType)}
-                          </span>
-                        </div>
-                      </div>
-
-                      {isActiveSession && (
-                        <span className="text-[9px] font-black uppercase tracking-wider bg-emerald-500 text-white px-1.5 py-0.5 rounded shrink-0">
-                          Activo
-                        </span>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* PIN ENTRY INPUT */}
-            {selectedUserToLogin && (
-              <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200 space-y-3">
-                <div className="flex items-center justify-between">
-                  <label className="font-bold text-xs text-gray-800 flex items-center gap-1.5">
-                    <KeyRound className="w-4 h-4 text-[#012d1d]" />
-                    <span>PIN de Seguridad / Clave de Acceso</span>
-                  </label>
-                  <span className="text-[10px] text-gray-500 font-mono">
-                    Rol: <b>{selectedUserToLogin.customRoleTitle || selectedUserToLogin.roleType}</b>
+                    {selectedUserToLogin.roleType}
                   </span>
-                </div>
-
-                <div className="relative">
-                  <input
-                    type={showPin ? 'text' : 'password'}
-                    maxLength={8}
-                    required
-                    placeholder="Ingrese su PIN (ej: 1234, 1092, 4410)..."
-                    value={pinInput}
-                    onChange={(e) => setPinInput(e.target.value)}
-                    className="w-full text-sm font-mono font-bold tracking-widest p-3 bg-white rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
-                  />
                   <button
                     type="button"
-                    onClick={() => setShowPin(!showPin)}
-                    className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-700"
+                    onClick={() => setIsDropdownOpen(true)}
+                    className="px-2.5 py-1 text-xs font-semibold text-[#C9A35A] hover:text-[#d6b56f] bg-white/[0.04] hover:bg-white/[0.08] rounded-lg border border-white/10 transition-colors cursor-pointer"
+                    aria-label="Cambiar perfil seleccionado"
                   >
-                    {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    Cambiar
                   </button>
                 </div>
-
-                {loginError && (
-                  <div className="p-2.5 bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold rounded-xl flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
-                    <span>{loginError}</span>
+              </div>
+            ) : (
+              /* Dropdown Trigger Button */
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  aria-expanded={isDropdownOpen}
+                  aria-haspopup="listbox"
+                  className="w-full px-3.5 py-2.5 bg-[#202B24] border border-white/10 hover:border-white/20 rounded-xl text-left text-sm flex items-center justify-between text-[#F5F2E9] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C9A35A]/50"
+                >
+                  <div className="flex items-center gap-2.5 text-[#A5B8AC]">
+                    <User className="w-4 h-4 text-[#C9A35A]" />
+                    <span className={selectedUserToLogin ? 'text-[#F5F2E9] font-medium' : 'text-[#A5B8AC]'}>
+                      {selectedUserToLogin ? selectedUserToLogin.fullName : 'Seleccionar perfil de ingreso...'}
+                    </span>
                   </div>
-                )}
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#A5B8AC] transition-transform duration-200 ${
+                      isDropdownOpen ? 'rotate-180 text-[#C9A35A]' : ''
+                    }`}
+                  />
+                </button>
 
-                {loginSuccessMessage && (
-                  <div className="p-2.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-xl flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>{loginSuccessMessage}</span>
-                  </div>
-                )}
+                {/* Dropdown Menu Container */}
+                <AnimatePresence>
+                  {isDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 right-0 mt-1.5 bg-[#152019] border border-white/15 rounded-xl shadow-2xl z-30 overflow-hidden max-h-60 flex flex-col"
+                    >
+                      {/* Search Bar if > 4 users */}
+                      {users.length > 4 && (
+                        <div className="p-2 border-b border-white/10 sticky top-0 bg-[#152019]">
+                          <div className="relative flex items-center">
+                            <Search className="w-3.5 h-3.5 text-[#A5B8AC] absolute left-3 pointer-events-none" />
+                            <input
+                              ref={searchInputRef}
+                              type="text"
+                              placeholder="Buscar colaborador..."
+                              value={searchQuery}
+                              onChange={(e) => setSearchQuery(e.target.value)}
+                              className="w-full pl-8 pr-3 py-1.5 text-xs bg-[#202B24] border border-white/10 rounded-lg text-[#F5F2E9] placeholder-[#A5B8AC]/60 focus:outline-none focus:border-[#C9A35A]"
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* User Items List */}
+                      <div className="overflow-y-auto p-1.5 space-y-1">
+                        {filteredUsers.length === 0 ? (
+                          <div className="py-4 text-center text-xs text-[#A5B8AC]">
+                            No se encontraron perfiles con "{searchQuery}"
+                          </div>
+                        ) : (
+                          filteredUsers.map((u) => {
+                            const isSelected = selectedUserToLogin?.id === u.id;
+                            const isActive = activeUser?.id === u.id;
+                            return (
+                              <button
+                                key={u.id}
+                                type="button"
+                                onClick={() => handleSelectUser(u)}
+                                className={`w-full p-2.5 rounded-lg flex items-center justify-between gap-3 text-left transition-colors cursor-pointer ${
+                                  isSelected
+                                    ? 'bg-[#043825] border border-emerald-500/40 text-white'
+                                    : 'hover:bg-white/[0.05] text-[#F5F2E9]'
+                                }`}
+                              >
+                                <div className="flex items-center gap-2.5 min-w-0">
+                                  <div
+                                    className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${
+                                      isSelected
+                                        ? 'bg-[#C9A35A] text-[#101713]'
+                                        : 'bg-[#202B24] text-[#A5B8AC] border border-white/10'
+                                    }`}
+                                  >
+                                    {getInitials(u.fullName)}
+                                  </div>
+                                  <div className="min-w-0">
+                                    <div className="flex items-center gap-1.5">
+                                      <span className="font-semibold text-xs text-[#F5F2E9] truncate">
+                                        {u.fullName}
+                                      </span>
+                                      {isActive && (
+                                        <span className="text-[8px] font-bold uppercase bg-emerald-500/20 text-emerald-300 px-1 py-0.2 rounded">
+                                          Sesión
+                                        </span>
+                                      )}
+                                    </div>
+                                    <span className="text-[11px] text-[#A5B8AC] truncate block">
+                                      {u.customRoleTitle || getRoleLabel(u.roleType)}
+                                    </span>
+                                  </div>
+                                </div>
+
+                                <span
+                                  className={`text-[9px] font-semibold px-2 py-0.5 rounded border shrink-0 ${getRoleBadgeStyle(
+                                    u.roleType
+                                  )}`}
+                                >
+                                  {u.roleType}
+                                </span>
+                              </button>
+                            );
+                          })
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             )}
+          </div>
 
-            {/* BUTTON ACTIONS */}
-            <div className="flex items-center justify-end gap-3 pt-2">
+          {/* Campo de PIN de Seguridad */}
+          <div className="space-y-1.5 pt-1">
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="security-pin-input"
+                className="text-xs font-semibold text-[#A5B8AC] flex items-center gap-1.5"
+              >
+                <KeyRound className="w-3.5 h-3.5 text-[#C9A35A]" />
+                <span>PIN de seguridad</span>
+              </label>
+              {selectedUserToLogin && (
+                <span className="text-[11px] text-[#A5B8AC]/70">
+                  {selectedUserToLogin.fullName.split(' ')[0]}
+                </span>
+              )}
+            </div>
+
+            <div className="relative flex items-center">
+              <div className="absolute left-3.5 text-[#A5B8AC] pointer-events-none">
+                <Lock className="w-4 h-4 text-[#C9A35A]" />
+              </div>
+
+              <input
+                ref={pinInputRef}
+                id="security-pin-input"
+                type={showPin ? 'text' : 'password'}
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={8}
+                autoComplete="current-password"
+                placeholder="Ingresa tu PIN"
+                value={pinInput}
+                onChange={(e) => {
+                  setPinInput(e.target.value);
+                  if (loginError) setLoginError(null);
+                }}
+                className="w-full pl-10 pr-11 py-3 bg-[#202B24] border border-white/10 focus:border-[#C9A35A] focus:ring-1 focus:ring-[#C9A35A] rounded-xl text-[#F5F2E9] placeholder-[#A5B8AC]/50 text-sm font-mono tracking-widest transition-all outline-none"
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPin(!showPin)}
+                aria-label={showPin ? 'Ocultar PIN' : 'Mostrar PIN'}
+                className="absolute right-3 p-1.5 text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.06] rounded-lg transition-colors cursor-pointer"
+              >
+                {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
+            </div>
+
+            {/* Error Message Inline (aria-live) */}
+            <AnimatePresence>
+              {loginError && (
+                <motion.div
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.15 }}
+                  aria-live="polite"
+                  className="p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2"
+                >
+                  <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>{loginError}</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Success Message Inline (aria-live) */}
+            <AnimatePresence>
+              {loginSuccessMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.15 }}
+                  aria-live="polite"
+                  className="p-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs flex items-center gap-2"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>{loginSuccessMessage}</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Botones de Acción */}
+          <div className="pt-2 space-y-2">
+            <button
+              type="submit"
+              disabled={isSubmitting || !selectedUserToLogin || !pinInput.trim()}
+              className="w-full py-3.5 px-4 bg-[#C9A35A] hover:bg-[#b89249] disabled:bg-[#202B24] disabled:text-[#A5B8AC]/40 disabled:border-white/5 disabled:cursor-not-allowed text-[#101713] font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+            >
+              {isSubmitting ? (
+                <div className="w-5 h-5 border-2 border-[#101713] border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <>
+                  <span>
+                    {isSwitchingSession ? 'Confirmar cambio de perfil' : 'Ingresar a GanaderIA'}
+                  </span>
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
+            </button>
+
+            <div className="flex items-center justify-between pt-1">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-100 rounded-xl transition"
+                className="text-xs font-semibold text-[#A5B8AC] hover:text-[#F5F2E9] py-1.5 px-2 rounded-lg hover:bg-white/[0.04] transition-colors cursor-pointer"
               >
                 Cancelar
               </button>
 
-              <button
-                type="submit"
-                className="px-6 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] text-xs font-black uppercase tracking-wider rounded-xl transition shadow-md flex items-center gap-2"
-              >
-                <UserCheck className="w-4 h-4 text-[#ffba38]" />
-                <span>Ingresar / Cambiar Sesión</span>
-              </button>
+              {/* Opción para cerrar sesión activa si existe */}
+              {activeUser && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onLogoutUser();
+                    onClose();
+                  }}
+                  className="text-xs font-semibold text-rose-400 hover:text-rose-300 py-1.5 px-2 rounded-lg hover:bg-rose-500/10 transition-colors flex items-center gap-1.5 cursor-pointer"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span>Cerrar sesión actual</span>
+                </button>
+              )}
             </div>
-          </form>
-        </div>
-      </div>
+          </div>
+
+          {/* Línea de Seguridad Visual */}
+          <div className="pt-3 border-t border-white/5 flex items-center justify-center gap-1.5 text-[11px] text-[#A5B8AC]/50">
+            <Shield className="w-3.5 h-3.5" />
+            <span>Acceso protegido · Sesión privada</span>
+          </div>
+
+        </form>
+      </motion.div>
     </div>
   );
 };
