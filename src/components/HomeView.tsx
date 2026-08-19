@@ -187,44 +187,44 @@ export const HomeView: React.FC<HomeViewProps> = ({
       case 'ceba':
         return {
           label: 'Ceba Intensiva',
-          bg: 'bg-[#c1ecd4]',
-          text: 'text-[#012d1d]',
-          border: 'border-[#86af99]',
+          bg: 'bg-emerald-950/70',
+          text: 'text-emerald-300',
+          border: 'border-emerald-700/40',
         };
       case 'cria':
         return {
           label: 'Cría y Levante',
-          bg: 'bg-[#ffdeac]',
-          text: 'text-[#523700]',
-          border: 'border-[#e0b064]',
+          bg: 'bg-amber-950/70',
+          text: 'text-amber-300',
+          border: 'border-amber-700/40',
         };
       case 'doble_proposito':
         return {
           label: 'Doble Propósito',
-          bg: 'bg-emerald-100',
-          text: 'text-emerald-900',
-          border: 'border-emerald-300',
+          bg: 'bg-teal-950/70',
+          text: 'text-teal-300',
+          border: 'border-teal-700/40',
         };
       case 'lecheria_especializada':
         return {
           label: 'Lechería Especializada',
-          bg: 'bg-blue-100',
-          text: 'text-blue-900',
-          border: 'border-blue-300',
+          bg: 'bg-blue-950/70',
+          text: 'text-blue-300',
+          border: 'border-blue-700/40',
         };
       case 'genetica_pura':
         return {
           label: 'Genética & Cabaña',
-          bg: 'bg-amber-100',
-          text: 'text-amber-900',
-          border: 'border-amber-300',
+          bg: 'bg-purple-950/70',
+          text: 'text-purple-300',
+          border: 'border-purple-700/40',
         };
       default:
         return {
           label: 'Ganadería Integral',
-          bg: 'bg-gray-100',
-          text: 'text-gray-800',
-          border: 'border-gray-300',
+          bg: 'bg-[#202B24]',
+          text: 'text-[#B9C3BB]',
+          border: 'border-white/10',
         };
     }
   };
@@ -236,9 +236,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
       className="space-y-6 w-full pb-12"
     >
       {/* Top Banner & Quick Actions Bar */}
-      <div className="bg-gradient-to-br from-[#043825] via-[#074730] to-[#043825] p-5 md:p-6 rounded-3xl text-white shadow-[0_8px_30px_rgba(4,56,37,0.18)] border border-white/[0.08] relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#043825] via-[#074730] to-[#043825] p-5 md:p-6 rounded-3xl text-white shadow-[0_8px_30px_rgba(0,0,0,0.35)] border border-white/[0.12] relative overflow-hidden">
         {/* Subtle decorative background glow */}
-        <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#facc15]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#C9A35A]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-3">
           {/* Action Buttons Toolbar */}
@@ -247,9 +247,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => onOpenNewEventModal('compra')}
-              className="bg-[#facc15] hover:bg-[#ebd00a] text-slate-950 font-bold text-xs h-8 px-3 rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] font-bold text-xs h-8 px-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
             >
-              <PlusCircle className="w-3.5 h-3.5 text-slate-900" />
+              <PlusCircle className="w-3.5 h-3.5 text-[#101713]" />
               <span>Nuevo Registro</span>
             </motion.button>
 
@@ -258,10 +258,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={onOpenPendingActivitiesModal}
-                className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer relative shrink-0"
+                className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer relative shrink-0"
                 title="Abrir Reporte Operativo de Actividades Diarias Pendientes"
               >
-                <ClipboardList className="w-3.5 h-3.5 text-emerald-300" />
+                <ClipboardList className="w-3.5 h-3.5 text-[#39D98A]" />
                 <span>Tareas</span>
                 {pendingActivitiesCount > 0 && (
                   <span className="bg-rose-500 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full">
@@ -282,7 +282,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   setActiveTab('genetics');
                 }
               }}
-              className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
             >
               <Heart className="w-3.5 h-3.5 text-rose-300" />
               <span>Palpación</span>
@@ -300,7 +300,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   onOpenWithdrawalModal();
                 }
               }}
-              className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
             >
               <Stethoscope className="w-3.5 h-3.5 text-teal-300" />
               <span>Plan Sanitario</span>
@@ -311,9 +311,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
               whileTap={{ scale: 0.96 }}
               type="button"
               onClick={onOpenWeightModal}
-              className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
             >
-              <Scale className="w-3.5 h-3.5 text-amber-300" />
+              <Scale className="w-3.5 h-3.5 text-[#C9A35A]" />
               <span>Pesaje</span>
             </motion.button>
 
@@ -336,10 +336,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={onOpenFarmManagerModal}
-                className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+                className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
                 title="Administrar fincas"
               >
-                <Settings className="w-3.5 h-3.5 text-slate-300" />
+                <Settings className="w-3.5 h-3.5 text-[#B9C3BB]" />
                 <span>Gestionar</span>
               </motion.button>
             )}
@@ -362,10 +362,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 whileTap={{ scale: 0.96 }}
                 type="button"
                 onClick={onOpenRegisterBrandingIronModal}
-                className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+                className="bg-white/10 hover:bg-white/20 text-[#F5F2E9] backdrop-blur-md font-semibold text-xs h-8 px-2.5 rounded-xl border border-white/15 transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
                 title="Registrar nuevo Hierro o Marca a Fuego"
               >
-                <Flame className="w-3.5 h-3.5 text-amber-400" />
+                <Flame className="w-3.5 h-3.5 text-[#C9A35A]" />
                 <span>Hierro</span>
               </motion.button>
             )}
@@ -379,7 +379,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
         {/* Bottom Row */}
         <div className="pt-3.5 mt-3.5 border-t border-white/10 flex items-center gap-2.5 flex-wrap">
-          <span className="bg-[#facc15] text-slate-900 text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-lg shadow-xs">
+          <span className="bg-[#C9A35A] text-[#101713] text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-lg shadow-xs">
             SISTEMA OFICIAL
           </span>
           <span className="text-xs md:text-sm text-emerald-100/90 font-medium">
@@ -391,14 +391,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* ========================================================================= */}
       {/* DIRECT ACCESS SELECTOR CARDS FOR ALL FINCAS / PREDIOS & CATEGORY FILTER */}
       {/* ========================================================================= */}
-      <div className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-black/[0.06] space-y-4">
+      <div className="bg-[#152019] rounded-3xl p-5 md:p-6 shadow-xl border border-white/10 space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-2">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-emerald-50 text-emerald-800 rounded-xl">
+            <div className="p-2 bg-[#202B24] text-[#C9A35A] rounded-xl border border-white/10">
               <Layers className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-slate-900 tracking-tight">
+              <h2 className="text-base font-bold text-[#F5F2E9] tracking-tight">
                 Predios e Inventario Ganadero
               </h2>
             </div>
@@ -410,8 +410,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 onClick={onToggleLotsModule}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
                   isLotsEnabled
-                    ? 'bg-[#043825] text-[#facc15] shadow-xs'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
+                    ? 'bg-[#043825] text-[#C9A35A] border border-[#C9A35A]/40 shadow-xs'
+                    : 'bg-[#202B24] text-[#B9C3BB] hover:bg-[#26332B] border border-white/10'
                 }`}
                 title={
                   isLotsEnabled
@@ -420,12 +420,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 }
               >
                 {isLotsEnabled ? (
-                  <Layers className="w-3.5 h-3.5 text-[#facc15]" />
+                  <Layers className="w-3.5 h-3.5 text-[#C9A35A]" />
                 ) : (
-                  <Building2 className="w-3.5 h-3.5 text-slate-600" />
+                  <Building2 className="w-3.5 h-3.5 text-[#A5B8AC]" />
                 )}
                 <span>Manejo:</span>
-                <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-bold ${isLotsEnabled ? 'bg-[#facc15] text-slate-950' : 'bg-slate-900 text-white'}`}>
+                <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-bold ${isLotsEnabled ? 'bg-[#C9A35A] text-[#101713]' : 'bg-[#101713] text-[#F5F2E9]'}`}>
                   {isLotsEnabled ? 'POTREROS' : 'PREDIOS'}
                 </span>
               </button>
@@ -435,20 +435,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
               onClick={() => handleViewChange('all')}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedView === 'all'
-                  ? 'bg-[#043825] text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
+                  ? 'bg-[#043825] text-[#F5F2E9] border border-[#C9A35A]/40 shadow-xs'
+                  : 'bg-[#202B24] text-[#B9C3BB] hover:bg-[#26332B] border border-white/10'
               }`}
             >
-              <Activity className="w-3.5 h-3.5 text-[#facc15]" />
+              <Activity className="w-3.5 h-3.5 text-[#C9A35A]" />
               <span>Todas (Consolidado)</span>
             </button>
           </div>
         </div>
 
-        {/* Category Filter Tabs (Apple pill style) */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-slate-100/80 p-1.5 rounded-2xl">
-          <span className="text-[11px] font-semibold text-slate-500 px-2 flex items-center gap-1">
-            <Filter className="w-3 h-3 text-slate-400" />
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap items-center gap-1.5 bg-[#101713] p-1.5 rounded-2xl border border-white/10">
+          <span className="text-[11px] font-semibold text-[#A5B8AC] px-2 flex items-center gap-1">
+            <Filter className="w-3 h-3 text-[#A5B8AC]" />
             Filtro:
           </span>
 
@@ -464,17 +464,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 onClick={() => setSelectedCategory(catKey)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
                   isSelected
-                    ? 'bg-white text-slate-950 shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                    ? 'bg-[#C9A35A] text-[#101713] shadow-md font-bold'
+                    : 'text-[#B9C3BB] hover:text-[#F5F2E9] hover:bg-white/5'
                 }`}
               >
-                {catKey === 'all' && <Layers className="w-3.5 h-3.5 text-[#facc15]" />}
-                {catKey === 'ceba' && <Beef className="w-3.5 h-3.5 text-emerald-600" />}
-                {catKey === 'cria' && <Baby className="w-3.5 h-3.5 text-amber-600" />}
-                {catKey === 'leche' && <Droplet className="w-3.5 h-3.5 text-blue-600" />}
-                {catKey === 'genetica' && <Dna className="w-3.5 h-3.5 text-purple-600" />}
+                {catKey === 'all' && <Layers className="w-3.5 h-3.5 text-[#101713]" />}
+                {catKey === 'ceba' && <Beef className="w-3.5 h-3.5 text-emerald-400" />}
+                {catKey === 'cria' && <Baby className="w-3.5 h-3.5 text-amber-400" />}
+                {catKey === 'leche' && <Droplet className="w-3.5 h-3.5 text-blue-400" />}
+                {catKey === 'genetica' && <Dna className="w-3.5 h-3.5 text-purple-400" />}
                 <span>{def.shortLabel}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-medium ${isSelected ? 'bg-slate-100 text-slate-800' : 'bg-slate-200 text-slate-600'}`}>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-medium ${isSelected ? 'bg-[#101713]/20 text-[#101713]' : 'bg-[#202B24] text-[#A5B8AC]'}`}>
                   {count}
                 </span>
               </motion.button>
@@ -491,8 +491,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
             onClick={() => handleViewChange('all')}
             className={`p-4 rounded-2xl transition-all cursor-pointer relative flex flex-col justify-between select-none ${
               selectedView === 'all'
-                ? 'bg-[#043825] text-white shadow-[0_8px_20px_rgba(4,56,37,0.2)] border border-[#043825]'
-                : 'bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 text-slate-900'
+                ? 'bg-[#043825] text-white shadow-[0_8px_20px_rgba(4,56,37,0.4)] border border-[#C9A35A]/50'
+                : 'bg-[#202B24] hover:bg-[#26332B] border border-white/10 text-[#F5F2E9]'
             }`}
           >
             <div>
@@ -500,50 +500,50 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <span
                   className={`text-[9.5px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md ${
                     selectedView === 'all'
-                      ? 'bg-white/15 text-[#facc15]'
-                      : 'bg-emerald-100 text-emerald-800'
+                      ? 'bg-white/15 text-[#C9A35A]'
+                      : 'bg-emerald-950/70 text-emerald-300 border border-emerald-700/30'
                   }`}
                 >
                   CONSOLIDADO
                 </span>
                 {selectedView === 'all' && (
                   <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-200">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#facc15]" /> Activo
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C9A35A]" /> Activo
                   </span>
                 )}
               </div>
-              <h3 className={`text-base font-bold mt-2.5 leading-tight ${selectedView === 'all' ? 'text-white' : 'text-slate-900'}`}>
+              <h3 className={`text-base font-bold mt-2.5 leading-tight ${selectedView === 'all' ? 'text-white' : 'text-[#F5F2E9]'}`}>
                 Todas las Fincas
               </h3>
-              <p className={`text-xs mt-0.5 ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-slate-500'}`}>
+              <p className={`text-xs mt-0.5 ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-[#A5B8AC]'}`}>
                 {totalFarmsCount} predios operando
               </p>
             </div>
 
             <div className={`mt-3.5 pt-3 border-t grid grid-cols-3 gap-1 text-center ${
-              selectedView === 'all' ? 'border-white/10' : 'border-slate-200'
+              selectedView === 'all' ? 'border-white/15' : 'border-white/10'
             }`}>
               <div>
-                <span className={`block font-bold text-xs ${selectedView === 'all' ? 'text-[#facc15]' : 'text-slate-900'}`}>
+                <span className={`block font-bold text-xs ${selectedView === 'all' ? 'text-[#C9A35A]' : 'text-[#F5F2E9]'}`}>
                   {totalConsolidatedAreaHa.toLocaleString()}
                 </span>
-                <span className={`text-[9.5px] uppercase font-medium ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-slate-400'}`}>
+                <span className={`text-[9.5px] uppercase font-medium ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-[#7F8C83]'}`}>
                   Ha
                 </span>
               </div>
               <div>
-                <span className={`block font-bold text-xs ${selectedView === 'all' ? 'text-[#facc15]' : 'text-slate-900'}`}>
+                <span className={`block font-bold text-xs ${selectedView === 'all' ? 'text-[#C9A35A]' : 'text-[#F5F2E9]'}`}>
                   {totalConsolidatedHeads.toLocaleString()}
                 </span>
-                <span className={`text-[9.5px] uppercase font-medium ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-slate-400'}`}>
+                <span className={`text-[9.5px] uppercase font-medium ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-[#7F8C83]'}`}>
                   Cabezas
                 </span>
               </div>
               <div>
-                <span className={`block font-bold text-xs ${selectedView === 'all' ? 'text-[#facc15]' : 'text-slate-900'}`}>
+                <span className={`block font-bold text-xs ${selectedView === 'all' ? 'text-[#C9A35A]' : 'text-[#F5F2E9]'}`}>
                   {totalConsolidatedPaddocks}
                 </span>
-                <span className={`text-[9.5px] uppercase font-medium ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-slate-400'}`}>
+                <span className={`text-[9.5px] uppercase font-medium ${selectedView === 'all' ? 'text-emerald-100/70' : 'text-[#7F8C83]'}`}>
                   Potreros
                 </span>
               </div>
@@ -569,41 +569,41 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 onClick={() => handleViewChange(farm.profile.id)}
                 className={`p-4 rounded-2xl transition-all cursor-pointer relative flex flex-col justify-between select-none ${
                   isSelected
-                    ? 'bg-[#043825] text-white shadow-[0_8px_20px_rgba(4,56,37,0.2)] border border-[#043825]'
-                    : 'bg-white hover:bg-slate-50 border border-slate-200/80 text-slate-900 shadow-xs'
+                    ? 'bg-[#043825] text-white shadow-[0_8px_20px_rgba(4,56,37,0.4)] border border-[#C9A35A]/50'
+                    : 'bg-[#202B24] hover:bg-[#26332B] border border-white/10 text-[#F5F2E9]'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-1">
                     <span
-                      className={`text-[9.5px] font-bold px-2 py-0.5 rounded-md truncate max-w-[130px] ${
+                      className={`text-[9.5px] font-bold px-2 py-0.5 rounded-md truncate max-w-[130px] border ${
                         isSelected
-                          ? 'bg-white/15 text-emerald-200'
-                          : `${badge.bg} ${badge.text}`
+                          ? 'bg-white/15 text-emerald-200 border-white/15'
+                          : `${badge.bg} ${badge.text} ${badge.border}`
                       }`}
                     >
                       {badge.label}
                     </span>
 
                     {isSelected ? (
-                      <span className="flex items-center gap-0.5 text-[10px] font-semibold text-[#facc15] shrink-0">
+                      <span className="flex items-center gap-0.5 text-[10px] font-semibold text-[#C9A35A] shrink-0">
                         <CheckCircle2 className="w-3.5 h-3.5" /> Seleccionada
                       </span>
                     ) : (
-                      <span className="text-[10px] text-slate-400 flex items-center gap-0.5 shrink-0 font-medium">
-                        <MapPin className="w-3 h-3 text-slate-400" /> {farm.profile.department}
+                      <span className="text-[10px] text-[#A5B8AC] flex items-center gap-0.5 shrink-0 font-medium">
+                        <MapPin className="w-3 h-3 text-[#A5B8AC]" /> {farm.profile.department}
                       </span>
                     )}
                   </div>
 
                   <h3 className={`text-base font-bold mt-2.5 leading-snug truncate ${
-                    isSelected ? 'text-white' : 'text-slate-900'
+                    isSelected ? 'text-white' : 'text-[#F5F2E9]'
                   }`}>
                     {farm.profile.name}
                   </h3>
 
                   <p className={`text-xs mt-0.5 truncate flex items-center gap-1 ${
-                    isSelected ? 'text-emerald-100/70' : 'text-slate-500'
+                    isSelected ? 'text-emerald-100/70' : 'text-[#A5B8AC]'
                   }`}>
                     <span>{farm.profile.municipality}</span>
                     <span>•</span>
@@ -616,7 +616,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       <span
                         key={cat}
                         className={`text-[9px] font-semibold px-1.5 py-0.2 rounded-md uppercase ${
-                          isSelected ? 'bg-white/15 text-white' : 'bg-slate-100 text-slate-600'
+                          isSelected ? 'bg-white/15 text-white' : 'bg-[#101713] text-[#A5B8AC] border border-white/10'
                         }`}
                       >
                         {CATEGORY_DEFINITIONS[cat]?.shortLabel || cat}
@@ -626,29 +626,29 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 </div>
 
                 <div className={`mt-3.5 pt-3 border-t grid grid-cols-3 gap-1 text-center ${
-                  isSelected ? 'border-white/10' : 'border-slate-200'
+                  isSelected ? 'border-white/15' : 'border-white/10'
                 }`}>
                   <div>
-                    <span className={`block font-bold text-xs ${isSelected ? 'text-[#facc15]' : 'text-slate-900'}`}>
+                    <span className={`block font-bold text-xs ${isSelected ? 'text-[#C9A35A]' : 'text-[#F5F2E9]'}`}>
                       {farm.profile.totalAreaHa}
                     </span>
-                    <span className={`text-[9.5px] uppercase font-medium ${isSelected ? 'text-emerald-100/70' : 'text-slate-400'}`}>
+                    <span className={`text-[9.5px] uppercase font-medium ${isSelected ? 'text-emerald-100/70' : 'text-[#7F8C83]'}`}>
                       Ha
                     </span>
                   </div>
                   <div>
-                    <span className={`block font-bold text-xs ${isSelected ? 'text-[#facc15]' : 'text-slate-900'}`}>
+                    <span className={`block font-bold text-xs ${isSelected ? 'text-[#C9A35A]' : 'text-[#F5F2E9]'}`}>
                       {farmHeads}
                     </span>
-                    <span className={`text-[9.5px] uppercase font-medium ${isSelected ? 'text-emerald-100/70' : 'text-slate-400'}`}>
+                    <span className={`text-[9.5px] uppercase font-medium ${isSelected ? 'text-emerald-100/70' : 'text-[#7F8C83]'}`}>
                       Cabezas
                     </span>
                   </div>
                   <div>
-                    <span className={`block font-bold text-xs ${isSelected ? 'text-[#facc15]' : 'text-slate-900'}`}>
+                    <span className={`block font-bold text-xs ${isSelected ? 'text-[#C9A35A]' : 'text-[#F5F2E9]'}`}>
                       {farm.paddocks?.length || 0}
                     </span>
-                    <span className={`text-[9.5px] uppercase font-medium ${isSelected ? 'text-emerald-100/70' : 'text-slate-400'}`}>
+                    <span className={`text-[9.5px] uppercase font-medium ${isSelected ? 'text-emerald-100/70' : 'text-[#7F8C83]'}`}>
                       Potreros
                     </span>
                   </div>
@@ -669,22 +669,22 @@ export const HomeView: React.FC<HomeViewProps> = ({
         /* ========================================================================= */
         <div className="space-y-6">
           {/* Consolidated Executive Summary Banner */}
-          <div className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-black/[0.06] relative overflow-hidden">
+          <div className="bg-[#152019] rounded-3xl p-5 md:p-6 shadow-xl border border-white/10 relative overflow-hidden">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="bg-emerald-100 text-emerald-900 text-xs font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  <span className="bg-emerald-950/80 text-emerald-300 border border-emerald-700/40 text-xs font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                     Balance Global
                   </span>
-                  <span className="text-xs text-slate-500 font-medium">
+                  <span className="text-xs text-[#A5B8AC] font-medium">
                     {totalFarmsCount} Unidades Productivas en {uniqueDepartments.length} Departamentos
                   </span>
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold tracking-tight mt-2 text-slate-900">
+                <h2 className="text-xl md:text-2xl font-bold tracking-tight mt-2 text-[#F5F2E9]">
                   Operación Ganadera Consolidada
                 </h2>
-                <p className="text-xs md:text-sm text-slate-600 mt-1 max-w-3xl">
-                  Totalizando <strong className="text-slate-900">{totalConsolidatedAreaHa.toLocaleString()} Hectáreas</strong> y un hato de <strong className="text-slate-900">{totalConsolidatedHeads.toLocaleString()} cabezas</strong> distribuidas en <strong className="text-slate-900">{totalConsolidatedPaddocks} potreros</strong> georreferenciados.
+                <p className="text-xs md:text-sm text-[#B9C3BB] mt-1 max-w-3xl">
+                  Totalizando <strong className="text-[#F5F2E9]">{totalConsolidatedAreaHa.toLocaleString()} Hectáreas</strong> y un hato de <strong className="text-[#F5F2E9]">{totalConsolidatedHeads.toLocaleString()} cabezas</strong> distribuidas en <strong className="text-[#F5F2E9]">{totalConsolidatedPaddocks} potreros</strong> georreferenciados.
                 </p>
               </div>
 
@@ -693,11 +693,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.96 }}
                   onClick={() => setActiveTab('gis')}
-                  className="bg-[#043825] hover:bg-[#064e34] text-white font-semibold text-xs md:text-sm px-4 py-2.5 rounded-2xl transition-all flex items-center gap-2 shadow-sm cursor-pointer"
+                  className="bg-[#043825] hover:bg-[#064e34] text-white font-semibold text-xs md:text-sm px-4 py-2.5 rounded-2xl transition-all flex items-center gap-2 shadow-md border border-[#C9A35A]/30 cursor-pointer"
                 >
-                  <Map className="w-4 h-4 text-[#facc15]" />
+                  <Map className="w-4 h-4 text-[#C9A35A]" />
                   <span>Explorar Mapa SIG</span>
-                  <ChevronRight className="w-4 h-4 text-emerald-200" />
+                  <ChevronRight className="w-4 h-4 text-emerald-300" />
                 </motion.button>
               </div>
             </div>
@@ -706,85 +706,85 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* Key Consolidated Metrics (6 KPIs) */}
           <section className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4">
             {/* KPI 1: Predios Activos */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow min-w-0 overflow-hidden">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 shadow-md flex flex-col justify-between hover:border-white/20 transition-all min-w-0 overflow-hidden">
               <div className="flex items-center justify-between gap-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 truncate">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC] truncate">
                   Predios
                 </p>
-                <div className="p-1.5 bg-emerald-50 text-emerald-700 rounded-lg shrink-0">
+                <div className="p-1.5 bg-[#202B24] text-[#C9A35A] rounded-lg shrink-0 border border-white/10">
                   <Building className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="my-2 truncate">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {totalFarmsCount}
                 </span>
-                <span className="text-xs text-slate-500 ml-1 font-medium">fincas</span>
+                <span className="text-xs text-[#A5B8AC] ml-1 font-medium">fincas</span>
               </div>
-              <p className="text-[10px] text-slate-400 border-t border-slate-100 pt-1.5 truncate">
+              <p className="text-[10px] text-[#7F8C83] border-t border-white/10 pt-1.5 truncate">
                 {uniqueDepartments.join(', ')}
               </p>
             </div>
 
             {/* KPI 2: Inventario Consolidado */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow min-w-0 overflow-hidden">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 shadow-md flex flex-col justify-between hover:border-white/20 transition-all min-w-0 overflow-hidden">
               <div className="flex items-center justify-between gap-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 truncate">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC] truncate">
                   Hato Total
                 </p>
-                <div className="p-1.5 bg-emerald-50 text-emerald-700 rounded-lg shrink-0">
+                <div className="p-1.5 bg-[#202B24] text-emerald-400 rounded-lg shrink-0 border border-white/10">
                   <Tractor className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="my-2 truncate">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {totalConsolidatedHeads.toLocaleString()}
                 </span>
-                <span className="text-xs text-slate-500 ml-1 font-medium">cabezas</span>
+                <span className="text-xs text-[#A5B8AC] ml-1 font-medium">cabezas</span>
               </div>
-              <p className="text-[10px] text-emerald-600 font-semibold border-t border-slate-100 pt-1.5 truncate">
+              <p className="text-[10px] text-emerald-400 font-semibold border-t border-white/10 pt-1.5 truncate">
                 100% inventariado
               </p>
             </div>
 
             {/* KPI 3: Área Total */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow min-w-0 overflow-hidden">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 shadow-md flex flex-col justify-between hover:border-white/20 transition-all min-w-0 overflow-hidden">
               <div className="flex items-center justify-between gap-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 truncate">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC] truncate">
                   Área Total
                 </p>
-                <div className="p-1.5 bg-emerald-50 text-emerald-700 rounded-lg shrink-0">
+                <div className="p-1.5 bg-[#202B24] text-emerald-400 rounded-lg shrink-0 border border-white/10">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="my-2 truncate">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {totalConsolidatedAreaHa.toLocaleString()}
                 </span>
-                <span className="text-xs text-slate-500 ml-1 font-medium">Ha</span>
+                <span className="text-xs text-[#A5B8AC] ml-1 font-medium">Ha</span>
               </div>
-              <p className="text-[10px] text-slate-500 border-t border-slate-100 pt-1.5 truncate">
-                Carga: <strong className="text-slate-800">{globalCarryingCapacity} UGG/Ha</strong>
+              <p className="text-[10px] text-[#A5B8AC] border-t border-white/10 pt-1.5 truncate">
+                Carga: <strong className="text-[#F5F2E9]">{globalCarryingCapacity} UGG/Ha</strong>
               </p>
             </div>
 
             {/* KPI 4: Potreros Totales */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow min-w-0 overflow-hidden">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 shadow-md flex flex-col justify-between hover:border-white/20 transition-all min-w-0 overflow-hidden">
               <div className="flex items-center justify-between gap-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 truncate">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC] truncate">
                   Potreros SIG
                 </p>
-                <div className="p-1.5 bg-teal-50 text-teal-700 rounded-lg shrink-0">
+                <div className="p-1.5 bg-[#202B24] text-teal-400 rounded-lg shrink-0 border border-white/10">
                   <Compass className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="my-2 truncate">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {totalConsolidatedPaddocks}
                 </span>
-                <span className="text-xs text-slate-500 ml-1 font-medium">divisiones</span>
+                <span className="text-xs text-[#A5B8AC] ml-1 font-medium">divisiones</span>
               </div>
-              <p className="text-[10px] text-slate-500 border-t border-slate-100 pt-1.5 truncate">
+              <p className="text-[10px] text-[#A5B8AC] border-t border-white/10 pt-1.5 truncate">
                 Rotación PRV activa
               </p>
             </div>
@@ -793,27 +793,27 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <motion.div
               whileTap={{ scale: 0.98 }}
               onClick={isDairyEnabled ? onOpenMilkingModal : onToggleDairyModule}
-              className={`rounded-2xl p-4 shadow-xs flex flex-col justify-between transition-all cursor-pointer min-w-0 overflow-hidden ${
+              className={`rounded-2xl p-4 shadow-md flex flex-col justify-between transition-all cursor-pointer min-w-0 overflow-hidden border ${
                 isDairyEnabled
-                  ? 'bg-white border border-slate-200/80 hover:border-blue-400 hover:shadow-md'
-                  : 'bg-slate-100 border border-slate-200 opacity-60'
+                  ? 'bg-[#152019] border-white/10 hover:border-blue-400/50'
+                  : 'bg-[#101713] border-white/5 opacity-60'
               }`}
             >
               <div className="flex items-center justify-between gap-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 truncate">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC] truncate">
                   Leche Hoy
                 </p>
-                <div className="p-1.5 bg-blue-50 text-blue-600 rounded-lg shrink-0">
+                <div className="p-1.5 bg-[#202B24] text-blue-400 rounded-lg shrink-0 border border-white/10">
                   <Droplet className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="my-2 truncate">
-                <span className={`text-2xl md:text-3xl font-bold tracking-tight ${isDairyEnabled ? 'text-slate-900' : 'text-slate-400 line-through'}`}>
+                <span className={`text-2xl md:text-3xl font-bold tracking-tight ${isDairyEnabled ? 'text-[#F5F2E9]' : 'text-[#7F8C83] line-through'}`}>
                   {isDairyEnabled ? todayMilkLiters.toLocaleString() : 'OFF'}
                 </span>
-                <span className="text-xs text-slate-500 ml-1 font-medium">{isDairyEnabled ? 'L' : ''}</span>
+                <span className="text-xs text-[#A5B8AC] ml-1 font-medium">{isDairyEnabled ? 'L' : ''}</span>
               </div>
-              <p className={`text-[10px] font-semibold border-t border-slate-100 pt-1.5 truncate ${isDairyEnabled ? 'text-slate-500' : 'text-rose-600'}`}>
+              <p className={`text-[10px] font-semibold border-t border-white/10 pt-1.5 truncate ${isDairyEnabled ? 'text-[#A5B8AC]' : 'text-rose-400'}`}>
                 {isDairyEnabled ? 'Ordeño activo' : 'Módulo apagado'}
               </p>
             </motion.div>
@@ -822,23 +822,23 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <motion.div
               whileTap={{ scale: 0.98 }}
               onClick={onOpenWeightModal}
-              className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between cursor-pointer hover:border-emerald-400 hover:shadow-md transition-all min-w-0 overflow-hidden"
+              className="bg-[#152019] border border-white/10 rounded-2xl p-4 shadow-md flex flex-col justify-between cursor-pointer hover:border-emerald-400/50 transition-all min-w-0 overflow-hidden"
             >
               <div className="flex items-center justify-between gap-1 min-w-0">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 truncate">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC] truncate">
                   GDP Promedio
                 </p>
-                <div className="p-1.5 bg-emerald-50 text-emerald-700 rounded-lg shrink-0">
+                <div className="p-1.5 bg-[#202B24] text-emerald-400 rounded-lg shrink-0 border border-white/10">
                   <TrendingUp className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="my-2 truncate">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {avgGdp.toFixed(2)}
                 </span>
-                <span className="text-xs text-slate-500 ml-1 font-medium">kg/d</span>
+                <span className="text-xs text-[#A5B8AC] ml-1 font-medium">kg/d</span>
               </div>
-              <p className="text-[10px] text-emerald-600 font-semibold border-t border-slate-100 pt-1.5 truncate">
+              <p className="text-[10px] text-emerald-400 font-semibold border-t border-white/10 pt-1.5 truncate">
                 Ceba y recría
               </p>
             </motion.div>
@@ -848,18 +848,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <section className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+                <h2 className="text-lg font-bold text-[#F5F2E9] tracking-tight">
                   Predios Registrados en la Ganadería
                 </h2>
                 <div className="group relative inline-flex items-center">
                   <button
                     type="button"
-                    className="text-slate-400 hover:text-slate-700 transition-colors p-0.5 rounded cursor-pointer"
+                    className="text-[#7F8C83] hover:text-[#F5F2E9] transition-colors p-0.5 rounded cursor-pointer"
                     title="Detalle comparativo por finca. Haz clic en cualquiera para abrir su ficha técnica completa."
                   >
                     <Info className="w-3.5 h-3.5" />
                   </button>
-                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-64 bg-slate-900 text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl pointer-events-none">
+                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-64 bg-[#101713] border border-white/15 text-[#F5F2E9] text-[11px] font-medium p-2.5 rounded-xl shadow-xl pointer-events-none">
                     Detalle comparativo por finca. Haz clic en cualquiera para abrir su ficha técnica completa.
                   </div>
                 </div>
@@ -868,7 +868,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {onOpenCreateFarmModal && (
                 <button
                   onClick={onOpenCreateFarmModal}
-                  className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-semibold text-[#C9A35A] hover:text-[#D8B66C] flex items-center gap-1 cursor-pointer"
                 >
                   + Agregar Predio
                 </button>
@@ -892,67 +892,67 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <motion.div
                     key={farm.profile.id}
                     whileHover={{ y: -3 }}
-                    className="bg-white border border-slate-200/80 rounded-3xl p-5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] flex flex-col justify-between hover:shadow-md transition-all group"
+                    className="bg-[#152019] border border-white/10 rounded-3xl p-5 shadow-xl flex flex-col justify-between hover:border-white/20 transition-all group"
                   >
                     <div>
                       <div className="flex items-start justify-between gap-2">
                         <span
-                          className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${badge.bg} ${badge.text}`}
+                          className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full border ${badge.bg} ${badge.text} ${badge.border}`}
                         >
                           {badge.label}
                         </span>
 
-                        <span className="text-[11px] text-slate-400 font-mono bg-slate-100 px-2 py-0.5 rounded-md">
+                        <span className="text-[11px] text-[#A5B8AC] font-mono bg-[#101713] border border-white/10 px-2 py-0.5 rounded-md">
                           {farm.profile.registrationNumber || 'ICA'}
                         </span>
                       </div>
 
-                      <h3 className="text-base font-bold text-slate-900 mt-2.5 group-hover:text-emerald-800 transition-colors">
+                      <h3 className="text-base font-bold text-[#F5F2E9] mt-2.5 group-hover:text-[#C9A35A] transition-colors">
                         {farm.profile.name}
                       </h3>
 
-                      <p className="text-xs text-slate-500 flex items-center gap-1 mt-1">
-                        <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <p className="text-xs text-[#A5B8AC] flex items-center gap-1 mt-1">
+                        <MapPin className="w-3.5 h-3.5 text-[#A5B8AC] shrink-0" />
                         <span>
                           {farm.profile.municipality}, {farm.profile.department} • {farm.profile.vereda}
                         </span>
                       </p>
 
-                      <div className="mt-4 bg-slate-50 rounded-2xl p-3 grid grid-cols-3 gap-2 text-center">
+                      <div className="mt-4 bg-[#202B24] border border-white/5 rounded-2xl p-3 grid grid-cols-3 gap-2 text-center">
                         <div>
-                          <span className="block text-sm font-bold text-slate-900">
+                          <span className="block text-sm font-bold text-[#F5F2E9]">
                             {farm.profile.totalAreaHa} Ha
                           </span>
-                          <span className="text-[10px] text-slate-400 uppercase font-medium">Área</span>
+                          <span className="text-[10px] text-[#7F8C83] uppercase font-medium">Área</span>
                         </div>
                         <div>
-                          <span className="block text-sm font-bold text-slate-900">
+                          <span className="block text-sm font-bold text-[#F5F2E9]">
                             {farmHeads}
                           </span>
-                          <span className="text-[10px] text-slate-400 uppercase font-medium">Cabezas</span>
+                          <span className="text-[10px] text-[#7F8C83] uppercase font-medium">Cabezas</span>
                         </div>
                         <div>
-                          <span className="block text-sm font-bold text-slate-900">
+                          <span className="block text-sm font-bold text-[#F5F2E9]">
                             {farm.paddocks?.length || 0}
                           </span>
-                          <span className="text-[10px] text-slate-400 uppercase font-medium">Potreros</span>
+                          <span className="text-[10px] text-[#7F8C83] uppercase font-medium">Potreros</span>
                         </div>
                       </div>
 
-                      <div className="mt-3 flex items-center justify-between text-xs text-slate-500 px-1">
-                        <span>Carga: <strong className="text-slate-800">{carrying} UGG/Ha</strong></span>
-                        <span>Altitud: <strong className="text-slate-800">{farm.profile.elevationMsnm} msnm</strong></span>
+                      <div className="mt-3 flex items-center justify-between text-xs text-[#A5B8AC] px-1">
+                        <span>Carga: <strong className="text-[#F5F2E9]">{carrying} UGG/Ha</strong></span>
+                        <span>Altitud: <strong className="text-[#F5F2E9]">{farm.profile.elevationMsnm} msnm</strong></span>
                       </div>
                     </div>
 
-                    <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center gap-2">
+                    <div className="mt-4 pt-3.5 border-t border-white/10 flex items-center gap-2">
                       <motion.button
                         whileTap={{ scale: 0.97 }}
                         onClick={() => handleViewChange(farm.profile.id)}
-                        className="flex-1 bg-[#043825] hover:bg-[#064e34] text-white text-xs font-semibold py-2.5 px-3 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                        className="flex-1 bg-[#043825] hover:bg-[#064e34] text-white text-xs font-semibold py-2.5 px-3 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md border border-[#C9A35A]/30"
                       >
                         <span>Ver Ficha y Detalle</span>
-                        <ChevronRight className="w-3.5 h-3.5 text-emerald-200" />
+                        <ChevronRight className="w-3.5 h-3.5 text-emerald-300" />
                       </motion.button>
 
                       <motion.button
@@ -961,10 +961,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
                           if (onSelectFarm) onSelectFarm(farm.profile.id);
                           setActiveTab('gis');
                         }}
-                        className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl transition-colors cursor-pointer"
+                        className="p-2.5 bg-[#202B24] hover:bg-[#26332B] text-[#F5F2E9] border border-white/10 rounded-2xl transition-colors cursor-pointer"
                         title="Ver en Mapa SIG"
                       >
-                        <Map className="w-4 h-4 text-slate-600" />
+                        <Map className="w-4 h-4 text-[#C9A35A]" />
                       </motion.button>
                     </div>
                   </motion.div>
@@ -977,12 +977,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* SEGMENTED PADDOCKS BY FARM (Solo visible cuando MODO POTREROS está activo) */}
           {/* ========================================================================= */}
           {isLotsEnabled && (
-            <section className="space-y-4 border-t border-slate-200 pt-6">
+            <section className="space-y-4 border-t border-white/10 pt-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h2 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                  <h2 className="text-lg font-bold text-[#F5F2E9] tracking-tight flex items-center gap-2">
                     <span>Potreros Segmentados por Predio</span>
-                    <span className="text-xs font-semibold bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-700/40 px-2.5 py-0.5 rounded-full">
                       {segmentedPaddocks.reduce((sum, s) => sum + s.paddocks.length, 0)} potreros
                     </span>
                   </h2>
@@ -991,23 +991,23 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setActiveTab('cattle')}
-                    className="text-xs font-semibold text-slate-700 hover:text-slate-900 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-xs cursor-pointer flex items-center gap-1.5"
+                    className="text-xs font-semibold text-[#F5F2E9] hover:bg-[#26332B] bg-[#202B24] px-3 py-1.5 rounded-xl border border-white/10 shadow-xs cursor-pointer flex items-center gap-1.5"
                   >
-                    <Beef className="w-3.5 h-3.5 text-emerald-600" />
+                    <Beef className="w-3.5 h-3.5 text-emerald-400" />
                     <span>Módulo Ganado</span>
                   </button>
                   <button
                     onClick={() => setActiveTab('gis')}
-                    className="text-xs font-semibold text-white bg-[#043825] hover:bg-[#064e34] px-3.5 py-1.5 rounded-xl flex items-center gap-1.5 cursor-pointer shadow-xs"
+                    className="text-xs font-semibold text-white bg-[#043825] hover:bg-[#064e34] border border-[#C9A35A]/30 px-3.5 py-1.5 rounded-xl flex items-center gap-1.5 cursor-pointer shadow-xs"
                   >
-                    <Map className="w-3.5 h-3.5 text-[#facc15]" />
+                    <Map className="w-3.5 h-3.5 text-[#C9A35A]" />
                     <span>Mapa SIG</span>
                   </button>
                 </div>
               </div>
 
               {segmentedPaddocks.length === 0 ? (
-                <div className="bg-white border border-slate-200 rounded-3xl p-8 text-center text-slate-500">
+                <div className="bg-[#152019] border border-white/10 rounded-3xl p-8 text-center text-[#A5B8AC]">
                   <p className="text-sm font-medium">No se encontraron potreros para el filtro seleccionado.</p>
                 </div>
               ) : (
@@ -1015,23 +1015,23 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   {segmentedPaddocks.map((seg) => (
                     <div
                       key={seg.farm.profile.id}
-                      className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-black/[0.06] space-y-4"
+                      className="bg-[#152019] rounded-3xl p-5 md:p-6 shadow-xl border border-white/10 space-y-4"
                     >
                       {/* Farm Segment Header */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3.5">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3.5">
                         <div className="flex items-center gap-3">
-                          <div className="p-2 bg-emerald-50 text-emerald-800 rounded-xl shrink-0">
+                          <div className="p-2 bg-[#202B24] text-emerald-400 rounded-xl shrink-0 border border-white/10">
                             <Building className="w-4 h-4" />
                           </div>
                           <div>
                             <div className="flex items-center gap-2 flex-wrap">
-                              <h3 className="font-bold text-base text-slate-900">
+                              <h3 className="font-bold text-base text-[#F5F2E9]">
                                 {seg.farm.profile.name}
                               </h3>
-                              <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">
+                              <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#202B24] border border-white/10 text-[#A5B8AC]">
                                 {seg.farm.profile.municipality}, {seg.farm.profile.department}
                               </span>
-                              <span className="text-[10px] font-medium text-slate-400">
+                              <span className="text-[10px] font-medium text-[#7F8C83]">
                                 {(seg.totalPaddocksAreaHa ?? seg.totalAreaHa ?? 0).toFixed(1)} Ha en {seg.paddocks.length} potreros
                               </span>
                             </div>
@@ -1040,13 +1040,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                         {/* Quick Farm Metric Pill */}
                         <div className="flex items-center gap-2 flex-wrap text-xs">
-                          <span className="bg-rose-50 text-rose-700 px-2.5 py-1 rounded-xl font-medium">
+                          <span className="bg-rose-950/80 text-rose-300 border border-rose-800/40 px-2.5 py-1 rounded-xl font-medium">
                             {seg.occupiedCount} Ocupados ({seg.totalHeadsOccupying ?? seg.totalOccupiedHeads ?? 0} Cab)
                           </span>
-                          <span className="bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-xl font-medium">
+                          <span className="bg-emerald-950/80 text-emerald-300 border border-emerald-800/40 px-2.5 py-1 rounded-xl font-medium">
                             {seg.readyCount} Listos
                           </span>
-                          <span className="bg-amber-50 text-amber-800 px-2.5 py-1 rounded-xl font-medium">
+                          <span className="bg-amber-950/80 text-amber-300 border border-amber-800/40 px-2.5 py-1 rounded-xl font-medium">
                             {seg.restingCount} En Descanso
                           </span>
                           <button
@@ -1054,7 +1054,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                               if (onSelectFarm) onSelectFarm(seg.farm.profile.id);
                               setSelectedView(seg.farm.profile.id);
                             }}
-                            className="text-[11px] font-semibold text-emerald-800 hover:text-emerald-950 px-2.5 py-1 rounded-xl bg-slate-50 hover:bg-slate-100 cursor-pointer"
+                            className="text-[11px] font-semibold text-[#C9A35A] hover:text-[#D8B66C] px-2.5 py-1 rounded-xl bg-[#202B24] hover:bg-[#26332B] border border-white/10 cursor-pointer"
                           >
                             Ver Ficha →
                           </button>
@@ -1073,27 +1073,27 @@ export const HomeView: React.FC<HomeViewProps> = ({
                               key={p.id}
                               className={`p-3.5 rounded-2xl border transition-all ${
                                 isOccupied
-                                  ? 'bg-rose-50/40 border-rose-100'
+                                  ? 'bg-rose-950/30 border-rose-800/40'
                                   : isReady
-                                  ? 'bg-emerald-50/40 border-emerald-100'
+                                  ? 'bg-emerald-950/30 border-emerald-800/40'
                                   : isResting
-                                  ? 'bg-amber-50/30 border-amber-100'
-                                  : 'bg-slate-50 border-slate-100'
+                                  ? 'bg-amber-950/30 border-amber-800/40'
+                                  : 'bg-[#202B24] border-white/10'
                               }`}
                             >
                               <div className="flex items-center justify-between">
-                                <span className="text-xs font-bold font-mono bg-slate-900 text-white px-2 py-0.5 rounded-md">
+                                <span className="text-xs font-bold font-mono bg-[#101713] text-[#F5F2E9] border border-white/10 px-2 py-0.5 rounded-md">
                                   {p.code}
                                 </span>
                                 <span
                                   className={`text-[9.5px] font-semibold uppercase px-2 py-0.5 rounded-md ${
                                     isOccupied
-                                      ? 'bg-rose-100 text-rose-800'
+                                      ? 'bg-rose-950/80 text-rose-300 border border-rose-800/40'
                                       : isReady
-                                      ? 'bg-emerald-100 text-emerald-800'
+                                      ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-800/40'
                                       : isResting
-                                      ? 'bg-amber-100 text-amber-800'
-                                      : 'bg-slate-200 text-slate-700'
+                                      ? 'bg-amber-950/80 text-amber-300 border border-amber-800/40'
+                                      : 'bg-[#101713] text-[#A5B8AC] border border-white/10'
                                   }`}
                                 >
                                   {p.status}
@@ -1101,20 +1101,20 @@ export const HomeView: React.FC<HomeViewProps> = ({
                               </div>
 
                               <div className="mt-2">
-                                <h4 className="font-bold text-xs text-slate-900 truncate">{p.name}</h4>
-                                <p className="text-[10px] text-slate-500 truncate mt-0.5">
+                                <h4 className="font-bold text-xs text-[#F5F2E9] truncate">{p.name}</h4>
+                                <p className="text-[10px] text-[#A5B8AC] truncate mt-0.5">
                                   {p.pastureType || 'Brachiaria Brizantha'}
                                 </p>
                               </div>
 
-                              <div className="mt-2.5 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[11px]">
-                                <span className="font-bold text-slate-800">{p.areaHa} Ha</span>
+                              <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[11px]">
+                                <span className="font-bold text-[#F5F2E9]">{p.areaHa} Ha</span>
                                 {isOccupied && p.assignedLotName ? (
-                                  <span className="font-semibold text-rose-700 text-[10px] truncate max-w-[110px]">
+                                  <span className="font-semibold text-rose-300 text-[10px] truncate max-w-[110px]">
                                     {p.assignedLotName}
                                   </span>
                                 ) : (
-                                  <span className="text-[10px] text-slate-500">
+                                  <span className="text-[10px] text-[#A5B8AC]">
                                     Cap: {p.carryingCapacityUGG} UGG
                                   </span>
                                 )}
@@ -1141,49 +1141,49 @@ export const HomeView: React.FC<HomeViewProps> = ({
               whileHover={{ x: -2 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => handleViewChange('all')}
-              className="bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 text-xs font-semibold px-3.5 py-2 rounded-2xl transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+              className="bg-[#202B24] hover:bg-[#26332B] text-[#F5F2E9] border border-white/10 text-xs font-semibold px-3.5 py-2 rounded-2xl transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
             >
-              <ArrowLeft className="w-4 h-4 text-emerald-800" />
+              <ArrowLeft className="w-4 h-4 text-[#C9A35A]" />
               <span>← Volver a Vista Consolidada</span>
             </motion.button>
 
-            <span className="text-xs text-slate-400">
+            <span className="text-xs text-[#7F8C83]">
               Predio activo en el sistema
             </span>
           </div>
 
           {/* Active Finca Identity Card (Ficha Técnica del Predio) */}
-          <div className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-black/[0.06] space-y-4">
+          <div className="bg-[#152019] rounded-3xl p-5 md:p-6 shadow-xl border border-white/10 space-y-4">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
               <div className="flex items-start sm:items-center gap-3.5">
-                <div className="p-3 bg-[#043825] text-[#facc15] rounded-2xl shrink-0 shadow-xs">
+                <div className="p-3 bg-[#043825] text-[#C9A35A] rounded-2xl shrink-0 shadow-md border border-[#C9A35A]/30">
                   <Building className="w-6 h-6" />
                 </div>
 
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[10px] font-bold uppercase bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] font-bold uppercase bg-emerald-950/80 text-emerald-300 border border-emerald-700/40 px-2 py-0.5 rounded-md">
                       PREDIO SELECCIONADO
                     </span>
                     {(() => {
                       const b = getProductionBadge(activeDetailedFarm.profile.productionType);
                       return (
-                        <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${b.bg} ${b.text}`}>
+                        <span className={`text-xs font-semibold px-2 py-0.5 rounded-md border ${b.bg} ${b.text} ${b.border}`}>
                           {b.label}
                         </span>
                       );
                     })()}
-                    <span className="text-xs text-slate-400 font-mono">
+                    <span className="text-xs text-[#A5B8AC] font-mono bg-[#101713] px-2 py-0.5 rounded-md border border-white/10">
                       ICA: {activeDetailedFarm.profile.registrationNumber || 'Oficial'}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-bold text-slate-900 mt-1.5 tracking-tight">
+                  <h2 className="text-2xl font-bold text-[#F5F2E9] mt-1.5 tracking-tight">
                     {activeDetailedFarm.profile.name}
                   </h2>
 
-                  <p className="text-xs md:text-sm text-slate-500 flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <p className="text-xs md:text-sm text-[#A5B8AC] flex items-center gap-1 mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#A5B8AC] shrink-0" />
                     <span>
                       {activeDetailedFarm.profile.municipality}, {activeDetailedFarm.profile.department} • Vereda {activeDetailedFarm.profile.vereda}
                     </span>
@@ -1200,18 +1200,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     if (onSelectFarm) onSelectFarm(activeDetailedFarm.profile.id);
                     onOpenNewEventModal();
                   }}
-                  className="bg-[#facc15] hover:bg-[#ebd00a] text-slate-950 text-xs md:text-sm font-bold px-4 py-2.5 rounded-2xl transition-all flex items-center gap-2 shadow-xs cursor-pointer"
+                  className="bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] text-xs md:text-sm font-bold px-4 py-2.5 rounded-2xl transition-all flex items-center gap-2 shadow-md cursor-pointer"
                 >
-                  <ShoppingBag className="w-4 h-4 text-slate-900" />
+                  <ShoppingBag className="w-4 h-4 text-[#101713]" />
                   <span>+ Ingresar Lote</span>
                 </motion.button>
 
                 {onOpenEditFarmModal && (
                   <button
                     onClick={() => onOpenEditFarmModal(activeDetailedFarm.profile.id)}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold px-3.5 py-2.5 rounded-2xl transition-colors flex items-center gap-1.5 cursor-pointer"
+                    className="bg-[#202B24] hover:bg-[#26332B] text-[#F5F2E9] text-xs font-semibold px-3.5 py-2.5 rounded-2xl border border-white/10 transition-colors flex items-center gap-1.5 cursor-pointer"
                   >
-                    <Settings className="w-3.5 h-3.5 text-slate-600" />
+                    <Settings className="w-3.5 h-3.5 text-[#B9C3BB]" />
                     <span>Editar</span>
                   </button>
                 )}
@@ -1223,55 +1223,55 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     if (onSelectFarm) onSelectFarm(activeDetailedFarm.profile.id);
                     setActiveTab('gis');
                   }}
-                  className="bg-[#043825] hover:bg-[#064e34] text-white text-xs md:text-sm font-semibold px-4 py-2.5 rounded-2xl transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
+                  className="bg-[#043825] hover:bg-[#064e34] text-white text-xs md:text-sm font-semibold px-4 py-2.5 rounded-2xl border border-[#C9A35A]/30 transition-colors flex items-center gap-2 shadow-md cursor-pointer"
                 >
-                  <Map className="w-4 h-4 text-[#facc15]" />
+                  <Map className="w-4 h-4 text-[#C9A35A]" />
                   <span>Mapa SIG</span>
-                  <ChevronRight className="w-4 h-4 text-emerald-200" />
+                  <ChevronRight className="w-4 h-4 text-emerald-300" />
                 </motion.button>
               </div>
             </div>
 
             {/* Technical Metadata Attributes */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 pt-3.5 border-t border-slate-100 text-xs">
-              <div className="bg-slate-50 p-2.5 rounded-2xl">
-                <span className="text-slate-400 block text-[10px] uppercase font-medium">Propietario Legal</span>
-                <span className="font-semibold text-slate-900 truncate block mt-0.5" title={activeDetailedFarm.profile.legalOwner}>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 pt-3.5 border-t border-white/10 text-xs">
+              <div className="bg-[#202B24] border border-white/5 p-2.5 rounded-2xl">
+                <span className="text-[#7F8C83] block text-[10px] uppercase font-medium">Propietario Legal</span>
+                <span className="font-semibold text-[#F5F2E9] truncate block mt-0.5" title={activeDetailedFarm.profile.legalOwner}>
                   {activeDetailedFarm.profile.legalOwner || 'No asignado'}
                 </span>
               </div>
 
-              <div className="bg-slate-50 p-2.5 rounded-2xl">
-                <span className="text-slate-400 block text-[10px] uppercase font-medium">Código Catastral</span>
-                <span className="font-mono font-semibold text-slate-900 truncate block mt-0.5">
+              <div className="bg-[#202B24] border border-white/5 p-2.5 rounded-2xl">
+                <span className="text-[#7F8C83] block text-[10px] uppercase font-medium">Código Catastral</span>
+                <span className="font-mono font-semibold text-[#F5F2E9] truncate block mt-0.5">
                   {activeDetailedFarm.profile.cadastralCode || '0000000000'}
                 </span>
               </div>
 
-              <div className="bg-slate-50 p-2.5 rounded-2xl">
-                <span className="text-slate-400 block text-[10px] uppercase font-medium">Altitud</span>
-                <span className="font-semibold text-slate-900 block mt-0.5">
+              <div className="bg-[#202B24] border border-white/5 p-2.5 rounded-2xl">
+                <span className="text-[#7F8C83] block text-[10px] uppercase font-medium">Altitud</span>
+                <span className="font-semibold text-[#F5F2E9] block mt-0.5">
                   {activeDetailedFarm.profile.elevationMsnm} msnm
                 </span>
               </div>
 
-              <div className="bg-slate-50 p-2.5 rounded-2xl">
-                <span className="text-slate-400 block text-[10px] uppercase font-medium">Perímetro</span>
-                <span className="font-semibold text-slate-900 block font-mono mt-0.5">
+              <div className="bg-[#202B24] border border-white/5 p-2.5 rounded-2xl">
+                <span className="text-[#7F8C83] block text-[10px] uppercase font-medium">Perímetro</span>
+                <span className="font-semibold text-[#F5F2E9] block font-mono mt-0.5">
                   {activeDetailedFarm.profile.totalPerimeterM?.toLocaleString() || '4,500'} m
                 </span>
               </div>
 
-              <div className="bg-slate-50 p-2.5 rounded-2xl">
-                <span className="text-slate-400 block text-[10px] uppercase font-medium">Contacto</span>
-                <span className="font-semibold text-slate-900 block truncate mt-0.5">
+              <div className="bg-[#202B24] border border-white/5 p-2.5 rounded-2xl">
+                <span className="text-[#7F8C83] block text-[10px] uppercase font-medium">Contacto</span>
+                <span className="font-semibold text-[#F5F2E9] block truncate mt-0.5">
                   {activeDetailedFarm.profile.contactPhone || '+57 310 000 0000'}
                 </span>
               </div>
 
-              <div className="bg-slate-50 p-2.5 rounded-2xl">
-                <span className="text-slate-400 block text-[10px] uppercase font-medium">Actualización</span>
-                <span className="font-semibold text-slate-900 block mt-0.5">
+              <div className="bg-[#202B24] border border-white/5 p-2.5 rounded-2xl">
+                <span className="text-[#7F8C83] block text-[10px] uppercase font-medium">Actualización</span>
+                <span className="font-semibold text-[#F5F2E9] block mt-0.5">
                   {activeDetailedFarm.profile.lastUpdated || 'Hoy'}
                 </span>
               </div>
@@ -1281,17 +1281,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
           {/* Specific Farm Key Metrics */}
           <section className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {/* Metric 1: Heads count */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 md:p-5 shadow-xs flex flex-col justify-between">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 md:p-5 shadow-md flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC]">
                   Inventario
                 </p>
-                <div className="p-1.5 bg-emerald-50 text-emerald-700 rounded-lg">
+                <div className="p-1.5 bg-[#202B24] text-emerald-400 rounded-lg border border-white/10">
                   <Tractor className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="flex items-baseline gap-1.5 mt-2">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {(
                     activeDetailedFarm.headsCount ||
                     activeDetailedFarm.profile.headsCount ||
@@ -1299,31 +1299,31 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     0
                   ).toLocaleString()}
                 </span>
-                <span className="text-xs text-slate-500 font-medium">cabezas</span>
+                <span className="text-xs text-[#A5B8AC] font-medium">cabezas</span>
               </div>
-              <p className="text-[10px] text-slate-400 mt-2 border-t border-slate-100 pt-1.5">
+              <p className="text-[10px] text-[#7F8C83] mt-2 border-t border-white/10 pt-1.5">
                 {activeDetailedFarm.lots?.length || 0} lotes asignados
               </p>
             </div>
 
             {/* Metric 2: Area & Carrying */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 md:p-5 shadow-xs flex flex-col justify-between">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 md:p-5 shadow-md flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC]">
                   Área y Carga
                 </p>
-                <div className="p-1.5 bg-emerald-50 text-emerald-700 rounded-lg">
+                <div className="p-1.5 bg-[#202B24] text-emerald-400 rounded-lg border border-white/10">
                   <TrendingUp className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="flex items-baseline gap-1.5 mt-2">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {activeDetailedFarm.profile.totalAreaHa}
                 </span>
-                <span className="text-xs text-slate-500 font-medium">Ha</span>
+                <span className="text-xs text-[#A5B8AC] font-medium">Ha</span>
               </div>
-              <p className="text-[10px] text-slate-500 mt-2 border-t border-slate-100 pt-1.5">
-                Carga: <strong className="text-slate-800">{(
+              <p className="text-[10px] text-[#A5B8AC] mt-2 border-t border-white/10 pt-1.5">
+                Carga: <strong className="text-[#F5F2E9]">{(
                   (activeDetailedFarm.headsCount || activeDetailedFarm.profile.headsCount || 100) /
                   Math.max(1, activeDetailedFarm.profile.totalAreaHa)
                 ).toFixed(2)} UGG/Ha</strong>
@@ -1331,45 +1331,45 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
 
             {/* Metric 3: Paddocks */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 md:p-5 shadow-xs flex flex-col justify-between">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 md:p-5 shadow-md flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC]">
                   Potreros
                 </p>
-                <div className="p-1.5 bg-teal-50 text-teal-700 rounded-lg">
+                <div className="p-1.5 bg-[#202B24] text-teal-400 rounded-lg border border-white/10">
                   <Compass className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="flex items-baseline gap-1.5 mt-2">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {activeDetailedFarm.paddocks?.length || 0}
                 </span>
-                <span className="text-xs text-slate-500 font-medium">potreros</span>
+                <span className="text-xs text-[#A5B8AC] font-medium">potreros</span>
               </div>
-              <p className="text-[10px] text-emerald-600 font-semibold mt-2 border-t border-slate-100 pt-1.5">
+              <p className="text-[10px] text-emerald-400 font-semibold mt-2 border-t border-white/10 pt-1.5">
                 {activeDetailedFarm.paddocks?.filter((p) => p.status === 'listo').length || 0} listos para pastoreo
               </p>
             </div>
 
             {/* Metric 4: Forage Availability */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 md:p-5 shadow-xs flex flex-col justify-between">
+            <div className="bg-[#152019] border border-white/10 rounded-2xl p-4 md:p-5 shadow-md flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-[#A5B8AC]">
                   Forraje Estimado
                 </p>
-                <div className="p-1.5 bg-amber-50 text-amber-600 rounded-lg">
+                <div className="p-1.5 bg-[#202B24] text-[#C9A35A] rounded-lg border border-white/10">
                   <Sparkles className="w-3.5 h-3.5" />
                 </div>
               </div>
               <div className="flex items-baseline gap-1.5 mt-2">
-                <span className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                <span className="text-2xl md:text-3xl font-bold text-[#F5F2E9] tracking-tight">
                   {(
                     activeDetailedFarm.paddocks?.reduce((sum, p) => sum + (p.forageTotalTon || 0), 0) || 1250
                   ).toLocaleString()}
                 </span>
-                <span className="text-xs text-slate-500 font-medium">Ton MV</span>
+                <span className="text-xs text-[#A5B8AC] font-medium">Ton MV</span>
               </div>
-              <p className="text-[10px] text-emerald-600 font-semibold mt-2 border-t border-slate-100 pt-1.5">
+              <p className="text-[10px] text-emerald-400 font-semibold mt-2 border-t border-white/10 pt-1.5">
                 Oferta de biomasa óptima
               </p>
             </div>
@@ -1379,7 +1379,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <section className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-lg font-bold text-[#F5F2E9] tracking-tight">
                   Potreros y Rotación en {activeDetailedFarm.profile.name}
                 </h3>
               </div>
@@ -1389,7 +1389,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   if (onSelectFarm) onSelectFarm(activeDetailedFarm.profile.id);
                   setActiveTab('gis');
                 }}
-                className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 cursor-pointer"
+                className="text-xs font-semibold text-[#C9A35A] hover:text-[#D8B66C] flex items-center gap-1 cursor-pointer"
               >
                 Abrir Mapa SIG →
               </button>
@@ -1405,22 +1405,22 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   return (
                     <div
                       key={pad.id}
-                      className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow"
+                      className="bg-[#152019] border border-white/10 rounded-2xl p-4 shadow-md flex flex-col justify-between hover:border-white/20 transition-all"
                     >
                       <div>
                         <div className="flex items-center justify-between">
-                          <span className="font-mono font-bold text-xs bg-slate-900 text-white px-2 py-0.5 rounded-md">
+                          <span className="font-mono font-bold text-xs bg-[#101713] text-[#F5F2E9] border border-white/10 px-2 py-0.5 rounded-md">
                             {pad.code}
                           </span>
                           <span
                             className={`text-[10px] font-semibold px-2 py-0.5 rounded-md uppercase ${
                               isReady
-                                ? 'bg-emerald-100 text-emerald-800'
+                                ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-800/40'
                                 : isOccupied
-                                ? 'bg-rose-100 text-rose-800'
+                                ? 'bg-rose-950/80 text-rose-300 border border-rose-800/40'
                                 : isRest
-                                ? 'bg-amber-100 text-amber-800'
-                                : 'bg-blue-100 text-blue-800'
+                                ? 'bg-amber-950/80 text-amber-300 border border-amber-800/40'
+                                : 'bg-[#202B24] text-blue-300 border border-blue-800/40'
                             }`}
                           >
                             {isReady
@@ -1433,40 +1433,40 @@ export const HomeView: React.FC<HomeViewProps> = ({
                           </span>
                         </div>
 
-                        <h4 className="font-bold text-sm text-slate-900 mt-2">
+                        <h4 className="font-bold text-sm text-[#F5F2E9] mt-2">
                           {pad.name}
                         </h4>
 
-                        <p className="text-xs text-slate-500 mt-0.5">
+                        <p className="text-xs text-[#A5B8AC] mt-0.5">
                           {pad.pastureType}
                         </p>
 
-                        <div className="mt-3 bg-slate-50 p-2.5 rounded-xl grid grid-cols-3 gap-1 text-center text-xs">
+                        <div className="mt-3 bg-[#202B24] border border-white/5 p-2.5 rounded-xl grid grid-cols-3 gap-1 text-center text-xs">
                           <div>
-                            <span className="block font-bold text-slate-900">{pad.areaHa} Ha</span>
-                            <span className="text-[9px] text-slate-400 uppercase font-medium">Área</span>
+                            <span className="block font-bold text-[#F5F2E9]">{pad.areaHa} Ha</span>
+                            <span className="text-[9px] text-[#7F8C83] uppercase font-medium">Área</span>
                           </div>
                           <div>
-                            <span className="block font-bold text-slate-900">
+                            <span className="block font-bold text-[#F5F2E9]">
                               {isOccupied ? `${pad.daysInOccupancy}d` : `${pad.daysInRest}d`}
                             </span>
-                            <span className="text-[9px] text-slate-400 uppercase font-medium">
+                            <span className="text-[9px] text-[#7F8C83] uppercase font-medium">
                               {isOccupied ? 'Ocupado' : 'Descanso'}
                             </span>
                           </div>
                           <div>
-                            <span className="block font-bold text-emerald-600">
+                            <span className="block font-bold text-emerald-400">
                               {pad.forageYieldKgM2} kg/m²
                             </span>
-                            <span className="text-[9px] text-slate-400 uppercase font-medium">Aforo</span>
+                            <span className="text-[9px] text-[#7F8C83] uppercase font-medium">Aforo</span>
                           </div>
                         </div>
                       </div>
 
                       {pad.assignedLotName && (
-                        <div className="mt-2.5 pt-2 border-t border-slate-100 text-[11px] text-slate-600 flex items-center justify-between">
-                          <span className="text-slate-400">Lote:</span>
-                          <strong className="text-slate-900">{pad.assignedLotName}</strong>
+                        <div className="mt-2.5 pt-2 border-t border-white/10 text-[11px] text-[#B9C3BB] flex items-center justify-between">
+                          <span className="text-[#7F8C83]">Lote:</span>
+                          <strong className="text-[#F5F2E9]">{pad.assignedLotName}</strong>
                         </div>
                       )}
                     </div>
@@ -1474,11 +1474,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 })}
               </div>
             ) : (
-              <div className="bg-white border border-slate-200 rounded-3xl p-6 text-center text-slate-400">
+              <div className="bg-[#152019] border border-white/10 rounded-3xl p-6 text-center text-[#7F8C83]">
                 <p className="text-sm">No hay potreros registrados aún en este predio.</p>
                 <button
                   onClick={() => setActiveTab('gis')}
-                  className="mt-2 text-xs font-semibold text-emerald-800 hover:underline"
+                  className="mt-2 text-xs font-semibold text-[#C9A35A] hover:underline"
                 >
                   + Trazar potreros en el Mapa SIG
                 </button>
@@ -1490,7 +1490,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <section className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-lg font-bold text-[#F5F2E9] tracking-tight">
                   {isLotsEnabled
                     ? `Lotes de Ganado en ${activeDetailedFarm.profile.name}`
                     : `Consolidado de Inventario en ${activeDetailedFarm.profile.name}`}
@@ -1499,47 +1499,47 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               <button
                 onClick={() => setActiveTab('cattle')}
-                className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 cursor-pointer"
+                className="text-xs font-semibold text-[#C9A35A] hover:text-[#D8B66C] flex items-center gap-1 cursor-pointer"
               >
                 Módulo de Ganado →
               </button>
             </div>
 
             {!isLotsEnabled ? (
-              <div className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-black/[0.06]">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+              <div className="bg-[#152019] rounded-3xl p-5 md:p-6 shadow-xl border border-white/10">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2.5">
-                    <div className="p-2 bg-emerald-50 text-emerald-800 rounded-xl">
+                    <div className="p-2 bg-[#202B24] text-emerald-400 rounded-xl border border-white/10">
                       <Building2 className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-base">
+                      <h4 className="font-bold text-[#F5F2E9] text-base">
                         Consolidado General: {activeDetailedFarm.profile.name}
                       </h4>
-                      <p className="text-xs text-slate-500">Manejo directo por Predio</p>
+                      <p className="text-xs text-[#A5B8AC]">Manejo directo por Predio</p>
                     </div>
                   </div>
-                  <span className="bg-emerald-50 text-emerald-900 font-semibold text-xs px-3 py-1 rounded-xl self-start sm:self-auto">
+                  <span className="bg-emerald-950/80 text-emerald-300 border border-emerald-700/40 font-semibold text-xs px-3 py-1 rounded-xl self-start sm:self-auto">
                     {activeDetailedFarm.headsCount} Bovinos Totales
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4">
-                  <div className="bg-slate-50 p-3 rounded-2xl">
-                    <span className="text-[10px] text-slate-400 uppercase font-medium block">Cabezas en Predio</span>
-                    <span className="text-lg font-bold text-slate-900 mt-0.5 block">{activeDetailedFarm.headsCount} cab.</span>
+                  <div className="bg-[#202B24] border border-white/5 p-3 rounded-2xl">
+                    <span className="text-[10px] text-[#7F8C83] uppercase font-medium block">Cabezas en Predio</span>
+                    <span className="text-lg font-bold text-[#F5F2E9] mt-0.5 block">{activeDetailedFarm.headsCount} cab.</span>
                   </div>
-                  <div className="bg-slate-50 p-3 rounded-2xl">
-                    <span className="text-[10px] text-slate-400 uppercase font-medium block">Extensión Finca</span>
-                    <span className="text-lg font-bold text-slate-900 mt-0.5 block">{activeDetailedFarm.hectares} ha</span>
+                  <div className="bg-[#202B24] border border-white/5 p-3 rounded-2xl">
+                    <span className="text-[10px] text-[#7F8C83] uppercase font-medium block">Extensión Finca</span>
+                    <span className="text-lg font-bold text-[#F5F2E9] mt-0.5 block">{activeDetailedFarm.hectares} ha</span>
                   </div>
-                  <div className="bg-slate-50 p-3 rounded-2xl">
-                    <span className="text-[10px] text-slate-400 uppercase font-medium block">Potreros Activos</span>
-                    <span className="text-lg font-bold text-slate-900 mt-0.5 block">{activeDetailedFarm.paddocks?.length || 0} potreros</span>
+                  <div className="bg-[#202B24] border border-white/5 p-3 rounded-2xl">
+                    <span className="text-[10px] text-[#7F8C83] uppercase font-medium block">Potreros Activos</span>
+                    <span className="text-lg font-bold text-[#F5F2E9] mt-0.5 block">{activeDetailedFarm.paddocks?.length || 0} potreros</span>
                   </div>
-                  <div className="bg-[#043825] text-white p-3 rounded-2xl">
+                  <div className="bg-[#043825] text-white p-3 rounded-2xl border border-[#C9A35A]/30">
                     <span className="text-emerald-200 text-[10px] uppercase font-medium block">Capacidad Carga</span>
-                    <span className="text-lg font-bold text-[#facc15] mt-0.5 block">
+                    <span className="text-lg font-bold text-[#C9A35A] mt-0.5 block">
                       {(activeDetailedFarm.headsCount / Math.max(1, activeDetailedFarm.hectares)).toFixed(2)} UGG/ha
                     </span>
                   </div>
@@ -1549,15 +1549,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <motion.button
                     whileTap={{ scale: 0.97 }}
                     onClick={onOpenWeightModal}
-                    className="w-full sm:w-auto text-xs font-semibold bg-[#043825] text-white hover:bg-[#064e34] px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="w-full sm:w-auto text-xs font-semibold bg-[#043825] text-white hover:bg-[#064e34] border border-[#C9A35A]/30 px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
                   >
-                    <Scale className="w-4 h-4 text-[#facc15]" />
+                    <Scale className="w-4 h-4 text-[#C9A35A]" />
                     <span>Pesar Ganado del Predio</span>
                   </motion.button>
 
                   <button
                     onClick={() => setActiveTab('cattle')}
-                    className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-semibold text-[#C9A35A] hover:text-[#D8B66C] flex items-center gap-1 cursor-pointer"
                   >
                     Ver Bovinos en Ganado →
                   </button>
@@ -1568,55 +1568,55 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 {activeDetailedFarm.lots.map((lot) => (
                   <div
                     key={lot.id}
-                    className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between"
+                    className="bg-[#152019] border border-white/10 rounded-2xl p-4 shadow-md flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 flex-wrap">
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="font-mono text-xs font-bold bg-slate-900 text-white px-2 py-0.5 rounded-md">
+                          <span className="font-mono text-xs font-bold bg-[#101713] text-[#F5F2E9] border border-white/10 px-2 py-0.5 rounded-md">
                             {lot.code}
                           </span>
-                          <span className="text-[10px] font-medium bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md flex items-center gap-1">
-                            <Building className="w-3 h-3 text-slate-500" />
+                          <span className="text-[10px] font-medium bg-[#202B24] text-[#B9C3BB] px-2 py-0.5 rounded-md flex items-center gap-1 border border-white/10">
+                            <Building className="w-3 h-3 text-[#A5B8AC]" />
                             {activeDetailedFarm.profile.name}
                           </span>
                         </div>
-                        <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md uppercase">
+                        <span className="text-[10px] font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-700/40 px-2 py-0.5 rounded-md uppercase">
                           {lot.categoryLabel || lot.category}
                         </span>
                       </div>
 
-                      <h4 className="font-bold text-sm text-slate-900 mt-2">
+                      <h4 className="font-bold text-sm text-[#F5F2E9] mt-2">
                         {lot.name}
                       </h4>
-                      <p className="text-xs text-slate-500">{lot.sexLabel} • {lot.ageRange}</p>
+                      <p className="text-xs text-[#A5B8AC]">{lot.sexLabel} • {lot.ageRange}</p>
 
-                      <div className="mt-3 bg-slate-50 p-2.5 rounded-xl grid grid-cols-3 gap-1 text-center text-xs">
+                      <div className="mt-3 bg-[#202B24] border border-white/5 p-2.5 rounded-xl grid grid-cols-3 gap-1 text-center text-xs">
                         <div>
-                          <span className="block font-bold text-slate-900">{lot.heads}</span>
-                          <span className="text-[9px] text-slate-400 uppercase font-medium">Cabezas</span>
+                          <span className="block font-bold text-[#F5F2E9]">{lot.heads}</span>
+                          <span className="text-[9px] text-[#7F8C83] uppercase font-medium">Cabezas</span>
                         </div>
                         <div>
-                          <span className="block font-bold text-slate-900">{lot.currentAvgWeight} kg</span>
-                          <span className="text-[9px] text-slate-400 uppercase font-medium">Peso Prom</span>
+                          <span className="block font-bold text-[#F5F2E9]">{lot.currentAvgWeight} kg</span>
+                          <span className="text-[9px] text-[#7F8C83] uppercase font-medium">Peso Prom</span>
                         </div>
                         <div>
-                          <span className="block font-bold text-emerald-600">+{lot.gdpCurrent} kg/d</span>
-                          <span className="text-[9px] text-slate-400 uppercase font-medium">GDP</span>
+                          <span className="block font-bold text-emerald-400">+{lot.gdpCurrent} kg/d</span>
+                          <span className="text-[9px] text-[#7F8C83] uppercase font-medium">GDP</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between">
                       <button
                         onClick={onOpenWeightModal}
-                        className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 cursor-pointer"
+                        className="text-xs font-semibold text-[#C9A35A] hover:text-[#D8B66C] flex items-center gap-1 cursor-pointer"
                       >
-                        <Scale className="w-3.5 h-3.5 text-emerald-700" />
+                        <Scale className="w-3.5 h-3.5 text-[#C9A35A]" />
                         <span>Pesar Lote</span>
                       </button>
 
-                      <span className="text-[10px] text-slate-400">
+                      <span className="text-[10px] text-[#7F8C83]">
                         Meta: {lot.targetWeight} kg
                       </span>
                     </div>
@@ -1624,7 +1624,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 ))}
               </div>
             ) : (
-              <div className="bg-white border border-slate-200 rounded-2xl p-5 text-center text-slate-400">
+              <div className="bg-[#152019] border border-white/10 rounded-2xl p-5 text-center text-[#7F8C83]">
                 <p className="text-xs">No hay lotes específicos cargados para este predio.</p>
               </div>
             )}
@@ -1635,22 +1635,22 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* ========================================================================= */}
       {/* MÓDULO DE HIERROS GANADEROS / MARCAS A FUEGO & PATENTES */}
       {/* ========================================================================= */}
-      <div className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-black/[0.06] space-y-4 mt-6">
+      <div className="bg-[#152019] rounded-3xl p-5 md:p-6 shadow-xl border border-white/10 space-y-4 mt-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-amber-50 text-amber-700 rounded-xl">
+            <div className="p-2 bg-[#202B24] text-[#C9A35A] rounded-xl border border-white/10">
               <Flame className="w-4 h-4" />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="text-sm md:text-base font-bold text-slate-900">
+                <h2 className="text-sm md:text-base font-bold text-[#F5F2E9]">
                   Hierros Ganaderos y Registro de Marcas
                 </h2>
-                <span className="bg-slate-100 text-slate-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                <span className="bg-[#202B24] text-[#B9C3BB] border border-white/10 text-[10px] font-semibold px-2 py-0.5 rounded-full">
                   {brandingIrons.length} {brandingIrons.length === 1 ? 'Hierro' : 'Hierros'}
                 </span>
               </div>
-              <p className="text-xs text-slate-500 mt-0.5">
+              <p className="text-xs text-[#A5B8AC] mt-0.5">
                 Registro oficial de marcas a fuego, patentes ganaderas y ubicación anatómica en bovinos.
               </p>
             </div>
@@ -1661,26 +1661,26 @@ export const HomeView: React.FC<HomeViewProps> = ({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.96 }}
               onClick={onOpenRegisterBrandingIronModal}
-              className="px-3 py-1.5 bg-[#043825] hover:bg-[#064e34] text-white text-xs font-semibold rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer self-start sm:self-auto shadow-xs"
+              className="px-3 py-1.5 bg-[#043825] hover:bg-[#064e34] text-white border border-[#C9A35A]/30 text-xs font-semibold rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer self-start sm:self-auto shadow-md"
             >
-              <Flame className="w-3.5 h-3.5 text-[#facc15]" />
+              <Flame className="w-3.5 h-3.5 text-[#C9A35A]" />
               <span>+ Registrar Hierro</span>
             </motion.button>
           )}
         </div>
 
         {brandingIrons.length === 0 ? (
-          <div className="p-6 bg-slate-50 rounded-2xl text-center space-y-1.5">
-            <Flame className="w-6 h-6 text-amber-500 mx-auto" />
-            <p className="text-xs font-semibold text-slate-900">No hay hierros de marcar registrados en el sistema</p>
-            <p className="text-[11px] text-slate-500">
+          <div className="p-6 bg-[#101713] border border-white/10 rounded-2xl text-center space-y-1.5">
+            <Flame className="w-6 h-6 text-[#C9A35A] mx-auto" />
+            <p className="text-xs font-semibold text-[#F5F2E9]">No hay hierros de marcar registrados en el sistema</p>
+            <p className="text-[11px] text-[#A5B8AC]">
               Registra los hierros de tu ganadería para asignarlos automáticamente en los nacimientos y compras.
             </p>
             <button
               onClick={onOpenRegisterBrandingIronModal}
-              className="mt-2 inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#043825] text-white text-xs font-semibold rounded-xl hover:bg-[#064e34] transition-colors cursor-pointer"
+              className="mt-2 inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#043825] text-white border border-[#C9A35A]/30 text-xs font-semibold rounded-xl hover:bg-[#064e34] transition-colors cursor-pointer"
             >
-              <Flame className="w-3.5 h-3.5 text-[#facc15]" />
+              <Flame className="w-3.5 h-3.5 text-[#C9A35A]" />
               <span>Registrar Primer Hierro</span>
             </button>
           </div>
@@ -1690,41 +1690,41 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <motion.div
                 key={iron.id}
                 whileHover={{ y: -2 }}
-                className="bg-slate-50/70 border border-slate-200/80 hover:border-slate-300 rounded-2xl p-3.5 space-y-2.5 transition-all relative group"
+                className="bg-[#202B24] border border-white/10 hover:border-white/20 rounded-2xl p-3.5 space-y-2.5 transition-all relative group"
               >
                 {/* Top Iron Stamp Header */}
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5">
                     {/* Stamp Badge / Photo */}
                     {iron.imageUrl ? (
-                      <div className="w-10 h-10 rounded-xl border border-amber-300 overflow-hidden bg-black shadow-xs shrink-0 relative group/photo">
+                      <div className="w-10 h-10 rounded-xl border border-[#C9A35A]/50 overflow-hidden bg-black shadow-xs shrink-0 relative group/photo">
                         <img src={iron.imageUrl} alt={iron.name} className="w-full h-full object-cover" />
                       </div>
                     ) : (
-                      <div className="w-10 h-10 rounded-xl bg-slate-900 border border-amber-400/40 p-0.5 flex flex-col items-center justify-center text-center shadow-xs shrink-0">
-                        <span className="text-xs leading-none font-bold text-amber-300">
+                      <div className="w-10 h-10 rounded-xl bg-[#101713] border border-[#C9A35A]/40 p-0.5 flex flex-col items-center justify-center text-center shadow-xs shrink-0">
+                        <span className="text-xs leading-none font-bold text-[#C9A35A]">
                           {iron.symbolIcon || '🔥'}
                         </span>
-                        <span className="text-[8px] font-mono font-bold text-white tracking-wider uppercase">
+                        <span className="text-[8px] font-mono font-bold text-[#F5F2E9] tracking-wider uppercase">
                           {iron.code}
                         </span>
                       </div>
                     )}
 
                     <div>
-                      <h4 className="text-xs font-bold text-slate-900 leading-tight">
+                      <h4 className="text-xs font-bold text-[#F5F2E9] leading-tight">
                         {iron.name}
                       </h4>
                       <div className="flex items-center gap-1 mt-0.5 flex-wrap">
-                        <span className="bg-slate-200 text-slate-700 text-[8.5px] font-mono font-medium px-1.5 py-0.2 rounded">
+                        <span className="bg-[#101713] border border-white/10 text-[#B9C3BB] text-[8.5px] font-mono font-medium px-1.5 py-0.2 rounded">
                           Cod: {iron.code}
                         </span>
-                        <span className={`text-[8.5px] font-semibold px-1.5 py-0.2 rounded ${
+                        <span className={`text-[8.5px] font-semibold px-1.5 py-0.2 rounded border ${
                           iron.type === 'ventanilla'
-                            ? 'bg-amber-100 text-amber-900'
+                            ? 'bg-amber-950/80 text-amber-300 border-amber-700/40'
                             : iron.type === 'sanitario'
-                            ? 'bg-blue-100 text-blue-900'
-                            : 'bg-emerald-100 text-emerald-900'
+                            ? 'bg-blue-950/80 text-blue-300 border-blue-700/40'
+                            : 'bg-emerald-950/80 text-emerald-300 border-emerald-700/40'
                         }`}>
                           {iron.type === 'ventanilla'
                             ? 'Ventanilla'
@@ -1741,7 +1741,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     {onEditBrandingIron && (
                       <button
                         onClick={() => onEditBrandingIron(iron)}
-                        className="p-1 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors cursor-pointer"
+                        className="p-1 hover:bg-white/10 text-[#A5B8AC] hover:text-[#F5F2E9] rounded-lg transition-colors cursor-pointer"
                         title="Editar Hierro"
                       >
                         <Edit3 className="w-3 h-3" />
@@ -1750,37 +1750,37 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     {onDeleteBrandingIron && (
                       <button
                         onClick={() => onDeleteBrandingIron(iron.id)}
-                        className="p-1 hover:bg-red-50 text-red-600 rounded-lg transition-colors cursor-pointer"
+                        className="p-1 hover:bg-red-950/50 text-red-400 rounded-lg transition-colors cursor-pointer"
                         title="Eliminar Hierro"
                       >
-                        <Trash2 className="w-3 h-3 text-red-600" />
+                        <Trash2 className="w-3 h-3 text-red-400" />
                       </button>
                     )}
                   </div>
                 </div>
 
                 {/* Details Row */}
-                <div className="bg-white p-2.5 rounded-xl border border-slate-200/60 space-y-1 text-xs">
+                <div className="bg-[#101713] p-2.5 rounded-xl border border-white/10 space-y-1 text-xs">
                   <div className="flex items-center justify-between text-[10px]">
-                    <span className="text-slate-400 font-medium uppercase text-[8.5px]">Ubicación:</span>
-                    <strong className="text-slate-800 font-semibold">{iron.bodyLocation}</strong>
+                    <span className="text-[#7F8C83] font-medium uppercase text-[8.5px]">Ubicación:</span>
+                    <strong className="text-[#F5F2E9] font-semibold">{iron.bodyLocation}</strong>
                   </div>
                   {iron.registrationNumber && (
                     <div className="flex items-center justify-between text-[10px]">
-                      <span className="text-slate-400 font-medium uppercase text-[8.5px]">Registro ICA:</span>
-                      <span className="font-mono font-medium text-slate-800">{iron.registrationNumber}</span>
+                      <span className="text-[#7F8C83] font-medium uppercase text-[8.5px]">Registro ICA:</span>
+                      <span className="font-mono font-medium text-[#F5F2E9]">{iron.registrationNumber}</span>
                     </div>
                   )}
                   {iron.farmName && (
                     <div className="flex items-center justify-between text-[10px]">
-                      <span className="text-slate-400 font-medium uppercase text-[8.5px]">Predio:</span>
-                      <span className="font-medium text-slate-800">{iron.farmName}</span>
+                      <span className="text-[#7F8C83] font-medium uppercase text-[8.5px]">Predio:</span>
+                      <span className="font-medium text-[#F5F2E9]">{iron.farmName}</span>
                     </div>
                   )}
                 </div>
 
                 {iron.notes && (
-                  <p className="text-[10px] text-slate-500 italic line-clamp-2 bg-white/60 p-1.5 rounded-lg">
+                  <p className="text-[10px] text-[#A5B8AC] italic line-clamp-2 bg-[#101713]/60 border border-white/5 p-1.5 rounded-lg">
                     "{iron.notes}"
                   </p>
                 )}

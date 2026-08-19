@@ -1860,7 +1860,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#f9f9f9] text-[#1a1c1c] flex flex-col md:flex-row font-sans antialiased selection:bg-[#c1ecd4] selection:text-[#002114]">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#0D1410] text-[#F5F2E9] flex flex-col md:flex-row font-sans antialiased selection:bg-[#C9A35A]/30 selection:text-[#F5F2E9]">
       {/* Left Vertical Sidebar Navigation */}
       <Sidebar
         activeTab={activeTab}
@@ -2539,36 +2539,36 @@ export default function App() {
 
       {/* Toast Floating Banner */}
       {toastMessage && (
-        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-[120] bg-[#012d1d] text-white px-5 py-3 rounded-2xl shadow-2xl border-2 border-[#ffba38] text-xs font-bold font-mono animate-in fade-in slide-in-from-bottom-5 flex items-center gap-2.5">
-          <Sparkles className="w-4 h-4 text-[#ffba38] shrink-0" />
+        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-[120] bg-[#152019] text-[#F5F2E9] px-5 py-3 rounded-2xl shadow-2xl border border-[#C9A35A]/50 text-xs font-bold font-mono animate-in fade-in slide-in-from-bottom-5 flex items-center gap-2.5">
+          <Sparkles className="w-4 h-4 text-[#C9A35A] shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Global Confirmation Modal for Farm Switch */}
       {pendingFarmSwitch && (
-        <div className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in zoom-in-95" onClick={(e) => { if (e.target === e.currentTarget) setPendingFarmSwitch(null); }}>
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 border-2 border-[#012d1d] shadow-2xl space-y-4 text-left">
+        <div className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in zoom-in-95" onClick={(e) => { if (e.target === e.currentTarget) setPendingFarmSwitch(null); }}>
+          <div className="bg-[#152019] text-[#F5F2E9] rounded-3xl max-w-md w-full p-6 border border-white/15 shadow-2xl space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#c1ecd4]/50 flex items-center justify-center border border-[#012d1d]/20 shrink-0">
-                <Building2 className="w-6 h-6 text-[#012d1d]" />
+              <div className="w-12 h-12 rounded-2xl bg-[#202B24] text-[#C9A35A] flex items-center justify-center border border-white/10 shrink-0">
+                <Building2 className="w-6 h-6 text-[#C9A35A]" />
               </div>
               <div>
-                <h3 className="font-extrabold text-base text-[#012d1d]">¿Confirmar Cambio de Predio?</h3>
-                <p className="text-xs text-[#717973] font-medium mt-0.5">
+                <h3 className="font-extrabold text-base text-[#F5F2E9]">¿Confirmar Cambio de Predio?</h3>
+                <p className="text-xs text-[#A5B8AC] font-medium mt-0.5">
                   Estás a punto de cambiar el predio activo en el sistema.
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#f8faf8] p-3.5 rounded-2xl border border-[#c1c8c2] text-xs space-y-2">
-              <div className="flex items-center justify-between text-[#717973]">
+            <div className="bg-[#202B24] p-3.5 rounded-2xl border border-white/10 text-xs space-y-2">
+              <div className="flex items-center justify-between text-[#A5B8AC]">
                 <span>Predio Actual:</span>
-                <span className="font-bold text-[#012d1d]">{currentFarm?.profile?.name || 'Todos los Predios'}</span>
+                <span className="font-bold text-[#F5F2E9]">{currentFarm?.profile?.name || 'Todos los Predios'}</span>
               </div>
-              <div className="flex items-center justify-between text-[#012d1d] pt-1.5 border-t border-[#e2e8f0]">
+              <div className="flex items-center justify-between text-[#C9A35A] pt-1.5 border-t border-white/10">
                 <span className="font-semibold">Nuevo Predio:</span>
-                <span className="font-extrabold text-[#012d1d] underline">
+                <span className="font-extrabold text-[#F5F2E9] underline">
                   {pendingFarmSwitch === 'all'
                     ? 'Consolidado General (Todos los Predios)'
                     : farms.find((f) => f.profile.id === pendingFarmSwitch)?.profile?.name || 'Predio Seleccionado'}
@@ -2576,20 +2576,20 @@ export default function App() {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#eeeeee]">
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-white/10">
               <button
                 type="button"
                 onClick={() => setPendingFarmSwitch(null)}
-                className="px-4 py-2.5 bg-[#f1f5f9] hover:bg-[#e2e8f0] text-[#475569] font-extrabold rounded-xl text-xs transition-colors cursor-pointer"
+                className="px-4 py-2.5 bg-[#202B24] hover:bg-[#26332B] text-[#F5F2E9] font-extrabold rounded-xl text-xs transition-colors cursor-pointer border border-white/10"
               >
                 Cancelar
               </button>
               <button
                 type="button"
                 onClick={() => doSelectFarm(pendingFarmSwitch)}
-                className="px-4 py-2.5 bg-[#012d1d] hover:bg-[#02442d] text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer active:scale-95"
+                className="px-4 py-2.5 bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer active:scale-95"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
+                <CheckCircle2 className="w-4 h-4 text-[#101713]" />
                 <span>Sí, Cambiar de Predio</span>
               </button>
             </div>

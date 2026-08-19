@@ -10,10 +10,8 @@ import { MilkGlassIcon } from './icons/MilkGlassIcon';
 import {
   Home,
   Baby,
-  Droplet,
   Dna,
   MapPin,
-  Scale,
   DollarSign,
   Users,
   CloudRain,
@@ -29,7 +27,6 @@ import {
   Layers,
   Power,
   LogOut,
-  Lock,
   KeyRound,
   Shield,
   X,
@@ -196,9 +193,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const renderContent = (isMobile: boolean = false) => (
-    <div className="flex flex-col h-full select-none">
+    <div className="flex flex-col h-full select-none bg-[#101713] text-[#F5F2E9]">
       {/* Brand Header */}
-      <div className="p-4 sm:p-5 border-b border-emerald-900/60 bg-[#022419] flex items-center justify-between shrink-0">
+      <div className="p-4 sm:p-5 border-b border-white/10 bg-[#0D1410] flex items-center justify-between shrink-0">
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-2">
             <GanaderIALogo
@@ -207,15 +204,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
               theme="dark"
               onClick={() => handleItemClick('home')}
             />
-            <span className="inline-flex items-center gap-1 text-[9px] uppercase font-bold tracking-wider bg-[#06422b] text-[#22c55e] px-2 py-0.5 rounded-full border border-[#22c55e]/30 shrink-0 font-mono">
-              <ShieldCheck className="w-2.5 h-2.5 text-[#facc15]" /> PRO
+            <span className="inline-flex items-center gap-1 text-[9px] uppercase font-bold tracking-wider bg-[#C9A35A]/15 text-[#C9A35A] px-2 py-0.5 rounded-full border border-[#C9A35A]/30 shrink-0 font-mono">
+              <ShieldCheck className="w-2.5 h-2.5 text-[#C9A35A]" /> PRO
             </span>
           </div>
           {isMobile && onMobileClose && (
             <button
               type="button"
               onClick={onMobileClose}
-              className="p-1.5 text-emerald-300 hover:text-white rounded-xl hover:bg-white/10 transition-colors ml-1 cursor-pointer"
+              className="p-1.5 text-[#A5B8AC] hover:text-white rounded-xl hover:bg-white/10 transition-colors ml-1 cursor-pointer"
               title="Cerrar menú"
             >
               <X className="w-5 h-5" />
@@ -236,10 +233,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           className="w-full px-2.5 py-1.5 flex items-center justify-between cursor-pointer group hover:bg-white/5 rounded-xl transition-all text-left"
           title="Abrir Gestor de Módulos"
         >
-          <p className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider group-hover:text-emerald-200 transition-colors flex items-center gap-1">
+          <p className="text-[11px] font-bold text-[#A5B8AC] uppercase tracking-wider group-hover:text-[#F5F2E9] transition-colors flex items-center gap-1">
             Módulos del Sistema
           </p>
-          <span className="text-[10px] font-mono text-[#facc15] font-black bg-[#06422b] px-2.5 py-0.5 rounded-full border border-emerald-800/40">
+          <span className="text-[10px] font-mono text-[#C9A35A] font-black bg-[#152019] px-2.5 py-0.5 rounded-full border border-white/10">
             {isDairyEnabled ? `${navItems.length}/${navItems.length}` : `${navItems.length - 1}/${navItems.length}`}
           </span>
         </button>
@@ -249,21 +246,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
           onClick={() => {
             if (onToggleLotsModule) onToggleLotsModule();
           }}
-          className="mx-1 mb-2 px-3 py-1.5 rounded-xl bg-[#043321] border border-emerald-800/50 hover:border-[#facc15]/50 flex items-center justify-between text-[11px] cursor-pointer transition-all active:scale-[0.98] group"
+          className="mx-1 mb-2 px-3 py-1.5 rounded-xl bg-[#152019] border border-white/10 hover:border-[#C9A35A]/40 flex items-center justify-between text-[11px] cursor-pointer transition-all active:scale-[0.98] group"
           title={isLotsEnabled ? 'Manejo por Lotes activo. Clic para volver a Predios.' : 'Manejo por Predios activo por defecto. Clic para habilitar Lotes.'}
         >
-          <span className="text-emerald-100 flex items-center gap-1.5 font-medium truncate">
+          <span className="text-[#F5F2E9] flex items-center gap-1.5 font-medium truncate">
             {isLotsEnabled ? (
-              <Layers className="w-3.5 h-3.5 text-[#facc15]" />
+              <Layers className="w-3.5 h-3.5 text-[#C9A35A]" />
             ) : (
-              <Building2 className="w-3.5 h-3.5 text-emerald-300" />
+              <Building2 className="w-3.5 h-3.5 text-[#A5B8AC]" />
             )}
-            <span className="group-hover:text-white transition-colors">
+            <span className="group-hover:text-[#C9A35A] transition-colors">
               {isLotsEnabled ? 'Modo: Lotes' : 'Modo: Predios (Default)'}
             </span>
           </span>
           <span className={`px-2 py-0.5 rounded-md font-bold text-[9px] uppercase tracking-wider shrink-0 ${
-            isLotsEnabled ? 'bg-[#facc15] text-[#042e1f]' : 'bg-[#074730] text-emerald-300'
+            isLotsEnabled ? 'bg-[#C9A35A] text-[#101713]' : 'bg-[#202B24] text-[#A5B8AC]'
           }`}>
             {isLotsEnabled ? 'LOTES' : 'PREDIOS'}
           </span>
@@ -280,11 +277,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
               {/* Deactivated Dairy Module separation */}
               {isDairy && !isDairyEnabled && (
                 <div className="pt-3 pb-1 px-2 flex items-center gap-2">
-                  <div className="h-px bg-rose-950 flex-1" />
+                  <div className="h-px bg-rose-950/60 flex-1" />
                   <span className="text-[9px] font-bold uppercase tracking-wider text-rose-400/80 flex items-center gap-1">
                     Módulo Desactivado
                   </span>
-                  <div className="h-px bg-rose-950 flex-1" />
+                  <div className="h-px bg-rose-950/60 flex-1" />
                 </div>
               )}
 
@@ -295,10 +292,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => handleItemClick(item.id)}
                 className={`w-full h-11 rounded-xl transition-all duration-200 flex items-center justify-between px-3 cursor-pointer text-left group relative ${
                   isDairy && !isDairyEnabled
-                    ? 'opacity-60 bg-rose-950/30 text-rose-300 border border-rose-900/30 hover:opacity-90'
+                    ? 'opacity-60 bg-rose-950/20 text-rose-300 border border-rose-900/30 hover:opacity-90'
                     : isActive
-                    ? 'bg-[#facc15] text-[#042e1f] font-bold shadow-[0_4px_16px_rgba(250,204,21,0.25)]'
-                    : 'text-emerald-100/90 hover:bg-white/[0.08] hover:text-white'
+                    ? 'bg-[#C9A35A]/15 text-[#F5F2E9] font-bold border-l-4 border-[#C9A35A] shadow-xs'
+                    : 'text-[#B9C3BB] hover:bg-white/[0.06] hover:text-[#F5F2E9]'
                 }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
@@ -307,8 +304,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       isDairy && !isDairyEnabled
                         ? 'bg-rose-900/40 text-rose-300'
                         : isActive
-                        ? 'bg-[#042e1f] text-[#facc15]'
-                        : 'bg-emerald-900/50 text-emerald-200 group-hover:text-white'
+                        ? 'bg-[#C9A35A] text-[#101713]'
+                        : 'bg-[#152019] text-[#A5B8AC] group-hover:text-[#F5F2E9]'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -320,8 +317,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         isDairy && !isDairyEnabled
                           ? 'text-rose-300/80 line-through'
                           : isActive
-                          ? 'text-[#042e1f] font-bold'
-                          : 'text-slate-100'
+                          ? 'text-[#F5F2E9] font-bold'
+                          : 'text-[#F5F2E9]'
                       }`}
                     >
                       {item.label}
@@ -331,8 +328,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         isDairy && !isDairyEnabled
                           ? 'text-rose-400'
                           : isActive
-                          ? 'text-[#042e1f]/80'
-                          : 'text-emerald-300/60'
+                          ? 'text-[#C9A35A]'
+                          : 'text-[#7F8C83]'
                       }`}
                     >
                       {isDairy && !isDairyEnabled ? 'Desactivado (clic para activar)' : item.sublabel}
@@ -362,8 +359,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     <ChevronRight
                       className={`w-3.5 h-3.5 transition-transform ${
                         isActive
-                          ? 'text-[#042e1f] opacity-80'
-                          : 'text-emerald-500/40 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5'
+                          ? 'text-[#C9A35A] opacity-100'
+                          : 'text-[#7F8C83] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5'
                       }`}
                     />
                   )}
@@ -374,18 +371,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
         })}
 
         {/* Security / System Logout Section */}
-        <div className="pt-3 pb-1 border-t border-emerald-900/50 mt-2">
-          <div className="p-3 rounded-2xl bg-emerald-950/60 border border-emerald-900/60 space-y-2">
+        <div className="pt-3 pb-1 border-t border-white/10 mt-2">
+          <div className="p-3 rounded-2xl bg-[#152019] border border-white/10 space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-emerald-900/70 text-emerald-200 flex items-center justify-center shrink-0">
-                  <Power className="w-3.5 h-3.5 text-emerald-300" />
+                <div className="w-7 h-7 rounded-lg bg-[#202B24] text-[#C9A35A] flex items-center justify-center shrink-0">
+                  <Power className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-xs text-white leading-tight">
+                  <h4 className="font-bold text-xs text-[#F5F2E9] leading-tight">
                     Seguridad & Acceso
                   </h4>
-                  <p className="text-[9.5px] text-emerald-300/70 truncate max-w-[130px]">
+                  <p className="text-[9.5px] text-[#A5B8AC] truncate max-w-[130px]">
                     {activeUser ? activeUser.fullName : 'Modo Invitado'}
                   </p>
                 </div>
@@ -400,7 +397,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     if (onLogoutUser) onLogoutUser();
                     if (isMobile && onMobileClose) onMobileClose();
                   }}
-                  className="flex-1 py-1.5 px-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-[10px] rounded-xl transition shadow-xs flex items-center justify-center gap-1 cursor-pointer active:scale-95"
+                  className="flex-1 py-1.5 px-2.5 bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 font-bold text-[10px] rounded-xl transition shadow-xs flex items-center justify-center gap-1 cursor-pointer active:scale-95"
                 >
                   <LogOut className="w-3 h-3" />
                   <span>Salir</span>
@@ -412,7 +409,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     if (onOpenAuthModal) onOpenAuthModal();
                     if (isMobile && onMobileClose) onMobileClose();
                   }}
-                  className="flex-1 py-1.5 px-2.5 bg-[#facc15] hover:bg-[#fde047] text-[#042e1f] font-bold text-[10px] rounded-xl transition shadow-xs flex items-center justify-center gap-1 cursor-pointer active:scale-95"
+                  className="flex-1 py-1.5 px-2.5 bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] font-bold text-[10px] rounded-xl transition shadow-xs flex items-center justify-center gap-1 cursor-pointer active:scale-95"
                 >
                   <KeyRound className="w-3 h-3" />
                   <span>Ingresar PIN</span>
@@ -425,7 +422,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   if (onOpenAuthModal) onOpenAuthModal();
                   if (isMobile && onMobileClose) onMobileClose();
                 }}
-                className="p-1.5 bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 rounded-xl transition border border-emerald-700/40 cursor-pointer"
+                className="p-1.5 bg-[#202B24] hover:bg-[#26332B] text-[#C9A35A] rounded-xl transition border border-white/10 cursor-pointer"
                 title="Ver perfil o verificar PIN"
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
@@ -436,12 +433,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Cloud Sync Status */}
-      <div className="p-3 m-3 rounded-2xl bg-emerald-950/80 border border-emerald-900/50 text-xs shrink-0">
-        <div className="flex items-center justify-between text-[11px] font-semibold text-emerald-200">
+      <div className="p-3 m-3 rounded-2xl bg-[#152019] border border-white/10 text-xs shrink-0">
+        <div className="flex items-center justify-between text-[11px] font-semibold text-[#A5B8AC]">
           <span className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#facc15]" /> Sincronización
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Sincronización
           </span>
-          <span className="text-[9px] font-mono bg-emerald-900/80 px-2 py-0.2 rounded-full text-emerald-200 border border-emerald-700/40">
+          <span className="text-[9px] font-mono bg-emerald-500/15 text-emerald-400 px-2 py-0.2 rounded-full border border-emerald-500/30">
             ONLINE
           </span>
         </div>
@@ -452,7 +449,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {/* Desktop Fixed Sidebar */}
-      <aside className="hidden md:flex flex-col w-64 lg:w-72 bg-[#042e1f] text-white border-r border-emerald-950/60 h-screen sticky top-0 shrink-0 z-40 shadow-2xl overflow-y-auto select-none">
+      <aside className="hidden md:flex flex-col w-64 lg:w-72 bg-[#101713] text-[#F5F2E9] border-r border-white/10 h-screen sticky top-0 shrink-0 z-40 shadow-2xl overflow-y-auto select-none">
         {renderContent(false)}
       </aside>
 
@@ -467,7 +464,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={onMobileClose}
-              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs md:hidden"
+              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm md:hidden"
             />
 
             {/* Drawer Panel */}
@@ -476,7 +473,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="fixed top-0 left-0 bottom-0 z-50 w-[88vw] max-w-[330px] bg-[#022419] text-white shadow-[0_20px_60px_rgba(0,0,0,0.5)] rounded-r-3xl flex flex-col md:hidden overflow-hidden border-r border-emerald-800/40"
+              className="fixed top-0 left-0 bottom-0 z-50 w-[88vw] max-w-[330px] bg-[#101713] text-[#F5F2E9] shadow-[0_20px_60px_rgba(0,0,0,0.8)] rounded-r-3xl flex flex-col md:hidden overflow-hidden border-r border-white/10"
             >
               {renderContent(true)}
             </motion.div>
@@ -486,4 +483,3 @@ export const Sidebar: React.FC<SidebarProps> = ({
     </>
   );
 };
-

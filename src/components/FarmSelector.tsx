@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Building2, ChevronDown, Check, Settings, Plus, X, AlertCircle, MapPin, Layers } from 'lucide-react';
+import { Building2, ChevronDown, Check, Settings, Plus, X } from 'lucide-react';
 import { FarmDataPackage } from '../types';
 import { useClickOutside } from '../hooks/useClickOutside';
 
@@ -58,13 +58,11 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
 
   // 2. Selección de un predio desde la lista
   const handleFarmItemClick = (farm: FarmDataPackage) => {
-    // Si es el mismo predio actualmente activo, solo cerramos el dropdown
     if (farm.profile.id === currentFarm?.profile.id) {
       setIsOpenDropdown(false);
       return;
     }
 
-    // Si es un predio diferente, cerramos el dropdown y abrimos el modal de confirmación obligatorio
     setIsOpenDropdown(false);
     setSelectedFarmTemp(farm);
     setIsConfirmModalOpen(true);
@@ -87,43 +85,38 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
 
   return (
     <div className={`relative inline-block ${className}`} ref={dropdownContainerRef}>
-      {/* ========================================================================= */}
-      {/* BOTÓN SELECTOR PRINCIPAL (Píldora Verde con Icono Amarillo) */}
-      {/* ========================================================================= */}
+      {/* BOTÓN SELECTOR PRINCIPAL */}
       <motion.button
         type="button"
         whileHover={{ y: -1, scale: 1.01 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 400, damping: 25 }}
         onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-        className="flex items-center gap-1.5 sm:gap-2 bg-[#043825] hover:bg-[#064e3b] text-white px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-[0_2px_10px_rgba(4,56,37,0.2)] border border-emerald-800/50 transition-all cursor-pointer group shrink-0 select-none"
+        className="flex items-center gap-1.5 sm:gap-2 bg-[#152019] hover:bg-[#1A251E] text-[#F5F2E9] px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-xs border border-white/10 transition-all cursor-pointer group shrink-0 select-none"
         title="Cambiar de Predio Activo o Administrar Fincas"
         aria-expanded={isOpenDropdown}
         aria-haspopup="listbox"
       >
-        <Building2 className="w-3.5 h-3.5 text-[#facc15] shrink-0" />
+        <Building2 className="w-3.5 h-3.5 text-[#C9A35A] shrink-0" />
         <span className="font-bold tracking-tight truncate max-w-[110px] xs:max-w-[150px] sm:max-w-[210px] md:max-w-[260px]">
           {currentFarm?.profile.name || 'Finca La Esperanza'}
         </span>
         <ChevronDown
           className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
-            isOpenDropdown ? 'rotate-180 text-[#facc15]' : 'text-emerald-300 opacity-80 group-hover:opacity-100'
+            isOpenDropdown ? 'rotate-180 text-[#C9A35A]' : 'text-[#7F8C83] opacity-80 group-hover:opacity-100'
           }`}
         />
       </motion.button>
 
-      {/* ========================================================================= */}
-      {/* LISTA DESPLEGABLE FLOTANTE (Z-Index 50 con Backdrop y Animación) */}
-      {/* ========================================================================= */}
+      {/* LISTA DESPLEGABLE FLOTANTE */}
       <AnimatePresence>
         {isOpenDropdown && (
           <>
-            {/* Backdrop invisible en Desktop / semi-oscuro en Móviles para evitar clicks accidentales */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black/20 sm:bg-transparent"
+              className="fixed inset-0 z-40 bg-black/40 sm:bg-transparent"
               onClick={() => setIsOpenDropdown(false)}
             />
 
@@ -132,16 +125,16 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 4, scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 450, damping: 30 }}
-              className="fixed sm:absolute left-3 right-3 sm:left-0 sm:right-auto top-16 sm:top-full mt-2 w-auto sm:w-84 max-w-sm sm:max-w-none bg-white rounded-2xl border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.18)] p-3.5 z-50 space-y-2 text-left"
+              className="fixed sm:absolute left-3 right-3 sm:left-0 sm:right-auto top-16 sm:top-full mt-2 w-auto sm:w-84 max-w-sm sm:max-w-none bg-[#152019] text-[#F5F2E9] rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-3.5 z-50 space-y-2 text-left"
               role="listbox"
             >
               {/* Cabecera del Dropdown */}
-              <div className="flex items-center justify-between px-1 pb-2 border-b border-slate-100">
+              <div className="flex items-center justify-between px-1 pb-2 border-b border-white/10">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <span className="text-[11px] font-bold text-[#A5B8AC] uppercase tracking-wider">
                     Predios Registrados
                   </span>
-                  <span className="text-[10px] font-mono font-bold bg-slate-100 text-slate-600 px-1.5 py-0.2 rounded-full">
+                  <span className="text-[10px] font-mono font-bold bg-[#202B24] text-[#C9A35A] px-1.5 py-0.2 rounded-full border border-white/10">
                     {farms.length}
                   </span>
                 </div>
@@ -154,7 +147,7 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
                         setIsOpenDropdown(false);
                         onOpenFarmManagerModal();
                       }}
-                      className="text-[11px] text-[#043825] hover:text-emerald-700 font-bold flex items-center gap-1 px-1.5 py-0.5 rounded-lg hover:bg-emerald-50 transition-colors cursor-pointer"
+                      className="text-[11px] text-[#C9A35A] hover:text-[#D8B66C] font-bold flex items-center gap-1 px-1.5 py-0.5 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                     >
                       <Settings className="w-3 h-3" />
                       <span>Gestionar</span>
@@ -163,7 +156,7 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsOpenDropdown(false)}
-                    className="sm:hidden p-1 text-slate-400 hover:text-slate-700 rounded-md"
+                    className="sm:hidden p-1 text-[#7F8C83] hover:text-[#F5F2E9] rounded-md"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -181,8 +174,8 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
                       onClick={() => handleFarmItemClick(farm)}
                       className={`w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between gap-2 transition-all cursor-pointer ${
                         isSelected
-                          ? 'bg-emerald-50 text-[#043825] font-bold border border-emerald-200/80 shadow-2xs'
-                          : 'hover:bg-slate-50 text-slate-700 font-medium hover:border-slate-200 border border-transparent'
+                          ? 'bg-[#C9A35A]/15 text-[#F5F2E9] font-bold border border-[#C9A35A]/40 shadow-2xs'
+                          : 'hover:bg-white/5 text-[#B9C3BB] font-medium hover:border-white/10 border border-transparent'
                       }`}
                       role="option"
                       aria-selected={isSelected}
@@ -190,14 +183,14 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
                       <div className="flex items-center gap-2.5 truncate min-w-0">
                         <span
                           className={`w-2.5 h-2.5 rounded-full shrink-0 ${
-                            isSelected ? 'bg-emerald-600 ring-2 ring-emerald-200' : 'bg-slate-300'
+                            isSelected ? 'bg-[#C9A35A] ring-2 ring-[#C9A35A]/30' : 'bg-[#7F8C83]'
                           }`}
                         />
                         <div className="truncate min-w-0">
-                          <p className="truncate font-semibold leading-tight text-slate-900">
+                          <p className="truncate font-semibold leading-tight text-[#F5F2E9]">
                             {farm.profile.name}
                           </p>
-                          <p className="text-[10px] text-slate-400 truncate mt-0.5">
+                          <p className="text-[10px] text-[#A5B8AC] truncate mt-0.5">
                             {farm.profile.municipality ? `${farm.profile.municipality}, ` : ''}
                             {farm.profile.department || 'Colombia'}
                           </p>
@@ -205,11 +198,11 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
                       </div>
 
                       <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-[10px] font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded-md">
+                        <span className="text-[10px] font-mono text-[#A5B8AC] bg-[#202B24] border border-white/10 px-1.5 py-0.5 rounded-md">
                           {farm.profile.totalAreaHa || 0} Ha
                         </span>
                         {isSelected && (
-                          <Check className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-[#C9A35A] shrink-0" />
                         )}
                       </div>
                     </button>
@@ -219,16 +212,16 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
 
               {/* Botón Inferior: Crear Nuevo Predio */}
               {onOpenCreateFarmModal && (
-                <div className="pt-2 border-t border-slate-100">
+                <div className="pt-2 border-t border-white/10">
                   <button
                     type="button"
                     onClick={() => {
                       setIsOpenDropdown(false);
                       onOpenCreateFarmModal();
                     }}
-                    className="w-full py-2 bg-slate-50 hover:bg-emerald-50/70 hover:text-emerald-900 text-slate-800 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 border border-slate-200/70 cursor-pointer"
+                    className="w-full py-2 bg-[#202B24] hover:bg-[#26332B] hover:text-[#C9A35A] text-[#F5F2E9] text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 border border-white/10 cursor-pointer"
                   >
-                    <Plus className="w-3.5 h-3.5 text-emerald-700" />
+                    <Plus className="w-3.5 h-3.5 text-[#C9A35A]" />
                     <span>Crear Nuevo Predio</span>
                   </button>
                 </div>
@@ -238,71 +231,67 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
         )}
       </AnimatePresence>
 
-      {/* ========================================================================= */}
-      {/* MODAL DE CONFIRMACIÓN OBLIGATORIO (Centrado con Backdrop Blur) */}
-      {/* ========================================================================= */}
+      {/* MODAL DE CONFIRMACIÓN OBLIGATORIO */}
       <AnimatePresence>
         {isConfirmModalOpen && selectedFarmTemp && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            {/* Backdrop oscuro con desenfoque */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/65 backdrop-blur-xs transition-opacity"
+              className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
               onClick={handleCancelSwitch}
             />
 
-            {/* Tarjeta Modal Centrada */}
             <motion.div
               ref={modalRef}
               initial={{ opacity: 0, scale: 0.93, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.93, y: 8 }}
               transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-              className="relative w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-neutral-100 z-10 space-y-4 text-left"
+              className="relative w-full max-w-md bg-[#152019] text-[#F5F2E9] rounded-3xl p-6 shadow-2xl border border-white/15 z-10 space-y-4 text-left"
               role="dialog"
               aria-modal="true"
               aria-labelledby="confirm-switch-title"
             >
               {/* Encabezado del Modal */}
               <div className="flex items-start gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#043825] flex items-center justify-center border border-emerald-100 shrink-0">
-                  <Building2 className="w-6 h-6 text-[#043825]" />
+                <div className="w-12 h-12 rounded-2xl bg-[#202B24] text-[#C9A35A] flex items-center justify-center border border-white/10 shrink-0">
+                  <Building2 className="w-6 h-6 text-[#C9A35A]" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 id="confirm-switch-title" className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight">
+                  <h3 id="confirm-switch-title" className="text-base sm:text-lg font-extrabold text-[#F5F2E9] leading-tight">
                     ¿Cambiar de predio?
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1 leading-normal">
+                  <p className="text-xs text-[#A5B8AC] mt-1 leading-normal">
                     Estás a punto de cambiar a{' '}
-                    <span className="font-bold text-slate-900">{selectedFarmTemp.profile.name}</span>. La vista, inventarios y registros se actualizarán con los datos de este predio.
+                    <span className="font-bold text-[#F5F2E9]">{selectedFarmTemp.profile.name}</span>. La vista, inventarios y registros se actualizarán con los datos de este predio.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={handleCancelSwitch}
-                  className="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition-colors"
+                  className="text-[#7F8C83] hover:text-[#F5F2E9] p-1 rounded-lg hover:bg-white/5 transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
               {/* Resumen Comparativo de Predios */}
-              <div className="bg-[#f8faf8] p-4 rounded-2xl border border-slate-200/80 text-xs space-y-2.5">
-                <div className="flex items-center justify-between text-slate-600">
+              <div className="bg-[#202B24] p-4 rounded-2xl border border-white/10 text-xs space-y-2.5">
+                <div className="flex items-center justify-between text-[#A5B8AC]">
                   <span className="font-medium">Predio actual:</span>
-                  <span className="font-bold text-slate-800 truncate max-w-[200px]">
+                  <span className="font-bold text-[#F5F2E9] truncate max-w-[200px]">
                     {currentFarm?.profile.name || 'Finca actual'}
                   </span>
                 </div>
-                <div className="flex items-center justify-between pt-2 border-t border-slate-200 text-[#043825]">
+                <div className="flex items-center justify-between pt-2 border-t border-white/10 text-[#C9A35A]">
                   <span className="font-semibold">Nuevo predio:</span>
                   <div className="text-right">
-                    <span className="font-extrabold text-sm block text-emerald-950 truncate max-w-[200px]">
+                    <span className="font-extrabold text-sm block text-[#F5F2E9] truncate max-w-[200px]">
                       {selectedFarmTemp.profile.name}
                     </span>
-                    <span className="text-[10px] text-slate-400 font-mono">
+                    <span className="text-[10px] text-[#A5B8AC] font-mono">
                       {selectedFarmTemp.profile.totalAreaHa || 0} Ha • {selectedFarmTemp.profile.municipality || 'Colombia'}
                     </span>
                   </div>
@@ -315,7 +304,7 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
                   type="button"
                   whileTap={{ scale: 0.97 }}
                   onClick={handleCancelSwitch}
-                  className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition-colors cursor-pointer"
+                  className="px-4 py-2.5 bg-[#202B24] hover:bg-[#26332B] text-[#F5F2E9] font-bold rounded-xl text-xs transition-colors cursor-pointer border border-white/10"
                 >
                   Cancelar
                 </motion.button>
@@ -324,9 +313,9 @@ export const FarmSelector: React.FC<FarmSelectorProps> = ({
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={handleConfirmSwitch}
-                  className="px-5 py-2.5 bg-[#043825] hover:bg-[#064e3b] text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-[0_4px_14px_rgba(4,56,37,0.25)] transition-all cursor-pointer"
+                  className="px-5 py-2.5 bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
                 >
-                  <Check className="w-4 h-4 text-[#facc15]" />
+                  <Check className="w-4 h-4 text-[#101713]" />
                   <span>Confirmar Cambio</span>
                 </motion.button>
               </div>

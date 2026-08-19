@@ -1,59 +1,90 @@
 @import "tailwindcss";
 
+:root {
+  --gan-background: #0D1410;
+  --gan-surface: #101713;
+  --gan-surface-secondary: #152019;
+  --gan-surface-elevated: #1A251E;
+  --gan-card: #202B24;
+  --gan-card-hover: #26332B;
+
+  --gan-primary: #043825;
+  --gan-primary-hover: #075239;
+  --gan-primary-soft: #0E2A1D;
+
+  --gan-gold: #C9A35A;
+  --gan-gold-hover: #D8B66C;
+  --gan-gold-soft: rgba(201, 163, 90, 0.14);
+
+  --gan-text-primary: #F5F2E9;
+  --gan-text-secondary: #B9C3BB;
+  --gan-text-muted: #7F8C83;
+  --gan-text-disabled: #58635B;
+
+  --gan-border: rgba(255, 255, 255, 0.08);
+  --gan-border-strong: rgba(255, 255, 255, 0.14);
+  --gan-divider: rgba(255, 255, 255, 0.06);
+
+  --gan-success: #39D98A;
+  --gan-warning: #F2B84B;
+  --gan-danger: #FF667A;
+  --gan-info: #60A5FA;
+}
+
 @theme {
   --color-primary: #043825;
-  --color-primary-hover: #064e3b;
-  --color-primary-container: #0a4d34;
-  --color-on-primary: #ffffff;
-  --color-on-primary-container: #86af99;
-  --color-primary-fixed: #c1ecd4;
-  --color-primary-fixed-dim: #a5d0b9;
-  --color-on-primary-fixed: #002114;
-  --color-on-primary-fixed-variant: #274e3d;
-  --color-inverse-primary: #a5d0b9;
+  --color-primary-hover: #075239;
+  --color-primary-container: #0E2A1D;
+  --color-on-primary: #F5F2E9;
+  --color-on-primary-container: #39D98A;
+  --color-primary-fixed: #C9A35A;
+  --color-primary-fixed-dim: #D8B66C;
+  --color-on-primary-fixed: #0D1410;
+  --color-on-primary-fixed-variant: #C9A35A;
+  --color-inverse-primary: #39D98A;
 
-  --color-secondary: #79564b;
-  --color-secondary-container: #fed0c1;
-  --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #79574c;
-  --color-secondary-fixed: #ffdbcf;
-  --color-secondary-fixed-dim: #e9bdae;
-  --color-on-secondary-fixed: #2d150d;
-  --color-on-secondary-fixed-variant: #5e3f35;
+  --color-secondary: #C9A35A;
+  --color-secondary-container: #202B24;
+  --color-on-secondary: #101713;
+  --color-on-secondary-container: #F5F2E9;
+  --color-secondary-fixed: #D8B66C;
+  --color-secondary-fixed-dim: #C9A35A;
+  --color-on-secondary-fixed: #0D1410;
+  --color-on-secondary-fixed-variant: #F5F2E9;
 
-  --color-tertiary: #362300;
-  --color-tertiary-container: #523700;
-  --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #dc9a00;
-  --color-tertiary-fixed: #ffdeac;
-  --color-tertiary-fixed-dim: #ffba38;
-  --color-on-tertiary-fixed: #281900;
-  --color-on-tertiary-fixed-variant: #604100;
+  --color-tertiary: #C9A35A;
+  --color-tertiary-container: #1A251E;
+  --color-on-tertiary: #101713;
+  --color-on-tertiary-container: #F5F2E9;
+  --color-tertiary-fixed: #D8B66C;
+  --color-tertiary-fixed-dim: #C9A35A;
+  --color-on-tertiary-fixed: #0D1410;
+  --color-on-tertiary-fixed-variant: #C9A35A;
 
-  --color-surface: #ffffff;
-  --color-surface-dim: #f3f4f6;
-  --color-surface-bright: #ffffff;
-  --color-surface-variant: #f8faf9;
-  --color-surface-tint: #043825;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f9fbf9;
-  --color-surface-container: #f3f6f4;
-  --color-surface-container-high: #edf2ee;
-  --color-surface-container-highest: #e3ebe5;
-  --color-on-surface: #0f172a;
-  --color-on-surface-variant: #475569;
-  --color-inverse-surface: #1e293b;
-  --color-inverse-on-surface: #f8fafc;
+  --color-surface: #101713;
+  --color-surface-dim: #0D1410;
+  --color-surface-bright: #152019;
+  --color-surface-variant: #1A251E;
+  --color-surface-tint: #C9A35A;
+  --color-surface-container-lowest: #0D1410;
+  --color-surface-container-low: #101713;
+  --color-surface-container: #152019;
+  --color-surface-container-high: #1A251E;
+  --color-surface-container-highest: #202B24;
+  --color-on-surface: #F5F2E9;
+  --color-on-surface-variant: #B9C3BB;
+  --color-inverse-surface: #F5F2E9;
+  --color-inverse-on-surface: #101713;
 
-  --color-background: #fafbfa;
-  --color-on-background: #0f172a;
-  --color-outline: #94a3b8;
-  --color-outline-variant: #e2e8f0;
+  --color-background: #0D1410;
+  --color-on-background: #F5F2E9;
+  --color-outline: rgba(255, 255, 255, 0.12);
+  --color-outline-variant: rgba(255, 255, 255, 0.08);
 
-  --color-error: #dc2626;
-  --color-error-container: #fee2e2;
+  --color-error: #FF667A;
+  --color-error-container: rgba(255, 102, 122, 0.15);
   --color-on-error: #ffffff;
-  --color-on-error-container: #991b1b;
+  --color-on-error-container: #FF667A;
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, sans-serif;
   --font-serif: 'DM Serif Display', 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -62,13 +93,27 @@
 
 @layer base {
   body {
-    background-color: #fafbfa;
-    color: #0f172a;
+    background-color: #0D1410;
+    color: #F5F2E9;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.011em;
+  }
+
+  /* Default input styling */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="time"],
+  input[type="search"],
+  select,
+  textarea {
+    color-scheme: dark;
   }
 }
 
@@ -81,74 +126,46 @@
   scrollbar-width: none;
 }
 
-/* Apple-grade Flat/Soft UI Shadows */
+/* Apple-grade Flat/Dark Cards */
 .apple-card {
-  background-color: #ffffff;
-  border-radius: 1.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.04), 0 2px 6px -2px rgba(0, 0, 0, 0.02);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: #202B24;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-out;
+  color: #F5F2E9;
 }
 
 .apple-card:hover {
-  box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.07), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+  background-color: #26332B;
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 .apple-glass {
-  background-color: rgba(255, 255, 255, 0.82);
+  background-color: rgba(16, 23, 19, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 .apple-glass-dark {
-  background-color: rgba(4, 56, 37, 0.88);
+  background-color: rgba(4, 56, 37, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(201, 163, 90, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 .card-shadow {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
 .tactical-shadow {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
-/* Custom Minimal Scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.12);
-  border-radius: 9999px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.tree-line-v {
-  width: 1.5px;
-  background-color: #e2e8f0;
-  margin: 0 auto;
-}
-
-.tree-line-h {
-  height: 1.5px;
-  background-color: #e2e8f0;
-}
-
-/* Custom scrollbars */
+/* Custom Minimal Dark Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -157,10 +174,35 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c1c8c2;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #717973;
+  background: rgba(255, 255, 255, 0.25);
 }
 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.tree-line-v {
+  width: 1.5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0 auto;
+}
+
+.tree-line-h {
+  height: 1.5px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
