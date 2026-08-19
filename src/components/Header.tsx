@@ -20,6 +20,7 @@ import {
   Smartphone,
   Menu,
   Sparkles,
+  Activity,
 } from 'lucide-react';
 import {
   ProductionCategoryKey,
@@ -61,6 +62,9 @@ interface HeaderProps {
   onExitImpersonation?: () => void;
   isSuperadmin?: boolean;
   onGoToLanding?: () => void;
+  isRightSidebarOpen?: boolean;
+  onToggleRightSidebar?: () => void;
+  onOpenRightSidebar?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -96,6 +100,9 @@ export const Header: React.FC<HeaderProps> = ({
   onExitImpersonation,
   isSuperadmin = true,
   onGoToLanding,
+  isRightSidebarOpen = false,
+  onToggleRightSidebar,
+  onOpenRightSidebar,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -105,6 +112,16 @@ export const Header: React.FC<HeaderProps> = ({
   const userMenuRef = useClickOutside<HTMLDivElement>(() => setShowUserMenu(false), showUserMenu);
 
   const activeFarm = farms.find((f) => f.profile.id === currentFarmId) || farms[0];
+
+  const totalNotifCount = 2 + (pendingActivitiesCount > 0 ? 1 : 0) + (activeMastitisCount > 0 ? 1 : 0);
+
+  const handleOpenDrawer = () => {
+    if (onToggleRightSidebar) {
+      onToggleRightSidebar();
+    } else if (onOpenRightSidebar) {
+      onOpenRightSidebar();
+    }
+  };
 
   const filteredDropdownFarms = useMemo(() => {
     return filterFarmsByCategory(farms, headerCategoryFilter);
@@ -241,121 +258,49 @@ export const Header: React.FC<HeaderProps> = ({
           </span>
         </motion.button>
 
-        {/* Campana de Notificaciones */}
-        <div className="relative" ref={notifMenuRef}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowNotifications(!showNotifications)}
-            className="relative w-8 h-8 rounded-full bg-[#152019] hover:bg-[#1A251E] border border-white/10 flex items-center justify-center transition-colors text-[#F5F2E9] shadow-2xs cursor-pointer"
-            title="Alertas Sanitarias y Notificaciones"
-          >
-            <Bell className="w-4 h-4 text-[#A5B8AC]" />
-            {unreadAlertsCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-rose-500 text-white text-[9px] font-black rounded-full flex items-center justify-center border-2 border-[#101713] font-mono">
-                {unreadAlertsCount}
-              </span>
+        {/* Botón Operación & Avisos (Drawer) */}
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={handleOpenDrawer}
+          aria-expanded={isRightSidebarOpen}
+          aria-controls="right-notification-drawer"
+          className={`flex items-center gap-1.5 sm:gap-2 h-7 sm:h-8 px-2.5 sm:px-3 rounded-full font-semibold text-xs transition-all cursor-pointer border whitespace-nowrap shrink-0 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#C9A35A] ${
+            isRightSidebarOpen
+              ? 'bg-[#1F2C23] border-[#C9A35A] text-[#C9A35A]'
+              : 'bg-[#152019] hover:bg-[#1A251E] border-white/10 hover:border-[#C9A35A]/50 text-[#F5F2E9]'
+          }`}
+          title="Abrir panel lateral de Operación & Avisos"
+        >
+          <div className="relative flex items-center justify-center">
+            <Activity className="w-3.5 h-3.5 text-[#C9A35A] shrink-0" />
+            {totalNotifCount > 0 && (
+              <span className="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
             )}
-          </motion.button>
+          </div>
+          <span className="hidden sm:inline text-xs font-bold">Operación & Avisos</span>
+          <span className="bg-[#C9A35A] text-[#101713] text-[9.5px] font-black px-1.5 py-0.2 rounded-full font-mono">
+            {totalNotifCount}
+          </span>
+        </motion.button>
 
-          {/* Notifications Dropdown */}
-          <AnimatePresence>
-            {showNotifications && (
-              <>
-                <div
-                  className="fixed inset-0 z-40"
-                  onClick={() => setShowNotifications(false)}
-                />
-                <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 4, scale: 0.96 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-                  className="absolute right-0 top-full mt-2 w-80 sm:w-96 bg-[#152019] backdrop-blur-2xl rounded-2xl border border-white/15 shadow-[0_16px_48px_rgba(0,0,0,0.6)] p-4 z-50 text-[#F5F2E9]"
-                >
-                  <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                    <h3 className="font-bold text-sm text-[#F5F2E9] flex items-center gap-1.5">
-                      <AlertTriangle className="w-4 h-4 text-[#C9A35A]" /> Notificaciones de Campo
-                    </h3>
-                    <button
-                      onClick={() => setShowNotifications(false)}
-                      className="p-1 hover:bg-white/10 rounded-lg text-[#7F8C83] hover:text-[#F5F2E9] cursor-pointer transition-colors"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  <div className="space-y-2 mt-3 max-h-80 overflow-y-auto pr-1 custom-scrollbar">
-                    {/* Alert 1 */}
-                    <div
-                      onClick={() => {
-                        setShowNotifications(false);
-                        setActiveTab('menu');
-                        onOpenWithdrawalModal();
-                      }}
-                      className="p-3 bg-rose-950/30 text-rose-200 rounded-xl border border-rose-500/30 text-xs cursor-pointer hover:bg-rose-950/50 transition-colors"
-                    >
-                      <div className="flex items-center justify-between font-bold">
-                        <span>Plan Sanitario</span>
-                        <span className="bg-rose-500 text-white text-[10px] px-1.5 py-0.2 rounded font-bold">
-                          En 3 días
-                        </span>
-                      </div>
-                      <p className="mt-1 text-[#A5B8AC]">
-                        Vacunación oficial contra Fiebre Aftosa en Lote 4 (45 novillos).
-                      </p>
-                    </div>
-
-                    {/* Alert 2 */}
-                    <div
-                      onClick={() => {
-                        setShowNotifications(false);
-                        onOpenWithdrawalModal();
-                      }}
-                      className="p-3 bg-amber-950/30 text-amber-200 rounded-xl border border-amber-500/30 text-xs cursor-pointer hover:bg-amber-950/50 transition-colors"
-                    >
-                      <div className="flex items-center justify-between font-bold">
-                        <span>Control de Tiempos de Retiro</span>
-                        <span className="bg-[#C9A35A] text-[#101713] text-[10px] px-1.5 py-0.2 rounded font-mono font-bold">
-                          5 animales
-                        </span>
-                      </div>
-                      <p className="mt-1 text-[#A5B8AC]">
-                        5 bovinos con tratamiento antibiótico activo. Prohibido despacho.
-                      </p>
-                    </div>
-
-                    {/* Alert 3 */}
-                    <div className="p-3 bg-[#202B24] text-[#F5F2E9] rounded-xl border border-white/10 text-xs">
-                      <div className="flex items-center justify-between font-bold">
-                        <span>Pesaje Programado</span>
-                        <span className="text-[10px] font-mono text-[#C9A35A]">Mañana</span>
-                      </div>
-                      <p className="mt-1 text-[#A5B8AC]">
-                        Lote Potrero Norte (45 Machos) cumple ciclo de 15 días.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-3 pt-2 border-t border-white/10 flex justify-between items-center text-xs">
-                    <span className="text-[11px] text-[#A5B8AC] flex items-center gap-1 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Sincronizado
-                    </span>
-                    <button
-                      onClick={() => {
-                        setShowNotifications(false);
-                        setActiveTab('menu');
-                      }}
-                      className="font-bold text-[#C9A35A] hover:text-[#D8B66C] text-[11px] cursor-pointer"
-                    >
-                      Ver todo
-                    </button>
-                  </div>
-                </motion.div>
-              </>
-            )}
-          </AnimatePresence>
-        </div>
+        {/* Campana de Notificaciones (Direct Trigger to Drawer) */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={handleOpenDrawer}
+          aria-expanded={isRightSidebarOpen}
+          aria-controls="right-notification-drawer"
+          className="relative w-8 h-8 rounded-full bg-[#152019] hover:bg-[#1A251E] border border-white/10 flex items-center justify-center transition-colors text-[#F5F2E9] shadow-2xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C9A35A]"
+          title="Ver Avisos y Notificaciones de Operación"
+        >
+          <Bell className="w-4 h-4 text-[#A5B8AC]" />
+          {unreadAlertsCount > 0 && (
+            <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-rose-500 text-white text-[9px] font-black rounded-full flex items-center justify-center border-2 border-[#101713] font-mono">
+              {unreadAlertsCount}
+            </span>
+          )}
+        </motion.button>
 
         {/* User Session Chip / Dropdown */}
         <div className="relative border-l border-white/10 pl-1.5 md:pl-2 ml-0.5" ref={userMenuRef}>

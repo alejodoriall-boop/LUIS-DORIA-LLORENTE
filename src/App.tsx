@@ -253,7 +253,7 @@ function AppContent() {
   const [editingFarmTargetId, setEditingFarmTargetId] = useState<string | null>(null);
   const [isFarmManagerModalOpen, setIsFarmManagerModalOpen] = useState(false);
   const [pendingFarmSwitch, setPendingFarmSwitch] = useState<string | null>(null);
-  const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(true);
+  const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Synchronize farms to local storage
@@ -1921,10 +1921,13 @@ function AppContent() {
                   onExitImpersonation={handleExitImpersonation}
                   isSuperadmin={isSuperadmin}
                   onGoToLanding={() => navigate('/')}
+                  isRightSidebarOpen={isRightSidebarOpen}
+                  onToggleRightSidebar={() => setIsRightSidebarOpen(!isRightSidebarOpen)}
+                  onOpenRightSidebar={() => setIsRightSidebarOpen(true)}
                 />
 
-                {/* Main Content & Right Lateral Panel Workspace */}
-                <div className="flex-1 flex flex-col md:flex-row min-w-0 max-w-full w-full bg-[#E9EEE8] text-[#18241D]">
+                {/* Main Content Workspace - 100% Full Width */}
+                <div className="flex-1 flex flex-col min-w-0 max-w-full w-full bg-[#E9EEE8] text-[#18241D]">
                   <main className="operational-workspace flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden bg-[#E9EEE8] text-[#18241D]">
                     {activeTab === 'home' && (
                       <HomeView
@@ -2186,31 +2189,6 @@ function AppContent() {
           />
         )}
       </main>
-
-      {/* Dedicated Right Lateral Sidebar for Notices & Notifications */}
-      <RightNotificationSidebar
-        isOpen={isRightSidebarOpen}
-        onToggle={() => setIsRightSidebarOpen(!isRightSidebarOpen)}
-        onNavigateToTab={setActiveTab}
-        onOpenWithdrawalModal={() => setIsWithdrawalModalOpen(true)}
-        onOpenNewEventModal={handleOpenNewEventModal}
-        onOpenPendingActivitiesModal={() => setIsPendingActivitiesModalOpen(true)}
-        pendingActivitiesCount={pendingActivities.filter((a) => a.status === 'pendiente' || a.status === 'vencida').length}
-        activeMastitisCount={mastitisRecords.filter((r) => r.status !== 'curado').length}
-        onOpenMastitisModal={() => setIsMastitisModalOpen(true)}
-        onOpenWeightModal={() => setIsWeightModalOpen(true)}
-        onOpenScaleModal={() => setIsScaleModalOpen(true)}
-        onOpenMilkingModal={() => setIsMilkingModalOpen(true)}
-        onOpenRegisterPalpationModal={() => setIsRegisterPalpationModalOpen(true)}
-        onOpenRegisterRainfallModal={() => setIsRegisterRainfallModalOpen(true)}
-        onOpenRegisterStockEntryModal={() => setIsRegisterStockEntryModalOpen(true)}
-        onOpenSaleModal={() => setIsRegisterSaleModalOpen(true)}
-        onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
-        currentFarmName={currentFarm.profile.name}
-        alerts={alerts}
-        activities={activities}
-        pendingActivities={pendingActivities}
-      />
     </div>
 
                 {/* Fixed Bottom Navigation Bar for Mobile (< 768px) */}
@@ -2254,6 +2232,32 @@ function AppContent() {
       </Routes>
 
       {/* ================= GLOBAL MODALS & NOTICES (Rendered at root level across all routes) ================= */}
+
+      {/* Dedicated Right Lateral Overlay Drawer for Notices & Operation (Operación & Avisos) */}
+      <RightNotificationSidebar
+        isOpen={isRightSidebarOpen}
+        onClose={() => setIsRightSidebarOpen(false)}
+        onToggle={() => setIsRightSidebarOpen(!isRightSidebarOpen)}
+        onNavigateToTab={setActiveTab}
+        onOpenWithdrawalModal={() => setIsWithdrawalModalOpen(true)}
+        onOpenNewEventModal={handleOpenNewEventModal}
+        onOpenPendingActivitiesModal={() => setIsPendingActivitiesModalOpen(true)}
+        pendingActivitiesCount={pendingActivities.filter((a) => a.status === 'pendiente' || a.status === 'vencida').length}
+        activeMastitisCount={mastitisRecords.filter((r) => r.status !== 'curado').length}
+        onOpenMastitisModal={() => setIsMastitisModalOpen(true)}
+        onOpenWeightModal={() => setIsWeightModalOpen(true)}
+        onOpenScaleModal={() => setIsScaleModalOpen(true)}
+        onOpenMilkingModal={() => setIsMilkingModalOpen(true)}
+        onOpenRegisterPalpationModal={() => setIsRegisterPalpationModalOpen(true)}
+        onOpenRegisterRainfallModal={() => setIsRegisterRainfallModalOpen(true)}
+        onOpenRegisterStockEntryModal={() => setIsRegisterStockEntryModalOpen(true)}
+        onOpenSaleModal={() => setIsRegisterSaleModalOpen(true)}
+        onOpenWhatsAppModal={() => setIsWhatsAppModalOpen(true)}
+        currentFarmName={currentFarm.profile.name}
+        alerts={alerts}
+        activities={activities}
+        pendingActivities={pendingActivities}
+      />
 
       {/* User Session & Login Authentication Modal */}
       <AuthSessionModal
