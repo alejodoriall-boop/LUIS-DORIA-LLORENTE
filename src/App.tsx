@@ -1924,8 +1924,8 @@ function AppContent() {
                 />
 
                 {/* Main Content & Right Lateral Panel Workspace */}
-                <div className="flex-1 flex flex-col md:flex-row min-w-0 max-w-full w-full">
-                  <main className="flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden">
+                <div className="flex-1 flex flex-col md:flex-row min-w-0 max-w-full w-full bg-[#E9EEE8] text-[#18241D]">
+                  <main className="operational-workspace flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden bg-[#E9EEE8] text-[#18241D]">
                     {activeTab === 'home' && (
                       <HomeView
             setActiveTab={setActiveTab}

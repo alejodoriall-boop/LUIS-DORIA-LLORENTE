@@ -1,90 +1,91 @@
 @import "tailwindcss";
 
 :root {
+  /* Estructura oscura */
+  --shell-background: #0D1410;
+  --shell-surface: #101713;
+  --shell-secondary: #152019;
+  --shell-border: rgba(255, 255, 255, 0.08);
+  --shell-text: #F5F2E9;
+  --shell-text-muted: #B9C3BB;
+
+  /* Área operativa clara */
+  --workspace-background: #E9EEE8;
+  --workspace-surface: #F5F7F3;
+  --workspace-surface-elevated: #FFFFFF;
+  --workspace-surface-secondary: #EEF2ED;
+  --workspace-surface-hover: #E5EBE5;
+
+  /* Texto operativo */
+  --workspace-text-primary: #18241D;
+  --workspace-text-secondary: #526158;
+  --workspace-text-muted: #7A877F;
+  --workspace-text-disabled: #A1AAA4;
+
+  /* Bordes */
+  --workspace-border: #D6DED7;
+  --workspace-border-strong: #C3CEC5;
+  --workspace-divider: #E1E6E1;
+
+  /* Marca */
+  --brand-green: #043825;
+  --brand-green-hover: #075239;
+  --brand-green-soft: #DDEBE3;
+  --brand-gold: #C9A35A;
+  --brand-gold-hover: #B78F42;
+  --brand-gold-soft: #F4EBD8;
+
+  /* Estados */
+  --status-success: #158A58;
+  --status-success-soft: #DDF5E9;
+  --status-warning: #B7791F;
+  --status-warning-soft: #FFF2D5;
+  --status-danger: #C63D50;
+  --status-danger-soft: #FDE5E9;
+  --status-info: #356FC0;
+  --status-info-soft: #E2ECFA;
+
+  /* Compatibilidad con variables previas */
   --gan-background: #0D1410;
   --gan-surface: #101713;
   --gan-surface-secondary: #152019;
   --gan-surface-elevated: #1A251E;
-  --gan-card: #202B24;
-  --gan-card-hover: #26332B;
-
+  --gan-card: #FFFFFF;
+  --gan-card-hover: #F8FAF7;
   --gan-primary: #043825;
   --gan-primary-hover: #075239;
-  --gan-primary-soft: #0E2A1D;
-
   --gan-gold: #C9A35A;
-  --gan-gold-hover: #D8B66C;
-  --gan-gold-soft: rgba(201, 163, 90, 0.14);
-
-  --gan-text-primary: #F5F2E9;
-  --gan-text-secondary: #B9C3BB;
-  --gan-text-muted: #7F8C83;
-  --gan-text-disabled: #58635B;
-
-  --gan-border: rgba(255, 255, 255, 0.08);
-  --gan-border-strong: rgba(255, 255, 255, 0.14);
-  --gan-divider: rgba(255, 255, 255, 0.06);
-
-  --gan-success: #39D98A;
-  --gan-warning: #F2B84B;
-  --gan-danger: #FF667A;
-  --gan-info: #60A5FA;
+  --gan-gold-hover: #B78F42;
 }
 
 @theme {
-  --color-primary: #043825;
-  --color-primary-hover: #075239;
-  --color-primary-container: #0E2A1D;
-  --color-on-primary: #F5F2E9;
-  --color-on-primary-container: #39D98A;
-  --color-primary-fixed: #C9A35A;
-  --color-primary-fixed-dim: #D8B66C;
-  --color-on-primary-fixed: #0D1410;
-  --color-on-primary-fixed-variant: #C9A35A;
-  --color-inverse-primary: #39D98A;
+  --color-workspace-bg: #E9EEE8;
+  --color-workspace-surface: #F5F7F3;
+  --color-workspace-surface-elevated: #FFFFFF;
+  --color-workspace-surface-secondary: #EEF2ED;
+  --color-workspace-surface-hover: #E5EBE5;
+  --color-workspace-text: #18241D;
+  --color-workspace-text-secondary: #526158;
+  --color-workspace-text-muted: #7A877F;
+  --color-workspace-border: #D6DED7;
+  --color-workspace-border-strong: #C3CEC5;
+  --color-workspace-divider: #E1E6E1;
 
-  --color-secondary: #C9A35A;
-  --color-secondary-container: #202B24;
-  --color-on-secondary: #101713;
-  --color-on-secondary-container: #F5F2E9;
-  --color-secondary-fixed: #D8B66C;
-  --color-secondary-fixed-dim: #C9A35A;
-  --color-on-secondary-fixed: #0D1410;
-  --color-on-secondary-fixed-variant: #F5F2E9;
+  --color-brand-green: #043825;
+  --color-brand-green-hover: #075239;
+  --color-brand-green-soft: #DDEBE3;
+  --color-brand-gold: #C9A35A;
+  --color-brand-gold-hover: #B78F42;
+  --color-brand-gold-soft: #F4EBD8;
 
-  --color-tertiary: #C9A35A;
-  --color-tertiary-container: #1A251E;
-  --color-on-tertiary: #101713;
-  --color-on-tertiary-container: #F5F2E9;
-  --color-tertiary-fixed: #D8B66C;
-  --color-tertiary-fixed-dim: #C9A35A;
-  --color-on-tertiary-fixed: #0D1410;
-  --color-on-tertiary-fixed-variant: #C9A35A;
-
-  --color-surface: #101713;
-  --color-surface-dim: #0D1410;
-  --color-surface-bright: #152019;
-  --color-surface-variant: #1A251E;
-  --color-surface-tint: #C9A35A;
-  --color-surface-container-lowest: #0D1410;
-  --color-surface-container-low: #101713;
-  --color-surface-container: #152019;
-  --color-surface-container-high: #1A251E;
-  --color-surface-container-highest: #202B24;
-  --color-on-surface: #F5F2E9;
-  --color-on-surface-variant: #B9C3BB;
-  --color-inverse-surface: #F5F2E9;
-  --color-inverse-on-surface: #101713;
-
-  --color-background: #0D1410;
-  --color-on-background: #F5F2E9;
-  --color-outline: rgba(255, 255, 255, 0.12);
-  --color-outline-variant: rgba(255, 255, 255, 0.08);
-
-  --color-error: #FF667A;
-  --color-error-container: rgba(255, 102, 122, 0.15);
-  --color-on-error: #ffffff;
-  --color-on-error-container: #FF667A;
+  --color-status-success: #158A58;
+  --color-status-success-soft: #DDF5E9;
+  --color-status-warning: #B7791F;
+  --color-status-warning-soft: #FFF2D5;
+  --color-status-danger: #C63D50;
+  --color-status-danger-soft: #FDE5E9;
+  --color-status-info: #356FC0;
+  --color-status-info-soft: #E2ECFA;
 
   --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, sans-serif;
   --font-serif: 'DM Serif Display', 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -101,20 +102,117 @@
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.011em;
   }
+}
 
-  /* Default input styling */
-  input[type="text"],
-  input[type="number"],
-  input[type="email"],
-  input[type="password"],
-  input[type="date"],
-  input[type="datetime-local"],
-  input[type="time"],
-  input[type="search"],
-  select,
-  textarea {
-    color-scheme: dark;
-  }
+/* Operational Workspace Light Styling System */
+.operational-workspace {
+  background-color: #E9EEE8;
+  color: #18241D;
+}
+
+.operational-card {
+  background-color: #FFFFFF;
+  border-radius: 0.875rem;
+  border: 1px solid #D6DED7;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.15s ease-out;
+  color: #18241D;
+}
+
+.operational-card:hover {
+  background-color: #FFFFFF;
+  border-color: #C3CEC5;
+  box-shadow: 0 4px 12px 0 rgba(4, 56, 37, 0.06);
+}
+
+.operational-card-selected {
+  background-color: #F4F8F5;
+  border: 1.5px solid #043825;
+  box-shadow: 0 4px 14px 0 rgba(4, 56, 37, 0.08);
+}
+
+.operational-surface {
+  background-color: #F5F7F3;
+  border: 1px solid #D6DED7;
+  color: #18241D;
+}
+
+.operational-input {
+  background-color: #FFFFFF;
+  border: 1px solid #D6DED7;
+  color: #18241D;
+  border-radius: 0.75rem;
+  transition: all 0.15s ease;
+}
+
+.operational-input:focus {
+  border-color: #043825;
+  outline: 2px solid rgba(201, 163, 90, 0.25);
+}
+
+.operational-input::placeholder {
+  color: #7A877F;
+}
+
+/* Light Workspace Cascading Overrides for Operational Surfaces */
+.operational-workspace .apple-card:not(.keep-dark) {
+  background-color: #FFFFFF;
+  border: 1px solid #D6DED7;
+  color: #18241D;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+}
+
+.operational-workspace .apple-card:hover:not(.keep-dark) {
+  background-color: #FFFFFF;
+  border-color: #C3CEC5;
+  box-shadow: 0 4px 12px 0 rgba(4, 56, 37, 0.06);
+}
+
+/* Specific background conversions for inner operational components */
+.operational-workspace .bg-\[\#152019\]:not(.keep-dark):not(.bg-\[\#043825\]):not(.bg-\[\#012d1d\]),
+.operational-workspace .bg-\[\#101713\]:not(.keep-dark):not(.bg-\[\#043825\]):not(.bg-\[\#012d1d\]),
+.operational-workspace .bg-\[\#1A251E\]:not(.keep-dark) {
+  background-color: #F5F7F3;
+  border-color: #D6DED7;
+  color: #18241D;
+}
+
+.operational-workspace .bg-\[\#202B24\]:not(.keep-dark),
+.operational-workspace .bg-\[\#26332B\]:not(.keep-dark) {
+  background-color: #FFFFFF;
+  border-color: #D6DED7;
+  color: #18241D;
+}
+
+.operational-workspace .text-\[\#F5F2E9\]:not(.keep-light-text):not(.text-white) {
+  color: #18241D;
+}
+
+.operational-workspace .text-\[\#B9C3BB\]:not(.keep-light-text),
+.operational-workspace .text-\[\#A5B8AC\]:not(.keep-light-text),
+.operational-workspace .text-\[\#7F8C83\]:not(.keep-light-text) {
+  color: #526158;
+}
+
+.operational-workspace .border-white\/10,
+.operational-workspace .border-white\/15,
+.operational-workspace .border-white\/5,
+.operational-workspace .border-white\/20 {
+  border-color: #D6DED7;
+}
+
+/* Light form fields within operational workspace */
+.operational-workspace input[type="text"],
+.operational-workspace input[type="number"],
+.operational-workspace input[type="email"],
+.operational-workspace input[type="password"],
+.operational-workspace input[type="date"],
+.operational-workspace input[type="datetime-local"],
+.operational-workspace input[type="time"],
+.operational-workspace input[type="search"],
+.operational-workspace select,
+.operational-workspace textarea {
+  color-scheme: light;
 }
 
 /* No Scrollbar Utility */
@@ -126,46 +224,7 @@
   scrollbar-width: none;
 }
 
-/* Apple-grade Flat/Dark Cards */
-.apple-card {
-  background-color: #202B24;
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease-out;
-  color: #F5F2E9;
-}
-
-.apple-card:hover {
-  background-color: #26332B;
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-.apple-glass {
-  background-color: rgba(16, 23, 19, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-}
-
-.apple-glass-dark {
-  background-color: rgba(4, 56, 37, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(201, 163, 90, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-}
-
-.card-shadow {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.tactical-shadow {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
-}
-
-/* Custom Minimal Dark Scrollbars */
+/* Minimal Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -174,11 +233,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #C3CEC5;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: #A1AAA4;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -198,11 +257,11 @@
 
 .tree-line-v {
   width: 1.5px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #D6DED7;
   margin: 0 auto;
 }
 
 .tree-line-h {
   height: 1.5px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #D6DED7;
 }
