@@ -169,29 +169,32 @@
 }
 
 /* Specific background conversions for inner operational components */
-.operational-workspace .bg-\[\#152019\]:not(.keep-dark):not(.bg-\[\#043825\]):not(.bg-\[\#012d1d\]),
-.operational-workspace .bg-\[\#101713\]:not(.keep-dark):not(.bg-\[\#043825\]):not(.bg-\[\#012d1d\]),
+.operational-workspace .bg-\[\#152019\]:not(.keep-dark):not(.bg-\[\#043825\]):not(.bg-\[\#012d1d\]):not(.bg-\[\#075239\]),
+.operational-workspace .bg-\[\#101713\]:not(.keep-dark):not(.bg-\[\#043825\]):not(.bg-\[\#012d1d\]):not(.bg-\[\#075239\]),
 .operational-workspace .bg-\[\#1A251E\]:not(.keep-dark) {
   background-color: #F5F7F3;
   border-color: #D6DED7;
   color: #18241D;
 }
 
-.operational-workspace .bg-\[\#202B24\]:not(.keep-dark),
-.operational-workspace .bg-\[\#26332B\]:not(.keep-dark) {
+.operational-workspace .bg-\[\#202B24\]:not(.keep-dark):not(.bg-\[\#043825\]),
+.operational-workspace .bg-\[\#26332B\]:not(.keep-dark):not(.bg-\[\#043825\]) {
   background-color: #FFFFFF;
   border-color: #D6DED7;
   color: #18241D;
 }
 
-.operational-workspace .text-\[\#F5F2E9\]:not(.keep-light-text):not(.text-white) {
-  color: #18241D;
-}
-
-.operational-workspace .text-\[\#B9C3BB\]:not(.keep-light-text),
-.operational-workspace .text-\[\#A5B8AC\]:not(.keep-light-text),
-.operational-workspace .text-\[\#7F8C83\]:not(.keep-light-text) {
-  color: #526158;
+/* Ensure buttons with dark backgrounds preserve high contrast text */
+.operational-workspace button.bg-\[\#043825\],
+.operational-workspace button.bg-\[\#075239\],
+.operational-workspace button.bg-\[\#128C7E\],
+.operational-workspace button.bg-emerald-600,
+.operational-workspace button.bg-rose-500,
+.operational-workspace button.bg-rose-600,
+.operational-workspace .btn-dark,
+.operational-workspace [class*="bg-[#043825]"],
+.operational-workspace [class*="bg-[#075239]"] {
+  color: #F5F2E9;
 }
 
 .operational-workspace .border-white\/10,

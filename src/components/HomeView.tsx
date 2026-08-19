@@ -251,7 +251,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.96 }}
             onClick={onOpenPendingActivitiesModal}
-            className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer relative shrink-0 shadow-2xs"
+            className="bg-[#043825] hover:bg-[#075239] text-white font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer relative shrink-0 shadow-2xs"
             title="Abrir Reporte Operativo de Actividades Diarias Pendientes"
           >
             <ClipboardList className="w-4 h-4 text-[#39D98A]" />
@@ -275,7 +275,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               setActiveTab('genetics');
             }
           }}
-          className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+          className="bg-[#043825] hover:bg-[#075239] text-white font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
         >
           <Heart className="w-4 h-4 text-rose-300" />
           <span>Palpación</span>
@@ -293,7 +293,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               onOpenWithdrawalModal();
             }
           }}
-          className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+          className="bg-[#043825] hover:bg-[#075239] text-white font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
         >
           <Stethoscope className="w-4 h-4 text-teal-300" />
           <span>Plan Sanitario</span>
@@ -304,7 +304,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           whileTap={{ scale: 0.96 }}
           type="button"
           onClick={onOpenWeightModal}
-          className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+          className="bg-[#043825] hover:bg-[#075239] text-white font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
         >
           <Scale className="w-4 h-4 text-[#C9A35A]" />
           <span>Pesaje</span>
@@ -329,7 +329,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.96 }}
             onClick={onOpenFarmManagerModal}
-            className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+            className="bg-[#043825] hover:bg-[#075239] text-white font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
             title="Administrar fincas"
           >
             <Settings className="w-4 h-4 text-[#B9C3BB]" />
@@ -355,7 +355,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             whileTap={{ scale: 0.96 }}
             type="button"
             onClick={onOpenRegisterBrandingIronModal}
-            className="bg-[#043825] hover:bg-[#075239] text-[#F5F2E9] font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
+            className="bg-[#043825] hover:bg-[#075239] text-white font-semibold text-xs sm:text-sm h-10 sm:h-9 px-3 rounded-xl border border-[#1C513D] transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-2xs"
             title="Registrar nuevo Hierro o Marca a Fuego"
           >
             <Flame className="w-4 h-4 text-[#C9A35A]" />
