@@ -44,15 +44,15 @@ export const GanaderIALogo: React.FC<GanaderIALogoProps> = ({
     theme === 'dark'
       ? 'text-white'
       : theme === 'light'
-      ? 'text-[#012d1d]'
-      : 'text-[#012d1d] dark:text-white';
+      ? 'text-white'
+      : 'text-white text-white';
 
   const subtitleColor =
     theme === 'dark'
       ? 'text-white/80'
       : theme === 'light'
       ? 'text-[#2d6a4f]'
-      : 'text-[#2d6a4f] dark:text-white/80';
+      : 'text-[#2d6a4f] text-white/80';
 
   const isBanner = variant === 'banner';
   const shouldDisplaySubtitle = showSubtitle ?? (variant === 'full' || variant === 'banner');

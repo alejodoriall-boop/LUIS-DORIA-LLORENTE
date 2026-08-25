@@ -197,9 +197,9 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-5xl h-[92vh] max-h-[850px] flex flex-col overflow-hidden border border-slate-200">
+      <div className="bg-[#15241C] rounded-3xl shadow-2xl w-full max-w-5xl h-[92vh] max-h-[850px] flex flex-col overflow-hidden border border-white/10">
         {/* Header */}
-        <div className="px-6 py-4 bg-[#012d1d] text-white flex items-center justify-between shrink-0 shadow-md">
+        <div className="px-6 py-4 bg-[#0D1A13] text-white flex items-center justify-between shrink-0 shadow-md">
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-md shrink-0 ${
               currentPolicy.isLocked ? 'bg-amber-500 text-slate-950' : 'bg-emerald-500 text-slate-950'
@@ -247,7 +247,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
 
         {/* Banner de Estado Bloqueado vs Configurable */}
         {currentPolicy.isLocked ? (
-          <div className="bg-amber-50 border-b border-amber-200 px-6 py-3 flex items-center justify-between text-xs text-amber-900 shrink-0">
+          <div className="bg-amber-950/30 border-b border-amber-200 px-6 py-3 flex items-center justify-between text-xs text-amber-900 shrink-0">
             <div className="flex items-center gap-2.5">
               <Lock className="w-4 h-4 text-amber-700 shrink-0" />
               <div>
@@ -259,7 +259,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
             </div>
           </div>
         ) : (
-          <div className="bg-blue-50 border-b border-blue-200 px-6 py-2.5 flex items-center gap-2 text-xs text-blue-900 shrink-0">
+          <div className="bg-blue-950/30 border-b border-blue-200 px-6 py-2.5 flex items-center gap-2 text-xs text-blue-900 shrink-0">
             <Info className="w-4 h-4 text-blue-700 shrink-0" />
             <span>
               <strong>Regla de Decisión Única:</strong> Selecciona la estructura de numeración. Una vez guardado el primer registro, el sistema activará el candado inmutable permanentemente.
@@ -272,12 +272,12 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
           {/* Columna Izquierda: Opciones de Política (7 Cols) */}
           <div className="lg:col-span-7 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
                 <Layers className="w-4 h-4 text-emerald-700" />
                 1. Selecciona el Esquema de Identificación
               </h3>
               {currentPolicy.isLocked && (
-                <span className="text-[11px] font-bold text-slate-500 flex items-center gap-1">
+                <span className="text-[11px] font-bold text-[#A5B8AC] flex items-center gap-1">
                   <Lock className="w-3 h-3" /> Solo Lectura
                 </span>
               )}
@@ -292,27 +292,27 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                   currentPolicy.isLocked ? 'cursor-not-allowed opacity-90' : 'cursor-pointer'
                 } ${
                   selectedType === 'CHRONOLOGICAL_YEAR_CONSECUTIVE'
-                    ? 'border-[#012d1d] bg-white shadow-md ring-2 ring-[#012d1d]/10'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
+                    ? 'border-[#012d1d] bg-[#15241C] shadow-md ring-2 ring-[#012d1d]/10'
+                    : 'border-white/10 bg-[#15241C] hover:border-white/15'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-950/30 px-2 py-0.5 rounded-md">
                       Tipo 1
                     </span>
                     {selectedType === 'CHRONOLOGICAL_YEAR_CONSECUTIVE' && (
                       <CheckCircle2 className="w-4 h-4 text-emerald-700" />
                     )}
                   </div>
-                  <h4 className="text-xs font-bold text-slate-900">Cronológico Estándar</h4>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                  <h4 className="text-xs font-bold text-white">Cronológico Estándar</h4>
+                  <p className="text-[11px] text-[#A5B8AC] mt-1 leading-snug">
                     Año + Consecutivo. Ideal para ceba y ciclos anuales.
                   </p>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-                  <span className="text-slate-400 text-[10px]">Ejemplo:</span>
-                  <span className="font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">6-015</span>
+                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between font-mono text-xs">
+                  <span className="text-[#A5B8AC] text-[10px]">Ejemplo:</span>
+                  <span className="font-bold text-white bg-[#1F3327] px-2 py-0.5 rounded">6-015</span>
                 </div>
               </div>
 
@@ -323,27 +323,27 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                   currentPolicy.isLocked ? 'cursor-not-allowed opacity-90' : 'cursor-pointer'
                 } ${
                   selectedType === 'SEASONAL_TRIMESTER_YEAR'
-                    ? 'border-[#012d1d] bg-white shadow-md ring-2 ring-[#012d1d]/10'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
+                    ? 'border-[#012d1d] bg-[#15241C] shadow-md ring-2 ring-[#012d1d]/10'
+                    : 'border-white/10 bg-[#15241C] hover:border-white/15'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-50 px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-950/30 px-2 py-0.5 rounded-md">
                       Tipo 2
                     </span>
                     {selectedType === 'SEASONAL_TRIMESTER_YEAR' && (
                       <CheckCircle2 className="w-4 h-4 text-emerald-700" />
                     )}
                   </div>
-                  <h4 className="text-xs font-bold text-slate-900">Estacional / Trimestral</h4>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                  <h4 className="text-xs font-bold text-white">Estacional / Trimestral</h4>
+                  <p className="text-[11px] text-[#A5B8AC] mt-1 leading-snug">
                     Consecutivo + Trimestre + Año. Óptimo para IATF y montas masivas.
                   </p>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-                  <span className="text-slate-400 text-[10px]">Ejemplo:</span>
-                  <span className="font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">015-36</span>
+                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between font-mono text-xs">
+                  <span className="text-[#A5B8AC] text-[10px]">Ejemplo:</span>
+                  <span className="font-bold text-white bg-[#1F3327] px-2 py-0.5 rounded">015-36</span>
                 </div>
               </div>
 
@@ -354,27 +354,27 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                   currentPolicy.isLocked ? 'cursor-not-allowed opacity-90' : 'cursor-pointer'
                 } ${
                   selectedType === 'GENDER_CATEGORIZED_YEAR'
-                    ? 'border-[#012d1d] bg-white shadow-md ring-2 ring-[#012d1d]/10'
-                    : 'border-slate-200 bg-white hover:border-slate-300'
+                    ? 'border-[#012d1d] bg-[#15241C] shadow-md ring-2 ring-[#012d1d]/10'
+                    : 'border-white/10 bg-[#15241C] hover:border-white/15'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-purple-950/30 px-2 py-0.5 rounded-md">
                       Tipo 3
                     </span>
                     {selectedType === 'GENDER_CATEGORIZED_YEAR' && (
                       <CheckCircle2 className="w-4 h-4 text-emerald-700" />
                     )}
                   </div>
-                  <h4 className="text-xs font-bold text-slate-900">Mixto por Sexo (H/M)</h4>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                  <h4 className="text-xs font-bold text-white">Mixto por Sexo (H/M)</h4>
+                  <p className="text-[11px] text-[#A5B8AC] mt-1 leading-snug">
                     Año + Letra Sexo + Consecutivo. Cabañas, genética y lecherías.
                   </p>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-                  <span className="text-slate-400 text-[10px]">Ejemplo:</span>
-                  <span className="font-bold text-purple-800 bg-purple-50 px-2 py-0.5 rounded">6H-015</span>
+                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between font-mono text-xs">
+                  <span className="text-[#A5B8AC] text-[10px]">Ejemplo:</span>
+                  <span className="font-bold text-purple-800 bg-purple-950/30 px-2 py-0.5 rounded">6H-015</span>
                 </div>
               </div>
 
@@ -386,7 +386,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                 } ${
                   selectedType === 'CUSTOM_LEGACY_ADOPTION'
                     ? 'border-[#012d1d] bg-amber-50/50 shadow-md ring-2 ring-[#012d1d]/10'
-                    : 'border-amber-200 bg-white hover:border-amber-300'
+                    : 'border-amber-200 bg-[#15241C] hover:border-amber-300'
                 }`}
               >
                 <div>
@@ -399,21 +399,21 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                       <CheckCircle2 className="w-4 h-4 text-emerald-700" />
                     )}
                   </div>
-                  <h4 className="text-xs font-bold text-slate-900">Adoptar Estructura Previa</h4>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                  <h4 className="text-xs font-bold text-white">Adoptar Estructura Previa</h4>
+                  <p className="text-[11px] text-[#A5B8AC] mt-1 leading-snug">
                     Conserva tu nomenclatura y hierro sin remarcar el hato.
                   </p>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-                  <span className="text-slate-400 text-[10px]">Ejemplo:</span>
+                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between font-mono text-xs">
+                  <span className="text-[#A5B8AC] text-[10px]">Ejemplo:</span>
                   <span className="font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded">TE-26-085</span>
                 </div>
               </div>
             </div>
 
             {/* Parámetros Específicos según Tipo Seleccionado */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-              <h4 className="text-xs font-bold text-slate-800 flex items-center gap-2">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs space-y-4">
+              <h4 className="text-xs font-bold text-white flex items-center gap-2">
                 <Tag className="w-3.5 h-3.5 text-emerald-700" />
                 Parámetros de Formato y Estructura
               </h4>
@@ -421,14 +421,14 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
               {/* Ajustes Generales de Dígitos y Separador */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                 <div>
-                  <label className="block text-[11px] font-bold text-slate-600 mb-1">
+                  <label className="block text-[11px] font-bold text-[#A5B8AC] mb-1">
                     Dígitos del Consecutivo
                   </label>
                   <select
                     disabled={currentPolicy.isLocked}
                     value={consecutiveLength}
                     onChange={(e) => setConsecutiveLength(parseInt(e.target.value, 10))}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-medium disabled:opacity-60"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl p-2 font-medium disabled:opacity-60"
                   >
                     <option value={3}>3 Dígitos (001 - 999)</option>
                     <option value={4}>4 Dígitos (0001 - 9999)</option>
@@ -437,7 +437,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-slate-600 mb-1">
+                  <label className="block text-[11px] font-bold text-[#A5B8AC] mb-1">
                     Separador Visual
                   </label>
                   <select
@@ -452,7 +452,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                         setSeparatorChar(e.target.value as any);
                       }
                     }}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 font-medium disabled:opacity-60"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl p-2 font-medium disabled:opacity-60"
                   >
                     <option value="-">Guión medio ( - )</option>
                     <option value="/">Barra ( / )</option>
@@ -463,7 +463,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
 
                 {selectedType === 'GENDER_CATEGORIZED_YEAR' && (
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-600 mb-1">
+                    <label className="block text-[11px] font-bold text-[#A5B8AC] mb-1">
                       Letras Sexo (H/M)
                     </label>
                     <div className="flex gap-2">
@@ -474,7 +474,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                         onChange={(e) => setFemalePrefix(e.target.value.toUpperCase())}
                         maxLength={2}
                         placeholder="H"
-                        className="w-1/2 bg-slate-50 border border-slate-200 rounded-xl p-2 text-center font-bold"
+                        className="w-1/2 bg-[#0D1A13] border border-white/10 rounded-xl p-2 text-center font-bold"
                         title="Hembra"
                       />
                       <input
@@ -484,7 +484,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                         onChange={(e) => setMalePrefix(e.target.value.toUpperCase())}
                         maxLength={2}
                         placeholder="M"
-                        className="w-1/2 bg-slate-50 border border-slate-200 rounded-xl p-2 text-center font-bold"
+                        className="w-1/2 bg-[#0D1A13] border border-white/10 rounded-xl p-2 text-center font-bold"
                         title="Macho"
                       />
                     </div>
@@ -494,7 +494,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
 
               {/* Ajustes Avanzados para Tipo 4 (Personalizado / Adopción) */}
               {selectedType === 'CUSTOM_LEGACY_ADOPTION' && (
-                <div className="mt-4 pt-4 border-t border-slate-100 space-y-4">
+                <div className="mt-4 pt-4 border-t border-white/10 space-y-4">
                   <div className="bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-xs space-y-2">
                     <span className="font-bold text-amber-900 block flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-amber-700" />
@@ -503,24 +503,24 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                     
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       <div>
-                        <label className="text-[10px] font-bold text-slate-600 block">Prefijo Fijo</label>
+                        <label className="text-[10px] font-bold text-[#A5B8AC] block">Prefijo Fijo</label>
                         <input
                           type="text"
                           disabled={currentPolicy.isLocked}
                           value={customPrefix}
                           onChange={(e) => setCustomPrefix(e.target.value)}
                           placeholder="ej. TE-, H-"
-                          className="w-full bg-white border border-slate-300 rounded-lg p-1.5 text-xs font-mono font-bold"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-lg p-1.5 text-xs font-mono font-bold"
                         />
                       </div>
 
                       <div>
-                        <label className="text-[10px] font-bold text-slate-600 block">Posición Año</label>
+                        <label className="text-[10px] font-bold text-[#A5B8AC] block">Posición Año</label>
                         <select
                           disabled={currentPolicy.isLocked}
                           value={yearPosition}
                           onChange={(e) => setYearPosition(e.target.value as any)}
-                          className="w-full bg-white border border-slate-300 rounded-lg p-1.5 text-xs font-medium"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-lg p-1.5 text-xs font-medium"
                         >
                           <option value="PREFIX">Al Inicio (Prefijo)</option>
                           <option value="SUFFIX">Al Final (Sufijo)</option>
@@ -529,12 +529,12 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                       </div>
 
                       <div>
-                        <label className="text-[10px] font-bold text-slate-600 block">Dígitos Año</label>
+                        <label className="text-[10px] font-bold text-[#A5B8AC] block">Dígitos Año</label>
                         <select
                           disabled={currentPolicy.isLocked || yearPosition === 'NONE'}
                           value={yearDigitsLength}
                           onChange={(e) => setYearDigitsLength(parseInt(e.target.value, 10) as any)}
-                          className="w-full bg-white border border-slate-300 rounded-lg p-1.5 text-xs font-medium"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-lg p-1.5 text-xs font-medium"
                         >
                           <option value={1}>1 dígito (6)</option>
                           <option value={2}>2 dígitos (26)</option>
@@ -543,20 +543,20 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                       </div>
 
                       <div>
-                        <label className="text-[10px] font-bold text-slate-600 block">Sufijo Fijo</label>
+                        <label className="text-[10px] font-bold text-[#A5B8AC] block">Sufijo Fijo</label>
                         <input
                           type="text"
                           disabled={currentPolicy.isLocked}
                           value={customSuffix}
                           onChange={(e) => setCustomSuffix(e.target.value)}
                           placeholder="ej. -A, -CEBA"
-                          className="w-full bg-white border border-slate-300 rounded-lg p-1.5 text-xs font-mono font-bold"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-lg p-1.5 text-xs font-mono font-bold"
                         />
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between pt-2">
-                      <label className="flex items-center gap-2 cursor-pointer text-[11px] text-slate-700">
+                      <label className="flex items-center gap-2 cursor-pointer text-[11px] text-white">
                         <input
                           type="checkbox"
                           disabled={currentPolicy.isLocked}
@@ -571,13 +571,13 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
 
                   {/* Sección de Homologación e Importación Inicial */}
                   {!currentPolicy.isLocked && (
-                    <div className="bg-slate-100 p-3.5 rounded-xl border border-slate-200 space-y-2">
+                    <div className="bg-[#1F3327] p-3.5 rounded-xl border border-white/10 space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                        <span className="text-xs font-bold text-white flex items-center gap-1.5">
                           <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-700" />
                           Homologación y Punto de Corte Inicial
                         </span>
-                        <label className="text-[11px] bg-[#012d1d] hover:bg-[#02412a] text-white px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 cursor-pointer transition">
+                        <label className="text-[11px] bg-[#0D1A13] hover:bg-[#02412a] text-white px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 cursor-pointer transition">
                           <Upload className="w-3 h-3" />
                           Cargar Excel/CSV
                           <input
@@ -590,21 +590,21 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                       </div>
 
                       {importedFileStats ? (
-                        <div className="bg-white p-2.5 rounded-lg border border-emerald-300 text-xs space-y-1">
+                        <div className="bg-[#15241C] p-2.5 rounded-lg border border-emerald-300 text-xs space-y-1">
                           <div className="flex items-center justify-between text-emerald-800 font-bold">
                             <span>Archivo: {importedFileStats.fileName}</span>
                             <span className="bg-emerald-100 px-2 py-0.5 rounded text-[10px]">
                               {importedFileStats.validHeads} / {importedFileStats.totalHeads} Válidos
                             </span>
                           </div>
-                          <p className="text-[11px] text-slate-600">
+                          <p className="text-[11px] text-[#A5B8AC]">
                             Último consecutivo detectado: <strong>#{importedFileStats.highestConsecutive}</strong>. Los nuevos registros continuarán desde <strong>#{importedFileStats.highestConsecutive + 1}</strong>.
                           </p>
                         </div>
                       ) : (
                         <div className="flex items-center gap-3">
                           <div className="flex-1">
-                            <label className="text-[10px] font-bold text-slate-600 block mb-0.5">
+                            <label className="text-[10px] font-bold text-[#A5B8AC] block mb-0.5">
                               Último Consecutivo Utilizado en la Finca (Punto de Corte)
                             </label>
                             <input
@@ -612,10 +612,10 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                               value={initialOffset}
                               onChange={(e) => setInitialOffset(parseInt(e.target.value, 10) || 0)}
                               placeholder="0 (iniciar desde 1)"
-                              className="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold"
+                              className="w-full bg-[#15241C] border border-white/15 rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold"
                             />
                           </div>
-                          <span className="text-[10px] text-slate-500 max-w-[200px] leading-tight">
+                          <span className="text-[10px] text-[#A5B8AC] max-w-[200px] leading-tight">
                             El próximo nacimiento sugerirá #{initialOffset + 1}.
                           </span>
                         </div>
@@ -630,7 +630,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
           {/* Columna Derecha: Vista Previa en Vivo & Candado de Bloqueo (5 Cols) */}
           <div className="lg:col-span-5 space-y-4 flex flex-col justify-between">
             <div className="space-y-4">
-              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
                 <Eye className="w-4 h-4 text-emerald-700" />
                 2. Vista Previa de Chapetas Físicas
               </h3>
@@ -661,26 +661,26 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                 {/* Muestras comparativas */}
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                   <div className="bg-black/20 p-2.5 rounded-xl border border-white/10">
-                    <span className="text-[9px] text-slate-300 block">Hembra (Ago 2026):</span>
+                    <span className="text-[9px] text-[#A5B8AC] block">Hembra (Ago 2026):</span>
                     <span className="font-bold text-white text-xs">{sampleNow}</span>
                   </div>
                   <div className="bg-black/20 p-2.5 rounded-xl border border-white/10">
-                    <span className="text-[9px] text-slate-300 block">Macho (Ago 2026):</span>
+                    <span className="text-[9px] text-[#A5B8AC] block">Macho (Ago 2026):</span>
                     <span className="font-bold text-white text-xs">{sampleMale}</span>
                   </div>
                 </div>
 
                 {dynamicRegex && (
                   <div className="bg-black/30 p-2.5 rounded-xl border border-white/10 text-[11px] font-mono text-emerald-200 flex items-center justify-between">
-                    <span className="text-[9px] uppercase tracking-wider text-slate-400">Regex Validación:</span>
+                    <span className="text-[9px] uppercase tracking-wider text-[#A5B8AC]">Regex Validación:</span>
                     <span className="font-bold truncate max-w-[180px]">{dynamicRegex}</span>
                   </div>
                 )}
               </div>
 
               {/* Guía Zootécnica */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 text-xs space-y-2 text-slate-600">
-                <div className="flex items-center gap-2 font-bold text-slate-800">
+              <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 text-xs space-y-2 text-[#A5B8AC]">
+                <div className="flex items-center gap-2 font-bold text-white">
                   <ShieldCheck className="w-4 h-4 text-emerald-700" />
                   Garantía de Unicidad y Trazabilidad
                 </div>
@@ -693,7 +693,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
             {/* Botón de Acción / Bloqueo */}
             <div className="pt-2">
               {currentPolicy.isLocked ? (
-                <div className="bg-slate-100 text-slate-500 p-3 rounded-2xl text-center text-xs font-bold border border-slate-200 flex items-center justify-center gap-2">
+                <div className="bg-[#1F3327] text-[#A5B8AC] p-3 rounded-2xl text-center text-xs font-bold border border-white/10 flex items-center justify-center gap-2">
                   <Lock className="w-4 h-4" />
                   Política fijada permanentemente (Inmutable)
                 </div>
@@ -701,7 +701,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                 <button
                   type="button"
                   onClick={() => setIsConfirmationModalOpen(true)}
-                  className="w-full bg-[#012d1d] hover:bg-[#02412a] text-white p-3.5 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer group"
+                  className="w-full bg-[#0D1A13] hover:bg-[#02412a] text-white p-3.5 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer group"
                 >
                   <Lock className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
                   <span>Confirmar y Bloquear Política de Numeración</span>
@@ -715,22 +715,22 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
       {/* Modal de Advertencia Crítica y Bloqueo Doble */}
       {isConfirmationModalOpen && (
         <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6 space-y-5 border-2 border-amber-500 animate-in zoom-in-95 duration-200">
+          <div className="bg-[#15241C] rounded-3xl shadow-2xl max-w-lg w-full p-6 space-y-5 border-2 border-amber-500 animate-in zoom-in-95 duration-200">
             <div className="flex items-center gap-3 text-amber-600">
               <div className="w-12 h-12 rounded-2xl bg-amber-100 flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-6 h-6 text-amber-700" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900 leading-tight">
+                <h3 className="text-base font-bold text-white leading-tight">
                   ¿Confirmar y Bloquear Política Definitiva?
                 </h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-[#A5B8AC]">
                   Esta decisión es <strong>PERMANENTE E IRREVERSIBLE</strong>.
                 </p>
               </div>
             </div>
 
-            <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-xs text-amber-950 space-y-2">
+            <div className="bg-amber-950/30 border border-amber-200 p-4 rounded-2xl text-xs text-amber-950 space-y-2">
               <p className="font-bold">Efectos del Bloqueo:</p>
               <ul className="list-disc pl-4 space-y-1 text-[11.5px]">
                 <li>La estructura de chapetas <strong>no podrá ser editada ni eliminada</strong> en el futuro.</li>
@@ -740,7 +740,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
             </div>
 
             <div className="space-y-3">
-              <label className="flex items-start gap-2.5 cursor-pointer text-xs text-slate-700 font-medium">
+              <label className="flex items-start gap-2.5 cursor-pointer text-xs text-white font-medium">
                 <input
                   type="checkbox"
                   checked={hasAcknowledgedIrreversible}
@@ -753,7 +753,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
               </label>
 
               <div>
-                <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                <label className="block text-[11px] font-bold text-white mb-1">
                   Escribe la palabra <strong className="text-amber-800">BLOQUEAR</strong> para autorizar:
                 </label>
                 <input
@@ -761,7 +761,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
                   value={confirmationWord}
                   onChange={(e) => setConfirmationWord(e.target.value.toUpperCase())}
                   placeholder="BLOQUEAR"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs font-mono font-bold tracking-widest text-center"
+                  className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2.5 text-xs font-mono font-bold tracking-widest text-center"
                 />
               </div>
             </div>
@@ -770,7 +770,7 @@ export const NumberingPolicySettingsModal: React.FC<NumberingPolicySettingsModal
               <button
                 type="button"
                 onClick={() => setIsConfirmationModalOpen(false)}
-                className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl font-bold text-xs transition cursor-pointer"
+                className="flex-1 bg-[#1F3327] hover:bg-[#202E25] text-white py-3 rounded-xl font-bold text-xs transition cursor-pointer"
               >
                 Cancelar
               </button>

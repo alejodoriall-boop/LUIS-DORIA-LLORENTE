@@ -110,10 +110,10 @@ export const AforoView: React.FC<AforoViewProps> = ({
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
-              <span className="bg-[#ffba38] text-[#012d1d] text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full font-mono">
+              <span className="bg-[#D4A94E] text-white text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full font-mono">
                 PASTOREO ROTACIONAL & BIOMASA
               </span>
-              <span className="text-xs text-[#c1ecd4] font-semibold">
+              <span className="text-xs text-[#A5B8AC] font-semibold">
                 {currentFarmPackage?.profile.name || 'Todas las Fincas'}
               </span>
             </div>
@@ -125,12 +125,12 @@ export const AforoView: React.FC<AforoViewProps> = ({
               <div className="group relative inline-flex items-center">
                 <button
                   type="button"
-                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  className="text-[#a3b8ad] hover:text-[#A5B8AC] transition-colors p-0.5 rounded cursor-pointer"
                   title="Mide la oferta de forraje verde y materia seca (MS) por cuadro. Calcula la capacidad de carga real en Unidades Animales (UA/Ha) y optimiza los días de ocupación y descanso por potrero."
                 >
                   <Info className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                   Mide la oferta de forraje verde y materia seca (MS) por cuadro. Calcula la capacidad de carga real en Unidades Animales (UA/Ha) y optimiza los días de ocupación y descanso por potrero.
                 </div>
               </div>
@@ -140,7 +140,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
           <div className="flex flex-wrap items-center gap-2 shrink-0">
             <button
               onClick={onOpenRegisterAforoModal}
-              className="h-9 px-3.5 bg-[#ffba38] hover:bg-[#f59e0b] text-[#012d1d] font-black text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer whitespace-nowrap"
+              className="h-9 px-3.5 bg-[#D4A94E] hover:bg-[#f59e0b] text-white font-black text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer whitespace-nowrap"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
               <span>+ Nuevo Aforo de Pastos</span>
@@ -152,13 +152,13 @@ export const AforoView: React.FC<AforoViewProps> = ({
       {/* TOP KPI METRICS */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {/* Metric 1 */}
-        <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-1">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-extrabold uppercase">Rendimiento Verde Prom.</span>
             <Wheat className="w-4 h-4 text-[#d97706]" />
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-black text-[#012d1d] font-mono">
+            <span className="text-xl font-black text-white font-mono">
               {avgGreenYieldTonHa.toFixed(1)}
             </span>
             <span className="text-xs font-bold text-[#414844]">Ton/Ha</span>
@@ -167,13 +167,13 @@ export const AforoView: React.FC<AforoViewProps> = ({
         </div>
 
         {/* Metric 2 */}
-        <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-1">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-extrabold uppercase">Oferta Materia Seca</span>
             <TrendingUp className="w-4 h-4 text-[#15803d]" />
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-black text-[#012d1d] font-mono">
+            <span className="text-xl font-black text-white font-mono">
               {Math.round(avgUsefulDmKgHa).toLocaleString()}
             </span>
             <span className="text-xs font-bold text-[#414844]">Kg MS/Ha</span>
@@ -182,13 +182,13 @@ export const AforoView: React.FC<AforoViewProps> = ({
         </div>
 
         {/* Metric 3 */}
-        <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-1">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-extrabold uppercase">Capacidad de Carga</span>
             <BarChart2 className="w-4 h-4 text-[#0284c7]" />
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-black text-[#012d1d] font-mono">
+            <span className="text-xl font-black text-white font-mono">
               {avgCarryingCapacityUaHa.toFixed(2)}
             </span>
             <span className="text-xs font-bold text-[#414844]">UA / Ha</span>
@@ -197,13 +197,13 @@ export const AforoView: React.FC<AforoViewProps> = ({
         </div>
 
         {/* Metric 4 */}
-        <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-1">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-2xs space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-extrabold uppercase">Potreros Evaluados</span>
-            <CheckCircle2 className="w-4 h-4 text-[#012d1d]" />
+            <CheckCircle2 className="w-4 h-4 text-white" />
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="text-xl font-black text-[#012d1d] font-mono">
+            <span className="text-xl font-black text-white font-mono">
               {totalSamplingsCount}
             </span>
             <span className="text-xs font-bold text-[#717973]">
@@ -215,16 +215,16 @@ export const AforoView: React.FC<AforoViewProps> = ({
       </div>
 
       {/* FILTER & TABS NAVBAR */}
-      <div className="bg-white p-3 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-3">
+      <div className="bg-[#15241C] p-3 rounded-2xl border border-white/10 shadow-2xs space-y-3">
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
           {/* Main Tab Switcher */}
-          <div className="flex items-center gap-1.5 bg-[#f8fbf9] p-1 rounded-xl border border-[#c1c8c2] overflow-x-auto">
+          <div className="flex items-center gap-1.5 bg-[#15241C] p-1 rounded-xl border border-white/10 overflow-x-auto">
             <button
               onClick={() => setActiveTab('records')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                 activeTab === 'records'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'text-[#414844] hover:text-[#012d1d]'
+                  ? 'bg-[#0D1A13] text-white shadow-xs'
+                  : 'text-[#414844] hover:text-white'
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
@@ -235,8 +235,8 @@ export const AforoView: React.FC<AforoViewProps> = ({
               onClick={() => setActiveTab('matrix')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                 activeTab === 'matrix'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'text-[#414844] hover:text-[#012d1d]'
+                  ? 'bg-[#0D1A13] text-white shadow-xs'
+                  : 'text-[#414844] hover:text-white'
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
@@ -247,8 +247,8 @@ export const AforoView: React.FC<AforoViewProps> = ({
               onClick={() => setActiveTab('calculator')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                 activeTab === 'calculator'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'text-[#414844] hover:text-[#012d1d]'
+                  ? 'bg-[#0D1A13] text-white shadow-xs'
+                  : 'text-[#414844] hover:text-white'
               }`}
             >
               <Calculator className="w-3.5 h-3.5 text-[#ffba38]" />
@@ -259,8 +259,8 @@ export const AforoView: React.FC<AforoViewProps> = ({
               onClick={() => setActiveTab('guide')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                 activeTab === 'guide'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'text-[#414844] hover:text-[#012d1d]'
+                  ? 'bg-[#0D1A13] text-white shadow-xs'
+                  : 'text-[#414844] hover:text-white'
               }`}
             >
               <HelpCircle className="w-3.5 h-3.5" />
@@ -278,7 +278,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                 placeholder="Buscar potrero o pasto..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-3 py-1.5 bg-[#f8fbf9] border border-[#c1c8c2] rounded-xl text-xs font-medium text-[#1a1c1c] focus:outline-none focus:border-[#012d1d]"
+                className="w-full pl-8 pr-3 py-1.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-medium text-white focus:outline-none focus:border-[#012d1d]"
               />
             </div>
 
@@ -286,7 +286,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
             <select
               value={selectedSeasonFilter}
               onChange={(e) => setSelectedSeasonFilter(e.target.value)}
-              className="p-1.5 bg-[#f8fbf9] border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d] focus:outline-none"
+              className="p-1.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white focus:outline-none"
             >
               <option value="all">Todas las Épocas</option>
               <option value="lluvia">🌧️ Lluvias</option>
@@ -301,18 +301,18 @@ export const AforoView: React.FC<AforoViewProps> = ({
       {activeTab === 'records' && (
         <div className="space-y-4">
           {filteredSamplings.length === 0 ? (
-            <div className="bg-white p-8 rounded-3xl border border-[#c1c8c2] text-center space-y-3">
-              <div className="p-3 bg-[#e8f3ed] text-[#012d1d] rounded-2xl w-fit mx-auto">
+            <div className="bg-[#15241C] p-8 rounded-3xl border border-white/10 text-center space-y-3">
+              <div className="p-3 bg-[#e8f3ed] text-white rounded-2xl w-fit mx-auto">
                 <GrassIcon className="w-8 h-8" />
               </div>
-              <h3 className="text-base font-extrabold text-[#012d1d]">No hay aforos registrados</h3>
+              <h3 className="text-base font-extrabold text-white">No hay aforos registrados</h3>
               <p className="text-xs text-[#717973] max-w-md mx-auto">
                 Registra el primer aforo de pasto tirando marcos de 1m² en tus potreros para conocer la
                 oferta real de alimento de tus animales.
               </p>
               <button
                 onClick={onOpenRegisterAforoModal}
-                className="py-2.5 px-4 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl shadow-sm cursor-pointer inline-flex items-center gap-1.5"
+                className="py-2.5 px-4 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold rounded-xl shadow-sm cursor-pointer inline-flex items-center gap-1.5"
               >
                 <Plus className="w-4 h-4 text-[#ffba38]" />
                 <span>Realizar Aforo Ahora</span>
@@ -331,7 +331,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                 return (
                   <div
                     key={sampling.id}
-                    className="bg-white rounded-3xl border border-[#c1c8c2] shadow-2xs hover:shadow-md transition-all p-4 space-y-3 flex flex-col justify-between"
+                    className="bg-[#15241C] rounded-3xl border border-white/10 shadow-2xs hover:shadow-md transition-all p-4 space-y-3 flex flex-col justify-between"
                   >
                     <div className="space-y-2">
                       {/* Top Bar */}
@@ -340,7 +340,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                           <span className="text-[10px] font-extrabold text-[#2d6a4f] uppercase font-mono block">
                             {sampling.farmName}
                           </span>
-                          <h3 className="text-sm font-black text-[#012d1d] truncate">
+                          <h3 className="text-sm font-black text-white truncate">
                             {sampling.paddockName}
                           </h3>
                         </div>
@@ -357,32 +357,32 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
                       {/* Info Chips */}
                       <div className="flex flex-wrap items-center gap-1.5 text-[10.5px]">
-                        <span className="bg-[#f8fbf9] px-2 py-0.5 rounded-lg border border-[#c1c8c2] text-[#414844] font-semibold">
+                        <span className="bg-[#15241C] px-2 py-0.5 rounded-lg border border-white/10 text-[#414844] font-semibold">
                           🌿 {sampling.grassType}
                         </span>
-                        <span className="bg-[#f8fbf9] px-2 py-0.5 rounded-lg border border-[#c1c8c2] text-[#717973] font-medium">
+                        <span className="bg-[#15241C] px-2 py-0.5 rounded-lg border border-white/10 text-[#717973] font-medium">
                           {sampling.season === 'lluvia'
                             ? '🌧️ Lluvia'
                             : sampling.season === 'sequia'
                             ? '☀️ Sequía'
                             : '⛅ Transición'}
                         </span>
-                        <span className="bg-[#f8fbf9] px-2 py-0.5 rounded-lg border border-[#c1c8c2] text-[#717973] font-mono">
+                        <span className="bg-[#15241C] px-2 py-0.5 rounded-lg border border-white/10 text-[#717973] font-mono">
                           {sampling.paddockAreaHa} Ha
                         </span>
                       </div>
 
                       {/* Main Yield Metric Box */}
-                      <div className="bg-[#f8fbf9] p-3 rounded-2xl border border-[#e2ede6] grid grid-cols-2 gap-2 text-center">
+                      <div className="bg-[#15241C] p-3 rounded-2xl border border-[#e2ede6] grid grid-cols-2 gap-2 text-center">
                         <div>
                           <span className="block text-[9.5px] font-bold text-[#717973] uppercase">
                             Ton Verde / Ha
                           </span>
-                          <span className="text-base font-black text-[#012d1d] font-mono">
+                          <span className="text-base font-black text-white font-mono">
                             {sampling.totalGreenYieldTonHa}
                           </span>
                         </div>
-                        <div className="border-l border-[#c1c8c2] pl-2">
+                        <div className="border-l border-white/10 pl-2">
                           <span className="block text-[9.5px] font-bold text-[#717973] uppercase">
                             Kg MS Útil / Ha
                           </span>
@@ -400,7 +400,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                             <span className="text-[10px] text-[#717973] block leading-none">
                               Días Ocupación:
                             </span>
-                            <span className="font-extrabold text-[#012d1d]">
+                            <span className="font-extrabold text-white">
                               {sampling.recommendedGrazingDays} días
                             </span>
                           </div>
@@ -412,7 +412,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                             <span className="text-[10px] text-[#717973] block leading-none">
                               Capacidad Carga:
                             </span>
-                            <span className="font-extrabold text-[#012d1d]">
+                            <span className="font-extrabold text-white">
                               {sampling.carryingCapacityUaHa} UA/Ha
                             </span>
                           </div>
@@ -439,7 +439,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                         )}
                         <button
                           onClick={() => setSelectedSamplingDetails(sampling)}
-                          className="px-2.5 py-1 bg-[#e8f3ed] hover:bg-[#012d1d] text-[#012d1d] hover:text-white font-bold text-xs rounded-xl transition-all cursor-pointer flex items-center gap-1"
+                          className="px-2.5 py-1 bg-[#e8f3ed] hover:bg-[#0D1A13] text-white hover:text-white font-bold text-xs rounded-xl transition-all cursor-pointer flex items-center gap-1"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>Detalles</span>
@@ -456,10 +456,10 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
       {/* TAB CONTENT 2: PADDOCK PERFORMANCE MATRIX */}
       {activeTab === 'matrix' && (
-        <div className="bg-white rounded-3xl border border-[#c1c8c2] shadow-2xs p-4 sm:p-5 space-y-4">
+        <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-2xs p-4 sm:p-5 space-y-4">
           <div className="flex items-center justify-between border-b border-[#f0f0f0] pb-3">
             <div>
-              <h2 className="text-sm sm:text-base font-extrabold text-[#012d1d]">
+              <h2 className="text-sm sm:text-base font-extrabold text-white">
                 Matriz Comparativa de Capacidad Forrajera por Potrero
               </h2>
               <p className="text-xs text-[#717973]">
@@ -471,7 +471,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-[#f8fbf9] border-b border-[#c1c8c2] text-[#414844] font-extrabold uppercase text-[10px]">
+                <tr className="bg-[#15241C] border-b border-white/10 text-[#414844] font-extrabold uppercase text-[10px]">
                   <th className="p-3">Potrero</th>
                   <th className="p-3">Área (Ha)</th>
                   <th className="p-3">Especie Pasto</th>
@@ -487,8 +487,8 @@ export const AforoView: React.FC<AforoViewProps> = ({
                   const lastAforo = aforoSamplings.find((s) => s.paddockId === paddock.id);
 
                   return (
-                    <tr key={paddock.id} className="hover:bg-[#f8fbf9] transition-colors">
-                      <td className="p-3 font-extrabold text-[#012d1d]">
+                    <tr key={paddock.id} className="hover:bg-[#15241C] transition-colors">
+                      <td className="p-3 font-extrabold text-white">
                         {paddock.name}
                       </td>
                       <td className="p-3 font-mono text-[#414844]">
@@ -497,7 +497,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                       <td className="p-3 font-medium text-[#414844]">
                         {paddock.grassType || lastAforo?.grassType || 'No especificado'}
                       </td>
-                      <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-center font-mono font-bold text-white">
                         {lastAforo ? `${lastAforo.totalGreenYieldTonHa} Ton` : '—'}
                       </td>
                       <td className="p-3 text-center font-mono font-bold text-[#15803d]">
@@ -523,13 +523,13 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
       {/* TAB CONTENT 3: INTERACTIVE GRAZING SIMULATOR */}
       {activeTab === 'calculator' && (
-        <div className="bg-white rounded-3xl border border-[#c1c8c2] shadow-2xs p-5 space-y-5">
+        <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-2xs p-5 space-y-5">
           <div className="flex items-center gap-2 border-b border-[#f0f0f0] pb-3">
-            <div className="p-2 bg-[#ffba38] text-[#012d1d] rounded-2xl">
+            <div className="p-2 bg-[#D4A94E] text-white rounded-2xl">
               <Calculator className="w-5 h-5 stroke-[2.5]" />
             </div>
             <div>
-              <h2 className="text-base font-extrabold text-[#012d1d]">
+              <h2 className="text-base font-extrabold text-white">
                 Simulador Rápido de Pastoreo y Rotación
               </h2>
               <p className="text-xs text-[#717973]">
@@ -540,8 +540,8 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Controls Side */}
-            <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] space-y-4">
-              <span className="text-xs font-extrabold uppercase text-[#012d1d] block">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 space-y-4">
+              <span className="text-xs font-extrabold uppercase text-white block">
                 Parámetros del Potrero y Lote:
               </span>
 
@@ -556,7 +556,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                     step="0.5"
                     value={calcAreaHa}
                     onChange={(e) => setCalcAreaHa(parseFloat(e.target.value) || 1)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                 </div>
 
@@ -569,7 +569,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                     min="1"
                     value={calcYieldTonHa}
                     onChange={(e) => setCalcYieldTonHa(parseFloat(e.target.value) || 1)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                 </div>
 
@@ -583,7 +583,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                     max="50"
                     value={calcLossPct}
                     onChange={(e) => setCalcLossPct(parseFloat(e.target.value) || 0)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                 </div>
 
@@ -597,7 +597,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                     max="40"
                     value={calcDmPct}
                     onChange={(e) => setCalcDmPct(parseFloat(e.target.value) || 0)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                 </div>
 
@@ -610,7 +610,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                     min="1"
                     value={calcHeadCount}
                     onChange={(e) => setCalcHeadCount(parseInt(e.target.value) || 0)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                 </div>
 
@@ -624,14 +624,14 @@ export const AforoView: React.FC<AforoViewProps> = ({
                     max="800"
                     value={calcAnimalWeightKg}
                     onChange={(e) => setCalcAnimalWeightKg(parseInt(e.target.value) || 0)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                 </div>
               </div>
             </div>
 
             {/* Live Calculation Output Card */}
-            <div className="bg-[#012d1d] text-white p-5 rounded-2xl flex flex-col justify-between shadow-lg space-y-4">
+            <div className="bg-[#0D1A13] text-white p-5 rounded-2xl flex flex-col justify-between shadow-lg space-y-4">
               <div>
                 <span className="text-[10px] font-extrabold uppercase text-[#ffba38] tracking-wider block mb-1 font-mono">
                   RESULTADOS DE SIMULACIÓN
@@ -643,7 +643,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
               <div className="grid grid-cols-2 gap-3 text-center">
                 <div className="bg-white/10 p-3 rounded-xl border border-white/10">
-                  <span className="block text-[10px] font-semibold text-[#c1ecd4] uppercase">
+                  <span className="block text-[10px] font-semibold text-[#A5B8AC] uppercase">
                     Forraje Útil en Potrero
                   </span>
                   <span className="text-lg font-extrabold text-white font-mono">
@@ -652,7 +652,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                 </div>
 
                 <div className="bg-white/10 p-3 rounded-xl border border-white/10">
-                  <span className="block text-[10px] font-semibold text-[#c1ecd4] uppercase">
+                  <span className="block text-[10px] font-semibold text-[#A5B8AC] uppercase">
                     Consumo Diario Lote
                   </span>
                   <span className="text-lg font-extrabold text-[#ffba38] font-mono">
@@ -661,14 +661,14 @@ export const AforoView: React.FC<AforoViewProps> = ({
                 </div>
               </div>
 
-              <div className="bg-[#ffba38] text-[#012d1d] p-4 rounded-2xl text-center shadow-inner space-y-0.5">
+              <div className="bg-[#D4A94E] text-white p-4 rounded-2xl text-center shadow-inner space-y-0.5">
                 <span className="text-xs font-extrabold uppercase tracking-wider block opacity-80">
                   Días Recomendados de Permanencia
                 </span>
                 <span className="text-3xl font-black font-mono">
                   {calcEstimatedDays} DÍAS
                 </span>
-                <p className="text-[10.5px] font-bold text-[#012d1d]/80 pt-1">
+                <p className="text-[10.5px] font-bold text-white/80 pt-1">
                   Capacidad teórica: {calcCarryingCapacityUa} UA/Ha
                 </p>
               </div>
@@ -679,9 +679,9 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
       {/* TAB CONTENT 4: FIELD SAMPLING METHODOLOGY GUIDE */}
       {activeTab === 'guide' && (
-        <div className="bg-white rounded-3xl border border-[#c1c8c2] shadow-2xs p-5 space-y-5">
+        <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-2xs p-5 space-y-5">
           <div className="border-b border-[#f0f0f0] pb-3">
-            <h2 className="text-base font-extrabold text-[#012d1d]">
+            <h2 className="text-base font-extrabold text-white">
               Guía Técnica: ¿Cómo Realizar un Aforo de Pastos Correcto?
             </h2>
             <p className="text-xs text-[#717973]">
@@ -691,11 +691,11 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Step 1 */}
-            <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] space-y-2">
-              <div className="w-8 h-8 rounded-xl bg-[#012d1d] text-[#ffba38] font-black text-sm flex items-center justify-center font-mono">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-[#0D1A13] text-[#ffba38] font-black text-sm flex items-center justify-center font-mono">
                 1
               </div>
-              <h3 className="text-xs font-extrabold text-[#012d1d] uppercase">
+              <h3 className="text-xs font-extrabold text-white uppercase">
                 Lanzamiento en 'W' o 'X'
               </h3>
               <p className="text-xs text-[#414844] leading-relaxed">
@@ -704,11 +704,11 @@ export const AforoView: React.FC<AforoViewProps> = ({
             </div>
 
             {/* Step 2 */}
-            <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] space-y-2">
-              <div className="w-8 h-8 rounded-xl bg-[#012d1d] text-[#ffba38] font-black text-sm flex items-center justify-center font-mono">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-[#0D1A13] text-[#ffba38] font-black text-sm flex items-center justify-center font-mono">
                 2
               </div>
-              <h3 className="text-xs font-extrabold text-[#012d1d] uppercase">
+              <h3 className="text-xs font-extrabold text-white uppercase">
                 Corte a Altura de Pastoreo
               </h3>
               <p className="text-xs text-[#414844] leading-relaxed">
@@ -717,11 +717,11 @@ export const AforoView: React.FC<AforoViewProps> = ({
             </div>
 
             {/* Step 3 */}
-            <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] space-y-2">
-              <div className="w-8 h-8 rounded-xl bg-[#012d1d] text-[#ffba38] font-black text-sm flex items-center justify-center font-mono">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-[#0D1A13] text-[#ffba38] font-black text-sm flex items-center justify-center font-mono">
                 3
               </div>
-              <h3 className="text-xs font-extrabold text-[#012d1d] uppercase">
+              <h3 className="text-xs font-extrabold text-white uppercase">
                 Pesaje y Cálculo de Carga
               </h3>
               <p className="text-xs text-[#414844] leading-relaxed">
@@ -735,8 +735,8 @@ export const AforoView: React.FC<AforoViewProps> = ({
       {/* DETAIL MODAL DRAWER */}
       {selectedSamplingDetails && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4" onClick={(e) => { if (e.target === e.currentTarget) setSelectedSamplingDetails(null); }}>
-          <div className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200">
-            <div className="bg-[#012d1d] text-white p-4 flex items-center justify-between">
+          <div className="bg-[#15241C] rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-200">
+            <div className="bg-[#0D1A13] text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <GrassIcon className="w-5 h-5 text-[#ffba38]" />
                 <h3 className="text-sm font-extrabold">
@@ -752,12 +752,12 @@ export const AforoView: React.FC<AforoViewProps> = ({
             </div>
 
             <div className="p-5 space-y-4 max-h-[70vh] overflow-y-auto text-xs">
-              <div className="grid grid-cols-2 gap-2 bg-[#f8fbf9] p-3 rounded-2xl border border-[#c1c8c2]">
+              <div className="grid grid-cols-2 gap-2 bg-[#15241C] p-3 rounded-2xl border border-white/10">
                 <div>
                   <span className="text-[#717973] block text-[10px] font-bold uppercase">
                     Fecha
                   </span>
-                  <span className="font-extrabold text-[#012d1d]">
+                  <span className="font-extrabold text-white">
                     {selectedSamplingDetails.date}
                   </span>
                 </div>
@@ -765,7 +765,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                   <span className="text-[#717973] block text-[10px] font-bold uppercase">
                     Evaluador
                   </span>
-                  <span className="font-extrabold text-[#012d1d]">
+                  <span className="font-extrabold text-white">
                     {selectedSamplingDetails.samplerName}
                   </span>
                 </div>
@@ -773,7 +773,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                   <span className="text-[#717973] block text-[10px] font-bold uppercase">
                     Especie
                   </span>
-                  <span className="font-extrabold text-[#012d1d]">
+                  <span className="font-extrabold text-white">
                     {selectedSamplingDetails.grassType}
                   </span>
                 </div>
@@ -781,7 +781,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
                   <span className="text-[#717973] block text-[10px] font-bold uppercase">
                     Época
                   </span>
-                  <span className="font-extrabold text-[#012d1d]">
+                  <span className="font-extrabold text-white">
                     {selectedSamplingDetails.season}
                   </span>
                 </div>
@@ -789,16 +789,16 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
               {/* Cuts Table */}
               <div>
-                <span className="font-extrabold text-[#012d1d] uppercase block mb-1.5 text-[11px]">
+                <span className="font-extrabold text-white uppercase block mb-1.5 text-[11px]">
                   Desglose de Pesos por Marco:
                 </span>
                 <div className="space-y-1">
                   {selectedSamplingDetails.cuts.map((c) => (
                     <div
                       key={c.frameIndex}
-                      className="flex items-center justify-between bg-[#f8fbf9] p-2 rounded-xl border border-[#e2ede6]"
+                      className="flex items-center justify-between bg-[#15241C] p-2 rounded-xl border border-[#e2ede6]"
                     >
-                      <span className="font-bold text-[#012d1d]">Marco #{c.frameIndex}</span>
+                      <span className="font-bold text-white">Marco #{c.frameIndex}</span>
                       <span className="font-mono font-extrabold text-[#15803d]">
                         {c.weightKg} kg {c.heightCm ? `(${c.heightCm} cm)` : ''}
                       </span>
@@ -808,7 +808,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
               </div>
 
               {selectedSamplingDetails.notes && (
-                <div className="bg-[#f8fbf9] p-3 rounded-2xl border border-[#c1c8c2]">
+                <div className="bg-[#15241C] p-3 rounded-2xl border border-white/10">
                   <span className="text-[10px] font-extrabold text-[#717973] uppercase block mb-1">
                     Notas de Campo:
                   </span>
@@ -818,7 +818,7 @@ export const AforoView: React.FC<AforoViewProps> = ({
 
               <button
                 onClick={() => setSelectedSamplingDetails(null)}
-                className="w-full py-2.5 bg-[#012d1d] text-white font-bold rounded-xl cursor-pointer"
+                className="w-full py-2.5 bg-[#0D1A13] text-white font-bold rounded-xl cursor-pointer"
               >
                 Cerrar Ventana
               </button>

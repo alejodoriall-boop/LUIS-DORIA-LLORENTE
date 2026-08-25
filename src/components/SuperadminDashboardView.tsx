@@ -252,20 +252,20 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-16">
       {/* Top Header Banner */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-neutral-950 text-white p-5 sm:p-7 rounded-3xl border border-neutral-800 shadow-xl relative overflow-hidden">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#0D1A13] text-white p-5 sm:p-7 rounded-3xl border border-white/10 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 space-y-1.5">
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
               SUPABASE AUTH • IS_SUPERADMIN = TRUE
             </span>
-            <span className="text-xs text-neutral-400">Plataforma Cloud v4.2</span>
+            <span className="text-xs text-[#A5B8AC]">Plataforma Cloud v4.2</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight flex items-center gap-2.5 text-white">
             <Globe className="w-7 h-7 text-amber-400" />
             <span>Panel de Administración Global</span>
           </h1>
-          <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#A5B8AC] max-w-2xl leading-relaxed">
             Consola central de supervisión SaaS Multi-Tenant, gestión de cuotas de recursos, feature flags por ganadería y auditoría inmutable.
           </p>
         </div>
@@ -274,7 +274,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
           <button
             type="button"
             onClick={onExitToMyFarms}
-            className="px-4 py-2.5 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-bold rounded-xl border border-neutral-700 transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="px-4 py-2.5 bg-[#1F3327] hover:bg-[#202E25] text-white text-xs font-bold rounded-xl border border-white/15 transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <Building2 className="w-4 h-4 text-emerald-400" />
             <span>Ir a la App</span>
@@ -298,41 +298,41 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
         {/* KPI 1: MRR / ARR */}
-        <div className="p-4 sm:p-5 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-xs space-y-3">
+        <div className="p-4 sm:p-5 rounded-3xl bg-[#15241C] bg-[#15241C] border border-white/10 border-white/10 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">
               Ingresos Recurrentes
             </span>
-            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full flex items-center gap-1 border border-emerald-200 dark:border-emerald-800">
+            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-950/30 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full flex items-center gap-1 border border-emerald-200 dark:border-emerald-800">
               <TrendingUp className="w-3 h-3" /> +{metrics.mrrGrowthPct}% MoM
             </span>
           </div>
           <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">
-              ${metrics.mrrUsd.toLocaleString()} <span className="text-xs font-semibold text-neutral-400">USD/mes</span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white text-white">
+              ${metrics.mrrUsd.toLocaleString()} <span className="text-xs font-semibold text-[#A5B8AC]">USD/mes</span>
             </h3>
-            <p className="text-[11px] text-neutral-500 mt-1">
-              ARR Proyectado: <span className="font-bold text-neutral-800 dark:text-neutral-200">${metrics.arrUsd.toLocaleString()} USD</span>
+            <p className="text-[11px] text-[#A5B8AC] mt-1">
+              ARR Proyectado: <span className="font-bold text-white text-white">${metrics.arrUsd.toLocaleString()} USD</span>
             </p>
           </div>
         </div>
 
         {/* KPI 2: Total Tenants */}
-        <div className="p-4 sm:p-5 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-xs space-y-3">
+        <div className="p-4 sm:p-5 rounded-3xl bg-[#15241C] bg-[#15241C] border border-white/10 border-white/10 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">
               Predios Registrados
             </span>
-            <span className="text-[10px] font-bold text-blue-600 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-200 dark:border-blue-800">
+            <span className="text-[10px] font-bold text-blue-600 bg-blue-950/30 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-200 dark:border-blue-800">
               {metrics.trialTenantsCount} en prueba
             </span>
           </div>
           <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white text-white">
               {metrics.totalTenantsCount}{' '}
-              <span className="text-xs font-semibold text-neutral-400">Ganaderías</span>
+              <span className="text-xs font-semibold text-[#A5B8AC]">Ganaderías</span>
             </h3>
-            <p className="text-[11px] text-neutral-500 mt-1">
+            <p className="text-[11px] text-[#A5B8AC] mt-1">
               <span className="text-emerald-600 font-bold">{metrics.activeTenantsCount} Activos</span> •{' '}
               <span className="text-rose-500 font-bold">{metrics.suspendedTenantsCount} Suspendidos</span>
             </p>
@@ -340,42 +340,42 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
         </div>
 
         {/* KPI 3: Total Animales Gestionados */}
-        <div className="p-4 sm:p-5 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-xs space-y-3">
+        <div className="p-4 sm:p-5 rounded-3xl bg-[#15241C] bg-[#15241C] border border-white/10 border-white/10 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">
               Animales Gestionados
             </span>
-            <span className="text-[10px] font-bold text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">
+            <span className="text-[10px] font-bold text-amber-600 bg-amber-950/30 dark:bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">
               Bovinos + Búfalos
             </span>
           </div>
           <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white text-white">
               {metrics.totalManagedAnimals.toLocaleString()}{' '}
-              <span className="text-xs font-semibold text-neutral-400">Cabezas</span>
+              <span className="text-xs font-semibold text-[#A5B8AC]">Cabezas</span>
             </h3>
-            <p className="text-[11px] text-neutral-500 mt-1">
+            <p className="text-[11px] text-[#A5B8AC] mt-1">
               {metrics.totalCattleCount.toLocaleString()} Bovinos • {metrics.totalBuffaloCount.toLocaleString()} Búfalos
             </p>
           </div>
         </div>
 
         {/* KPI 4: Consumo de Recursos & WhatsApp API */}
-        <div className="p-4 sm:p-5 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-xs space-y-3">
+        <div className="p-4 sm:p-5 rounded-3xl bg-[#15241C] bg-[#15241C] border border-white/10 border-white/10 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">
               Consumo Cloud & API
             </span>
-            <span className="text-[10px] font-bold text-purple-600 bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded-full border border-purple-200 dark:border-purple-800">
+            <span className="text-[10px] font-bold text-purple-600 bg-purple-950/30 dark:bg-purple-950/60 px-2 py-0.5 rounded-full border border-purple-200 dark:border-purple-800">
               Supabase + Meta
             </span>
           </div>
           <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-white">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white text-white">
               {(metrics.whatsAppMessagesSentTotal / 1000).toFixed(1)}k{' '}
-              <span className="text-xs font-semibold text-neutral-400">Msgs WhatsApp</span>
+              <span className="text-xs font-semibold text-[#A5B8AC]">Msgs WhatsApp</span>
             </h3>
-            <p className="text-[11px] text-neutral-500 mt-1 flex items-center justify-between">
+            <p className="text-[11px] text-[#A5B8AC] mt-1 flex items-center justify-between">
               <span>IA: {(metrics.aiQueriesExecutedTotal / 1000).toFixed(1)}k</span>
               <span>Storage: {metrics.storageGigabytesTotal} GB</span>
             </p>
@@ -384,7 +384,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
       </div>
 
       {/* Main Tabs Navigation */}
-      <div className="flex items-center justify-between gap-3 border-b border-neutral-200 dark:border-neutral-800 pb-2">
+      <div className="flex items-center justify-between gap-3 border-b border-white/10 border-white/10 pb-2">
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -392,7 +392,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
             className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center gap-2 ${
               activeMainTab === 'tenants'
                 ? 'bg-[#123F2A] text-white shadow-xs'
-                : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                : 'text-[#A5B8AC] text-[#A5B8AC] hover:bg-[#1F3327] hover:bg-[#1F3327]'
             }`}
           >
             <Building2 className="w-4 h-4" />
@@ -405,7 +405,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
             className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center gap-2 ${
               activeMainTab === 'audit'
                 ? 'bg-[#123F2A] text-white shadow-xs'
-                : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                : 'text-[#A5B8AC] text-[#A5B8AC] hover:bg-[#1F3327] hover:bg-[#1F3327]'
             }`}
           >
             <ShieldCheck className="w-4 h-4" />
@@ -417,7 +417,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
           <button
             type="button"
             onClick={handleExportLogs}
-            className="px-3 py-1.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 text-xs font-bold rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="px-3 py-1.5 bg-[#1F3327] hover:bg-[#202E25] bg-[#1F3327] hover:bg-[#1F3327] text-white text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Exportar CSV</span>
@@ -431,30 +431,30 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
       {activeMainTab === 'tenants' && (
         <div className="space-y-4">
           {/* Filters Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white dark:bg-neutral-900 p-3 rounded-2xl border border-neutral-200/80 dark:border-neutral-800">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#15241C] bg-[#15241C] p-3 rounded-2xl border border-white/10 border-white/10">
             {/* Search */}
             <div className="relative w-full sm:w-80">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#A5B8AC]" />
               <input
                 type="text"
                 placeholder="Buscar por finca, tenant, propietario..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-xl text-xs text-neutral-900 dark:text-white placeholder-neutral-400 font-medium"
+                className="w-full pl-9 pr-4 py-2 bg-[#0D1A13] bg-[#0D1A13] border border-white/10 border-white/10 rounded-xl text-xs text-white text-white placeholder-neutral-400 font-medium"
               />
             </div>
 
             {/* Quick Filters */}
             <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto no-scrollbar">
               {/* Status Filter */}
-              <div className="flex items-center bg-neutral-100 dark:bg-neutral-950 p-1 rounded-xl border border-neutral-200 dark:border-neutral-800 text-[11px] font-bold">
+              <div className="flex items-center bg-[#1F3327] bg-[#0D1A13] p-1 rounded-xl border border-white/10 border-white/10 text-[11px] font-bold">
                 <button
                   type="button"
                   onClick={() => setStatusFilter('all')}
                   className={`px-2.5 py-1 rounded-lg transition-all ${
                     statusFilter === 'all'
-                      ? 'bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white shadow-xs'
-                      : 'text-neutral-500 hover:text-neutral-900'
+                      ? 'bg-[#15241C] bg-[#1F3327] text-white text-white shadow-xs'
+                      : 'text-[#A5B8AC] hover:text-white'
                   }`}
                 >
                   Todos
@@ -465,7 +465,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                   className={`px-2.5 py-1 rounded-lg transition-all ${
                     statusFilter === 'active'
                       ? 'bg-emerald-600 text-white shadow-xs'
-                      : 'text-neutral-500 hover:text-neutral-900'
+                      : 'text-[#A5B8AC] hover:text-white'
                   }`}
                 >
                   Activos
@@ -476,7 +476,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                   className={`px-2.5 py-1 rounded-lg transition-all ${
                     statusFilter === 'trial'
                       ? 'bg-blue-600 text-white shadow-xs'
-                      : 'text-neutral-500 hover:text-neutral-900'
+                      : 'text-[#A5B8AC] hover:text-white'
                   }`}
                 >
                   Trial
@@ -487,7 +487,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                   className={`px-2.5 py-1 rounded-lg transition-all ${
                     statusFilter === 'suspended'
                       ? 'bg-rose-600 text-white shadow-xs'
-                      : 'text-neutral-500 hover:text-neutral-900'
+                      : 'text-[#A5B8AC] hover:text-white'
                   }`}
                 >
                   Suspendidos
@@ -498,7 +498,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
               <select
                 value={planFilter}
                 onChange={(e) => setPlanFilter(e.target.value as TenantPlan | 'all')}
-                className="px-3 py-2 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-xl text-xs font-bold text-neutral-700 dark:text-neutral-300 capitalize"
+                className="px-3 py-2 bg-[#0D1A13] bg-[#0D1A13] border border-white/10 border-white/10 rounded-xl text-xs font-bold text-[#A5B8AC] text-[#A5B8AC] capitalize"
               >
                 <option value="all">Todos los Planes</option>
                 <option value="starter_finca">Starter Finca</option>
@@ -511,11 +511,11 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
           {/* ========================================================================= */}
           {/* DESKTOP TABLE VIEW (>= md) */}
           {/* ========================================================================= */}
-          <div className="hidden md:block bg-white dark:bg-neutral-900 rounded-3xl border border-neutral-200/80 dark:border-neutral-800 shadow-xs overflow-hidden">
+          <div className="hidden md:block bg-[#15241C] bg-[#15241C] rounded-3xl border border-white/10 border-white/10 shadow-xs overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/50 text-[11px] font-bold text-neutral-500 uppercase tracking-wider">
+                  <tr className="border-b border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/50 text-[11px] font-bold text-[#A5B8AC] uppercase tracking-wider">
                     <th className="py-3.5 px-4">Predio & Código Tenant</th>
                     <th className="py-3.5 px-4">Propietario & Contacto</th>
                     <th className="py-3.5 px-4">Plan & Cobro</th>
@@ -532,19 +532,19 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                       <tr
                         key={t.id}
                         onClick={() => handleOpenDrawer(t)}
-                        className="hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40 transition-colors cursor-pointer group"
+                        className="hover:bg-[#0D1A13]/80 hover:bg-[#1F3327] transition-colors cursor-pointer group"
                       >
                         {/* Farm & Tenant Code */}
                         <td className="py-3.5 px-4">
                           <div className="flex items-center gap-2.5">
-                            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#123F2A] dark:bg-emerald-950/60 dark:text-emerald-300 flex items-center justify-center font-bold text-xs shrink-0 border border-emerald-100 dark:border-emerald-800/40">
+                            <div className="w-9 h-9 rounded-xl bg-emerald-950/30 text-[#123F2A] dark:bg-emerald-950/60 dark:text-emerald-300 flex items-center justify-center font-bold text-xs shrink-0 border border-emerald-100 dark:border-emerald-800/40">
                               <Building2 className="w-4 h-4" />
                             </div>
                             <div>
-                              <p className="font-extrabold text-neutral-900 dark:text-white group-hover:text-emerald-800 dark:group-hover:text-emerald-400 transition-colors">
+                              <p className="font-extrabold text-white text-white group-hover:text-emerald-800 dark:group-hover:text-emerald-400 transition-colors">
                                 {t.farmName}
                               </p>
-                              <p className="text-[10px] text-neutral-400 font-mono">
+                              <p className="text-[10px] text-[#A5B8AC] font-mono">
                                 {t.tenantCode} • {t.municipality}, {t.department}
                               </p>
                             </div>
@@ -553,17 +553,17 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
 
                         {/* Owner & Contact */}
                         <td className="py-3.5 px-4">
-                          <p className="font-bold text-neutral-800 dark:text-neutral-200">
+                          <p className="font-bold text-white text-white">
                             {t.ownerName}
                           </p>
-                          <p className="text-[10px] text-neutral-400 truncate max-w-[180px]">
+                          <p className="text-[10px] text-[#A5B8AC] truncate max-w-[180px]">
                             {t.ownerPhone} • {t.ownerEmail}
                           </p>
                         </td>
 
                         {/* Plan & Fee */}
                         <td className="py-3.5 px-4">
-                          <span className="font-extrabold text-neutral-800 dark:text-neutral-200 capitalize block">
+                          <span className="font-extrabold text-white text-white capitalize block">
                             {t.plan.replace('_', ' ')}
                           </span>
                           <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-bold">
@@ -573,17 +573,17 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
 
                         {/* Heads */}
                         <td className="py-3.5 px-4 text-center">
-                          <span className="font-bold text-neutral-900 dark:text-white block">
+                          <span className="font-bold text-white text-white block">
                             {t.totalHeads.toLocaleString()}
                           </span>
-                          <span className="text-[10px] text-neutral-400">
+                          <span className="text-[10px] text-[#A5B8AC]">
                             {t.totalHectares} Ha
                           </span>
                         </td>
 
                         {/* WhatsApp / IA usage */}
                         <td className="py-3.5 px-4 text-center">
-                          <span className="font-mono text-[11px] font-bold text-neutral-700 dark:text-neutral-300 block">
+                          <span className="font-mono text-[11px] font-bold text-[#A5B8AC] text-[#A5B8AC] block">
                             {t.quotas.whatsAppMessagesSentThisMonth} / {t.quotas.whatsAppMonthlyQuota}
                           </span>
                           <span className="text-[10px] text-amber-600 font-mono">
@@ -623,7 +623,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                             <button
                               type="button"
                               onClick={() => handleOpenDrawer(t)}
-                              className="p-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-600 dark:text-neutral-300 transition-colors cursor-pointer"
+                              className="p-1.5 rounded-lg bg-[#1F3327] hover:bg-[#202E25] bg-[#1F3327] hover:bg-[#1F3327] text-[#A5B8AC] text-[#A5B8AC] transition-colors cursor-pointer"
                               title="Abrir Drawer de Configuración"
                             >
                               <Sliders className="w-4 h-4" />
@@ -646,18 +646,18 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
               <div
                 key={t.id}
                 onClick={() => handleOpenDrawer(t)}
-                className="p-4 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-xs space-y-3 cursor-pointer"
+                className="p-4 rounded-2xl bg-[#15241C] bg-[#15241C] border border-white/10 border-white/10 shadow-xs space-y-3 cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#123F2A] flex items-center justify-center font-bold shrink-0 border border-emerald-100">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-950/30 text-[#123F2A] flex items-center justify-center font-bold shrink-0 border border-emerald-100">
                       <Building2 className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-extrabold text-sm text-neutral-900 dark:text-white">
+                      <h4 className="font-extrabold text-sm text-white text-white">
                         {t.farmName}
                       </h4>
-                      <p className="text-[10px] text-neutral-400 font-mono">
+                      <p className="text-[10px] text-[#A5B8AC] font-mono">
                         {t.tenantCode} • {t.municipality}
                       </p>
                     </div>
@@ -676,16 +676,16 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs bg-neutral-50 dark:bg-neutral-950 p-2.5 rounded-xl border border-neutral-200/60 dark:border-neutral-800">
+                <div className="grid grid-cols-2 gap-2 text-xs bg-[#0D1A13] bg-[#0D1A13] p-2.5 rounded-xl border border-white/10 border-white/10">
                   <div>
-                    <span className="text-[10px] text-neutral-400 block">Propietario</span>
-                    <span className="font-bold text-neutral-800 dark:text-neutral-200 truncate block">
+                    <span className="text-[10px] text-[#A5B8AC] block">Propietario</span>
+                    <span className="font-bold text-white text-white truncate block">
                       {t.ownerName}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-neutral-400 block">Hato / Área</span>
-                    <span className="font-bold text-neutral-800 dark:text-neutral-200">
+                    <span className="text-[10px] text-[#A5B8AC] block">Hato / Área</span>
+                    <span className="font-bold text-white text-white">
                       {t.totalHeads} Cab. • {t.totalHectares} Ha
                     </span>
                   </div>
@@ -710,7 +710,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                     <button
                       type="button"
                       onClick={() => handleOpenDrawer(t)}
-                      className="px-2.5 py-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-[11px] font-bold rounded-lg flex items-center gap-1 cursor-pointer"
+                      className="px-2.5 py-1 bg-[#202E25] bg-[#1F3327] text-white text-white text-[11px] font-bold rounded-lg flex items-center gap-1 cursor-pointer"
                     >
                       <span>Gestionar</span>
                       <ChevronRight className="w-3 h-3" />
@@ -727,17 +727,17 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
       {/* 3. AUDITORÍA GLOBAL & LOGS INMUTABLES */}
       {/* ========================================================================= */}
       {activeMainTab === 'audit' && (
-        <div className="bg-white dark:bg-neutral-900 rounded-3xl border border-neutral-200/80 dark:border-neutral-800 shadow-xs overflow-hidden">
-          <div className="p-4 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/50 flex items-center justify-between">
+        <div className="bg-[#15241C] bg-[#15241C] rounded-3xl border border-white/10 border-white/10 shadow-xs overflow-hidden">
+          <div className="p-4 border-b border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/50 flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-extrabold text-neutral-900 dark:text-white">
+              <h3 className="text-sm font-extrabold text-white text-white">
                 Registro Inmutable de Eventos Críticos (Audit Trail)
               </h3>
-              <p className="text-xs text-neutral-500 dark:text-neutral-400">
+              <p className="text-xs text-[#A5B8AC] text-[#A5B8AC]">
                 Trazabilidad de inicio de sesión de soporte, switches de feature flags y cambios de suscripción.
               </p>
             </div>
-            <span className="text-xs font-mono font-bold bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 rounded-lg">
+            <span className="text-xs font-mono font-bold bg-[#202E25] bg-[#1F3327] px-2 py-0.5 rounded-lg">
               {auditLogs.length} Registros
             </span>
           </div>
@@ -746,11 +746,11 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
             {auditLogs.map((log) => (
               <div
                 key={log.id}
-                className="p-3.5 sm:p-4 hover:bg-neutral-50/60 dark:hover:bg-neutral-800/40 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                className="p-3.5 sm:p-4 hover:bg-[#0D1A13]/60 hover:bg-[#1F3327] transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2"
               >
                 <div className="space-y-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-mono text-[10px] font-bold text-neutral-400">
+                    <span className="font-mono text-[10px] font-bold text-[#A5B8AC]">
                       {log.timestamp}
                     </span>
                     <span
@@ -765,19 +765,19 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                       {log.actionType.replace(/_/g, ' ')}
                     </span>
                     {log.tenantName && (
-                      <span className="font-bold text-neutral-800 dark:text-neutral-200">
+                      <span className="font-bold text-white text-white">
                         {log.tenantName}
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-neutral-700 dark:text-neutral-300 leading-normal">
+                  <p className="text-xs text-[#A5B8AC] text-[#A5B8AC] leading-normal">
                     {log.details}
                   </p>
                 </div>
 
-                <div className="text-right sm:shrink-0 text-[11px] text-neutral-400 font-mono">
+                <div className="text-right sm:shrink-0 text-[11px] text-[#A5B8AC] font-mono">
                   <span>{log.superadminEmail}</span>
-                  <span className="block text-[10px] text-neutral-500">IP: {log.ipAddress}</span>
+                  <span className="block text-[10px] text-[#A5B8AC]">IP: {log.ipAddress}</span>
                 </div>
               </div>
             ))}

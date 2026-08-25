@@ -287,15 +287,15 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-4xl lg:max-w-5xl w-full p-5 md:p-6 border border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[92vh] flex flex-col">
+      <div className="bg-[#15241C] rounded-3xl max-w-4xl lg:max-w-5xl w-full p-5 md:p-6 border border-white/10 shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[92vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-[#eeeeee] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#1b4332] text-[#c1ecd4] rounded-2xl shadow-sm">
+            <div className="p-2.5 bg-[#123F2A] text-[#A5B8AC] rounded-2xl shadow-sm">
               <PlusCircle className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-[#012d1d]">Ingreso Nuevo a Inventario</h3>
+              <h3 className="text-lg font-black text-white">Ingreso Nuevo a Inventario</h3>
               <p className="text-xs text-[#717973] font-medium">
                 Alta individual o por lote con origen, genealogía y datos de compra
               </p>
@@ -320,7 +320,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
               <select
                 value={selectedFarmId}
                 onChange={(e) => setSelectedFarmId(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
               >
                 {farms.map((farm) => (
                   <option key={farm.profile.id} value={farm.profile.id}>
@@ -337,7 +337,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
               <select
                 value={selectedLotId}
                 onChange={(e) => setSelectedLotId(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
               >
                 {activeFarmLots.map((lot) => (
                   <option key={lot.id} value={lot.id}>
@@ -350,7 +350,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
 
           {/* Selector de Origen del Animal */}
           <div>
-            <label className="block text-[11px] font-black text-[#012d1d] uppercase mb-2">
+            <label className="block text-[11px] font-black text-white uppercase mb-2">
               Origen del Ingreso (Procedencia)
             </label>
             <div className="grid grid-cols-3 gap-2">
@@ -359,8 +359,8 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                 onClick={() => setOriginType('nacido')}
                 className={`p-3 rounded-2xl border-2 flex flex-col items-center gap-1.5 transition-all text-center cursor-pointer ${
                   originType === 'nacido'
-                    ? 'border-[#1b4332] bg-[#e8f5e9] text-[#012d1d] font-bold shadow-xs'
-                    : 'border-[#c1c8c2] bg-white text-[#717973] hover:bg-[#f9f9f9]'
+                    ? 'border-[#1b4332] bg-[#e8f5e9] text-white font-bold shadow-xs'
+                    : 'border-white/10 bg-[#15241C] text-[#717973] hover:bg-[#f9f9f9]'
                 }`}
               >
                 <Heart className="w-5 h-5 text-[#2e7d32]" />
@@ -373,7 +373,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                 className={`p-3 rounded-2xl border-2 flex flex-col items-center gap-1.5 transition-all text-center cursor-pointer ${
                   originType === 'comprado'
                     ? 'border-[#0288d1] bg-[#e1f5fe] text-[#01579b] font-bold shadow-xs'
-                    : 'border-[#c1c8c2] bg-white text-[#717973] hover:bg-[#f9f9f9]'
+                    : 'border-white/10 bg-[#15241C] text-[#717973] hover:bg-[#f9f9f9]'
                 }`}
               >
                 <ShoppingBag className="w-5 h-5 text-[#0288d1]" />
@@ -386,7 +386,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                 className={`p-3 rounded-2xl border-2 flex flex-col items-center gap-1.5 transition-all text-center cursor-pointer ${
                   originType === 'puro_registro'
                     ? 'border-[#7b1fa2] bg-[#f3e5f5] text-[#4a148c] font-bold shadow-xs'
-                    : 'border-[#c1c8c2] bg-white text-[#717973] hover:bg-[#f9f9f9]'
+                    : 'border-white/10 bg-[#15241C] text-[#717973] hover:bg-[#f9f9f9]'
                 }`}
               >
                 <Award className="w-5 h-5 text-[#7b1fa2]" />
@@ -397,8 +397,8 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
 
           {/* SECTION: Basic Identification (For Comprado and Puro Registro) */}
           {originType !== 'nacido' && (
-            <div className="p-3.5 bg-white border border-[#c1c8c2] rounded-2xl space-y-3">
-              <h4 className="font-bold text-[#012d1d] text-xs flex items-center gap-1.5 border-b border-[#eeeeee] pb-2">
+            <div className="p-3.5 bg-[#15241C] border border-white/10 rounded-2xl space-y-3">
+              <h4 className="font-bold text-white text-xs flex items-center gap-1.5 border-b border-[#eeeeee] pb-2">
                 <Tag className="w-4 h-4 text-[#1b4332]" /> Identificación y Datos Físicos
               </h4>
 
@@ -417,7 +417,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         });
                         setTag(refreshedTag);
                       }}
-                      className="text-[9px] text-emerald-800 font-bold bg-emerald-50 px-1.5 py-0.5 rounded hover:bg-emerald-100 cursor-pointer"
+                      className="text-[9px] text-emerald-800 font-bold bg-emerald-950/30 px-1.5 py-0.5 rounded hover:bg-emerald-100 cursor-pointer"
                     >
                       Sugerir
                     </button>
@@ -427,7 +427,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={tag}
                     onChange={(e) => setTag(e.target.value)}
                     placeholder="Ej. ARE-9021"
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-mono font-bold text-white"
                     required
                   />
                 </div>
@@ -441,7 +441,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Ej. Princesa"
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-semibold text-[#012d1d]"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-semibold text-white"
                   />
                 </div>
 
@@ -452,7 +452,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   <select
                     value={sex}
                     onChange={(e) => setSex(e.target.value as 'macho' | 'hembra')}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-bold"
                   >
                     <option value="hembra">Hembra ♀</option>
                     <option value="macho">Macho ♂</option>
@@ -462,13 +462,13 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div>
-                  <label className="block text-[10px] font-bold text-[#012d1d] uppercase mb-1">
+                  <label className="block text-[10px] font-bold text-white uppercase mb-1">
                     Tipo / Pureza *
                   </label>
                   <select
                     value={cattleType}
                     onChange={(e) => setCattleType(e.target.value)}
-                    className="w-full bg-[#f4fbf6] border border-emerald-500 rounded-xl px-2.5 py-1.5 font-bold text-[#012d1d] text-xs"
+                    className="w-full bg-[#f4fbf6] border border-emerald-500 rounded-xl px-2.5 py-1.5 font-bold text-white text-xs"
                   >
                     <option value="comercial">🐮 Comercial</option>
                     <option value="puro_comercial">🐄 Puro Comercial</option>
@@ -483,7 +483,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   <select
                     value={breed}
                     onChange={(e) => setBreed(e.target.value)}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-semibold text-xs"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-semibold text-xs"
                   >
                     <option value="Brahman Blanco">Brahman Blanco</option>
                     <option value="Brahman Rojo">Brahman Rojo</option>
@@ -508,7 +508,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   <select
                     value={color}
                     onChange={(e) => setColor(e.target.value)}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-2.5 py-1.5 font-semibold text-xs"
                   >
                     <option value="Blanco / Gris">⚪ Blanco / Gris</option>
                     <option value="Rojo / Sardo">🔴 Rojo / Sardo</option>
@@ -546,7 +546,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value as LotCategory)}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-xs"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-xs"
                   >
                     <option value="cria">Cría / Levante</option>
                     <option value="ceba">Ceba Comercial</option>
@@ -556,13 +556,13 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-[#012d1d] uppercase mb-1 flex items-center gap-1">
+                  <label className="block text-[10px] font-bold text-white uppercase mb-1 flex items-center gap-1">
                     Destino Comercial *
                   </label>
                   <select
                     value={commercialDestination}
                     onChange={(e) => setCommercialDestination(e.target.value)}
-                    className="w-full bg-[#e8f5ec] border border-[#c1ecd4] text-[#012d1d] rounded-xl px-2.5 py-1.5 font-bold text-xs"
+                    className="w-full bg-[#e8f5ec] border border-[#c1ecd4] text-white rounded-xl px-2.5 py-1.5 font-bold text-xs"
                   >
                     <option value="lecheria">🥛 Lechería Especializada</option>
                     <option value="doble_proposito">🥛🥩 Doble Propósito</option>
@@ -581,7 +581,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     type="number"
                     value={weightKg}
                     onChange={(e) => setWeightKg(Number(e.target.value))}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-mono font-bold text-white"
                     required
                   />
                 </div>
@@ -594,7 +594,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     type="number"
                     value={ageMonths}
                     onChange={(e) => setAgeMonths(Number(e.target.value))}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-semibold"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-semibold"
                   />
                 </div>
               </div>
@@ -609,7 +609,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   <ShoppingBag className="w-4 h-4 text-[#1976d2]" />
                   <span>Datos de la Comercialización / Compra</span>
                 </h4>
-                <span className="text-[10px] font-bold text-[#1565c0] bg-white px-2.5 py-0.5 rounded-full border border-[#90caf9]">
+                <span className="text-[10px] font-bold text-[#1565c0] bg-[#15241C] px-2.5 py-0.5 rounded-full border border-[#90caf9]">
                   Transacción Comercial & Proveedor
                 </span>
               </div>
@@ -624,7 +624,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={supplierOrAuction}
                     onChange={(e) => setSupplierOrAuction(e.target.value)}
                     placeholder="Ej. Subastar S.A. / Ganadería El Porvenir"
-                    className="w-full bg-white border border-[#90caf9] rounded-xl px-3 py-1.5 font-bold text-[#012d1d] text-xs"
+                    className="w-full bg-[#15241C] border border-[#90caf9] rounded-xl px-3 py-1.5 font-bold text-white text-xs"
                     required
                   />
                 </div>
@@ -638,7 +638,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     type="date"
                     value={purchaseDate}
                     onChange={(e) => setPurchaseDate(e.target.value)}
-                    className="w-full bg-white border border-[#90caf9] rounded-xl px-3 py-1.5 font-bold text-xs"
+                    className="w-full bg-[#15241C] border border-[#90caf9] rounded-xl px-3 py-1.5 font-bold text-xs"
                     required
                   />
                 </div>
@@ -658,7 +658,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       const currentWeight = purchaseWeightKg || weightKg || birthWeightKg || 1;
                       if (currentWeight > 0) setPurchasePricePerKg(Math.round(tot / currentWeight));
                     }}
-                    className="w-full bg-white border border-[#90caf9] rounded-xl px-3 py-1.5 font-mono font-bold text-[#0d47a1] text-xs"
+                    className="w-full bg-[#15241C] border border-[#90caf9] rounded-xl px-3 py-1.5 font-mono font-bold text-[#0d47a1] text-xs"
                   />
                 </div>
 
@@ -675,7 +675,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       const currentWeight = purchaseWeightKg || weightKg || birthWeightKg || 1;
                       if (currentWeight > 0) setPurchasePriceTotal(Math.round(p * currentWeight));
                     }}
-                    className="w-full bg-white border border-[#90caf9] rounded-xl px-3 py-1.5 font-mono font-bold text-[#0d47a1] text-xs"
+                    className="w-full bg-[#15241C] border border-[#90caf9] rounded-xl px-3 py-1.5 font-mono font-bold text-[#0d47a1] text-xs"
                   />
                 </div>
 
@@ -693,7 +693,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       setBirthWeightKg(w);
                       if (purchasePricePerKg > 0) setPurchasePriceTotal(Math.round(purchasePricePerKg * w));
                     }}
-                    className="w-full bg-white border border-[#90caf9] rounded-xl px-3 py-1.5 font-mono font-bold text-[#012d1d] text-xs"
+                    className="w-full bg-[#15241C] border border-[#90caf9] rounded-xl px-3 py-1.5 font-mono font-bold text-white text-xs"
                   />
                 </div>
 
@@ -706,7 +706,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={invoiceOrReceipt}
                     onChange={(e) => setInvoiceOrReceipt(e.target.value)}
                     placeholder="FAC-8812 / GSMI-904"
-                    className="w-full bg-white border border-[#90caf9] rounded-xl px-3 py-1.5 font-semibold text-[#012d1d] text-xs"
+                    className="w-full bg-[#15241C] border border-[#90caf9] rounded-xl px-3 py-1.5 font-semibold text-white text-xs"
                   />
                 </div>
               </div>
@@ -724,10 +724,10 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
               )}
 
               {/* 1. IDENTIFICACIÓN Y DATOS BÁSICOS */}
-              <div className="p-4 bg-white border border-[#c1c8c2] rounded-2xl space-y-3.5 shadow-xs">
+              <div className="p-4 bg-[#15241C] border border-white/10 rounded-2xl space-y-3.5 shadow-xs">
                 <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2.5">
-                  <h4 className="font-bold text-[#012d1d] text-xs flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-[#1b4332] text-white flex items-center justify-center text-[10px] font-mono">1</span>
+                  <h4 className="font-bold text-white text-xs flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-[#123F2A] text-white flex items-center justify-center text-[10px] font-mono">1</span>
                     <Tag className="w-4 h-4 text-[#1b4332]" />
                     <span>1. Identificación y Datos Básicos</span>
                   </h4>
@@ -742,7 +742,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       <label className="block text-[10px] font-bold text-[#717973] uppercase">
                         ID / Chapeta Oficial Interna *
                       </label>
-                      <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                      <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
                         {activePolicy.isLocked && <Lock className="w-2.5 h-2.5 text-amber-700" />}
                         {activePolicy.policyType === 'SEASONAL_TRIMESTER_YEAR'
                           ? 'Estacional'
@@ -759,7 +759,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         value={tag}
                         onChange={(e) => setTag(e.target.value)}
                         placeholder="Ej. ARE-9021 / CO-089201"
-                        className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono font-bold text-[#012d1d] text-sm pr-16"
+                        className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-mono font-bold text-white text-sm pr-16"
                         required
                       />
                       <button
@@ -788,7 +788,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       value={rfidTag}
                       onChange={(e) => setRfidTag(e.target.value)}
                       placeholder="Ej. 982 000 412 884 102"
-                      className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono font-semibold text-xs text-[#012d1d]"
+                      className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-mono font-semibold text-xs text-white"
                     />
                   </div>
 
@@ -800,7 +800,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       type="date"
                       value={birthDate}
                       onChange={(e) => setBirthDate(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-[#012d1d] text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-white text-xs"
                       required={originType === 'nacido'}
                     />
                   </div>
@@ -813,7 +813,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       type="time"
                       value={birthTime}
                       onChange={(e) => setBirthTime(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-[#012d1d] text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-white text-xs"
                     />
                   </div>
 
@@ -824,7 +824,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={sex}
                       onChange={(e) => setSex(e.target.value as 'macho' | 'hembra')}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-xs"
                     >
                       <option value="hembra">Hembra ♀ (Ternera / Novilla / Vaca)</option>
                       <option value="macho">Macho ♂ (Ternero / Novillo / Toro)</option>
@@ -840,7 +840,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ej. Estrella Naciente"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-semibold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-semibold text-xs text-white"
                     />
                   </div>
                 </div>
@@ -853,7 +853,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={breed}
                       onChange={(e) => setBreed(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-semibold text-xs"
                     >
                       <option value="Brahman Blanco">Brahman Blanco</option>
                       <option value="Brahman Rojo">Brahman Rojo</option>
@@ -878,7 +878,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={purityPct}
                       onChange={(e) => setPurityPct(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-semibold text-xs"
                     >
                       <option value="100% Puro (Registro)">100% Puro (Registro)</option>
                       <option value="Puro Comercial">Puro Comercial</option>
@@ -896,7 +896,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={color}
                       onChange={(e) => setColor(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-semibold text-xs"
                     >
                       <option value="Blanco / Gris">⚪ Blanco / Gris</option>
                       <option value="Rojo / Sardo">🔴 Rojo / Sardo</option>
@@ -930,10 +930,10 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
               </div>
 
               {/* 2. DATOS DEL PARTO Y TERNERO */}
-              <div className="p-4 bg-white border border-[#c1c8c2] rounded-2xl space-y-3.5 shadow-xs">
+              <div className="p-4 bg-[#15241C] border border-white/10 rounded-2xl space-y-3.5 shadow-xs">
                 <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2.5">
-                  <h4 className="font-bold text-[#012d1d] text-xs flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-[#1b4332] text-white flex items-center justify-center text-[10px] font-mono">2</span>
+                  <h4 className="font-bold text-white text-xs flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-[#123F2A] text-white flex items-center justify-center text-[10px] font-mono">2</span>
                     <Baby className="w-4 h-4 text-[#1b4332]" />
                     <span>2. Datos del Parto y Ternero</span>
                   </h4>
@@ -959,7 +959,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         }
                       }}
                       placeholder="35"
-                      className="w-full bg-white border border-[#a5d6a7] rounded-xl px-3 py-1.5 font-mono font-black text-[#1b5e20] text-sm"
+                      className="w-full bg-[#15241C] border border-[#a5d6a7] rounded-xl px-3 py-1.5 font-mono font-black text-[#1b5e20] text-sm"
                       required={originType === 'nacido'}
                     />
                     <span className="text-[9.5px] text-[#717973] mt-1 block">Rango típico bovino: 28 - 45 kg</span>
@@ -972,7 +972,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={deliveryType}
                       onChange={(e) => setDeliveryType(e.target.value as BirthDeliveryType)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-xs text-white"
                     >
                       <option value="eutocico">🟢 Eutócico (Normal / Sin Asistencia)</option>
                       <option value="asistido">🟡 Asistido / Distócico (Tracción manual)</option>
@@ -988,7 +988,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={calvingCondition}
                       onChange={(e) => setCalvingCondition(e.target.value as CalvingCondition)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-xs text-white"
                     >
                       <option value="simple">Cría Simple (1 Ternero)</option>
                       <option value="multiple">Cría Múltiple (Mellizos / Gemelos)</option>
@@ -999,7 +999,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                 {/* VIGOR SCORE (1-5) */}
                 <div className="bg-[#fcfdfc] p-3 rounded-xl border border-[#e0e0e0] space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-[10.5px] font-bold text-[#012d1d] uppercase flex items-center gap-1.5">
+                    <label className="text-[10.5px] font-bold text-white uppercase flex items-center gap-1.5">
                       <Zap className="w-3.5 h-3.5 text-amber-500" />
                       <span>Vigor / Nivel de Vitalidad (Escala 1 a 5) *</span>
                     </label>
@@ -1022,8 +1022,8 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         onClick={() => setVigorScore(score)}
                         className={`py-2 px-1 rounded-xl font-bold text-xs flex flex-col items-center gap-0.5 transition-all cursor-pointer border ${
                           vigorScore === score
-                            ? 'bg-[#1b4332] text-white border-[#1b4332] shadow-sm scale-[1.02]'
-                            : 'bg-white text-[#717973] border-[#c1c8c2] hover:bg-[#f0f4f1]'
+                            ? 'bg-[#123F2A] text-white border-[#1b4332] shadow-sm scale-[1.02]'
+                            : 'bg-[#15241C] text-[#717973] border-white/10 hover:bg-[#123F2A]/60'
                         }`}
                       >
                         <span className="text-sm">{score === 5 ? '⭐⭐⭐⭐⭐' : score === 4 ? '⭐⭐⭐⭐' : score === 3 ? '⭐⭐⭐' : score === 2 ? '⭐⭐' : '⭐'}</span>
@@ -1035,10 +1035,10 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
               </div>
 
               {/* 3. GENEALOGÍA */}
-              <div className="p-4 bg-white border border-[#c1c8c2] rounded-2xl space-y-3.5 shadow-xs">
+              <div className="p-4 bg-[#15241C] border border-white/10 rounded-2xl space-y-3.5 shadow-xs">
                 <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2.5">
-                  <h4 className="font-bold text-[#012d1d] text-xs flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-[#1b4332] text-white flex items-center justify-center text-[10px] font-mono">3</span>
+                  <h4 className="font-bold text-white text-xs flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-[#123F2A] text-white flex items-center justify-center text-[10px] font-mono">3</span>
                     <Dna className="w-4 h-4 text-[#1b4332]" />
                     <span>3. Genealogía</span>
                   </h4>
@@ -1051,12 +1051,12 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   {/* MADRE BIOLÓGICA */}
                   <div className="bg-[#f9fbf9] p-3 rounded-xl border-2 border-emerald-600/70 space-y-2">
                     <div className="flex items-center justify-between">
-                      <label className="block text-[10.5px] font-black text-[#012d1d] uppercase flex items-center gap-1">
+                      <label className="block text-[10.5px] font-black text-white uppercase flex items-center gap-1">
                         <Dna className="w-3.5 h-3.5 text-emerald-700" />
                         <span>ID Madre Biológica (Chapeta) {originType === 'nacido' ? '*' : '(Opcional si es compra)'}</span>
                       </label>
                       {originType !== 'nacido' && (
-                        <span className="text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider bg-slate-200 text-slate-700">
+                        <span className="text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider bg-[#202E25] text-white">
                           Opcional
                         </span>
                       )}
@@ -1068,7 +1068,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         setDamTag(e.target.value);
                         setBirthError(null);
                       }}
-                      className="w-full bg-white border border-emerald-500 rounded-xl px-3 py-2 font-bold text-[#012d1d] text-xs"
+                      className="w-full bg-[#15241C] border border-emerald-500 rounded-xl px-3 py-2 font-bold text-white text-xs"
                     >
                       <option value="">-- Seleccionar Madre del Hato --</option>
                       {systemCows.length > 0 && (
@@ -1101,20 +1101,20 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                           setBirthError(null);
                         }}
                         placeholder="Ej. Vaca 402 - La Reina"
-                        className="w-full bg-white border border-[#a5d6a7] rounded-xl px-3 py-1.5 font-bold text-[#012d1d] text-xs"
+                        className="w-full bg-[#15241C] border border-[#a5d6a7] rounded-xl px-3 py-1.5 font-bold text-white text-xs"
                         required={originType === 'nacido'}
                       />
                     </div>
                   </div>
 
                   {/* PADRE */}
-                  <div className="bg-[#f9fbf9] p-3 rounded-xl border border-[#c1c8c2] space-y-2">
+                  <div className="bg-[#f9fbf9] p-3 rounded-xl border border-white/10 space-y-2">
                     <div className="flex items-center justify-between">
-                      <label className="block text-[10.5px] font-black text-[#012d1d] uppercase flex items-center gap-1">
+                      <label className="block text-[10.5px] font-black text-white uppercase flex items-center gap-1">
                         <Award className="w-3.5 h-3.5 text-amber-600" />
                         <span>ID Padre (Toro de Monta / Pajilla IA)</span>
                       </label>
-                      <span className="text-[9px] bg-slate-200 text-slate-700 font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      <span className="text-[9px] bg-[#202E25] text-white font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
                         Opcional
                       </span>
                     </div>
@@ -1122,7 +1122,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={sireTagOrBull}
                       onChange={(e) => setSireTagOrBull(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d] text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-bold text-white text-xs"
                     >
                       <option value="Sin padre registrado (Desconocido)">
                         ❓ Sin padre registrado (Desconocido / Sin trazabilidad)
@@ -1154,7 +1154,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         value={sireTagOrBull}
                         onChange={(e) => setSireTagOrBull(e.target.value)}
                         placeholder="Ej. Toro Don Pedro (B-12) / Pajilla JDH 45/9"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-[#012d1d] text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-white text-xs"
                       />
                     </div>
                   </div>
@@ -1168,7 +1168,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={conceptionMethod}
                       onChange={(e) => setConceptionMethod(e.target.value as ConceptionMethod)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-xs text-white"
                     >
                       <option value="monta_natural">🌱 Monta Natural a Campo</option>
                       <option value="ia">🧪 Inseminación Artificial (IA Convencional)</option>
@@ -1200,7 +1200,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         value={surrogateDamTag}
                         onChange={(e) => setSurrogateDamTag(e.target.value)}
                         placeholder="No aplica (Solo si es TE)"
-                        className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-normal text-xs text-[#717973]"
+                        className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-normal text-xs text-[#717973]"
                       />
                     </div>
                   )}
@@ -1208,10 +1208,10 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
               </div>
 
               {/* 4. MANEJO INICIAL Y UBICACIÓN */}
-              <div className="p-4 bg-white border border-[#c1c8c2] rounded-2xl space-y-3.5 shadow-xs">
+              <div className="p-4 bg-[#15241C] border border-white/10 rounded-2xl space-y-3.5 shadow-xs">
                 <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2.5">
-                  <h4 className="font-bold text-[#012d1d] text-xs flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-[#1b4332] text-white flex items-center justify-center text-[10px] font-mono">4</span>
+                  <h4 className="font-bold text-white text-xs flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-[#123F2A] text-white flex items-center justify-center text-[10px] font-mono">4</span>
                     <Stethoscope className="w-4 h-4 text-[#1b4332]" />
                     <span>4. Manejo Inicial y Ubicación</span>
                   </h4>
@@ -1222,8 +1222,8 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* CALOSTRO */}
-                  <div className="p-3 bg-[#fcfdfc] border border-[#c1c8c2] rounded-xl space-y-2">
-                    <label className="block text-[10.5px] font-bold text-[#012d1d] uppercase flex items-center justify-between">
+                  <div className="p-3 bg-[#fcfdfc] border border-white/10 rounded-xl space-y-2">
+                    <label className="block text-[10.5px] font-bold text-white uppercase flex items-center justify-between">
                       <span>🍼 Suministro de Calostro *</span>
                       <span className={`text-[9.5px] font-bold px-2 py-0.5 rounded-full ${colostrumFed ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`}>
                         {colostrumFed ? 'Suministrado' : 'Pendiente / No'}
@@ -1235,7 +1235,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         type="button"
                         onClick={() => setColostrumFed(true)}
                         className={`py-1.5 rounded-xl font-bold text-xs transition-all cursor-pointer border ${
-                          colostrumFed ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-[#717973] border-[#c1c8c2]'
+                          colostrumFed ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-[#15241C] text-[#717973] border-white/10'
                         }`}
                       >
                         ✓ Sí Suministrado
@@ -1244,7 +1244,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         type="button"
                         onClick={() => setColostrumFed(false)}
                         className={`py-1.5 rounded-xl font-bold text-xs transition-all cursor-pointer border ${
-                          !colostrumFed ? 'bg-red-600 text-white border-red-600' : 'bg-white text-[#717973] border-[#c1c8c2]'
+                          !colostrumFed ? 'bg-red-600 text-white border-red-600' : 'bg-[#15241C] text-[#717973] border-white/10'
                         }`}
                       >
                         ✕ No Suministrado
@@ -1259,7 +1259,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         <select
                           value={colostrumHoursPostCalving}
                           onChange={(e) => setColostrumHoursPostCalving(Number(e.target.value))}
-                          className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1 font-bold text-xs text-[#012d1d]"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1 font-bold text-xs text-white"
                         >
                           <option value={1}>⏱️ Dentro de la 1ra hora (Excelente absorción)</option>
                           <option value={2}>⏱️ Entre 1 y 2 horas (Óptimo)</option>
@@ -1272,8 +1272,8 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   </div>
 
                   {/* CURACIÓN OMBLIGO */}
-                  <div className="p-3 bg-[#fcfdfc] border border-[#c1c8c2] rounded-xl space-y-2">
-                    <label className="block text-[10.5px] font-bold text-[#012d1d] uppercase flex items-center justify-between">
+                  <div className="p-3 bg-[#fcfdfc] border border-white/10 rounded-xl space-y-2">
+                    <label className="block text-[10.5px] font-bold text-white uppercase flex items-center justify-between">
                       <span>🩺 Curación de Ombligo *</span>
                       <span className={`text-[9.5px] font-bold px-2 py-0.5 rounded-full ${navelDisinfected ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`}>
                         {navelDisinfected ? 'Desinfectado' : 'Sin Curación'}
@@ -1285,7 +1285,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         type="button"
                         onClick={() => setNavelDisinfected(true)}
                         className={`py-1.5 rounded-xl font-bold text-xs transition-all cursor-pointer border ${
-                          navelDisinfected ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-[#717973] border-[#c1c8c2]'
+                          navelDisinfected ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-[#15241C] text-[#717973] border-white/10'
                         }`}
                       >
                         ✓ Sí Realizada (Yodo 7%)
@@ -1294,7 +1294,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         type="button"
                         onClick={() => setNavelDisinfected(false)}
                         className={`py-1.5 rounded-xl font-bold text-xs transition-all cursor-pointer border ${
-                          !navelDisinfected ? 'bg-red-600 text-white border-red-600' : 'bg-white text-[#717973] border-[#c1c8c2]'
+                          !navelDisinfected ? 'bg-red-600 text-white border-red-600' : 'bg-[#15241C] text-[#717973] border-white/10'
                         }`}
                       >
                         ✕ No Realizada
@@ -1310,7 +1310,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         value={initialTreatments}
                         onChange={(e) => setInitialTreatments(e.target.value)}
                         placeholder="Ej. Hierro dextrano 2ml + Vitamina ADE + Selenio"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1 text-xs font-semibold"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1 text-xs font-semibold"
                       />
                     </div>
                   </div>
@@ -1328,7 +1328,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         setOriginFarmId(e.target.value);
                         setBirthError(null);
                       }}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-[#012d1d] text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-white text-xs"
                     >
                       {farms.map((f) => (
                         <option key={f.profile.id} value={f.profile.id}>
@@ -1344,7 +1344,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                         value={customOriginFarmName}
                         onChange={(e) => setCustomOriginFarmName(e.target.value)}
                         placeholder="Nombre del predio externo..."
-                        className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1 text-xs font-semibold mt-1"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1 text-xs font-semibold mt-1"
                       />
                     )}
                   </div>
@@ -1356,7 +1356,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     <select
                       value={maternityPaddockId}
                       onChange={(e) => setMaternityPaddockId(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-xs text-white"
                     >
                       <option value="">-- Asignar Potrero de Maternidad / Recepción --</option>
                       {(farms.find((f) => f.profile.id === (originFarmId === 'custom' ? selectedFarmId : originFarmId))?.paddocks || []).map((p) => (
@@ -1376,7 +1376,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       value={operatorResponsible}
                       onChange={(e) => setOperatorResponsible(e.target.value)}
                       placeholder="Ej. Carlos Mendoza (Mayordomo)"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-xs text-white"
                     />
                   </div>
                 </div>
@@ -1391,7 +1391,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       value={earTagInitial}
                       onChange={(e) => setEarTagInitial(e.target.value)}
                       placeholder="Ej. CHP-ORE-308"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-mono font-bold text-xs text-white"
                     />
                   </div>
 
@@ -1404,7 +1404,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       value={tattooNumber}
                       onChange={(e) => setTattooNumber(e.target.value)}
                       placeholder="Ej. TAT-308 (Oreja izquierda)"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-mono text-xs"
                     />
                   </div>
                 </div>
@@ -1428,7 +1428,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={supplierOrAuction}
                     onChange={(e) => setSupplierOrAuction(e.target.value)}
                     placeholder="Ej. Subastar S.A. / Ganadería El Porvenir"
-                    className="w-full bg-white border border-[#81d4fa] rounded-xl px-3 py-1.5 font-semibold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#81d4fa] rounded-xl px-3 py-1.5 font-semibold text-white"
                   />
                 </div>
 
@@ -1440,7 +1440,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     type="date"
                     value={purchaseDate}
                     onChange={(e) => setPurchaseDate(e.target.value)}
-                    className="w-full bg-white border border-[#81d4fa] rounded-xl px-3 py-1.5 font-bold"
+                    className="w-full bg-[#15241C] border border-[#81d4fa] rounded-xl px-3 py-1.5 font-bold"
                   />
                 </div>
               </div>
@@ -1458,7 +1458,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       setPurchasePriceTotal(tot);
                       if (weightKg > 0) setPurchasePricePerKg(Math.round(tot / weightKg));
                     }}
-                    className="w-full bg-white border border-[#81d4fa] rounded-xl px-3 py-1.5 font-mono font-bold text-[#01579b]"
+                    className="w-full bg-[#15241C] border border-[#81d4fa] rounded-xl px-3 py-1.5 font-mono font-bold text-[#01579b]"
                   />
                 </div>
 
@@ -1474,7 +1474,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       setPurchasePricePerKg(p);
                       if (weightKg > 0) setPurchasePriceTotal(p * weightKg);
                     }}
-                    className="w-full bg-white border border-[#81d4fa] rounded-xl px-3 py-1.5 font-mono font-bold text-[#01579b]"
+                    className="w-full bg-[#15241C] border border-[#81d4fa] rounded-xl px-3 py-1.5 font-mono font-bold text-[#01579b]"
                   />
                 </div>
 
@@ -1487,7 +1487,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={invoiceOrReceipt}
                     onChange={(e) => setInvoiceOrReceipt(e.target.value)}
                     placeholder="FAC-8812"
-                    className="w-full bg-white border border-[#81d4fa] rounded-xl px-3 py-1.5 font-semibold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#81d4fa] rounded-xl px-3 py-1.5 font-semibold text-white"
                   />
                 </div>
               </div>
@@ -1510,7 +1510,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={association}
                     onChange={(e) => setAssociation(e.target.value)}
                     placeholder="Ej. Asocebú / ASOHOLSTEIN"
-                    className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1.5 font-semibold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1.5 font-semibold text-white"
                   />
                 </div>
 
@@ -1523,7 +1523,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                     value={registrationNumber}
                     onChange={(e) => setRegistrationNumber(e.target.value)}
                     placeholder="REG-2026-001"
-                    className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1.5 font-mono font-bold text-[#4a148c]"
+                    className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1.5 font-mono font-bold text-[#4a148c]"
                     required
                   />
                 </div>
@@ -1538,7 +1538,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                   value={registeredName}
                   onChange={(e) => setRegisteredName(e.target.value)}
                   placeholder="Ej. Don Gabriel F.R. 882/11"
-                  className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1.5 font-bold text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1.5 font-bold text-white"
                 />
               </div>
 
@@ -1553,14 +1553,14 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       value={sireName}
                       onChange={(e) => setSireName(e.target.value)}
                       placeholder="Nombre del Padre"
-                      className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1 font-medium text-xs"
+                      className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1 font-medium text-xs"
                     />
                     <input
                       type="text"
                       value={sireReg}
                       onChange={(e) => setSireReg(e.target.value)}
                       placeholder="Reg Padre (ej. US-8812)"
-                      className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1 font-mono text-[11px]"
+                      className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1 font-mono text-[11px]"
                     />
                   </div>
                 </div>
@@ -1575,14 +1575,14 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
                       value={damName}
                       onChange={(e) => setDamName(e.target.value)}
                       placeholder="Nombre de la Madre"
-                      className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1 font-medium text-xs"
+                      className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1 font-medium text-xs"
                     />
                     <input
                       type="text"
                       value={damReg}
                       onChange={(e) => setDamReg(e.target.value)}
                       placeholder="Reg Madre (ej. COL-4011)"
-                      className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1 font-mono text-[11px]"
+                      className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1 font-mono text-[11px]"
                     />
                   </div>
                 </div>
@@ -1600,7 +1600,7 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Observaciones de ingreso, estado sanitario, hierro o marcas de la finca..."
-              className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl p-2.5 text-xs text-[#012d1d]"
+              className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl p-2.5 text-xs text-white"
             />
           </div>
 
@@ -1609,15 +1609,15 @@ export const RegisterNewAnimalModal: React.FC<RegisterNewAnimalModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl border border-[#c1c8c2] text-[#414844] font-bold text-xs hover:bg-[#f0f0f0] transition-colors"
+              className="px-4 py-2.5 rounded-xl border border-white/10 text-[#414844] font-bold text-xs hover:bg-[#f0f0f0] transition-colors"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-6 py-2.5 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
             >
-              <CheckCircle2 className="w-4 h-4 text-[#c1ecd4]" />
+              <CheckCircle2 className="w-4 h-4 text-[#A5B8AC]" />
               Guardar Ingreso a Inventario
             </button>
           </div>

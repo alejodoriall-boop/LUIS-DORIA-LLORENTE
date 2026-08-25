@@ -104,11 +104,11 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow max-w-2xl w-full overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
+      <div className="bg-[#15241C] rounded-3xl border border-white/10 card-shadow max-w-2xl w-full overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="bg-[#1b4332] text-white p-5 flex items-center justify-between shrink-0">
+        <div className="bg-[#123F2A] text-white p-5 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#012d1d] border border-[#2d6a4f] flex items-center justify-center text-[#ffba38]">
+            <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] border border-[#2d6a4f] flex items-center justify-center text-[#ffba38]">
               {paddock ? <Edit3 className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
             </div>
             <div>
@@ -129,8 +129,8 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
         {/* Scrollable Form Body */}
         <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#f9f9f9]">
           {/* General Identification */}
-          <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-4">
-            <h4 className="font-bold text-xs text-[#012d1d] uppercase tracking-wider">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 card-shadow space-y-4">
+            <h4 className="font-bold text-xs text-white uppercase tracking-wider">
               1. Identificación & Superficie
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -143,7 +143,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   required
                   value={formData.code ?? ''}
                   onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 />
               </div>
 
@@ -156,7 +156,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   required
                   value={formData.name ?? ''}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 />
               </div>
             </div>
@@ -179,7 +179,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       areaM2: ha * 10000,
                     });
                   }}
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
@@ -193,7 +193,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, perimeterM: parseInt(e.target.value) || 0 })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
@@ -206,7 +206,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, fenceType: e.target.value as any })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   <option value="electrica">Cerca Eléctrica</option>
                   <option value="puas">Alambre de Púas</option>
@@ -223,15 +223,15 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   type="color"
                   value={formData.color ?? '#22c55e'}
                   onChange={(e) => setFormData({ ...formData, color: e.target.value })}
-                  className="w-full h-9 bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl p-1 cursor-pointer"
+                  className="w-full h-9 bg-[#f3f3f3] border border-white/10 rounded-xl p-1 cursor-pointer"
                 />
               </div>
             </div>
           </div>
 
           {/* Pasture & Forage Yield */}
-          <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-4">
-            <h4 className="font-bold text-xs text-[#012d1d] uppercase tracking-wider flex items-center gap-1.5">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 card-shadow space-y-4">
+            <h4 className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <span>🌾</span> 2. Pastura & Aforo Inicial
             </h4>
 
@@ -243,7 +243,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                 <select
                   value={formData.pastureType ?? PASTURE_SPECIES[0]}
                   onChange={(e) => setFormData({ ...formData, pastureType: e.target.value })}
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   {PASTURE_SPECIES.map((sp) => (
                     <option key={sp} value={sp}>
@@ -262,7 +262,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, pastureCondition: e.target.value as any })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   <option value="excelente">Excelente (Denso, sin malezas)</option>
                   <option value="bueno">Bueno</option>
@@ -287,7 +287,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       forageYieldKgM2: parseFloat(e.target.value) || 0,
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
@@ -304,7 +304,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       occupancyDaysTarget: parseInt(e.target.value) || 1,
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
@@ -321,15 +321,15 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       restDaysTarget: parseInt(e.target.value) || 30,
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
             </div>
           </div>
 
           {/* Topography & Soil Survey */}
-          <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-4">
-            <h4 className="font-bold text-xs text-[#012d1d] uppercase tracking-wider flex items-center gap-1.5">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 card-shadow space-y-4">
+            <h4 className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <Mountain className="w-4 h-4 text-amber-600" />
               3. Topografía & Suelo
             </h4>
@@ -344,7 +344,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, topography: e.target.value as any })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   <option value="plana">Plana (0 - 3%)</option>
                   <option value="ondulada">Ondulada (4 - 12%)</option>
@@ -366,7 +366,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       elevationMsnm: parseInt(e.target.value) || 100,
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
@@ -383,7 +383,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       isFloodProne: e.target.value !== 'ninguno',
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   <option value="ninguno">No Inundable</option>
                   <option value="bajo">Riesgo Bajo</option>
@@ -417,7 +417,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       },
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   {SOIL_TYPES.map((st) => (
                     <option key={st} value={st}>
@@ -452,7 +452,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       },
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
@@ -481,15 +481,15 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       },
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
             </div>
           </div>
 
           {/* Water Infrastructure */}
-          <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-4">
-            <h4 className="font-bold text-xs text-[#012d1d] uppercase tracking-wider flex items-center gap-1.5">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 card-shadow space-y-4">
+            <h4 className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <Droplets className="w-4 h-4 text-blue-600" />
               4. Acueducto & Bebederos
             </h4>
@@ -503,7 +503,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, waterSource: e.target.value as any })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   <option value="bebedero_gravedad">Bebedero por Gravedad</option>
                   <option value="bebedero_bomba">Bebedero por Bombeo Solar</option>
@@ -525,7 +525,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       troughCapacityLiters: parseInt(e.target.value) || 2000,
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
@@ -542,7 +542,7 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
                       waterTroughDistanceM: parseInt(e.target.value) || 80,
                     })
                   }
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
             </div>
@@ -550,18 +550,18 @@ export const PaddockEditorModal: React.FC<PaddockEditorModalProps> = ({
         </form>
 
         {/* Footer */}
-        <div className="bg-[#eeeeee] p-4 border-t border-[#c1c8c2] flex items-center justify-between shrink-0">
+        <div className="bg-[#eeeeee] p-4 border-t border-white/10 flex items-center justify-between shrink-0">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2.5 rounded-xl border border-[#c1c8c2] text-xs font-bold text-[#414844] hover:bg-white transition-colors"
+            className="px-4 py-2.5 rounded-xl border border-white/10 text-xs font-bold text-[#414844] hover:bg-[#15241C] transition-colors"
           >
             Cancelar
           </button>
 
           <button
             onClick={handleSubmit}
-            className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-bold text-xs md:text-sm px-6 py-2.5 rounded-xl tactical-shadow transition-all flex items-center gap-2"
+            className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-bold text-xs md:text-sm px-6 py-2.5 rounded-xl tactical-shadow transition-all flex items-center gap-2"
           >
             <Save className="w-4 h-4" />
             {paddock ? 'Guardar Cambios' : 'Crear Potrero'}

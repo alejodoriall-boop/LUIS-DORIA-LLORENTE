@@ -93,16 +93,16 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200 my-auto">
+      <div className="bg-[#15241C] rounded-3xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-200 my-auto">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white p-4 sm:p-5 flex items-center justify-between">
+        <div className="bg-[#0D1A13] text-white p-4 sm:p-5 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-[#ffba38] text-[#012d1d] rounded-2xl">
+            <div className="p-2 bg-[#D4A94E] text-white rounded-2xl">
               <Plus className="w-5 h-5 stroke-[2.5]" />
             </div>
             <div>
               <h2 className="text-base sm:text-lg font-black tracking-tight">Nueva Categoría de Almacén</h2>
-              <p className="text-xs text-[#c1ecd4]/80 font-medium">
+              <p className="text-xs text-[#A5B8AC]/80 font-medium">
                 Organiza insumos, herramientas y repuestos de tu finca
               </p>
             </div>
@@ -125,7 +125,7 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
 
           {/* Category Name */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+            <label className="block text-xs font-bold text-white uppercase mb-1">
               Nombre de la Categoría:
             </label>
             <input
@@ -136,7 +136,7 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
                 if (errorMsg) setErrorMsg('');
               }}
               placeholder="Ej. Combustibles & Lubricantes, Maquinaria, Repuestos..."
-              className="w-full p-2.5 bg-[#f8fbf9] border-2 border-[#c1c8c2] rounded-2xl text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+              className="w-full p-2.5 bg-[#15241C] border-2 border-white/10 rounded-2xl text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
               required
             />
           </div>
@@ -151,13 +151,13 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Ej. Gasolina, ACPM, aceites 15W40, grasa para chasis..."
-              className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-medium text-[#1a1c1c] focus:outline-none focus:border-[#012d1d]"
+              className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-medium text-white focus:outline-none focus:border-[#012d1d]"
             />
           </div>
 
           {/* Icon Selector */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1.5">
+            <label className="block text-xs font-bold text-white uppercase mb-1.5">
               Icono Representativo:
             </label>
             <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
@@ -171,8 +171,8 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
                     title={iconLabel}
                     className={`p-2.5 rounded-2xl border flex flex-col items-center justify-center gap-1 transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-[#012d1d] text-[#ffba38] border-[#012d1d] shadow-sm scale-105'
-                        : 'bg-[#f8fbf9] text-[#414844] border-[#c1c8c2] hover:bg-[#e8f3ed]'
+                        ? 'bg-[#0D1A13] text-[#ffba38] border-[#012d1d] shadow-sm scale-105'
+                        : 'bg-[#15241C] text-[#414844] border-white/10 hover:bg-[#e8f3ed]'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -184,7 +184,7 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
 
           {/* Color Selector */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1.5">
+            <label className="block text-xs font-bold text-white uppercase mb-1.5">
               Color de Identificación:
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -198,7 +198,7 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
                     className={`p-2 rounded-xl border text-left flex items-center gap-2 transition-all cursor-pointer ${
                       isSelected
                         ? 'border-[#012d1d] ring-2 ring-[#012d1d]/30 font-bold'
-                        : 'border-[#c1c8c2] hover:border-[#2d6a4f]'
+                        : 'border-white/10 hover:border-[#2d6a4f]'
                     }`}
                     style={{ backgroundColor: preset.badgeBg }}
                   >
@@ -218,7 +218,7 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
           </div>
 
           {/* Live Preview */}
-          <div className="bg-[#f8fbf9] p-3.5 rounded-2xl border border-[#c1c8c2] space-y-1.5">
+          <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 space-y-1.5">
             <span className="text-[10px] font-extrabold uppercase text-[#717973]">
               Vista Previa de la Etiqueta:
             </span>
@@ -242,13 +242,13 @@ export const CreateCategoryModal: React.FC<CreateCategoryModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-2.5 px-4 bg-white hover:bg-[#f0f0f0] text-[#414844] font-bold text-xs rounded-xl border border-[#c1c8c2] transition-all cursor-pointer"
+              className="flex-1 py-2.5 px-4 bg-[#15241C] hover:bg-[#f0f0f0] text-[#414844] font-bold text-xs rounded-xl border border-white/10 transition-all cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex-1 py-2.5 px-4 bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+              className="flex-1 py-2.5 px-4 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
             >
               <Plus className="w-4 h-4 text-[#ffba38]" />
               <span>Guardar Categoría</span>

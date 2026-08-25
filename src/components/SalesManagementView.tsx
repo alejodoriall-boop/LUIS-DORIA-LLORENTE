@@ -255,9 +255,9 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
         {/* Total Ingreso Neto */}
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
           <div className="flex items-center justify-between gap-1.5 min-w-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase truncate" title="Ingreso Neto Venta">
+            <span className="text-[10px] font-bold text-[#A5B8AC] uppercase truncate" title="Ingreso Neto Venta">
               Ingreso Neto
             </span>
             <div className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
@@ -270,33 +270,33 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           >
             {formatCOP(metrics.totalNetIncome)}
           </span>
-          <span className="text-[10px] text-slate-500 truncate block" title={`Bruto: ${formatCOP(metrics.totalGrossIncome)}`}>
+          <span className="text-[10px] text-[#A5B8AC] truncate block" title={`Bruto: ${formatCOP(metrics.totalGrossIncome)}`}>
             Bruto: {formatCOP(metrics.totalGrossIncome)}
           </span>
         </div>
 
         {/* Total Cabezas */}
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
           <div className="flex items-center justify-between gap-1.5 min-w-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase truncate" title="Cabezas Despachadas">
+            <span className="text-[10px] font-bold text-[#A5B8AC] uppercase truncate" title="Cabezas Despachadas">
               Cabezas Salida
             </span>
             <div className="w-6 h-6 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
               <Truck className="w-3.5 h-3.5" />
             </div>
           </div>
-          <span className="text-sm sm:text-base font-black font-mono text-slate-900 block truncate tracking-tight">
+          <span className="text-sm sm:text-base font-black font-mono text-white block truncate tracking-tight">
             {metrics.totalHeads} Cab.
           </span>
-          <span className="text-[10px] text-slate-500 truncate block" title={`En ${metrics.salesCount} despachos registrados`}>
+          <span className="text-[10px] text-[#A5B8AC] truncate block" title={`En ${metrics.salesCount} despachos registrados`}>
             {metrics.salesCount} despachos
           </span>
         </div>
 
         {/* Rentabilidad Neta Real */}
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
           <div className="flex items-center justify-between gap-1.5 min-w-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase truncate" title="Rentabilidad Neta Real">
+            <span className="text-[10px] font-bold text-[#A5B8AC] uppercase truncate" title="Rentabilidad Neta Real">
               Rent. Neta Real
             </span>
             <div className="w-6 h-6 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
@@ -315,9 +315,9 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
         </div>
 
         {/* Ganancia Diaria GDP */}
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
           <div className="flex items-center justify-between gap-1.5 min-w-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase truncate" title="GDP Promedio de Salida">
+            <span className="text-[10px] font-bold text-[#A5B8AC] uppercase truncate" title="GDP Promedio de Salida">
               GDP Promedio
             </span>
             <div className="w-6 h-6 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
@@ -327,15 +327,15 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           <span className="text-sm sm:text-base font-black font-mono text-amber-950 block truncate tracking-tight">
             {metrics.avgGDP} g/día
           </span>
-          <span className="text-[10px] text-slate-500 truncate block" title={`DEF Promedio: ${metrics.avgDEF} días`}>
+          <span className="text-[10px] text-[#A5B8AC] truncate block" title={`DEF Promedio: ${metrics.avgDEF} días`}>
             DEF: {metrics.avgDEF} días
           </span>
         </div>
 
         {/* Biomasa Neta */}
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
           <div className="flex items-center justify-between gap-1.5 min-w-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase truncate" title="Biomasa Neta Liquidada">
+            <span className="text-[10px] font-bold text-[#A5B8AC] uppercase truncate" title="Biomasa Neta Liquidada">
               Biomasa Neta
             </span>
             <div className="w-6 h-6 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
@@ -345,15 +345,15 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           <span className="text-sm sm:text-base font-black font-mono text-teal-950 block truncate tracking-tight">
             {(metrics.totalNetBiomassKg / 1000).toFixed(1)} Ton
           </span>
-          <span className="text-[10px] text-slate-500 truncate block" title={`${metrics.totalNetBiomassKg.toLocaleString('es-CO')} kg`}>
+          <span className="text-[10px] text-[#A5B8AC] truncate block" title={`${metrics.totalNetBiomassKg.toLocaleString('es-CO')} kg`}>
             {metrics.totalNetBiomassKg.toLocaleString('es-CO')} kg
           </span>
         </div>
 
         {/* UGG Liberadas */}
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden space-y-1">
           <div className="flex items-center justify-between gap-1.5 min-w-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase truncate" title="Carga UGG Liberada">
+            <span className="text-[10px] font-bold text-[#A5B8AC] uppercase truncate" title="Carga UGG Liberada">
               Carga Liberada
             </span>
             <div className="w-6 h-6 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
@@ -363,20 +363,20 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           <span className="text-sm sm:text-base font-black font-mono text-sky-950 block truncate tracking-tight">
             {metrics.totalUggFreed.toFixed(1)} UGG
           </span>
-          <span className="text-[10px] text-slate-500 truncate block" title="Cupo de forraje renovado">
+          <span className="text-[10px] text-[#A5B8AC] truncate block" title="Cupo de forraje renovado">
             Forraje liberado
           </span>
         </div>
       </div>
 
       {/* Main Tabs Navigation */}
-      <div className="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto">
+      <div className="flex items-center gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         <button
           onClick={() => setActiveTab('despachos')}
           className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
             activeTab === 'despachos'
               ? 'bg-emerald-800 text-white shadow-xs'
-              : 'text-slate-600 hover:bg-slate-100'
+              : 'text-[#A5B8AC] hover:bg-[#1F3327]'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -388,7 +388,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
             activeTab === 'libro_salidas'
               ? 'bg-emerald-800 text-white shadow-xs'
-              : 'text-slate-600 hover:bg-slate-100'
+              : 'text-[#A5B8AC] hover:bg-[#1F3327]'
           }`}
         >
           <FileText className="w-4 h-4" />
@@ -400,7 +400,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
             activeTab === 'analisis_economico'
               ? 'bg-emerald-800 text-white shadow-xs'
-              : 'text-slate-600 hover:bg-slate-100'
+              : 'text-[#A5B8AC] hover:bg-[#1F3327]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -412,7 +412,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
             activeTab === 'simulador_venta'
               ? 'bg-emerald-800 text-white shadow-xs'
-              : 'text-slate-600 hover:bg-slate-100'
+              : 'text-[#A5B8AC] hover:bg-[#1F3327]'
           }`}
         >
           <Calculator className="w-4 h-4 text-amber-400" />
@@ -421,16 +421,16 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="bg-[#0D1A13] p-3.5 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2 w-full sm:w-auto flex-1">
           <div className="relative flex-1 max-w-md">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-[#A5B8AC] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar por Guía ICA, Comprador, Factura o Lote..."
-              className="w-full pl-9 pr-3 py-1.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
+              className="w-full pl-9 pr-3 py-1.5 bg-[#15241C] border border-white/10 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
             />
           </div>
         </div>
@@ -440,7 +440,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           <select
             value={selectedFarmFilter}
             onChange={(e) => setSelectedFarmFilter(e.target.value)}
-            className="bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-700"
+            className="bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-white"
           >
             <option value="all">Todas las Fincas</option>
             {farms.map((f) => (
@@ -454,7 +454,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           <select
             value={selectedReasonFilter}
             onChange={(e) => setSelectedReasonFilter(e.target.value)}
-            className="bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-slate-700"
+            className="bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-white"
           >
             <option value="all">Todos los Motivos de Venta</option>
             {(Object.keys(SALE_REASON_LABELS) as SaleReasonType[]).map((key) => (
@@ -472,14 +472,14 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
       {activeTab === 'despachos' && (
         <div className="space-y-3">
           {filteredSales.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-slate-200 p-12 text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
+            <div className="bg-[#15241C] rounded-2xl border border-white/10 p-12 text-center space-y-3">
+              <div className="w-12 h-12 rounded-full bg-[#1F3327] text-[#A5B8AC] flex items-center justify-center mx-auto">
                 <FileText className="w-6 h-6" />
               </div>
-              <h3 className="text-sm font-black text-slate-800 uppercase">
+              <h3 className="text-sm font-black text-white uppercase">
                 No se encontraron registros de venta
               </h3>
-              <p className="text-xs text-slate-500 max-w-md mx-auto">
+              <p className="text-xs text-[#A5B8AC] max-w-md mx-auto">
                 No hay ventas registradas que coincidan con los filtros seleccionados. Registre una nueva venta para actualizar el balance e inventario.
               </p>
               <button
@@ -498,7 +498,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
               return (
                 <div
                   key={sale.id}
-                  className="bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-emerald-300 transition-all overflow-hidden"
+                  className="bg-[#15241C] rounded-2xl border border-white/10 shadow-xs hover:border-emerald-300 transition-all overflow-hidden"
                 >
                   {/* Card Header Row */}
                   <div className="p-4 flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-slate-50/50">
@@ -510,20 +510,20 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
 
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-xs font-black text-slate-900">
+                          <span className="text-xs font-black text-white">
                             {sale.saleCode} • {sale.buyerName}
                           </span>
                           <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${reasonInfo.color}`}>
                             {reasonInfo.label}
                           </span>
-                          <span className="text-[10px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200">
+                          <span className="text-[10px] font-mono bg-[#1F3327] text-white px-2 py-0.5 rounded-md border border-white/10">
                             {sale.icaGuideNumber}
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-3 text-xs text-slate-500 mt-1 flex-wrap">
+                        <div className="flex items-center gap-3 text-xs text-[#A5B8AC] mt-1 flex-wrap">
                           <span className="flex items-center gap-1 font-medium">
-                            <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                            <Calendar className="w-3.5 h-3.5 text-[#A5B8AC]" />
                             {sale.saleDate}
                           </span>
                           <span>•</span>
@@ -531,7 +531,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                           <span>•</span>
                           <span>🏷️ {sale.lotName || 'Venta de Lote'}</span>
                           <span>•</span>
-                          <span className="font-semibold text-slate-700">
+                          <span className="font-semibold text-white">
                             Modo: {sale.settlementModeLabel}
                           </span>
                         </div>
@@ -539,9 +539,9 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                     </div>
 
                     {/* Financial & Actions */}
-                    <div className="flex items-center justify-between lg:justify-end gap-4 border-t lg:border-t-0 pt-2 lg:pt-0 border-slate-200">
+                    <div className="flex items-center justify-between lg:justify-end gap-4 border-t lg:border-t-0 pt-2 lg:pt-0 border-white/10">
                       <div className="text-right">
-                        <span className="text-[10px] font-bold text-slate-500 uppercase block">
+                        <span className="text-[10px] font-bold text-[#A5B8AC] uppercase block">
                           Ingreso Neto Liquidado
                         </span>
                         <span className="text-base font-black font-mono text-emerald-950 block">
@@ -557,15 +557,15 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                           type="button"
                           onClick={() => handlePrintActa(sale)}
                           title="Imprimir Acta Oficial de Despacho e ICA"
-                          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors cursor-pointer"
+                          className="p-2 rounded-xl bg-[#1F3327] hover:bg-[#202E25] text-white transition-colors cursor-pointer"
                         >
-                          <Printer className="w-4 h-4 text-slate-600" />
+                          <Printer className="w-4 h-4 text-[#A5B8AC]" />
                         </button>
 
                         <button
                           type="button"
                           onClick={() => setExpandedSaleId(isExpanded ? null : sale.id)}
-                          className="p-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center gap-1 transition-colors cursor-pointer"
+                          className="p-2 rounded-xl bg-emerald-950/30 hover:bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center gap-1 transition-colors cursor-pointer"
                         >
                           <span>{isExpanded ? 'Ocultar' : 'Detalles'}</span>
                           {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -576,29 +576,29 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
 
                   {/* Expanded Breakdown */}
                   {isExpanded && (
-                    <div className="p-4 border-t border-slate-200 bg-white space-y-4 text-xs animate-in fade-in duration-150">
+                    <div className="p-4 border-t border-white/10 bg-[#15241C] space-y-4 text-xs animate-in fade-in duration-150">
                       {/* 4 Pillars Breakdown Grid */}
                       <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                         {/* Zootecnic Summary */}
-                        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-2">
-                          <span className="text-[11px] font-black text-slate-900 uppercase flex items-center gap-1.5">
+                        <div className="bg-[#0D1A13] p-3.5 rounded-xl border border-white/10 space-y-2">
+                          <span className="text-[11px] font-black text-white uppercase flex items-center gap-1.5">
                             <Scale className="w-3.5 h-3.5 text-emerald-700" />
                             Biometría & Báscula
                           </span>
-                          <div className="space-y-1 font-mono text-[11px] text-slate-700">
+                          <div className="space-y-1 font-mono text-[11px] text-white">
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Peso Bruto Total:</span>
+                              <span className="text-[#A5B8AC]">Peso Bruto Total:</span>
                               <span className="font-bold">{sale.zootecnicMetrics.grossWeightKg.toLocaleString('es-CO')} kg</span>
                             </div>
                             <div className="flex justify-between text-amber-700">
                               <span>Desbaste ({sale.zootecnicMetrics.shrinkagePercent}%):</span>
                               <span className="font-bold">- {sale.zootecnicMetrics.shrinkageKg.toFixed(1)} kg</span>
                             </div>
-                            <div className="flex justify-between text-emerald-900 font-black border-t border-slate-200 pt-1">
+                            <div className="flex justify-between text-emerald-900 font-black border-t border-white/10 pt-1">
                               <span>Peso Neto Liquidado:</span>
                               <span>{sale.zootecnicMetrics.netWeightKg.toFixed(1)} kg</span>
                             </div>
-                            <div className="flex justify-between text-slate-600">
+                            <div className="flex justify-between text-[#A5B8AC]">
                               <span>Promedio Neto / Cab:</span>
                               <span>{(sale.zootecnicMetrics.netWeightKg / sale.headsCount).toFixed(1)} kg</span>
                             </div>
@@ -612,31 +612,31 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                         </div>
 
                         {/* Deductions Breakdown */}
-                        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-2">
-                          <span className="text-[11px] font-black text-slate-900 uppercase flex items-center gap-1.5">
+                        <div className="bg-[#0D1A13] p-3.5 rounded-xl border border-white/10 space-y-2">
+                          <span className="text-[11px] font-black text-white uppercase flex items-center gap-1.5">
                             <BadgePercent className="w-3.5 h-3.5 text-rose-700" />
                             Deducciones & Impuestos
                           </span>
-                          <div className="space-y-1 font-mono text-[11px] text-slate-700">
+                          <div className="space-y-1 font-mono text-[11px] text-white">
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Flete de Salida:</span>
+                              <span className="text-[#A5B8AC]">Flete de Salida:</span>
                               <span>{formatCOP(sale.deductions.freightCost)}</span>
                             </div>
                             {sale.deductions.auctionCommission > 0 && (
                               <div className="flex justify-between">
-                                <span className="text-slate-500">Comisión Subasta ({sale.deductions.auctionCommissionPct}%):</span>
+                                <span className="text-[#A5B8AC]">Comisión Subasta ({sale.deductions.auctionCommissionPct}%):</span>
                                 <span>{formatCOP(sale.deductions.auctionCommission)}</span>
                               </div>
                             )}
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Retefuente ({sale.deductions.withholdingTaxPct}%):</span>
+                              <span className="text-[#A5B8AC]">Retefuente ({sale.deductions.withholdingTaxPct}%):</span>
                               <span>{formatCOP(sale.deductions.withholdingTax)}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Fomento Ganadero:</span>
+                              <span className="text-[#A5B8AC]">Fomento Ganadero:</span>
                               <span>{formatCOP(sale.deductions.livestockFundFee)}</span>
                             </div>
-                            <div className="flex justify-between text-rose-800 font-bold border-t border-slate-200 pt-1">
+                            <div className="flex justify-between text-rose-800 font-bold border-t border-white/10 pt-1">
                               <span>Total Deducciones:</span>
                               <span>- {formatCOP(sale.deductions.totalDeductions)}</span>
                             </div>
@@ -644,18 +644,18 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                         </div>
 
                         {/* Performance & Zootechnics */}
-                        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-2">
-                          <span className="text-[11px] font-black text-slate-900 uppercase flex items-center gap-1.5">
+                        <div className="bg-[#0D1A13] p-3.5 rounded-xl border border-white/10 space-y-2">
+                          <span className="text-[11px] font-black text-white uppercase flex items-center gap-1.5">
                             <Zap className="w-3.5 h-3.5 text-amber-600" />
                             Rendimiento Zootécnico
                           </span>
-                          <div className="space-y-1 font-mono text-[11px] text-slate-700">
+                          <div className="space-y-1 font-mono text-[11px] text-white">
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Días en Finca (DEF):</span>
+                              <span className="text-[#A5B8AC]">Días en Finca (DEF):</span>
                               <span className="font-bold">{sale.economicMetrics.daysInFarm} días</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-slate-500">Ganancia Peso Total:</span>
+                              <span className="text-[#A5B8AC]">Ganancia Peso Total:</span>
                               <span className="font-bold">{sale.economicMetrics.totalWeightGainKg.toFixed(1)} kg</span>
                             </div>
                             <div className="flex justify-between text-amber-800 font-black">
@@ -666,7 +666,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                               <span>Carga Liberada:</span>
                               <span className="font-bold">{sale.inventoryReleased?.uggCount} UGG</span>
                             </div>
-                            <div className="flex justify-between text-slate-600">
+                            <div className="flex justify-between text-[#A5B8AC]">
                               <span>Ganancia $/día:</span>
                               <span>{formatCOP(sale.economicMetrics.profitPerDay || 0)}/día</span>
                             </div>
@@ -706,20 +706,20 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
 
                       {/* Manifiesto Individual Animal por Animal */}
                       {sale.animals && sale.animals.length > 0 && (
-                        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <div className="bg-[#0D1A13] p-4 rounded-xl border border-white/10 space-y-3">
                           <div className="flex items-center justify-between flex-wrap gap-2">
-                            <span className="text-xs font-black text-slate-900 uppercase flex items-center gap-2">
+                            <span className="text-xs font-black text-white uppercase flex items-center gap-2">
                               <Tag className="w-4 h-4 text-emerald-700" />
                               Manifiesto Individual de Animales Vendidos ({sale.animals.length} Cabezas)
                             </span>
-                            <span className="text-[11px] font-mono text-slate-500 font-bold">
+                            <span className="text-[11px] font-mono text-[#A5B8AC] font-bold">
                               Liquidación Individualizada & Trazabilidad
                             </span>
                           </div>
 
-                          <div className="overflow-x-auto border border-slate-200 rounded-xl bg-white">
+                          <div className="overflow-x-auto border border-white/10 rounded-xl bg-[#15241C]">
                             <table className="w-full text-left text-xs border-collapse">
-                              <thead className="bg-slate-100 text-slate-600 font-black uppercase text-[10px] border-b border-slate-200">
+                              <thead className="bg-[#1F3327] text-[#A5B8AC] font-black uppercase text-[10px] border-b border-white/10">
                                 <tr>
                                   <th className="p-2.5 text-center w-10">#</th>
                                   <th className="p-2.5">Chapeta / Tag</th>
@@ -734,23 +734,23 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                               </thead>
                               <tbody className="divide-y divide-slate-100 font-mono text-[11px]">
                                 {sale.animals.map((animal, aIdx) => (
-                                  <tr key={animal.id || aIdx} className="hover:bg-slate-50 transition-colors">
-                                    <td className="p-2.5 text-center text-slate-400 font-sans text-xs">
+                                  <tr key={animal.id || aIdx} className="hover:bg-[#0D1A13] transition-colors">
+                                    <td className="p-2.5 text-center text-[#A5B8AC] font-sans text-xs">
                                       {aIdx + 1}
                                     </td>
-                                    <td className="p-2.5 font-bold text-slate-900">
+                                    <td className="p-2.5 font-bold text-white">
                                       <div className="flex items-center gap-1.5">
                                         <Tag className="w-3 h-3 text-emerald-600 shrink-0" />
                                         <span>{animal.tag}</span>
                                       </div>
                                     </td>
-                                    <td className="p-2.5 text-slate-600 font-sans text-xs">
+                                    <td className="p-2.5 text-[#A5B8AC] font-sans text-xs">
                                       {animal.breed} <span className="capitalize">({animal.sex})</span>
                                     </td>
-                                    <td className="p-2.5 text-right text-slate-500">
+                                    <td className="p-2.5 text-right text-[#A5B8AC]">
                                       {animal.entryWeightKg} kg
                                     </td>
-                                    <td className="p-2.5 text-right font-bold text-slate-800">
+                                    <td className="p-2.5 text-right font-bold text-white">
                                       {animal.grossExitWeightKg} kg
                                     </td>
                                     <td className="p-2.5 text-right font-black text-emerald-800">
@@ -759,7 +759,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                                     <td className="p-2.5 text-right text-amber-800 font-bold">
                                       +{animal.totalWeightGainKg.toFixed(1)} kg ({Math.round(animal.gdpKgDay * 1000)}g/d)
                                     </td>
-                                    <td className="p-2.5 text-right text-slate-900 font-bold">
+                                    <td className="p-2.5 text-right text-white font-bold">
                                       {formatCOP(animal.individualNetIncome)}
                                     </td>
                                     <td className="p-2.5 text-right font-bold text-emerald-700">
@@ -774,7 +774,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                       )}
 
                       {/* Logistic and Traceability footer bar */}
-                      <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between text-slate-600 text-[11px] gap-2">
+                      <div className="bg-[#0D1A13] p-3 rounded-xl border border-white/10 flex flex-col sm:flex-row items-center justify-between text-[#A5B8AC] text-[11px] gap-2">
                         <div className="flex items-center gap-3 flex-wrap">
                           <span>🚛 Transportador: <strong>{sale.transporterName || 'N/A'}</strong> ({sale.truckPlate || 'Sin Placa'})</span>
                           <span>•</span>
@@ -803,14 +803,14 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
       {/* TAB 2: LIBRO DE HATO & DESPACHOS OFICIALES ICA */}
       {/* ========================================================= */}
       {activeTab === 'libro_salidas' && (
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
-          <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+        <div className="bg-[#15241C] rounded-2xl border border-white/10 shadow-xs overflow-hidden">
+          <div className="p-4 bg-[#0D1A13] border-b border-white/10 flex items-center justify-between">
             <div className="space-y-0.5">
-              <h3 className="text-xs font-black uppercase text-slate-900 flex items-center gap-2">
+              <h3 className="text-xs font-black uppercase text-white flex items-center gap-2">
                 <FileText className="w-4 h-4 text-emerald-700" />
                 Libro Oficial de Registro de Bajas y Salidas ICA
               </h3>
-              <p className="text-[11px] text-slate-500 font-medium">
+              <p className="text-[11px] text-[#A5B8AC] font-medium">
                 Consolidado legal para inspección sanitaria, auditoría de hato y balance de inventario ganadero.
               </p>
             </div>
@@ -826,8 +826,8 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-700">
-              <thead className="bg-slate-100 text-[10px] font-black uppercase text-slate-600 border-b border-slate-200">
+            <table className="w-full text-left text-xs text-white">
+              <thead className="bg-[#1F3327] text-[10px] font-black uppercase text-[#A5B8AC] border-b border-white/10">
                 <tr>
                   <th className="p-3">Fecha</th>
                   <th className="p-3">Guía ICA GSMI</th>
@@ -852,8 +852,8 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                       </span>
                     </td>
                     <td className="p-3">
-                      <div className="font-bold text-slate-900">{s.farmName}</div>
-                      <div className="text-[10px] text-slate-500">{s.lotName}</div>
+                      <div className="font-bold text-white">{s.farmName}</div>
+                      <div className="text-[10px] text-[#A5B8AC]">{s.lotName}</div>
                     </td>
                     <td className="p-3 text-center font-mono font-black">{s.headsCount}</td>
                     <td className="p-3 text-right font-mono">{s.zootecnicMetrics.grossWeightKg.toLocaleString('es-CO')}</td>
@@ -861,14 +861,14 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                       {s.zootecnicMetrics.netWeightKg.toLocaleString('es-CO')}
                     </td>
                     <td className="p-3">
-                      <div className="font-bold text-slate-800">{s.buyerName}</div>
-                      <div className="text-[10px] text-slate-500">{s.destinationLocation}</div>
+                      <div className="font-bold text-white">{s.buyerName}</div>
+                      <div className="text-[10px] text-[#A5B8AC]">{s.destinationLocation}</div>
                     </td>
                     <td className="p-3 font-mono text-[11px]">
                       {s.transporterName || 'Directo'} ({s.truckPlate || 'Sin Placa'})
                     </td>
                     <td className="p-3 text-center">
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-200">
                         <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                         Conforme
                       </span>
@@ -888,8 +888,8 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Rentabilidad por Tipo de Salida */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-              <span className="text-xs font-black uppercase text-slate-900 flex items-center gap-1.5">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs space-y-3">
+              <span className="text-xs font-black uppercase text-white flex items-center gap-1.5">
                 <BarChart3 className="w-4 h-4 text-emerald-700" />
                 Rentabilidad por Causa de Venta
               </span>
@@ -902,14 +902,14 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                   const label = SALE_REASON_LABELS[reasonKey];
 
                   return (
-                    <div key={reasonKey} className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex items-center justify-between text-xs">
+                    <div key={reasonKey} className="bg-[#0D1A13] p-2.5 rounded-xl border border-white/10 flex items-center justify-between text-xs">
                       <div>
-                        <div className="font-bold text-slate-800">{label.label}</div>
-                        <div className="text-[10px] text-slate-500">{heads} Cabezas • {salesOfReason.length} Despachos</div>
+                        <div className="font-bold text-white">{label.label}</div>
+                        <div className="text-[10px] text-[#A5B8AC]">{heads} Cabezas • {salesOfReason.length} Despachos</div>
                       </div>
                       <div className="text-right">
                         <div className="font-mono font-black text-emerald-950">{formatCOP(totalProfit)}</div>
-                        <div className="text-[9.5px] text-slate-500">Rentabilidad Total</div>
+                        <div className="text-[9.5px] text-[#A5B8AC]">Rentabilidad Total</div>
                       </div>
                     </div>
                   );
@@ -918,39 +918,39 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
             </div>
 
             {/* Estructura de Ingresos vs Deducciones */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-              <span className="text-xs font-black uppercase text-slate-900 flex items-center gap-1.5">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs space-y-3">
+              <span className="text-xs font-black uppercase text-white flex items-center gap-1.5">
                 <PieChartIcon className="w-4 h-4 text-emerald-700" />
                 Estructura de Deducciones
               </span>
 
               <div className="space-y-2 pt-1 font-mono text-xs">
-                <div className="flex justify-between bg-slate-50 p-2 rounded-lg">
-                  <span className="text-slate-600">Fletes Ganaderos:</span>
+                <div className="flex justify-between bg-[#0D1A13] p-2 rounded-lg">
+                  <span className="text-[#A5B8AC]">Fletes Ganaderos:</span>
                   <span className="font-bold">
                     {formatCOP(filteredSales.reduce((acc, s) => acc + s.deductions.freightCost, 0))}
                   </span>
                 </div>
-                <div className="flex justify-between bg-slate-50 p-2 rounded-lg">
-                  <span className="text-slate-600">Retención en la Fuente:</span>
+                <div className="flex justify-between bg-[#0D1A13] p-2 rounded-lg">
+                  <span className="text-[#A5B8AC]">Retención en la Fuente:</span>
                   <span className="font-bold">
                     {formatCOP(filteredSales.reduce((acc, s) => acc + s.deductions.withholdingTax, 0))}
                   </span>
                 </div>
-                <div className="flex justify-between bg-slate-50 p-2 rounded-lg">
-                  <span className="text-slate-600">Cuota Fomento FEDEGAN:</span>
+                <div className="flex justify-between bg-[#0D1A13] p-2 rounded-lg">
+                  <span className="text-[#A5B8AC]">Cuota Fomento FEDEGAN:</span>
                   <span className="font-bold">
                     {formatCOP(filteredSales.reduce((acc, s) => acc + s.deductions.livestockFundFee, 0))}
                   </span>
                 </div>
-                <div className="flex justify-between bg-slate-50 p-2 rounded-lg">
-                  <span className="text-slate-600">Comisión Subastas:</span>
+                <div className="flex justify-between bg-[#0D1A13] p-2 rounded-lg">
+                  <span className="text-[#A5B8AC]">Comisión Subastas:</span>
                   <span className="font-bold">
                     {formatCOP(filteredSales.reduce((acc, s) => acc + s.deductions.auctionCommission, 0))}
                   </span>
                 </div>
-                <div className="flex justify-between bg-slate-50 p-2 rounded-lg">
-                  <span className="text-slate-600">Báscula y Pesaje:</span>
+                <div className="flex justify-between bg-[#0D1A13] p-2 rounded-lg">
+                  <span className="text-[#A5B8AC]">Báscula y Pesaje:</span>
                   <span className="font-bold">
                     {formatCOP(filteredSales.reduce((acc, s) => acc + s.deductions.weighingCost, 0))}
                   </span>
@@ -959,22 +959,22 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
             </div>
 
             {/* Eficiencia Zootécnica de Ceba */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-              <span className="text-xs font-black uppercase text-slate-900 flex items-center gap-1.5">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs space-y-3">
+              <span className="text-xs font-black uppercase text-white flex items-center gap-1.5">
                 <Award className="w-4 h-4 text-emerald-700" />
                 Eficiencia Zootécnica & Tiempos
               </span>
 
               <div className="space-y-2.5 pt-1 text-xs">
-                <div className="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                <div className="bg-emerald-950/30 p-3 rounded-xl border border-emerald-200">
                   <span className="text-[10px] font-bold text-emerald-800 uppercase block">GDP Promedio Ponderado</span>
                   <span className="text-lg font-black font-mono text-emerald-950">{metrics.avgGDP} g/animal/día</span>
                 </div>
-                <div className="bg-blue-50 p-3 rounded-xl border border-blue-200">
+                <div className="bg-blue-950/30 p-3 rounded-xl border border-blue-200">
                   <span className="text-[10px] font-bold text-blue-800 uppercase block">Días en Finca Promedio (DEF)</span>
                   <span className="text-lg font-black font-mono text-blue-950">{metrics.avgDEF} días</span>
                 </div>
-                <div className="bg-purple-50 p-3 rounded-xl border border-purple-200">
+                <div className="bg-purple-950/30 p-3 rounded-xl border border-purple-200">
                   <span className="text-[10px] font-bold text-purple-800 uppercase block">Carga Liberada a Pastoreo</span>
                   <span className="text-lg font-black font-mono text-purple-950">{metrics.totalUggFreed.toFixed(1)} UGG</span>
                 </div>
@@ -988,14 +988,14 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
       {/* TAB 4: SIMULADOR & PRE-LIQUIDACIÓN DE LOTES ACTIVOS */}
       {/* ========================================================= */}
       {activeTab === 'simulador_venta' && (
-        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-5">
-          <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
+        <div className="bg-[#15241C] rounded-2xl border border-white/10 p-5 shadow-xs space-y-5">
+          <div className="border-b border-white/10 pb-3 flex items-center justify-between">
             <div>
-              <h3 className="text-xs font-black uppercase text-slate-900 flex items-center gap-2">
+              <h3 className="text-xs font-black uppercase text-white flex items-center gap-2">
                 <Calculator className="w-4 h-4 text-amber-600" />
                 Simulador de Liquidación y Salida de Lotes en Finca
               </h3>
-              <p className="text-[11px] text-slate-500 font-medium">
+              <p className="text-[11px] text-[#A5B8AC] font-medium">
                 Proyecte el precio de liquidación, desbaste, rendimiento en canal y rentabilidad estimada antes de formalizar la venta.
               </p>
             </div>
@@ -1003,15 +1003,15 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {/* Left Inputs */}
-            <div className="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+            <div className="space-y-3 bg-[#0D1A13] p-4 rounded-2xl border border-white/10">
               <div>
-                <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                   Seleccionar Lote Activo
                 </label>
                 <select
                   value={simLotId}
                   onChange={(e) => setSimLotId(e.target.value)}
-                  className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1.5 text-xs font-bold text-slate-900"
+                  className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1.5 text-xs font-bold text-white"
                 >
                   {lots.map((lot) => (
                     <option key={lot.id} value={lot.id}>
@@ -1023,19 +1023,19 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                  <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                     Precio $/kg Pie
                   </label>
                   <input
                     type="number"
                     value={simPriceKg}
                     onChange={(e) => setSimPriceKg(Number(e.target.value))}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
+                    className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                  <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                     % Desbaste
                   </label>
                   <input
@@ -1043,14 +1043,14 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                     step="0.5"
                     value={simShrinkagePct}
                     onChange={(e) => setSimShrinkagePct(Number(e.target.value))}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
+                    className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                  <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                     % Rend. Canal
                   </label>
                   <input
@@ -1058,19 +1058,19 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
                     step="0.5"
                     value={simCarcassYieldPct}
                     onChange={(e) => setSimCarcassYieldPct(Number(e.target.value))}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
+                    className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                  <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                     Flete Estimado ($)
                   </label>
                   <input
                     type="number"
                     value={simFreight}
                     onChange={(e) => setSimFreight(Number(e.target.value))}
-                    className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
+                    className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
                   />
                 </div>
               </div>
@@ -1090,11 +1090,11 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   <div className="bg-white/5 p-3 rounded-xl border border-white/10">
-                    <span className="text-[9.5px] font-bold text-slate-300 uppercase block">Peso Neto Liquidado</span>
+                    <span className="text-[9.5px] font-bold text-[#A5B8AC] uppercase block">Peso Neto Liquidado</span>
                     <span className="text-base font-black font-mono text-white block">
                       {simCalculations.totalNet.toFixed(1)} kg
                     </span>
-                    <span className="text-[9.5px] text-slate-400">
+                    <span className="text-[9.5px] text-[#A5B8AC]">
                       {simCalculations.netAvg.toFixed(1)} kg/cab
                     </span>
                   </div>
@@ -1147,7 +1147,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
 
       {/* Printable Official Acta Modal / Section (For window.print) */}
       {selectedSaleForModal && (
-        <div className="hidden print:block fixed inset-0 bg-white p-8 z-50 text-black">
+        <div className="hidden print:block fixed inset-0 bg-[#15241C] p-8 z-50 text-black">
           <div className="border-b-2 border-black pb-4 mb-4 flex items-center justify-between">
             <div>
               <h1 className="text-xl font-black uppercase tracking-tight">
@@ -1187,7 +1187,7 @@ export const SalesManagementView: React.FC<SalesManagementViewProps> = ({
               <span>Total Deducciones (Flete, ICA, Retefuente):</span>
               <span>- {formatCOP(selectedSaleForModal.economicMetrics.totalDeductions)}</span>
             </div>
-            <div className="flex justify-between font-black text-sm pt-1 border-t border-dashed border-gray-400">
+            <div className="flex justify-between font-black text-sm pt-1 border-t border-dashed border-white/15">
               <span>VALOR NETO A PAGAR:</span>
               <span>{formatCOP(selectedSaleForModal.economicMetrics.netSaleIncome)}</span>
             </div>

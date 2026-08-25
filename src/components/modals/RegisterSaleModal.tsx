@@ -760,7 +760,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/80 backdrop-blur-xs overflow-y-auto">
-      <div className="bg-slate-50 rounded-3xl w-full max-w-6xl my-4 overflow-hidden shadow-2xl border border-slate-200 flex flex-col max-h-[94vh]">
+      <div className="bg-[#0D1A13] rounded-3xl w-full max-w-6xl my-4 overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[94vh]">
         {/* Modal Header */}
         <div className="bg-emerald-950 text-white p-4 sm:p-5 flex items-center justify-between border-b border-emerald-900 shrink-0">
           <div className="flex items-center gap-3">
@@ -794,7 +794,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
 
         {/* Validation Error Banner */}
         {validationError && (
-          <div className="bg-rose-50 border-b border-rose-200 p-3 px-6 flex items-center gap-3 text-rose-900 text-xs font-bold animate-in fade-in">
+          <div className="bg-rose-950/30 border-b border-rose-200 p-3 px-6 flex items-center gap-3 text-rose-900 text-xs font-bold animate-in fade-in">
             <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />
             <span className="flex-1">{validationError}</span>
             <button
@@ -808,20 +808,20 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
         )}
 
         {/* Modal Form */}
-        <form onSubmit={handleSubmit} className="overflow-y-auto p-4 sm:p-6 space-y-6 flex-1 text-slate-800">
+        <form onSubmit={handleSubmit} className="overflow-y-auto p-4 sm:p-6 space-y-6 flex-1 text-white">
           {/* Top Configuration: Origin, Date, Reasons & Settlement */}
-          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <div>
-                <label className="text-[10px] font-black uppercase text-slate-500 block mb-1">
+                <label className="text-[10px] font-black uppercase text-[#A5B8AC] block mb-1">
                   Predio de Origen:
                 </label>
-                <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-2">
+                <div className="flex items-center gap-1.5 bg-[#0D1A13] border border-white/15 rounded-xl px-2.5 py-2">
                   <Building2 className="w-4 h-4 text-emerald-700 shrink-0" />
                   <select
                     value={selectedFarmId}
                     onChange={(e) => setSelectedFarmId(e.target.value)}
-                    className="w-full bg-transparent text-xs font-bold text-slate-900 focus:outline-hidden"
+                    className="w-full bg-transparent text-xs font-bold text-white focus:outline-hidden"
                   >
                     {farms.map((f) => (
                       <option key={f.profile.id} value={f.profile.id}>
@@ -833,28 +833,28 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
               </div>
 
               <div>
-                <label className="text-[10px] font-black uppercase text-slate-500 block mb-1">
+                <label className="text-[10px] font-black uppercase text-[#A5B8AC] block mb-1">
                   Fecha de Despacho:
                 </label>
-                <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-2">
-                  <Calendar className="w-4 h-4 text-slate-500 shrink-0" />
+                <div className="flex items-center gap-1.5 bg-[#0D1A13] border border-white/15 rounded-xl px-2.5 py-2">
+                  <Calendar className="w-4 h-4 text-[#A5B8AC] shrink-0" />
                   <input
                     type="date"
                     value={saleDate}
                     onChange={(e) => setSaleDate(e.target.value)}
-                    className="w-full bg-transparent text-xs font-bold text-slate-900 focus:outline-hidden"
+                    className="w-full bg-transparent text-xs font-bold text-white focus:outline-hidden"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[10px] font-black uppercase text-slate-500 block mb-1">
+                <label className="text-[10px] font-black uppercase text-[#A5B8AC] block mb-1">
                   Motivo de Salida:
                 </label>
                 <select
                   value={saleReason}
                   onChange={(e) => setSaleReason(e.target.value as SaleReasonType)}
-                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs font-bold rounded-xl p-2 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+                  className="w-full bg-[#0D1A13] border border-white/15 text-white text-xs font-bold rounded-xl p-2 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
                 >
                   {Object.entries(SALE_REASON_LABELS).map(([key, val]) => (
                     <option key={key} value={key}>
@@ -865,13 +865,13 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
               </div>
 
               <div>
-                <label className="text-[10px] font-black uppercase text-slate-500 block mb-1">
+                <label className="text-[10px] font-black uppercase text-[#A5B8AC] block mb-1">
                   Modalidad de Liquidación:
                 </label>
                 <select
                   value={settlementMode}
                   onChange={(e) => setSettlementMode(e.target.value as SaleSettlementMode)}
-                  className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-xs font-bold rounded-xl p-2 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+                  className="w-full bg-[#0D1A13] border border-white/15 text-white text-xs font-bold rounded-xl p-2 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
                 >
                   {Object.entries(SETTLEMENT_MODE_LABELS).map(([key, val]) => (
                     <option key={key} value={key}>
@@ -883,10 +883,10 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
             </div>
 
             {/* Price Row */}
-            <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100">
+            <div className="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100">
               <div className="flex items-center gap-2">
                 <DollarSign className="w-4 h-4 text-emerald-700" />
-                <span className="text-xs font-bold text-slate-700">
+                <span className="text-xs font-bold text-white">
                   Precio Base de Liquidación ({SETTLEMENT_MODE_LABELS[settlementMode].formula}):
                 </span>
               </div>
@@ -894,72 +894,72 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 {settlementMode === 'kilo_en_pie' && (
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-slate-500">$/kg en pie:</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">$/kg en pie:</span>
                     <input
                       type="number"
                       value={pricePerKg}
                       onChange={(e) => setPricePerKg(e.target.value)}
-                      className="w-32 bg-white border border-slate-300 text-xs font-black text-emerald-950 rounded-lg p-1.5 font-mono text-right"
+                      className="w-32 bg-[#15241C] border border-white/15 text-xs font-black text-emerald-950 rounded-lg p-1.5 font-mono text-right"
                     />
-                    <span className="text-xs font-bold text-slate-600">COP</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">COP</span>
                   </div>
                 )}
 
                 {settlementMode === 'kilo_en_canal' && (
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-slate-500">$/kg canal:</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">$/kg canal:</span>
                     <input
                       type="number"
                       value={pricePerCarcassKg}
                       onChange={(e) => setPricePerCarcassKg(e.target.value)}
-                      className="w-32 bg-white border border-slate-300 text-xs font-black text-emerald-950 rounded-lg p-1.5 font-mono text-right"
+                      className="w-32 bg-[#15241C] border border-white/15 text-xs font-black text-emerald-950 rounded-lg p-1.5 font-mono text-right"
                     />
-                    <span className="text-xs font-bold text-slate-600">COP</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">COP</span>
                   </div>
                 )}
 
                 {settlementMode === 'por_cabeza' && (
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-slate-500">$/cabeza:</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">$/cabeza:</span>
                     <input
                       type="number"
                       value={pricePerHead}
                       onChange={(e) => setPricePerHead(e.target.value)}
-                      className="w-36 bg-white border border-slate-300 text-xs font-black text-emerald-950 rounded-lg p-1.5 font-mono text-right"
+                      className="w-36 bg-[#15241C] border border-white/15 text-xs font-black text-emerald-950 rounded-lg p-1.5 font-mono text-right"
                     />
-                    <span className="text-xs font-bold text-slate-600">COP</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">COP</span>
                   </div>
                 )}
 
                 {settlementMode === 'valor_genetico' && (
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-slate-500">Base:</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">Base:</span>
                     <input
                       type="number"
                       value={geneticBasePrice}
                       onChange={(e) => setGeneticBasePrice(e.target.value)}
-                      className="w-28 bg-white border border-slate-300 text-xs font-bold rounded-lg p-1.5 font-mono text-right"
+                      className="w-28 bg-[#15241C] border border-white/15 text-xs font-bold rounded-lg p-1.5 font-mono text-right"
                     />
-                    <span className="text-xs font-bold text-slate-500">+ Prima:</span>
+                    <span className="text-xs font-bold text-[#A5B8AC]">+ Prima:</span>
                     <input
                       type="number"
                       value={geneticPremium}
                       onChange={(e) => setGeneticPremium(e.target.value)}
-                      className="w-28 bg-white border border-slate-300 text-xs font-bold rounded-lg p-1.5 font-mono text-right"
+                      className="w-28 bg-[#15241C] border border-white/15 text-xs font-bold rounded-lg p-1.5 font-mono text-right"
                     />
                   </div>
                 )}
 
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="text-slate-500 font-bold">% Desbaste:</span>
+                  <span className="text-[#A5B8AC] font-bold">% Desbaste:</span>
                   <input
                     type="number"
                     step="0.5"
                     value={shrinkagePercent}
                     onChange={(e) => setShrinkagePercent(e.target.value)}
-                    className="w-16 bg-white border border-slate-300 text-xs font-bold rounded-lg p-1.5 font-mono text-center"
+                    className="w-16 bg-[#15241C] border border-white/15 text-xs font-bold rounded-lg p-1.5 font-mono text-center"
                   />
-                  <span className="text-slate-500">%</span>
+                  <span className="text-[#A5B8AC]">%</span>
                 </div>
               </div>
             </div>
@@ -968,16 +968,16 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
           {/* ================================================================= */}
           {/* SECTION: ROSTER BUILDER - ANIMAL POR ANIMAL */}
           {/* ================================================================= */}
-          <div className="bg-white p-4 sm:p-5 rounded-2xl border-2 border-emerald-700/30 shadow-md space-y-4">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+          <div className="bg-[#15241C] p-4 sm:p-5 rounded-2xl border-2 border-emerald-700/30 shadow-md space-y-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-white/10">
               <div>
                 <div className="flex items-center gap-2">
                   <Tag className="w-5 h-5 text-emerald-700" />
-                  <h3 className="text-sm font-black uppercase tracking-tight text-slate-900">
+                  <h3 className="text-sm font-black uppercase tracking-tight text-white">
                     Manifiesto de Despacho Animal por Animal *
                   </h3>
                 </div>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-[#A5B8AC]">
                   Agregue, escanee o cargue los animales uno por uno. Cada animal requiere chapeta y pesaje individual verificado (*).
                 </p>
               </div>
@@ -992,7 +992,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                   <button
                     type="button"
                     onClick={onOpenScaleModal}
-                    className="text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 px-3 py-1 rounded-xl cursor-pointer flex items-center gap-1.5"
+                    className="text-xs font-bold text-white bg-[#1F3327] hover:bg-[#202E25] border border-white/15 px-3 py-1 rounded-xl cursor-pointer flex items-center gap-1.5"
                   >
                     <Scale className="w-3.5 h-3.5" />
                     <span>Conectar Báscula Digital</span>
@@ -1003,7 +1003,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                   <button
                     type="button"
                     onClick={handleClearAllAnimals}
-                    className="text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-2.5 py-1 rounded-xl cursor-pointer flex items-center gap-1"
+                    className="text-xs font-bold text-rose-700 bg-rose-950/30 hover:bg-rose-100 border border-rose-200 px-2.5 py-1 rounded-xl cursor-pointer flex items-center gap-1"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>Limpiar Lista</span>
@@ -1013,8 +1013,8 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
             </div>
 
             {/* TOOLBAR 1: QUICK INDIVIDUAL ANIMAL SCAN / INPUT BAR */}
-            <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200 space-y-2">
-              <span className="text-[11px] font-black uppercase text-slate-600 flex items-center gap-1.5">
+            <div className="bg-[#0D1A13] p-3 rounded-2xl border border-white/10 space-y-2">
+              <span className="text-[11px] font-black uppercase text-[#A5B8AC] flex items-center gap-1.5">
                 <Plus className="w-3.5 h-3.5 text-emerald-700" />
                 {isLotsEnabled ? 'Opción A: Escanear / Ingresar Chapeta Individual (Manga de Despacho)' : 'Escanear / Ingresar Chapeta Individual del Predio (Manga de Despacho) *'}
               </span>
@@ -1022,7 +1022,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 relative">
                 {/* Tag Search Input */}
                 <div className="sm:col-span-6 relative">
-                  <Tag className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-3" />
+                  <Tag className="w-3.5 h-3.5 text-[#A5B8AC] absolute left-3 top-3" />
                   <input
                     type="text"
                     placeholder="Digitar o escanear Chapeta / DIN (ej. GLO-301, VACA-104)..."
@@ -1038,13 +1038,13 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                       }
                     }}
                     onFocus={() => setShowHerdSuggestions(true)}
-                    className="w-full pl-9 pr-3 py-2 text-xs font-mono font-bold bg-white border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+                    className="w-full pl-9 pr-3 py-2 text-xs font-mono font-bold bg-[#15241C] border border-white/15 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
                   />
 
                   {/* Herd Suggestions Dropdown */}
                   {showHerdSuggestions && filteredHerdSuggestions.length > 0 && (
-                    <div className="absolute left-0 right-0 top-full mt-1 bg-white border border-slate-300 rounded-xl shadow-xl z-30 divide-y divide-slate-100 max-h-48 overflow-y-auto">
-                      <div className="p-1.5 bg-slate-100 text-[10px] font-bold text-slate-500 uppercase px-2">
+                    <div className="absolute left-0 right-0 top-full mt-1 bg-[#15241C] border border-white/15 rounded-xl shadow-xl z-30 divide-y divide-slate-100 max-h-48 overflow-y-auto">
+                      <div className="p-1.5 bg-[#1F3327] text-[10px] font-bold text-[#A5B8AC] uppercase px-2">
                         Coincidencias en el Hato ({filteredHerdSuggestions.length}):
                       </div>
                       {filteredHerdSuggestions.map((sug) => (
@@ -1052,16 +1052,16 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                           key={sug.id}
                           type="button"
                           onClick={() => handleAddAnimalDirectly(sug)}
-                          className="w-full text-left p-2 hover:bg-emerald-50 transition-colors flex items-center justify-between text-xs cursor-pointer"
+                          className="w-full text-left p-2 hover:bg-emerald-950/30 transition-colors flex items-center justify-between text-xs cursor-pointer"
                         >
                           <div className="flex items-center gap-2">
                             <span className="font-mono font-black text-emerald-950">{sug.tag}</span>
-                            <span className="text-slate-600 text-[11px]">{sug.breed} • {sug.category}</span>
+                            <span className="text-[#A5B8AC] text-[11px]">{sug.breed} • {sug.category}</span>
                             {isLotsEnabled && sug.originLotName && (
-                              <span className="text-[10px] text-slate-400">({sug.originLotName})</span>
+                              <span className="text-[10px] text-[#A5B8AC]">({sug.originLotName})</span>
                             )}
                           </div>
-                          <span className="font-mono font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">
+                          <span className="font-mono font-bold text-white bg-[#1F3327] px-2 py-0.5 rounded">
                             {sug.currentGrossWeightKg} kg
                           </span>
                         </button>
@@ -1072,8 +1072,8 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
 
                 {/* Weight Input */}
                 <div className="sm:col-span-3">
-                  <div className="flex items-center gap-1 bg-white border border-slate-300 rounded-xl px-2 py-1.5">
-                    <Scale className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <div className="flex items-center gap-1 bg-[#15241C] border border-white/15 rounded-xl px-2 py-1.5">
+                    <Scale className="w-3.5 h-3.5 text-[#A5B8AC] shrink-0" />
                     <input
                       type="number"
                       placeholder={liveScaleWeight ? `${Math.round(liveScaleWeight)}` : 'Peso kg'}
@@ -1087,7 +1087,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                       }}
                       className="w-full text-xs font-mono font-bold bg-transparent text-right focus:outline-hidden"
                     />
-                    <span className="text-[10px] font-bold text-slate-500">kg</span>
+                    <span className="text-[10px] font-bold text-[#A5B8AC]">kg</span>
                   </div>
                 </div>
 
@@ -1107,10 +1107,10 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
 
             {/* TOOLBAR 2: BATCH LOAD FROM LOT (Visible only in Modo Lotes) */}
             {isLotsEnabled && (
-              <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="bg-[#0D1A13] p-3 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="flex items-center gap-2 w-full sm:w-auto">
                   <Users className="w-4 h-4 text-blue-700 shrink-0" />
-                  <span className="text-[11px] font-black uppercase text-slate-700">
+                  <span className="text-[11px] font-black uppercase text-white">
                     Opción B: Cargar Animales desde un Lote:
                   </span>
                 </div>
@@ -1119,7 +1119,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                   <select
                     value={selectedLotToLoad}
                     onChange={(e) => setSelectedLotToLoad(e.target.value)}
-                    className="bg-white border border-slate-300 text-xs font-bold rounded-xl px-2.5 py-1.5 text-slate-800 focus:ring-2 focus:ring-blue-500"
+                    className="bg-[#15241C] border border-white/15 text-xs font-bold rounded-xl px-2.5 py-1.5 text-white focus:ring-2 focus:ring-blue-500"
                   >
                     {lots.map((l) => (
                       <option key={l.id} value={l.id}>
@@ -1131,7 +1131,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                   <select
                     value={lotSelectionFilter}
                     onChange={(e) => setLotSelectionFilter(e.target.value as any)}
-                    className="bg-white border border-slate-300 text-xs font-bold rounded-xl px-2 py-1.5 text-slate-800"
+                    className="bg-[#15241C] border border-white/15 text-xs font-bold rounded-xl px-2 py-1.5 text-white"
                   >
                     <option value="all">Todas las Cabezas</option>
                     <option value="heavy_480">Pesados (&ge; 480 kg)</option>
@@ -1157,15 +1157,15 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                   <CheckSquare className="w-4 h-4" />
                   {headsCount} Animales en Lista de Venta
                 </span>
-                <span className="text-slate-400">|</span>
+                <span className="text-[#A5B8AC]">|</span>
                 <span className="font-mono text-emerald-300">
                   Biomasa Bruta: <strong>{totalGrossWeightKg.toLocaleString('es-CO')} kg</strong>
                 </span>
-                <span className="text-slate-400">|</span>
-                <span className="font-mono text-slate-300">
+                <span className="text-[#A5B8AC]">|</span>
+                <span className="font-mono text-[#A5B8AC]">
                   Promedio: <strong>{avgGrossWeightKg.toFixed(1)} kg/cab</strong>
                 </span>
-                <span className="text-slate-400">|</span>
+                <span className="text-[#A5B8AC]">|</span>
                 <span className="font-mono text-sky-300">
                   Carga: <strong>{uggCount} UGG</strong>
                 </span>
@@ -1187,9 +1187,9 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
             </div>
 
             {/* MANDATORY ANIMAL-BY-ANIMAL TABLE */}
-            <div className="max-h-72 overflow-y-auto border border-slate-200 rounded-xl bg-white shadow-inner">
+            <div className="max-h-72 overflow-y-auto border border-white/10 rounded-xl bg-[#15241C] shadow-inner">
               <table className="w-full text-left text-xs border-collapse">
-                <thead className="bg-slate-100 text-slate-700 font-black uppercase text-[10px] sticky top-0 border-b border-slate-200 z-10">
+                <thead className="bg-[#1F3327] text-white font-black uppercase text-[10px] sticky top-0 border-b border-white/10 z-10">
                   <tr>
                     <th className="p-2.5 text-center w-10">#</th>
                     <th className="p-2.5">Chapeta / DIN / EID</th>
@@ -1207,12 +1207,12 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                 <tbody className="divide-y divide-slate-100">
                   {dispatchAnimals.length === 0 ? (
                     <tr>
-                      <td colSpan={11} className="p-8 text-center text-slate-400 space-y-2">
-                        <CowIcon className="w-8 h-8 mx-auto text-slate-300" />
-                        <p className="text-xs font-bold text-slate-500">
+                      <td colSpan={11} className="p-8 text-center text-[#A5B8AC] space-y-2">
+                        <CowIcon className="w-8 h-8 mx-auto text-[#A5B8AC]" />
+                        <p className="text-xs font-bold text-[#A5B8AC]">
                           No hay animales agregados al despacho aún.
                         </p>
-                        <p className="text-[11px] text-slate-400">
+                        <p className="text-[11px] text-[#A5B8AC]">
                           Utilice la barra superior para escanear chapetas o cargue animales de un lote para formalizar la venta.
                         </p>
                       </td>
@@ -1234,28 +1234,28 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                       return (
                         <tr
                           key={animal.id || idx}
-                          className={`hover:bg-slate-50 transition-colors ${
+                          className={`hover:bg-[#0D1A13] transition-colors ${
                             !isWeightValid ? 'bg-rose-50/50' : ''
                           }`}
                         >
-                          <td className="p-2.5 text-center text-slate-400 font-mono text-[11px]">
+                          <td className="p-2.5 text-center text-[#A5B8AC] font-mono text-[11px]">
                             {idx + 1}
                           </td>
                           <td className="p-2.5">
                             <div className="flex items-center gap-1.5">
                               <Tag className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                              <span className="font-mono font-black text-slate-900 text-xs">
+                              <span className="font-mono font-black text-white text-xs">
                                 {animal.tag}
                               </span>
                             </div>
                           </td>
-                          <td className="p-2.5 text-slate-600">
+                          <td className="p-2.5 text-[#A5B8AC]">
                             <span className="font-medium">{animal.breed}</span> • <span className="capitalize">{animal.sex}</span>
                           </td>
-                          <td className="p-2.5 text-slate-500 text-[11px]">
+                          <td className="p-2.5 text-[#A5B8AC] text-[11px]">
                             {animal.originLotName || 'Lote Origen'}
                           </td>
-                          <td className="p-2.5 text-right font-mono text-slate-500">
+                          <td className="p-2.5 text-right font-mono text-[#A5B8AC]">
                             {animal.entryWeightKg} kg
                           </td>
                           <td className="p-2.5 text-right">
@@ -1270,11 +1270,11 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                                 }
                                 className={`w-24 py-1 px-1.5 text-xs font-mono font-black text-right border rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-hidden ${
                                   isWeightValid
-                                    ? 'bg-white border-slate-300 text-slate-900'
+                                    ? 'bg-[#15241C] border-white/15 text-white'
                                     : 'bg-rose-100 border-rose-400 text-rose-900 ring-2 ring-rose-300'
                                 }`}
                               />
-                              <span className="text-[10px] font-bold text-slate-500">kg</span>
+                              <span className="text-[10px] font-bold text-[#A5B8AC]">kg</span>
                             </div>
                           </td>
                           <td className="p-2.5 text-center">
@@ -1289,11 +1289,11 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                                 <span>{liveScaleWeight.toFixed(1)} kg</span>
                               </button>
                             ) : (
-                              <span className="text-[10px] text-slate-400 font-mono">Manual</span>
+                              <span className="text-[10px] text-[#A5B8AC] font-mono">Manual</span>
                             )}
                           </td>
                           <td className="p-2.5 text-right font-mono text-[11px] text-amber-800 font-bold">
-                            +{gainKg.toFixed(1)} kg <span className="text-slate-400 font-normal">({indGdp}g/d)</span>
+                            +{gainKg.toFixed(1)} kg <span className="text-[#A5B8AC] font-normal">({indGdp}g/d)</span>
                           </td>
                           <td className="p-2.5 text-center">
                             {animal.healthWithdrawalActive ? (
@@ -1308,14 +1308,14 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
                               </span>
                             )}
                           </td>
-                          <td className="p-2.5 text-right font-mono font-bold text-slate-900">
+                          <td className="p-2.5 text-right font-mono font-bold text-white">
                             {formatCOP(indEstIncome)}
                           </td>
                           <td className="p-2.5 text-center">
                             <button
                               type="button"
                               onClick={() => handleRemoveAnimal(animal.id)}
-                              className="text-slate-400 hover:text-rose-600 p-1 rounded-md hover:bg-rose-50 transition-colors cursor-pointer"
+                              className="text-[#A5B8AC] hover:text-rose-600 p-1 rounded-md hover:bg-rose-950/30 transition-colors cursor-pointer"
                               title="Quitar animal de la venta"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -1333,78 +1333,78 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
           {/* ================================================================= */}
           {/* SECTION: DEDUCTIONS & COMMERCIAL EXPENSES */}
           {/* ================================================================= */}
-          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-            <span className="text-xs font-black uppercase text-slate-900 flex items-center gap-2">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs space-y-3">
+            <span className="text-xs font-black uppercase text-white flex items-center gap-2">
               <BadgePercent className="w-4 h-4 text-rose-700" />
               Costos de Comercialización, Fletes & Deducciones de Venta
             </span>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Flete Salida ($):</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Flete Salida ($):</label>
                 <input
                   type="number"
                   value={freightCost}
                   onChange={(e) => setFreightCost(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono text-xs font-semibold rounded-lg p-2"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono text-xs font-semibold rounded-lg p-2"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Comisión Subasta (%):</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Comisión Subasta (%):</label>
                 <input
                   type="number"
                   step="0.1"
                   value={auctionCommissionPct}
                   onChange={(e) => setAuctionCommissionPct(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono text-xs font-semibold rounded-lg p-2"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono text-xs font-semibold rounded-lg p-2"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Pesaje Báscula ($):</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Pesaje Báscula ($):</label>
                 <input
                   type="number"
                   value={weighingCost}
                   onChange={(e) => setWeighingCost(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono text-xs font-semibold rounded-lg p-2"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono text-xs font-semibold rounded-lg p-2"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Retefuente (%):</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Retefuente (%):</label>
                 <input
                   type="number"
                   step="0.1"
                   value={withholdingTaxPct}
                   onChange={(e) => setWithholdingTaxPct(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono text-xs font-semibold rounded-lg p-2"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono text-xs font-semibold rounded-lg p-2"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Fomento (FEDEGAN %):</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Fomento (FEDEGAN %):</label>
                 <input
                   type="number"
                   step="0.05"
                   value={livestockFundPct}
                   onChange={(e) => setLivestockFundPct(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono text-xs font-semibold rounded-lg p-2"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono text-xs font-semibold rounded-lg p-2"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Otras Deducciones ($):</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Otras Deducciones ($):</label>
                 <input
                   type="number"
                   value={otherDeductions}
                   onChange={(e) => setOtherDeductions(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono text-xs font-semibold rounded-lg p-2"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono text-xs font-semibold rounded-lg p-2"
                 />
               </div>
             </div>
 
-            <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-between text-xs">
+            <div className="p-2.5 rounded-xl bg-rose-950/30 border border-rose-200 flex items-center justify-between text-xs">
               <span className="font-bold text-rose-900">Total Deducciones Aplicadas a la Venta:</span>
               <span className="font-mono font-black text-rose-950">- {formatCOP(totalDeductions)}</span>
             </div>
@@ -1413,106 +1413,106 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
           {/* ================================================================= */}
           {/* SECTION: BUYER, ICA GUIDE & TRANSPORT */}
           {/* ================================================================= */}
-          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-            <span className="text-xs font-black uppercase text-slate-900 flex items-center gap-2">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs space-y-4">
+            <span className="text-xs font-black uppercase text-white flex items-center gap-2">
               <Truck className="w-4 h-4 text-blue-700" />
               Datos del Comprador, Guía ICA (GSMI) & Despacho
             </span>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Nombre / Razón Social:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Nombre / Razón Social:</label>
                 <input
                   type="text"
                   value={buyerName}
                   onChange={(e) => setBuyerName(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-bold rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-bold rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">NIT / Documento:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">NIT / Documento:</label>
                 <input
                   type="text"
                   value={buyerDoc}
                   onChange={(e) => setBuyerDoc(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Teléfono Comprador:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Teléfono Comprador:</label>
                 <input
                   type="text"
                   value={buyerPhone}
                   onChange={(e) => setBuyerPhone(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Guía Sanitaria ICA (GSMI):</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Guía Sanitaria ICA (GSMI):</label>
                 <input
                   type="text"
                   value={icaGuideNumber}
                   onChange={(e) => setIcaGuideNumber(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono font-bold text-slate-900 rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono font-bold text-white rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Factura / Liquidación N°:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Factura / Liquidación N°:</label>
                 <input
                   type="text"
                   value={invoiceNumber}
                   onChange={(e) => setInvoiceNumber(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Lugar Destino:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Lugar Destino:</label>
                 <input
                   type="text"
                   value={destinationLocation}
                   onChange={(e) => setDestinationLocation(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Empresa / Transportador:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Empresa / Transportador:</label>
                 <input
                   type="text"
                   value={transporterName}
                   onChange={(e) => setTransporterName(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Placa Camión:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Placa Camión:</label>
                 <input
                   type="text"
                   value={truckPlate}
                   onChange={(e) => setTruckPlate(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 font-mono uppercase font-bold rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 font-mono uppercase font-bold rounded-lg p-2 text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-500 block mb-1">Despachador / Mayordomo:</label>
+                <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Despachador / Mayordomo:</label>
                 <input
                   type="text"
                   value={dispatcherName}
                   onChange={(e) => setDispatcherName(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-xs"
+                  className="w-full bg-[#0D1A13] border border-white/15 rounded-lg p-2 text-xs"
                 />
               </div>
             </div>
 
             {/* Sanitary Clearance Checkbox */}
-            <div className="p-3.5 bg-emerald-50 border border-emerald-300 rounded-xl flex items-center gap-3">
+            <div className="p-3.5 bg-emerald-950/30 border border-emerald-300 rounded-xl flex items-center gap-3">
               <input
                 type="checkbox"
                 id="sanitaryClearance"
@@ -1591,9 +1591,9 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
           </div>
 
           {/* Modal Footer / Actions */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-200">
-            <div className="text-xs text-slate-500 flex items-center gap-2">
-              <Info className="w-4 h-4 text-slate-400 shrink-0" />
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-white/10">
+            <div className="text-xs text-[#A5B8AC] flex items-center gap-2">
+              <Info className="w-4 h-4 text-[#A5B8AC] shrink-0" />
               <span>
                 Esta acción dará de baja nominalmente <strong>{headsCount} cabezas</strong> del inventario, actualizará el Libro de Hato y liberará potreros.
               </span>
@@ -1603,7 +1603,7 @@ export const RegisterSaleModal: React.FC<RegisterSaleModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 font-bold text-xs cursor-pointer transition-colors"
+                className="px-4 py-2.5 rounded-xl border border-white/15 text-white hover:bg-[#1F3327] font-bold text-xs cursor-pointer transition-colors"
               >
                 Cancelar
               </button>

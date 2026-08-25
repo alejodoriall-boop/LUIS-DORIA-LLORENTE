@@ -1881,7 +1881,7 @@ function AppContent() {
                     <button
                       type="button"
                       onClick={handleExitImpersonation}
-                      className="px-3 py-1 bg-neutral-950 hover:bg-neutral-800 text-amber-300 text-xs font-extrabold rounded-lg transition-colors cursor-pointer shrink-0 shadow-xs"
+                      className="px-3 py-1 bg-[#0D1A13] hover:bg-[#1F3327] text-amber-300 text-xs font-extrabold rounded-lg transition-colors cursor-pointer shrink-0 shadow-xs"
                     >
                       Salir de Soporte
                     </button>

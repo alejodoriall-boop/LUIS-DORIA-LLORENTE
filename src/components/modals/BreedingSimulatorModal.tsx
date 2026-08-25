@@ -64,14 +64,14 @@ export const BreedingSimulatorModal: React.FC<BreedingSimulatorModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-2xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full p-6 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+      <div className="bg-[#15241C] rounded-2xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full p-6 border-2 border-white/10 shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between pb-3 border-b border-[#eeeeee]">
           <div className="flex items-center gap-2">
-            <div className="p-2 bg-[#1b4332] text-[#c1ecd4] rounded-xl">
+            <div className="p-2 bg-[#123F2A] text-[#A5B8AC] rounded-xl">
               <Zap className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-[#012d1d]">Simulador de Cruzamiento Virtual</h3>
+              <h3 className="text-lg font-bold text-white">Simulador de Cruzamiento Virtual</h3>
               <p className="text-[11px] text-[#717973]">Predicción de Consanguinidad y Mérito Genético</p>
             </div>
           </div>
@@ -85,12 +85,12 @@ export const BreedingSimulatorModal: React.FC<BreedingSimulatorModalProps> = ({
 
         <div className="space-y-4 my-4 text-xs">
           {/* Matched Pair Display */}
-          <div className="grid grid-cols-2 gap-3 p-3 bg-[#f3f3f3] rounded-xl border border-[#c1c8c2]">
+          <div className="grid grid-cols-2 gap-3 p-3 bg-[#f3f3f3] rounded-xl border border-white/10">
             <div>
               <span className="text-[10px] text-[#79564b] font-bold uppercase block">
                 Semental (Padre)
               </span>
-              <p className="font-bold text-sm text-[#012d1d]">{bull.name}</p>
+              <p className="font-bold text-sm text-white">{bull.name}</p>
               <p className="font-mono text-[10px] text-[#717973]">{bull.code} • {bull.breed}</p>
             </div>
 
@@ -101,7 +101,7 @@ export const BreedingSimulatorModal: React.FC<BreedingSimulatorModalProps> = ({
               <select
                 value={selectedCowId}
                 onChange={(e) => setSelectedCowId(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs font-semibold text-[#012d1d] mt-1"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs font-semibold text-white mt-1"
               >
                 {herdCows.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -144,12 +144,12 @@ export const BreedingSimulatorModal: React.FC<BreedingSimulatorModalProps> = ({
           </div>
 
           {/* Progeny Projections */}
-          <div className="p-4 bg-white rounded-xl border border-[#c1c8c2] space-y-2">
-            <h4 className="font-bold text-[#012d1d]">Proyección de la Cría Resultante:</h4>
+          <div className="p-4 bg-[#15241C] rounded-xl border border-white/10 space-y-2">
+            <h4 className="font-bold text-white">Proyección de la Cría Resultante:</h4>
             <div className="grid grid-cols-2 gap-3 text-center pt-1">
               <div className="p-2.5 bg-[#f9f9f9] rounded-lg border border-[#e2e2e2]">
                 <span className="text-[10px] text-[#717973] block">Peso Estimado al Nacer</span>
-                <span className="font-mono font-bold text-sm text-[#012d1d]">
+                <span className="font-mono font-bold text-sm text-white">
                   {currentCow.predictedBirthWeight} kg
                 </span>
                 <span className="text-[9px] text-emerald-700 block">Parto Eutócico Seguro</span>
@@ -157,7 +157,7 @@ export const BreedingSimulatorModal: React.FC<BreedingSimulatorModalProps> = ({
 
               <div className="p-2.5 bg-[#f9f9f9] rounded-lg border border-[#e2e2e2]">
                 <span className="text-[10px] text-[#717973] block">Peso Estimado al Destete (205d)</span>
-                <span className="font-mono font-bold text-sm text-[#012d1d]">
+                <span className="font-mono font-bold text-sm text-white">
                   {currentCow.predictedWeanWeight} kg
                 </span>
                 <span className="text-[9px] text-emerald-700 block">+18kg vs promedio</span>
@@ -172,7 +172,7 @@ export const BreedingSimulatorModal: React.FC<BreedingSimulatorModalProps> = ({
               alert(`Cruzamiento programado: ${bull.name} x ${currentCow.name}. Se ha añadido al plan reproductivo.`);
               onClose();
             }}
-            className="flex-1 bg-[#1b4332] hover:bg-[#012d1d] text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors"
+            className="flex-1 bg-[#123F2A] hover:bg-[#0D1A13] text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors"
           >
             <Heart className="w-4 h-4 text-[#ffba38]" />
             Programar Servicio / IATF

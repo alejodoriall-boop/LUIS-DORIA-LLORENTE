@@ -227,12 +227,12 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
       {/* Top Floating Control Bar */}
       <div className="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
         {/* Farm Badge & Coordinates */}
-        <div className="pointer-events-auto bg-[#012d1d]/90 backdrop-blur-md text-white px-3.5 py-2 rounded-xl border border-[#2d6a4f] shadow-lg flex items-center gap-2.5">
+        <div className="pointer-events-auto bg-[#0D1A13]/90 backdrop-blur-md text-white px-3.5 py-2 rounded-xl border border-[#2d6a4f] shadow-lg flex items-center gap-2.5">
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
           <div>
             <div className="flex items-center gap-2">
               <span className="font-bold text-xs md:text-sm tracking-tight">{farm.name}</span>
-              <span className="text-[10px] bg-[#1b4332] text-[#c1ecd4] px-1.5 py-0.5 rounded font-mono">
+              <span className="text-[10px] bg-[#123F2A] text-[#A5B8AC] px-1.5 py-0.5 rounded font-mono">
                 {farm.totalAreaHa} Ha
               </span>
             </div>
@@ -248,20 +248,20 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
           {onOpenSatelliteLoader && (
             <button
               onClick={onOpenSatelliteLoader}
-              className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] px-3 py-2 rounded-xl font-extrabold text-xs shadow-lg transition-all flex items-center gap-1.5"
+              className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] px-3 py-2 rounded-xl font-extrabold text-xs shadow-lg transition-all flex items-center gap-1.5"
               title="Delimitar y cargar finca desde imagen satelital GPS"
             >
-              <Globe className="w-4 h-4 text-[#012d1d]" />
+              <Globe className="w-4 h-4 text-white" />
               <span className="hidden sm:inline">Delimitar Satelital</span>
             </button>
           )}
 
           {/* Map Style Selector */}
-          <div className="bg-[#012d1d]/90 backdrop-blur-md p-1 rounded-xl border border-[#2d6a4f] shadow-lg flex items-center gap-1 text-xs">
+          <div className="bg-[#0D1A13]/90 backdrop-blur-md p-1 rounded-xl border border-[#2d6a4f] shadow-lg flex items-center gap-1 text-xs">
             <button
               onClick={() => onChangeMapStyle('satellite')}
               className={`px-2.5 py-1 rounded-lg font-bold transition-all text-[11px] ${
-                mapStyle === 'satellite' ? 'bg-[#c1ecd4] text-[#002114]' : 'text-white/80 hover:bg-[#1b4332]'
+                mapStyle === 'satellite' ? 'bg-[#c1ecd4] text-[#002114]' : 'text-white/80 hover:bg-[#123F2A]'
               }`}
             >
               Satélite
@@ -269,7 +269,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
             <button
               onClick={() => onChangeMapStyle('hybrid')}
               className={`px-2.5 py-1 rounded-lg font-bold transition-all text-[11px] ${
-                mapStyle === 'hybrid' ? 'bg-[#c1ecd4] text-[#002114]' : 'text-white/80 hover:bg-[#1b4332]'
+                mapStyle === 'hybrid' ? 'bg-[#c1ecd4] text-[#002114]' : 'text-white/80 hover:bg-[#123F2A]'
               }`}
             >
               Híbrido
@@ -277,7 +277,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
             <button
               onClick={() => onChangeMapStyle('terrain')}
               className={`px-2.5 py-1 rounded-lg font-bold transition-all text-[11px] ${
-                mapStyle === 'terrain' ? 'bg-[#c1ecd4] text-[#002114]' : 'text-white/80 hover:bg-[#1b4332]'
+                mapStyle === 'terrain' ? 'bg-[#c1ecd4] text-[#002114]' : 'text-white/80 hover:bg-[#123F2A]'
               }`}
             >
               Relieve
@@ -290,8 +290,8 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
               onClick={() => setShowLayerMenu(!showLayerMenu)}
               className={`p-2.5 rounded-xl border shadow-lg transition-all flex items-center gap-1.5 text-xs font-bold ${
                 showLayerMenu
-                  ? 'bg-[#ffba38] text-[#523700] border-[#ffba38]'
-                  : 'bg-[#012d1d]/90 backdrop-blur-md text-white border-[#2d6a4f] hover:bg-[#1b4332]'
+                  ? 'bg-[#D4A94E] text-[#0D1A13] border-[#ffba38]'
+                  : 'bg-[#0D1A13]/90 backdrop-blur-md text-white border-[#2d6a4f] hover:bg-[#123F2A]'
               }`}
             >
               <Layers className="w-4 h-4" />
@@ -299,16 +299,16 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
             </button>
 
             {showLayerMenu && (
-              <div className="absolute right-0 mt-2 w-64 bg-[#012d1d] text-white border border-[#2d6a4f] rounded-2xl p-3 shadow-2xl z-30 space-y-2 text-xs backdrop-blur-lg animate-in fade-in zoom-in-95 duration-100">
-                <p className="font-bold text-[11px] uppercase tracking-wider text-[#c1ecd4] border-b border-[#1b4332] pb-1.5 flex items-center justify-between">
+              <div className="absolute right-0 mt-2 w-64 bg-[#0D1A13] text-white border border-[#2d6a4f] rounded-2xl p-3 shadow-2xl z-30 space-y-2 text-xs backdrop-blur-lg animate-in fade-in zoom-in-95 duration-100">
+                <p className="font-bold text-[11px] uppercase tracking-wider text-[#A5B8AC] border-b border-[#1b4332] pb-1.5 flex items-center justify-between">
                   <span>Capas Geoespaciales</span>
                   <span className="text-[10px] text-[#86af99]">Activar / Desactivar</span>
                 </p>
 
                 <div className="space-y-1.5 max-h-[320px] overflow-y-auto pr-1">
-                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#1b4332] cursor-pointer">
+                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#123F2A] cursor-pointer">
                     <span className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded bg-[#2d6a4f] border border-white/40" />
+                      <div className="w-3 h-3 rounded bg-[#1F6547] border border-white/40" />
                       Polígonos de Potreros
                     </span>
                     <input
@@ -319,7 +319,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#1b4332] cursor-pointer">
+                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#123F2A] cursor-pointer">
                     <span className="flex items-center gap-2">
                       <Mountain className="w-3.5 h-3.5 text-amber-300" />
                       Curvas de Nivel (Topografía)
@@ -332,7 +332,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#1b4332] cursor-pointer">
+                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#123F2A] cursor-pointer">
                     <span className="flex items-center gap-2">
                       <Waves className="w-3.5 h-3.5 text-cyan-300" />
                       Áreas Inundables / Humedales
@@ -345,7 +345,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#1b4332] cursor-pointer">
+                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#123F2A] cursor-pointer">
                     <span className="flex items-center gap-2">
                       <Droplets className="w-3.5 h-3.5 text-blue-400" />
                       Acueductos & Bebederos
@@ -358,7 +358,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#1b4332] cursor-pointer">
+                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#123F2A] cursor-pointer">
                     <span className="flex items-center gap-2">
                       <FlaskConical className="w-3.5 h-3.5 text-emerald-300" />
                       Estudios de Suelo (Fertilidad)
@@ -371,7 +371,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#1b4332] cursor-pointer">
+                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#123F2A] cursor-pointer">
                     <span className="flex items-center gap-2">
                       <Zap className="w-3.5 h-3.5 text-amber-400" />
                       Cerca Eléctrica & Callejones
@@ -384,7 +384,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#1b4332] cursor-pointer">
+                  <label className="flex items-center justify-between p-1.5 rounded-lg hover:bg-[#123F2A] cursor-pointer">
                     <span className="flex items-center gap-2">
                       <span className="text-xs">🐄</span>
                       Semáforo de Ocupación
@@ -414,7 +414,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
             className={`px-3 py-2.5 rounded-xl font-bold text-xs shadow-lg transition-all flex items-center gap-1.5 ${
               isDrawingMode
                 ? 'bg-[#ba1a1a] hover:bg-[#93000a] text-white animate-pulse'
-                : 'bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700]'
+                : 'bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13]'
             }`}
           >
             {isDrawingMode ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -425,13 +425,13 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
 
       {/* Floating Drawing Status Banner */}
       {isDrawingMode && (
-        <div className="absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 z-30 bg-[#012d1d]/95 backdrop-blur-md text-white border-2 border-[#ffba38] rounded-2xl p-4 shadow-2xl">
+        <div className="absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 z-30 bg-[#0D1A13]/95 backdrop-blur-md text-white border-2 border-[#ffba38] rounded-2xl p-4 shadow-2xl">
           <div className="flex items-center justify-between mb-2">
             <h4 className="font-bold text-xs text-[#ffba38] uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#ffba38] animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-[#D4A94E] animate-ping" />
               Editor Georreferenciado
             </h4>
-            <span className="text-[11px] font-mono text-[#c1ecd4]">
+            <span className="text-[11px] font-mono text-[#A5B8AC]">
               {drawingPoints.length} vértices
             </span>
           </div>
@@ -446,7 +446,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
             <div className="grid grid-cols-2 gap-2 bg-[#00170f] p-2.5 rounded-xl border border-[#2d6a4f] mb-3 text-center">
               <div>
                 <p className="text-[10px] text-[#86af99] uppercase font-bold">Área Calculada</p>
-                <p className="text-sm font-bold text-[#c1ecd4] font-mono">
+                <p className="text-sm font-bold text-[#A5B8AC] font-mono">
                   {drawingStats.areaHa} Ha
                 </p>
                 <p className="text-[9px] text-[#717973] font-mono">
@@ -467,7 +467,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
             {drawingPoints.length > 0 && (
               <button
                 onClick={handleUndoPoint}
-                className="flex-1 bg-[#1b4332] hover:bg-[#2d6a4f] text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                className="flex-1 bg-[#123F2A] hover:bg-[#1F6547] text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1 transition-colors"
               >
                 <Undo className="w-3.5 h-3.5" /> Deshacer
               </button>
@@ -478,7 +478,7 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
               disabled={drawingPoints.length < 3}
               className={`flex-1 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1 transition-all ${
                 drawingPoints.length >= 3
-                  ? 'bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] shadow-md font-extrabold cursor-pointer'
+                  ? 'bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] shadow-md font-extrabold cursor-pointer'
                   : 'bg-white/10 text-white/40 cursor-not-allowed'
               }`}
             >
@@ -880,17 +880,17 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
       </svg>
 
       {/* Floating Bottom-Right Map Nav & Zoom Controls */}
-      <div className="absolute bottom-4 right-4 z-20 flex flex-col gap-1.5 bg-[#012d1d]/90 backdrop-blur-md p-1.5 rounded-2xl border border-[#2d6a4f] shadow-2xl">
+      <div className="absolute bottom-4 right-4 z-20 flex flex-col gap-1.5 bg-[#0D1A13]/90 backdrop-blur-md p-1.5 rounded-2xl border border-[#2d6a4f] shadow-2xl">
         <button
           onClick={() => setZoom((prev) => Math.min(3.5, prev + 0.25))}
-          className="p-2 text-white hover:bg-[#1b4332] rounded-xl transition-colors"
+          className="p-2 text-white hover:bg-[#123F2A] rounded-xl transition-colors"
           title="Acercar (Zoom In)"
         >
           <ZoomIn className="w-4 h-4" />
         </button>
         <button
           onClick={() => setZoom((prev) => Math.max(0.6, prev - 0.25))}
-          className="p-2 text-white hover:bg-[#1b4332] rounded-xl transition-colors"
+          className="p-2 text-white hover:bg-[#123F2A] rounded-xl transition-colors"
           title="Alejar (Zoom Out)"
         >
           <ZoomOut className="w-4 h-4" />
@@ -900,14 +900,14 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
             setZoom(1);
             setPan({ x: 0, y: 0 });
           }}
-          className="p-2 text-white hover:bg-[#1b4332] rounded-xl transition-colors"
+          className="p-2 text-white hover:bg-[#123F2A] rounded-xl transition-colors"
           title="Restablecer Vista"
         >
           <Maximize2 className="w-4 h-4" />
         </button>
         <button
           onClick={handleLocateMe}
-          className="p-2 text-[#ffba38] hover:bg-[#1b4332] rounded-xl transition-colors"
+          className="p-2 text-[#ffba38] hover:bg-[#123F2A] rounded-xl transition-colors"
           title="Mi Ubicación GPS"
         >
           <Navigation className="w-4 h-4" />
@@ -915,12 +915,12 @@ export const InteractiveFarmMap: React.FC<InteractiveFarmMapProps> = ({
       </div>
 
       {/* Map Scale & North Indicator (Bottom Left) */}
-      <div className="absolute bottom-4 left-4 z-20 flex items-center gap-3 bg-[#012d1d]/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#2d6a4f] text-[10px] text-[#86af99] font-mono">
+      <div className="absolute bottom-4 left-4 z-20 flex items-center gap-3 bg-[#0D1A13]/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#2d6a4f] text-[10px] text-[#86af99] font-mono">
         <div className="flex items-center gap-1 text-white">
           <Compass className="w-3.5 h-3.5 text-[#ffba38]" />
           <span className="font-bold">N</span>
         </div>
-        <div className="h-3 w-px bg-[#2d6a4f]" />
+        <div className="h-3 w-px bg-[#1F6547]" />
         <div>Escala: 1:5,000 • WGS84</div>
       </div>
     </div>

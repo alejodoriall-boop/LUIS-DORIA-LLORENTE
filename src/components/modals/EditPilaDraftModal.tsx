@@ -36,8 +36,8 @@ export const NOVEDADES_DESCRIPTIONS: Record<PilaNovedadCode, { label: string; de
   NINGUNA: {
     label: 'Sin Novedad (Cotización Normal)',
     desc: 'El cotizante laboró los 30 días del mes sin interrupciones.',
-    badgeBg: 'bg-slate-100 border-slate-300',
-    textCol: 'text-slate-700',
+    badgeBg: 'bg-[#1F3327] border-white/15',
+    textCol: 'text-white',
   },
   SLN: {
     label: 'SLN — Suspensión Temporal / Licencia No Remunerada',
@@ -374,13 +374,13 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col shadow-2xl border-2 border-[#012d1d] overflow-hidden my-auto animate-in fade-in zoom-in duration-200">
+      <div className="bg-[#15241C] rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col shadow-2xl border-2 border-[#012d1d] overflow-hidden my-auto animate-in fade-in zoom-in duration-200">
         
         {/* Modal Header */}
         <div className="bg-gradient-to-r from-[#012d1d] via-[#02402a] to-[#012d1d] text-white p-5 flex items-start justify-between shrink-0 border-b border-emerald-900">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="bg-[#ffba38] text-[#012d1d] font-black text-[10px] uppercase px-3 py-0.5 rounded-full shadow">
+              <span className="bg-[#D4A94E] text-white font-black text-[10px] uppercase px-3 py-0.5 rounded-full shadow">
                 📝 Borrador PILA Cierre de Mes (Días 26-31)
               </span>
               <span className="bg-white/20 text-white font-mono text-xs px-2.5 py-0.5 rounded-lg border border-white/20">
@@ -391,7 +391,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
               <FileText className="w-6 h-6 text-[#ffba38]" />
               Edición de Borrador Planilla PILA & Novedades de Cotizantes
             </h2>
-            <p className="text-xs text-[#c1ecd4]">
+            <p className="text-xs text-[#A5B8AC]">
               {draft.farmName} — Operador: <strong>{draft.operatorName}</strong> | Basado en: {draft.draftBasePeriod || 'Planilla Anterior'}
             </p>
           </div>
@@ -405,10 +405,10 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
         </div>
 
         {/* Modal Body */}
-        <div className="p-5 overflow-y-auto space-y-5 grow bg-[#f8fbf9]">
+        <div className="p-5 overflow-y-auto space-y-5 grow bg-[#15241C]">
 
           {/* Banner Instructions */}
-          <div className="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 flex items-start gap-3 text-amber-900 shadow-sm">
+          <div className="bg-amber-950/30 border-2 border-amber-300 rounded-2xl p-4 flex items-start gap-3 text-amber-900 shadow-sm">
             <Sparkles className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             <div className="text-xs space-y-1">
               <p className="font-black text-sm">🗓️ Período Automático de Pre-Liquidación PILA</p>
@@ -420,26 +420,26 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
 
           {/* Quick Header Config & Summary KPI Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div className="bg-white p-3.5 rounded-2xl border-2 border-[#c1c8c2] shadow-sm">
+            <div className="bg-[#15241C] p-3.5 rounded-2xl border-2 border-white/10 shadow-sm">
               <p className="text-[11px] font-bold text-[#717973]">Total Cotizantes</p>
-              <p className="text-xl font-black text-[#012d1d] mt-1">{draft.totalEmployees} Empleados</p>
+              <p className="text-xl font-black text-white mt-1">{draft.totalEmployees} Empleados</p>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border-2 border-[#c1c8c2] shadow-sm">
+            <div className="bg-[#15241C] p-3.5 rounded-2xl border-2 border-white/10 shadow-sm">
               <p className="text-[11px] font-bold text-[#717973]">IBC Total Acumulado</p>
               <p className="text-xl font-black text-emerald-800 mt-1 font-mono">
                 ${draft.totalIbc.toLocaleString('es-CO')}
               </p>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border-2 border-[#c1c8c2] shadow-sm">
+            <div className="bg-[#15241C] p-3.5 rounded-2xl border-2 border-white/10 shadow-sm">
               <p className="text-[11px] font-bold text-[#717973]">Aportes Patronales</p>
-              <p className="text-xl font-black text-[#012d1d] mt-1 font-mono">
+              <p className="text-xl font-black text-white mt-1 font-mono">
                 ${draft.totalEmployerContributions.toLocaleString('es-CO')}
               </p>
             </div>
 
-            <div className="bg-[#012d1d] text-white p-3.5 rounded-2xl border-2 border-[#012d1d] shadow-md">
+            <div className="bg-[#0D1A13] text-white p-3.5 rounded-2xl border-2 border-[#012d1d] shadow-md">
               <p className="text-[11px] font-bold text-[#ffba38]">Gran Total PILA PSE</p>
               <p className="text-xl font-black text-[#ffba38] mt-1 font-mono">
                 ${draft.grandTotalPila.toLocaleString('es-CO')}
@@ -448,16 +448,16 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
           </div>
 
           {/* Operator Selector */}
-          <div className="bg-white p-4 rounded-2xl border-2 border-[#c1c8c2] space-y-2">
+          <div className="bg-[#15241C] p-4 rounded-2xl border-2 border-white/10 space-y-2">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <label className="block text-xs font-black text-[#012d1d]">Operador PILA de Liquidación</label>
+                <label className="block text-xs font-black text-white">Operador PILA de Liquidación</label>
                 <p className="text-[11px] text-[#717973]">Selecciona el operador por el cual se transmitirá la planilla</p>
               </div>
               <select
                 value={draft.operatorName}
                 onChange={(e) => setDraft({ ...draft, operatorName: e.target.value as any })}
-                className="p-2 rounded-xl border-2 border-[#c1c8c2] bg-white font-bold text-xs text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                className="p-2 rounded-xl border-2 border-white/10 bg-[#15241C] font-bold text-xs text-white focus:border-[#012d1d] focus:outline-none"
               >
                 <option value="Aportes en Línea">Aportes en Línea</option>
                 <option value="Mi Planilla">Mi Planilla (Compensar / SOI)</option>
@@ -470,14 +470,14 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
 
           {/* Item Novedad Editor Sub-Panel (if editing an item) */}
           {editingIndex !== null && (
-            <div className="bg-white p-5 rounded-3xl border-2 border-[#ffba38] shadow-lg space-y-4 animate-in fade-in duration-150">
-              <div className="flex items-center justify-between border-b pb-3 border-slate-100">
+            <div className="bg-[#15241C] p-5 rounded-3xl border-2 border-[#ffba38] shadow-lg space-y-4 animate-in fade-in duration-150">
+              <div className="flex items-center justify-between border-b pb-3 border-white/10">
                 <div className="flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-full bg-[#ffba38] text-[#012d1d] flex items-center justify-center font-black">
+                  <span className="w-8 h-8 rounded-full bg-[#D4A94E] text-white flex items-center justify-center font-black">
                     <Edit2 className="w-4 h-4" />
                   </span>
                   <div>
-                    <h4 className="text-sm font-black text-[#012d1d]">
+                    <h4 className="text-sm font-black text-white">
                       Registrar Novedad — {draft.items[editingIndex].employeeName}
                     </h4>
                     <p className="text-[11px] text-[#717973]">
@@ -489,7 +489,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setEditingIndex(null)}
-                  className="text-xs font-bold text-[#717973] hover:text-[#012d1d]"
+                  className="text-xs font-bold text-[#717973] hover:text-white"
                 >
                   Cancelar Edición
                 </button>
@@ -498,13 +498,13 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {/* Novedad Type Selector */}
                 <div className="md:col-span-2">
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Código de Novedad PILA
                   </label>
                   <select
                     value={novCode}
                     onChange={(e) => setNovCode(e.target.value as PilaNovedadCode)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   >
                     {Object.entries(NOVEDADES_DESCRIPTIONS).map(([code, info]) => (
                       <option key={code} value={code}>
@@ -519,7 +519,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
 
                 {/* Days of Novedad */}
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Días de Novedad / Trabajo
                   </label>
                   <input
@@ -528,7 +528,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
                     max={30}
                     value={novDays}
                     onChange={(e) => setNovDays(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                     placeholder="Ej. 5 días"
                   />
                   <p className="text-[10px] text-[#717973] mt-1">Días aplicables en el mes (0-30)</p>
@@ -536,7 +536,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
 
                 {/* Custom IBC */}
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Ingreso Base de Cotización (IBC)
                   </label>
                   <input
@@ -544,20 +544,20 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
                     step={10000}
                     value={novIbc}
                     onChange={(e) => setNovIbc(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none font-mono"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none font-mono"
                   />
                 </div>
 
                 {/* Notes */}
                 <div className="md:col-span-2">
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Observaciones / Radicado EPS / Justificación
                   </label>
                   <input
                     type="text"
                     value={novNotes}
                     onChange={(e) => setNovNotes(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-medium text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-medium text-white focus:border-[#012d1d] focus:outline-none"
                     placeholder="Ej. Incapacidad EPS Sura radicado #992815 de 5 días"
                   />
                 </div>
@@ -567,7 +567,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
                 <button
                   type="button"
                   onClick={handleSaveItemNovedad}
-                  className="bg-[#012d1d] hover:bg-[#02402a] text-white text-xs font-bold py-2.5 px-5 rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer"
+                  className="bg-[#0D1A13] hover:bg-[#02402a] text-white text-xs font-bold py-2.5 px-5 rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <Check className="w-4 h-4 text-[#ffba38]" />
                   Aplicar Novedad al Cotizante
@@ -577,9 +577,9 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
           )}
 
           {/* Employees List / Table */}
-          <div className="bg-white rounded-3xl border-2 border-[#c1c8c2] overflow-hidden shadow-sm space-y-3 p-4">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-              <h3 className="text-sm font-black text-[#012d1d] flex items-center gap-2">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-white/10 overflow-hidden shadow-sm space-y-3 p-4">
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <h3 className="text-sm font-black text-white flex items-center gap-2">
                 <UserCheck className="w-4 h-4 text-emerald-800" />
                 Detalle de Cotizantes & Novedades ({draft.items.length})
               </h3>
@@ -598,11 +598,11 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
 
             {/* Add employee dropdown form */}
             {showAddEmp && (
-              <div className="bg-[#f8fbf9] p-3 rounded-2xl border-2 border-emerald-300 flex flex-col sm:flex-row items-center gap-2">
+              <div className="bg-[#15241C] p-3 rounded-2xl border-2 border-emerald-300 flex flex-col sm:flex-row items-center gap-2">
                 <select
                   value={selectedEmpId}
                   onChange={(e) => setSelectedEmpId(e.target.value)}
-                  className="grow p-2 rounded-xl border border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d]"
+                  className="grow p-2 rounded-xl border border-white/10 bg-[#15241C] text-xs font-bold text-white"
                 >
                   <option value="">-- Seleccionar Empleado a Incluir en la Planilla --</option>
                   {employees.map((e) => (
@@ -616,14 +616,14 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
                   <button
                     type="button"
                     onClick={handleAddEmployeeToDraft}
-                    className="bg-[#012d1d] text-white font-bold text-xs px-3 py-2 rounded-xl cursor-pointer"
+                    className="bg-[#0D1A13] text-white font-bold text-xs px-3 py-2 rounded-xl cursor-pointer"
                   >
                     Añadir
                   </button>
                   <button
                     type="button"
                     onClick={() => setShowAddEmp(false)}
-                    className="bg-slate-200 text-slate-700 font-bold text-xs px-3 py-2 rounded-xl cursor-pointer"
+                    className="bg-[#202E25] text-white font-bold text-xs px-3 py-2 rounded-xl cursor-pointer"
                   >
                     Cancelar
                   </button>
@@ -634,7 +634,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse min-w-[700px]">
                 <thead>
-                  <tr className="bg-[#f1f4f2] text-[11px] font-black text-[#012d1d] uppercase tracking-wider border-b border-[#c1c8c2]">
+                  <tr className="bg-[#f1f4f2] text-[11px] font-black text-white uppercase tracking-wider border-b border-white/10">
                     <th className="p-2.5">Cotizante / Documento</th>
                     <th className="p-2.5">Novedad PILA</th>
                     <th className="p-2.5">Días</th>
@@ -652,9 +652,9 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
                     const info = NOVEDADES_DESCRIPTIONS[nov];
 
                     return (
-                      <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                      <tr key={idx} className="hover:bg-[#0D1A13] transition-colors">
                         <td className="p-2.5">
-                          <p className="font-black text-[#012d1d]">{item.employeeName}</p>
+                          <p className="font-black text-white">{item.employeeName}</p>
                           <p className="text-[10px] text-[#717973] font-mono">C.C. {item.documentId}</p>
                           <p className="text-[9px] text-emerald-800">{item.epsName} | {item.pensionFund}</p>
                         </td>
@@ -676,7 +676,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
                           {item.daysWorked !== undefined ? item.daysWorked : 30} d
                         </td>
 
-                        <td className="p-2.5 text-right font-mono font-bold text-[#012d1d]">
+                        <td className="p-2.5 text-right font-mono font-bold text-white">
                           ${item.ibc.toLocaleString('es-CO')}
                         </td>
 
@@ -726,7 +726,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 bg-white border-t border-[#c1c8c2] shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="p-4 bg-[#15241C] border-t border-white/10 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-xs text-[#717973] font-medium">
             💡 Puedes conservar el borrador para seguir editando o consolidar para PSE.
           </div>
@@ -735,7 +735,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
             <button
               type="button"
               onClick={handleSaveDraftOnly}
-              className="flex-1 sm:flex-none bg-slate-100 hover:bg-slate-200 text-[#012d1d] border-2 border-slate-300 font-bold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              className="flex-1 sm:flex-none bg-[#1F3327] hover:bg-[#202E25] text-white border-2 border-white/15 font-bold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <Save className="w-4 h-4" />
               Guardar Borrador
@@ -744,7 +744,7 @@ export const EditPilaDraftModal: React.FC<EditPilaDraftModalProps> = ({
             <button
               type="button"
               onClick={handleConsolidateAndGeneratePin}
-              className="flex-1 sm:flex-none bg-[#ffba38] hover:bg-[#ffa000] text-[#012d1d] font-black text-xs py-2.5 px-5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="flex-1 sm:flex-none bg-[#D4A94E] hover:bg-[#ffa000] text-white font-black text-xs py-2.5 px-5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
               Consolidar & Generar PIN PSE

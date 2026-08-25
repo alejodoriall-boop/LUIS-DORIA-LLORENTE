@@ -17,14 +17,14 @@ export const WithdrawalModal: React.FC<WithdrawalModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-2xl max-w-4xl lg:max-w-5xl w-full p-6 border-2 border-[#523700] shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+      <div className="bg-[#15241C] rounded-2xl max-w-4xl lg:max-w-5xl w-full p-6 border-2 border-[#523700] shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between pb-3 border-b border-[#eeeeee]">
           <div className="flex items-center gap-2">
-            <div className="p-2 bg-[#ffdeac] text-[#523700] rounded-xl">
+            <div className="p-2 bg-[#ffdeac] text-[#0D1A13] rounded-xl">
               <Clock className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-[#523700]">Control de Tiempos de Retiro</h3>
+              <h3 className="text-lg font-bold text-[#0D1A13]">Control de Tiempos de Retiro</h3>
               <p className="text-xs text-[#717973]">
                 Bovinos con tratamiento farmacológico activo (Prohibido despacho o consumo)
               </p>
@@ -47,19 +47,19 @@ export const WithdrawalModal: React.FC<WithdrawalModalProps> = ({
             </span>
           </div>
 
-          <div className="divide-y divide-[#eeeeee] border border-[#c1c8c2] rounded-xl overflow-hidden text-xs">
+          <div className="divide-y divide-[#eeeeee] border border-white/10 rounded-xl overflow-hidden text-xs">
             {animals.map((item) => (
-              <div key={item.id} className="p-3.5 bg-white hover:bg-[#fafafa] flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <div key={item.id} className="p-3.5 bg-[#15241C] hover:bg-[#fafafa] flex flex-col sm:flex-row justify-between sm:items-center gap-2">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold bg-[#1b4332] text-white px-2 py-0.5 rounded text-xs">
+                    <span className="font-mono font-bold bg-[#123F2A] text-white px-2 py-0.5 rounded text-xs">
                       {item.tagId}
                     </span>
-                    <span className="font-bold text-[#012d1d] text-sm">{item.name}</span>
+                    <span className="font-bold text-white text-sm">{item.name}</span>
                     <span className="text-[11px] text-[#717973]">({item.lot})</span>
                   </div>
                   <p className="text-[#414844] mt-1 font-medium">
-                    Fármaco: <span className="font-semibold text-[#1a1c1c]">{item.medication}</span>
+                    Fármaco: <span className="font-semibold text-white">{item.medication}</span>
                   </p>
                   <p className="text-[10px] text-[#717973]">
                     Aplicado: {item.appliedDate} • Motivo: {item.reason}
@@ -82,7 +82,7 @@ export const WithdrawalModal: React.FC<WithdrawalModalProps> = ({
         <div className="flex justify-end pt-3 border-t border-[#eeeeee]">
           <button
             onClick={onClose}
-            className="px-5 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold rounded-xl text-xs transition-colors"
+            className="px-5 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold rounded-xl text-xs transition-colors"
           >
             Entendido
           </button>

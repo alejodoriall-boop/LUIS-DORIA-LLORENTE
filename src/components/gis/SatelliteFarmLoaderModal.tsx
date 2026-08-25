@@ -378,16 +378,16 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="bg-[#f9f9f9] w-full max-w-6xl rounded-3xl border-2 border-[#1b4332] shadow-2xl overflow-hidden flex flex-col max-h-[96vh]">
         {/* Header */}
-        <div className="bg-[#1b4332] text-white p-4 sm:p-5 flex items-center justify-between border-b border-[#2d6a4f] shrink-0">
+        <div className="bg-[#123F2A] text-white p-4 sm:p-5 flex items-center justify-between border-b border-[#2d6a4f] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="bg-[#ffba38] text-[#523700] p-2.5 rounded-2xl">
+            <div className="bg-[#D4A94E] text-[#0D1A13] p-2.5 rounded-2xl">
               <Globe className="w-6 h-6" />
             </div>
             <div>
               <h2 className="text-lg sm:text-xl font-extrabold tracking-tight flex items-center gap-2">
                 Delimitación Satelital & Carga de Finca por GPS
               </h2>
-              <p className="text-xs text-[#c1ecd4]">
+              <p className="text-xs text-[#A5B8AC]">
                 Marca los puntos perimetrales sobre la imagen satelital con relieve para calcular área, curvas de nivel y potreros
               </p>
             </div>
@@ -404,11 +404,11 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
         {/* Modal Body: Split view (Left: Satellite Canvas, Right: Farm Parameters & Point Manager) */}
         <div className="flex-1 overflow-y-auto grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* LEFT 7-COLS: Interactive Realistic Satellite & Relief Point Marking Canvas */}
-          <div className="lg:col-span-8 p-3 sm:p-5 flex flex-col gap-3 bg-[#0a1a12] border-b lg:border-b-0 lg:border-r border-[#c1c8c2]">
+          <div className="lg:col-span-8 p-3 sm:p-5 flex flex-col gap-3 bg-[#0a1a12] border-b lg:border-b-0 lg:border-r border-white/10">
             {/* Top Toolbar over Canvas */}
-            <div className="flex flex-wrap items-center justify-between gap-2 bg-[#012d1d] p-2.5 rounded-2xl border border-[#2d6a4f] text-white text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-2 bg-[#0D1A13] p-2.5 rounded-2xl border border-[#2d6a4f] text-white text-xs">
               <div className="flex items-center gap-2">
-                <span className="bg-[#1b4332] text-[#ffba38] px-2 py-0.5 rounded font-mono font-bold text-[11px] flex items-center gap-1">
+                <span className="bg-[#123F2A] text-[#ffba38] px-2 py-0.5 rounded font-mono font-bold text-[11px] flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5" />
                   {markedPoints.length} Vértices GPS
                 </span>
@@ -424,7 +424,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                 <button
                   onClick={handleGetDeviceLocation}
                   disabled={isGpsLocating}
-                  className="bg-[#1b4332] hover:bg-[#2d6a4f] text-[#c1ecd4] px-2.5 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 text-[11px]"
+                  className="bg-[#123F2A] hover:bg-[#1F6547] text-[#A5B8AC] px-2.5 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 text-[11px]"
                   title="Capturar GPS del dispositivo"
                 >
                   <Navigation className={`w-3.5 h-3.5 ${isGpsLocating ? 'animate-spin' : ''}`} />
@@ -434,7 +434,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                 <button
                   onClick={handleUndoPoint}
                   disabled={markedPoints.length === 0}
-                  className="bg-[#1b4332] hover:bg-[#2d6a4f] text-white px-2.5 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 text-[11px] disabled:opacity-40"
+                  className="bg-[#123F2A] hover:bg-[#1F6547] text-white px-2.5 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 text-[11px] disabled:opacity-40"
                   title="Deshacer último punto"
                 >
                   <Undo className="w-3.5 h-3.5" />
@@ -656,29 +656,29 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
 
               {/* Instruction Prompt Watermark */}
               {markedPoints.length < 3 && (
-                <div className="absolute top-4 left-4 right-4 z-10 pointer-events-none bg-[#012d1d]/85 backdrop-blur-md text-white border border-[#2d6a4f] p-3 rounded-2xl text-center shadow-lg">
+                <div className="absolute top-4 left-4 right-4 z-10 pointer-events-none bg-[#0D1A13]/85 backdrop-blur-md text-white border border-[#2d6a4f] p-3 rounded-2xl text-center shadow-lg">
                   <p className="text-xs font-bold text-[#ffba38] flex items-center justify-center gap-1.5">
                     <Sparkles className="w-4 h-4" />
                     Haz clic sobre la imagen satelital para marcar los linderos de tu finca
                   </p>
-                  <p className="text-[11px] text-[#c1ecd4] mt-0.5">
+                  <p className="text-[11px] text-[#A5B8AC] mt-0.5">
                     Marca 3 o más esquinas (vértices) perimetrales. El área y las cotas de relieve se calcularán en tiempo real.
                   </p>
                 </div>
               )}
 
               {/* Floating Bottom Nav Controls */}
-              <div className="absolute bottom-3 right-3 z-10 flex flex-col gap-1 bg-[#012d1d]/90 backdrop-blur-md p-1.5 rounded-2xl border border-[#2d6a4f] shadow-lg">
+              <div className="absolute bottom-3 right-3 z-10 flex flex-col gap-1 bg-[#0D1A13]/90 backdrop-blur-md p-1.5 rounded-2xl border border-[#2d6a4f] shadow-lg">
                 <button
                   onClick={() => setZoom((z) => Math.min(3, z + 0.2))}
-                  className="p-2 text-white hover:bg-[#1b4332] rounded-xl transition-colors"
+                  className="p-2 text-white hover:bg-[#123F2A] rounded-xl transition-colors"
                   title="Acercar"
                 >
                   <ZoomIn className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setZoom((z) => Math.max(0.7, z - 0.2))}
-                  className="p-2 text-white hover:bg-[#1b4332] rounded-xl transition-colors"
+                  className="p-2 text-white hover:bg-[#123F2A] rounded-xl transition-colors"
                   title="Alejar"
                 >
                   <ZoomOut className="w-4 h-4" />
@@ -688,7 +688,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                     setZoom(1);
                     setPan({ x: 0, y: 0 });
                   }}
-                  className="p-2 text-white hover:bg-[#1b4332] rounded-xl transition-colors"
+                  className="p-2 text-white hover:bg-[#123F2A] rounded-xl transition-colors"
                   title="Restablecer"
                 >
                   <Maximize2 className="w-4 h-4" />
@@ -696,17 +696,17 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
               </div>
 
               {/* Bottom Left: Visual Compass & Scale */}
-              <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2 bg-[#012d1d]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#2d6a4f] text-[10px] text-[#c1ecd4] font-mono">
+              <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2 bg-[#0D1A13]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#2d6a4f] text-[10px] text-[#A5B8AC] font-mono">
                 <Compass className="w-3.5 h-3.5 text-[#ffba38]" />
                 <span>Norte Satelital • WGS84</span>
               </div>
             </div>
 
             {/* Real-time Surface & Livestock Metrics Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-[#012d1d] p-3 rounded-2xl border border-[#2d6a4f]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-[#0D1A13] p-3 rounded-2xl border border-[#2d6a4f]">
               <div className="bg-[#07170f] p-2.5 rounded-xl border border-[#1b4332] text-center">
                 <p className="text-[10px] text-[#86af99] font-bold uppercase">Área Total Delimitada</p>
-                <p className="text-lg font-mono font-extrabold text-[#c1ecd4]">{metrics.areaHa} Ha</p>
+                <p className="text-lg font-mono font-extrabold text-[#A5B8AC]">{metrics.areaHa} Ha</p>
                 <p className="text-[9px] text-[#717973] font-mono">({metrics.areaM2.toLocaleString()} m²)</p>
               </div>
 
@@ -735,11 +735,11 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
           </div>
 
           {/* RIGHT 5-COLS: Farm Parameters, Preset Zones & Rotational Subdivision Options */}
-          <div className="lg:col-span-4 p-4 sm:p-5 space-y-4 bg-white flex flex-col justify-between">
+          <div className="lg:col-span-4 p-4 sm:p-5 space-y-4 bg-[#15241C] flex flex-col justify-between">
             <div className="space-y-4">
               {/* Regional Presets Selector */}
               <div>
-                <label className="block text-xs font-bold text-[#012d1d] uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                <label className="block text-xs font-bold text-white uppercase tracking-wider mb-1.5 flex items-center justify-between">
                   <span>Zonas Ganaderas Preset</span>
                   <span className="text-[10px] text-[#717973] lowercase">latam / colombia</span>
                 </label>
@@ -751,8 +751,8 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                       onClick={() => handleSelectRegion(region.id)}
                       className={`p-2 rounded-xl text-left text-xs transition-all border ${
                         selectedRegionId === region.id
-                          ? 'bg-[#1b4332] text-white border-[#1b4332] font-bold shadow-sm'
-                          : 'bg-[#f3f3f3] text-[#414844] border-[#c1c8c2] hover:bg-[#e8e8e8]'
+                          ? 'bg-[#123F2A] text-white border-[#1b4332] font-bold shadow-sm'
+                          : 'bg-[#f3f3f3] text-[#414844] border-white/10 hover:bg-[#e8e8e8]'
                       }`}
                     >
                       <p className="font-bold truncate text-[11px]">{region.name}</p>
@@ -765,7 +765,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
               {/* Farm Information Fields */}
               <div className="space-y-3 pt-2 border-t border-[#eeeeee]">
                 <div>
-                  <label className="block text-[11px] font-bold text-[#012d1d] uppercase tracking-wider mb-1">
+                  <label className="block text-[11px] font-bold text-white uppercase tracking-wider mb-1">
                     Nombre del Predio / Finca
                   </label>
                   <input
@@ -773,7 +773,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                     value={farmName}
                     onChange={(e) => setFarmName(e.target.value)}
                     placeholder="Ej. Hacienda El Trébol"
-                    className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d] focus:bg-white focus:border-[#1b4332] outline-none"
+                    className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white focus:bg-[#15241C] focus:border-[#1b4332] outline-none"
                   />
                 </div>
 
@@ -786,7 +786,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                       type="text"
                       value={department}
                       onChange={(e) => setDepartment(e.target.value)}
-                      className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs text-[#012d1d]"
+                      className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs text-white"
                     />
                   </div>
 
@@ -798,7 +798,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                       type="text"
                       value={municipality}
                       onChange={(e) => setMunicipality(e.target.value)}
-                      className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs text-[#012d1d]"
+                      className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs text-white"
                     />
                   </div>
                 </div>
@@ -812,7 +812,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                       type="number"
                       value={baseElevation}
                       onChange={(e) => setBaseElevation(Number(e.target.value))}
-                      className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-mono font-bold text-white"
                     />
                   </div>
 
@@ -823,7 +823,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                     <select
                       value={pastureType}
                       onChange={(e) => setPastureType(e.target.value)}
-                      className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-2 py-1.5 text-xs text-[#012d1d]"
+                      className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-2 py-1.5 text-xs text-white"
                     >
                       <option value="Brachiaria Brizantha cv. Marandú">Brizantha Marandú</option>
                       <option value="Brachiaria Brizantha cv. Toledo">Brizantha Toledo</option>
@@ -837,8 +837,8 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
               </div>
 
               {/* Rotational PRV Subdivision Setup */}
-              <div className="bg-[#c1ecd4]/20 p-3.5 rounded-2xl border border-[#c1c8c2] space-y-2">
-                <label className="block text-xs font-bold text-[#012d1d] uppercase tracking-wider flex items-center justify-between">
+              <div className="bg-[#c1ecd4]/20 p-3.5 rounded-2xl border border-white/10 space-y-2">
+                <label className="block text-xs font-bold text-white uppercase tracking-wider flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <Grid className="w-4 h-4 text-[#1b4332]" />
                     Subdivisión de Potreros (PRV)
@@ -860,8 +860,8 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                       onClick={() => setPaddockSubdivisionCount(count)}
                       className={`py-1.5 rounded-xl font-bold text-xs transition-all ${
                         paddockSubdivisionCount === count
-                          ? 'bg-[#1b4332] text-white shadow-sm'
-                          : 'bg-white text-[#012d1d] border border-[#c1c8c2] hover:bg-[#f3f3f3]'
+                          ? 'bg-[#123F2A] text-white shadow-sm'
+                          : 'bg-[#15241C] text-white border border-white/10 hover:bg-[#f3f3f3]'
                       }`}
                     >
                       {count === 1 ? '1 Macro' : `${count} Pot.`}
@@ -885,7 +885,7 @@ export const SatelliteFarmLoaderModal: React.FC<SatelliteFarmLoaderModalProps> =
                 disabled={markedPoints.length < 3}
                 className={`w-full py-3.5 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all ${
                   markedPoints.length >= 3
-                    ? 'bg-[#1b4332] hover:bg-[#2d6a4f] text-[#ffba38] tactical-shadow font-extrabold cursor-pointer active:scale-98'
+                    ? 'bg-[#123F2A] hover:bg-[#1F6547] text-[#ffba38] tactical-shadow font-extrabold cursor-pointer active:scale-98'
                     : 'bg-[#c1c8c2] text-white cursor-not-allowed'
                 }`}
               >

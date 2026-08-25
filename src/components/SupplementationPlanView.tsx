@@ -474,7 +474,7 @@ export const SupplementationPlanView: React.FC = () => {
     <div className="space-y-6 w-full">
       {/* Toast Alert */}
       {toastMessage && (
-        <div className="fixed top-5 right-5 z-50 bg-[#012d1d] text-[#ffba38] border-2 border-[#ffba38] px-5 py-3 rounded-2xl shadow-2xl font-bold text-xs flex items-center gap-3 animate-in fade-in slide-in-from-top-4">
+        <div className="fixed top-5 right-5 z-50 bg-[#0D1A13] text-[#ffba38] border-2 border-[#ffba38] px-5 py-3 rounded-2xl shadow-2xl font-bold text-xs flex items-center gap-3 animate-in fade-in slide-in-from-top-4">
           <Sparkles className="w-5 h-5 text-[#ffba38] shrink-0" />
           <span>{toastMessage}</span>
         </div>
@@ -484,12 +484,12 @@ export const SupplementationPlanView: React.FC = () => {
       <div className="bg-gradient-to-r from-[#012d1d] via-[#083e29] to-[#012d1d] text-white rounded-3xl p-5 md:p-7 border-2 border-[#012d1d] card-shadow space-y-5">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 border-b border-[#1b5e43] pb-5">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-[#ffba38] text-[#012d1d] flex items-center justify-center font-black text-2xl shrink-0 shadow-lg">
-              <Wheat className="w-8 h-8 text-[#012d1d]" />
+            <div className="w-14 h-14 rounded-2xl bg-[#D4A94E] text-white flex items-center justify-center font-black text-2xl shrink-0 shadow-lg">
+              <Wheat className="w-8 h-8 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="bg-[#ffba38] text-[#012d1d] text-[10px] font-mono font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="bg-[#D4A94E] text-white text-[10px] font-mono font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
                   MÓDULO DE NUTRICIÓN BOVINA MULTI-ETAPA
                 </span>
                 <span className="bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full">
@@ -508,7 +508,7 @@ export const SupplementationPlanView: React.FC = () => {
                   >
                     <Info className="w-4 h-4" />
                   </button>
-                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                     Estrategias nutricionales estandarizadas para <b>Cría, Levante, Preceba, Ceba e Crianza Artificial de Terneros</b>. Formule raciones balanceadas, optimice el costo por kg ganado y controle entregas diarias en comederos.
                   </div>
                 </div>
@@ -519,9 +519,9 @@ export const SupplementationPlanView: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => setIsAddPlanModalOpen(true)}
-              className="bg-[#ffba38] hover:bg-[#e0a020] text-[#012d1d] px-4 py-2.5 rounded-2xl font-black text-xs flex items-center gap-2 transition-all cursor-pointer shadow-md"
+              className="bg-[#D4A94E] hover:bg-[#e0a020] text-white px-4 py-2.5 rounded-2xl font-black text-xs flex items-center gap-2 transition-all cursor-pointer shadow-md"
             >
-              <Plus className="w-4 h-4 text-[#012d1d]" />
+              <Plus className="w-4 h-4 text-white" />
               Crear Nuevo Plan
             </button>
 
@@ -565,10 +565,10 @@ export const SupplementationPlanView: React.FC = () => {
       </div>
 
       {/* STAGE SELECTOR CAROUSEL / PILLS */}
-      <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-4 card-shadow space-y-3">
+      <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-4 card-shadow space-y-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-black uppercase text-[#012d1d] flex items-center gap-2">
-            <Layers className="w-4 h-4 text-[#012d1d]" />
+          <span className="text-xs font-black uppercase text-white flex items-center gap-2">
+            <Layers className="w-4 h-4 text-white" />
             Filtrar por Etapa Productiva Bovinos:
           </span>
           <span className="text-[11px] text-[#717973] font-bold">
@@ -593,13 +593,13 @@ export const SupplementationPlanView: React.FC = () => {
                 onClick={() => setSelectedStage(tab.id as any)}
                 className={`px-3.5 py-2.5 rounded-2xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap border-2 ${
                   isSelected
-                    ? 'bg-[#012d1d] text-[#ffba38] border-[#012d1d] shadow-md scale-[1.02]'
-                    : 'bg-[#f8fdfa] text-[#012d1d] border-[#e2efe8] hover:border-[#012d1d]'
+                    ? 'bg-[#0D1A13] text-[#ffba38] border-[#012d1d] shadow-md scale-[1.02]'
+                    : 'bg-[#f8fdfa] text-white border-[#e2efe8] hover:border-[#012d1d]'
                 }`}
               >
-                <IconComp className={`w-4 h-4 ${isSelected ? 'text-[#ffba38]' : 'text-[#012d1d]'}`} />
+                <IconComp className={`w-4 h-4 ${isSelected ? 'text-[#ffba38]' : 'text-white'}`} />
                 <span>{tab.label}</span>
-                <span className={`px-2 py-0.2 rounded-full text-[10px] font-mono ${isSelected ? 'bg-[#ffba38] text-[#012d1d]' : 'bg-[#e2efe8] text-[#012d1d]'}`}>
+                <span className={`px-2 py-0.2 rounded-full text-[10px] font-mono ${isSelected ? 'bg-[#D4A94E] text-white' : 'bg-[#e2efe8] text-white'}`}>
                   {tab.count}
                 </span>
               </button>
@@ -614,8 +614,8 @@ export const SupplementationPlanView: React.FC = () => {
           onClick={() => setActiveTab('planes_estandar')}
           className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
             activeTab === 'planes_estandar'
-              ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-              : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+              ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+              : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
           }`}
         >
           <Wheat className="w-4 h-4 text-[#ffba38]" />
@@ -626,8 +626,8 @@ export const SupplementationPlanView: React.FC = () => {
           onClick={() => setActiveTab('calculadora_formulador')}
           className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
             activeTab === 'calculadora_formulador'
-              ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-              : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+              ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+              : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
           }`}
         >
           <Calculator className="w-4 h-4 text-[#ffba38]" />
@@ -638,13 +638,13 @@ export const SupplementationPlanView: React.FC = () => {
           onClick={() => setActiveTab('proyeccion_compras')}
           className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap border-2 ${
             activeTab === 'proyeccion_compras'
-              ? 'bg-[#012d1d] text-[#ffba38] border-[#012d1d] shadow-md'
-              : 'bg-emerald-50 text-emerald-950 border-emerald-300 hover:bg-emerald-100'
+              ? 'bg-[#0D1A13] text-[#ffba38] border-[#012d1d] shadow-md'
+              : 'bg-emerald-950/30 text-emerald-950 border-emerald-300 hover:bg-emerald-100'
           }`}
         >
           <ShoppingCart className="w-4 h-4 text-[#ffba38]" />
           Proyección de Pedidos & Compras (MRP)
-          <span className="bg-[#ffba38] text-[#012d1d] text-[10px] font-mono font-black px-2 py-0.5 rounded-full">
+          <span className="bg-[#D4A94E] text-white text-[10px] font-mono font-black px-2 py-0.5 rounded-full">
             {purchaseHorizon}d
           </span>
         </button>
@@ -653,8 +653,8 @@ export const SupplementationPlanView: React.FC = () => {
           onClick={() => setActiveTab('inventario_insumos')}
           className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
             activeTab === 'inventario_insumos'
-              ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-              : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+              ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+              : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
           }`}
         >
           <Warehouse className="w-4 h-4 text-[#ffba38]" />
@@ -665,8 +665,8 @@ export const SupplementationPlanView: React.FC = () => {
           onClick={() => setActiveTab('registro_despachos')}
           className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
             activeTab === 'registro_despachos'
-              ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-              : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+              ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+              : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
           }`}
         >
           <ClipboardList className="w-4 h-4 text-[#ffba38]" />
@@ -680,14 +680,14 @@ export const SupplementationPlanView: React.FC = () => {
       {activeTab === 'planes_estandar' && (
         <div className="space-y-6 animate-in fade-in">
           {/* Search Bar */}
-          <div className="bg-white rounded-2xl border-2 border-[#012d1d] p-3 card-shadow flex items-center gap-3">
+          <div className="bg-[#15241C] rounded-2xl border-2 border-[#012d1d] p-3 card-shadow flex items-center gap-3">
             <Search className="w-5 h-5 text-[#717973] ml-2 shrink-0" />
             <input
               type="text"
               placeholder="Buscar plan por nombre, ingrediente o etapa (ej: Creep Feeding, Hot-Finish, Sal Proteica)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-transparent border-none text-xs font-bold text-[#012d1d] focus:outline-none"
+              className="w-full bg-transparent border-none text-xs font-bold text-white focus:outline-none"
             />
             {searchQuery && (
               <button onClick={() => setSearchQuery('')} className="text-[#717973] hover:text-black">
@@ -705,7 +705,7 @@ export const SupplementationPlanView: React.FC = () => {
               return (
                 <div
                   key={plan.id}
-                  className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 space-y-4 card-shadow hover:border-[#ffba38] transition-all flex flex-col justify-between"
+                  className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 space-y-4 card-shadow hover:border-[#ffba38] transition-all flex flex-col justify-between"
                 >
                   <div className="space-y-3">
                     {/* Header */}
@@ -719,7 +719,7 @@ export const SupplementationPlanView: React.FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="font-black text-lg text-[#012d1d] leading-snug">
+                    <h3 className="font-black text-lg text-white leading-snug">
                       {plan.name}
                     </h3>
 
@@ -728,10 +728,10 @@ export const SupplementationPlanView: React.FC = () => {
                     </p>
 
                     {/* Key Metrics Grid */}
-                    <div className="grid grid-cols-3 gap-2 bg-[#f8fdfa] p-3 rounded-2xl border border-[#c1c8c2] text-center">
+                    <div className="grid grid-cols-3 gap-2 bg-[#f8fdfa] p-3 rounded-2xl border border-white/10 text-center">
                       <div>
                         <span className="text-[10px] uppercase font-bold text-[#717973] block">Proteína Cruda</span>
-                        <span className="text-sm font-mono font-black text-[#012d1d]">{plan.crudeProteinPercent}% PC</span>
+                        <span className="text-sm font-mono font-black text-white">{plan.crudeProteinPercent}% PC</span>
                       </div>
                       <div>
                         <span className="text-[10px] uppercase font-bold text-[#717973] block">Dosis Diaria</span>
@@ -745,14 +745,14 @@ export const SupplementationPlanView: React.FC = () => {
 
                     {/* Formula Composition Preview */}
                     <div className="space-y-1.5 pt-1">
-                      <span className="text-[11px] font-black uppercase text-[#012d1d] flex items-center gap-1">
-                        <PieChart className="w-3.5 h-3.5 text-[#012d1d]" /> Composición de la Mezcla (Fórmula):
+                      <span className="text-[11px] font-black uppercase text-white flex items-center gap-1">
+                        <PieChart className="w-3.5 h-3.5 text-white" /> Composición de la Mezcla (Fórmula):
                       </span>
 
-                      <div className="space-y-1 bg-[#f0f4f1] p-2.5 rounded-xl border border-[#e2efe8]">
+                      <div className="space-y-1 bg-[#123F2A]/60 p-2.5 rounded-xl border border-[#e2efe8]">
                         {plan.formula.slice(0, 4).map((f) => (
                           <div key={f.ingredientId} className="flex items-center justify-between text-xs">
-                            <span className="font-medium text-[#012d1d] truncate max-w-[200px]">{f.ingredientName}</span>
+                            <span className="font-medium text-white truncate max-w-[200px]">{f.ingredientName}</span>
                             <div className="flex items-center gap-2 font-mono font-bold">
                               <span className="text-emerald-800">{f.percentageInclusion}%</span>
                               <span className="text-[#717973] text-[10px]">({f.kgPerTon} kg/Ton)</span>
@@ -780,7 +780,7 @@ export const SupplementationPlanView: React.FC = () => {
                   <div className="pt-3 border-t border-[#e2efe8] flex items-center gap-2">
                     <button
                       onClick={() => setSelectedPlanDetail(plan)}
-                      className="flex-1 bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] py-2 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 cursor-pointer transition-all shadow-sm"
+                      className="flex-1 bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] py-2 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 cursor-pointer transition-all shadow-sm"
                     >
                       <Sparkles className="w-3.5 h-3.5 text-[#ffba38]" />
                       Ver Ficha Completa
@@ -792,9 +792,9 @@ export const SupplementationPlanView: React.FC = () => {
                         setActiveTab('calculadora_formulador');
                         showToast(`⚡ Cargado "${plan.name}" en el Simulador Formulado.`);
                       }}
-                      className="px-3 py-2 bg-[#f0f4f1] hover:bg-[#e2efe8] text-[#012d1d] rounded-xl text-xs font-bold flex items-center gap-1 border border-[#c1c8c2] cursor-pointer"
+                      className="px-3 py-2 bg-[#123F2A]/60 hover:bg-[#e2efe8] text-white rounded-xl text-xs font-bold flex items-center gap-1 border border-white/10 cursor-pointer"
                     >
-                      <Calculator className="w-3.5 h-3.5 text-[#012d1d]" />
+                      <Calculator className="w-3.5 h-3.5 text-white" />
                       Formular
                     </button>
                   </div>
@@ -810,14 +810,14 @@ export const SupplementationPlanView: React.FC = () => {
       {/* ========================================================================= */}
       {activeTab === 'calculadora_formulador' && (
         <div className="space-y-6 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-6">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
+                <div className="w-11 h-11 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
                   <Calculator className="w-6 h-6 text-[#ffba38]" />
                 </div>
                 <div>
-                  <h3 className="font-black text-lg md:text-xl text-[#012d1d]">
+                  <h3 className="font-black text-lg md:text-xl text-white">
                     Simulador & Formulado de Raciones Nutricionales
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -830,11 +830,11 @@ export const SupplementationPlanView: React.FC = () => {
             {/* Inputs Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 bg-[#f8fdfa] p-4 rounded-2xl border-2 border-[#012d1d]">
               <div>
-                <label className="text-[11px] font-black uppercase text-[#012d1d] block mb-1">Etapa Productiva:</label>
+                <label className="text-[11px] font-black uppercase text-white block mb-1">Etapa Productiva:</label>
                 <select
                   value={calcStage}
                   onChange={(e) => setCalcStage(e.target.value as SupplementStage)}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white"
                 >
                   <option value="crianza_artificial">Crianza Artificial (0-60d)</option>
                   <option value="cria">Cría / Creep Feeding</option>
@@ -845,45 +845,45 @@ export const SupplementationPlanView: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-[11px] font-black uppercase text-[#012d1d] block mb-1">Cabezas en el Lote:</label>
+                <label className="text-[11px] font-black uppercase text-white block mb-1">Cabezas en el Lote:</label>
                 <input
                   type="number"
                   min="1"
                   value={calcHeadCount}
                   onChange={(e) => setCalcHeadCount(Math.max(1, Number(e.target.value)))}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-black uppercase text-[#012d1d] block mb-1">Peso Promedio (kg):</label>
+                <label className="text-[11px] font-black uppercase text-white block mb-1">Peso Promedio (kg):</label>
                 <input
                   type="number"
                   value={calcAvgWeight}
                   onChange={(e) => setCalcAvgWeight(Number(e.target.value))}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-black uppercase text-[#012d1d] block mb-1">GDP Meta (g/día):</label>
+                <label className="text-[11px] font-black uppercase text-white block mb-1">GDP Meta (g/día):</label>
                 <input
                   type="number"
                   step="50"
                   value={calcTargetGDP}
                   onChange={(e) => setCalcTargetGDP(Number(e.target.value))}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-emerald-800"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-emerald-800"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-black uppercase text-[#012d1d] block mb-1">Precio Ganado Vivo ($/kg):</label>
+                <label className="text-[11px] font-black uppercase text-white block mb-1">Precio Ganado Vivo ($/kg):</label>
                 <input
                   type="number"
                   step="0.10"
                   value={calcCattlePriceUSD}
                   onChange={(e) => setCalcCattlePriceUSD(Number(e.target.value))}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-mono font-bold text-amber-900"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-amber-900"
                 />
               </div>
             </div>
@@ -891,8 +891,8 @@ export const SupplementationPlanView: React.FC = () => {
             {/* Custom Ingredient Mixer Table */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <h4 className="font-black text-sm text-[#012d1d] flex items-center gap-2">
-                  <Wheat className="w-4 h-4 text-[#012d1d]" />
+                <h4 className="font-black text-sm text-white flex items-center gap-2">
+                  <Wheat className="w-4 h-4 text-white" />
                   Mezcla de Ingredientes de la Ración (% Inclusión Total):
                 </h4>
 
@@ -908,7 +908,7 @@ export const SupplementationPlanView: React.FC = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs text-left border-collapse">
                   <thead>
-                    <tr className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                    <tr className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                       <th className="p-3 rounded-tl-xl">Materia Prima / Insumo</th>
                       <th className="p-3 text-center">% Inclusión</th>
                       <th className="p-3 text-center">kg por Tonelada</th>
@@ -932,7 +932,7 @@ export const SupplementationPlanView: React.FC = () => {
                                 newMix[idx].ingredientId = e.target.value;
                                 setCalcInclusionMix(newMix);
                               }}
-                              className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold text-[#012d1d]"
+                              className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold text-white"
                             >
                               {ingredients.map((i) => (
                                 <option key={i.id} value={i.id}>
@@ -953,11 +953,11 @@ export const SupplementationPlanView: React.FC = () => {
                                 newMix[idx].percent = Number(e.target.value);
                                 setCalcInclusionMix(newMix);
                               }}
-                              className="w-20 bg-white border border-[#c1c8c2] rounded-xl px-2 py-1 text-center font-mono font-bold text-[#012d1d]"
+                              className="w-20 bg-[#15241C] border border-white/10 rounded-xl px-2 py-1 text-center font-mono font-bold text-white"
                             />
                           </td>
 
-                          <td className="p-2.5 text-center font-mono font-bold text-[#012d1d]">
+                          <td className="p-2.5 text-center font-mono font-bold text-white">
                             {(item.percent * 10).toFixed(0)} kg
                           </td>
 
@@ -1004,9 +1004,9 @@ export const SupplementationPlanView: React.FC = () => {
                     { ingredientId: ingredients[0].id, percent: 5 },
                   ]);
                 }}
-                className="bg-[#f0f4f1] hover:bg-[#e2efe8] text-[#012d1d] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border border-[#c1c8c2] cursor-pointer"
+                className="bg-[#123F2A]/60 hover:bg-[#e2efe8] text-white px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border border-white/10 cursor-pointer"
               >
-                <Plus className="w-4 h-4 text-[#012d1d]" />
+                <Plus className="w-4 h-4 text-white" />
                 Agregar Otra Materia Prima a la Fórmula
               </button>
             </div>
@@ -1015,34 +1015,34 @@ export const SupplementationPlanView: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
               {/* Nutritional Results */}
               <div className="bg-[#f8fdfa] rounded-2xl p-5 border-2 border-[#012d1d] space-y-3">
-                <h4 className="font-black text-sm text-[#012d1d] border-b border-[#e2efe8] pb-2 flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-[#012d1d]" />
+                <h4 className="font-black text-sm text-white border-b border-[#e2efe8] pb-2 flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-white" />
                   Aporte Nutricional Proyectado de la Mezcla:
                 </h4>
 
                 <div className="grid grid-cols-2 gap-3 text-center text-xs">
-                  <div className="p-3 bg-white rounded-xl border border-[#c1c8c2]">
+                  <div className="p-3 bg-[#15241C] rounded-xl border border-white/10">
                     <span className="text-[10px] text-[#717973] uppercase font-bold block">Proteína Cruda (PC %)</span>
                     <span className="text-xl font-mono font-black text-emerald-800">
                       {formulatorResults.weightedCP.toFixed(1)}% PC
                     </span>
                   </div>
 
-                  <div className="p-3 bg-white rounded-xl border border-[#c1c8c2]">
+                  <div className="p-3 bg-[#15241C] rounded-xl border border-white/10">
                     <span className="text-[10px] text-[#717973] uppercase font-bold block">Nutrientes Totales (TDN)</span>
                     <span className="text-xl font-mono font-black text-blue-900">
                       {formulatorResults.weightedTDN.toFixed(1)}% TDN
                     </span>
                   </div>
 
-                  <div className="p-3 bg-white rounded-xl border border-[#c1c8c2]">
+                  <div className="p-3 bg-[#15241C] rounded-xl border border-white/10">
                     <span className="text-[10px] text-[#717973] uppercase font-bold block">Materia Seca (MS %)</span>
-                    <span className="text-lg font-mono font-bold text-[#012d1d]">
+                    <span className="text-lg font-mono font-bold text-white">
                       {formulatorResults.weightedDM.toFixed(1)}% MS
                     </span>
                   </div>
 
-                  <div className="p-3 bg-white rounded-xl border border-[#c1c8c2]">
+                  <div className="p-3 bg-[#15241C] rounded-xl border border-white/10">
                     <span className="text-[10px] text-[#717973] uppercase font-bold block">Costo Directo Preparado</span>
                     <span className="text-lg font-mono font-black text-amber-900">
                       ${formulatorResults.weightedCostPerKg.toFixed(2)} / kg
@@ -1100,18 +1100,18 @@ export const SupplementationPlanView: React.FC = () => {
       {activeTab === 'proyeccion_compras' && (
         <div className="space-y-6 animate-in fade-in">
           {/* Main Control Panel: Horizon Selector and Farm Animal Load */}
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold shadow-md shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold shadow-md shrink-0">
                   <ShoppingCart className="w-6 h-6 text-[#ffba38]" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-black text-lg text-[#012d1d]">
+                    <h3 className="font-black text-lg text-white">
                       Planificador MRP & Proyección de Pedidos de Insumos
                     </h3>
-                    <span className="bg-[#012d1d] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
+                    <span className="bg-[#0D1A13] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
                       Horizonte Activo: {purchaseHorizon === 365 ? '1 Año (365 Días)' : `${purchaseHorizon} Días`}
                     </span>
                   </div>
@@ -1137,7 +1137,7 @@ export const SupplementationPlanView: React.FC = () => {
 
                 <button
                   onClick={() => showToast('📥 Planilla de orden de compra generada en formato CSV/Excel.')}
-                  className="px-3.5 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] rounded-xl text-xs font-black flex items-center gap-2 cursor-pointer transition-all shadow-sm"
+                  className="px-3.5 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] rounded-xl text-xs font-black flex items-center gap-2 cursor-pointer transition-all shadow-sm"
                 >
                   <Download className="w-4 h-4 text-[#ffba38]" />
                   Exportar Orden
@@ -1147,8 +1147,8 @@ export const SupplementationPlanView: React.FC = () => {
 
             {/* HORIZON SELECTOR BUTTONS (7, 15, 30, 90, 180, AÑO) */}
             <div className="space-y-2">
-              <label className="text-xs font-black uppercase text-[#012d1d] flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#012d1d]" />
+              <label className="text-xs font-black uppercase text-white flex items-center gap-2">
+                <Clock className="w-4 h-4 text-white" />
                 Seleccionar Horizonte Temporal de Pedido:
               </label>
 
@@ -1169,13 +1169,13 @@ export const SupplementationPlanView: React.FC = () => {
                       onClick={() => setPurchaseHorizon(item.days)}
                       className={`p-3 rounded-2xl border-2 transition-all flex flex-col justify-between text-left cursor-pointer group ${
                         isSelected
-                          ? 'bg-[#012d1d] text-[#ffba38] border-[#012d1d] shadow-md scale-[1.02]'
-                          : 'bg-[#f8fdfa] text-[#012d1d] border-[#c1c8c2] hover:border-[#012d1d]'
+                          ? 'bg-[#0D1A13] text-[#ffba38] border-[#012d1d] shadow-md scale-[1.02]'
+                          : 'bg-[#f8fdfa] text-white border-white/10 hover:border-[#012d1d]'
                       }`}
                     >
                       <div className="flex items-center justify-between w-full">
                         <span className={`text-[10px] font-mono font-black px-2 py-0.5 rounded-full ${
-                          isSelected ? 'bg-[#ffba38] text-[#012d1d]' : 'bg-[#e2efe8] text-[#012d1d]'
+                          isSelected ? 'bg-[#D4A94E] text-white' : 'bg-[#e2efe8] text-white'
                         }`}>
                           {item.days === 365 ? '365 Días' : `${item.days} D`}
                         </span>
@@ -1196,9 +1196,9 @@ export const SupplementationPlanView: React.FC = () => {
             </div>
 
             {/* Parametrization Bar: Animal Head Count & Quick Indicators */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 bg-[#f0f4f1] p-4 rounded-2xl border border-[#c1c8c2]">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 bg-[#123F2A]/60 p-4 rounded-2xl border border-white/10">
               <div className="space-y-1">
-                <label className="text-[11px] font-bold text-[#012d1d] block">
+                <label className="text-[11px] font-bold text-white block">
                   Carga Total de Bovinos a Suplementar:
                 </label>
                 <div className="flex items-center gap-2">
@@ -1208,27 +1208,27 @@ export const SupplementationPlanView: React.FC = () => {
                     max={5000}
                     value={projectedHeadCount}
                     onChange={(e) => setProjectedHeadCount(Math.max(1, Number(e.target.value)))}
-                    className="w-full bg-white border border-[#012d1d] rounded-xl px-3 py-1.5 font-mono text-sm font-black text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#012d1d] rounded-xl px-3 py-1.5 font-mono text-sm font-black text-white"
                   />
                   <span className="text-xs font-bold text-[#717973] shrink-0">Cabezas</span>
                 </div>
               </div>
 
-              <div className="text-center p-2 bg-white rounded-xl border border-[#c1c8c2] flex flex-col justify-center">
+              <div className="text-center p-2 bg-[#15241C] rounded-xl border border-white/10 flex flex-col justify-center">
                 <span className="text-[10px] text-[#717973] uppercase font-bold block">Inversión Estimada Total</span>
                 <span className="text-lg font-mono font-black text-amber-900">
                   ${purchaseProjections.totalProjectedCostUSD.toLocaleString()} USD
                 </span>
               </div>
 
-              <div className="text-center p-2 bg-white rounded-xl border border-[#c1c8c2] flex flex-col justify-center">
+              <div className="text-center p-2 bg-[#15241C] rounded-xl border border-white/10 flex flex-col justify-center">
                 <span className="text-[10px] text-[#717973] uppercase font-bold block">Volumen Sugerido</span>
                 <span className="text-lg font-mono font-black text-emerald-800">
                   {purchaseProjections.totalPackagesToOrder} Bultos ({purchaseProjections.totalTonsToOrder} Ton)
                 </span>
               </div>
 
-              <div className="text-center p-2 bg-white rounded-xl border border-[#c1c8c2] flex flex-col justify-center">
+              <div className="text-center p-2 bg-[#15241C] rounded-xl border border-white/10 flex flex-col justify-center">
                 <span className="text-[10px] text-[#717973] uppercase font-bold block">Insumos en Alerta (&lt;7d)</span>
                 <span className={`text-lg font-mono font-black ${purchaseProjections.criticalStockCount > 0 ? 'text-rose-600' : 'text-emerald-700'}`}>
                   {purchaseProjections.criticalStockCount} Críticos
@@ -1239,11 +1239,11 @@ export const SupplementationPlanView: React.FC = () => {
             {/* Filter by Supplier */}
             <div className="flex items-center justify-between gap-3 pt-1">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-[#012d1d]">Filtrar por Proveedor:</span>
+                <span className="text-xs font-bold text-white">Filtrar por Proveedor:</span>
                 <select
                   value={selectedSupplierFilter}
                   onChange={(e) => setSelectedSupplierFilter(e.target.value)}
-                  className="bg-[#f8fdfa] border border-[#012d1d] rounded-xl px-3 py-1 text-xs font-bold text-[#012d1d]"
+                  className="bg-[#f8fdfa] border border-[#012d1d] rounded-xl px-3 py-1 text-xs font-bold text-white"
                 >
                   <option value="all">Todos los Proveedores</option>
                   <option value="AgroInsumos El Molino">AgroInsumos El Molino</option>
@@ -1261,10 +1261,10 @@ export const SupplementationPlanView: React.FC = () => {
           </div>
 
           {/* DETAILED PURCHASE PROJECTIONS TABLE */}
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
-              <h4 className="font-black text-sm text-[#012d1d] flex items-center gap-2">
-                <Boxes className="w-4 h-4 text-[#012d1d]" />
+              <h4 className="font-black text-sm text-white flex items-center gap-2">
+                <Boxes className="w-4 h-4 text-white" />
                 Detalle de Requerimientos por Materia Prima ({purchaseHorizon} Días):
               </h4>
               <span className="text-[11px] text-[#717973] font-bold">
@@ -1275,7 +1275,7 @@ export const SupplementationPlanView: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                  <tr className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                     <th className="p-3 rounded-tl-xl">Materia Prima</th>
                     <th className="p-3 text-center">Stock Actual</th>
                     <th className="p-3 text-center">Consumo Hato/Día</th>
@@ -1292,9 +1292,9 @@ export const SupplementationPlanView: React.FC = () => {
                     .filter((p) => selectedSupplierFilter === 'all' || p.supplier === selectedSupplierFilter)
                     .map((item) => {
                       return (
-                        <tr key={item.materialId} className={`hover:bg-[#f8fdfa] font-medium text-[#012d1d] ${item.isUrgentReorder ? 'bg-amber-50/40' : ''}`}>
+                        <tr key={item.materialId} className={`hover:bg-[#f8fdfa] font-medium text-white ${item.isUrgentReorder ? 'bg-amber-50/40' : ''}`}>
                           <td className="p-3">
-                            <div className="font-black text-[#012d1d]">{item.materialName}</div>
+                            <div className="font-black text-white">{item.materialName}</div>
                             <span className="text-[10px] text-[#717973] font-mono">{item.category} • Bulto {item.packageWeightKg} kg</span>
                           </td>
 
@@ -1302,11 +1302,11 @@ export const SupplementationPlanView: React.FC = () => {
                             {item.currentStockKg.toLocaleString()} kg
                           </td>
 
-                          <td className="p-3 text-center font-mono font-bold text-slate-700">
+                          <td className="p-3 text-center font-mono font-bold text-white">
                             {item.dailyDemandHatoKg} kg/d
                           </td>
 
-                          <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                          <td className="p-3 text-center font-mono font-bold text-white">
                             {item.projectedDemandKg.toLocaleString()} kg
                           </td>
 
@@ -1331,7 +1331,7 @@ export const SupplementationPlanView: React.FC = () => {
                             </span>
                           </td>
 
-                          <td className="p-3 text-center font-mono font-bold text-slate-600">
+                          <td className="p-3 text-center font-mono font-bold text-[#A5B8AC]">
                             ${item.unitCostPerKgUSD.toFixed(2)}
                           </td>
 
@@ -1340,7 +1340,7 @@ export const SupplementationPlanView: React.FC = () => {
                           </td>
 
                           <td className="p-3 text-xs text-[#525a55]">
-                            <span className="font-bold block text-[#012d1d]">{item.supplier}</span>
+                            <span className="font-bold block text-white">{item.supplier}</span>
                             <span className="text-[10px] font-mono text-[#717973]">{item.supplierPhone}</span>
                           </td>
                         </tr>
@@ -1358,12 +1358,12 @@ export const SupplementationPlanView: React.FC = () => {
       {/* ========================================================================= */}
       {activeTab === 'inventario_insumos' && (
         <div className="space-y-5 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <Warehouse className="w-6 h-6 text-[#012d1d]" />
+                <Warehouse className="w-6 h-6 text-white" />
                 <div>
-                  <h3 className="font-black text-lg text-[#012d1d]">
+                  <h3 className="font-black text-lg text-white">
                     Catálogo de Materias Primas & Precios de Insumos Nutricionales
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -1374,7 +1374,7 @@ export const SupplementationPlanView: React.FC = () => {
 
               <button
                 onClick={() => setIsAddIngredientModalOpen(true)}
-                className="bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 cursor-pointer transition-all shadow-sm"
+                className="bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 cursor-pointer transition-all shadow-sm"
               >
                 <Plus className="w-4 h-4 text-[#ffba38]" />
                 Agregar Materia Prima
@@ -1384,7 +1384,7 @@ export const SupplementationPlanView: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                  <tr className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                     <th className="p-3 rounded-tl-xl">Materia Prima</th>
                     <th className="p-3">Categoría</th>
                     <th className="p-3 text-center">Materia Seca (MS %)</th>
@@ -1396,16 +1396,16 @@ export const SupplementationPlanView: React.FC = () => {
                 </thead>
                 <tbody className="divide-y divide-[#eeeeee]">
                   {ingredients.map((ing) => (
-                    <tr key={ing.id} className="hover:bg-[#f8fdfa] font-medium text-[#012d1d]">
-                      <td className="p-3 font-bold text-[#012d1d]">
+                    <tr key={ing.id} className="hover:bg-[#f8fdfa] font-medium text-white">
+                      <td className="p-3 font-bold text-white">
                         {ing.name}
                       </td>
                       <td className="p-3">
-                        <span className="bg-[#012d1d]/10 text-[#012d1d] font-bold px-2 py-0.5 rounded-md uppercase text-[10px]">
+                        <span className="bg-[#0D1A13]/10 text-white font-bold px-2 py-0.5 rounded-md uppercase text-[10px]">
                           {ing.category}
                         </span>
                       </td>
-                      <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-center font-mono font-bold text-white">
                         {ing.dryMatterPercent}%
                       </td>
                       <td className="p-3 text-center font-mono font-black text-emerald-800">
@@ -1434,12 +1434,12 @@ export const SupplementationPlanView: React.FC = () => {
       {/* ========================================================================= */}
       {activeTab === 'registro_despachos' && (
         <div className="space-y-5 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <ClipboardList className="w-6 h-6 text-[#012d1d]" />
+                <ClipboardList className="w-6 h-6 text-white" />
                 <div>
-                  <h3 className="font-black text-lg text-[#012d1d]">
+                  <h3 className="font-black text-lg text-white">
                     Historial de Despachos y Consumos Netos en Comedero
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -1450,7 +1450,7 @@ export const SupplementationPlanView: React.FC = () => {
 
               <button
                 onClick={() => setIsLogDispatchModalOpen(true)}
-                className="bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 cursor-pointer transition-all shadow-sm"
+                className="bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 cursor-pointer transition-all shadow-sm"
               >
                 <Plus className="w-4 h-4 text-[#ffba38]" />
                 Registrar Entrega
@@ -1460,7 +1460,7 @@ export const SupplementationPlanView: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                  <tr className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                     <th className="p-3 rounded-tl-xl">Fecha</th>
                     <th className="p-3">Lote & Etapa</th>
                     <th className="p-3">Plan Suplemento</th>
@@ -1474,11 +1474,11 @@ export const SupplementationPlanView: React.FC = () => {
                 </thead>
                 <tbody className="divide-y divide-[#eeeeee]">
                   {dispatchLogs.map((log) => (
-                    <tr key={log.id} className="hover:bg-[#f8fdfa] font-medium text-[#012d1d]">
-                      <td className="p-3 font-mono font-bold text-[#012d1d]">
+                    <tr key={log.id} className="hover:bg-[#f8fdfa] font-medium text-white">
+                      <td className="p-3 font-mono font-bold text-white">
                         {log.date}
                       </td>
-                      <td className="p-3 font-bold text-[#012d1d]">
+                      <td className="p-3 font-bold text-white">
                         {log.lotName}
                       </td>
                       <td className="p-3 text-[11px] text-[#334155]">
@@ -1487,7 +1487,7 @@ export const SupplementationPlanView: React.FC = () => {
                       <td className="p-3 text-center font-mono font-bold">
                         {log.animalCount}
                       </td>
-                      <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-center font-mono font-bold text-white">
                         {log.kgOfferedTotal} kg
                       </td>
                       <td className="p-3 text-center font-mono text-rose-700 font-bold">
@@ -1516,17 +1516,17 @@ export const SupplementationPlanView: React.FC = () => {
       {/* ========================================================================= */}
       {selectedPlanDetail && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 space-y-5 shadow-2xl max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 space-y-5 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-start justify-between border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
                   <Wheat className="w-5 h-5 text-[#ffba38]" />
                 </div>
                 <div>
-                  <span className="bg-[#012d1d] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
+                  <span className="bg-[#0D1A13] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
                     {selectedPlanDetail.stageLabel}
                   </span>
-                  <h3 className="font-black text-lg text-[#012d1d] mt-1">
+                  <h3 className="font-black text-lg text-white mt-1">
                     {selectedPlanDetail.name}
                   </h3>
                 </div>
@@ -1544,10 +1544,10 @@ export const SupplementationPlanView: React.FC = () => {
                 {selectedPlanDetail.description}
               </p>
 
-              <div className="grid grid-cols-3 gap-3 bg-[#f0f4f1] p-3 rounded-2xl text-center border border-[#c1c8c2]">
+              <div className="grid grid-cols-3 gap-3 bg-[#123F2A]/60 p-3 rounded-2xl text-center border border-white/10">
                 <div>
                   <span className="text-[10px] font-bold text-[#717973] uppercase block">Proteína Cruda</span>
-                  <span className="text-base font-mono font-black text-[#012d1d]">{selectedPlanDetail.crudeProteinPercent}% PC</span>
+                  <span className="text-base font-mono font-black text-white">{selectedPlanDetail.crudeProteinPercent}% PC</span>
                 </div>
                 <div>
                   <span className="text-[10px] font-bold text-[#717973] uppercase block">Ganancia Diaria (GDP)</span>
@@ -1561,12 +1561,12 @@ export const SupplementationPlanView: React.FC = () => {
 
               {/* Composition Table */}
               <div className="space-y-2">
-                <h5 className="font-black text-[#012d1d] uppercase text-[11px]">
+                <h5 className="font-black text-white uppercase text-[11px]">
                   Fórmula y Composición de la Ración (por Tonelada):
                 </h5>
-                <div className="overflow-x-auto border border-[#c1c8c2] rounded-xl">
+                <div className="overflow-x-auto border border-white/10 rounded-xl">
                   <table className="w-full text-xs text-left">
-                    <thead className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                    <thead className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                       <tr>
                         <th className="p-2">Ingrediente</th>
                         <th className="p-2 text-center">% Inclusión</th>
@@ -1576,7 +1576,7 @@ export const SupplementationPlanView: React.FC = () => {
                     <tbody className="divide-y divide-[#eeeeee]">
                       {selectedPlanDetail.formula.map((f) => (
                         <tr key={f.ingredientId}>
-                          <td className="p-2 font-bold text-[#012d1d]">{f.ingredientName}</td>
+                          <td className="p-2 font-bold text-white">{f.ingredientName}</td>
                           <td className="p-2 text-center font-mono font-bold text-emerald-800">{f.percentageInclusion}%</td>
                           <td className="p-2 text-center font-mono font-bold">{f.kgPerTon} kg</td>
                         </tr>
@@ -1587,7 +1587,7 @@ export const SupplementationPlanView: React.FC = () => {
               </div>
 
               {/* Recommendations */}
-              <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl space-y-1.5">
+              <div className="p-3 bg-amber-950/30 border border-amber-200 rounded-xl space-y-1.5">
                 <h5 className="font-black text-amber-950 uppercase text-[10.5px]">Recomendaciones de Manejo en Comedero:</h5>
                 <ul className="space-y-1 text-amber-900">
                   {selectedPlanDetail.recommendations.map((rec, idx) => (
@@ -1601,7 +1601,7 @@ export const SupplementationPlanView: React.FC = () => {
               <div className="pt-2 border-t border-[#eeeeee] flex justify-end">
                 <button
                   onClick={() => setSelectedPlanDetail(null)}
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] cursor-pointer"
                 >
                   Cerrar Ficha
                 </button>
@@ -1616,10 +1616,10 @@ export const SupplementationPlanView: React.FC = () => {
       {/* ========================================================================= */}
       {isAddPlanModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-xl w-full p-6 space-y-5 shadow-2xl max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-xl w-full p-6 space-y-5 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-4">
-              <h3 className="font-black text-lg text-[#012d1d] flex items-center gap-2">
-                <Plus className="w-5 h-5 text-[#012d1d]" />
+              <h3 className="font-black text-lg text-white flex items-center gap-2">
+                <Plus className="w-5 h-5 text-white" />
                 Crear Nuevo Plan de Suplementación Custom
               </h3>
               <button onClick={() => setIsAddPlanModalOpen(false)} className="text-[#717973] hover:text-black">
@@ -1629,24 +1629,24 @@ export const SupplementationPlanView: React.FC = () => {
 
             <form onSubmit={handleCreatePlan} className="space-y-4 text-xs">
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Nombre del Plan *:</label>
+                <label className="font-bold text-white block mb-1">Nombre del Plan *:</label>
                 <input
                   type="text"
                   placeholder="ej: Plan Levante Alto Impacto Proteico"
                   value={newPlanName}
                   onChange={(e) => setNewPlanName(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Etapa Productiva *:</label>
+                  <label className="font-bold text-white block mb-1">Etapa Productiva *:</label>
                   <select
                     value={newPlanStage}
                     onChange={(e) => setNewPlanStage(e.target.value as SupplementStage)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   >
                     <option value="cria">Cría / Creep Feeding</option>
                     <option value="levante">Levante (140-280 kg)</option>
@@ -1657,49 +1657,49 @@ export const SupplementationPlanView: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">GDP Meta (g/día):</label>
+                  <label className="font-bold text-white block mb-1">GDP Meta (g/día):</label>
                   <input
                     type="number"
                     step="50"
                     value={newPlanTargetGDP}
                     onChange={(e) => setNewPlanTargetGDP(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Dosis Recomendada (kg/cab/día):</label>
+                  <label className="font-bold text-white block mb-1">Dosis Recomendada (kg/cab/día):</label>
                   <input
                     type="number"
                     step="0.1"
                     value={newPlanDoseKg}
                     onChange={(e) => setNewPlanDoseKg(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">% Consumo del Peso Vivo (% PV):</label>
+                  <label className="font-bold text-white block mb-1">% Consumo del Peso Vivo (% PV):</label>
                   <input
                     type="number"
                     step="0.1"
                     value={newPlanInclusionBW}
                     onChange={(e) => setNewPlanInclusionBW(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Descripción / Objetivo Zootécnico:</label>
+                <label className="font-bold text-white block mb-1">Descripción / Objetivo Zootécnico:</label>
                 <textarea
                   rows={2}
                   placeholder="Describa el objetivo principal del suplemento..."
                   value={newPlanDesc}
                   onChange={(e) => setNewPlanDesc(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl p-2.5 font-medium text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl p-2.5 font-medium text-white"
                 />
               </div>
 
@@ -1707,13 +1707,13 @@ export const SupplementationPlanView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsAddPlanModalOpen(false)}
-                  className="px-4 py-2 border border-[#c1c8c2] rounded-xl font-bold text-[#717973]"
+                  className="px-4 py-2 border border-white/10 rounded-xl font-bold text-[#717973]"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Guardar Plan
                 </button>
@@ -1728,10 +1728,10 @@ export const SupplementationPlanView: React.FC = () => {
       {/* ========================================================================= */}
       {isLogDispatchModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-6 space-y-4 shadow-2xl">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-6 space-y-4 shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
-              <h3 className="font-black text-base text-[#012d1d] flex items-center gap-2">
-                <ClipboardList className="w-5 h-5 text-[#012d1d]" />
+              <h3 className="font-black text-base text-white flex items-center gap-2">
+                <ClipboardList className="w-5 h-5 text-white" />
                 Registrar Despacho en Comedero
               </h3>
               <button onClick={() => setIsLogDispatchModalOpen(false)} className="text-[#717973] hover:text-black">
@@ -1741,55 +1741,55 @@ export const SupplementationPlanView: React.FC = () => {
 
             <form onSubmit={handleLogDispatch} className="space-y-3 text-xs">
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Lote de Ganado:</label>
+                <label className="font-bold text-white block mb-1">Lote de Ganado:</label>
                 <input
                   type="text"
                   value={dispLotName}
                   onChange={(e) => setDispLotName(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Cabezas en Lote:</label>
+                  <label className="font-bold text-white block mb-1">Cabezas en Lote:</label>
                   <input
                     type="number"
                     value={dispCount}
                     onChange={(e) => setDispCount(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">kg Ofrecidos Total:</label>
+                  <label className="font-bold text-white block mb-1">kg Ofrecidos Total:</label>
                   <input
                     type="number"
                     value={dispOfferedKg}
                     onChange={(e) => setDispOfferedKg(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Rechazo en Comedero (kg):</label>
+                <label className="font-bold text-white block mb-1">Rechazo en Comedero (kg):</label>
                 <input
                   type="number"
                   value={dispRefusalKg}
                   onChange={(e) => setDispRefusalKg(Number(e.target.value))}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-rose-700"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-rose-700"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Operador / Vaquero:</label>
+                <label className="font-bold text-white block mb-1">Operador / Vaquero:</label>
                 <input
                   type="text"
                   value={dispOperator}
                   onChange={(e) => setDispOperator(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                 />
               </div>
 
@@ -1797,13 +1797,13 @@ export const SupplementationPlanView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsLogDispatchModalOpen(false)}
-                  className="px-4 py-2 border border-[#c1c8c2] rounded-xl font-bold text-[#717973]"
+                  className="px-4 py-2 border border-white/10 rounded-xl font-bold text-[#717973]"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Guardar Despacho
                 </button>
@@ -1818,10 +1818,10 @@ export const SupplementationPlanView: React.FC = () => {
       {/* ========================================================================= */}
       {isAddIngredientModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-6 space-y-4 shadow-2xl">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-6 space-y-4 shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
-              <h3 className="font-black text-base text-[#012d1d] flex items-center gap-2">
-                <Warehouse className="w-5 h-5 text-[#012d1d]" />
+              <h3 className="font-black text-base text-white flex items-center gap-2">
+                <Warehouse className="w-5 h-5 text-white" />
                 Agregar Materia Prima a Inventario
               </h3>
               <button onClick={() => setIsAddIngredientModalOpen(false)} className="text-[#717973] hover:text-black">
@@ -1831,24 +1831,24 @@ export const SupplementationPlanView: React.FC = () => {
 
             <form onSubmit={handleCreateIngredient} className="space-y-3 text-xs">
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Nombre Insumo *:</label>
+                <label className="font-bold text-white block mb-1">Nombre Insumo *:</label>
                 <input
                   type="text"
                   placeholder="ej: Afrecho de Arroz o Pulpa de Cítricos"
                   value={newIngName}
                   onChange={(e) => setNewIngName(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Categoría:</label>
+                  <label className="font-bold text-white block mb-1">Categoría:</label>
                   <select
                     value={newIngCategory}
                     onChange={(e) => setNewIngCategory(e.target.value as any)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   >
                     <option value="energetico">Energético</option>
                     <option value="proteico">Proteico</option>
@@ -1860,45 +1860,45 @@ export const SupplementationPlanView: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Costo Unitario ($/kg):</label>
+                  <label className="font-bold text-white block mb-1">Costo Unitario ($/kg):</label>
                   <input
                     type="number"
                     step="0.01"
                     value={newIngCost}
                     onChange={(e) => setNewIngCost(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-2">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">MS %:</label>
+                  <label className="font-bold text-white block mb-1">MS %:</label>
                   <input
                     type="number"
                     value={newIngDM}
                     onChange={(e) => setNewIngDM(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-2 py-1.5 font-mono text-center font-bold"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-2 py-1.5 font-mono text-center font-bold"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">PC %:</label>
+                  <label className="font-bold text-white block mb-1">PC %:</label>
                   <input
                     type="number"
                     value={newIngCP}
                     onChange={(e) => setNewIngCP(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-2 py-1.5 font-mono text-center font-bold text-emerald-800"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-2 py-1.5 font-mono text-center font-bold text-emerald-800"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">TDN %:</label>
+                  <label className="font-bold text-white block mb-1">TDN %:</label>
                   <input
                     type="number"
                     value={newIngTDN}
                     onChange={(e) => setNewIngTDN(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-2 py-1.5 font-mono text-center font-bold text-blue-900"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-2 py-1.5 font-mono text-center font-bold text-blue-900"
                   />
                 </div>
               </div>
@@ -1907,13 +1907,13 @@ export const SupplementationPlanView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsAddIngredientModalOpen(false)}
-                  className="px-4 py-2 border border-[#c1c8c2] rounded-xl font-bold text-[#717973]"
+                  className="px-4 py-2 border border-white/10 rounded-xl font-bold text-[#717973]"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Guardar Materia Prima
                 </button>

@@ -762,10 +762,10 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
   };
 
   return (
-    <div className="bg-[#f8fdfa] space-y-6 animate-in fade-in pb-12 font-sans text-[#012d1d]">
+    <div className="bg-[#f8fdfa] space-y-6 animate-in fade-in pb-12 font-sans text-white">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 bg-[#012d1d] text-[#ffba38] border-2 border-[#ffba38] px-4 py-3 rounded-2xl shadow-2xl font-mono text-xs flex items-center gap-2 animate-bounce">
+        <div className="fixed top-20 right-6 z-50 bg-[#0D1A13] text-[#ffba38] border-2 border-[#ffba38] px-4 py-3 rounded-2xl shadow-2xl font-mono text-xs flex items-center gap-2 animate-bounce">
           <CheckCircle2 className="w-5 h-5 text-[#ffba38]" />
           <span className="font-bold">{toastMessage}</span>
         </div>
@@ -779,7 +779,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
 
         <div className="relative z-10 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-black uppercase tracking-wider bg-[#ffba38] text-[#012d1d]">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-black uppercase tracking-wider bg-[#D4A94E] text-white">
               <ShieldCheck className="w-3.5 h-3.5" /> MÓDULO DE TRAZABILIDAD E INFORMACIÓN INDIVIDUAL DEL ANIMAL
             </span>
 
@@ -813,12 +813,12 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
               <div className="group relative inline-flex items-center">
                 <button
                   type="button"
-                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  className="text-[#a3b8ad] hover:text-[#A5B8AC] transition-colors p-0.5 rounded cursor-pointer"
                   title="Consulte la trazabilidad completa del hato: Nacimiento, marca/hierro, pesajes, ganancias de peso, historial de lactancias, pérdidas gestacionales y progenie."
                 >
                   <Info className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                   Consulte la trazabilidad completa del hato: Nacimiento, marca/hierro, pesajes, ganancias de peso (GDP), historial de lactancias por vaca, pérdidas gestacionales/abortos y los hijos/progenie de vacas y toros en el sistema.
                 </div>
               </div>
@@ -830,18 +830,18 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
       {/* ========================================================================= */}
       {/* PRIMERA CLASIFICACIÓN: "TODOS LOS ANIMALES" O "POR RAZA"                    */}
       {/* ========================================================================= */}
-      <div className="bg-white p-5 rounded-3xl border-2 border-[#012d1d]/15 shadow-sm space-y-4 font-mono">
+      <div className="bg-[#15241C] p-5 rounded-3xl border-2 border-[#012d1d]/15 shadow-sm space-y-4 font-mono">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 border-b border-[#012d1d]/10 pb-3">
           <div>
             <span className="text-[10px] font-mono font-black uppercase text-emerald-800 tracking-wider flex items-center gap-1">
               <Layers className="w-3.5 h-3.5 text-emerald-600" /> PRIMERA CLASIFICACIÓN
             </span>
-            <h2 className="text-base font-black text-[#012d1d] mt-0.5">
+            <h2 className="text-base font-black text-white mt-0.5">
               Filtro Principal del Hato: Todos los Animales o por Raza
             </h2>
           </div>
 
-          <div className="text-xs font-mono bg-emerald-50 text-emerald-900 border border-emerald-200 px-3 py-1.5 rounded-xl font-bold flex items-center gap-2">
+          <div className="text-xs font-mono bg-emerald-950/30 text-emerald-900 border border-emerald-200 px-3 py-1.5 rounded-xl font-bold flex items-center gap-2">
             <Users className="w-4 h-4 text-emerald-700" />
             <span>Animales Seleccionados: <b>{filteredAnimals.length}</b> de {MASTER_HERD_TRACEABILITY_DATA.length}</span>
           </div>
@@ -858,8 +858,8 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                 onClick={() => setSelectedBreedClassification(breed)}
                 className={`px-3.5 py-2 rounded-2xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-2 border ${
                   isSelected
-                    ? 'bg-[#012d1d] text-[#ffba38] border-[#012d1d] shadow-md scale-105'
-                    : 'bg-[#f0fdf4] text-[#012d1d] border-[#c1ecd4] hover:bg-emerald-100'
+                    ? 'bg-[#0D1A13] text-[#ffba38] border-[#012d1d] shadow-md scale-105'
+                    : 'bg-[#f0fdf4] text-white border-[#c1ecd4] hover:bg-emerald-100'
                 }`}
               >
                 <Tag className={`w-3.5 h-3.5 ${isSelected ? 'text-[#ffba38]' : 'text-emerald-700'}`} />
@@ -872,13 +872,13 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
         {/* SEARCH & SECONDARY CONTROLS */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 pt-2 text-xs font-mono">
           <div className="relative md:col-span-2">
-            <Search className="w-4 h-4 absolute left-3 top-2.5 text-gray-400" />
+            <Search className="w-4 h-4 absolute left-3 top-2.5 text-[#A5B8AC]" />
             <input
               type="text"
               placeholder="Buscar por Arete, Nombre, RFID, Pelaje o Lote..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-[#f8fdfa] rounded-xl border border-gray-300 text-xs text-[#012d1d] font-bold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+              className="w-full pl-9 pr-3 py-2 bg-[#f8fdfa] rounded-xl border border-white/15 text-xs text-white font-bold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
             />
           </div>
 
@@ -886,7 +886,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
             <select
               value={sexFilter}
               onChange={(e) => setSexFilter(e.target.value as any)}
-              className="w-full py-2 px-3 bg-[#f8fdfa] rounded-xl border border-gray-300 text-xs font-bold text-[#012d1d]"
+              className="w-full py-2 px-3 bg-[#f8fdfa] rounded-xl border border-white/15 text-xs font-bold text-white"
             >
               <option value="Todos">Filtro Sexo: Todos</option>
               <option value="Hembras">Solo Hembras</option>
@@ -898,7 +898,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
             <select
               value={sanitaryFilter}
               onChange={(e) => setSanitaryFilter(e.target.value as any)}
-              className="w-full py-2 px-3 bg-[#f8fdfa] rounded-xl border border-gray-300 text-xs font-bold text-[#012d1d]"
+              className="w-full py-2 px-3 bg-[#f8fdfa] rounded-xl border border-white/15 text-xs font-bold text-white"
             >
               <option value="Todos">Sanidad: Todos los estados</option>
               <option value="Apto">Apto (Sin Retiro Activo)</option>
@@ -917,7 +917,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
       {/* ========================================================================= */}
       <div className="space-y-4">
         {/* SEGUNDA CLASIFICACIÓN TAB BAR */}
-        <div className="bg-[#012d1d] p-2 rounded-2xl text-white flex flex-wrap items-center gap-2 border-2 border-[#083e29] shadow-lg font-mono">
+        <div className="bg-[#0D1A13] p-2 rounded-2xl text-white flex flex-wrap items-center gap-2 border-2 border-[#083e29] shadow-lg font-mono">
           <span className="text-[10px] font-black uppercase text-[#ffba38] px-2.5 py-1 bg-black/40 rounded-lg flex items-center gap-1 shrink-0">
             <Filter className="w-3.5 h-3.5" /> SEGUNDA CLASIFICACIÓN:
           </span>
@@ -927,7 +927,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
             onClick={() => setSelectedSecondTab('1_TODOS')}
             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
               selectedSecondTab === '1_TODOS'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-105'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-105'
                 : 'text-white hover:bg-white/10'
             }`}
           >
@@ -940,7 +940,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
             onClick={() => setSelectedSecondTab('2_TRAZABILIDAD')}
             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
               selectedSecondTab === '2_TRAZABILIDAD'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-105'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-105'
                 : 'text-white hover:bg-white/10'
             }`}
           >
@@ -953,7 +953,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
             onClick={() => setSelectedSecondTab('3_GENETICA')}
             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
               selectedSecondTab === '3_GENETICA'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-105'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-105'
                 : 'text-white hover:bg-white/10'
             }`}
           >
@@ -966,7 +966,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
             onClick={() => setSelectedSecondTab('4_REPRODUCTIVO')}
             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
               selectedSecondTab === '4_REPRODUCTIVO'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-105'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-105'
                 : 'text-white hover:bg-white/10'
             }`}
           >
@@ -980,37 +980,37 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
           <div className="space-y-4 animate-in fade-in">
             {/* KPI Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
-              <div className="p-3.5 bg-white rounded-2xl border border-gray-200 shadow-sm space-y-1">
-                <span className="text-gray-500 font-bold text-[10px] uppercase block">Total Animales</span>
-                <span className="text-xl font-black text-[#012d1d]">{metrics.total}</span>
+              <div className="p-3.5 bg-[#15241C] rounded-2xl border border-white/10 shadow-sm space-y-1">
+                <span className="text-[#A5B8AC] font-bold text-[10px] uppercase block">Total Animales</span>
+                <span className="text-xl font-black text-white">{metrics.total}</span>
                 <span className="text-[9px] text-emerald-700 font-bold block">Filtro Actual</span>
               </div>
 
-              <div className="p-3.5 bg-white rounded-2xl border border-gray-200 shadow-sm space-y-1">
-                <span className="text-gray-500 font-bold text-[10px] uppercase block">Hembras / Reprod.</span>
+              <div className="p-3.5 bg-[#15241C] rounded-2xl border border-white/10 shadow-sm space-y-1">
+                <span className="text-[#A5B8AC] font-bold text-[10px] uppercase block">Hembras / Reprod.</span>
                 <span className="text-xl font-black text-pink-700">{metrics.females}</span>
-                <span className="text-[9px] text-gray-500 block">Vientres y Terneras</span>
+                <span className="text-[9px] text-[#A5B8AC] block">Vientres y Terneras</span>
               </div>
 
-              <div className="p-3.5 bg-white rounded-2xl border border-gray-200 shadow-sm space-y-1">
-                <span className="text-gray-500 font-bold text-[10px] uppercase block">Machos / Toros</span>
+              <div className="p-3.5 bg-[#15241C] rounded-2xl border border-white/10 shadow-sm space-y-1">
+                <span className="text-[#A5B8AC] font-bold text-[10px] uppercase block">Machos / Toros</span>
                 <span className="text-xl font-black text-blue-700">{metrics.males}</span>
-                <span className="text-[9px] text-gray-500 block">Toros y Ceba</span>
+                <span className="text-[9px] text-[#A5B8AC] block">Toros y Ceba</span>
               </div>
 
-              <div className="p-3.5 bg-white rounded-2xl border border-gray-200 shadow-sm space-y-1">
-                <span className="text-gray-500 font-bold text-[10px] uppercase block">Peso Promedio</span>
+              <div className="p-3.5 bg-[#15241C] rounded-2xl border border-white/10 shadow-sm space-y-1">
+                <span className="text-[#A5B8AC] font-bold text-[10px] uppercase block">Peso Promedio</span>
                 <span className="text-xl font-black text-emerald-800">{metrics.avgWeight} kg</span>
-                <span className="text-[9px] text-gray-500 block">En báscula</span>
+                <span className="text-[9px] text-[#A5B8AC] block">En báscula</span>
               </div>
 
-              <div className="p-3.5 bg-white rounded-2xl border border-gray-200 shadow-sm space-y-1">
-                <span className="text-gray-500 font-bold text-[10px] uppercase block">GDP Promedio</span>
+              <div className="p-3.5 bg-[#15241C] rounded-2xl border border-white/10 shadow-sm space-y-1">
+                <span className="text-[#A5B8AC] font-bold text-[10px] uppercase block">GDP Promedio</span>
                 <span className="text-xl font-black text-amber-700">{metrics.avgGdp} g/día</span>
-                <span className="text-[9px] text-gray-500 block">Ganancia de Peso</span>
+                <span className="text-[9px] text-[#A5B8AC] block">Ganancia de Peso</span>
               </div>
 
-              <div className={`p-3.5 rounded-2xl border shadow-sm space-y-1 ${metrics.activeWithdrawals > 0 ? 'bg-rose-50 border-rose-300 text-rose-950' : 'bg-white border-gray-200 text-gray-800'}`}>
+              <div className={`p-3.5 rounded-2xl border shadow-sm space-y-1 ${metrics.activeWithdrawals > 0 ? 'bg-rose-950/30 border-rose-300 text-rose-950' : 'bg-[#15241C] border-white/10 text-white'}`}>
                 <span className="font-bold text-[10px] uppercase block">Alertas Retiro</span>
                 <span className={`text-xl font-black ${metrics.activeWithdrawals > 0 ? 'text-rose-600' : 'text-emerald-700'}`}>{metrics.activeWithdrawals}</span>
                 <span className="text-[9px] font-bold block">{metrics.activeWithdrawals > 0 ? '⚠️ Bloqueo Leche/Carne' : '✓ Todo en regla'}</span>
@@ -1018,8 +1018,8 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
             </div>
 
             {/* Master Consolidated Table */}
-            <div className="bg-white rounded-3xl border-2 border-[#012d1d]/15 shadow-sm overflow-hidden font-mono text-xs">
-              <div className="p-4 bg-[#012d1d] text-white flex items-center justify-between">
+            <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d]/15 shadow-sm overflow-hidden font-mono text-xs">
+              <div className="p-4 bg-[#0D1A13] text-white flex items-center justify-between">
                 <h3 className="font-bold text-sm text-[#ffba38] flex items-center gap-2">
                   <BarChart3 className="w-4 h-4 text-[#ffba38]" />
                   Directorio Maestro de Animales ({filteredAnimals.length}) — Clasificación: {selectedBreedClassification}
@@ -1032,7 +1032,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="bg-gray-100 text-[#012d1d] text-[10px] uppercase tracking-wider border-b border-gray-200">
+                    <tr className="bg-[#1F3327] text-white text-[10px] uppercase tracking-wider border-b border-white/10">
                       <th className="p-3">Arete / Nombre</th>
                       <th className="p-3">Chip RFID / Registro</th>
                       <th className="p-3">Raza / Pelaje</th>
@@ -1043,26 +1043,26 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                       <th className="p-3 text-center">Acciones</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
+                  <tbody className="divide-y divide-white/10">
                     {filteredAnimals.map((animal) => (
                       <tr key={animal.id} className="hover:bg-emerald-50/50 transition-colors">
-                        <td className="p-3 font-bold text-[#012d1d]">
+                        <td className="p-3 font-bold text-white">
                           <div className="flex items-center gap-2">
-                            <span className="px-2 py-0.5 bg-[#012d1d] text-[#ffba38] rounded font-black text-[11px]">
+                            <span className="px-2 py-0.5 bg-[#0D1A13] text-[#ffba38] rounded font-black text-[11px]">
                               {animal.earTag}
                             </span>
                             <span>{animal.animalName}</span>
                           </div>
                         </td>
-                        <td className="p-3 text-gray-700">
+                        <td className="p-3 text-white">
                           <div><b>{animal.eidChip}</b></div>
-                          <div className="text-[10px] text-gray-500">{animal.registrationNum}</div>
+                          <div className="text-[10px] text-[#A5B8AC]">{animal.registrationNum}</div>
                         </td>
                         <td className="p-3">
-                          <div className="font-bold text-gray-900">{animal.breed}</div>
-                          <div className="text-[10px] text-gray-500">{animal.colorCoat}</div>
+                          <div className="font-bold text-white">{animal.breed}</div>
+                          <div className="text-[10px] text-[#A5B8AC]">{animal.colorCoat}</div>
                         </td>
-                        <td className="p-3 text-gray-700">
+                        <td className="p-3 text-white">
                           <span className="px-2 py-0.5 bg-emerald-100 text-emerald-900 rounded font-bold text-[10px]">
                             {animal.lotName}
                           </span>
@@ -1085,7 +1085,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                           <button
                             type="button"
                             onClick={() => setSelectedAnimalDetail(animal)}
-                            className="px-3 py-1.5 bg-[#012d1d] text-[#ffba38] hover:bg-emerald-900 rounded-xl font-bold text-[11px] flex items-center gap-1 mx-auto cursor-pointer shadow-sm"
+                            className="px-3 py-1.5 bg-[#0D1A13] text-[#ffba38] hover:bg-emerald-900 rounded-xl font-bold text-[11px] flex items-center gap-1 mx-auto cursor-pointer shadow-sm"
                           >
                             <Eye className="w-3.5 h-3.5" /> Ficha
                           </button>
@@ -1104,17 +1104,17 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
           <div className="space-y-4 animate-in fade-in font-mono">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {filteredAnimals.map((animal) => (
-                <div key={animal.id} className="bg-white p-5 rounded-3xl border-2 border-[#012d1d]/15 shadow-sm space-y-4">
+                <div key={animal.id} className="bg-[#15241C] p-5 rounded-3xl border-2 border-[#012d1d]/15 shadow-sm space-y-4">
                   {/* Animal Header */}
-                  <div className="flex items-start justify-between gap-2 border-b border-gray-200 pb-3">
+                  <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-3">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="px-2.5 py-1 bg-[#012d1d] text-[#ffba38] rounded-xl font-black text-xs">
+                        <span className="px-2.5 py-1 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black text-xs">
                           {animal.earTag}
                         </span>
                         <span className="font-black text-base text-black">{animal.animalName}</span>
                       </div>
-                      <span className="text-[11px] text-gray-600 block mt-0.5">
+                      <span className="text-[11px] text-[#A5B8AC] block mt-0.5">
                         {animal.breed} • {animal.sex} • Pelaje: <b>{animal.colorCoat}</b>
                       </span>
                     </div>
@@ -1129,29 +1129,29 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                   </div>
 
                   {/* Identification Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px] bg-gray-50 p-3 rounded-2xl border border-gray-200">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px] bg-[#0D1A13] p-3 rounded-2xl border border-white/10">
                     <div>
-                      <span className="text-gray-500 block text-[9.5px] uppercase">Chip RFID:</span>
-                      <span className="font-black text-gray-900">{animal.eidChip}</span>
+                      <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Chip RFID:</span>
+                      <span className="font-black text-white">{animal.eidChip}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500 block text-[9.5px] uppercase">Registro Genealógico:</span>
-                      <span className="font-bold text-gray-900">{animal.registrationNum}</span>
+                      <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Registro Genealógico:</span>
+                      <span className="font-bold text-white">{animal.registrationNum}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500 block text-[9.5px] uppercase">Hierro / Marca:</span>
-                      <span className="font-bold text-gray-900">{animal.brandIron}</span>
+                      <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Hierro / Marca:</span>
+                      <span className="font-bold text-white">{animal.brandIron}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500 block text-[9.5px] uppercase">Fecha Nacimiento:</span>
-                      <span className="font-bold text-gray-900">{animal.birthDate}</span>
+                      <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Fecha Nacimiento:</span>
+                      <span className="font-bold text-white">{animal.birthDate}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500 block text-[9.5px] uppercase">Fecha Ingreso:</span>
-                      <span className="font-bold text-gray-900">{animal.entryDate}</span>
+                      <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Fecha Ingreso:</span>
+                      <span className="font-bold text-white">{animal.entryDate}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500 block text-[9.5px] uppercase">Origen / Lote:</span>
+                      <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Origen / Lote:</span>
                       <span className="font-bold text-emerald-800">{animal.origin}</span>
                     </div>
                   </div>
@@ -1163,16 +1163,16 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                       Evolución de Pesos & Ganancia Diaria de Peso (GDP)
                     </span>
                     <div className="grid grid-cols-4 gap-2 text-center text-[10.5px]">
-                      <div className="p-1.5 bg-white rounded-xl border border-emerald-200">
-                        <span className="text-gray-500 block text-[9px]">Peso Nacer</span>
-                        <span className="font-black text-gray-900">{animal.birthWeightKg} kg</span>
+                      <div className="p-1.5 bg-[#15241C] rounded-xl border border-emerald-200">
+                        <span className="text-[#A5B8AC] block text-[9px]">Peso Nacer</span>
+                        <span className="font-black text-white">{animal.birthWeightKg} kg</span>
                       </div>
-                      <div className="p-1.5 bg-white rounded-xl border border-emerald-200">
-                        <span className="text-gray-500 block text-[9px]">Peso Destete</span>
-                        <span className="font-black text-gray-900">{animal.weaningWeightKg} kg</span>
+                      <div className="p-1.5 bg-[#15241C] rounded-xl border border-emerald-200">
+                        <span className="text-[#A5B8AC] block text-[9px]">Peso Destete</span>
+                        <span className="font-black text-white">{animal.weaningWeightKg} kg</span>
                       </div>
-                      <div className="p-1.5 bg-white rounded-xl border border-emerald-200">
-                        <span className="text-gray-500 block text-[9px]">Peso Actual</span>
+                      <div className="p-1.5 bg-[#15241C] rounded-xl border border-emerald-200">
+                        <span className="text-[#A5B8AC] block text-[9px]">Peso Actual</span>
                         <span className="font-black text-emerald-900">{animal.currentWeightKg} kg</span>
                       </div>
                       <div className="p-1.5 bg-amber-100 rounded-xl border border-amber-300">
@@ -1183,9 +1183,9 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                   </div>
 
                   {/* Clinical Diseases */}
-                  <div className="p-3 bg-gray-50 rounded-2xl border border-gray-200 space-y-2 text-[11px]">
+                  <div className="p-3 bg-[#0D1A13] rounded-2xl border border-white/10 space-y-2 text-[11px]">
                     <div className="flex justify-between items-center">
-                      <span className="font-bold text-gray-900 flex items-center gap-1.5">
+                      <span className="font-bold text-white flex items-center gap-1.5">
                         <Stethoscope className="w-4 h-4 text-rose-600" />
                         Historial Clínico & Sanidad
                       </span>
@@ -1199,7 +1199,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                         </span>
                       )}
                     </div>
-                    <div className="text-[10px] text-gray-700 space-y-1">
+                    <div className="text-[10px] text-white space-y-1">
                       <div>• Vacuna Fiebre Aftosa: <b>{animal.aftosaVaccineDate}</b></div>
                       <div>• Brucelosis Oficial: <b>{animal.brucellosisVaccine}</b></div>
                       <div>• Prueba Tuberculina: <b>{animal.tuberculosisTest}</b></div>
@@ -1216,8 +1216,8 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
           <div className="space-y-4 animate-in fade-in font-mono">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs">
               {filteredAnimals.map((animal) => (
-                <div key={animal.id} className="bg-white p-5 rounded-3xl border-2 border-purple-900/20 shadow-sm space-y-4">
-                  <div className="flex items-start justify-between gap-2 border-b border-gray-200 pb-3">
+                <div key={animal.id} className="bg-[#15241C] p-5 rounded-3xl border-2 border-purple-900/20 shadow-sm space-y-4">
+                  <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-3">
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="px-2 py-0.5 bg-purple-950 text-purple-200 rounded-lg font-black text-xs">
@@ -1231,17 +1231,17 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                     </div>
 
                     <div className="text-right">
-                      <span className="text-[10px] text-gray-500 uppercase block font-bold">Puntaje Genético</span>
+                      <span className="text-[10px] text-[#A5B8AC] uppercase block font-bold">Puntaje Genético</span>
                       <span className="text-lg font-black text-purple-700">{animal.geneticPerformanceScore}%</span>
                     </div>
                   </div>
 
-                  <div className="p-3 bg-purple-50 rounded-2xl border border-purple-200 space-y-1">
+                  <div className="p-3 bg-purple-950/30 rounded-2xl border border-purple-200 space-y-1">
                     <span className="font-bold text-purple-950 text-[11px] flex items-center gap-1.5">
                       <Dna className="w-4 h-4 text-purple-700" />
                       Composición Racial & Genotipo:
                     </span>
-                    <div className="text-xs font-black text-purple-900 bg-white p-2 rounded-xl border border-purple-200">
+                    <div className="text-xs font-black text-purple-900 bg-[#15241C] p-2 rounded-xl border border-purple-200">
                       {animal.bloodComposition}
                     </div>
                   </div>
@@ -1280,9 +1280,9 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
 
             <div className="space-y-6 text-xs">
               {filteredAnimals.map((animal) => (
-                <div key={animal.id} className="bg-white p-5 rounded-3xl border-2 border-pink-900/20 shadow-sm space-y-5">
+                <div key={animal.id} className="bg-[#15241C] p-5 rounded-3xl border-2 border-pink-900/20 shadow-sm space-y-5">
                   {/* Animal Repro Header */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-gray-200 pb-3">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="px-2.5 py-1 bg-pink-950 text-pink-200 rounded-xl font-black text-xs">
@@ -1293,7 +1293,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                           {animal.sex}
                         </span>
                       </div>
-                      <span className="text-[11px] text-gray-600 block mt-1">
+                      <span className="text-[11px] text-[#A5B8AC] block mt-1">
                         Raza: {animal.breed} • Estado Reproductivo: <b className="text-pink-900">{animal.reproStatus}</b>
                       </span>
                     </div>
@@ -1311,27 +1311,27 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                       {/* Female Summary KPIs */}
                       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2 text-center text-[10.5px]">
                         <div className="p-2.5 bg-pink-50 rounded-xl border border-pink-200">
-                          <span className="text-gray-500 block text-[9px] uppercase">EPP (1er Parto)</span>
+                          <span className="text-[#A5B8AC] block text-[9px] uppercase">EPP (1er Parto)</span>
                           <span className="font-black text-pink-900">{animal.ageAtFirstCalvingMonths || 'N/A'} meses</span>
                         </div>
                         <div className="p-2.5 bg-pink-50 rounded-xl border border-pink-200">
-                          <span className="text-gray-500 block text-[9px] uppercase">Días Abiertos</span>
+                          <span className="text-[#A5B8AC] block text-[9px] uppercase">Días Abiertos</span>
                           <span className="font-black text-pink-900">{animal.daysOpen || 0} días</span>
                         </div>
-                        <div className="p-2.5 bg-blue-50 rounded-xl border border-blue-200">
-                          <span className="text-gray-500 block text-[9px] uppercase">Días Lactancia (DEL)</span>
+                        <div className="p-2.5 bg-blue-950/30 rounded-xl border border-blue-200">
+                          <span className="text-[#A5B8AC] block text-[9px] uppercase">Días Lactancia (DEL)</span>
                           <span className="font-black text-blue-900">{animal.daysInMilkDEL || 0} DEL</span>
                         </div>
-                        <div className="p-2.5 bg-blue-50 rounded-xl border border-blue-200">
-                          <span className="text-gray-500 block text-[9px] uppercase">Producción Actual</span>
+                        <div className="p-2.5 bg-blue-950/30 rounded-xl border border-blue-200">
+                          <span className="text-[#A5B8AC] block text-[9px] uppercase">Producción Actual</span>
                           <span className="font-black text-blue-900">{animal.currentMilkLitersDay || 0} L/día</span>
                         </div>
-                        <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200">
-                          <span className="text-gray-500 block text-[9px] uppercase">Servicios / Concep.</span>
+                        <div className="p-2.5 bg-amber-950/30 rounded-xl border border-amber-200">
+                          <span className="text-[#A5B8AC] block text-[9px] uppercase">Servicios / Concep.</span>
                           <span className="font-black text-amber-900">{animal.servicesPerConception || 0} S/C</span>
                         </div>
-                        <div className="p-2.5 bg-purple-50 rounded-xl border border-purple-200">
-                          <span className="text-gray-500 block text-[9px] uppercase">Último Servicio</span>
+                        <div className="p-2.5 bg-purple-950/30 rounded-xl border border-purple-200">
+                          <span className="text-[#A5B8AC] block text-[9px] uppercase">Último Servicio</span>
                           <span className="font-bold text-purple-900">{animal.lastServiceDate || 'N/A'}</span>
                         </div>
                       </div>
@@ -1350,7 +1350,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                           </div>
 
                           {/* RECHARTS LACTATION COMPARISON CHART FOR THIS COW */}
-                          <div className="bg-white p-3 rounded-xl border border-blue-200 shadow-2xs">
+                          <div className="bg-[#15241C] p-3 rounded-xl border border-blue-200 shadow-2xs">
                             <span className="text-[10px] font-bold uppercase tracking-wider text-blue-900 block mb-1">
                               Litros Acumulados (305 Días) vs. Pico Diario (L/día) por Lactancia
                             </span>
@@ -1386,7 +1386,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                             </div>
                           </div>
 
-                          <div className="overflow-x-auto rounded-xl border border-blue-200 bg-white">
+                          <div className="overflow-x-auto rounded-xl border border-blue-200 bg-[#15241C]">
                             <table className="w-full text-left text-[11px]">
                               <thead>
                                 <tr className="bg-blue-100 text-blue-950 text-[9.5px] uppercase font-black">
@@ -1400,29 +1400,29 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                                   <th className="p-2">Estado</th>
                                 </tr>
                               </thead>
-                              <tbody className="divide-y divide-gray-200">
+                              <tbody className="divide-y divide-white/10">
                                 {animal.lactationHistory.map((lac) => (
                                   <tr key={lac.lactationNumber} className="hover:bg-blue-50/50">
                                     <td className="p-2 font-black text-blue-900">
                                       Lactancia #{lac.lactationNumber}
                                     </td>
-                                    <td className="p-2 text-gray-800">{lac.startDate}</td>
-                                    <td className="p-2 text-gray-800">{lac.endDate}</td>
+                                    <td className="p-2 text-white">{lac.startDate}</td>
+                                    <td className="p-2 text-white">{lac.endDate}</td>
                                     <td className="p-2 text-right font-black text-emerald-800">
                                       {lac.totalLiters305Days.toLocaleString()} Litros
                                     </td>
                                     <td className="p-2 text-right font-bold text-blue-900">
                                       {lac.peakLitersDay} L/d
                                     </td>
-                                    <td className="p-2 text-right text-gray-700">{lac.averageFatPercent}%</td>
-                                    <td className="p-2 text-right text-gray-700">{lac.averageProteinPercent}%</td>
+                                    <td className="p-2 text-right text-white">{lac.averageFatPercent}%</td>
+                                    <td className="p-2 text-right text-white">{lac.averageProteinPercent}%</td>
                                     <td className="p-2 font-bold">
                                       {lac.status === 'En Curso' ? (
                                         <span className="px-2 py-0.5 bg-emerald-100 text-emerald-900 rounded-full text-[9.5px]">
                                           🟢 En Curso ({lac.daysInMilkDEL} DEL)
                                         </span>
                                       ) : (
-                                        <span className="px-2 py-0.5 bg-gray-100 text-gray-800 rounded-full text-[9.5px]">
+                                        <span className="px-2 py-0.5 bg-[#1F3327] text-white rounded-full text-[9.5px]">
                                           ⚪ {lac.status}
                                         </span>
                                       )}
@@ -1445,12 +1445,12 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
 
                           <div className="space-y-2">
                             {animal.gestationalLosses.map((loss) => (
-                              <div key={loss.id} className="p-3 bg-white rounded-xl border border-rose-200 text-[10.5px] space-y-1">
+                              <div key={loss.id} className="p-3 bg-[#15241C] rounded-xl border border-rose-200 text-[10.5px] space-y-1">
                                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-rose-100 pb-1">
                                   <span className="font-black text-rose-900">
                                     ⚠️ {loss.classification} ({loss.gestationalAgeMonths} Meses de Gestación)
                                   </span>
-                                  <span className="font-bold text-gray-600">Fecha: {loss.date}</span>
+                                  <span className="font-bold text-[#A5B8AC]">Fecha: {loss.date}</span>
                                 </div>
                                 <div>• <b>Causa Diagnosticada:</b> {loss.suspectedCause}</div>
                                 <div>• <b>Tratamiento & Reposo Uterino:</b> {loss.treatmentApplied} ({loss.uterineRestDays} Días Reposo)</div>
@@ -1464,7 +1464,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
 
                   {/* MALE ANDROLOGICAL METRICS */}
                   {animal.sex === 'Macho' && (
-                    <div className="p-3.5 bg-blue-50 rounded-2xl border border-blue-200 space-y-2 text-[11px]">
+                    <div className="p-3.5 bg-blue-950/30 rounded-2xl border border-blue-200 space-y-2 text-[11px]">
                       <span className="font-bold text-blue-950 flex items-center gap-1.5">
                         <Award className="w-4 h-4 text-blue-700" /> Evaluación Andrológica & Fertilidad del Toro:
                       </span>
@@ -1476,25 +1476,25 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                   )}
 
                   {/* OFFSPRING / HIJOS DE LA VACA O TORO */}
-                  <div className="space-y-2.5 pt-2 border-t border-gray-200">
+                  <div className="space-y-2.5 pt-2 border-t border-white/10">
                     <div className="flex items-center justify-between">
-                      <span className="font-black text-gray-900 text-xs flex items-center gap-1.5">
+                      <span className="font-black text-white text-xs flex items-center gap-1.5">
                         <Baby className="w-4 h-4 text-pink-600" />
                         {animal.sex === 'Hembra'
                           ? `Hijos de la Vaca (${animal.offspringList.length} Registrados en Finca):`
                           : `Hijos / Progenie del Toro (${animal.offspringList.length} Registrados en el Sistema):`}
                       </span>
 
-                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-950/30 px-2.5 py-0.5 rounded-full border border-emerald-200">
                         Total Descendencia: {animal.offspringList.length}
                       </span>
                     </div>
 
                     {animal.offspringList.length > 0 ? (
-                      <div className="overflow-x-auto rounded-xl border border-gray-200">
+                      <div className="overflow-x-auto rounded-xl border border-white/10">
                         <table className="w-full text-left text-[11px]">
                           <thead>
-                            <tr className="bg-gray-100 text-gray-800 text-[9.5px] uppercase font-black">
+                            <tr className="bg-[#1F3327] text-white text-[9.5px] uppercase font-black">
                               <th className="p-2">Arete / Nombre Cría</th>
                               <th className="p-2">Fecha Nacimiento</th>
                               <th className="p-2">Sexo</th>
@@ -1504,17 +1504,17 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                               <th className="p-2">Estado Actual</th>
                             </tr>
                           </thead>
-                          <tbody className="divide-y divide-gray-200">
+                          <tbody className="divide-y divide-white/10">
                             {animal.offspringList.map((off) => (
-                              <tr key={off.id} className="hover:bg-gray-50">
+                              <tr key={off.id} className="hover:bg-[#0D1A13]">
                                 <td className="p-2 font-bold text-black">
                                   {off.earTag} — {off.name}
                                 </td>
-                                <td className="p-2 text-gray-700">{off.birthDate}</td>
+                                <td className="p-2 text-white">{off.birthDate}</td>
                                 <td className="p-2 font-bold text-pink-900">{off.sex}</td>
-                                <td className="p-2 text-right font-bold text-gray-900">{off.birthWeightKg} kg</td>
+                                <td className="p-2 text-right font-bold text-white">{off.birthWeightKg} kg</td>
                                 <td className="p-2 text-right font-black text-emerald-800">{off.weaningWeightKg} kg</td>
-                                <td className="p-2 text-gray-700">
+                                <td className="p-2 text-white">
                                   {animal.sex === 'Hembra' ? `Padre: ${off.sireName}` : `Madre: ${off.damTag || 'N/A'}`}
                                 </td>
                                 <td className="p-2 font-bold text-emerald-900">{off.currentStatus}</td>
@@ -1524,7 +1524,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                         </table>
                       </div>
                     ) : (
-                      <div className="p-3 bg-gray-50 rounded-xl border border-gray-200 text-gray-500 text-[10.5px]">
+                      <div className="p-3 bg-[#0D1A13] rounded-xl border border-white/10 text-[#A5B8AC] text-[10.5px]">
                         No hay hijos registrados en el sistema actualmente para este animal.
                       </div>
                     )}
@@ -1539,10 +1539,10 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
       {/* ANIMAL DETAIL MODAL */}
       {selectedAnimalDetail && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto font-mono text-xs">
-          <div className="bg-white text-[#012d1d] rounded-3xl max-w-4xl w-full border-2 border-[#012d1d] shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col">
-            <div className="p-5 bg-[#012d1d] text-white flex items-center justify-between border-b border-[#083e29]">
+          <div className="bg-[#15241C] text-white rounded-3xl max-w-4xl w-full border-2 border-[#012d1d] shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col">
+            <div className="p-5 bg-[#0D1A13] text-white flex items-center justify-between border-b border-[#083e29]">
               <div className="flex items-center gap-3">
-                <span className="px-3 py-1 bg-[#ffba38] text-[#012d1d] rounded-xl font-black text-sm">
+                <span className="px-3 py-1 bg-[#D4A94E] text-white rounded-xl font-black text-sm">
                   {selectedAnimalDetail.earTag}
                 </span>
                 <div>
@@ -1564,33 +1564,33 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
 
             <div className="p-6 overflow-y-auto space-y-6 flex-1">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                <div className="p-3 bg-emerald-50 rounded-2xl border border-emerald-200">
-                  <span className="text-gray-500 block text-[9.5px] uppercase">Peso Actual</span>
+                <div className="p-3 bg-emerald-950/30 rounded-2xl border border-emerald-200">
+                  <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Peso Actual</span>
                   <span className="text-lg font-black text-emerald-900">{selectedAnimalDetail.currentWeightKg} kg</span>
                 </div>
-                <div className="p-3 bg-amber-50 rounded-2xl border border-amber-200">
-                  <span className="text-gray-500 block text-[9.5px] uppercase">GDP Ganancia Peso</span>
+                <div className="p-3 bg-amber-950/30 rounded-2xl border border-amber-200">
+                  <span className="text-[#A5B8AC] block text-[9.5px] uppercase">GDP Ganancia Peso</span>
                   <span className="text-lg font-black text-amber-900">+{selectedAnimalDetail.gdpGramsDay} g/día</span>
                 </div>
                 <div className="p-3 bg-pink-50 rounded-2xl border border-pink-200">
-                  <span className="text-gray-500 block text-[9.5px] uppercase">Estado Repro</span>
+                  <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Estado Repro</span>
                   <span className="text-xs font-black text-pink-900">{selectedAnimalDetail.reproStatus}</span>
                 </div>
-                <div className="p-3 bg-purple-50 rounded-2xl border border-purple-200">
-                  <span className="text-gray-500 block text-[9.5px] uppercase">Puntaje Genético</span>
+                <div className="p-3 bg-purple-950/30 rounded-2xl border border-purple-200">
+                  <span className="text-[#A5B8AC] block text-[9.5px] uppercase">Puntaje Genético</span>
                   <span className="text-lg font-black text-purple-900">{selectedAnimalDetail.geneticPerformanceScore}%</span>
                 </div>
               </div>
 
               {/* LACTATION HISTORY IN MODAL IF COW */}
               {selectedAnimalDetail.sex === 'Hembra' && selectedAnimalDetail.lactationHistory && (
-                <div className="p-4 bg-blue-50 rounded-2xl border border-blue-200 space-y-2">
+                <div className="p-4 bg-blue-950/30 rounded-2xl border border-blue-200 space-y-2">
                   <h4 className="font-black text-sm text-blue-950 flex items-center gap-2 border-b border-blue-200 pb-2">
                     <Milk className="w-4 h-4 text-blue-700" /> LACTANCIAS ACUMULADAS DE LA VACA
                   </h4>
                   <div className="space-y-2 text-[11px]">
                     {selectedAnimalDetail.lactationHistory.map((lac) => (
-                      <div key={lac.lactationNumber} className="p-2.5 bg-white rounded-xl border border-blue-200 flex justify-between items-center">
+                      <div key={lac.lactationNumber} className="p-2.5 bg-[#15241C] rounded-xl border border-blue-200 flex justify-between items-center">
                         <div>
                           <b>Lactancia #{lac.lactationNumber}</b> ({lac.startDate} a {lac.endDate})
                         </div>
@@ -1610,7 +1610,7 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
                   {selectedAnimalDetail.sex === 'Hembra' ? 'HIJOS DE LA VACA' : 'HIJOS / PROGENIE DEL TORO'} ({selectedAnimalDetail.offspringList.length})
                 </h4>
                 {selectedAnimalDetail.offspringList.map((off) => (
-                  <div key={off.id} className="p-2 bg-white rounded-xl border border-pink-200 text-[11px] flex justify-between">
+                  <div key={off.id} className="p-2 bg-[#15241C] rounded-xl border border-pink-200 text-[11px] flex justify-between">
                     <span><b>{off.earTag}</b> - {off.name} ({off.sex})</span>
                     <span>Peso nacer: <b>{off.birthWeightKg} kg</b> • Destete: <b>{off.weaningWeightKg} kg</b></span>
                   </div>
@@ -1618,11 +1618,11 @@ export const HerdTraceabilityView: React.FC<HerdTraceabilityViewProps> = () => {
               </div>
             </div>
 
-            <div className="p-4 bg-gray-100 border-t border-gray-200 flex justify-end">
+            <div className="p-4 bg-[#1F3327] border-t border-white/10 flex justify-end">
               <button
                 type="button"
                 onClick={() => setSelectedAnimalDetail(null)}
-                className="px-5 py-2 bg-[#012d1d] text-white font-black rounded-xl text-xs hover:bg-emerald-900 cursor-pointer"
+                className="px-5 py-2 bg-[#0D1A13] text-white font-black rounded-xl text-xs hover:bg-emerald-900 cursor-pointer"
               >
                 Cerrar Ficha
               </button>

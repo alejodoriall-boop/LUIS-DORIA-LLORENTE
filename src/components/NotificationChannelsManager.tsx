@@ -219,18 +219,18 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
   return (
     <div className="space-y-6">
       {/* HEADER SECTION */}
-      <div className="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#15241C] p-6 rounded-3xl border border-white/10 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1">
               <MailCheck className="w-3.5 h-3.5" /> Servidor Transaccional Activo
             </span>
-            <span className="text-gray-400 text-xs font-mono">SMTP / Resend API</span>
+            <span className="text-[#A5B8AC] text-xs font-mono">SMTP / Resend API</span>
           </div>
-          <h2 className="text-xl font-black text-gray-900">
+          <h2 className="text-xl font-black text-white">
             Canales de Notificación por Correo Electrónico
           </h2>
-          <p className="text-xs text-gray-500 max-w-2xl mt-0.5">
+          <p className="text-xs text-[#A5B8AC] max-w-2xl mt-0.5">
             Configure las direcciones de correo del propietario, veterinario, administrador y contabilidad para recibir alertas críticas en tiempo real y reportes consolidados del hato.
           </p>
         </div>
@@ -238,15 +238,15 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
         <div className="flex items-center gap-2">
           <button
             onClick={() => setPreviewTemplate('sales')}
-            className="px-4 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 font-bold text-xs rounded-2xl border border-gray-200 transition flex items-center gap-1.5"
+            className="px-4 py-2.5 bg-[#0D1A13] hover:bg-[#1F3327] text-white font-bold text-xs rounded-2xl border border-white/10 transition flex items-center gap-1.5"
           >
-            <ExternalLink className="w-4 h-4 text-gray-500" />
+            <ExternalLink className="w-4 h-4 text-[#A5B8AC]" />
             <span>Ver Plantillas de Correo</span>
           </button>
 
           <button
             onClick={handleOpenAdd}
-            className="px-5 py-2.5 bg-[#012d1d] hover:bg-[#02402a] text-[#ffba38] font-black text-xs uppercase rounded-2xl transition shadow-md flex items-center gap-2"
+            className="px-5 py-2.5 bg-[#0D1A13] hover:bg-[#02402a] text-[#ffba38] font-black text-xs uppercase rounded-2xl transition shadow-md flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
             <span>+ Agregar Correo</span>
@@ -256,57 +256,57 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
       {/* STATS OVERVIEW */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-black">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-emerald-950/30 text-emerald-600 flex items-center justify-center font-black">
             <Mail className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-gray-400 block">Destinatarios Activos</span>
-            <span className="text-lg font-black text-gray-900">
+            <span className="text-[10px] uppercase font-bold text-[#A5B8AC] block">Destinatarios Activos</span>
+            <span className="text-lg font-black text-white">
               {recipients.filter((r) => r.status === 'active').length} de {recipients.length}
             </span>
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-black">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-rose-950/30 text-rose-600 flex items-center justify-center font-black">
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-gray-400 block">Alertas Críticas 24/7</span>
-            <span className="text-lg font-black text-gray-900">4 Categorías</span>
+            <span className="text-[10px] uppercase font-bold text-[#A5B8AC] block">Alertas Críticas 24/7</span>
+            <span className="text-lg font-black text-white">4 Categorías</span>
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-blue-950/30 text-blue-600 flex items-center justify-center font-black">
             <Clock className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-gray-400 block">Próximo Reporte Semanal</span>
-            <span className="text-xs font-black text-gray-900 font-mono">Lunes 08:00 AM</span>
+            <span className="text-[10px] uppercase font-bold text-[#A5B8AC] block">Próximo Reporte Semanal</span>
+            <span className="text-xs font-black text-white font-mono">Lunes 08:00 AM</span>
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-black">
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-purple-950/30 text-purple-600 flex items-center justify-center font-black">
             <Send className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-gray-400 block">Despachos este Mes</span>
+            <span className="text-[10px] uppercase font-bold text-[#A5B8AC] block">Despachos este Mes</span>
             <span className="text-lg font-black text-purple-900">{deliveryLogs.length} Envíos</span>
           </div>
         </div>
       </div>
 
       {/* RECIPIENTS LIST */}
-      <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
-        <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-          <h3 className="font-black text-sm text-gray-900 uppercase tracking-wider flex items-center gap-2">
+      <div className="bg-[#15241C] rounded-3xl border border-white/10 overflow-hidden shadow-sm">
+        <div className="p-5 border-b border-white/10 flex items-center justify-between">
+          <h3 className="font-black text-sm text-white uppercase tracking-wider flex items-center gap-2">
             <Bell className="w-4 h-4 text-emerald-600" />
             <span>Destinatarios y Matriz de Suscripción ({recipients.length})</span>
           </h3>
-          <span className="text-xs text-gray-400">Verificación Double Opt-In Activa</span>
+          <span className="text-xs text-[#A5B8AC]">Verificación Double Opt-In Activa</span>
         </div>
 
         <div className="divide-y divide-gray-100">
@@ -319,43 +319,43 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
               >
                 {/* Left info */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-11 h-11 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black text-base shadow-xs shrink-0">
+                  <div className="w-11 h-11 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black text-base shadow-xs shrink-0">
                     {rec.fullName.charAt(0)}
                   </div>
                   <div className="space-y-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-black text-sm text-gray-900">{rec.fullName}</span>
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-gray-100 text-gray-700 border border-gray-200">
+                      <span className="font-black text-sm text-white">{rec.fullName}</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#1F3327] text-white border border-white/10">
                         {rec.role}
                       </span>
                       {rec.status === 'active' && (
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-emerald-950/30 text-emerald-700 border border-emerald-200 flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" /> Activo
                         </span>
                       )}
                       {rec.status === 'pending_verification' && (
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-300 flex items-center gap-1">
+                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-950/30 text-amber-800 border border-amber-300 flex items-center gap-1">
                           <AlertTriangle className="w-3 h-3 text-amber-600" /> Pendiente Verificación
                         </span>
                       )}
                       {rec.status === 'paused' && (
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 border border-gray-300 flex items-center gap-1">
+                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-[#1F3327] text-[#A5B8AC] border border-white/15 flex items-center gap-1">
                           <Clock className="w-3 h-3" /> Pausado
                         </span>
                       )}
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
-                      <span className="font-mono text-gray-700 font-semibold">{rec.email}</span>
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-[#A5B8AC]">
+                      <span className="font-mono text-white font-semibold">{rec.email}</span>
                       <span>•</span>
                       <span className="flex items-center gap-1">
-                        <Building2 className="w-3.5 h-3.5 text-gray-400" />
+                        <Building2 className="w-3.5 h-3.5 text-[#A5B8AC]" />
                         {rec.isAllFarmsAccess ? 'Todas las Fincas' : rec.assignedFarmNames?.join(', ')}
                       </span>
                       {rec.quietHoursEnabled && (
                         <>
                           <span>•</span>
-                          <span className="text-gray-400 text-[11px]">
+                          <span className="text-[#A5B8AC] text-[11px]">
                             🌙 Silencio: {rec.quietHoursStart} a {rec.quietHoursEnd}
                           </span>
                         </>
@@ -365,17 +365,17 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                     {/* Subscription Pills */}
                     <div className="flex flex-wrap gap-1.5 pt-1.5">
                       {rec.preferences.alertSalesDispatch && (
-                        <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded">
+                        <span className="text-[10px] font-semibold bg-emerald-950/30 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded">
                           Ventas
                         </span>
                       )}
                       {rec.preferences.alertMortalityRecorded && (
-                        <span className="text-[10px] font-semibold bg-rose-50 text-rose-800 border border-rose-200 px-2 py-0.5 rounded">
+                        <span className="text-[10px] font-semibold bg-rose-950/30 text-rose-800 border border-rose-200 px-2 py-0.5 rounded">
                           Muertes/Bajas
                         </span>
                       )}
                       {rec.preferences.alertWithdrawalActive && (
-                        <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded">
+                        <span className="text-[10px] font-semibold bg-amber-950/30 text-amber-800 border border-amber-200 px-2 py-0.5 rounded">
                           Período Retiro
                         </span>
                       )}
@@ -385,7 +385,7 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                         </span>
                       )}
                       {rec.preferences.notifyNewBirths && (
-                        <span className="text-[10px] font-semibold bg-blue-50 text-blue-800 border border-blue-200 px-2 py-0.5 rounded">
+                        <span className="text-[10px] font-semibold bg-blue-950/30 text-blue-800 border border-blue-200 px-2 py-0.5 rounded">
                           Nacimientos
                         </span>
                       )}
@@ -395,7 +395,7 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                         </span>
                       )}
                       {rec.preferences.reportWeeklyExecutive && (
-                        <span className="text-[10px] font-semibold bg-purple-50 text-purple-800 border border-purple-200 px-2 py-0.5 rounded">
+                        <span className="text-[10px] font-semibold bg-purple-950/30 text-purple-800 border border-purple-200 px-2 py-0.5 rounded">
                           Balance Semanal
                         </span>
                       )}
@@ -404,7 +404,7 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                           Proyección MRP
                         </span>
                       )}
-                      <span className="text-[10px] font-bold text-gray-400 px-1 py-0.5">
+                      <span className="text-[10px] font-bold text-[#A5B8AC] px-1 py-0.5">
                         ({activeSubCount} alertas)
                       </span>
                     </div>
@@ -416,7 +416,7 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                   {rec.status === 'pending_verification' && (
                     <button
                       onClick={() => handleOpenVerifyModal(rec)}
-                      className="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-black text-xs rounded-xl transition flex items-center gap-1.5"
+                      className="px-3 py-2 bg-amber-950/30 hover:bg-amber-100 text-amber-900 border border-amber-300 font-black text-xs rounded-xl transition flex items-center gap-1.5"
                     >
                       <KeyRound className="w-3.5 h-3.5 text-amber-700" />
                       <span>Ingresar Código</span>
@@ -425,27 +425,27 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <button
                     onClick={() => handleOpenPreferences(rec)}
-                    className="px-3.5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs rounded-xl transition flex items-center gap-1.5"
+                    className="px-3.5 py-2 bg-[#1F3327] hover:bg-gray-200 text-white font-bold text-xs rounded-xl transition flex items-center gap-1.5"
                     title="Configurar eventos y suscripciones"
                   >
-                    <SlidersHorizontal className="w-3.5 h-3.5 text-gray-600" />
+                    <SlidersHorizontal className="w-3.5 h-3.5 text-[#A5B8AC]" />
                     <span>Preferencias</span>
                   </button>
 
                   <button
                     onClick={() => handleSendTestAlert(rec)}
-                    className="p-2 bg-white hover:bg-gray-100 text-gray-600 border border-gray-200 rounded-xl transition"
+                    className="p-2 bg-[#15241C] hover:bg-[#1F3327] text-[#A5B8AC] border border-white/10 rounded-xl transition"
                     title="Enviar correo de prueba"
                   >
-                    <Send className="w-4 h-4 text-gray-500" />
+                    <Send className="w-4 h-4 text-[#A5B8AC]" />
                   </button>
 
                   <button
                     onClick={() => handleToggleStatus(rec.id)}
                     className={`p-2 rounded-xl border transition ${
                       rec.status === 'active'
-                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
-                        : 'bg-gray-100 text-gray-400 border-gray-200 hover:bg-gray-200'
+                        ? 'bg-emerald-950/30 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                        : 'bg-[#1F3327] text-[#A5B8AC] border-white/10 hover:bg-gray-200'
                     }`}
                     title={rec.status === 'active' ? 'Pausar Notificaciones' : 'Activar Notificaciones'}
                   >
@@ -454,7 +454,7 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <button
                     onClick={() => handleDeleteRecipient(rec.id)}
-                    className="p-2 bg-white hover:bg-rose-50 text-gray-400 hover:text-rose-600 border border-gray-200 hover:border-rose-200 rounded-xl transition"
+                    className="p-2 bg-[#15241C] hover:bg-rose-950/30 text-[#A5B8AC] hover:text-rose-600 border border-white/10 hover:border-rose-200 rounded-xl transition"
                     title="Eliminar correo"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -467,20 +467,20 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
       </div>
 
       {/* DELIVERY AUDIT LOGS */}
-      <div className="bg-white rounded-3xl border border-gray-200 p-5 shadow-sm space-y-3">
-        <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+      <div className="bg-[#15241C] rounded-3xl border border-white/10 p-5 shadow-sm space-y-3">
+        <div className="flex items-center justify-between border-b border-white/10 pb-3">
           <div className="flex items-center gap-2">
             <Send className="w-4 h-4 text-emerald-600" />
-            <h3 className="font-black text-sm text-gray-900">Historial de Despachos Recientes</h3>
+            <h3 className="font-black text-sm text-white">Historial de Despachos Recientes</h3>
           </div>
-          <span className="text-[11px] font-mono text-gray-400">Auditoría Transaccional en Tiempo Real</span>
+          <span className="text-[11px] font-mono text-[#A5B8AC]">Auditoría Transaccional en Tiempo Real</span>
         </div>
 
         <div className="space-y-2">
           {deliveryLogs.map((log) => (
             <div
               key={log.id}
-              className="p-3 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs"
+              className="p-3 bg-[#0D1A13] rounded-2xl border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs"
             >
               <div className="space-y-0.5">
                 <div className="flex items-center gap-2">
@@ -495,16 +495,16 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                   >
                     {log.eventCategory}
                   </span>
-                  <span className="font-bold text-gray-900">{log.subject}</span>
+                  <span className="font-bold text-white">{log.subject}</span>
                 </div>
-                <span className="text-gray-500 text-[11px]">
+                <span className="text-[#A5B8AC] text-[11px]">
                   Enviado a: <strong>{log.recipientName}</strong> ({log.recipientEmail})
                 </span>
               </div>
 
-              <div className="flex items-center gap-3 font-mono text-[11px] text-gray-400 self-end sm:self-center">
+              <div className="flex items-center gap-3 font-mono text-[11px] text-[#A5B8AC] self-end sm:self-center">
                 <span>{log.sentAt}</span>
-                <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-bold text-[10px] border border-emerald-200 flex items-center gap-1">
+                <span className="text-emerald-700 bg-emerald-950/30 px-2 py-0.5 rounded-md font-bold text-[10px] border border-emerald-200 flex items-center gap-1">
                   <CheckCircle2 className="w-3 h-3" /> Entregado
                 </span>
               </div>
@@ -518,20 +518,20 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
       {/* ============================================================ */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-gray-200 space-y-4 my-8">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+          <div className="bg-[#15241C] rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-white/10 space-y-4 my-8">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="p-2.5 bg-[#012d1d] text-[#ffba38] rounded-2xl">
+                <div className="p-2.5 bg-[#0D1A13] text-[#ffba38] rounded-2xl">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-black text-base text-gray-900">Registrar Destinatario de Correo</h3>
-                  <p className="text-xs text-gray-500">Se enviará un código de verificación de 6 dígitos.</p>
+                  <h3 className="font-black text-base text-white">Registrar Destinatario de Correo</h3>
+                  <p className="text-xs text-[#A5B8AC]">Se enviará un código de verificación de 6 dígitos.</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsAddModalOpen(false)}
-                className="p-2 text-gray-400 hover:text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                className="p-2 text-[#A5B8AC] hover:text-white rounded-xl hover:bg-[#1F3327] transition"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -539,36 +539,36 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
             <form onSubmit={handleSaveRecipient} className="space-y-4 text-xs">
               <div>
-                <label className="font-bold text-gray-700 block mb-1">Nombre Completo del Destinatario *</label>
+                <label className="font-bold text-white block mb-1">Nombre Completo del Destinatario *</label>
                 <input
                   type="text"
                   required
                   placeholder="Ej: Martha Gómez / Dr. Carlos Restrepo"
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
-                  className="w-full p-3 bg-gray-50 rounded-xl border border-gray-200 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                  className="w-full p-3 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-gray-700 block mb-1">Dirección de Correo Electrónico *</label>
+                <label className="font-bold text-white block mb-1">Dirección de Correo Electrónico *</label>
                 <input
                   type="email"
                   required
                   placeholder="ejemplo@ganaderia.com"
                   value={formEmail}
                   onChange={(e) => setFormEmail(e.target.value)}
-                  className="w-full p-3 bg-gray-50 rounded-xl border border-gray-200 text-xs font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                  className="w-full p-3 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-gray-700 block mb-1">Rol / Cargo</label>
+                  <label className="font-bold text-white block mb-1">Rol / Cargo</label>
                   <select
                     value={formRole}
                     onChange={(e: any) => setFormRole(e.target.value)}
-                    className="w-full p-2.5 bg-gray-50 rounded-xl border border-gray-200 text-xs font-bold"
+                    className="w-full p-2.5 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-bold"
                   >
                     <option value="propietario">👑 Propietario / Socio</option>
                     <option value="administrador">🏢 Administrador</option>
@@ -579,11 +579,11 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                 </div>
 
                 <div>
-                  <label className="font-bold text-gray-700 block mb-1">Acceso a Predios</label>
+                  <label className="font-bold text-white block mb-1">Acceso a Predios</label>
                   <select
                     value={formFarmMode}
                     onChange={(e: any) => setFormFarmMode(e.target.value)}
-                    className="w-full p-2.5 bg-gray-50 rounded-xl border border-gray-200 text-xs font-bold"
+                    className="w-full p-2.5 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-bold"
                   >
                     <option value="all">Todas las Fincas</option>
                     <option value="custom">Hacienda San Mateo</option>
@@ -592,9 +592,9 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
               </div>
 
               {/* Quiet hours */}
-              <div className="p-3.5 bg-gray-50 rounded-2xl border border-gray-200 space-y-2">
+              <div className="p-3.5 bg-[#0D1A13] rounded-2xl border border-white/10 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-gray-800 flex items-center gap-1.5">
+                  <span className="font-bold text-white flex items-center gap-1.5">
                     🌙 Franja de Silencio (No Molestar)
                   </span>
                   <label className="relative inline-flex items-center cursor-pointer">
@@ -604,43 +604,43 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                       onChange={(e) => setFormQuietEnabled(e.target.checked)}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
+                    <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#15241C] after:border-white/15 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
                   </label>
                 </div>
-                <p className="text-[11px] text-gray-500">
+                <p className="text-[11px] text-[#A5B8AC]">
                   Las alertas no urgentes se retendrán durante este horario. Las alertas críticas (Ventas/Bajas) se envían de inmediato.
                 </p>
                 {formQuietEnabled && (
                   <div className="flex items-center gap-2 pt-1">
-                    <span className="text-gray-500 text-[11px]">Desde:</span>
+                    <span className="text-[#A5B8AC] text-[11px]">Desde:</span>
                     <input
                       type="time"
                       value={formQuietStart}
                       onChange={(e) => setFormQuietStart(e.target.value)}
-                      className="p-1.5 bg-white border border-gray-300 rounded-lg text-xs font-mono font-bold"
+                      className="p-1.5 bg-[#15241C] border border-white/15 rounded-lg text-xs font-mono font-bold"
                     />
-                    <span className="text-gray-500 text-[11px]">Hasta:</span>
+                    <span className="text-[#A5B8AC] text-[11px]">Hasta:</span>
                     <input
                       type="time"
                       value={formQuietEnd}
                       onChange={(e) => setFormQuietEnd(e.target.value)}
-                      className="p-1.5 bg-white border border-gray-300 rounded-lg text-xs font-mono font-bold"
+                      className="p-1.5 bg-[#15241C] border border-white/15 rounded-lg text-xs font-mono font-bold"
                     />
                   </div>
                 )}
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-100 rounded-xl transition"
+                  className="px-4 py-2.5 text-xs font-bold text-[#A5B8AC] hover:bg-[#1F3327] rounded-xl transition"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 text-xs font-black bg-[#012d1d] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md flex items-center gap-2"
+                  className="px-5 py-2.5 text-xs font-black bg-[#0D1A13] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md flex items-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Enviar Código & Registrar</span>
@@ -656,22 +656,22 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
       {/* ============================================================ */}
       {isPrefModalOpen && activeRecipient && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl border border-gray-200 space-y-5 my-8">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+          <div className="bg-[#15241C] rounded-3xl max-w-xl w-full p-6 shadow-2xl border border-white/10 space-y-5 my-8">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="p-2.5 bg-emerald-50 text-emerald-700 rounded-2xl">
+                <div className="p-2.5 bg-emerald-950/30 text-emerald-700 rounded-2xl">
                   <SlidersHorizontal className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-black text-base text-gray-900">
+                  <h3 className="font-black text-base text-white">
                     Preferencias: {activeRecipient.fullName}
                   </h3>
-                  <p className="text-xs text-gray-500 font-mono">{activeRecipient.email}</p>
+                  <p className="text-xs text-[#A5B8AC] font-mono">{activeRecipient.email}</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsPrefModalOpen(false)}
-                className="p-2 text-gray-400 hover:text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                className="p-2 text-[#A5B8AC] hover:text-white rounded-xl hover:bg-[#1F3327] transition"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -682,15 +682,15 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-rose-500"></span>
-                  <h4 className="font-black text-xs text-gray-900 uppercase tracking-wider">
+                  <h4 className="font-black text-xs text-white uppercase tracking-wider">
                     A. Alertas Críticas e Inmediatas (Tiempo Real)
                   </h4>
                 </div>
                 <div className="bg-rose-50/40 rounded-2xl border border-rose-100 p-3 space-y-2.5">
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Salidas de Inventario / Ventas</span>
-                      <span className="text-[11px] text-gray-500">Confirmación de venta, cabezas, kilos y liquidación.</span>
+                      <span className="font-bold text-white block">Salidas de Inventario / Ventas</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Confirmación de venta, cabezas, kilos y liquidación.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -702,8 +702,8 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Muertes & Bajas Sanitarias</span>
-                      <span className="text-[11px] text-gray-500">Registro de mortalidad con causa diagnosticada.</span>
+                      <span className="font-bold text-white block">Muertes & Bajas Sanitarias</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Registro de mortalidad con causa diagnosticada.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -715,8 +715,8 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Alertas de Período de Retiro</span>
-                      <span className="text-[11px] text-gray-500">Avisos de inicio y fin de restricción en carne/leche.</span>
+                      <span className="font-bold text-white block">Alertas de Período de Retiro</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Avisos de inicio y fin de restricción en carne/leche.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -728,8 +728,8 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Quiebre de Stock Crítico</span>
-                      <span className="text-[11px] text-gray-500">Insumos o sales por debajo de la reserva mínima (&lt;7d).</span>
+                      <span className="font-bold text-white block">Quiebre de Stock Crítico</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Insumos o sales por debajo de la reserva mínima (&lt;7d).</span>
                     </div>
                     <input
                       type="checkbox"
@@ -745,15 +745,15 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                  <h4 className="font-black text-xs text-gray-900 uppercase tracking-wider">
+                  <h4 className="font-black text-xs text-white uppercase tracking-wider">
                     B. Notificaciones Operativas y Reproductivas
                   </h4>
                 </div>
                 <div className="bg-blue-50/40 rounded-2xl border border-blue-100 p-3 space-y-2.5">
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Nuevos Nacimientos</span>
-                      <span className="text-[11px] text-gray-500">Registro de cría con ID, peso, sexo y madre.</span>
+                      <span className="font-bold text-white block">Nuevos Nacimientos</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Registro de cría con ID, peso, sexo y madre.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -765,8 +765,8 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Próximos Partos y Secados</span>
-                      <span className="text-[11px] text-gray-500">Aviso preventivo a 7 días de fecha estimada de parto.</span>
+                      <span className="font-bold text-white block">Próximos Partos y Secados</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Aviso preventivo a 7 días de fecha estimada de parto.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -778,8 +778,8 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Refuerzos Sanitarios & Multidosis</span>
-                      <span className="text-[11px] text-gray-500">Recordatorio de revacunación (ej. Carbón 21 días).</span>
+                      <span className="font-bold text-white block">Refuerzos Sanitarios & Multidosis</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Recordatorio de revacunación (ej. Carbón 21 días).</span>
                     </div>
                     <input
                       type="checkbox"
@@ -795,15 +795,15 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-purple-500"></span>
-                  <h4 className="font-black text-xs text-gray-900 uppercase tracking-wider">
+                  <h4 className="font-black text-xs text-white uppercase tracking-wider">
                     C. Reportes Periódicos Consolidados
                   </h4>
                 </div>
                 <div className="bg-purple-50/40 rounded-2xl border border-purple-100 p-3 space-y-2.5">
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Resumen Diario de Cierre (06:00 PM)</span>
-                      <span className="text-[11px] text-gray-500">Altas, bajas, pesajes y novedades del día.</span>
+                      <span className="font-bold text-white block">Resumen Diario de Cierre (06:00 PM)</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Altas, bajas, pesajes y novedades del día.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -815,8 +815,8 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Balance Semanal Ejecutivo (Lunes 08:00 AM)</span>
-                      <span className="text-[11px] text-gray-500">Ganancia de peso, litros producidos y estado hato.</span>
+                      <span className="font-bold text-white block">Balance Semanal Ejecutivo (Lunes 08:00 AM)</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Ganancia de peso, litros producidos y estado hato.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -828,8 +828,8 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
                   <label className="flex items-start justify-between gap-3 cursor-pointer">
                     <div>
-                      <span className="font-bold text-gray-900 block">Proyección Mensual de Compras MRP (1ro de Mes)</span>
-                      <span className="text-[11px] text-gray-500">Consumo de materias primas y orden de pedidos sugerida.</span>
+                      <span className="font-bold text-white block">Proyección Mensual de Compras MRP (1ro de Mes)</span>
+                      <span className="text-[11px] text-[#A5B8AC]">Consumo de materias primas y orden de pedidos sugerida.</span>
                     </div>
                     <input
                       type="checkbox"
@@ -842,18 +842,18 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
+            <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
               <button
                 type="button"
                 onClick={() => setIsPrefModalOpen(false)}
-                className="px-4 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-100 rounded-xl transition"
+                className="px-4 py-2.5 text-xs font-bold text-[#A5B8AC] hover:bg-[#1F3327] rounded-xl transition"
               >
                 Cancelar
               </button>
               <button
                 type="button"
                 onClick={handleSavePreferences}
-                className="px-5 py-2.5 text-xs font-black bg-[#012d1d] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md flex items-center gap-2"
+                className="px-5 py-2.5 text-xs font-black bg-[#0D1A13] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md flex items-center gap-2"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Guardar Preferencias</span>
@@ -868,19 +868,19 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
       {/* ============================================================ */}
       {isVerifyModalOpen && activeRecipient && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-gray-200 space-y-4 my-8 text-center">
-            <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mx-auto">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full p-6 shadow-2xl border border-white/10 space-y-4 my-8 text-center">
+            <div className="w-12 h-12 bg-amber-950/30 text-amber-600 rounded-2xl flex items-center justify-center mx-auto">
               <KeyRound className="w-6 h-6" />
             </div>
 
             <div>
-              <h3 className="font-black text-base text-gray-900">Verificar Correo Electrónico</h3>
-              <p className="text-xs text-gray-500 mt-1">
+              <h3 className="font-black text-base text-white">Verificar Correo Electrónico</h3>
+              <p className="text-xs text-[#A5B8AC] mt-1">
                 Ingrese el código de 6 dígitos enviado a <br />
-                <strong className="font-mono text-gray-800">{activeRecipient.email}</strong>
+                <strong className="font-mono text-white">{activeRecipient.email}</strong>
               </p>
               {activeRecipient.verificationCode && (
-                <div className="mt-2 text-[10px] text-amber-800 bg-amber-50 border border-amber-200 py-1 px-2.5 rounded-lg inline-block font-mono">
+                <div className="mt-2 text-[10px] text-amber-800 bg-amber-950/30 border border-amber-200 py-1 px-2.5 rounded-lg inline-block font-mono">
                   Código de prueba en simulación: <strong>{activeRecipient.verificationCode}</strong>
                 </div>
               )}
@@ -893,7 +893,7 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
                 placeholder="849201"
                 value={verificationInputCode}
                 onChange={(e) => setVerificationInputCode(e.target.value.replace(/\D/g, ''))}
-                className="w-48 text-center tracking-widest text-2xl font-mono font-black p-3 bg-gray-50 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                className="w-48 text-center tracking-widest text-2xl font-mono font-black p-3 bg-[#0D1A13] rounded-2xl border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
               />
             </div>
 
@@ -911,14 +911,14 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
               <button
                 type="button"
                 onClick={() => setIsVerifyModalOpen(false)}
-                className="px-4 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-100 rounded-xl transition"
+                className="px-4 py-2.5 text-xs font-bold text-[#A5B8AC] hover:bg-[#1F3327] rounded-xl transition"
               >
                 Cerrar
               </button>
               <button
                 type="button"
                 onClick={handleConfirmVerification}
-                className="px-5 py-2.5 text-xs font-black bg-[#012d1d] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md"
+                className="px-5 py-2.5 text-xs font-black bg-[#0D1A13] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md"
               >
                 Confirmar y Activar
               </button>
@@ -932,24 +932,24 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
       {/* ============================================================ */}
       {previewTemplate && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-gray-200 space-y-4 my-8">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+          <div className="bg-[#15241C] rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-white/10 space-y-4 my-8">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <div className="flex items-center gap-2">
                 <MailCheck className="w-5 h-5 text-emerald-600" />
-                <h3 className="font-black text-base text-gray-900">
+                <h3 className="font-black text-base text-white">
                   Vista Previa de Plantilla de Correo (HTML Responsivo)
                 </h3>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setPreviewTemplate(previewTemplate === 'sales' ? 'weekly' : 'sales')}
-                  className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200"
+                  className="text-xs font-bold text-emerald-700 bg-emerald-950/30 px-3 py-1.5 rounded-xl border border-emerald-200"
                 >
                   Cambiar a: {previewTemplate === 'sales' ? 'Reporte Semanal' : 'Alerta de Venta'}
                 </button>
                 <button
                   onClick={() => setPreviewTemplate(null)}
-                  className="p-1.5 text-gray-400 hover:text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                  className="p-1.5 text-[#A5B8AC] hover:text-white rounded-xl hover:bg-[#1F3327] transition"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -958,50 +958,50 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
             {/* Render preview 1: Sales */}
             {previewTemplate === 'sales' && (
-              <div className="bg-gray-100 p-4 rounded-2xl border border-gray-200 overflow-hidden">
-                <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm max-w-md mx-auto space-y-4">
+              <div className="bg-[#1F3327] p-4 rounded-2xl border border-white/10 overflow-hidden">
+                <div className="bg-[#15241C] rounded-2xl p-6 border border-white/10 shadow-sm max-w-md mx-auto space-y-4">
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900">
                       Salida de Inventario
                     </span>
-                    <h2 className="text-base font-black text-gray-900 mt-2">
+                    <h2 className="text-base font-black text-white mt-2">
                       Venta Confirmada: 32 Novillos Ceba
                     </h2>
-                    <p className="text-xs text-gray-500">Predio: Hacienda San Mateo • 18 Ago 2026</p>
+                    <p className="text-xs text-[#A5B8AC]">Predio: Hacienda San Mateo • 18 Ago 2026</p>
                   </div>
 
                   <div className="grid grid-cols-3 gap-2 text-center">
-                    <div className="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
-                      <span className="text-[9px] uppercase font-bold text-gray-400 block">Cabezas</span>
-                      <span className="text-sm font-black text-gray-900">32</span>
+                    <div className="bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                      <span className="text-[9px] uppercase font-bold text-[#A5B8AC] block">Cabezas</span>
+                      <span className="text-sm font-black text-white">32</span>
                     </div>
-                    <div className="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
-                      <span className="text-[9px] uppercase font-bold text-gray-400 block">Peso Total</span>
-                      <span className="text-sm font-black text-gray-900">15,360 kg</span>
+                    <div className="bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                      <span className="text-[9px] uppercase font-bold text-[#A5B8AC] block">Peso Total</span>
+                      <span className="text-sm font-black text-white">15,360 kg</span>
                     </div>
-                    <div className="bg-emerald-50 p-2.5 rounded-xl border border-emerald-200">
+                    <div className="bg-emerald-950/30 p-2.5 rounded-xl border border-emerald-200">
                       <span className="text-[9px] uppercase font-bold text-emerald-800 block">Liquidación</span>
                       <span className="text-sm font-black text-emerald-800">$122.8M COP</span>
                     </div>
                   </div>
 
-                  <div className="border-t border-gray-100 pt-3 space-y-1.5 text-xs">
-                    <div className="flex justify-between text-gray-600">
+                  <div className="border-t border-white/10 pt-3 space-y-1.5 text-xs">
+                    <div className="flex justify-between text-[#A5B8AC]">
                       <span>Comprador:</span>
-                      <span className="font-bold text-gray-900">Frigocentral S.A.S.</span>
+                      <span className="font-bold text-white">Frigocentral S.A.S.</span>
                     </div>
-                    <div className="flex justify-between text-gray-600">
+                    <div className="flex justify-between text-[#A5B8AC]">
                       <span>Precio / Kilo:</span>
-                      <span className="font-bold text-gray-900">$8,000 COP</span>
+                      <span className="font-bold text-white">$8,000 COP</span>
                     </div>
-                    <div className="flex justify-between text-gray-600">
+                    <div className="flex justify-between text-[#A5B8AC]">
                       <span>Guía Sanitaria:</span>
-                      <span className="font-mono font-bold text-gray-900">GS-2026-89410</span>
+                      <span className="font-mono font-bold text-white">GS-2026-89410</span>
                     </div>
                   </div>
 
                   <div className="pt-2 text-center">
-                    <span className="inline-block bg-[#012d1d] text-[#ffba38] text-xs font-black px-6 py-2.5 rounded-xl shadow-xs">
+                    <span className="inline-block bg-[#0D1A13] text-[#ffba38] text-xs font-black px-6 py-2.5 rounded-xl shadow-xs">
                       Ver Venta en GANADERÍA →
                     </span>
                   </div>
@@ -1011,34 +1011,34 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
 
             {/* Render preview 2: Weekly Report */}
             {previewTemplate === 'weekly' && (
-              <div className="bg-gray-100 p-4 rounded-2xl border border-gray-200 overflow-hidden">
-                <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm max-w-md mx-auto space-y-4">
+              <div className="bg-[#1F3327] p-4 rounded-2xl border border-white/10 overflow-hidden">
+                <div className="bg-[#15241C] rounded-2xl p-6 border border-white/10 shadow-sm max-w-md mx-auto space-y-4">
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-900">
                       Balance Semanal
                     </span>
-                    <h2 className="text-base font-black text-gray-900 mt-2">
+                    <h2 className="text-base font-black text-white mt-2">
                       Reporte Ejecutivo del Hato (11 - 17 Ago)
                     </h2>
-                    <p className="text-xs text-gray-500">Consolidado Multisede • Hacienda San Mateo</p>
+                    <p className="text-xs text-[#A5B8AC]">Consolidado Multisede • Hacienda San Mateo</p>
                   </div>
 
                   <div className="grid grid-cols-3 gap-2 text-center">
-                    <div className="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
-                      <span className="text-[9px] uppercase font-bold text-gray-400 block">GDP Promedio</span>
-                      <span className="text-sm font-black text-gray-900">+860 g/d</span>
+                    <div className="bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                      <span className="text-[9px] uppercase font-bold text-[#A5B8AC] block">GDP Promedio</span>
+                      <span className="text-sm font-black text-white">+860 g/d</span>
                     </div>
-                    <div className="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
-                      <span className="text-[9px] uppercase font-bold text-gray-400 block">Nacimientos</span>
-                      <span className="text-sm font-black text-gray-900">14 Crías</span>
+                    <div className="bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                      <span className="text-[9px] uppercase font-bold text-[#A5B8AC] block">Nacimientos</span>
+                      <span className="text-sm font-black text-white">14 Crías</span>
                     </div>
-                    <div className="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
-                      <span className="text-[9px] uppercase font-bold text-gray-400 block">Carga Total</span>
-                      <span className="text-sm font-black text-gray-900">1,248 Cab</span>
+                    <div className="bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                      <span className="text-[9px] uppercase font-bold text-[#A5B8AC] block">Carga Total</span>
+                      <span className="text-sm font-black text-white">1,248 Cab</span>
                     </div>
                   </div>
 
-                  <div className="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-950 space-y-1">
+                  <div className="p-3 bg-amber-950/30 rounded-xl border border-amber-200 text-xs text-amber-950 space-y-1">
                     <span className="font-bold block">⚠️ Tareas Sanitarias Próxima Semana:</span>
                     <p className="text-[11px] text-amber-900">
                       • Refuerzo de Carbón en Lote Terneros (42 dosis) <br />
@@ -1052,7 +1052,7 @@ export const NotificationChannelsManager: React.FC<NotificationChannelsManagerPr
             <div className="text-right pt-2">
               <button
                 onClick={() => setPreviewTemplate(null)}
-                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 font-bold text-xs rounded-xl text-gray-700"
+                className="px-4 py-2 bg-[#1F3327] hover:bg-gray-200 font-bold text-xs rounded-xl text-white"
               >
                 Cerrar Vista Previa
               </button>

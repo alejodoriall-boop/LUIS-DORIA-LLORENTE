@@ -84,28 +84,28 @@ const CATEGORY_CONFIG: Record<
   },
   clostridiosis: {
     label: 'Clostridiosis (Polivalente)',
-    bg: 'bg-amber-50 text-amber-800',
+    bg: 'bg-amber-950/30 text-amber-800',
     text: 'text-amber-800',
     border: 'border-amber-200',
     icon: '🛡️',
   },
   control_parasitario: {
     label: 'Control Parasitario / Purga',
-    bg: 'bg-emerald-50 text-emerald-800',
+    bg: 'bg-emerald-950/30 text-emerald-800',
     text: 'text-emerald-800',
     border: 'border-emerald-200',
     icon: '🪱',
   },
   vitaminas_minerales: {
     label: 'Vitaminas & Minerales',
-    bg: 'bg-blue-50 text-blue-700',
+    bg: 'bg-blue-950/30 text-blue-700',
     text: 'text-blue-700',
     border: 'border-blue-200',
     icon: '⚡',
   },
   podologia: {
     label: 'Podología & Pezuñas',
-    bg: 'bg-purple-50 text-purple-700',
+    bg: 'bg-purple-950/30 text-purple-700',
     text: 'text-purple-700',
     border: 'border-purple-200',
     icon: '🦶',
@@ -822,7 +822,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
     >
       <div className="bg-[#f8faf9] rounded-3xl max-w-6xl w-full border border-[#2d6a4f]/30 shadow-2xl overflow-hidden flex flex-col max-h-[94vh] animate-in fade-in zoom-in-95">
         {/* MODAL HEADER */}
-        <div className="bg-[#012d1d] text-white px-5 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#1b4332] shrink-0">
+        <div className="bg-[#0D1A13] text-white px-5 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#1b4332] shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-2xl bg-[#083d28] border border-[#2d6a4f] flex items-center justify-center text-emerald-300 shadow-inner">
               <Stethoscope className="w-6 h-6" />
@@ -863,7 +863,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
 
             <button
               onClick={handlePrintOfficialReport}
-              className="bg-[#1b4332] hover:bg-[#2d6a4f] text-emerald-200 border border-[#2d6a4f] px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
+              className="bg-[#123F2A] hover:bg-[#1F6547] text-emerald-200 border border-[#2d6a4f] px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
               title="Imprimir Libro Oficial Sanitario ICA"
             >
               <Printer className="w-3.5 h-3.5" />
@@ -902,14 +902,14 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
         )}
 
         {/* SUB-TABS NAVIGATION */}
-        <div className="bg-white border-b border-slate-200 px-5 pt-3 pb-0 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div className="bg-[#15241C] border-b border-white/10 px-5 pt-3 pb-0 flex flex-wrap items-center justify-between gap-3 shrink-0">
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
             <button
               onClick={() => setActiveTab('protocols')}
               className={`px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-black flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'protocols'
-                  ? 'border-[#012d1d] text-[#012d1d] bg-[#f0f7f3]'
-                  : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'border-[#012d1d] text-white bg-[#f0f7f3]'
+                  : 'border-transparent text-[#A5B8AC] hover:text-white hover:bg-[#0D1A13]'
               }`}
             >
               <Calendar className="w-4 h-4 text-emerald-700" />
@@ -925,8 +925,8 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
               onClick={() => setActiveTab('apply')}
               className={`px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-black flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'apply'
-                  ? 'border-[#012d1d] text-[#012d1d] bg-[#f0f7f3]'
-                  : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'border-[#012d1d] text-white bg-[#f0f7f3]'
+                  : 'border-transparent text-[#A5B8AC] hover:text-white hover:bg-[#0D1A13]'
               }`}
             >
               <Pill className="w-4 h-4 text-pink-600" />
@@ -937,8 +937,8 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
               onClick={() => setActiveTab('withdrawals')}
               className={`px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-black flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'withdrawals'
-                  ? 'border-[#012d1d] text-[#012d1d] bg-[#f0f7f3]'
-                  : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'border-[#012d1d] text-white bg-[#f0f7f3]'
+                  : 'border-transparent text-[#A5B8AC] hover:text-white hover:bg-[#0D1A13]'
               }`}
             >
               <Clock className="w-4 h-4 text-amber-600" />
@@ -954,8 +954,8 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
               onClick={() => setActiveTab('history')}
               className={`px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-black flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'history'
-                  ? 'border-[#012d1d] text-[#012d1d] bg-[#f0f7f3]'
-                  : 'border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'border-[#012d1d] text-white bg-[#f0f7f3]'
+                  : 'border-transparent text-[#A5B8AC] hover:text-white hover:bg-[#0D1A13]'
               }`}
             >
               <FileText className="w-4 h-4 text-blue-600" />
@@ -966,7 +966,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
           <div className="pb-2 hidden md:flex items-center gap-2">
             <button
               onClick={handleOpenCreateProtocol}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-white px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs transition-transform active:scale-95"
+              className="bg-[#0D1A13] hover:bg-[#123F2A] text-white px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs transition-transform active:scale-95"
             >
               <Plus className="w-4 h-4 text-emerald-400" />
               <span>+ Nuevo Protocolo</span>
@@ -983,45 +983,45 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
             <div className="space-y-6">
               {/* KPI DASHBOARD */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-3">
-                  <div className="p-3 bg-emerald-50 text-emerald-700 rounded-xl">
+                <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs flex items-center gap-3">
+                  <div className="p-3 bg-emerald-950/30 text-emerald-700 rounded-xl">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase text-slate-400">Total Esquemas</p>
-                    <p className="text-xl font-black text-slate-900">{kpis.total}</p>
+                    <p className="text-[11px] font-bold uppercase text-[#A5B8AC]">Total Esquemas</p>
+                    <p className="text-xl font-black text-white">{kpis.total}</p>
                     <p className="text-[10px] text-emerald-600 font-bold">{kpis.cumplimientoPct}% Al Día</p>
                   </div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-3">
+                <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs flex items-center gap-3">
                   <div className="p-3 bg-red-50 text-red-700 rounded-xl">
                     <AlertTriangle className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase text-slate-400">Urgentes / Vencidos</p>
+                    <p className="text-[11px] font-bold uppercase text-[#A5B8AC]">Urgentes / Vencidos</p>
                     <p className="text-xl font-black text-red-600">{kpis.urgentes}</p>
                     <p className="text-[10px] text-red-500 font-bold">Atención requerida</p>
                   </div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-3">
-                  <div className="p-3 bg-blue-50 text-blue-700 rounded-xl">
+                <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs flex items-center gap-3">
+                  <div className="p-3 bg-blue-950/30 text-blue-700 rounded-xl">
                     <Calendar className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase text-slate-400">Programados</p>
-                    <p className="text-xl font-black text-slate-800">{kpis.programados}</p>
+                    <p className="text-[11px] font-bold uppercase text-[#A5B8AC]">Programados</p>
+                    <p className="text-xl font-black text-white">{kpis.programados}</p>
                     <p className="text-[10px] text-blue-600 font-bold">Próximos ciclos</p>
                   </div>
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-3">
-                  <div className="p-3 bg-amber-50 text-amber-800 rounded-xl">
+                <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs flex items-center gap-3">
+                  <div className="p-3 bg-amber-950/30 text-amber-800 rounded-xl">
                     <Clock className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase text-slate-400">En Retiro Activo</p>
+                    <p className="text-[11px] font-bold uppercase text-[#A5B8AC]">En Retiro Activo</p>
                     <p className="text-xl font-black text-amber-700">{kpis.retirosActivos}</p>
                     <p className="text-[10px] text-amber-600 font-bold">Sin faena / leche</p>
                   </div>
@@ -1029,17 +1029,17 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
               </div>
 
               {/* FILTERS & ACTION BAR */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+              <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
                 <div className="flex-1 flex flex-wrap items-center gap-2">
                   {/* Search */}
                   <div className="relative flex-1 min-w-[200px]">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Search className="w-4 h-4 text-[#A5B8AC] absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
                       type="text"
                       placeholder="Buscar protocolo, vacuna o lote..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-medium text-slate-800 focus:bg-white focus:border-emerald-500 outline-hidden"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl pl-9 pr-3 py-2 text-xs font-medium text-white focus:bg-[#15241C] focus:border-emerald-500 outline-hidden"
                     />
                   </div>
 
@@ -1047,7 +1047,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                   <select
                     value={categoryFilter}
                     onChange={(e) => setCategoryFilter(e.target.value)}
-                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 outline-hidden focus:border-emerald-500"
+                    className="bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-xs font-semibold text-white outline-hidden focus:border-emerald-500"
                   >
                     <option value="all">Todas las Categorías</option>
                     <option value="vacunacion_oficial">💉 Vacunación Oficial ICA</option>
@@ -1063,7 +1063,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 outline-hidden focus:border-emerald-500"
+                    className="bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-xs font-semibold text-white outline-hidden focus:border-emerald-500"
                   >
                     <option value="all">Todos los Estados</option>
                     <option value="urgente">🚨 Urgentes / Vencidos</option>
@@ -1075,7 +1075,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={handleOpenCreateProtocol}
-                    className="w-full md:w-auto bg-[#012d1d] hover:bg-[#1b4332] text-white px-4 py-2 rounded-xl text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95 cursor-pointer"
+                    className="w-full md:w-auto bg-[#0D1A13] hover:bg-[#123F2A] text-white px-4 py-2 rounded-xl text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95 cursor-pointer"
                   >
                     <Plus className="w-4 h-4 text-emerald-400" />
                     <span>Crear Protocolo</span>
@@ -1086,13 +1086,13 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
               {/* PROTOCOLS LIST */}
               <div className="space-y-3">
                 {filteredProtocols.length === 0 ? (
-                  <div className="bg-white rounded-2xl border border-dashed border-slate-300 p-8 text-center">
-                    <ShieldCheck className="w-12 h-12 text-slate-300 mx-auto mb-2" />
-                    <h4 className="text-sm font-bold text-slate-700">No se encontraron protocolos con estos filtros</h4>
-                    <p className="text-xs text-slate-400 mt-1">Prueba cambiando la búsqueda o crea un nuevo esquema sanitario.</p>
+                  <div className="bg-[#15241C] rounded-2xl border border-dashed border-white/15 p-8 text-center">
+                    <ShieldCheck className="w-12 h-12 text-[#A5B8AC] mx-auto mb-2" />
+                    <h4 className="text-sm font-bold text-white">No se encontraron protocolos con estos filtros</h4>
+                    <p className="text-xs text-[#A5B8AC] mt-1">Prueba cambiando la búsqueda o crea un nuevo esquema sanitario.</p>
                     <button
                       onClick={handleOpenCreateProtocol}
-                      className="mt-4 inline-flex items-center gap-1.5 bg-[#012d1d] text-white text-xs font-bold px-4 py-2 rounded-xl"
+                      className="mt-4 inline-flex items-center gap-1.5 bg-[#0D1A13] text-white text-xs font-bold px-4 py-2 rounded-xl"
                     >
                       <Plus className="w-4 h-4 text-emerald-400" />
                       <span>Crear Primer Protocolo</span>
@@ -1107,12 +1107,12 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                     return (
                       <div
                         key={prot.id}
-                        className={`bg-white rounded-2xl border transition-all p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shadow-xs hover:shadow-md ${
+                        className={`bg-[#15241C] rounded-2xl border transition-all p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 shadow-xs hover:shadow-md ${
                           isUrgent
                             ? 'border-red-300 bg-red-50/20'
                             : isCompleted
                             ? 'border-emerald-200'
-                            : 'border-slate-200'
+                            : 'border-white/10'
                         }`}
                       >
                         {/* Protocol Info */}
@@ -1139,24 +1139,24 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                               </span>
                             )}
 
-                            <span className="text-[11px] text-slate-400 font-mono font-bold">
+                            <span className="text-[11px] text-[#A5B8AC] font-mono font-bold">
                               • Frecuencia: {FREQUENCY_LABELS[prot.frequency] || prot.frequency}
                             </span>
                           </div>
 
                           <div>
-                            <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
+                            <h3 className="text-base font-black text-white flex items-center gap-2">
                               {prot.name}
                             </h3>
-                            <p className="text-xs text-slate-600 mt-0.5">
-                              <strong>Producto:</strong> <span className="font-semibold text-slate-800">{prot.productName}</span>
-                              {prot.laboratory && <span className="text-slate-500"> ({prot.laboratory})</span>}
+                            <p className="text-xs text-[#A5B8AC] mt-0.5">
+                              <strong>Producto:</strong> <span className="font-semibold text-white">{prot.productName}</span>
+                              {prot.laboratory && <span className="text-[#A5B8AC]"> ({prot.laboratory})</span>}
                               <span className="mx-1.5 opacity-40">•</span>
                               <strong>Dosis:</strong> {prot.dosage} ({prot.route})
                             </p>
                           </div>
 
-                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500 pt-1">
+                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#A5B8AC] pt-1">
                             <span>👥 <strong>Grupo:</strong> {prot.targetGroup}</span>
                             <span>⏳ <strong>Retiro Carne:</strong> {prot.meatWithdrawalDays > 0 ? `${prot.meatWithdrawalDays} días` : '0 días (Libre)'}</span>
                             {prot.milkWithdrawalHoursOrDays > 0 && (
@@ -1168,21 +1168,21 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                           </div>
 
                           {prot.notes && (
-                            <p className="text-[11px] text-slate-500 italic bg-slate-50 p-2 rounded-xl border border-slate-100">
+                            <p className="text-[11px] text-[#A5B8AC] italic bg-[#0D1A13] p-2 rounded-xl border border-white/10">
                               📝 {prot.notes}
                             </p>
                           )}
                         </div>
 
                         {/* Dates & Actions */}
-                        <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-3 shrink-0 pt-3 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+                        <div className="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between gap-3 shrink-0 pt-3 lg:pt-0 border-t lg:border-t-0 border-white/10">
                           <div className="text-left lg:text-right">
-                            <p className="text-[10px] uppercase font-bold text-slate-400">Próxima Aplicación</p>
-                            <p className={`text-sm font-black font-mono ${isUrgent ? 'text-red-600' : 'text-slate-900'}`}>
+                            <p className="text-[10px] uppercase font-bold text-[#A5B8AC]">Próxima Aplicación</p>
+                            <p className={`text-sm font-black font-mono ${isUrgent ? 'text-red-600' : 'text-white'}`}>
                               📅 {prot.scheduledDate}
                             </p>
                             {prot.lastAppliedDate && (
-                              <p className="text-[10px] text-slate-400">Última: {prot.lastAppliedDate}</p>
+                              <p className="text-[10px] text-[#A5B8AC]">Última: {prot.lastAppliedDate}</p>
                             )}
                           </div>
 
@@ -1200,7 +1200,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                             {/* Mark as Completed */}
                             <button
                               onClick={() => handleFastCompleteProtocol(prot)}
-                              className="bg-slate-100 hover:bg-emerald-50 hover:text-emerald-800 text-slate-700 border border-slate-200 px-2.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                              className="bg-[#1F3327] hover:bg-emerald-950/30 hover:text-emerald-800 text-white border border-white/10 px-2.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer"
                               title="Marcar como cumplido y reprogramar siguiente fecha"
                             >
                               <Check className="w-3.5 h-3.5" />
@@ -1210,7 +1210,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                             {/* Edit */}
                             <button
                               onClick={() => handleOpenEditProtocol(prot)}
-                              className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition-colors cursor-pointer"
+                              className="p-1.5 bg-[#1F3327] hover:bg-[#202E25] text-white rounded-xl transition-colors cursor-pointer"
                               title="Editar este protocolo"
                             >
                               <Edit2 className="w-4 h-4" />
@@ -1219,7 +1219,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                             {/* Delete */}
                             <button
                               onClick={() => handleDeleteProtocol(prot.id)}
-                              className="p-1.5 bg-slate-100 hover:bg-red-100 hover:text-red-700 text-slate-400 rounded-xl transition-colors cursor-pointer"
+                              className="p-1.5 bg-[#1F3327] hover:bg-red-100 hover:text-red-700 text-[#A5B8AC] rounded-xl transition-colors cursor-pointer"
                               title="Eliminar protocolo"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -1239,14 +1239,14 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
           {/* ======================================================== */}
           {activeTab === 'apply' && (
             <form onSubmit={handleSaveApplicationSubmit} className="space-y-6 max-w-4xl mx-auto">
-              <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div className="bg-[#15241C] p-6 rounded-3xl border border-white/10 shadow-sm space-y-6">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4">
                   <div>
-                    <h3 className="text-lg font-black text-slate-900 flex items-center gap-2">
+                    <h3 className="text-lg font-black text-white flex items-center gap-2">
                       <Pill className="w-5 h-5 text-pink-600" />
                       Registro de Jornada de Vacunación & Tratamiento Sanitario
                     </h3>
-                    <p className="text-xs text-slate-500 mt-0.5">
+                    <p className="text-xs text-[#A5B8AC] mt-0.5">
                       Registra la aplicación de vacunas, vermífugos o fármacos a lotes o animales individuales.
                     </p>
                   </div>
@@ -1274,7 +1274,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                         handleStartApplicationFromProtocol(found);
                       }
                     }}
-                    className="bg-white border border-emerald-300 text-slate-800 text-xs font-bold rounded-xl px-3 py-2 outline-hidden focus:border-emerald-600"
+                    className="bg-[#15241C] border border-emerald-300 text-white text-xs font-bold rounded-xl px-3 py-2 outline-hidden focus:border-emerald-600"
                   >
                     <option value="">-- Seleccionar protocolo base --</option>
                     {protocols.map((p) => (
@@ -1289,36 +1289,36 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                   {/* Fecha */}
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Fecha de Aplicación *</label>
+                    <label className="block font-bold text-white mb-1">Fecha de Aplicación *</label>
                     <input
                       type="date"
                       required
                       value={appFormData.date}
                       onChange={(e) => setAppFormData({ ...appFormData, date: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   {/* Nombre del Tratamiento */}
                   <div className="md:col-span-2">
-                    <label className="block font-bold text-slate-700 mb-1">Nombre del Tratamiento / Evento *</label>
+                    <label className="block font-bold text-white mb-1">Nombre del Tratamiento / Evento *</label>
                     <input
                       type="text"
                       required
                       placeholder="Ej: Vacunación Oficial Fiebre Aftosa Ciclo I"
                       value={appFormData.treatmentName}
                       onChange={(e) => setAppFormData({ ...appFormData, treatmentName: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-medium text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-medium text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   {/* Categoría */}
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Categoría Sanitaria</label>
+                    <label className="block font-bold text-white mb-1">Categoría Sanitaria</label>
                     <select
                       value={appFormData.category}
                       onChange={(e) => setAppFormData({ ...appFormData, category: e.target.value as SanitaryCategory })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                     >
                       <option value="vacunacion_oficial">💉 Vacunación Oficial ICA</option>
                       <option value="vacunacion_reproductiva">🧬 Vacuna Reproductiva</option>
@@ -1333,48 +1333,48 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
 
                   {/* Producto Comercial */}
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Producto / Biológico Aplicado *</label>
+                    <label className="block font-bold text-white mb-1">Producto / Biológico Aplicado *</label>
                     <input
                       type="text"
                       required
                       placeholder="Ej: Aftogan / Covexin 10 / Dectomax"
                       value={appFormData.productName}
                       onChange={(e) => setAppFormData({ ...appFormData, productName: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-medium text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-medium text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   {/* Laboratorio */}
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Laboratorio Fabricante</label>
+                    <label className="block font-bold text-white mb-1">Laboratorio Fabricante</label>
                     <input
                       type="text"
                       placeholder="Ej: Vecol, Zoetis, MSD, Bayer"
                       value={appFormData.laboratory}
                       onChange={(e) => setAppFormData({ ...appFormData, laboratory: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-medium text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-medium text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   {/* Dosis */}
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Dosis por Cabeza</label>
+                    <label className="block font-bold text-white mb-1">Dosis por Cabeza</label>
                     <input
                       type="text"
                       placeholder="Ej: 2.0 ml / 5 ml / 1 ml/50kg"
                       value={appFormData.dosage}
                       onChange={(e) => setAppFormData({ ...appFormData, dosage: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-medium text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-medium text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   {/* Vía de Administración */}
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Vía de Aplicación</label>
+                    <label className="block font-bold text-white mb-1">Vía de Aplicación</label>
                     <select
                       value={appFormData.route}
                       onChange={(e) => setAppFormData({ ...appFormData, route: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                     >
                       <option value="Subcutánea">Subcutánea (SC)</option>
                       <option value="Intramuscular">Intramuscular (IM)</option>
@@ -1387,25 +1387,25 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
 
                   {/* N° Lote & Reg ICA */}
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">N° Lote Frasco / Reg. ICA</label>
+                    <label className="block font-bold text-white mb-1">N° Lote Frasco / Reg. ICA</label>
                     <input
                       type="text"
                       placeholder="Ej: LOTE-8892 / ICA-0145"
                       value={appFormData.batchNumber}
                       onChange={(e) => setAppFormData({ ...appFormData, batchNumber: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-medium text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-medium text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
                 </div>
 
                 {/* Target Lots & Headcount */}
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div className="p-4 bg-[#0D1A13] rounded-2xl border border-white/10 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Lote / Grupo Tratado *</label>
+                    <label className="block font-bold text-white mb-1">Lote / Grupo Tratado *</label>
                     <select
                       value={appFormData.targetLotOrGroup}
                       onChange={(e) => setAppFormData({ ...appFormData, targetLotOrGroup: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                     >
                       <option value="Todo el Hato Bovino">Todo el Hato Bovino</option>
                       {lots.map((lot) => (
@@ -1423,34 +1423,34 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Número de Cabezas Tratadas *</label>
+                    <label className="block font-bold text-white mb-1">Número de Cabezas Tratadas *</label>
                     <input
                       type="number"
                       min={1}
                       required
                       value={appFormData.headcount}
                       onChange={(e) => setAppFormData({ ...appFormData, headcount: parseInt(e.target.value) || 1 })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Costo por Dosis ($ COP)</label>
+                    <label className="block font-bold text-white mb-1">Costo por Dosis ($ COP)</label>
                     <input
                       type="number"
                       min={0}
                       value={appFormData.costPerHead}
                       onChange={(e) => setAppFormData({ ...appFormData, costPerHead: parseFloat(e.target.value) || 0 })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                     />
-                    <p className="text-[10px] text-slate-400 mt-1">
+                    <p className="text-[10px] text-[#A5B8AC] mt-1">
                       Total Jornada: <strong>${((appFormData.costPerHead || 0) * (appFormData.headcount || 1)).toLocaleString()} COP</strong>
                     </p>
                   </div>
                 </div>
 
                 {/* Withdrawal & Biosecurity Controls */}
-                <div className="p-4 bg-amber-50 rounded-2xl border border-amber-200 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div className="p-4 bg-amber-950/30 rounded-2xl border border-amber-200 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   <div>
                     <label className="block font-bold text-amber-900 mb-1 flex items-center gap-1.5">
                       <Clock className="w-4 h-4 text-amber-700" />
@@ -1461,7 +1461,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                       min={0}
                       value={appFormData.meatWithdrawalDays}
                       onChange={(e) => setAppFormData({ ...appFormData, meatWithdrawalDays: parseInt(e.target.value) || 0 })}
-                      className="w-full bg-white border border-amber-300 rounded-xl px-3 py-2 font-mono font-bold text-amber-900 outline-hidden focus:border-amber-600"
+                      className="w-full bg-[#15241C] border border-amber-300 rounded-xl px-3 py-2 font-mono font-bold text-amber-900 outline-hidden focus:border-amber-600"
                     />
                     <p className="text-[10px] text-amber-700 mt-1">
                       {appFormData.meatWithdrawalDays > 0
@@ -1480,7 +1480,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                       min={0}
                       value={appFormData.milkWithdrawalDays}
                       onChange={(e) => setAppFormData({ ...appFormData, milkWithdrawalDays: parseInt(e.target.value) || 0 })}
-                      className="w-full bg-white border border-amber-300 rounded-xl px-3 py-2 font-mono font-bold text-amber-900 outline-hidden focus:border-amber-600"
+                      className="w-full bg-[#15241C] border border-amber-300 rounded-xl px-3 py-2 font-mono font-bold text-amber-900 outline-hidden focus:border-amber-600"
                     />
                     <p className="text-[10px] text-amber-700 mt-1">
                       {appFormData.milkWithdrawalDays > 0
@@ -1493,52 +1493,52 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 {/* Responsible & Notes */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Médico Veterinario / Responsable *</label>
+                    <label className="block font-bold text-white mb-1">Médico Veterinario / Responsable *</label>
                     <input
                       type="text"
                       required
                       placeholder="Ej: Dr. Roberto Mendoza"
                       value={appFormData.veterinarian}
                       onChange={(e) => setAppFormData({ ...appFormData, veterinarian: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-medium text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-medium text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">N° Tarjeta Profesional / Matrícula</label>
+                    <label className="block font-bold text-white mb-1">N° Tarjeta Profesional / Matrícula</label>
                     <input
                       type="text"
                       placeholder="Ej: TP-18920 COMVEZCOL"
                       value={appFormData.vetLicense}
                       onChange={(e) => setAppFormData({ ...appFormData, vetLicense: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-medium text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-medium text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block font-bold text-slate-700 mb-1">Observaciones & Reacciones Post-Vacunales</label>
+                    <label className="block font-bold text-white mb-1">Observaciones & Reacciones Post-Vacunales</label>
                     <textarea
                       rows={2}
                       placeholder="Detalles del comportamiento del ganado, condiciones climáticas o hallazgos..."
                       value={appFormData.notes}
                       onChange={(e) => setAppFormData({ ...appFormData, notes: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-800 outline-hidden focus:border-emerald-500"
+                      className="w-full bg-[#0D1A13] border border-white/10 rounded-xl p-3 text-xs text-white outline-hidden focus:border-emerald-500"
                     />
                   </div>
                 </div>
 
                 {/* Submit Actions */}
-                <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+                <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
                   <button
                     type="button"
                     onClick={() => setActiveTab('protocols')}
-                    className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-100 transition-colors"
+                    className="px-5 py-2.5 rounded-xl border border-white/10 text-[#A5B8AC] font-bold text-xs hover:bg-[#1F3327] transition-colors"
                   >
                     Cancelar
                   </button>
                   <button
                     type="submit"
-                    className="px-6 py-2.5 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white font-black text-xs shadow-md flex items-center gap-2 transition-transform active:scale-95 cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black text-xs shadow-md flex items-center gap-2 transition-transform active:scale-95 cursor-pointer"
                   >
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                     <span>Guardar Jornada Sanitaria</span>
@@ -1577,9 +1577,9 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
               </div>
 
               {/* Withdrawals List */}
-              <div className="bg-white rounded-3xl border border-slate-200 shadow-xs overflow-hidden">
-                <div className="p-4 border-b border-slate-100 flex items-center justify-between">
-                  <h4 className="font-bold text-sm text-slate-800 flex items-center gap-2">
+              <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-xs overflow-hidden">
+                <div className="p-4 border-b border-white/10 flex items-center justify-between">
+                  <h4 className="font-bold text-sm text-white flex items-center gap-2">
                     <Clock className="w-4 h-4 text-amber-600" />
                     Casos Activos con Medicación Residual ({withdrawalAnimals.length})
                   </h4>
@@ -1588,8 +1588,8 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 {withdrawalAnimals.length === 0 ? (
                   <div className="p-8 text-center">
                     <ShieldCheck className="w-12 h-12 text-emerald-500 mx-auto mb-2" />
-                    <h5 className="font-bold text-sm text-slate-800">¡Hato 100% Libre de Tiempos de Retiro!</h5>
-                    <p className="text-xs text-slate-500 mt-1">Todos los animales cumplen los estándares de inocuidad para carne y leche.</p>
+                    <h5 className="font-bold text-sm text-white">¡Hato 100% Libre de Tiempos de Retiro!</h5>
+                    <p className="text-xs text-[#A5B8AC] mt-1">Todos los animales cumplen los estándares de inocuidad para carne y leche.</p>
                   </div>
                 ) : (
                   <div className="divide-y divide-slate-100">
@@ -1600,28 +1600,28 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                         <div key={w.id} className="p-4 sm:p-5 hover:bg-slate-50/80 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div className="space-y-1 flex-1">
                             <div className="flex items-center gap-2">
-                              <span className="font-mono font-bold bg-[#012d1d] text-white px-2 py-0.5 rounded text-xs">
+                              <span className="font-mono font-bold bg-[#0D1A13] text-white px-2 py-0.5 rounded text-xs">
                                 {w.tagId}
                               </span>
-                              <span className="font-black text-slate-900 text-sm">{w.name}</span>
-                              <span className="text-xs font-medium text-slate-500">({w.lot})</span>
+                              <span className="font-black text-white text-sm">{w.name}</span>
+                              <span className="text-xs font-medium text-[#A5B8AC]">({w.lot})</span>
                             </div>
 
-                            <p className="text-xs text-slate-700">
-                              <strong>Fármaco Aplicado:</strong> <span className="font-semibold text-slate-900">{w.medication}</span>
+                            <p className="text-xs text-white">
+                              <strong>Fármaco Aplicado:</strong> <span className="font-semibold text-white">{w.medication}</span>
                             </p>
 
-                            <p className="text-[11px] text-slate-500">
+                            <p className="text-[11px] text-[#A5B8AC]">
                               📅 Aplicación: {w.appliedDate} • Motivo: {w.reason}
                             </p>
 
                             {/* Progress bar */}
                             <div className="w-full max-w-md pt-1.5">
-                              <div className="flex justify-between text-[10px] text-slate-500 font-bold mb-1">
+                              <div className="flex justify-between text-[10px] text-[#A5B8AC] font-bold mb-1">
                                 <span>Retiro: {w.withdrawalDays} días</span>
                                 <span className="text-red-600">{w.daysRemaining} días restantes ({pctRemaining}%)</span>
                               </div>
-                              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                              <div className="w-full bg-[#1F3327] h-2 rounded-full overflow-hidden">
                                 <div
                                   className="bg-red-500 h-full rounded-full transition-all"
                                   style={{ width: `${pctRemaining}%` }}
@@ -1633,7 +1633,7 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                           <div className="flex items-center gap-2 shrink-0">
                             <button
                               onClick={() => handleReleaseWithdrawal(w.id)}
-                              className="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs px-3 py-1.5 rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer"
+                              className="bg-emerald-950/30 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs px-3 py-1.5 rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer"
                               title="Dar de alta y liberar animal del retiro"
                             >
                               <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -1654,13 +1654,13 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
           {/* ======================================================== */}
           {activeTab === 'history' && (
             <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs">
                 <div>
-                  <h4 className="font-black text-sm text-slate-900 flex items-center gap-2">
+                  <h4 className="font-black text-sm text-white flex items-center gap-2">
                     <FileText className="w-4 h-4 text-blue-600" />
                     Bitácora de Aplicaciones y Tratamientos Registrados
                   </h4>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-[#A5B8AC] mt-0.5">
                     Historial oficial de trazabilidad para auditorías ICA, BPG y sanidad animal.
                   </p>
                 </div>
@@ -1668,14 +1668,14 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={handleExportCSV}
-                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="bg-[#1F3327] hover:bg-[#202E25] text-white border border-white/15 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
-                    <Download className="w-4 h-4 text-slate-600" />
+                    <Download className="w-4 h-4 text-[#A5B8AC]" />
                     <span>Exportar CSV</span>
                   </button>
                   <button
                     onClick={handlePrintOfficialReport}
-                    className="bg-[#012d1d] hover:bg-[#1b4332] text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="bg-[#0D1A13] hover:bg-[#123F2A] text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <Printer className="w-4 h-4 text-emerald-400" />
                     <span>Imprimir Libro Oficial</span>
@@ -1684,11 +1684,11 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
               </div>
 
               {/* History Table */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+              <div className="bg-[#15241C] rounded-2xl border border-white/10 shadow-xs overflow-hidden">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
                     <thead>
-                      <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-[10px]">
+                      <tr className="bg-[#0D1A13] border-b border-white/10 text-[#A5B8AC] font-bold uppercase text-[10px]">
                         <th className="py-3 px-4">Fecha</th>
                         <th className="py-3 px-4">Tratamiento / Biológico</th>
                         <th className="py-3 px-4">Lote Tratado</th>
@@ -1702,21 +1702,21 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                     <tbody className="divide-y divide-slate-100">
                       {applications.length === 0 ? (
                         <tr>
-                          <td colSpan={8} className="py-8 text-center text-slate-400">
+                          <td colSpan={8} className="py-8 text-center text-[#A5B8AC]">
                             No hay jornadas sanitarias registradas aún.
                           </td>
                         </tr>
                       ) : (
                         applications.map((app) => (
-                          <tr key={app.id} className="hover:bg-slate-50 transition-colors">
-                            <td className="py-3 px-4 font-mono font-bold text-slate-700">{app.date}</td>
+                          <tr key={app.id} className="hover:bg-[#0D1A13] transition-colors">
+                            <td className="py-3 px-4 font-mono font-bold text-white">{app.date}</td>
                             <td className="py-3 px-4">
-                              <p className="font-bold text-slate-900">{app.treatmentName}</p>
-                              <p className="text-[11px] text-slate-500">{app.productName} {app.batchNumber ? `(Lote: ${app.batchNumber})` : ''}</p>
+                              <p className="font-bold text-white">{app.treatmentName}</p>
+                              <p className="text-[11px] text-[#A5B8AC]">{app.productName} {app.batchNumber ? `(Lote: ${app.batchNumber})` : ''}</p>
                             </td>
-                            <td className="py-3 px-4 font-medium text-slate-800">{app.targetLotOrGroup}</td>
+                            <td className="py-3 px-4 font-medium text-white">{app.targetLotOrGroup}</td>
                             <td className="py-3 px-4 text-center font-mono font-bold">{app.headcount}</td>
-                            <td className="py-3 px-4 text-slate-600">{app.dosage} ({app.route})</td>
+                            <td className="py-3 px-4 text-[#A5B8AC]">{app.dosage} ({app.route})</td>
                             <td className="py-3 px-4">
                               {app.meatWithdrawalDays > 0 ? (
                                 <span className="bg-red-50 text-red-700 font-bold px-2 py-0.5 rounded text-[11px]">
@@ -1726,10 +1726,10 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                                 <span className="text-emerald-700 font-bold text-[11px]">0 días</span>
                               )}
                             </td>
-                            <td className="py-3 px-4 font-mono font-bold text-slate-800">
+                            <td className="py-3 px-4 font-mono font-bold text-white">
                               {app.totalCost ? `$${app.totalCost.toLocaleString()}` : '$0'}
                             </td>
-                            <td className="py-3 px-4 text-slate-600">
+                            <td className="py-3 px-4 text-[#A5B8AC]">
                               {app.veterinarian}
                             </td>
                           </tr>
@@ -1744,16 +1744,16 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
         </div>
 
         {/* MODAL FOOTER */}
-        <div className="bg-white border-t border-slate-200 px-5 py-3.5 flex items-center justify-between shrink-0">
-          <div className="text-xs text-slate-500 flex items-center gap-1.5">
-            <Info className="w-4 h-4 text-slate-400" />
+        <div className="bg-[#15241C] border-t border-white/10 px-5 py-3.5 flex items-center justify-between shrink-0">
+          <div className="text-xs text-[#A5B8AC] flex items-center gap-1.5">
+            <Info className="w-4 h-4 text-[#A5B8AC]" />
             <span>Todos los registros sanitarios se sincronizan con trazabilidad y finanzas.</span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
-              className="px-5 py-2 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold transition-colors cursor-pointer shadow-xs"
+              className="px-5 py-2 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold transition-colors cursor-pointer shadow-xs"
             >
               Cerrar Módulo
             </button>
@@ -1766,13 +1766,13 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
       {/* ======================================================== */}
       {isProtocolFormOpen && (
         <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-xs flex items-center justify-center p-3 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-2xl w-full border border-slate-200 shadow-2xl p-6 space-y-5 animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
+          <div className="bg-[#15241C] rounded-3xl max-w-2xl w-full border border-white/10 shadow-2xl p-6 space-y-5 animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 className="text-base font-black text-white flex items-center gap-2">
                 <Edit2 className="w-4 h-4 text-emerald-600" />
                 {editingProtocolId ? 'Editar Protocolo Sanitario' : 'Crear Nuevo Protocolo Sanitario'}
               </h3>
-              <button onClick={() => setIsProtocolFormOpen(false)} className="p-1 text-slate-400 hover:text-slate-700">
+              <button onClick={() => setIsProtocolFormOpen(false)} className="p-1 text-[#A5B8AC] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -1780,23 +1780,23 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
             <form onSubmit={handleSaveProtocolSubmit} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="md:col-span-2">
-                  <label className="block font-bold text-slate-700 mb-1">Nombre del Protocolo / Vacunación *</label>
+                  <label className="block font-bold text-white mb-1">Nombre del Protocolo / Vacunación *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej: Vacunación Oficial Fiebre Aftosa"
                     value={protocolFormData.name}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, name: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Categoría</label>
+                  <label className="block font-bold text-white mb-1">Categoría</label>
                   <select
                     value={protocolFormData.category}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, category: e.target.value as SanitaryCategory })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-800 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                   >
                     <option value="vacunacion_oficial">💉 Vacunación Oficial ICA</option>
                     <option value="vacunacion_reproductiva">🧬 Vacuna Reproductiva (IATF)</option>
@@ -1810,11 +1810,11 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Periodicidad / Frecuencia</label>
+                  <label className="block font-bold text-white mb-1">Periodicidad / Frecuencia</label>
                   <select
                     value={protocolFormData.frequency}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, frequency: e.target.value as SanitaryFrequency })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-800 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                   >
                     <option value="semestral">Semestral (Ciclos ICA)</option>
                     <option value="anual">Anual (Cada 12 meses)</option>
@@ -1830,56 +1830,56 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Producto Comercial *</label>
+                  <label className="block font-bold text-white mb-1">Producto Comercial *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej: Aftogan / Covexin 10 / CattleMaster"
                     value={protocolFormData.productName}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, productName: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Laboratorio Fabricante</label>
+                  <label className="block font-bold text-white mb-1">Laboratorio Fabricante</label>
                   <input
                     type="text"
                     placeholder="Ej: Vecol, Zoetis, MSD"
                     value={protocolFormData.laboratory}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, laboratory: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Grupo Objetivo *</label>
+                  <label className="block font-bold text-white mb-1">Grupo Objetivo *</label>
                   <input
                     type="text"
                     placeholder="Ej: Todo el Hato, Terneras 3-8m, Cría"
                     value={protocolFormData.targetGroup}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, targetGroup: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Dosis por Cabeza</label>
+                  <label className="block font-bold text-white mb-1">Dosis por Cabeza</label>
                   <input
                     type="text"
                     placeholder="Ej: 2.0 ml SC / 5 ml SC"
                     value={protocolFormData.dosage}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, dosage: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Vía de Aplicación</label>
+                  <label className="block font-bold text-white mb-1">Vía de Aplicación</label>
                   <select
                     value={protocolFormData.route}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, route: e.target.value as SanitaryProtocol['route'] })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-800 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                   >
                     <option value="subcutanea">Subcutánea (SC)</option>
                     <option value="intramuscular">Intramuscular (IM)</option>
@@ -1891,55 +1891,55 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Días Retiro en Carne</label>
+                  <label className="block font-bold text-white mb-1">Días Retiro en Carne</label>
                   <input
                     type="number"
                     min={0}
                     value={protocolFormData.meatWithdrawalDays}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, meatWithdrawalDays: parseInt(e.target.value) || 0 })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Días Retiro en Leche</label>
+                  <label className="block font-bold text-white mb-1">Días Retiro en Leche</label>
                   <input
                     type="number"
                     min={0}
                     value={protocolFormData.milkWithdrawalHoursOrDays}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, milkWithdrawalHoursOrDays: parseInt(e.target.value) || 0 })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Costo Estimado / Dosis ($ COP)</label>
+                  <label className="block font-bold text-white mb-1">Costo Estimado / Dosis ($ COP)</label>
                   <input
                     type="number"
                     min={0}
                     value={protocolFormData.costPerDose}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, costPerDose: parseFloat(e.target.value) || 0 })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Próxima Fecha Programada *</label>
+                  <label className="block font-bold text-white mb-1">Próxima Fecha Programada *</label>
                   <input
                     type="date"
                     required
                     value={protocolFormData.scheduledDate}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, scheduledDate: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Estado</label>
+                  <label className="block font-bold text-white mb-1">Estado</label>
                   <select
                     value={protocolFormData.status}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, status: e.target.value as SanitaryStatus })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-semibold text-slate-800 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-semibold text-white outline-hidden focus:border-emerald-500"
                   >
                     <option value="programado">📅 Programado</option>
                     <option value="urgente">🚨 Urgente / Próximo</option>
@@ -1949,28 +1949,28 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block font-bold text-slate-700 mb-1">Notas y Protocolo de Aplicación</label>
+                  <label className="block font-bold text-white mb-1">Notas y Protocolo de Aplicación</label>
                   <textarea
                     rows={2}
                     placeholder="Instrucciones para el personal de corral, precauciones de frío..."
                     value={protocolFormData.notes}
                     onChange={(e) => setProtocolFormData({ ...protocolFormData, notes: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl p-2.5 text-xs text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setIsProtocolFormOpen(false)}
-                  className="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 font-bold"
+                  className="px-4 py-2 rounded-xl border border-white/10 text-[#A5B8AC] font-bold"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white font-black"
+                  className="px-5 py-2 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black"
                 >
                   {editingProtocolId ? 'Guardar Cambios' : 'Crear Protocolo'}
                 </button>
@@ -1985,105 +1985,105 @@ export const SanitaryPlanModal: React.FC<SanitaryPlanModalProps> = ({
       {/* ======================================================== */}
       {isWithdrawalFormOpen && (
         <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-xs flex items-center justify-center p-3 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-md w-full border border-slate-200 shadow-2xl p-6 space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="text-sm font-black text-slate-900 flex items-center gap-2">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full border border-white/10 shadow-2xl p-6 space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 className="text-sm font-black text-white flex items-center gap-2">
                 <Clock className="w-4 h-4 text-amber-600" />
                 Agregar Animal a Control de Retiro
               </h3>
-              <button onClick={() => setIsWithdrawalFormOpen(false)} className="p-1 text-slate-400 hover:text-slate-700">
+              <button onClick={() => setIsWithdrawalFormOpen(false)} className="p-1 text-[#A5B8AC] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleSaveManualWithdrawal} className="space-y-3 text-xs">
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Arete / Identificación *</label>
+                <label className="block font-bold text-white mb-1">Arete / Identificación *</label>
                 <input
                   type="text"
                   required
                   placeholder="Ej: #4512 o LOTE-4"
                   value={withdrawalFormData.tagId}
                   onChange={(e) => setWithdrawalFormData({ ...withdrawalFormData, tagId: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-900 outline-hidden focus:border-emerald-500"
+                  className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Nombre / Referencia</label>
+                <label className="block font-bold text-white mb-1">Nombre / Referencia</label>
                 <input
                   type="text"
                   placeholder="Ej: Vaca Pinta 12"
                   value={withdrawalFormData.name}
                   onChange={(e) => setWithdrawalFormData({ ...withdrawalFormData, name: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 outline-hidden focus:border-emerald-500"
+                  className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-white outline-hidden focus:border-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Medicamento / Principio Activo *</label>
+                <label className="block font-bold text-white mb-1">Medicamento / Principio Activo *</label>
                 <input
                   type="text"
                   required
                   placeholder="Ej: Oxitetraciclina L.A. 200mg"
                   value={withdrawalFormData.medication}
                   onChange={(e) => setWithdrawalFormData({ ...withdrawalFormData, medication: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 outline-hidden focus:border-emerald-500"
+                  className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-white outline-hidden focus:border-emerald-500"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Fecha Aplicación</label>
+                  <label className="block font-bold text-white mb-1">Fecha Aplicación</label>
                   <input
                     type="date"
                     required
                     value={withdrawalFormData.appliedDate}
                     onChange={(e) => setWithdrawalFormData({ ...withdrawalFormData, appliedDate: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Días de Retiro *</label>
+                  <label className="block font-bold text-white mb-1">Días de Retiro *</label>
                   <input
                     type="number"
                     min={1}
                     required
                     value={withdrawalFormData.withdrawalDays}
                     onChange={(e) => setWithdrawalFormData({ ...withdrawalFormData, withdrawalDays: parseInt(e.target.value) || 1 })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono font-bold text-slate-900 outline-hidden focus:border-emerald-500"
+                    className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white outline-hidden focus:border-emerald-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Motivo / Diagnóstico</label>
+                <label className="block font-bold text-white mb-1">Motivo / Diagnóstico</label>
                 <input
                   type="text"
                   placeholder="Ej: Tratamiento respiratorio / Mastitis"
                   value={withdrawalFormData.reason}
                   onChange={(e) => setWithdrawalFormData({ ...withdrawalFormData, reason: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 outline-hidden focus:border-emerald-500"
+                  className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-white outline-hidden focus:border-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 mb-1">Lote / Ubicación</label>
+                <label className="block font-bold text-white mb-1">Lote / Ubicación</label>
                 <input
                   type="text"
                   placeholder="Ej: Lote Enfermería"
                   value={withdrawalFormData.lot}
                   onChange={(e) => setWithdrawalFormData({ ...withdrawalFormData, lot: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 outline-hidden focus:border-emerald-500"
+                  className="w-full bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-2 text-white outline-hidden focus:border-emerald-500"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setIsWithdrawalFormOpen(false)}
-                  className="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 font-bold"
+                  className="px-4 py-2 rounded-xl border border-white/10 text-[#A5B8AC] font-bold"
                 >
                   Cancelar
                 </button>

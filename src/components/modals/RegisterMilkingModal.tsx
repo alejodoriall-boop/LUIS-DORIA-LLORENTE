@@ -328,12 +328,12 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/65 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-5xl lg:max-w-6xl w-full border border-[#c1c8c2] shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh] animate-in fade-in zoom-in-95">
+      <div className="bg-[#15241C] rounded-3xl max-w-5xl lg:max-w-6xl w-full border border-white/10 shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh] animate-in fade-in zoom-in-95">
         
         {/* Modal Header */}
         <div className="bg-gradient-to-r from-[#012d1d] via-[#02402a] to-[#15803d] text-white p-4 sm:p-5 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#ffba38] text-[#012d1d] rounded-2xl shadow-sm">
+            <div className="p-2.5 bg-[#D4A94E] text-white rounded-2xl shadow-sm">
               <MilkGlassIcon className="w-6 h-6 stroke-[2.2]" />
             </div>
             <div>
@@ -341,11 +341,11 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                 <h2 className="text-base sm:text-xl font-black tracking-tight">
                   Control de Ordeño & Chapetas RFID
                 </h2>
-                <span className="text-[10px] uppercase font-mono font-bold bg-white/20 text-[#c1ecd4] px-2 py-0.5 rounded-md border border-white/20">
+                <span className="text-[10px] uppercase font-mono font-bold bg-white/20 text-[#A5B8AC] px-2 py-0.5 rounded-md border border-white/20">
                   {rfidConfig.standard} (ISO 11784)
                 </span>
               </div>
-              <p className="text-xs text-[#c1ecd4]/90">
+              <p className="text-xs text-[#A5B8AC]/90">
                 Configuración manual y automatizada por microchip (FDX-B / HDX 134.2 kHz)
               </p>
             </div>
@@ -360,20 +360,20 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
         </div>
 
         {/* Modal Mode Navigation Bar */}
-        <div className="bg-[#f0f4f1] border-b border-[#c1c8c2] px-4 py-2.5 flex items-center justify-between gap-2 overflow-x-auto shrink-0">
+        <div className="bg-[#123F2A]/60 border-b border-white/10 px-4 py-2.5 flex items-center justify-between gap-2 overflow-x-auto shrink-0">
           <div className="flex items-center gap-2">
             {/* Auto RFID Mode Tab */}
             <button
               onClick={() => setActiveTab('rfid_auto')}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === 'rfid_auto'
-                  ? 'bg-[#012d1d] text-white shadow-sm'
-                  : 'bg-white text-[#414844] hover:bg-[#e0e8e3] border border-[#c1c8c2]'
+                  ? 'bg-[#0D1A13] text-white shadow-sm'
+                  : 'bg-[#15241C] text-[#414844] hover:bg-[#e0e8e3] border border-white/10'
               }`}
             >
               <Radio className={`w-4 h-4 ${activeTab === 'rfid_auto' ? 'text-[#ffba38] animate-pulse' : 'text-[#717973]'}`} />
               <span>Ordeño Automático RFID</span>
-              <span className="text-[9.5px] font-mono bg-[#ffba38] text-[#523700] px-1.5 py-0.2 rounded-md font-bold">
+              <span className="text-[9.5px] font-mono bg-[#D4A94E] text-[#0D1A13] px-1.5 py-0.2 rounded-md font-bold">
                 {rfidConfig.standard}
               </span>
             </button>
@@ -383,8 +383,8 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
               onClick={() => setActiveTab('manual')}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === 'manual'
-                  ? 'bg-[#012d1d] text-white shadow-sm'
-                  : 'bg-white text-[#414844] hover:bg-[#e0e8e3] border border-[#c1c8c2]'
+                  ? 'bg-[#0D1A13] text-white shadow-sm'
+                  : 'bg-[#15241C] text-[#414844] hover:bg-[#e0e8e3] border border-white/10'
               }`}
             >
               <ClipboardList className="w-4 h-4 text-[#ffba38]" />
@@ -396,8 +396,8 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
               onClick={() => setActiveTab('rfid_config')}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === 'rfid_config'
-                  ? 'bg-[#012d1d] text-white shadow-sm'
-                  : 'bg-white text-[#414844] hover:bg-[#e0e8e3] border border-[#c1c8c2]'
+                  ? 'bg-[#0D1A13] text-white shadow-sm'
+                  : 'bg-[#15241C] text-[#414844] hover:bg-[#e0e8e3] border border-white/10'
               }`}
             >
               <Sliders className="w-4 h-4 text-[#ffba38]" />
@@ -405,7 +405,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
             </button>
           </div>
 
-          <div className="hidden md:flex items-center gap-2 text-[11px] font-mono text-[#012d1d] bg-[#e2efe8] px-2.5 py-1 rounded-lg border border-[#c1ecd4]">
+          <div className="hidden md:flex items-center gap-2 text-[11px] font-mono text-white bg-[#e2efe8] px-2.5 py-1 rounded-lg border border-[#c1ecd4]">
             <Wifi className="w-3.5 h-3.5 text-[#15803d]" />
             <span>Lector: <b>{rfidConfig.readerBrand}</b> ({rfidConfig.connectionType.toUpperCase()})</span>
           </div>
@@ -429,18 +429,18 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                 <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1.5 bg-[#ffba38] text-[#523700] text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                      <span className="inline-flex items-center gap-1.5 bg-[#D4A94E] text-[#0D1A13] text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
                         <Zap className="w-3 h-3 fill-current" />
                         Antena de Fosa / Paso Activa
                       </span>
-                      <span className="text-[10px] font-mono text-[#c1ecd4]">
+                      <span className="text-[10px] font-mono text-[#A5B8AC]">
                         Estándar: <b>{rfidConfig.standard} (134.2 kHz ISO)</b>
                       </span>
                     </div>
                     <h3 className="text-base sm:text-lg font-black tracking-tight flex items-center gap-2">
                       <span>Detección Automática por Chapeta Electrónica</span>
                     </h3>
-                    <p className="text-xs text-[#c1ecd4]/80 max-w-xl">
+                    <p className="text-xs text-[#A5B8AC]/80 max-w-xl">
                       Al pasar la vaca por la puerta o puesto de ordeño, la antena lee la chapeta RFID (chip {rfidConfig.standard}), la identifica y auto-registra la leche capturada por el flujómetro.
                     </p>
                   </div>
@@ -451,7 +451,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       type="button"
                       onClick={handleSimulateRfidScan}
                       disabled={isScanning}
-                      className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-black text-xs px-5 py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 disabled:opacity-50 uppercase tracking-wider"
+                      className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-black text-xs px-5 py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 disabled:opacity-50 uppercase tracking-wider"
                     >
                       <Radio className={`w-4 h-4 ${isScanning ? 'animate-spin' : ''}`} />
                       <span>{isScanning ? 'Escaneando Chip...' : `Escanear Chapeta (${rfidConfig.standard})`}</span>
@@ -468,7 +468,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                         : 'bg-white/10 border-white/20 text-white'
                     }`}>
                       <div className="flex items-start gap-3">
-                        <div className={`p-3 rounded-xl shrink-0 ${selectedCowForMilking.hasMedicineAlert ? 'bg-red-600 text-white animate-bounce' : 'bg-[#ffba38] text-[#523700]'}`}>
+                        <div className={`p-3 rounded-xl shrink-0 ${selectedCowForMilking.hasMedicineAlert ? 'bg-red-600 text-white animate-bounce' : 'bg-[#D4A94E] text-[#0D1A13]'}`}>
                           {selectedCowForMilking.hasMedicineAlert ? <ShieldAlert className="w-6 h-6" /> : <Milk className="w-6 h-6" />}
                         </div>
                         <div>
@@ -503,7 +503,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       </div>
 
                       <div className="text-right shrink-0 bg-white/10 p-2.5 rounded-xl border border-white/10 w-full sm:w-auto">
-                        <span className="text-[10px] uppercase font-bold text-[#c1ecd4] block">Tanque General (Apta):</span>
+                        <span className="text-[10px] uppercase font-bold text-[#A5B8AC] block">Tanque General (Apta):</span>
                         <span className={`text-xl font-mono font-black ${selectedCowForMilking.hasMedicineAlert ? 'text-red-400 line-through' : 'text-[#ffba38]'}`}>
                           {selectedCowForMilking.recordedMorningLiters} Litros
                         </span>
@@ -523,7 +523,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                 <div className="bg-[#f0f7f4] border border-[#c1ecd4] rounded-2xl p-3.5 flex items-center justify-between">
                   <div>
                     <span className="text-[10.5px] font-bold uppercase text-[#717973] block">Tanque General (Apta)</span>
-                    <span className="text-lg font-mono font-black text-[#012d1d]">{totalCalculatedFromCows.toFixed(1)} L</span>
+                    <span className="text-lg font-mono font-black text-white">{totalCalculatedFromCows.toFixed(1)} L</span>
                   </div>
                   <div className="p-2 bg-[#e2efe8] text-[#15803d] rounded-xl font-mono text-[10px] font-bold">
                     100% Sin Antibiótico
@@ -540,7 +540,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                   </div>
                 </div>
 
-                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 flex items-center justify-between">
+                <div className="bg-amber-950/30 border border-amber-200 rounded-2xl p-3.5 flex items-center justify-between">
                   <div>
                     <span className="text-[10.5px] font-bold uppercase text-amber-800 block">Vacas en Carencia Veterinaria</span>
                     <span className="text-lg font-mono font-black text-amber-900">{cowsWithActiveWithdrawal.length} Reses</span>
@@ -552,12 +552,12 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
               </div>
 
               {/* Individual Cows RFID Milking Table */}
-              <div className="bg-white border border-[#c1c8c2] rounded-2xl p-4 space-y-3 shadow-2xs">
+              <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 space-y-3 shadow-2xs">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-[#eeeeee]">
                   <div>
-                    <h4 className="font-extrabold text-[#012d1d] text-sm flex items-center gap-2">
+                    <h4 className="font-extrabold text-white text-sm flex items-center gap-2">
                       <span>Planilla de Vacas con Chapeta Electrónica</span>
-                      <span className="text-[10px] font-mono bg-[#e2efe8] text-[#012d1d] px-2 py-0.5 rounded-md font-bold">
+                      <span className="text-[10px] font-mono bg-[#e2efe8] text-white px-2 py-0.5 rounded-md font-bold">
                         {cowList.length} Registradas
                       </span>
                     </h4>
@@ -574,7 +574,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       placeholder="Buscar por Caravana, Nombre o EID..."
                       value={manualSearchQuery}
                       onChange={(e) => setManualSearchQuery(e.target.value)}
-                      className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl pl-8 pr-3 py-1.5 text-xs text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                      className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-[#012d1d]"
                     />
                   </div>
                 </div>
@@ -583,7 +583,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse text-xs">
                     <thead>
-                      <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold text-[10.5px] uppercase border-b border-[#c1c8c2]">
+                      <tr className="bg-[#123F2A]/60 text-white font-bold text-[10.5px] uppercase border-b border-white/10">
                         <th className="p-2.5">Vaca / Caravana</th>
                         <th className="p-2.5">Chapeta RFID (EID ISO)</th>
                         <th className="p-2.5">Chip</th>
@@ -597,7 +597,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       {filteredCowList.map((cow) => (
                         <tr key={cow.id} className={`hover:bg-[#f9fbf9] transition-colors ${cow.hasMedicineAlert ? 'bg-red-50/50' : ''}`}>
                           <td className="p-2.5">
-                            <div className="font-sans font-extrabold text-[#012d1d] flex items-center gap-1.5">
+                            <div className="font-sans font-extrabold text-white flex items-center gap-1.5">
                               <span>{cow.cowTag}</span>
                               {cow.hasMedicineAlert && (
                                 <span className="text-[9px] bg-red-100 text-red-800 font-bold px-1.5 py-0.2 rounded font-sans">
@@ -636,7 +636,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                               className={`w-16 border rounded-lg px-2 py-1 text-right font-bold focus:outline-none ${
                                 cow.hasMedicineAlert 
                                   ? 'bg-red-100 text-red-700 border-red-300 cursor-not-allowed' 
-                                  : 'bg-[#f9f9f9] border-[#c1c8c2] text-[#012d1d] focus:bg-white focus:border-[#012d1d]'
+                                  : 'bg-[#f9f9f9] border-white/10 text-white focus:bg-[#15241C] focus:border-[#012d1d]'
                               }`}
                             />
                           </td>
@@ -647,7 +647,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                                 {cow.withdrawnLiters} L
                               </span>
                             ) : (
-                              <span className="text-gray-400">0 L</span>
+                              <span className="text-[#A5B8AC]">0 L</span>
                             )}
                           </td>
 
@@ -676,7 +676,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
 
                 {/* Add Custom Cow inline bar */}
                 <div className="pt-3 border-t border-[#eeeeee] flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-bold text-[#012d1d] flex items-center gap-1">
+                  <span className="text-xs font-bold text-white flex items-center gap-1">
                     <Plus className="w-3.5 h-3.5 text-[#2d6a4f]" />
                     Agregar Vaca con Chip RFID:
                   </span>
@@ -686,7 +686,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     placeholder="Ej. VACA-205"
                     value={newCowTag}
                     onChange={(e) => setNewCowTag(e.target.value)}
-                    className="w-28 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-2.5 py-1 text-xs font-bold focus:outline-none"
+                    className="w-28 bg-[#f9f9f9] border border-white/10 rounded-xl px-2.5 py-1 text-xs font-bold focus:outline-none"
                   />
 
                   <input
@@ -694,7 +694,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     placeholder="Nombre (Opcional)"
                     value={newCowName}
                     onChange={(e) => setNewCowName(e.target.value)}
-                    className="w-32 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-2.5 py-1 text-xs focus:outline-none"
+                    className="w-32 bg-[#f9f9f9] border border-white/10 rounded-xl px-2.5 py-1 text-xs focus:outline-none"
                   />
 
                   <input
@@ -702,13 +702,13 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     placeholder="EID (ISO 15 dígitos)"
                     value={newCowEid}
                     onChange={(e) => setNewCowEid(e.target.value)}
-                    className="w-40 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-2.5 py-1 text-xs font-mono focus:outline-none"
+                    className="w-40 bg-[#f9f9f9] border border-white/10 rounded-xl px-2.5 py-1 text-xs font-mono focus:outline-none"
                   />
 
                   <select
                     value={newCowStandard}
                     onChange={(e) => setNewCowStandard(e.target.value as RfidChipStandard)}
-                    className="bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-2 py-1 text-xs font-bold focus:outline-none"
+                    className="bg-[#f9f9f9] border border-white/10 rounded-xl px-2 py-1 text-xs font-bold focus:outline-none"
                   >
                     <option value="FDX-B">FDX-B</option>
                     <option value="HDX">HDX</option>
@@ -717,7 +717,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                   <button
                     type="button"
                     onClick={handleAddCustomCow}
-                    className="bg-[#012d1d] hover:bg-[#15803d] text-white font-bold text-xs px-3 py-1 rounded-xl transition-colors cursor-pointer"
+                    className="bg-[#0D1A13] hover:bg-[#15803d] text-white font-bold text-xs px-3 py-1 rounded-xl transition-colors cursor-pointer"
                   >
                     + Registrar Res
                   </button>
@@ -733,7 +733,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
           {activeTab === 'manual' && (
             <div className="space-y-5">
               <div className="bg-[#f0f7f4] border border-[#c1ecd4] p-4 rounded-2xl space-y-2">
-                <h4 className="font-bold text-[#012d1d] text-sm flex items-center gap-2">
+                <h4 className="font-bold text-white text-sm flex items-center gap-2">
                   <Milk className="w-4 h-4 text-[#ffba38]" />
                   <span>Control de Volumen General de Tanque</span>
                 </h4>
@@ -743,7 +743,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-2">
+                <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-2xs space-y-2">
                   <label className="block text-[11px] font-bold text-[#79564b] uppercase">
                     Turno Mañana - Tanque (Litros)
                   </label>
@@ -751,12 +751,12 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     type="number"
                     value={morningLiters}
                     onChange={(e) => setMorningLiters(Number(e.target.value))}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 text-base font-bold font-mono text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 text-base font-bold font-mono text-white focus:outline-none focus:border-[#012d1d]"
                     required
                   />
                 </div>
 
-                <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-2">
+                <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-2xs space-y-2">
                   <label className="block text-[11px] font-bold text-[#79564b] uppercase">
                     Turno Tarde - Tanque (Litros)
                   </label>
@@ -764,22 +764,22 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     type="number"
                     value={eveningLiters}
                     onChange={(e) => setEveningLiters(Number(e.target.value))}
-                    className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 text-base font-bold font-mono text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                    className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 text-base font-bold font-mono text-white focus:outline-none focus:border-[#012d1d]"
                     required
                   />
                 </div>
               </div>
 
-              <div className="p-4 bg-[#f3f3f3] rounded-2xl border border-[#c1c8c2] flex justify-between items-center font-bold">
+              <div className="p-4 bg-[#f3f3f3] rounded-2xl border border-white/10 flex justify-between items-center font-bold">
                 <span className="text-[#414844] text-xs">Total Producción Diaria Consolidada:</span>
-                <span className="font-mono text-lg text-[#012d1d]">
+                <span className="font-mono text-lg text-white">
                   {(morningLiters + eveningLiters).toLocaleString()} Litros
                 </span>
               </div>
 
               {/* Solids & Somatic cells */}
-              <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] shadow-2xs space-y-3">
-                <h4 className="font-bold text-[#012d1d] text-xs uppercase tracking-wider">
+              <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-2xs space-y-3">
+                <h4 className="font-bold text-white text-xs uppercase tracking-wider">
                   Calidad de Leche & Análisis de Laboratorio
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -792,7 +792,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       step="0.1"
                       value={fatPct}
                       onChange={(e) => setFatPct(Number(e.target.value))}
-                      className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
 
@@ -805,7 +805,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       step="0.1"
                       value={proteinPct}
                       onChange={(e) => setProteinPct(Number(e.target.value))}
-                      className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
 
@@ -817,7 +817,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       type="number"
                       value={somaticK}
                       onChange={(e) => setSomaticK(Number(e.target.value))}
-                      className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
                 </div>
@@ -832,11 +832,11 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
             <div className="space-y-5">
               
               {/* Chip Standard Technical Selector (FDX-B vs HDX) */}
-              <div className="bg-white border border-[#c1c8c2] rounded-2xl p-4 sm:p-5 shadow-2xs space-y-4">
+              <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xs space-y-4">
                 <div className="flex items-center gap-2 border-b border-[#eeeeee] pb-3">
                   <Cpu className="w-5 h-5 text-[#2d6a4f]" />
                   <div>
-                    <h4 className="font-extrabold text-[#012d1d] text-sm">
+                    <h4 className="font-extrabold text-white text-sm">
                       Selección del Estándar de Chapeta RFID (Chip ISO 11784 / ISO 11785)
                     </h4>
                     <p className="text-[11px] text-[#717973]">
@@ -853,11 +853,11 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     className={`p-4 rounded-2xl border-2 transition-all cursor-pointer space-y-2 relative ${
                       rfidConfig.standard === 'FDX-B'
                         ? 'border-[#012d1d] bg-[#f0f7f4] shadow-sm'
-                        : 'border-[#c1c8c2] bg-white hover:border-[#2d6a4f]'
+                        : 'border-white/10 bg-[#15241C] hover:border-[#2d6a4f]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-black text-sm text-[#012d1d] uppercase flex items-center gap-2">
+                      <span className="font-black text-sm text-white uppercase flex items-center gap-2">
                         <span>FDX-B (Full Duplex)</span>
                         <span className="text-[9.5px] font-mono bg-blue-100 text-blue-900 px-2 py-0.5 rounded font-bold">
                           134.2 kHz
@@ -870,7 +870,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     <p className="text-xs text-[#414844] leading-relaxed">
                       Transmisión continua e instantánea en cuanto el chip entra al campo de la antena. Estándar mundial ISO para ganado lechero.
                     </p>
-                    <div className="pt-2 border-t border-[#c1ecd4]/60 text-[10.5px] font-mono text-[#012d1d]">
+                    <div className="pt-2 border-t border-[#c1ecd4]/60 text-[10.5px] font-mono text-white">
                       Código ISO: <b>15 dígitos continuos (ej. 982 000184910293)</b>
                     </div>
                   </div>
@@ -881,11 +881,11 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     className={`p-4 rounded-2xl border-2 transition-all cursor-pointer space-y-2 relative ${
                       rfidConfig.standard === 'HDX'
                         ? 'border-[#012d1d] bg-[#f0f7f4] shadow-sm'
-                        : 'border-[#c1c8c2] bg-white hover:border-[#2d6a4f]'
+                        : 'border-white/10 bg-[#15241C] hover:border-[#2d6a4f]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-black text-sm text-[#012d1d] uppercase flex items-center gap-2">
+                      <span className="font-black text-sm text-white uppercase flex items-center gap-2">
                         <span>HDX (Half Duplex)</span>
                         <span className="text-[9.5px] font-mono bg-purple-100 text-purple-900 px-2 py-0.5 rounded font-bold">
                           134.2 kHz Carga
@@ -898,7 +898,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     <p className="text-xs text-[#414844] leading-relaxed">
                       Almacena energía en un condensador de carga y emite una señal de mayor potencia. Ideal para salas de ordeño con interferencia de motores.
                     </p>
-                    <div className="pt-2 border-t border-[#c1ecd4]/60 text-[10.5px] font-mono text-[#012d1d]">
+                    <div className="pt-2 border-t border-[#c1ecd4]/60 text-[10.5px] font-mono text-white">
                       Código ISO: <b>15 dígitos de alto rango (ej. 985 000294019281)</b>
                     </div>
                   </div>
@@ -907,8 +907,8 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
               </div>
 
               {/* Hardware Reader Brand & Connection */}
-              <div className="bg-white border border-[#c1c8c2] rounded-2xl p-4 sm:p-5 shadow-2xs space-y-4">
-                <h4 className="font-extrabold text-[#012d1d] text-sm flex items-center gap-2">
+              <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xs space-y-4">
+                <h4 className="font-extrabold text-white text-sm flex items-center gap-2">
                   <Radio className="w-4 h-4 text-[#ffba38]" />
                   <span>Equipo Lector / Antena de Sala de Ordeño</span>
                 </h4>
@@ -921,7 +921,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     <select
                       value={rfidConfig.readerBrand}
                       onChange={(e) => setRfidConfig({ ...rfidConfig, readerBrand: e.target.value as any })}
-                      className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                      className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
                     >
                       <option value="Tru-Test">Tru-Test (SRS2 / XRS2 / Antena Fosa)</option>
                       <option value="Allflex">Allflex (Lector RS480 / Stick Reader)</option>
@@ -941,7 +941,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     <select
                       value={rfidConfig.connectionType}
                       onChange={(e) => setRfidConfig({ ...rfidConfig, connectionType: e.target.value as any })}
-                      className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                      className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
                     >
                       <option value="bluetooth">Bluetooth LE (Bajo Consumo)</option>
                       <option value="wifi">Wi-Fi TCP/IP (Red Local de Fosa)</option>
@@ -953,7 +953,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
 
                 {/* Automation Toggles */}
                 <div className="pt-3 border-t border-[#eeeeee] grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#f9f9f9] border border-[#c1c8c2] cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#f9f9f9] border border-white/10 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={rfidConfig.autoCaptureMilk}
@@ -961,12 +961,12 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       className="w-4 h-4 accent-[#012d1d] rounded"
                     />
                     <div>
-                      <span className="font-bold text-xs text-[#012d1d] block">Auto-captura Flujómetro</span>
+                      <span className="font-bold text-xs text-white block">Auto-captura Flujómetro</span>
                       <span className="text-[10px] text-[#717973]">Lee automáticamente los litros del medidor de leche</span>
                     </div>
                   </label>
 
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#f9f9f9] border border-[#c1c8c2] cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#f9f9f9] border border-white/10 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={rfidConfig.beepConfirmation}
@@ -974,12 +974,12 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                       className="w-4 h-4 accent-[#012d1d] rounded"
                     />
                     <div>
-                      <span className="font-bold text-xs text-[#012d1d] block">Confirmación Sonora (Beep)</span>
+                      <span className="font-bold text-xs text-white block">Confirmación Sonora (Beep)</span>
                       <span className="text-[10px] text-[#717973]">Emite tono acústico al detectar la chapeta</span>
                     </div>
                   </label>
 
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#f9f9f9] border border-[#c1c8c2] cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#f9f9f9] border border-white/10 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={rfidConfig.withholdingAlert}
@@ -992,12 +992,12 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
                     </div>
                   </label>
 
-                  <div className="p-3 rounded-xl bg-[#f9f9f9] border border-[#c1c8c2] flex items-center justify-between">
-                    <span className="font-bold text-xs text-[#012d1d]">Anti-Duplicado Antena:</span>
+                  <div className="p-3 rounded-xl bg-[#f9f9f9] border border-white/10 flex items-center justify-between">
+                    <span className="font-bold text-xs text-white">Anti-Duplicado Antena:</span>
                     <select
                       value={rfidConfig.antiDuplicateSeconds}
                       onChange={(e) => setRfidConfig({ ...rfidConfig, antiDuplicateSeconds: Number(e.target.value) })}
-                      className="bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs font-bold"
+                      className="bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs font-bold"
                     >
                       <option value={10}>10 seg</option>
                       <option value={15}>15 seg</option>
@@ -1034,7 +1034,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
         </div>
 
         {/* Modal Footer Actions */}
-        <div className="p-4 bg-[#f0f4f1] border-t border-[#c1c8c2] flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        <div className="p-4 bg-[#123F2A]/60 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
           <div className="text-xs text-[#414844] font-medium flex items-center gap-2">
             <Info className="w-4 h-4 text-[#2d6a4f]" />
             <span>
@@ -1050,7 +1050,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 bg-white border border-[#c1c8c2] text-[#414844] hover:bg-[#e0e8e3] font-bold rounded-xl text-xs transition-colors cursor-pointer"
+              className="px-4 py-2.5 bg-[#15241C] border border-white/10 text-[#414844] hover:bg-[#e0e8e3] font-bold rounded-xl text-xs transition-colors cursor-pointer"
             >
               Cancelar
             </button>
@@ -1058,7 +1058,7 @@ export const RegisterMilkingModal: React.FC<RegisterMilkingModalProps> = ({
             <button
               type="button"
               onClick={handleSaveAll}
-              className="px-5 py-2.5 bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-black rounded-xl text-xs flex items-center justify-center gap-2 tactical-shadow transition-all cursor-pointer uppercase tracking-wider"
+              className="px-5 py-2.5 bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-black rounded-xl text-xs flex items-center justify-center gap-2 tactical-shadow transition-all cursor-pointer uppercase tracking-wider"
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>Guardar Registro de Ordeño</span>

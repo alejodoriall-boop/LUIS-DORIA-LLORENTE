@@ -140,10 +140,10 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="w-screen max-w-xl bg-white dark:bg-neutral-900 shadow-2xl border-l border-neutral-200 dark:border-neutral-800 flex flex-col h-full overflow-hidden"
+              className="w-screen max-w-xl bg-[#15241C] bg-[#15241C] shadow-2xl border-l border-white/10 border-white/10 flex flex-col h-full overflow-hidden"
             >
               {/* Drawer Header */}
-              <div className="p-4 sm:p-6 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/70 shrink-0">
+              <div className="p-4 sm:p-6 border-b border-white/10 border-white/10 bg-[#0D1A13] bg-[#0D1A13]/70 shrink-0">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <div className="w-11 h-11 rounded-2xl bg-[#123F2A] text-amber-400 flex items-center justify-center font-bold text-lg shadow-sm border border-emerald-800/40 shrink-0">
@@ -151,7 +151,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                     </div>
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h2 className="text-lg font-extrabold text-neutral-900 dark:text-white leading-tight">
+                        <h2 className="text-lg font-extrabold text-white text-white leading-tight">
                           {formData.farmName}
                         </h2>
                         <span
@@ -166,8 +166,8 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                           {formData.status}
                         </span>
                       </div>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 mt-0.5">
-                        <span className="font-mono font-bold text-neutral-700 dark:text-neutral-300">
+                      <p className="text-xs text-[#A5B8AC] text-[#A5B8AC] flex items-center gap-1.5 mt-0.5">
+                        <span className="font-mono font-bold text-[#A5B8AC] text-[#A5B8AC]">
                           {formData.tenantCode}
                         </span>
                         <span>•</span>
@@ -179,7 +179,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                   <button
                     type="button"
                     onClick={onClose}
-                    className="p-2 rounded-xl text-neutral-400 hover:text-neutral-700 dark:hover:text-white hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+                    className="p-2 rounded-xl text-[#A5B8AC] hover:text-[#A5B8AC] dark:hover:text-white hover:bg-[#202E25] hover:bg-[#1F3327] transition-colors cursor-pointer"
                     title="Cerrar Panel (Esc)"
                   >
                     <X className="w-5 h-5" />
@@ -187,7 +187,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                 </div>
 
                 {/* Quick Impersonation Action Banner */}
-                <div className="mt-4 pt-3 border-t border-neutral-200/80 dark:border-neutral-800 flex items-center justify-between gap-2 flex-wrap">
+                <div className="mt-4 pt-3 border-t border-white/10 border-white/10 flex items-center justify-between gap-2 flex-wrap">
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
@@ -207,7 +207,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                       className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer ${
                         isSuspended
                           ? 'bg-emerald-700 hover:bg-emerald-600 text-white'
-                          : 'bg-rose-50 hover:bg-rose-100 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 border border-rose-200 dark:border-rose-800'
+                          : 'bg-rose-950/30 hover:bg-rose-100 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 border border-rose-200 dark:border-rose-800'
                       }`}
                     >
                       {isSuspended ? (
@@ -228,7 +228,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                     <button
                       type="button"
                       onClick={() => onExtendTrial(formData.id, 7)}
-                      className="px-2.5 py-1.5 bg-blue-50 dark:bg-blue-950/50 hover:bg-blue-100 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-xl border border-blue-200 dark:border-blue-800 transition-colors cursor-pointer"
+                      className="px-2.5 py-1.5 bg-blue-950/30 dark:bg-blue-950/50 hover:bg-blue-100 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-xl border border-blue-200 dark:border-blue-800 transition-colors cursor-pointer"
                     >
                       +7 Días Prueba
                     </button>
@@ -236,14 +236,14 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                 </div>
 
                 {/* Tab Navigation */}
-                <div className="flex items-center gap-1 mt-4 bg-neutral-200/70 dark:bg-neutral-800/80 p-1 rounded-xl">
+                <div className="flex items-center gap-1 mt-4 bg-[#202E25]/70 bg-[#1F3327]/80 p-1 rounded-xl">
                   <button
                     type="button"
                     onClick={() => setActiveTab('features')}
                     className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-center cursor-pointer ${
                       activeTab === 'features'
-                        ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900'
+                        ? 'bg-[#15241C] bg-[#15241C] text-white text-white shadow-xs'
+                        : 'text-[#A5B8AC] text-[#A5B8AC] hover:text-white'
                     }`}
                   >
                     Feature Flags
@@ -253,8 +253,8 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                     onClick={() => setActiveTab('quotas')}
                     className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-center cursor-pointer ${
                       activeTab === 'quotas'
-                        ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900'
+                        ? 'bg-[#15241C] bg-[#15241C] text-white text-white shadow-xs'
+                        : 'text-[#A5B8AC] text-[#A5B8AC] hover:text-white'
                     }`}
                   >
                     Límites & Cuotas
@@ -264,8 +264,8 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                     onClick={() => setActiveTab('info')}
                     className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-center cursor-pointer ${
                       activeTab === 'info'
-                        ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900'
+                        ? 'bg-[#15241C] bg-[#15241C] text-white text-white shadow-xs'
+                        : 'text-[#A5B8AC] text-[#A5B8AC] hover:text-white'
                     }`}
                   >
                     Facturación
@@ -275,8 +275,8 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                     onClick={() => setActiveTab('security')}
                     className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-center cursor-pointer ${
                       activeTab === 'security'
-                        ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900'
+                        ? 'bg-[#15241C] bg-[#15241C] text-white text-white shadow-xs'
+                        : 'text-[#A5B8AC] text-[#A5B8AC] hover:text-white'
                     }`}
                   >
                     Seguridad
@@ -293,26 +293,26 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-sm font-extrabold text-neutral-900 dark:text-white">
+                        <h3 className="text-sm font-extrabold text-white text-white">
                           Activación Modular por Ganadería
                         </h3>
-                        <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                        <p className="text-xs text-[#A5B8AC] text-[#A5B8AC]">
                           Habilita módulos avanzados según el plan comercial contratado.
                         </p>
                       </div>
-                      <span className="text-[10px] font-mono font-bold bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 px-2 py-1 rounded-md">
+                      <span className="text-[10px] font-mono font-bold bg-[#1F3327] bg-[#1F3327] text-[#A5B8AC] text-[#A5B8AC] px-2 py-1 rounded-md">
                         {Object.values(formData.featureFlags).filter(Boolean).length}/8 Activos
                       </span>
                     </div>
 
                     <div className="space-y-2.5">
                       {/* Flag 1: Bubalinos */}
-                      <div className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/40 flex items-center justify-between gap-3">
+                      <div className="p-3 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/40 flex items-center justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
+                          <p className="text-xs font-bold text-white text-white flex items-center gap-1.5">
                             <span>🐃 Módulo de Bubalinos (Búfalos de Agua)</span>
                           </p>
-                          <p className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+                          <p className="text-[11px] text-[#A5B8AC] text-[#A5B8AC] mt-0.5">
                             Gestión zootécnica de gestación 312d, ordeño de búfala y sólidos de mozzarella.
                           </p>
                         </div>
@@ -323,17 +323,17 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableBuffaloModule')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#15241C] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
                       {/* Flag 2: WhatsApp IA */}
-                      <div className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/40 flex items-center justify-between gap-3">
+                      <div className="p-3 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/40 flex items-center justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
+                          <p className="text-xs font-bold text-white text-white flex items-center gap-1.5">
                             <span>🤖 Asistente IA de Campo por WhatsApp</span>
                           </p>
-                          <p className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+                          <p className="text-[11px] text-[#A5B8AC] text-[#A5B8AC] mt-0.5">
                             Recepción de notas de voz de vaqueros para registro de partos, pesajes y ventas.
                           </p>
                         </div>
@@ -344,17 +344,17 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableWhatsAppAIAssistant')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#15241C] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
                       {/* Flag 3: Plan Sanitario Avanzado */}
-                      <div className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/40 flex items-center justify-between gap-3">
+                      <div className="p-3 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/40 flex items-center justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
+                          <p className="text-xs font-bold text-white text-white flex items-center gap-1.5">
                             <span>💉 Plan Sanitario Avanzado & Vacunación</span>
                           </p>
-                          <p className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+                          <p className="text-[11px] text-[#A5B8AC] text-[#A5B8AC] mt-0.5">
                             Control de carbón sintomático, aftosa y tratamientos multidía con alerta de retiro.
                           </p>
                         </div>
@@ -365,17 +365,17 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableAdvancedSanitaryPlan')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#15241C] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
                       {/* Flag 4: Suplementación MRP */}
-                      <div className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/40 flex items-center justify-between gap-3">
+                      <div className="p-3 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/40 flex items-center justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
+                          <p className="text-xs font-bold text-white text-white flex items-center gap-1.5">
                             <span>🌾 Suplementación & Proyección Mensual MRP</span>
                           </p>
-                          <p className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+                          <p className="text-[11px] text-[#A5B8AC] text-[#A5B8AC] mt-0.5">
                             Cálculo de raciones (MS/PB/EM), requerimientos de sales mineralizadas y silo.
                           </p>
                         </div>
@@ -386,17 +386,17 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableSupplementationMRP')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#15241C] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
                       {/* Flag 5: Aprobaciones Inventario */}
-                      <div className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/40 flex items-center justify-between gap-3">
+                      <div className="p-3 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/40 flex items-center justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
+                          <p className="text-xs font-bold text-white text-white flex items-center gap-1.5">
                             <span>🛡️ Flujo Obligatorio de Aprobaciones</span>
                           </p>
-                          <p className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+                          <p className="text-[11px] text-[#A5B8AC] text-[#A5B8AC] mt-0.5">
                             Exige confirmación de administrador para descartes, ventas y consumo de insumos.
                           </p>
                         </div>
@@ -407,17 +407,17 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableInventoryApprovalFlow')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#15241C] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
                       {/* Flag 6: Mapeo GIS */}
-                      <div className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-950/40 flex items-center justify-between gap-3">
+                      <div className="p-3 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13]/70 bg-[#0D1A13]/40 flex items-center justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
+                          <p className="text-xs font-bold text-white text-white flex items-center gap-1.5">
                             <span>🛰️ Mapeo GIS Satelital & Aforo de Pastos</span>
                           </p>
-                          <p className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">
+                          <p className="text-[11px] text-[#A5B8AC] text-[#A5B8AC] mt-0.5">
                             Polígonos georreferenciados, curvas de nivel y cálculo de capacidad de carga.
                           </p>
                         </div>
@@ -428,7 +428,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableGisAdvancedMapping')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#15241C] after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
                     </div>
@@ -441,19 +441,19 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                 {activeTab === 'quotas' && (
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-sm font-extrabold text-neutral-900 dark:text-white">
+                      <h3 className="text-sm font-extrabold text-white text-white">
                         Cuotas de Recursos e Integraciones
                       </h3>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                      <p className="text-xs text-[#A5B8AC] text-[#A5B8AC]">
                         Ajusta los límites de almacenamiento, mensajes de WhatsApp y capacidad de animales.
                       </p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {/* Quota 1: Límite de Animales */}
-                      <div className="p-3.5 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/50 space-y-2">
+                      <div className="p-3.5 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13] bg-[#0D1A13]/50 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center gap-1.5">
+                          <span className="text-xs font-bold text-[#A5B8AC] text-[#A5B8AC] flex items-center gap-1.5">
                             <Building2 className="w-4 h-4 text-emerald-600" />
                             <span>Cupo Máximo de Animales</span>
                           </span>
@@ -467,9 +467,9 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                           onChange={(e) =>
                             handleQuotaChange('maxAnimalsLimit', parseInt(e.target.value) || 0)
                           }
-                          className="w-full px-3 py-2 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 text-sm font-extrabold text-neutral-900 dark:text-white"
+                          className="w-full px-3 py-2 rounded-xl bg-[#15241C] bg-[#15241C] border border-white/15 border-white/15 text-sm font-extrabold text-white text-white"
                         />
-                        <div className="w-full bg-neutral-200 dark:bg-neutral-800 h-1.5 rounded-full overflow-hidden">
+                        <div className="w-full bg-[#202E25] bg-[#1F3327] h-1.5 rounded-full overflow-hidden">
                           <div
                             className="bg-emerald-600 h-full rounded-full"
                             style={{
@@ -485,9 +485,9 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                       </div>
 
                       {/* Quota 2: Mensajes WhatsApp */}
-                      <div className="p-3.5 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/50 space-y-2">
+                      <div className="p-3.5 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13] bg-[#0D1A13]/50 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center gap-1.5">
+                          <span className="text-xs font-bold text-[#A5B8AC] text-[#A5B8AC] flex items-center gap-1.5">
                             <MessageSquare className="w-4 h-4 text-green-600" />
                             <span>Mensajes WhatsApp / Mes</span>
                           </span>
@@ -501,14 +501,14 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                           onChange={(e) =>
                             handleQuotaChange('whatsAppMonthlyQuota', parseInt(e.target.value) || 0)
                           }
-                          className="w-full px-3 py-2 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 text-sm font-extrabold text-neutral-900 dark:text-white"
+                          className="w-full px-3 py-2 rounded-xl bg-[#15241C] bg-[#15241C] border border-white/15 border-white/15 text-sm font-extrabold text-white text-white"
                         />
                       </div>
 
                       {/* Quota 3: Consultas IA */}
-                      <div className="p-3.5 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/50 space-y-2">
+                      <div className="p-3.5 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13] bg-[#0D1A13]/50 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center gap-1.5">
+                          <span className="text-xs font-bold text-[#A5B8AC] text-[#A5B8AC] flex items-center gap-1.5">
                             <Cpu className="w-4 h-4 text-amber-500" />
                             <span>Consultas IA / Mes</span>
                           </span>
@@ -522,14 +522,14 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                           onChange={(e) =>
                             handleQuotaChange('aiQueriesMonthlyQuota', parseInt(e.target.value) || 0)
                           }
-                          className="w-full px-3 py-2 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 text-sm font-extrabold text-neutral-900 dark:text-white"
+                          className="w-full px-3 py-2 rounded-xl bg-[#15241C] bg-[#15241C] border border-white/15 border-white/15 text-sm font-extrabold text-white text-white"
                         />
                       </div>
 
                       {/* Quota 4: Almacenamiento Supabase MB */}
-                      <div className="p-3.5 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/50 space-y-2">
+                      <div className="p-3.5 rounded-2xl border border-white/10 border-white/10 bg-[#0D1A13] bg-[#0D1A13]/50 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center gap-1.5">
+                          <span className="text-xs font-bold text-[#A5B8AC] text-[#A5B8AC] flex items-center gap-1.5">
                             <HardDrive className="w-4 h-4 text-blue-600" />
                             <span>Storage Cuota (MB)</span>
                           </span>
@@ -543,7 +543,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                           onChange={(e) =>
                             handleQuotaChange('storageMbQuota', parseInt(e.target.value) || 0)
                           }
-                          className="w-full px-3 py-2 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 text-sm font-extrabold text-neutral-900 dark:text-white"
+                          className="w-full px-3 py-2 rounded-xl bg-[#15241C] bg-[#15241C] border border-white/15 border-white/15 text-sm font-extrabold text-white text-white"
                         />
                       </div>
                     </div>
@@ -556,10 +556,10 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                 {activeTab === 'info' && (
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-sm font-extrabold text-neutral-900 dark:text-white">
+                      <h3 className="text-sm font-extrabold text-white text-white">
                         Datos del Propietario & Facturación
                       </h3>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                      <p className="text-xs text-[#A5B8AC] text-[#A5B8AC]">
                         Configuración comercial, pasarela de pagos y contacto legal.
                       </p>
                     </div>
@@ -567,7 +567,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                     <div className="space-y-3 text-xs">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                          <label className="font-bold text-neutral-600 dark:text-neutral-400 block mb-1">
+                          <label className="font-bold text-[#A5B8AC] text-[#A5B8AC] block mb-1">
                             Propietario / Representante
                           </label>
                           <input
@@ -576,12 +576,12 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={(e) =>
                               setFormData({ ...formData, ownerName: e.target.value })
                             }
-                            className="w-full px-3 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 font-semibold"
+                            className="w-full px-3 py-2 rounded-xl bg-[#0D1A13] bg-[#15241C] border border-white/15 border-white/15 font-semibold"
                           />
                         </div>
 
                         <div>
-                          <label className="font-bold text-neutral-600 dark:text-neutral-400 block mb-1">
+                          <label className="font-bold text-[#A5B8AC] text-[#A5B8AC] block mb-1">
                             Correo Electrónico
                           </label>
                           <input
@@ -590,12 +590,12 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={(e) =>
                               setFormData({ ...formData, ownerEmail: e.target.value })
                             }
-                            className="w-full px-3 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 font-semibold"
+                            className="w-full px-3 py-2 rounded-xl bg-[#0D1A13] bg-[#15241C] border border-white/15 border-white/15 font-semibold"
                           />
                         </div>
 
                         <div>
-                          <label className="font-bold text-neutral-600 dark:text-neutral-400 block mb-1">
+                          <label className="font-bold text-[#A5B8AC] text-[#A5B8AC] block mb-1">
                             Teléfono / WhatsApp
                           </label>
                           <input
@@ -604,12 +604,12 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={(e) =>
                               setFormData({ ...formData, ownerPhone: e.target.value })
                             }
-                            className="w-full px-3 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 font-semibold"
+                            className="w-full px-3 py-2 rounded-xl bg-[#0D1A13] bg-[#15241C] border border-white/15 border-white/15 font-semibold"
                           />
                         </div>
 
                         <div>
-                          <label className="font-bold text-neutral-600 dark:text-neutral-400 block mb-1">
+                          <label className="font-bold text-[#A5B8AC] text-[#A5B8AC] block mb-1">
                             Plan Comercial
                           </label>
                           <select
@@ -617,7 +617,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={(e) =>
                               setFormData({ ...formData, plan: e.target.value as TenantPlan })
                             }
-                            className="w-full px-3 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 font-bold capitalize"
+                            className="w-full px-3 py-2 rounded-xl bg-[#0D1A13] bg-[#15241C] border border-white/15 border-white/15 font-bold capitalize"
                           >
                             <option value="starter_finca">Starter Finca ($79/mes)</option>
                             <option value="pro_ganadero">Pro Ganadero ($149/mes)</option>
@@ -630,9 +630,9 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                       </div>
 
                       {/* Facturación Card */}
-                      <div className="p-3.5 rounded-2xl bg-neutral-100 dark:bg-neutral-950/80 border border-neutral-200 dark:border-neutral-800 space-y-2">
+                      <div className="p-3.5 rounded-2xl bg-[#1F3327] bg-[#0D1A13]/80 border border-white/10 border-white/10 space-y-2">
                         <div className="flex items-center justify-between font-bold">
-                          <span className="flex items-center gap-1.5 text-neutral-800 dark:text-neutral-200">
+                          <span className="flex items-center gap-1.5 text-white text-white">
                             <CreditCard className="w-4 h-4 text-emerald-600" />
                             <span>Estado de Facturación Stripe</span>
                           </span>
@@ -640,13 +640,13 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             ${formData.monthlyFeeUsd} USD / mes
                           </span>
                         </div>
-                        <div className="flex items-center justify-between text-neutral-500 text-[11px]">
+                        <div className="flex items-center justify-between text-[#A5B8AC] text-[11px]">
                           <span>Próximo cobro automático:</span>
-                          <span className="font-bold text-neutral-800 dark:text-neutral-200">
+                          <span className="font-bold text-white text-white">
                             {formData.nextBillingDate}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between text-neutral-500 text-[11px]">
+                        <div className="flex items-center justify-between text-[#A5B8AC] text-[11px]">
                           <span>Stripe Customer ID:</span>
                           <span className="font-mono">{formData.stripeCustomerId || 'N/A'}</span>
                         </div>
@@ -661,10 +661,10 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                 {activeTab === 'security' && (
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-sm font-extrabold text-neutral-900 dark:text-white">
+                      <h3 className="text-sm font-extrabold text-white text-white">
                         Control de Seguridad & Políticas
                       </h3>
-                      <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                      <p className="text-xs text-[#A5B8AC] text-[#A5B8AC]">
                         Bypass de restricciones y auditoría técnica de la ganadería.
                       </p>
                     </div>
@@ -697,7 +697,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
 
                       {/* Action 2: Notas de Soporte Internas */}
                       <div>
-                        <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-1">
+                        <label className="text-xs font-bold text-[#A5B8AC] text-[#A5B8AC] block mb-1">
                           Notas Internas de Soporte (Solo visibles por Superadmins)
                         </label>
                         <textarea
@@ -707,7 +707,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             setFormData({ ...formData, supportNotes: e.target.value })
                           }
                           placeholder="Registra acuerdos comerciales, incidentes técnicos o excepciones autorizadas..."
-                          className="w-full p-3 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 text-xs text-neutral-900 dark:text-white"
+                          className="w-full p-3 rounded-xl bg-[#0D1A13] bg-[#15241C] border border-white/15 border-white/15 text-xs text-white text-white"
                         />
                       </div>
                     </div>
@@ -716,11 +716,11 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="p-4 sm:p-5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 flex items-center justify-between gap-3 shrink-0">
+              <div className="p-4 sm:p-5 border-t border-white/10 border-white/10 bg-[#0D1A13] bg-[#0D1A13] flex items-center justify-between gap-3 shrink-0">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2.5 bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 text-xs font-bold rounded-xl transition-colors cursor-pointer"
+                  className="px-4 py-2.5 bg-[#202E25] hover:bg-neutral-300 bg-[#1F3327] hover:bg-[#1F3327] text-white text-white text-xs font-bold rounded-xl transition-colors cursor-pointer"
                 >
                   Cancelar
                 </button>

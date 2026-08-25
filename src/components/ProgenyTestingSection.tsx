@@ -288,28 +288,28 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
       {toastMessage && (
         <div className="p-4 bg-[#c1ecd4] border-2 border-[#012d1d] text-[#002114] rounded-2xl flex items-center justify-between shadow-md">
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-[#012d1d] shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
             <p className="text-xs font-black">{toastMessage}</p>
           </div>
-          <button onClick={() => setToastMessage(null)} className="text-[#012d1d] hover:text-black">
+          <button onClick={() => setToastMessage(null)} className="text-white hover:text-black">
             <X className="w-4 h-4" />
           </button>
         </div>
       )}
 
       {/* Main Banner Header for Progeny Testing */}
-      <div className="bg-white rounded-3xl p-5 md:p-6 border-2 border-[#012d1d] card-shadow space-y-5">
+      <div className="bg-[#15241C] rounded-3xl p-5 md:p-6 border-2 border-[#012d1d] card-shadow space-y-5">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-[#e2e2e2] pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+            <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
               <GitBranch className="w-6 h-6" />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-lg md:text-xl font-black text-[#012d1d]">
+                <h3 className="text-lg md:text-xl font-black text-white">
                   Módulo de Registro & Evaluación de Prueba de Progenies
                 </h3>
-                <span className="bg-[#ffba38] text-[#523700] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase shadow-xs">
+                <span className="bg-[#D4A94E] text-[#0D1A13] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase shadow-xs">
                   Mérito Genético Paterno (DEP)
                 </span>
               </div>
@@ -322,7 +322,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
           <div className="flex flex-wrap items-center gap-2 shrink-0">
             <button
               onClick={() => setIsAddTestModalOpen(true)}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] px-4 py-2.5 rounded-2xl text-xs font-black flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
+              className="bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] px-4 py-2.5 rounded-2xl text-xs font-black flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
             >
               <PlusCircle className="w-4 h-4 text-[#ffba38]" />
               Nueva Prueba de Progenie
@@ -332,19 +332,19 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
 
         {/* 5 KPI Cards Row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          <div className="p-3.5 bg-[#f8fbf9] border border-[#a2cfb8] rounded-2xl space-y-1 shadow-2xs">
+          <div className="p-3.5 bg-[#15241C] border border-[#a2cfb8] rounded-2xl space-y-1 shadow-2xs">
             <span className="text-[10px] font-black uppercase text-[#717973] block flex items-center gap-1">
-              <Dna className="w-3.5 h-3.5 text-[#012d1d]" /> Toros Evaluados
+              <Dna className="w-3.5 h-3.5 text-white" /> Toros Evaluados
             </span>
-            <span className="text-2xl font-mono font-black text-[#012d1d] block">{totalSiresEvaluated}</span>
+            <span className="text-2xl font-mono font-black text-white block">{totalSiresEvaluated}</span>
             <span className="text-[10px] text-emerald-800 font-bold block">Sementales en Programa</span>
           </div>
 
-          <div className="p-3.5 bg-[#f8fbf9] border border-[#a2cfb8] rounded-2xl space-y-1 shadow-2xs">
+          <div className="p-3.5 bg-[#15241C] border border-[#a2cfb8] rounded-2xl space-y-1 shadow-2xs">
             <span className="text-[10px] font-black uppercase text-[#717973] block flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#012d1d]" /> Crías Medidas
+              <ShieldCheck className="w-3.5 h-3.5 text-white" /> Crías Medidas
             </span>
-            <span className="text-2xl font-mono font-black text-[#012d1d] block">{totalOffspringMeasured}</span>
+            <span className="text-2xl font-mono font-black text-white block">{totalOffspringMeasured}</span>
             <span className="text-[10px] text-[#717973] font-bold block">Descendientes con Registro</span>
           </div>
 
@@ -382,17 +382,17 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
               placeholder="Buscar por Toro Padre, Registro, Raza o Arete de Cría..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl pl-10 pr-4 py-2 text-xs font-bold text-[#012d1d] focus:bg-white focus:border-[#012d1d] focus:outline-none"
+              className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl pl-10 pr-4 py-2 text-xs font-bold text-white focus:bg-[#15241C] focus:border-[#012d1d] focus:outline-none"
             />
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <div className="flex items-center gap-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-2.5 py-1">
+            <div className="flex items-center gap-1 bg-[#f8f9f8] border border-white/10 rounded-xl px-2.5 py-1">
               <Filter className="w-3.5 h-3.5 text-[#717973]" />
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as any)}
-                className="bg-transparent text-xs font-extrabold text-[#012d1d] focus:outline-none cursor-pointer py-1"
+                className="bg-transparent text-xs font-extrabold text-white focus:outline-none cursor-pointer py-1"
               >
                 <option value="all">Todos los Estados</option>
                 <option value="probado_excelente">⭐ Probado Excelente / Élite</option>
@@ -402,12 +402,12 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
               </select>
             </div>
 
-            <div className="flex items-center gap-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-2.5 py-1">
+            <div className="flex items-center gap-1 bg-[#f8f9f8] border border-white/10 rounded-xl px-2.5 py-1">
               <Sliders className="w-3.5 h-3.5 text-[#717973]" />
               <select
                 value={aptitudeFilter}
                 onChange={(e) => setAptitudeFilter(e.target.value as any)}
-                className="bg-transparent text-xs font-extrabold text-[#012d1d] focus:outline-none cursor-pointer py-1"
+                className="bg-transparent text-xs font-extrabold text-white focus:outline-none cursor-pointer py-1"
               >
                 <option value="all">Todas las Aptitudes</option>
                 <option value="Carne">🥩 Carne Especializada</option>
@@ -422,17 +422,17 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
       {/* List of Progeny Tested Sires */}
       <div className="space-y-4">
         {filteredTests.length === 0 ? (
-          <div className="bg-white border-2 border-dashed border-[#c1c8c2] rounded-3xl p-8 text-center space-y-3">
+          <div className="bg-[#15241C] border-2 border-dashed border-white/10 rounded-3xl p-8 text-center space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto">
               <AlertCircle className="w-6 h-6" />
             </div>
-            <h4 className="font-black text-sm text-[#012d1d]">No se encontraron Pruebas de Progenies</h4>
+            <h4 className="font-black text-sm text-white">No se encontraron Pruebas de Progenies</h4>
             <p className="text-xs text-[#717973] max-w-md mx-auto">
               No hay registros que coincidan con la búsqueda o filtros aplicados. Registre un nuevo toro semental para iniciar la evaluación de descendencia.
             </p>
             <button
               onClick={() => setIsAddTestModalOpen(true)}
-              className="bg-[#012d1d] text-[#ffba38] px-4 py-2 rounded-xl text-xs font-black inline-flex items-center gap-2 cursor-pointer shadow-md"
+              className="bg-[#0D1A13] text-[#ffba38] px-4 py-2 rounded-xl text-xs font-black inline-flex items-center gap-2 cursor-pointer shadow-md"
             >
               <PlusCircle className="w-4 h-4" /> Registrar Primera Prueba
             </button>
@@ -445,26 +445,26 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
             return (
               <div
                 key={test.id}
-                className="bg-white rounded-3xl border-2 border-[#012d1d] overflow-hidden card-shadow transition-all"
+                className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] overflow-hidden card-shadow transition-all"
               >
                 {/* Sire Card Main Header */}
                 <div className="p-4 md:p-5 bg-[#fcfdfe] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-[#eeeeee]">
                   <div className="flex items-start sm:items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md font-mono font-black text-sm">
+                    <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md font-mono font-black text-sm">
                       <Zap className="w-6 h-6 text-[#ffba38]" />
                     </div>
 
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-black text-base md:text-lg text-[#012d1d]">{test.sireName}</span>
-                        <span className="font-mono text-xs bg-[#f0f4f1] text-[#012d1d] px-2 py-0.5 rounded border border-[#c1c8c2] font-bold">
+                        <span className="font-black text-base md:text-lg text-white">{test.sireName}</span>
+                        <span className="font-mono text-xs bg-[#123F2A]/60 text-white px-2 py-0.5 rounded border border-white/10 font-bold">
                           Reg: {test.sireRegister}
                         </span>
                         <span className="text-[11px] font-bold bg-[#e2efe8] text-[#15803d] px-2.5 py-0.5 rounded-full">
                           {test.sireBreed}
                         </span>
                         {test.evaluationStatus === 'probado_excelente' && (
-                          <span className="text-[10px] font-black uppercase bg-amber-400 text-[#523700] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                          <span className="text-[10px] font-black uppercase bg-amber-400 text-[#0D1A13] px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
                             <Star className="w-3 h-3 fill-current" /> Toro Probado Élite
                           </span>
                         )}
@@ -500,7 +500,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                           setCertificateSire(test);
                           setIsPrintCertificateModalOpen(true);
                         }}
-                        className="bg-[#f0f7f4] hover:bg-[#e2efe8] text-[#012d1d] border border-[#a2cfb8] px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all cursor-pointer"
+                        className="bg-[#f0f7f4] hover:bg-[#e2efe8] text-white border border-[#a2cfb8] px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all cursor-pointer"
                         title="Imprimir Certificado de Prueba de Progenies"
                       >
                         <Printer className="w-3.5 h-3.5 text-emerald-700" /> Certificado
@@ -511,7 +511,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                           setTargetSireForOffspring(test);
                           setIsAddOffspringModalOpen(true);
                         }}
-                        className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer shadow-2xs"
+                        className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer shadow-2xs"
                       >
                         <Plus className="w-3.5 h-3.5" /> Agregar Cría
                       </button>
@@ -527,7 +527,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
 
                     <button
                       onClick={() => setExpandedSireId(isExpanded ? null : test.id)}
-                      className="bg-[#012d1d] text-white px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1 cursor-pointer"
+                      className="bg-[#0D1A13] text-white px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1 cursor-pointer"
                     >
                       <span>{isExpanded ? 'Ocultar Hijas/Hijos' : `Ver Hijas/Hijos (${offsprings.length})`}</span>
                       {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -536,36 +536,36 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                 </div>
 
                 {/* Sire DEPs Summary Banner */}
-                <div className="bg-[#f8fbf9] p-4 border-b border-[#eeeeee] grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs">
-                  <div className="p-2.5 bg-white rounded-xl border border-[#c1c8c2] text-center">
+                <div className="bg-[#15241C] p-4 border-b border-[#eeeeee] grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs">
+                  <div className="p-2.5 bg-[#15241C] rounded-xl border border-white/10 text-center">
                     <span className="text-[10px] font-black text-[#717973] uppercase block">DEP Leche (305d)</span>
-                    <span className="font-mono font-black text-sm text-[#012d1d] block">
+                    <span className="font-mono font-black text-sm text-white block">
                       {test.depMilkKg > 0 ? `+${test.depMilkKg}` : test.depMilkKg} kg
                     </span>
                   </div>
 
-                  <div className="p-2.5 bg-white rounded-xl border border-[#c1c8c2] text-center">
+                  <div className="p-2.5 bg-[#15241C] rounded-xl border border-white/10 text-center">
                     <span className="text-[10px] font-black text-[#717973] uppercase block">DEP Peso Destete (210d)</span>
                     <span className="font-mono font-black text-sm text-emerald-800 block">
                       {test.depWeaningWeightKg > 0 ? `+${test.depWeaningWeightKg}` : test.depWeaningWeightKg} kg
                     </span>
                   </div>
 
-                  <div className="p-2.5 bg-white rounded-xl border border-[#c1c8c2] text-center">
+                  <div className="p-2.5 bg-[#15241C] rounded-xl border border-white/10 text-center">
                     <span className="text-[10px] font-black text-[#717973] uppercase block">DEP Peso Nacimiento</span>
-                    <span className="font-mono font-black text-sm text-[#012d1d] block">
+                    <span className="font-mono font-black text-sm text-white block">
                       {test.depBirthWeightKg > 0 ? `+${test.depBirthWeightKg}` : test.depBirthWeightKg} kg
                     </span>
                   </div>
 
-                  <div className="p-2.5 bg-white rounded-xl border border-[#c1c8c2] text-center">
+                  <div className="p-2.5 bg-[#15241C] rounded-xl border border-white/10 text-center">
                     <span className="text-[10px] font-black text-[#717973] uppercase block">Facilidad Parto</span>
                     <span className="font-mono font-black text-sm text-blue-900 block">
                       {test.depCalvingEasePercent}% Fácil
                     </span>
                   </div>
 
-                  <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-center col-span-2 sm:col-span-1">
+                  <div className="p-2.5 bg-amber-950/30 rounded-xl border border-amber-200 text-center col-span-2 sm:col-span-1">
                     <span className="text-[10px] font-black text-amber-900 uppercase block">Confiabilidad / Repetibilidad</span>
                     <span className="font-mono font-black text-sm text-amber-950 block">
                       {test.reliabilityPercent}% Confiable
@@ -583,9 +583,9 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
 
                 {/* Expanded Offspring Records Table */}
                 {isExpanded && (
-                  <div className="p-4 bg-white space-y-3 animate-in fade-in">
+                  <div className="p-4 bg-[#15241C] space-y-3 animate-in fade-in">
                     <div className="flex items-center justify-between">
-                      <h5 className="font-black text-xs uppercase tracking-wider text-[#012d1d] flex items-center gap-1.5">
+                      <h5 className="font-black text-xs uppercase tracking-wider text-white flex items-center gap-1.5">
                         <Dna className="w-4 h-4 text-emerald-700" />
                         Registro Zootécnico de Crías Evaluadas ({offsprings.length} Descendientes)
                       </h5>
@@ -595,7 +595,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                           setTargetSireForOffspring(test);
                           setIsAddOffspringModalOpen(true);
                         }}
-                        className="text-xs font-black text-[#012d1d] hover:underline flex items-center gap-1"
+                        className="text-xs font-black text-white hover:underline flex items-center gap-1"
                       >
                         <Plus className="w-3.5 h-3.5" /> Registrar Nueva Cría
                       </button>
@@ -606,10 +606,10 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                         Aún no se han ingresado crías/hijas individuales a este toro. Haga clic en "+ Registrar Nueva Cría" para asociar registros.
                       </p>
                     ) : (
-                      <div className="overflow-x-auto rounded-2xl border border-[#c1c8c2]">
+                      <div className="overflow-x-auto rounded-2xl border border-white/10">
                         <table className="w-full text-left border-collapse text-xs">
                           <thead>
-                            <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold text-[10.5px] uppercase border-b border-[#c1c8c2]">
+                            <tr className="bg-[#123F2A]/60 text-white font-bold text-[10.5px] uppercase border-b border-white/10">
                               <th className="p-2.5">Cría / Arete</th>
                               <th className="p-2.5">Vaca Madre</th>
                               <th className="p-2.5 text-center">Sexo</th>
@@ -627,10 +627,10 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                             {offsprings.map((off) => (
                               <tr key={off.id} className="hover:bg-[#f9fbf9]">
                                 <td className="p-2.5 font-sans">
-                                  <div className="font-black text-[#012d1d]">{off.offspringTag}</div>
+                                  <div className="font-black text-white">{off.offspringTag}</div>
                                   <div className="text-[10px] text-[#717973]">{off.offspringName}</div>
                                 </td>
-                                <td className="p-2.5 font-sans font-extrabold text-[#012d1d]">
+                                <td className="p-2.5 font-sans font-extrabold text-white">
                                   {off.damTag}
                                 </td>
                                 <td className="p-2.5 text-center font-sans">
@@ -641,14 +641,14 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                                   </span>
                                 </td>
                                 <td className="p-2.5 text-center">{off.birthDate}</td>
-                                <td className="p-2.5 text-right font-bold text-[#012d1d]">{off.birthWeightKg} kg</td>
+                                <td className="p-2.5 text-right font-bold text-white">{off.birthWeightKg} kg</td>
                                 <td className="p-2.5 text-right font-bold text-emerald-800">{off.weaningWeight210dKg} kg</td>
                                 <td className="p-2.5 text-right font-bold text-amber-900">{off.dailyWeightGainGrams} g</td>
                                 <td className="p-2.5 text-right font-bold text-blue-900">
                                   {off.milk305dLiters ? `${off.milk305dLiters} L` : '-'}
                                 </td>
                                 <td className="p-2.5 text-center font-sans">
-                                  <span className="text-[10px] font-bold bg-[#f0f4f1] text-[#012d1d] px-1.5 py-0.5 rounded">
+                                  <span className="text-[10px] font-bold bg-[#123F2A]/60 text-white px-1.5 py-0.5 rounded">
                                     Grado {off.calvingEaseScore}
                                   </span>
                                 </td>
@@ -683,14 +683,14 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
       {/* ========================================================================= */}
       {isAddTestModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-4xl w-full p-5 md:p-6 space-y-5 shadow-2xl my-8">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-4xl w-full p-5 md:p-6 space-y-5 shadow-2xl my-8">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                   <GitBranch className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-black text-lg text-[#012d1d]">Registrar Nueva Prueba de Progenies</h3>
+                  <h3 className="font-black text-lg text-white">Registrar Nueva Prueba de Progenies</h3>
                   <p className="text-xs text-[#717973]">Evaluación zootécnica de toro semental y medición de descendencia</p>
                 </div>
               </div>
@@ -705,41 +705,41 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
 
             <form onSubmit={handleCreateProgenyTest} className="space-y-5">
               {/* Step 1: Sire Information */}
-              <div className="space-y-3 bg-[#f8fbf9] border border-[#a2cfb8] rounded-2xl p-4">
-                <h4 className="font-black text-xs uppercase text-[#012d1d] tracking-wider flex items-center gap-1.5">
+              <div className="space-y-3 bg-[#15241C] border border-[#a2cfb8] rounded-2xl p-4">
+                <h4 className="font-black text-xs uppercase text-white tracking-wider flex items-center gap-1.5">
                   <Zap className="w-4 h-4 text-[#ffba38]" /> 1. Información del Toro Semental
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">Seleccionar o Escribir Toro:</label>
+                    <label className="font-bold text-white block mb-1">Seleccionar o Escribir Toro:</label>
                     <input
                       type="text"
                       required
                       placeholder="Ej: Don Juan 450 (Brangus)"
                       value={newSireName}
                       onChange={(e) => setNewSireName(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-extrabold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-extrabold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">N° Registro HBB / ASOCEBU:</label>
+                    <label className="font-bold text-white block mb-1">N° Registro HBB / ASOCEBU:</label>
                     <input
                       type="text"
                       placeholder="Ej: BR-450-FJ"
                       value={newSireRegister}
                       onChange={(e) => setNewSireRegister(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">Raza del Semental:</label>
+                    <label className="font-bold text-white block mb-1">Raza del Semental:</label>
                     <select
                       value={newSireBreed}
                       onChange={(e) => setNewSireBreed(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-extrabold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-extrabold text-white"
                     >
                       <option value="Brangus Negro">Brangus Negro / Rojo</option>
                       <option value="Gyr Lechero">Gyr Lechero (Puro)</option>
@@ -752,11 +752,11 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">Aptitud Productiva:</label>
+                    <label className="font-bold text-white block mb-1">Aptitud Productiva:</label>
                     <select
                       value={newAptitude}
                       onChange={(e) => setNewAptitude(e.target.value as any)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-extrabold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-extrabold text-white"
                     >
                       <option value="Carne">🥩 Carne Especializada</option>
                       <option value="Leche">🥛 Leche Especializada</option>
@@ -765,21 +765,21 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">Veterinario / Genetista Evaluador:</label>
+                    <label className="font-bold text-white block mb-1">Veterinario / Genetista Evaluador:</label>
                     <input
                       type="text"
                       value={newEvaluator}
                       onChange={(e) => setNewEvaluator(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">Estado de la Prueba:</label>
+                    <label className="font-bold text-white block mb-1">Estado de la Prueba:</label>
                     <select
                       value={newEvalStatus}
                       onChange={(e) => setNewEvalStatus(e.target.value as any)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-extrabold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-extrabold text-white"
                     >
                       <option value="probado_excelente">⭐ Probado Excelente / Élite</option>
                       <option value="probado_positivo">✅ Probado Positivo</option>
@@ -791,98 +791,98 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
               </div>
 
               {/* Step 2: DEPs Estimated Values */}
-              <div className="space-y-3 bg-[#f8fbf9] border border-[#a2cfb8] rounded-2xl p-4">
-                <h4 className="font-black text-xs uppercase text-[#012d1d] tracking-wider flex items-center gap-1.5">
+              <div className="space-y-3 bg-[#15241C] border border-[#a2cfb8] rounded-2xl p-4">
+                <h4 className="font-black text-xs uppercase text-white tracking-wider flex items-center gap-1.5">
                   <BarChart3 className="w-4 h-4 text-emerald-700" /> 2. Valores Estimados de DEP (Diferencia Esperada)
                 </h4>
 
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs">
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">DEP Leche (kg/305d):</label>
+                    <label className="font-bold text-white block mb-1">DEP Leche (kg/305d):</label>
                     <input
                       type="number"
                       value={newDepMilk}
                       onChange={(e) => setNewDepMilk(Number(e.target.value))}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">DEP Peso Destete (210d):</label>
+                    <label className="font-bold text-white block mb-1">DEP Peso Destete (210d):</label>
                     <input
                       type="number"
                       step="0.1"
                       value={newDepWeaningWeight}
                       onChange={(e) => setNewDepWeaningWeight(Number(e.target.value))}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">DEP Peso Nacer (kg):</label>
+                    <label className="font-bold text-white block mb-1">DEP Peso Nacer (kg):</label>
                     <input
                       type="number"
                       step="0.1"
                       value={newDepBirthWeight}
                       onChange={(e) => setNewDepBirthWeight(Number(e.target.value))}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">Facilidad Parto (%):</label>
+                    <label className="font-bold text-white block mb-1">Facilidad Parto (%):</label>
                     <input
                       type="number"
                       step="0.1"
                       value={newDepCalvingEase}
                       onChange={(e) => setNewDepCalvingEase(Number(e.target.value))}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-[#012d1d] block mb-1">Confiabilidad (%):</label>
+                    <label className="font-bold text-white block mb-1">Confiabilidad (%):</label>
                     <input
                       type="number"
                       step="0.1"
                       value={newReliability}
                       onChange={(e) => setNewReliability(Number(e.target.value))}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Step 3: Add Draft Offspring Entry Subform */}
-              <div className="space-y-3 bg-white border border-[#c1c8c2] rounded-2xl p-4">
+              <div className="space-y-3 bg-[#15241C] border border-white/10 rounded-2xl p-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-black text-xs uppercase text-[#012d1d] tracking-wider flex items-center gap-1.5">
+                  <h4 className="font-black text-xs uppercase text-white tracking-wider flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-emerald-700" /> 3. Registro Zootécnico de Crías ({draftOffsprings.length} agregadas)
                   </h4>
                 </div>
 
                 {/* Subform to add offspring to list */}
-                <div className="bg-[#f0f4f1] p-3 rounded-2xl space-y-3 text-xs border border-[#a2cfb8]">
-                  <span className="font-extrabold text-[#012d1d] block text-[11px]">Ingresar datos de una cría/hijo a la prueba:</span>
+                <div className="bg-[#123F2A]/60 p-3 rounded-2xl space-y-3 text-xs border border-[#a2cfb8]">
+                  <span className="font-extrabold text-white block text-[11px]">Ingresar datos de una cría/hijo a la prueba:</span>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     <input
                       type="text"
                       placeholder="Arete Cría (Ej: T-205)"
                       value={offTag}
                       onChange={(e) => setOffTag(e.target.value)}
-                      className="bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold"
+                      className="bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold"
                     />
                     <input
                       type="text"
                       placeholder="Madre (Ej: BR-102)"
                       value={offDamTag}
                       onChange={(e) => setOffDamTag(e.target.value)}
-                      className="bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold"
+                      className="bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold"
                     />
                     <select
                       value={offSex}
                       onChange={(e) => setOffSex(e.target.value as any)}
-                      className="bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold"
+                      className="bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold"
                     >
                       <option value="Macho">♂ Macho</option>
                       <option value="Hembra">♀ Hembra</option>
@@ -892,7 +892,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                       placeholder="Peso Destete (210d) kg"
                       value={offWeaningWeight}
                       onChange={(e) => setOffWeaningWeight(Number(e.target.value))}
-                      className="bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono font-bold"
+                      className="bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono font-bold"
                     />
                   </div>
 
@@ -901,7 +901,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                     <button
                       type="button"
                       onClick={handleAddDraftOffspring}
-                      className="bg-[#012d1d] text-[#ffba38] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1 cursor-pointer"
+                      className="bg-[#0D1A13] text-[#ffba38] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1 cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" /> Agregar Cría
                     </button>
@@ -915,7 +915,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                       <div key={off.id} className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#eeeeee] flex items-center justify-between text-xs">
                         <div className="flex items-center gap-3">
                           <span className="font-mono font-bold text-[#717973]">#{idx + 1}</span>
-                          <span className="font-black text-[#012d1d]">{off.offspringTag}</span>
+                          <span className="font-black text-white">{off.offspringTag}</span>
                           <span className="text-[#717973]">Madre: <b>{off.damTag}</b></span>
                           <span className="font-mono text-emerald-800 font-bold">Destete: {off.weaningWeight210dKg} kg</span>
                         </div>
@@ -934,13 +934,13 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
 
               {/* Recommendations Input */}
               <div className="text-xs">
-                <label className="font-bold text-[#012d1d] block mb-1">Recomendaciones & Conclusión Zootécnica:</label>
+                <label className="font-bold text-white block mb-1">Recomendaciones & Conclusión Zootécnica:</label>
                 <textarea
                   rows={2}
                   value={newRecommendations}
                   onChange={(e) => setNewRecommendations(e.target.value)}
                   placeholder="Ej: Toro probado de alta calidad con excelente transmisión en peso al destete..."
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl p-3 text-xs text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl p-3 text-xs text-white"
                 />
               </div>
 
@@ -949,13 +949,13 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsAddTestModalOpen(false)}
-                  className="bg-[#f0f4f1] text-[#012d1d] px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
+                  className="bg-[#123F2A]/60 text-white px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#012d1d] text-[#ffba38] px-5 py-2 rounded-xl text-xs font-black shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
+                  className="bg-[#0D1A13] text-[#ffba38] px-5 py-2 rounded-xl text-xs font-black shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
                 >
                   <CheckCircle2 className="w-4 h-4" /> Guardar Prueba de Progenie
                 </button>
@@ -970,14 +970,14 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
       {/* ========================================================================= */}
       {isAddOffspringModalOpen && targetSireForOffspring && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-5 md:p-6 space-y-4 shadow-2xl">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-5 md:p-6 space-y-4 shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                   <Plus className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-black text-base text-[#012d1d]">Vincular Cría a Prueba de Progenie</h3>
+                  <h3 className="font-black text-base text-white">Vincular Cría a Prueba de Progenie</h3>
                   <p className="text-xs text-[#717973]">Padre: <b>{targetSireForOffspring.sireName}</b> ({targetSireForOffspring.sireRegister})</p>
                 </div>
               </div>
@@ -996,45 +996,45 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
             <form onSubmit={handleAddOffspringToExisting} className="space-y-3 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Arete Cría / Ternero(a):</label>
+                  <label className="font-bold text-white block mb-1">Arete Cría / Ternero(a):</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej: T-302"
                     value={offTag}
                     onChange={(e) => setOffTag(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Nombre / Alias Cría:</label>
+                  <label className="font-bold text-white block mb-1">Nombre / Alias Cría:</label>
                   <input
                     type="text"
                     placeholder="Ej: Rey 302"
                     value={offName}
                     onChange={(e) => setOffName(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Vaca Madre:</label>
+                  <label className="font-bold text-white block mb-1">Vaca Madre:</label>
                   <input
                     type="text"
                     placeholder="Ej: BR-102 (Rosita)"
                     value={offDamTag}
                     onChange={(e) => setOffDamTag(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Sexo de la Cría:</label>
+                  <label className="font-bold text-white block mb-1">Sexo de la Cría:</label>
                   <select
                     value={offSex}
                     onChange={(e) => setOffSex(e.target.value as any)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-extrabold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-extrabold text-white"
                   >
                     <option value="Macho">♂ Macho</option>
                     <option value="Hembra">♀ Hembra</option>
@@ -1042,55 +1042,55 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Peso Nacimiento (kg):</label>
+                  <label className="font-bold text-white block mb-1">Peso Nacimiento (kg):</label>
                   <input
                     type="number"
                     value={offBirthWeight}
                     onChange={(e) => setOffBirthWeight(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Peso Destete 210d (kg):</label>
+                  <label className="font-bold text-white block mb-1">Peso Destete 210d (kg):</label>
                   <input
                     type="number"
                     value={offWeaningWeight}
                     onChange={(e) => setOffWeaningWeight(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Ganancia Diaria (g/día):</label>
+                  <label className="font-bold text-white block mb-1">Ganancia Diaria (g/día):</label>
                   <input
                     type="number"
                     value={offDailyGain}
                     onChange={(e) => setOffDailyGain(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Puntuación Conformación (1-10):</label>
+                  <label className="font-bold text-white block mb-1">Puntuación Conformación (1-10):</label>
                   <input
                     type="number"
                     step="0.1"
                     value={offConformation}
                     onChange={(e) => setOffConformation(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Notas u Observaciones:</label>
+                <label className="font-bold text-white block mb-1">Notas u Observaciones:</label>
                 <input
                   type="text"
                   placeholder="Observaciones de desarrollo o pastoreo..."
                   value={offNotes}
                   onChange={(e) => setOffNotes(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 text-white"
                 />
               </div>
 
@@ -1098,13 +1098,13 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsAddOffspringModalOpen(false)}
-                  className="bg-[#f0f4f1] text-[#012d1d] px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
+                  className="bg-[#123F2A]/60 text-white px-4 py-2 rounded-xl text-xs font-bold cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#012d1d] text-[#ffba38] px-5 py-2 rounded-xl text-xs font-black shadow-md cursor-pointer active:scale-95 flex items-center gap-1.5"
+                  className="bg-[#0D1A13] text-[#ffba38] px-5 py-2 rounded-xl text-xs font-black shadow-md cursor-pointer active:scale-95 flex items-center gap-1.5"
                 >
                   <Check className="w-4 h-4" /> Vincular Cría
                 </button>
@@ -1119,14 +1119,14 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
       {/* ========================================================================= */}
       {isPrintCertificateModalOpen && certificateSire && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-3xl w-full p-6 md:p-8 space-y-6 shadow-2xl my-8">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-3xl w-full p-6 md:p-8 space-y-6 shadow-2xl my-8">
             <div className="flex items-center justify-between border-b-2 border-[#012d1d] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-mono font-black text-lg">
+                <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-mono font-black text-lg">
                   <Award className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="font-black text-xl text-[#012d1d] uppercase tracking-wide">Certificado Oficial de Prueba de Progenies</h3>
+                  <h3 className="font-black text-xl text-white uppercase tracking-wide">Certificado Oficial de Prueba de Progenies</h3>
                   <p className="text-xs text-[#717973]">Programa de Evaluación Genotípica & Zootécnica de Sementales</p>
                 </div>
               </div>
@@ -1134,7 +1134,7 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
               <div className="flex items-center gap-2">
                 <button
                   onClick={safePrint}
-                  className="bg-[#012d1d] text-[#ffba38] px-3.5 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 cursor-pointer shadow-md"
+                  className="bg-[#0D1A13] text-[#ffba38] px-3.5 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 cursor-pointer shadow-md"
                 >
                   <Printer className="w-4 h-4" /> Imprimir / PDF
                 </button>
@@ -1153,10 +1153,10 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
 
             {/* Printable Document Body */}
             <div className="space-y-5 border-2 border-[#012d1d] rounded-2xl p-6 bg-[#fafcfb]">
-              <div className="flex justify-between items-start border-b border-[#c1c8c2] pb-4">
+              <div className="flex justify-between items-start border-b border-white/10 pb-4">
                 <div>
                   <span className="text-[10px] font-black uppercase tracking-wider text-[#717973] block">Ganadería / Predio Evaluador</span>
-                  <h4 className="font-black text-base text-[#012d1d]">GANADERÍA PRO - SELECCIÓN GENÉTICA</h4>
+                  <h4 className="font-black text-base text-white">GANADERÍA PRO - SELECCIÓN GENÉTICA</h4>
                   <p className="text-xs text-[#555]">Código Certificación: <b>{certificateSire.testCode}</b></p>
                 </div>
 
@@ -1169,42 +1169,42 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
               </div>
 
               {/* Sire Details */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white p-4 rounded-xl border border-[#c1c8c2] text-xs">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#15241C] p-4 rounded-xl border border-white/10 text-xs">
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Toro Semental</span>
-                  <span className="font-black text-[#012d1d] text-sm">{certificateSire.sireName}</span>
+                  <span className="font-black text-white text-sm">{certificateSire.sireName}</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Registro Oficial</span>
-                  <span className="font-mono font-black text-[#012d1d]">{certificateSire.sireRegister}</span>
+                  <span className="font-mono font-black text-white">{certificateSire.sireRegister}</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Raza</span>
-                  <span className="font-extrabold text-[#012d1d]">{certificateSire.sireBreed}</span>
+                  <span className="font-extrabold text-white">{certificateSire.sireBreed}</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Aptitud</span>
-                  <span className="font-extrabold text-[#012d1d]">{certificateSire.aptitude}</span>
+                  <span className="font-extrabold text-white">{certificateSire.aptitude}</span>
                 </div>
               </div>
 
               {/* DEPs Box */}
               <div className="space-y-2">
-                <h5 className="font-black text-xs uppercase text-[#012d1d]">Diferencias Esperadas en la Progenie (DEPs Evaluadas)</h5>
+                <h5 className="font-black text-xs uppercase text-white">Diferencias Esperadas en la Progenie (DEPs Evaluadas)</h5>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
-                  <div className="p-2.5 bg-white border rounded-xl text-center">
+                  <div className="p-2.5 bg-[#15241C] border rounded-xl text-center">
                     <span className="text-[9.5px] font-sans text-[#717973] uppercase font-bold block">DEP Leche</span>
-                    <span className="font-black text-sm text-[#012d1d]">{certificateSire.depMilkKg > 0 ? `+${certificateSire.depMilkKg}` : certificateSire.depMilkKg} kg</span>
+                    <span className="font-black text-sm text-white">{certificateSire.depMilkKg > 0 ? `+${certificateSire.depMilkKg}` : certificateSire.depMilkKg} kg</span>
                   </div>
-                  <div className="p-2.5 bg-white border rounded-xl text-center">
+                  <div className="p-2.5 bg-[#15241C] border rounded-xl text-center">
                     <span className="text-[9.5px] font-sans text-[#717973] uppercase font-bold block">DEP Destete 210d</span>
                     <span className="font-black text-sm text-emerald-800">+{certificateSire.depWeaningWeightKg} kg</span>
                   </div>
-                  <div className="p-2.5 bg-white border rounded-xl text-center">
+                  <div className="p-2.5 bg-[#15241C] border rounded-xl text-center">
                     <span className="text-[9.5px] font-sans text-[#717973] uppercase font-bold block">Facilidad Parto</span>
                     <span className="font-black text-sm text-blue-900">{certificateSire.depCalvingEasePercent}%</span>
                   </div>
-                  <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-center">
+                  <div className="p-2.5 bg-amber-950/30 border border-amber-200 rounded-xl text-center">
                     <span className="text-[9.5px] font-sans text-amber-900 uppercase font-bold block">Confiabilidad</span>
                     <span className="font-black text-sm text-amber-950">{certificateSire.reliabilityPercent}%</span>
                   </div>
@@ -1212,8 +1212,8 @@ export const ProgenyTestingSection: React.FC<ProgenyTestingSectionProps> = ({
               </div>
 
               {/* Recommendations */}
-              <div className="p-3 bg-white border border-[#c1c8c2] rounded-xl text-xs space-y-1">
-                <span className="font-black text-[#012d1d] block">Conclusión Zootécnica & Aval Veterinario:</span>
+              <div className="p-3 bg-[#15241C] border border-white/10 rounded-xl text-xs space-y-1">
+                <span className="font-black text-white block">Conclusión Zootécnica & Aval Veterinario:</span>
                 <p className="text-[#555] leading-relaxed">{certificateSire.recommendations}</p>
                 <div className="pt-2 text-[11px] text-[#717973] font-bold">
                   Evaluador: {certificateSire.evaluatorVeterinarian} • Fecha: {certificateSire.evaluationDate}

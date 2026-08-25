@@ -218,18 +218,18 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             </span>
           </div>
           <div className="flex items-center gap-2 mt-1">
-            <h1 className="text-2xl md:text-3xl font-bold text-[#012d1d] tracking-tight">
+            <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
               Pluviometría y Registro de Lluvias
             </h1>
             <div className="group relative inline-flex items-center">
               <button
                 type="button"
-                className="text-[#717973] hover:text-[#012d1d] transition-colors p-0.5 rounded cursor-pointer"
+                className="text-[#717973] hover:text-white transition-colors p-0.5 rounded cursor-pointer"
                 title="Análisis de precipitaciones por día, mes, año y consolidado multianual con equivalencias hídricas por predio."
               >
                 <Info className="w-4 h-4" />
               </button>
-              <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+              <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                 Análisis de precipitaciones por día, mes, año y consolidado multianual con equivalencias hídricas por predio.
               </div>
             </div>
@@ -239,7 +239,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
         <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto">
           <button
             onClick={onOpenRegisterModal}
-            className="flex-1 md:flex-none bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs md:text-sm px-5 py-3 rounded-xl transition-all flex items-center justify-center gap-2 h-12 shadow-sm active:scale-95 cursor-pointer"
+            className="flex-1 md:flex-none bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs md:text-sm px-5 py-3 rounded-xl transition-all flex items-center justify-center gap-2 h-12 shadow-sm active:scale-95 cursor-pointer"
           >
             <PlusCircle className="w-4 h-4 text-[#ffba38]" />
             <span>+ Registrar Lluvia (mm)</span>
@@ -252,27 +252,27 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {/* ========================================================================= */}
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
         {/* Card 1: Total Year Rain */}
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+        <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">Lluvia Año {selectedYear}</span>
             <Droplet className="w-4 h-4 text-sky-600 shrink-0" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
-            {totalYearMm.toLocaleString()} <span className="text-xs font-medium text-slate-500">mm</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate tracking-tight">
+            {totalYearMm.toLocaleString()} <span className="text-xs font-medium text-[#A5B8AC]">mm</span>
           </p>
           <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">Acumulado anual</p>
         </div>
 
         {/* Card 2: Selected Month Rain */}
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+        <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">
               {MONTH_SHORT_SPANISH[selectedMonth - 1]} {selectedYear}
             </span>
             <CloudRain className="w-4 h-4 text-sky-600 shrink-0" />
           </div>
           <p className="text-xl sm:text-2xl font-bold font-mono text-sky-700 mt-2 truncate tracking-tight">
-            {currentMonthMm.toLocaleString()} <span className="text-xs font-medium text-slate-500">mm</span>
+            {currentMonthMm.toLocaleString()} <span className="text-xs font-medium text-[#A5B8AC]">mm</span>
           </p>
           <div className="flex items-center gap-1 text-[10px] font-medium mt-1 truncate">
             {monthDiffPct >= 0 ? (
@@ -288,37 +288,37 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
         </div>
 
         {/* Card 3: Rainy Days */}
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+        <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">Días con Lluvia</span>
             <Umbrella className="w-4 h-4 text-emerald-700 shrink-0" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
-            {totalYearRainyDays} <span className="text-xs font-medium text-slate-500">días</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate tracking-tight">
+            {totalYearRainyDays} <span className="text-xs font-medium text-[#A5B8AC]">días</span>
           </p>
-          <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">En {selectedYear}</p>
+          <p className="text-[10px] text-[#A5B8AC] mt-1 font-medium truncate">En {selectedYear}</p>
         </div>
 
         {/* Card 4: Max Daily Record */}
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+        <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">Máximo Diario</span>
             <Gauge className="w-4 h-4 text-amber-600 shrink-0" />
           </div>
           <p className="text-xl sm:text-2xl font-bold font-mono text-amber-900 mt-2 truncate tracking-tight">
-            {maxYearDaily} <span className="text-xs font-medium text-slate-500">mm/día</span>
+            {maxYearDaily} <span className="text-xs font-medium text-[#A5B8AC]">mm/día</span>
           </p>
           <p className="text-[10px] text-amber-700 font-medium mt-1 truncate">Pico de lluvia</p>
         </div>
 
         {/* Card 5: Equivalent Water Volume (m3/Ha) */}
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+        <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">Volumen por Ha</span>
             <Layers className="w-4 h-4 text-emerald-800 shrink-0" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
-            {(totalYearMm * 10).toLocaleString()} <span className="text-xs font-medium text-slate-500">m³/Ha</span>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate tracking-tight">
+            {(totalYearMm * 10).toLocaleString()} <span className="text-xs font-medium text-[#A5B8AC]">m³/Ha</span>
           </p>
           <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">10k L x mm caídos</p>
         </div>
@@ -341,11 +341,11 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {/* ========================================================================= */}
       {/* 3. CONTROLS BAR: PREDIO SELECTOR, YEAR SELECTOR, VIEW TABS */}
       {/* ========================================================================= */}
-      <div className="bg-white p-4 rounded-2xl border-2 border-[#c1c8c2] card-shadow space-y-3">
+      <div className="bg-[#15241C] p-4 rounded-2xl border-2 border-white/10 card-shadow space-y-3">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
           {/* Farm Switcher Pills */}
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-bold text-[#012d1d] flex items-center gap-1.5">
+            <span className="text-xs font-bold text-white flex items-center gap-1.5">
               <Building2 className="w-4 h-4 text-[#2d6a4f]" />
               Finca / Predio:
             </span>
@@ -354,8 +354,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
               onClick={() => onSelectFarm('all')}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 selectedFarmId === 'all'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'bg-[#f4fbf7] text-[#012d1d] hover:bg-[#c1ecd4]/50 border border-[#c1c8c2]'
+                  ? 'bg-[#0D1A13] text-white shadow-xs'
+                  : 'bg-[#f4fbf7] text-white hover:bg-[#c1ecd4]/50 border border-white/10'
               }`}
             >
               Todos los Predios ({farms.length})
@@ -369,8 +369,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                   onClick={() => onSelectFarm(f.profile.id)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 border ${
                     isSelected
-                      ? 'bg-[#1b4332] text-white border-[#1b4332] shadow-xs'
-                      : 'bg-white text-[#1a1c1c] border-[#c1c8c2] hover:border-[#012d1d]'
+                      ? 'bg-[#123F2A] text-white border-[#1b4332] shadow-xs'
+                      : 'bg-[#15241C] text-white border-white/10 hover:border-[#012d1d]'
                   }`}
                 >
                   <MapPin className={`w-3 h-3 ${isSelected ? 'text-[#ffba38]' : 'text-[#717973]'}`} />
@@ -383,18 +383,18 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
           {/* Year Selector */}
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold text-[#414844] flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5 text-[#012d1d]" />
+              <Calendar className="w-3.5 h-3.5 text-white" />
               Año de Análisis:
             </span>
-            <div className="flex items-center gap-1 bg-[#f3f3f3] p-1 rounded-xl border border-[#c1c8c2]">
+            <div className="flex items-center gap-1 bg-[#f3f3f3] p-1 rounded-xl border border-white/10">
               {[2023, 2024, 2025, 2026].map((yr) => (
                 <button
                   key={yr}
                   onClick={() => setSelectedYear(yr)}
                   className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     selectedYear === yr
-                      ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
-                      : 'text-[#414844] hover:text-[#012d1d]'
+                      ? 'bg-[#0D1A13] text-[#ffba38] shadow-xs'
+                      : 'text-[#414844] hover:text-white'
                   }`}
                 >
                   {yr}
@@ -410,8 +410,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             onClick={() => setActiveTab('daily')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
               activeTab === 'daily'
-                ? 'bg-[#012d1d] text-white shadow-xs'
-                : 'bg-[#f8fbf9] text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
+                : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
             }`}
           >
             <CalendarDays className="w-4 h-4 text-[#ffba38]" />
@@ -422,11 +422,11 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             onClick={() => setActiveTab('monthly')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
               activeTab === 'monthly'
-                ? 'bg-[#012d1d] text-white shadow-xs'
-                : 'bg-[#f8fbf9] text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
+                : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
             }`}
           >
-            <BarChart3 className="w-4 h-4 text-[#c1ecd4]" />
+            <BarChart3 className="w-4 h-4 text-[#A5B8AC]" />
             <span>Consolidado Mensual</span>
           </button>
 
@@ -434,8 +434,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             onClick={() => setActiveTab('yearly')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
               activeTab === 'yearly'
-                ? 'bg-[#012d1d] text-white shadow-xs'
-                : 'bg-[#f8fbf9] text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
+                : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
             }`}
           >
             <Layers className="w-4 h-4 text-[#caf0f8]" />
@@ -446,8 +446,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             onClick={() => setActiveTab('multiyear')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
               activeTab === 'multiyear'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
-                : 'bg-[#f8fbf9] text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-xs'
+                : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
             }`}
           >
             <TrendingUp className="w-4 h-4 text-[#ffba38]" />
@@ -458,8 +458,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             onClick={() => setActiveTab('farm_comparison')}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
               activeTab === 'farm_comparison'
-                ? 'bg-[#012d1d] text-white shadow-xs'
-                : 'bg-[#f8fbf9] text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
+                : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
             }`}
           >
             <Building2 className="w-4 h-4 text-emerald-400" />
@@ -474,8 +474,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {activeTab === 'daily' && (
         <div className="space-y-6">
           {/* Month Selector bar inside Daily view */}
-          <div className="bg-[#f0f4f1] p-3 rounded-2xl border border-[#c1c8c2] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <span className="text-xs font-bold text-[#012d1d] uppercase tracking-wider flex items-center gap-2">
+          <div className="bg-[#123F2A]/60 p-3 rounded-2xl border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#2d6a4f]" />
               Selecciona el Mes del Año {selectedYear}:
             </span>
@@ -490,8 +490,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                     onClick={() => setSelectedMonth(mNum)}
                     className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 ${
                       isSel
-                        ? 'bg-[#012d1d] text-white shadow-xs'
-                        : 'bg-white text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                        ? 'bg-[#0D1A13] text-white shadow-xs'
+                        : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
                     }`}
                   >
                     {mShort}
@@ -502,13 +502,13 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
           </div>
 
           {/* Daily Bar Chart */}
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-5 card-shadow space-y-3">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl p-5 card-shadow space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eeeeee] pb-3">
               <div>
                 <span className="text-[10px] font-extrabold uppercase bg-[#0077b6] text-white px-2 py-0.5 rounded font-mono">
                   CURVA DIARIA EN MM
                 </span>
-                <h3 className="text-lg font-bold text-[#012d1d] mt-1">
+                <h3 className="text-lg font-bold text-white mt-1">
                   Precipitación Diaria en {MONTH_NAMES_SPANISH[selectedMonth - 1]} {selectedYear}
                 </h3>
               </div>
@@ -545,10 +545,10 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
           </div>
 
           {/* Daily Records List / Table */}
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl card-shadow overflow-hidden">
-            <div className="bg-[#012d1d] text-white p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl card-shadow overflow-hidden">
+            <div className="bg-[#0D1A13] text-white p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <span className="bg-[#ffba38] text-[#523700] text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono">
+                <span className="bg-[#D4A94E] text-[#0D1A13] text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono">
                   HISTORIAL DE REGISTROS
                 </span>
                 <h3 className="text-lg font-bold text-white mt-1">
@@ -571,7 +571,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold uppercase text-[11px] border-b-2 border-[#c1c8c2]">
+                  <tr className="bg-[#123F2A]/60 text-white font-bold uppercase text-[11px] border-b-2 border-white/10">
                     <th className="p-3">Fecha</th>
                     <th className="p-3">Finca / Predio</th>
                     <th className="p-3 text-right">Lluvia (mm)</th>
@@ -593,11 +593,11 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                   ) : (
                     dailyMonthRecords.map((r) => (
                       <tr key={r.id} className="hover:bg-[#f9fbf9] transition-colors">
-                        <td className="p-3 font-mono font-bold text-[#012d1d]">
+                        <td className="p-3 font-mono font-bold text-white">
                           {r.date}
                         </td>
                         <td className="p-3 font-semibold text-[#2d6a4f] flex items-center gap-1">
-                          <Building2 className="w-3.5 h-3.5 text-[#012d1d]" />
+                          <Building2 className="w-3.5 h-3.5 text-white" />
                           {r.farmName || 'Predio Principal'}
                         </td>
                         <td className="p-3 text-right font-mono font-black text-sm text-[#0077b6]">
@@ -612,10 +612,10 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                               r.intensity === 'torrencial'
                                 ? 'bg-[#ffdad6] text-[#93000a]'
                                 : r.intensity === 'fuerte'
-                                ? 'bg-[#ffdeac] text-[#523700]'
+                                ? 'bg-[#ffdeac] text-[#0D1A13]'
                                 : r.intensity === 'moderada'
                                 ? 'bg-[#caf0f8] text-[#03045e]'
-                                : 'bg-[#e2ede6] text-[#012d1d]'
+                                : 'bg-[#e2ede6] text-white'
                             }`}
                           >
                             {r.intensity || 'moderada'}
@@ -646,24 +646,24 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {activeTab === 'monthly' && (
         <div className="space-y-6">
           {/* Monthly Comparison Area/Bar Chart */}
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-5 card-shadow space-y-4">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl p-5 card-shadow space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eeeeee] pb-3">
               <div>
-                <span className="text-[10px] font-extrabold uppercase bg-[#012d1d] text-[#ffba38] px-2 py-0.5 rounded font-mono">
+                <span className="text-[10px] font-extrabold uppercase bg-[#0D1A13] text-[#ffba38] px-2 py-0.5 rounded font-mono">
                   ANÁLISIS MENSUAL AÑO {selectedYear}
                 </span>
-                <h3 className="text-lg font-bold text-[#012d1d] mt-1">
+                <h3 className="text-lg font-bold text-white mt-1">
                   Distribución Mensual de Precipitaciones vs Promedio Histórico
                 </h3>
               </div>
               <div className="flex items-center gap-4 text-xs">
                 <div className="flex items-center gap-1.5">
                   <div className="w-3 h-3 bg-[#0077b6] rounded" />
-                  <span className="font-bold text-[#012d1d]">Lluvia Real (mm)</span>
+                  <span className="font-bold text-white">Lluvia Real (mm)</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-1 bg-[#ffba38] border-t-2 border-dashed border-[#523700]" />
-                  <span className="font-bold text-[#523700]">Promedio Histórico</span>
+                  <div className="w-3 h-1 bg-[#D4A94E] border-t-2 border-dashed border-[#523700]" />
+                  <span className="font-bold text-[#0D1A13]">Promedio Histórico</span>
                 </div>
               </div>
             </div>
@@ -690,12 +690,12 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
           </div>
 
           {/* Monthly Breakdown Data Table */}
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl card-shadow overflow-hidden">
-            <div className="bg-[#012d1d] text-white p-4">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl card-shadow overflow-hidden">
+            <div className="bg-[#0D1A13] text-white p-4">
               <h3 className="text-lg font-bold">
                 Tabla de Consolidado Mensual de Precipitaciones ({selectedYear})
               </h3>
-              <p className="text-xs text-[#c1ecd4]">
+              <p className="text-xs text-[#A5B8AC]">
                 Comparativa entre lluvia caída en el mes, días de lluvia y variación porcentual respecto al promedio histórico.
               </p>
             </div>
@@ -703,7 +703,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold uppercase text-[11px] border-b-2 border-[#c1c8c2]">
+                  <tr className="bg-[#123F2A]/60 text-white font-bold uppercase text-[11px] border-b-2 border-white/10">
                     <th className="p-3">Mes</th>
                     <th className="p-3 text-right">Lluvia Total (mm)</th>
                     <th className="p-3 text-right">Prom. Histórico (mm)</th>
@@ -720,7 +720,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
 
                     return (
                       <tr key={m.month} className="hover:bg-[#f9fbf9] transition-colors">
-                        <td className="p-3 font-bold text-[#012d1d] text-sm">
+                        <td className="p-3 font-bold text-white text-sm">
                           {m.monthLabel} ({MONTH_NAMES_SPANISH[m.month - 1]})
                         </td>
                         <td className="p-3 text-right font-mono font-black text-sm text-[#0077b6]">
@@ -729,7 +729,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                         <td className="p-3 text-right font-mono font-semibold text-[#717973]">
                           {m.historicalAvg} mm
                         </td>
-                        <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                        <td className="p-3 text-center font-mono font-bold text-white">
                           {m.rainyDays} días
                         </td>
                         <td className="p-3 text-right font-mono text-amber-900 font-bold">
@@ -774,19 +774,19 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {/* ========================================================================= */}
       {activeTab === 'yearly' && (
         <div className="space-y-6">
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl p-6 card-shadow space-y-4">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-4">
               <div>
-                <span className="bg-[#012d1d] text-[#ffba38] text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono">
+                <span className="bg-[#0D1A13] text-[#ffba38] text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono">
                   RESUMEN ANUAL CONSOLIDADO
                 </span>
-                <h3 className="text-xl font-bold text-[#012d1d] mt-1">
+                <h3 className="text-xl font-bold text-white mt-1">
                   Balance Pluviométrico del Año {selectedYear}
                 </h3>
               </div>
               <div className="text-right">
                 <span className="text-xs text-[#717973] block uppercase font-bold">Total Acumulado</span>
-                <span className="text-3xl font-black font-mono text-[#012d1d]">
+                <span className="text-3xl font-black font-mono text-white">
                   {totalYearMm.toLocaleString()} mm
                 </span>
               </div>
@@ -796,15 +796,15 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="bg-[#f0f7f4] border border-[#c1ecd4] rounded-2xl p-4">
                 <span className="text-xs font-bold text-[#2d6a4f] uppercase block">Mes Más Lluvioso</span>
-                <p className="text-xl font-black text-[#012d1d] mt-1">
+                <p className="text-xl font-black text-white mt-1">
                   {monthlyTotals.reduce((prev, curr) => (curr.totalMm > prev.totalMm ? curr : prev), monthlyTotals[0]).monthLabel} ({monthlyTotals.reduce((prev, curr) => (curr.totalMm > prev.totalMm ? curr : prev), monthlyTotals[0]).totalMm} mm)
                 </p>
                 <p className="text-[10px] text-[#717973] mt-1">Pico máximo invernal</p>
               </div>
 
               <div className="bg-[#fffdf0] border border-[#ffe066] rounded-2xl p-4">
-                <span className="text-xs font-bold text-[#523700] uppercase block">Mes Más Seco</span>
-                <p className="text-xl font-black text-[#523700] mt-1">
+                <span className="text-xs font-bold text-[#0D1A13] uppercase block">Mes Más Seco</span>
+                <p className="text-xl font-black text-[#0D1A13] mt-1">
                   {monthlyTotals.reduce((prev, curr) => (curr.totalMm < prev.totalMm ? curr : prev), monthlyTotals[0]).monthLabel} ({monthlyTotals.reduce((prev, curr) => (curr.totalMm < prev.totalMm ? curr : prev), monthlyTotals[0]).totalMm} mm)
                 </p>
                 <p className="text-[10px] text-[#717973] mt-1">Estación de verano / sequía</p>
@@ -818,18 +818,18 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                 <p className="text-[10px] text-[#717973] mt-1">Promedio simple mensual</p>
               </div>
 
-              <div className="bg-[#012d1d] text-white rounded-2xl p-4">
+              <div className="bg-[#0D1A13] text-white rounded-2xl p-4">
                 <span className="text-xs font-bold text-[#ffba38] uppercase block">Volumen Hídrico Total</span>
                 <p className="text-xl font-black text-white mt-1">
                   {(totalYearMm * 10 * (activeFarm?.profile.totalAreaHa || 100) / 1000).toLocaleString()} m³
                 </p>
-                <p className="text-[10px] text-[#c1ecd4] mt-1">Recibidos en {activeFarm?.profile.name || 'el predio'}</p>
+                <p className="text-[10px] text-[#A5B8AC] mt-1">Recibidos en {activeFarm?.profile.name || 'el predio'}</p>
               </div>
             </div>
 
             {/* Area Chart for Annual Cumulative Rainfall */}
             <div className="pt-4">
-              <h4 className="text-sm font-bold text-[#012d1d] mb-2">
+              <h4 className="text-sm font-bold text-white mb-2">
                 Acumulado Progresivo de Lluvia (mm) a lo largo de {selectedYear}:
               </h4>
               <div className="h-64 w-full">
@@ -863,13 +863,13 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {activeTab === 'multiyear' && (
         <div className="space-y-6">
           {/* Multi-Year Comparison Line Chart */}
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-5 card-shadow space-y-4">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl p-5 card-shadow space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eeeeee] pb-3">
               <div>
-                <span className="text-[10px] font-extrabold uppercase bg-[#012d1d] text-[#ffba38] px-2 py-0.5 rounded font-mono">
+                <span className="text-[10px] font-extrabold uppercase bg-[#0D1A13] text-[#ffba38] px-2 py-0.5 rounded font-mono">
                   COMPARATIVA MULTIANUAL
                 </span>
-                <h3 className="text-xl font-bold text-[#012d1d] mt-1">
+                <h3 className="text-xl font-bold text-white mt-1">
                   Curvas de Lluvia Mensual Comparadas (2023 vs 2024 vs 2025 vs 2026)
                 </h3>
                 <p className="text-xs text-[#717973]">
@@ -901,8 +901,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
 
           {/* Side-by-Side Annual Totals Bar Chart */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-5 card-shadow space-y-3">
-              <h3 className="text-lg font-bold text-[#012d1d]">
+            <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl p-5 card-shadow space-y-3">
+              <h3 className="text-lg font-bold text-white">
                 Totales Anuales Acumulados por Año (mm)
               </h3>
               <p className="text-xs text-[#717973]">
@@ -933,9 +933,9 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             </div>
 
             {/* Multi-Year Statistical Summary Table */}
-            <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-5 card-shadow space-y-3 flex flex-col justify-between">
+            <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl p-5 card-shadow space-y-3 flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-[#012d1d]">
+                <h3 className="text-lg font-bold text-white">
                   Resumen Estadístico Multianual
                 </h3>
                 <p className="text-xs text-[#717973] mb-3">
@@ -946,10 +946,10 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                   {annualTotals.map((at) => (
                     <div
                       key={at.year}
-                      className="p-3 bg-[#f8fbf9] border border-[#c1c8c2] rounded-xl flex items-center justify-between"
+                      className="p-3 bg-[#15241C] border border-white/10 rounded-xl flex items-center justify-between"
                     >
                       <div>
-                        <span className="font-mono font-black text-sm text-[#012d1d]">
+                        <span className="font-mono font-black text-sm text-white">
                           Año {at.year}
                         </span>
                         <span className="text-[10px] text-[#717973] block font-medium">
@@ -971,7 +971,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
               </div>
 
               <div className="pt-3 border-t border-[#eeeeee] text-xs text-[#414844] flex items-center gap-2">
-                <Info className="w-4 h-4 text-[#012d1d] shrink-0" />
+                <Info className="w-4 h-4 text-white shrink-0" />
                 <span>
                   Promedio multianual registrado: <strong>1,850 mm/año</strong>. Variabilidad interanual: ~18%.
                 </span>
@@ -986,13 +986,13 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {/* ========================================================================= */}
       {activeTab === 'farm_comparison' && (
         <div className="space-y-6">
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl p-5 card-shadow space-y-4">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl p-5 card-shadow space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eeeeee] pb-3">
               <div>
-                <span className="text-[10px] font-extrabold uppercase bg-[#012d1d] text-white px-2 py-0.5 rounded font-mono">
+                <span className="text-[10px] font-extrabold uppercase bg-[#0D1A13] text-white px-2 py-0.5 rounded font-mono">
                   MICROCLIMAS Y FINCAS
                 </span>
-                <h3 className="text-xl font-bold text-[#012d1d] mt-1">
+                <h3 className="text-xl font-bold text-white mt-1">
                   Comparativa de Precipitaciones por Predio ({selectedYear})
                 </h3>
                 <p className="text-xs text-[#717973]">
@@ -1022,8 +1022,8 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
           </div>
 
           {/* Farm Comparison Details Table */}
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl card-shadow overflow-hidden">
-            <div className="bg-[#012d1d] text-white p-4">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl card-shadow overflow-hidden">
+            <div className="bg-[#0D1A13] text-white p-4">
               <h3 className="text-lg font-bold">
                 Desglose de Captación Hídrica por Predio ({selectedYear})
               </h3>
@@ -1032,7 +1032,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold uppercase text-[11px] border-b-2 border-[#c1c8c2]">
+                  <tr className="bg-[#123F2A]/60 text-white font-bold uppercase text-[11px] border-b-2 border-white/10">
                     <th className="p-3">Predio / Finca</th>
                     <th className="p-3">Ubicación</th>
                     <th className="p-3 text-right">Área (Ha)</th>
@@ -1045,19 +1045,19 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
                 <tbody className="divide-y divide-[#eeeeee]">
                   {farmComparisonData.map((f) => (
                     <tr key={f.farmId} className="hover:bg-[#f9fbf9] transition-colors">
-                      <td className="p-3 font-black text-sm text-[#012d1d]">
+                      <td className="p-3 font-black text-sm text-white">
                         {f.farmName}
                       </td>
                       <td className="p-3 text-[#414844] font-medium">
                         {f.municipality}, {f.department}
                       </td>
-                      <td className="p-3 text-right font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-right font-mono font-bold text-white">
                         {f.totalAreaHa} Ha
                       </td>
                       <td className="p-3 text-right font-mono font-black text-sm text-[#0077b6]">
                         {f.totalMm} mm
                       </td>
-                      <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-center font-mono font-bold text-white">
                         {f.rainyDays} días
                       </td>
                       <td className="p-3 text-right font-mono font-bold text-amber-900">
@@ -1078,10 +1078,10 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
       {/* ========================================================================= */}
       {/* 6. FUTURA AUTOMATIZACIÓN Y CAPTURA INTELIGENTE (IOT, IA Y FUENTES OFICIALES) */}
       {/* ========================================================================= */}
-      <div className="bg-[#012d1d] text-white rounded-3xl p-6 border-2 border-[#ffba38] shadow-xl space-y-4">
+      <div className="bg-[#0D1A13] text-white rounded-3xl p-6 border-2 border-[#ffba38] shadow-xl space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-white/10 pb-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#1b4332] rounded-2xl text-[#ffba38] border border-[#2d6a4f]">
+            <div className="p-3 bg-[#123F2A] rounded-2xl text-[#ffba38] border border-[#2d6a4f]">
               <Sparkles className="w-6 h-6" />
             </div>
             <div>
@@ -1093,12 +1093,12 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
               </h3>
             </div>
           </div>
-          <span className="bg-[#1b4332] text-[#c1ecd4] text-xs font-mono font-bold px-3 py-1 rounded-full border border-[#2d6a4f] self-start md:self-auto">
+          <span className="bg-[#123F2A] text-[#A5B8AC] text-xs font-mono font-bold px-3 py-1 rounded-full border border-[#2d6a4f] self-start md:self-auto">
             Módulo Preparado para Sensores
           </span>
         </div>
 
-        <p className="text-xs md:text-sm text-[#c1ecd4] leading-relaxed">
+        <p className="text-xs md:text-sm text-[#A5B8AC] leading-relaxed">
           Diseñado para expandirse con tres métodos automáticos de captura de datos pluviométricos para eliminar el registro manual en potrero:
         </p>
 
@@ -1106,13 +1106,13 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
           {/* Card 1: IoT Telemetry */}
           <div className="bg-[#023e2a] border border-[#2d6a4f] hover:border-[#ffba38] p-4 rounded-2xl transition-all space-y-2">
             <div className="flex items-center justify-between">
-              <span className="bg-[#ffba38] text-[#012d1d] text-[9px] font-black uppercase px-2 py-0.5 rounded font-mono">
+              <span className="bg-[#D4A94E] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded font-mono">
                 1. SENSORES IOT
               </span>
               <Zap className="w-4 h-4 text-[#ffba38]" />
             </div>
             <h4 className="text-sm font-bold text-white">Pluviómetro de Señal Automática</h4>
-            <p className="text-xs text-[#c1ecd4]/80 leading-snug">
+            <p className="text-xs text-[#A5B8AC]/80 leading-snug">
               Pluviómetros digitales de balancín con transmisión inalámbrica (LoRaWAN, Sigfox o 4G/NB-IoT) que envían los pulsos en mm inmediatamente al comenzar a llover.
             </p>
           </div>
@@ -1120,13 +1120,13 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
           {/* Card 2: Photo OCR */}
           <div className="bg-[#023e2a] border border-[#2d6a4f] hover:border-[#ffba38] p-4 rounded-2xl transition-all space-y-2">
             <div className="flex items-center justify-between">
-              <span className="bg-[#c1ecd4] text-[#012d1d] text-[9px] font-black uppercase px-2 py-0.5 rounded font-mono">
+              <span className="bg-[#c1ecd4] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded font-mono">
                 2. LECTURA POR FOTO (IA)
               </span>
-              <Sparkles className="w-4 h-4 text-[#c1ecd4]" />
+              <Sparkles className="w-4 h-4 text-[#A5B8AC]" />
             </div>
             <h4 className="text-sm font-bold text-white">Reconocimiento Óptico (OCR)</h4>
-            <p className="text-xs text-[#c1ecd4]/80 leading-snug">
+            <p className="text-xs text-[#A5B8AC]/80 leading-snug">
               El mayordomo toma una foto con el celular al menisco de agua en la probeta calibrada del pluviómetro físico y la visión de IA calcula de forma exacta los mm caídos.
             </p>
           </div>
@@ -1140,7 +1140,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
               <CloudRain className="w-4 h-4 text-[#caf0f8]" />
             </div>
             <h4 className="text-sm font-bold text-white">Estaciones Meteorológicas & Satélite</h4>
-            <p className="text-xs text-[#c1ecd4]/80 leading-snug">
+            <p className="text-xs text-[#A5B8AC]/80 leading-snug">
               Conexión directa vía API con estaciones del IDEAM, NOAA, Open-Meteo y radares pluviométricos zonales para validar y complementar los datos de cada predio.
             </p>
           </div>

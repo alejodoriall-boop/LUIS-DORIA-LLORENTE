@@ -400,10 +400,10 @@ _Generado por GanaderIA PRO Software Ganadero_`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 overflow-y-auto bg-black/70 backdrop-blur-xs">
-      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] text-slate-900 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-5xl bg-[#15241C] border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] text-white animate-in fade-in zoom-in-95 duration-200">
         
         {/* MODAL HEADER */}
-        <div className="px-6 py-4 bg-[#012d1d] text-white border-b border-[#1b4332] flex items-center justify-between shrink-0">
+        <div className="px-6 py-4 bg-[#0D1A13] text-white border-b border-[#1b4332] flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-2xl bg-[#083d28] border border-[#2d6a4f] flex items-center justify-center text-pink-300 shadow-inner">
               <HeartPulse className="w-6 h-6 animate-pulse" />
@@ -425,7 +425,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
 
           <button
             onClick={onClose}
-            className="text-slate-300 hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer"
+            className="text-[#A5B8AC] hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors cursor-pointer"
             title="Cerrar ventana"
           >
             <X className="w-5 h-5" />
@@ -433,15 +433,15 @@ _Generado por GanaderIA PRO Software Ganadero_`;
         </div>
 
         {/* TOP TAB CONTROLS (INDIVIDUAL VS BATCH) */}
-        <div className="px-6 pt-3 pb-2 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-4 shrink-0 flex-wrap">
-          <div className="flex items-center gap-2 bg-slate-200/80 p-1 rounded-xl border border-slate-300">
+        <div className="px-6 pt-3 pb-2 bg-[#0D1A13] border-b border-white/10 flex items-center justify-between gap-4 shrink-0 flex-wrap">
+          <div className="flex items-center gap-2 bg-slate-200/80 p-1 rounded-xl border border-white/15">
             <button
               type="button"
               onClick={() => setActiveTab('batch')}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs md:text-sm font-black transition-all cursor-pointer ${
                 activeTab === 'batch'
-                  ? 'bg-[#012d1d] text-white shadow-md'
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-white/70'
+                  ? 'bg-[#0D1A13] text-white shadow-md'
+                  : 'text-white hover:text-white hover:bg-white/70'
               }`}
             >
               <FileSpreadsheet className="w-4 h-4" />
@@ -454,7 +454,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs md:text-sm font-black transition-all cursor-pointer ${
                 activeTab === 'individual'
                   ? 'bg-pink-700 text-white shadow-md'
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-white/70'
+                  : 'text-white hover:text-white hover:bg-white/70'
               }`}
             >
               <Stethoscope className="w-4 h-4" />
@@ -463,26 +463,26 @@ _Generado por GanaderIA PRO Software Ganadero_`;
           </div>
 
           {/* Quick Header Metadata Bar */}
-          <div className="flex items-center gap-3 text-xs text-slate-700">
-            <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl border border-slate-300 shadow-2xs">
+          <div className="flex items-center gap-3 text-xs text-white">
+            <div className="flex items-center gap-1.5 bg-[#15241C] px-3 py-1.5 rounded-xl border border-white/15 shadow-2xs">
               <Calendar className="w-3.5 h-3.5 text-pink-600" />
               <input
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="bg-transparent text-slate-900 font-bold focus:outline-hidden cursor-pointer"
+                className="bg-transparent text-white font-bold focus:outline-hidden cursor-pointer"
               />
             </div>
 
-            <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl border border-slate-300 shadow-2xs">
+            <div className="flex items-center gap-1.5 bg-[#15241C] px-3 py-1.5 rounded-xl border border-white/15 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-emerald-700" />
               <select
                 value={selectedLotId}
                 onChange={(e) => setSelectedLotId(e.target.value)}
-                className="bg-transparent text-slate-900 font-bold focus:outline-hidden max-w-[150px] truncate cursor-pointer"
+                className="bg-transparent text-white font-bold focus:outline-hidden max-w-[150px] truncate cursor-pointer"
               >
                 {lots.map((l) => (
-                  <option key={l.id} value={l.id} className="bg-white text-slate-900">
+                  <option key={l.id} value={l.id} className="bg-[#15241C] text-white">
                     {l.name}
                   </option>
                 ))}
@@ -501,9 +501,9 @@ _Generado por GanaderIA PRO Software Ganadero_`;
             <div className="space-y-6">
               {/* LIVE KPI METRICS BANNER */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                <div className="bg-white border border-slate-200 p-3.5 rounded-2xl shadow-2xs">
-                  <span className="text-[10px] text-slate-500 uppercase font-black block">Total Evaluadas</span>
-                  <span className="text-2xl font-black text-slate-900">{batchStats.total}</span>
+                <div className="bg-[#15241C] border border-white/10 p-3.5 rounded-2xl shadow-2xs">
+                  <span className="text-[10px] text-[#A5B8AC] uppercase font-black block">Total Evaluadas</span>
+                  <span className="text-2xl font-black text-white">{batchStats.total}</span>
                   <span className="text-[10px] text-emerald-700 font-bold block">Hembras en manga</span>
                 </div>
 
@@ -534,16 +534,16 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   <span className="text-[10px] text-pink-700 font-bold block">Edad gestacional</span>
                 </div>
 
-                <div className="bg-white border border-slate-200 p-3.5 rounded-2xl shadow-2xs flex flex-col justify-between">
-                  <span className="text-[10px] text-slate-500 uppercase font-black block">Acciones Rápidas</span>
+                <div className="bg-[#15241C] border border-white/10 p-3.5 rounded-2xl shadow-2xs flex flex-col justify-between">
+                  <span className="text-[10px] text-[#A5B8AC] uppercase font-black block">Acciones Rápidas</span>
                   <div className="flex gap-1.5 pt-1">
                     <button
                       type="button"
                       onClick={downloadPalpationExcelTemplate}
-                      className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 p-1.5 rounded-xl border border-slate-300 text-[10px] font-bold flex items-center justify-center gap-1 transition-colors cursor-pointer"
+                      className="flex-1 bg-[#1F3327] hover:bg-[#202E25] text-white hover:text-white p-1.5 rounded-xl border border-white/15 text-[10px] font-bold flex items-center justify-center gap-1 transition-colors cursor-pointer"
                       title="Descargar plantilla Excel para diligenciar en campo"
                     >
-                      <Download className="w-3 h-3 text-slate-700" />
+                      <Download className="w-3 h-3 text-white" />
                       <span>Plantilla</span>
                     </button>
                     <button
@@ -559,15 +559,15 @@ _Generado por GanaderIA PRO Software Ganadero_`;
               </div>
 
               {/* BATCH SUB-NAVIGATION: TABLE / UPLOAD / PASTE */}
-              <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+              <div className="flex items-center justify-between border-b border-white/10 pb-2">
                 <div className="flex gap-2 text-xs">
                   <button
                     type="button"
                     onClick={() => setBatchSubMode('table')}
                     className={`px-3.5 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                       batchSubMode === 'table'
-                        ? 'bg-[#012d1d] text-white shadow-xs'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                        ? 'bg-[#0D1A13] text-white shadow-xs'
+                        : 'bg-[#15241C] text-white border border-white/10 hover:bg-[#1F3327]'
                     }`}
                   >
                     <Layers className="w-3.5 h-3.5" />
@@ -579,8 +579,8 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                     onClick={() => setBatchSubMode('file')}
                     className={`px-3.5 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                       batchSubMode === 'file'
-                        ? 'bg-[#012d1d] text-white shadow-xs'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                        ? 'bg-[#0D1A13] text-white shadow-xs'
+                        : 'bg-[#15241C] text-white border border-white/10 hover:bg-[#1F3327]'
                     }`}
                   >
                     <Upload className="w-3.5 h-3.5" />
@@ -592,8 +592,8 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                     onClick={() => setBatchSubMode('paste')}
                     className={`px-3.5 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                       batchSubMode === 'paste'
-                        ? 'bg-[#012d1d] text-white shadow-xs'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
+                        ? 'bg-[#0D1A13] text-white shadow-xs'
+                        : 'bg-[#15241C] text-white border border-white/10 hover:bg-[#1F3327]'
                     }`}
                   >
                     <FileText className="w-3.5 h-3.5" />
@@ -603,11 +603,11 @@ _Generado por GanaderIA PRO Software Ganadero_`;
 
                 {batchSubMode === 'table' && (
                   <div className="flex items-center gap-2">
-                    <Filter className="w-3.5 h-3.5 text-slate-500" />
+                    <Filter className="w-3.5 h-3.5 text-[#A5B8AC]" />
                     <select
                       value={tableFilter}
                       onChange={(e: any) => setTableFilter(e.target.value)}
-                      className="bg-white border border-slate-300 text-xs text-slate-800 font-bold rounded-xl px-2.5 py-1 focus:outline-hidden cursor-pointer shadow-2xs"
+                      className="bg-[#15241C] border border-white/15 text-xs text-white font-bold rounded-xl px-2.5 py-1 focus:outline-hidden cursor-pointer shadow-2xs"
                     >
                       <option value="all">Todas ({batchItems.length})</option>
                       <option value="preñada">Preñadas ({batchStats.prenadas})</option>
@@ -620,7 +620,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
 
               {/* SUBMODE: FILE UPLOAD */}
               {batchSubMode === 'file' && (
-                <div className="p-6 bg-white border border-dashed border-slate-300 rounded-2xl text-center space-y-4 shadow-2xs">
+                <div className="p-6 bg-[#15241C] border border-dashed border-white/15 rounded-2xl text-center space-y-4 shadow-2xs">
                   <div
                     onDragOver={(e) => {
                       e.preventDefault();
@@ -635,18 +635,18 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                       }
                     }}
                     className={`p-8 rounded-2xl transition-colors cursor-pointer ${
-                      isDragging ? 'bg-emerald-50 border border-emerald-500' : 'bg-slate-50 hover:bg-emerald-50/50 border border-slate-200'
+                      isDragging ? 'bg-emerald-950/30 border border-emerald-500' : 'bg-[#0D1A13] hover:bg-emerald-50/50 border border-white/10'
                     }`}
                     onClick={() => fileInputRef.current?.click()}
                   >
                     <Upload className="w-12 h-12 text-emerald-700 mx-auto mb-3 animate-bounce" />
-                    <h3 className="font-black text-base text-slate-900">Arrastra y suelta tu archivo Excel / CSV aquí</h3>
-                    <p className="text-xs text-slate-500 mt-1">
+                    <h3 className="font-black text-base text-white">Arrastra y suelta tu archivo Excel / CSV aquí</h3>
+                    <p className="text-xs text-[#A5B8AC] mt-1">
                       Compatible con columnas automáticas: Arete, Diagnóstico, Días de Preñez, Ovario Izq, Ovario Der, Útero
                     </p>
                     <button
                       type="button"
-                      className="mt-4 px-4 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs rounded-xl shadow-xs transition-all cursor-pointer"
+                      className="mt-4 px-4 py-2 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs rounded-xl shadow-xs transition-all cursor-pointer"
                     >
                       Seleccionar Archivo
                     </button>
@@ -663,7 +663,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                     />
                   </div>
 
-                  <div className="flex items-center justify-center gap-3 pt-2 text-xs text-slate-600">
+                  <div className="flex items-center justify-center gap-3 pt-2 text-xs text-[#A5B8AC]">
                     <FileSpreadsheet className="w-4 h-4 text-pink-600" />
                     <span>¿No tienes la plantilla?</span>
                     <button
@@ -679,12 +679,12 @@ _Generado por GanaderIA PRO Software Ganadero_`;
 
               {/* SUBMODE: PASTE TEXT */}
               {batchSubMode === 'paste' && (
-                <div className="p-5 bg-white border border-slate-200 rounded-2xl space-y-4 shadow-2xs">
+                <div className="p-5 bg-[#15241C] border border-white/10 rounded-2xl space-y-4 shadow-2xs">
                   <div>
-                    <label className="block text-xs font-black text-slate-800 uppercase mb-1">
+                    <label className="block text-xs font-black text-white uppercase mb-1">
                       Pega aquí tus datos copiados desde Excel, Google Sheets o WhatsApp
                     </label>
-                    <p className="text-xs text-slate-500 mb-2">
+                    <p className="text-xs text-[#A5B8AC] mb-2">
                       Formato recomendado tabulado o separado por comas: Arete | Diagnóstico (Preñada/Vacía/Dudosa) | Días Gestación | Observación
                     </p>
                     <textarea
@@ -692,7 +692,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                       value={pastedText}
                       onChange={(e) => setPastedText(e.target.value)}
                       placeholder={`Ejemplo:\n#101\tPreñada\t45\tCL Activo OI\n#102\tVacía\t0\tApta IATF\n#103\tDudosa\t30\tRepetir en 30d`}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs text-slate-900 font-mono focus:bg-white focus:border-emerald-600 focus:outline-hidden"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-3 text-xs text-white font-mono focus:bg-[#15241C] focus:border-emerald-600 focus:outline-hidden"
                     />
                   </div>
 
@@ -700,14 +700,14 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                     <button
                       type="button"
                       onClick={() => setPastedText('')}
-                      className="px-3 py-1.5 text-xs text-slate-500 hover:text-slate-800 cursor-pointer font-bold"
+                      className="px-3 py-1.5 text-xs text-[#A5B8AC] hover:text-white cursor-pointer font-bold"
                     >
                       Limpiar
                     </button>
                     <button
                       type="button"
                       onClick={handleProcessPastedText}
-                      className="px-4 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs rounded-xl shadow-xs flex items-center gap-1.5 cursor-pointer"
+                      className="px-4 py-2 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs rounded-xl shadow-xs flex items-center gap-1.5 cursor-pointer"
                     >
                       <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
                       <span>Procesar e Importar Filas</span>
@@ -724,7 +724,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                 </div>
               )}
               {importSuccessMsg && (
-                <div className="p-3 bg-emerald-50 border border-emerald-300 rounded-xl text-emerald-800 text-xs flex items-center gap-2">
+                <div className="p-3 bg-emerald-950/30 border border-emerald-300 rounded-xl text-emerald-800 text-xs flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>{importSuccessMsg}</span>
                 </div>
@@ -734,9 +734,9 @@ _Generado por GanaderIA PRO Software Ganadero_`;
               {batchSubMode === 'table' && (
                 <div className="space-y-4">
                   {/* QUICK MANGA ROW INPUT */}
-                  <div className="p-4 bg-white border border-slate-200 rounded-2xl shadow-2xs flex flex-wrap items-center gap-3">
+                  <div className="p-4 bg-[#15241C] border border-white/10 rounded-2xl shadow-2xs flex flex-wrap items-center gap-3">
                     <div className="flex-1 min-w-[120px]">
-                      <label className="block text-[10px] font-black text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-black text-[#A5B8AC] uppercase mb-1">
                         Arete / Chapa
                       </label>
                       <input
@@ -750,18 +750,18 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                             handleAddMangaRow();
                           }
                         }}
-                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                        className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                       />
                     </div>
 
                     <div className="w-48">
-                      <label className="block text-[10px] font-black text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-black text-[#A5B8AC] uppercase mb-1">
                         Diagnóstico
                       </label>
                       <select
                         value={newRowResult}
                         onChange={(e: any) => setNewRowResult(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold focus:bg-white focus:outline-hidden cursor-pointer"
+                        className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold focus:bg-[#15241C] focus:outline-hidden cursor-pointer"
                       >
                         <option value="preñada">🟢 Preñada (Gestante)</option>
                         <option value="vacia_sincronizacion">🟡 Vacía - Apta IATF</option>
@@ -773,7 +773,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
 
                     {(newRowResult === 'preñada' || newRowResult === 'dudosa') && (
                       <div className="w-24">
-                        <label className="block text-[10px] font-black text-slate-600 uppercase mb-1">
+                        <label className="block text-[10px] font-black text-[#A5B8AC] uppercase mb-1">
                           Días Preñez
                         </label>
                         <input
@@ -781,13 +781,13 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                           value={newRowDays}
                           onChange={(e) => setNewRowDays(e.target.value)}
                           placeholder="45"
-                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold text-center focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                          className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold text-center focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                         />
                       </div>
                     )}
 
                     <div className="flex-1 min-w-[140px]">
-                      <label className="block text-[10px] font-black text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-black text-[#A5B8AC] uppercase mb-1">
                         Nota / Hallazgo
                       </label>
                       <input
@@ -801,7 +801,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                             handleAddMangaRow();
                           }
                         }}
-                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                        className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                       />
                     </div>
 
@@ -809,7 +809,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                       <button
                         type="button"
                         onClick={handleAddMangaRow}
-                        className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-black text-xs px-4 py-2 rounded-xl flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
+                        className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black text-xs px-4 py-2 rounded-xl flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
                       >
                         <Plus className="w-3.5 h-3.5 text-emerald-400" />
                         <span>+ Agregar Vaca</span>
@@ -818,10 +818,10 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   </div>
 
                   {/* INTERACTIVE MANGA TABLE */}
-                  <div className="border border-slate-200 rounded-2xl overflow-hidden shadow-xs bg-white">
+                  <div className="border border-white/10 rounded-2xl overflow-hidden shadow-xs bg-[#15241C]">
                     <div className="max-h-72 overflow-y-auto">
                       <table className="w-full text-left text-xs">
-                        <thead className="sticky top-0 bg-slate-100 text-slate-700 border-b border-slate-200 font-black text-[11px] uppercase tracking-wider">
+                        <thead className="sticky top-0 bg-[#1F3327] text-white border-b border-white/10 font-black text-[11px] uppercase tracking-wider">
                           <tr>
                             <th className="p-3">#</th>
                             <th className="p-3">Arete / ID</th>
@@ -833,10 +833,10 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                             <th className="p-3 text-center">Acción</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-100 text-slate-800">
+                        <tbody className="divide-y divide-slate-100 text-white">
                           {filteredBatchItems.length === 0 ? (
                             <tr>
-                              <td colSpan={8} className="p-8 text-center text-slate-400 italic">
+                              <td colSpan={8} className="p-8 text-center text-[#A5B8AC] italic">
                                 No hay hembras en la lista. Agrega una arriba o importa tu archivo Excel.
                               </td>
                             </tr>
@@ -846,9 +846,9 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                               const fpp = days ? calculateFPP(date, days) : '-';
 
                               return (
-                                <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                                  <td className="p-3 font-mono text-slate-400">{idx + 1}</td>
-                                  <td className="p-3 font-black text-slate-900">{item.tag}</td>
+                                <tr key={idx} className="hover:bg-[#0D1A13] transition-colors">
+                                  <td className="p-3 font-mono text-[#A5B8AC]">{idx + 1}</td>
+                                  <td className="p-3 font-black text-white">{item.tag}</td>
                                   <td className="p-3">
                                     <span
                                       className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black ${
@@ -873,17 +873,17 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                                   <td className="p-3 text-center font-black font-mono text-pink-700">
                                     {days ? `${days} días` : '-'}
                                   </td>
-                                  <td className="p-3 text-center text-slate-600 font-mono text-[11px]">{fpp}</td>
-                                  <td className="p-3 text-[11px] text-slate-600">
+                                  <td className="p-3 text-center text-[#A5B8AC] font-mono text-[11px]">{fpp}</td>
+                                  <td className="p-3 text-[11px] text-[#A5B8AC]">
                                     {item.leftOvaryStatus || item.rightOvaryStatus ? (
                                       <span>
                                         OI: {item.leftOvaryStatus || '-'} | OD: {item.rightOvaryStatus || '-'}
                                       </span>
                                     ) : (
-                                      <span className="text-slate-400">-</span>
+                                      <span className="text-[#A5B8AC]">-</span>
                                     )}
                                   </td>
-                                  <td className="p-3 text-slate-600 truncate max-w-[140px]">
+                                  <td className="p-3 text-[#A5B8AC] truncate max-w-[140px]">
                                     {item.notes || '-'}
                                   </td>
                                   <td className="p-3 text-center">
@@ -915,17 +915,17 @@ _Generado por GanaderIA PRO Software Ganadero_`;
           {activeTab === 'individual' && (
             <div className="space-y-6">
               {/* SECTION: ANIMAL IDENTIFICATION */}
-              <div className="p-5 bg-white border border-slate-200 rounded-2xl space-y-4 shadow-2xs">
-                <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+              <div className="p-5 bg-[#15241C] border border-white/10 rounded-2xl space-y-4 shadow-2xs">
+                <div className="flex items-center gap-2 border-b border-white/10 pb-2">
                   <HeartPulse className="w-5 h-5 text-pink-600" />
-                  <h3 className="font-black text-sm text-slate-900 uppercase tracking-wider">
+                  <h3 className="font-black text-sm text-white uppercase tracking-wider">
                     1. Identificación de la Hembra & Resultado Reproductivo
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Arete / Chapa / ID Animal *
                     </label>
                     <input
@@ -934,7 +934,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                       value={indTag}
                       onChange={(e) => setIndTag(e.target.value)}
                       placeholder="Ej. #208 / CRIA-45"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 font-bold focus:bg-white focus:border-pink-600 focus:outline-hidden"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-sm text-white font-bold focus:bg-[#15241C] focus:border-pink-600 focus:outline-hidden"
                     />
                     {females.length > 0 && (
                       <p className="text-[10px] text-emerald-700 font-semibold mt-1">
@@ -946,13 +946,13 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Diagnóstico Ginecológico *
                     </label>
                     <select
                       value={indResult}
                       onChange={(e: any) => setIndResult(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-900 font-bold focus:bg-white focus:border-pink-600 focus:outline-hidden cursor-pointer"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-sm text-white font-bold focus:bg-[#15241C] focus:border-pink-600 focus:outline-hidden cursor-pointer"
                     >
                       <option value="preñada">🟢 Preñada (Gestación Confirmada)</option>
                       <option value="vacia_sincronizacion">🟡 Vacía - Apta Sincronización IATF</option>
@@ -965,7 +965,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
 
                   {(indResult === 'preñada' || indResult === 'dudosa') && (
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                      <label className="block text-xs font-bold text-white mb-1">
                         Días Estimados de Gestación *
                       </label>
                       <div className="flex items-center gap-2">
@@ -975,10 +975,10 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                           max={290}
                           value={indGestationDays}
                           onChange={(e) => setIndGestationDays(e.target.value)}
-                          className="w-24 bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm text-pink-700 font-bold text-center focus:bg-white focus:border-pink-600 focus:outline-hidden"
+                          className="w-24 bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-sm text-pink-700 font-bold text-center focus:bg-[#15241C] focus:border-pink-600 focus:outline-hidden"
                         />
-                        <div className="text-xs text-slate-600">
-                          <span className="block text-[10px] text-slate-500 uppercase font-bold">FPP Proyectada:</span>
+                        <div className="text-xs text-[#A5B8AC]">
+                          <span className="block text-[10px] text-[#A5B8AC] uppercase font-bold">FPP Proyectada:</span>
                           <span className="font-mono font-bold text-pink-700">
                             {calculateFPP(date, parseInt(indGestationDays, 10) || 0) || '-'}
                           </span>
@@ -990,23 +990,23 @@ _Generado por GanaderIA PRO Software Ganadero_`;
               </div>
 
               {/* SECTION: OVARIAN & UTERINE EVALUATION */}
-              <div className="p-5 bg-white border border-slate-200 rounded-2xl space-y-4 shadow-2xs">
-                <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+              <div className="p-5 bg-[#15241C] border border-white/10 rounded-2xl space-y-4 shadow-2xs">
+                <div className="flex items-center gap-2 border-b border-white/10 pb-2">
                   <Activity className="w-5 h-5 text-emerald-700" />
-                  <h3 className="font-black text-sm text-slate-900 uppercase tracking-wider">
+                  <h3 className="font-black text-sm text-white uppercase tracking-wider">
                     2. Examen del Tracto Reproductivo (Ovarios & Útero)
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Ovario Izquierdo (OI)
                     </label>
                     <select
                       value={indLeftOvary}
                       onChange={(e) => setIndLeftOvary(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold focus:bg-white focus:outline-hidden cursor-pointer"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold focus:bg-[#15241C] focus:outline-hidden cursor-pointer"
                     >
                       <option value="cl_activo">CL Activo (Cuerpo Lúteo)</option>
                       <option value="foliculo_dominante">Folículo Dominante (≥10mm)</option>
@@ -1018,13 +1018,13 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Ovario Derecho (OD)
                     </label>
                     <select
                       value={indRightOvary}
                       onChange={(e) => setIndRightOvary(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold focus:bg-white focus:outline-hidden cursor-pointer"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold focus:bg-[#15241C] focus:outline-hidden cursor-pointer"
                     >
                       <option value="cl_activo">CL Activo (Cuerpo Lúteo)</option>
                       <option value="foliculo_dominante">Folículo Dominante (≥10mm)</option>
@@ -1036,13 +1036,13 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Condición / Tono Uterino
                     </label>
                     <select
                       value={indUterineTone}
                       onChange={(e) => setIndUterineTone(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold focus:bg-white focus:outline-hidden cursor-pointer"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold focus:bg-[#15241C] focus:outline-hidden cursor-pointer"
                     >
                       <option value="normal_tonico">Normal Tónico (Apto)</option>
                       <option value="gestante_vesicula">Gestante (Vesícula Fetal)</option>
@@ -1052,13 +1052,13 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Cérvix & Mucus
                     </label>
                     <select
                       value={indCervix}
                       onChange={(e) => setIndCervix(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold focus:bg-white focus:outline-hidden cursor-pointer"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold focus:bg-[#15241C] focus:outline-hidden cursor-pointer"
                     >
                       <option value="cerrado_normal">Cerrado Normal</option>
                       <option value="moco_limpido">Moco Cristalino / Fértil</option>
@@ -1069,17 +1069,17 @@ _Generado por GanaderIA PRO Software Ganadero_`;
               </div>
 
               {/* SECTION: BREEDING & SERVICE ASSOCIATION */}
-              <div className="p-5 bg-white border border-slate-200 rounded-2xl space-y-4 shadow-2xs">
-                <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+              <div className="p-5 bg-[#15241C] border border-white/10 rounded-2xl space-y-4 shadow-2xs">
+                <div className="flex items-center gap-2 border-b border-white/10 pb-2">
                   <Baby className="w-5 h-5 text-amber-600" />
-                  <h3 className="font-black text-sm text-slate-900 uppercase tracking-wider">
+                  <h3 className="font-black text-sm text-white uppercase tracking-wider">
                     3. Asociación de Servicio & Protocolo
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Toro / Pajilla Asignada
                     </label>
                     <input
@@ -1087,12 +1087,12 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                       value={indSireOrStraw}
                       onChange={(e) => setIndSireOrStraw(e.target.value)}
                       placeholder="Ej. Don Juan 450 (Pajilla) o Toro Padrillo"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Protocolo / Sincronización
                     </label>
                     <input
@@ -1100,12 +1100,12 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                       value={indProtocol}
                       onChange={(e) => setIndProtocol(e.target.value)}
                       placeholder="Ej. IATF D0/D8/D10 Benzoato + Prostaglandina"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                     />
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Observaciones & Plan de Manejo
                     </label>
                     <textarea
@@ -1113,7 +1113,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                       value={indNotes}
                       onChange={(e) => setIndNotes(e.target.value)}
                       placeholder="Observaciones de campo, recomendación de rechequeo o tratamiento hormonal..."
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs text-slate-900 focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                      className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-3 text-xs text-white focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                     />
                   </div>
                 </div>
@@ -1122,17 +1122,17 @@ _Generado por GanaderIA PRO Software Ganadero_`;
           )}
 
           {/* SECTION: VETERINARIAN & COST INFORMATION (SHARED) */}
-          <div className="p-5 bg-white border border-slate-200 rounded-2xl space-y-4 shadow-2xs">
-            <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+          <div className="p-5 bg-[#15241C] border border-white/10 rounded-2xl space-y-4 shadow-2xs">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-2">
               <User className="w-5 h-5 text-emerald-700" />
-              <h3 className="font-black text-sm text-slate-900 uppercase tracking-wider">
+              <h3 className="font-black text-sm text-white uppercase tracking-wider">
                 Datos del Médico Veterinario (MVZ) & Costo Operativo
               </h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-white mb-1">
                   Nombre del MVZ / Palpador
                 </label>
                 <input
@@ -1140,12 +1140,12 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   value={veterinarian}
                   onChange={(e) => setVeterinarian(e.target.value)}
                   placeholder="Dr. Nombre Apellido"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-bold focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                  className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-bold focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-white mb-1">
                   Tarjeta Profesional / Registro ICA
                 </label>
                 <input
@@ -1153,12 +1153,12 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   value={vetLicense}
                   onChange={(e) => setVetLicense(e.target.value)}
                   placeholder="TP-12345"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                  className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-white mb-1">
                   Costo por Cabeza Palpada (COP / $)
                 </label>
                 <input
@@ -1166,7 +1166,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
                   value={costPerHead}
                   onChange={(e) => setCostPerHead(e.target.value)}
                   placeholder="15000"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-mono font-bold focus:bg-white focus:outline-hidden focus:border-emerald-600"
+                  className="w-full bg-[#0D1A13] border border-white/15 rounded-xl px-3 py-2 text-xs text-white font-mono font-bold focus:bg-[#15241C] focus:outline-hidden focus:border-emerald-600"
                 />
               </div>
             </div>
@@ -1177,7 +1177,7 @@ _Generado por GanaderIA PRO Software Ganadero_`;
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100 font-bold text-xs md:text-sm transition-colors cursor-pointer"
+              className="px-5 py-2.5 rounded-xl border border-white/15 text-white hover:text-white hover:bg-[#1F3327] font-bold text-xs md:text-sm transition-colors cursor-pointer"
             >
               Cancelar
             </button>

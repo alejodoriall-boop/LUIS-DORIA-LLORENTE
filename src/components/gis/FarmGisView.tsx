@@ -367,7 +367,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
     <div className="space-y-6 w-full pb-12">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-6 right-6 z-50 bg-[#012d1d] text-white border-2 border-[#ffba38] px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-bold animate-in fade-in slide-in-from-top duration-200">
+        <div className="fixed top-6 right-6 z-50 bg-[#0D1A13] text-white border-2 border-[#ffba38] px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-bold animate-in fade-in slide-in-from-top duration-200">
           <CheckCircle2 className="w-5 h-5 text-[#ffba38]" />
           <span>{toastMessage}</span>
         </div>
@@ -732,9 +732,9 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
       {activeGisTab === 'segmentation' && (
         <div className="space-y-6">
           {/* Category Filter Controls */}
-          <div className="bg-white p-4 rounded-3xl border border-[#c1c8c2] card-shadow flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div className="bg-[#15241C] p-4 rounded-3xl border border-white/10 card-shadow flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div>
-              <h2 className="text-base font-extrabold text-[#012d1d] flex items-center gap-2">
+              <h2 className="text-base font-extrabold text-white flex items-center gap-2">
                 <span>Filtrar Potreros por Vocación Productiva</span>
                 <span className="text-xs font-mono px-2 py-0.5 bg-[#eafaf1] text-[#1b4332] rounded-full font-bold">
                   {filteredGisFarms.length} predios filtrados
@@ -755,7 +755,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                     onClick={() => setGisCategoryFilter(cKey)}
                     className={`text-xs font-bold px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
+                        ? 'bg-[#0D1A13] text-[#ffba38] shadow-xs'
                         : 'bg-[#f4f7f5] hover:bg-[#e2eae5] text-[#414844]'
                     }`}
                   >
@@ -768,9 +768,9 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
 
           {/* Segmented Farm List */}
           {segmentedGisPaddocks.length === 0 ? (
-            <div className="bg-white border border-[#c1c8c2] rounded-3xl p-10 text-center text-[#717973]">
+            <div className="bg-[#15241C] border border-white/10 rounded-3xl p-10 text-center text-[#717973]">
               <Building className="w-12 h-12 text-[#c1c8c2] mx-auto mb-3" />
-              <p className="font-bold text-base text-[#012d1d]">
+              <p className="font-bold text-base text-white">
                 No se encontraron predios con inventario de {CATEGORY_DEFINITIONS[gisCategoryFilter].label}
               </p>
               <p className="text-xs mt-1">Selecciona otra categoría o agrega animales a los predios existentes.</p>
@@ -782,21 +782,21 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                 return (
                   <div
                     key={seg.farm.profile.id}
-                    className={`bg-white border-2 rounded-3xl p-5 card-shadow transition-all space-y-4 ${
-                      isSelectedFarm ? 'border-[#012d1d] ring-1 ring-[#012d1d]/10' : 'border-[#c1c8c2]'
+                    className={`bg-[#15241C] border-2 rounded-3xl p-5 card-shadow transition-all space-y-4 ${
+                      isSelectedFarm ? 'border-[#012d1d] ring-1 ring-[#012d1d]/10' : 'border-white/10'
                     }`}
                   >
                     {/* Header */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#eeeeee] pb-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2.5 bg-[#012d1d] text-[#ffba38] rounded-2xl">
+                        <div className="p-2.5 bg-[#0D1A13] text-[#ffba38] rounded-2xl">
                           <Building className="w-5 h-5" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2 flex-wrap">
-                            <h3 className="font-extrabold text-lg text-[#012d1d]">{seg.farm.profile.name}</h3>
+                            <h3 className="font-extrabold text-lg text-white">{seg.farm.profile.name}</h3>
                             {isSelectedFarm && (
-                              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#1b4332] text-[#c1ecd4] rounded-full uppercase">
+                              <span className="text-[10px] font-bold px-2 py-0.5 bg-[#123F2A] text-[#A5B8AC] rounded-full uppercase">
                                 Predio Activo en SIG
                               </span>
                             )}
@@ -815,7 +815,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                         <span className="text-xs font-mono font-bold bg-[#c1ecd4] text-[#002114] px-2.5 py-1 rounded-xl">
                           {seg.readyCount} Listos
                         </span>
-                        <span className="text-xs font-mono font-bold bg-[#fff3d6] text-[#523700] px-2.5 py-1 rounded-xl">
+                        <span className="text-xs font-mono font-bold bg-[#fff3d6] text-[#0D1A13] px-2.5 py-1 rounded-xl">
                           {seg.restingCount} En Descanso
                         </span>
 
@@ -825,7 +825,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                               onSelectFarm(seg.farm.profile.id);
                               setActiveGisTab('map');
                             }}
-                            className="text-xs font-bold bg-[#012d1d] text-white hover:bg-[#1b4332] px-3 py-1.5 rounded-xl cursor-pointer shadow-xs"
+                            className="text-xs font-bold bg-[#0D1A13] text-white hover:bg-[#123F2A] px-3 py-1.5 rounded-xl cursor-pointer shadow-xs"
                           >
                             Cargar en Mapa SIG →
                           </button>
@@ -854,7 +854,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                             }`}
                           >
                             <div className="flex items-center justify-between">
-                              <span className="font-mono text-xs font-extrabold bg-[#012d1d] text-[#ffba38] px-2 py-0.5 rounded">
+                              <span className="font-mono text-xs font-extrabold bg-[#0D1A13] text-[#ffba38] px-2 py-0.5 rounded">
                                 {p.code}
                               </span>
                               <span
@@ -873,15 +873,15 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                             </div>
 
                             <div className="mt-2.5">
-                              <h4 className="font-extrabold text-sm text-[#012d1d] truncate">{p.name}</h4>
+                              <h4 className="font-extrabold text-sm text-white truncate">{p.name}</h4>
                               <p className="text-xs text-[#717973] truncate">
                                 {p.pastureType || 'Brachiaria Brizantha'}
                               </p>
                             </div>
 
                             <div className="mt-3 pt-2 border-t border-black/5 flex items-center justify-between text-xs font-mono">
-                              <span className="font-bold text-[#012d1d]">{p.areaHa} Ha</span>
-                              <span className="text-[#523700]">Cap: {p.carryingCapacityUGG} UGG</span>
+                              <span className="font-bold text-white">{p.areaHa} Ha</span>
+                              <span className="text-[#0D1A13]">Cap: {p.carryingCapacityUGG} UGG</span>
                             </div>
 
                             {isOccupied && p.assignedLotName && (
@@ -898,7 +898,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                                   }
                                   setSelectedPaddock(p);
                                 }}
-                                className="text-[11px] font-bold text-[#012d1d] hover:underline cursor-pointer"
+                                className="text-[11px] font-bold text-white hover:underline cursor-pointer"
                               >
                                 Ver Ficha
                               </button>
@@ -910,7 +910,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                                   setAforoInitialPaddockId(p.id);
                                   setIsAforoModalOpen(true);
                                 }}
-                                className="text-[11px] font-bold bg-white text-[#2d6a4f] px-2 py-1 rounded-lg border border-[#c1c8c2] hover:bg-[#eafaf1] cursor-pointer"
+                                className="text-[11px] font-bold bg-[#15241C] text-[#2d6a4f] px-2 py-1 rounded-lg border border-white/10 hover:bg-[#eafaf1] cursor-pointer"
                               >
                                 Aforar Pasto
                               </button>

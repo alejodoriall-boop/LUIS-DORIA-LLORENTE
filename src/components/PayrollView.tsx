@@ -1094,13 +1094,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
       {/* ========================================================================= */}
       {/* 1. HEADER & FARM SELECTION & KPI CARDS */}
       {/* ========================================================================= */}
-      <div className="bg-[#012d1d] text-white p-5 sm:p-6 rounded-3xl shadow-xl border-2 border-[#1b4332] relative overflow-hidden">
+      <div className="bg-[#0D1A13] text-white p-5 sm:p-6 rounded-3xl shadow-xl border-2 border-[#1b4332] relative overflow-hidden">
         <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-64 h-64 bg-[#c1ecd4]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="bg-[#ffba38] text-[#012d1d] font-black text-[10px] tracking-wider uppercase px-2.5 py-0.5 rounded-full border border-amber-300 shadow-sm flex items-center gap-1">
+              <span className="bg-[#D4A94E] text-white font-black text-[10px] tracking-wider uppercase px-2.5 py-0.5 rounded-full border border-amber-300 shadow-sm flex items-center gap-1">
                 <Receipt className="w-3 h-3" /> MÓDULO DE NÓMINA ENLAZADO A FINANZAS
               </span>
             </div>
@@ -1111,12 +1111,12 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               <div className="group relative inline-flex items-center">
                 <button
                   type="button"
-                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  className="text-[#a3b8ad] hover:text-[#A5B8AC] transition-colors p-0.5 rounded cursor-pointer"
                   title="Control total de liquidaciones, vales, horas extras y aportes de trabajadores de finca. Cada nómina pagada se contabiliza automáticamente en los egresos de Finanzas."
                 >
                   <Info className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                   Control total de liquidaciones, vales, horas extras y aportes de trabajadores de finca. Cada nómina pagada se contabiliza automáticamente en los egresos de Finanzas.
                 </div>
               </div>
@@ -1131,11 +1131,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               onChange={(e) => setSelectedFarmFilter(e.target.value)}
               className="bg-transparent text-white font-bold text-xs focus:outline-none cursor-pointer pr-2"
             >
-              <option key="all" value="all" className="bg-[#012d1d] text-white">
+              <option key="all" value="all" className="bg-[#0D1A13] text-white">
                 🌐 Todas las Fincas ({farms.length})
               </option>
               {farms.map((f, idx) => (
-                <option key={f.id || `farm-${idx}`} value={f.id} className="bg-[#012d1d] text-white">
+                <option key={f.id || `farm-${idx}`} value={f.id} className="bg-[#0D1A13] text-white">
                   📍 {f.name}
                 </option>
               ))}
@@ -1146,45 +1146,45 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
         {/* KPI Cards Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mt-6 relative z-10">
           <div className="bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/15">
-            <div className="flex items-center justify-between text-[#c1ecd4]">
+            <div className="flex items-center justify-between text-[#A5B8AC]">
               <span className="text-[11px] font-bold uppercase tracking-wider">Personal Activo</span>
               <Users className="w-4 h-4 text-[#ffba38]" />
             </div>
             <p className="text-2xl font-black text-white mt-1">{totalActiveEmployees}</p>
-            <p className="text-[10px] text-[#c1ecd4]/70 mt-0.5">Trabajadores registrados</p>
+            <p className="text-[10px] text-[#A5B8AC]/70 mt-0.5">Trabajadores registrados</p>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/15">
-            <div className="flex items-center justify-between text-[#c1ecd4]">
+            <div className="flex items-center justify-between text-[#A5B8AC]">
               <span className="text-[11px] font-bold uppercase tracking-wider">Presupuesto Mes</span>
               <DollarSign className="w-4 h-4 text-emerald-400" />
             </div>
             <p className="text-xl sm:text-2xl font-black text-white mt-1">
               ${totalMonthlyPayrollEst.toLocaleString('es-CO')}
             </p>
-            <p className="text-[10px] text-[#c1ecd4]/70 mt-0.5">Estimado nómina activa</p>
+            <p className="text-[10px] text-[#A5B8AC]/70 mt-0.5">Estimado nómina activa</p>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/15">
-            <div className="flex items-center justify-between text-[#c1ecd4]">
+            <div className="flex items-center justify-between text-[#A5B8AC]">
               <span className="text-[11px] font-bold uppercase tracking-wider">Pagado en Finanzas</span>
               <TrendingUp className="w-4 h-4 text-cyan-300" />
             </div>
             <p className="text-xl sm:text-2xl font-black text-cyan-300 mt-1">
               ${totalPaidPayrollThisMonth.toLocaleString('es-CO')}
             </p>
-            <p className="text-[10px] text-[#c1ecd4]/70 mt-0.5">Liquidaciones ejecutadas</p>
+            <p className="text-[10px] text-[#A5B8AC]/70 mt-0.5">Liquidaciones ejecutadas</p>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/15">
-            <div className="flex items-center justify-between text-[#c1ecd4]">
+            <div className="flex items-center justify-between text-[#A5B8AC]">
               <span className="text-[11px] font-bold uppercase tracking-wider">Anticipos Pendientes</span>
               <AlertCircle className="w-4 h-4 text-amber-400" />
             </div>
             <p className="text-xl sm:text-2xl font-black text-amber-300 mt-1">
               ${totalPendingAdvances.toLocaleString('es-CO')}
             </p>
-            <p className="text-[10px] text-[#c1ecd4]/70 mt-0.5">Vales por descontar</p>
+            <p className="text-[10px] text-[#A5B8AC]/70 mt-0.5">Vales por descontar</p>
           </div>
         </div>
       </div>
@@ -1192,14 +1192,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
       {/* ========================================================================= */}
       {/* 2. NAVIGATION SUBTABS & ACTIONS */}
       {/* ========================================================================= */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-b-2 border-[#c1c8c2] pb-2">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-b-2 border-white/10 pb-2">
         <div className="flex items-center gap-2 overflow-x-auto custom-scrollbar pb-1">
           <button
             onClick={() => setActiveTab('runs')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'runs'
-                ? 'bg-[#012d1d] text-white shadow-md'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-md'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Receipt className="w-4 h-4 text-[#ffba38]" />
@@ -1210,8 +1210,8 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             onClick={() => setActiveTab('jornales')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'jornales'
-                ? 'bg-[#012d1d] text-white shadow-md'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-md'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Clock className="w-4 h-4 text-[#ffba38]" />
@@ -1222,8 +1222,8 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             onClick={() => setActiveTab('employees')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'employees'
-                ? 'bg-[#012d1d] text-white shadow-md'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-md'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Users className="w-4 h-4 text-[#ffba38]" />
@@ -1234,8 +1234,8 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             onClick={() => setActiveTab('advances')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'advances'
-                ? 'bg-[#012d1d] text-white shadow-md'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-md'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <DollarSign className="w-4 h-4 text-[#ffba38]" />
@@ -1246,8 +1246,8 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             onClick={() => setActiveTab('pila')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeTab === 'pila'
-                ? 'bg-[#012d1d] text-white shadow-md'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-md'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <ShieldCheck className="w-4 h-4 text-[#ffba38]" />
@@ -1261,10 +1261,10 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             <>
               <button
                 onClick={() => setShowPayrollTemplatesModal(true)}
-                className="bg-[#ffba38] hover:bg-[#ffa000] text-[#012d1d] font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#012d1d]/20 cursor-pointer"
+                className="bg-[#D4A94E] hover:bg-[#ffa000] text-white font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#012d1d]/20 cursor-pointer"
                 title="Generar liquidación especial con plantillas para Vacaciones, Bonificaciones y Cesantías"
               >
-                <FileText className="w-4 h-4 text-[#012d1d]" />
+                <FileText className="w-4 h-4 text-white" />
                 <span>📋 Plantillas (Vacaciones / Bonificaciones / Cesantías)</span>
               </button>
               <button
@@ -1274,7 +1274,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   setRunPeriodName(`Nómina Quincenal - ${new Date().toLocaleDateString('es-CO', { month: 'short', year: 'numeric' })}`);
                   setShowCreateRunModal(true);
                 }}
-                className="bg-[#012d1d] hover:bg-[#002216] text-[#c1ecd4] font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#c1ecd4]/20 cursor-pointer"
+                className="bg-[#0D1A13] hover:bg-[#002216] text-[#A5B8AC] font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#c1ecd4]/20 cursor-pointer"
               >
                 <Plus className="w-4 h-4 text-[#ffba38]" />
                 Nueva Liquidación
@@ -1290,7 +1290,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 setEmpFarmId(selectedFarmFilter === 'all' ? currentFarm.id : selectedFarmFilter);
                 setShowAddEmployeeModal(true);
               }}
-              className="bg-[#012d1d] hover:bg-[#002216] text-[#c1ecd4] font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#c1ecd4]/20 cursor-pointer"
+              className="bg-[#0D1A13] hover:bg-[#002216] text-[#A5B8AC] font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#c1ecd4]/20 cursor-pointer"
             >
               <UserPlus className="w-4 h-4 text-[#ffba38]" />
               Registrar Trabajador
@@ -1305,7 +1305,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 }
                 setShowAddAdvanceModal(true);
               }}
-              className="bg-[#012d1d] hover:bg-[#002216] text-[#c1ecd4] font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#c1ecd4]/20 cursor-pointer"
+              className="bg-[#0D1A13] hover:bg-[#002216] text-[#A5B8AC] font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-2 border border-[#c1ecd4]/20 cursor-pointer"
             >
               <DollarSign className="w-4 h-4 text-[#ffba38]" />
               Registrar Anticipo / Vale
@@ -1321,9 +1321,9 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
         <div className="space-y-4">
           <div className="grid grid-cols-1 gap-4">
             {farmPayrollRuns.length === 0 ? (
-              <div className="bg-white p-8 rounded-3xl border-2 border-dashed border-[#c1c8c2] text-center space-y-3">
+              <div className="bg-[#15241C] p-8 rounded-3xl border-2 border-dashed border-white/10 text-center space-y-3">
                 <Receipt className="w-12 h-12 text-[#717973] mx-auto opacity-50" />
-                <h3 className="font-black text-lg text-[#012d1d]">No hay liquidaciones registradas</h3>
+                <h3 className="font-black text-lg text-white">No hay liquidaciones registradas</h3>
                 <p className="text-xs text-[#717973] max-w-md mx-auto">
                   Comienza creando una nueva planilla de liquidación para tus empleados. Al marcar la nómina como pagada, se registrará el egreso automáticamente en Finanzas.
                 </p>
@@ -1333,7 +1333,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     setRunPeriodName(`Nómina Quincenal - ${new Date().toLocaleDateString('es-CO', { month: 'short', year: 'numeric' })}`);
                     setShowCreateRunModal(true);
                   }}
-                  className="bg-[#012d1d] text-white font-bold text-xs px-5 py-2.5 rounded-2xl inline-flex items-center gap-2 shadow-md hover:bg-[#002216] cursor-pointer"
+                  className="bg-[#0D1A13] text-white font-bold text-xs px-5 py-2.5 rounded-2xl inline-flex items-center gap-2 shadow-md hover:bg-[#002216] cursor-pointer"
                 >
                   <Plus className="w-4 h-4 text-[#ffba38]" /> Crear Primera Liquidación
                 </button>
@@ -1342,17 +1342,17 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               farmPayrollRuns.map((run, runIdx) => (
                 <div
                   key={run.id || `run-${runIdx}`}
-                  className="bg-white rounded-3xl border-2 border-[#c1c8c2] p-5 shadow-md hover:shadow-lg transition-all space-y-4"
+                  className="bg-[#15241C] rounded-3xl border-2 border-white/10 p-5 shadow-md hover:shadow-lg transition-all space-y-4"
                 >
                   {/* Run Card Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#eeeeee] gap-2">
                     <div className="flex items-center gap-3">
-                      <div className="p-3 bg-[#012d1d] text-[#ffba38] rounded-2xl shadow-sm">
+                      <div className="p-3 bg-[#0D1A13] text-[#ffba38] rounded-2xl shadow-sm">
                         <Receipt className="w-6 h-6" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <h3 className="font-black text-base text-[#012d1d]">{run.periodName}</h3>
+                          <h3 className="font-black text-base text-white">{run.periodName}</h3>
                           <span
                             className={`text-[10px] font-black px-2.5 py-0.5 rounded-full border ${
                               run.status === 'Pagada'
@@ -1376,7 +1376,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     <div className="flex items-center gap-3 justify-between sm:justify-end border-t sm:border-0 pt-2 sm:pt-0">
                       <div className="text-right">
                         <span className="text-[10px] font-bold text-[#717973] uppercase block">Total a Pagar</span>
-                        <span className="text-xl font-black text-[#012d1d]">
+                        <span className="text-xl font-black text-white">
                           ${run.totalNetPayable.toLocaleString('es-CO')}
                         </span>
                       </div>
@@ -1385,7 +1385,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                         {run.status !== 'Pagada' && (
                           <button
                             onClick={() => handleApproveAndPayRun(run)}
-                            className="bg-[#012d1d] hover:bg-[#02402a] text-white font-black text-xs px-3.5 py-2.5 rounded-2xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="bg-[#0D1A13] hover:bg-[#02402a] text-white font-black text-xs px-3.5 py-2.5 rounded-2xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
                           >
                             <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                             Marcar Pagada
@@ -1400,10 +1400,10 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                           className={`font-black text-xs px-4 py-2.5 rounded-2xl shadow-md transition-all flex items-center gap-1.5 cursor-pointer border ${
                             run.disbursementStatus === 'Dispersada ACH'
                               ? 'bg-emerald-100 text-emerald-950 border-emerald-400 hover:bg-emerald-200'
-                              : 'bg-[#ffba38] hover:bg-[#ffa000] text-[#012d1d] border-amber-400'
+                              : 'bg-[#D4A94E] hover:bg-[#ffa000] text-white border-amber-400'
                           }`}
                         >
-                          <CreditCard className="w-4 h-4 text-[#012d1d]" />
+                          <CreditCard className="w-4 h-4 text-white" />
                           {run.disbursementStatus === 'Dispersada ACH' ? (
                             <span>✔️ Dispersada ACH ({run.disbursementBatchCode})</span>
                           ) : (
@@ -1417,7 +1417,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   {/* Run Detail Table */}
                   <div className="overflow-x-auto rounded-2xl border border-[#eeeeee]">
                     <table className="w-full text-left text-xs">
-                      <thead className="bg-[#f8f9f8] text-[#012d1d] font-black uppercase text-[10px] border-b border-[#eeeeee]">
+                      <thead className="bg-[#f8f9f8] text-white font-black uppercase text-[10px] border-b border-[#eeeeee]">
                         <tr>
                           <th className="p-3">Trabajador / Cargo</th>
                           <th className="p-3 text-center">Días</th>
@@ -1429,9 +1429,9 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                           <th className="p-3 text-center">Desprendible</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#eeeeee] text-[#012d1d]">
+                      <tbody className="divide-y divide-[#eeeeee] text-white">
                         {run.items.map((item, itemIdx) => (
-                          <tr key={item.employeeId ? `${item.employeeId}-${itemIdx}` : `item-${itemIdx}`} className="hover:bg-slate-50 transition-colors">
+                          <tr key={item.employeeId ? `${item.employeeId}-${itemIdx}` : `item-${itemIdx}`} className="hover:bg-[#0D1A13] transition-colors">
                             <td className="p-3">
                               <p className="font-bold">{item.employeeName}</p>
                               <p className="text-[10px] text-[#717973]">{item.role}</p>
@@ -1447,13 +1447,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                             <td className="p-3 text-right font-medium text-rose-600">
                               -${(item.deductions || 0).toLocaleString('es-CO')}
                             </td>
-                            <td className="p-3 text-right font-black text-sm text-[#012d1d]">
+                            <td className="p-3 text-right font-black text-sm text-white">
                               ${item.netPayable.toLocaleString('es-CO')}
                             </td>
                             <td className="p-3 text-center">
                               <button
                                 onClick={() => setViewingPayslipRun({ run, item })}
-                                className="p-1.5 text-[#012d1d] hover:bg-slate-200 rounded-xl transition-all cursor-pointer"
+                                className="p-1.5 text-white hover:bg-[#202E25] rounded-xl transition-all cursor-pointer"
                                 title="Ver Desprendible de Pago"
                               >
                                 <FileText className="w-4 h-4" />
@@ -1466,16 +1466,16 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   </div>
 
                   {/* Footer Totals Summary */}
-                  <div className="bg-[#f8f9f8] p-3 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs font-bold text-[#012d1d]">
+                  <div className="bg-[#f8f9f8] p-3 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs font-bold text-white">
                     <span className="text-[#717973] font-medium">
-                      Unidad de Negocio: <strong className="text-[#012d1d]">{run.businessUnit}</strong>
+                      Unidad de Negocio: <strong className="text-white">{run.businessUnit}</strong>
                     </span>
                     <div className="flex items-center gap-4 text-[11px] flex-wrap">
                       <span>Base: ${run.totalBase.toLocaleString('es-CO')}</span>
                       <span className="text-blue-700">Extras: +${run.totalOvertime.toLocaleString('es-CO')}</span>
                       <span className="text-emerald-700">Bonos: +${run.totalBonuses.toLocaleString('es-CO')}</span>
                       <span className="text-rose-600">Deducciones: -${run.totalDeductions.toLocaleString('es-CO')}</span>
-                      <span className="bg-[#012d1d] text-white px-3 py-1 rounded-xl text-xs font-black">
+                      <span className="bg-[#0D1A13] text-white px-3 py-1 rounded-xl text-xs font-black">
                         Total Liquidado: ${run.totalNetPayable.toLocaleString('es-CO')}
                       </span>
                     </div>
@@ -1493,17 +1493,17 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
       {activeTab === 'jornales' && (
         <div className="space-y-6">
           {/* Jornales Calculator & Quick Payment Card */}
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 sm:p-6 shadow-xl space-y-5">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 sm:p-6 shadow-xl space-y-5">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black shadow-md shrink-0">
+                <div className="w-11 h-11 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black shadow-md shrink-0">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
                   <span className="bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-emerald-300">
                     Calculadora & Registro Rápido
                   </span>
-                  <h2 className="text-lg font-black text-[#012d1d] mt-0.5">
+                  <h2 className="text-lg font-black text-white mt-0.5">
                     Planilla de Nómina por Jornales de Campo
                   </h2>
                   <p className="text-xs text-[#717973]">
@@ -1517,7 +1517,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {/* 1. Worker Selector */}
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">
+                  <label className="block font-bold text-white mb-1">
                     Trabajador / Jornalero *
                   </label>
                   <select
@@ -1531,7 +1531,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                         }
                       }
                     }}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   >
                     <option key="new" value="new">➕ Jornalero Ocasional (Ingreso Manual)</option>
                     {farmEmployees.map((e, idx) => (
@@ -1548,7 +1548,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                       placeholder="Nombre del Jornalero Ocasional (Ej: Pedro Nel Morales)"
                       value={jornalWorkerName}
                       onChange={(e) => setJornalWorkerName(e.target.value)}
-                      className="w-full mt-2 p-2.5 rounded-xl border-2 border-[#c1c8c2] font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                      className="w-full mt-2 p-2.5 rounded-xl border-2 border-white/10 font-bold text-white focus:border-[#012d1d] focus:outline-none"
                     />
                   )}
                 </div>
@@ -1556,7 +1556,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 {/* 2. Tarifa Valor Jornal ($/día) */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <label className="font-bold text-[#012d1d]">Tarifa por Jornal ($/Día) *</label>
+                    <label className="font-bold text-white">Tarifa por Jornal ($/Día) *</label>
                     <span className="text-[10px] text-[#717973] font-bold">Valor Estándar</span>
                   </div>
                   <input
@@ -1566,7 +1566,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     step="1000"
                     value={jornalRate}
                     onChange={(e) => setJornalRate(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-black text-emerald-800 text-sm focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-black text-emerald-800 text-sm focus:border-[#012d1d] focus:outline-none"
                   />
                   {/* Presets */}
                   <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
@@ -1577,8 +1577,8 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                         onClick={() => setJornalRate(rate)}
                         className={`text-[10px] font-bold px-2 py-0.5 rounded-lg border transition-all cursor-pointer ${
                           jornalRate === rate
-                            ? 'bg-[#012d1d] text-white border-[#012d1d]'
-                            : 'bg-slate-100 text-[#717973] hover:bg-slate-200 border-slate-300'
+                            ? 'bg-[#0D1A13] text-white border-[#012d1d]'
+                            : 'bg-[#1F3327] text-[#717973] hover:bg-[#202E25] border-white/15'
                         }`}
                       >
                         ${rate / 1000}k
@@ -1590,7 +1590,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 {/* 3. Cantidad de Jornales (Días) */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <label className="font-bold text-[#012d1d]">Jornales Trabajados (Días) *</label>
+                    <label className="font-bold text-white">Jornales Trabajados (Días) *</label>
                     <span className="text-[10px] text-[#717973] font-bold">Fracciones o Días</span>
                   </div>
                   <input
@@ -1601,7 +1601,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     step="0.25"
                     value={jornalCount}
                     onChange={(e) => setJornalCount(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-black text-[#012d1d] text-sm focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-black text-white text-sm focus:border-[#012d1d] focus:outline-none"
                   />
                   {/* Presets */}
                   <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
@@ -1612,8 +1612,8 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                         onClick={() => setJornalCount(cnt)}
                         className={`text-[10px] font-bold px-2 py-0.5 rounded-lg border transition-all cursor-pointer ${
                           jornalCount === cnt
-                            ? 'bg-[#012d1d] text-white border-[#012d1d]'
-                            : 'bg-slate-100 text-[#717973] hover:bg-slate-200 border-slate-300'
+                            ? 'bg-[#0D1A13] text-white border-[#012d1d]'
+                            : 'bg-[#1F3327] text-[#717973] hover:bg-[#202E25] border-white/15'
                         }`}
                       >
                         {cnt}d
@@ -1624,13 +1624,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
                 {/* 4. Labor o Tarea Ejecutada */}
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">
+                  <label className="block font-bold text-white mb-1">
                     Labor o Tarea Ejecutada en Campo *
                   </label>
                   <select
                     value={jornalTask}
                     onChange={(e) => setJornalTask(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="Guadañado & Deshierbe de Potreros">🌿 Guadañado & Deshierbe de Potreros</option>
                     <option value="Mantenimiento Cerca Eléctrica & Broches">⚡ Mantenimiento Cerca Eléctrica & Broches</option>
@@ -1647,19 +1647,19 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
                 {/* 5. Fecha */}
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Fecha de Ejecución / Pago *</label>
+                  <label className="block font-bold text-white mb-1">Fecha de Ejecución / Pago *</label>
                   <input
                     type="date"
                     required
                     value={jornalDate}
                     onChange={(e) => setJornalDate(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-mono font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-mono font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
 
                 {/* 6. Bonificación / Alimentación */}
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">
+                  <label className="block font-bold text-white mb-1">
                     Bonificación / Alimentación ($)
                   </label>
                   <input
@@ -1669,14 +1669,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     value={jornalBonus}
                     onChange={(e) => setJornalBonus(Number(e.target.value))}
                     placeholder="Ej. 10000 (Aux. Almuerzo)"
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-bold text-emerald-700 focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-bold text-emerald-700 focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
               </div>
 
               {/* Observaciones */}
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">
+                <label className="block font-bold text-white mb-1">
                   Notas u Observaciones del Trabajo
                 </label>
                 <input
@@ -1684,7 +1684,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   placeholder="Ej. Trabajo realizado en Potrero El Hato. Se limpiaron 3 hectáreas."
                   value={jornalNotes}
                   onChange={(e) => setJornalNotes(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:border-[#012d1d] focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:border-[#012d1d] focus:outline-none"
                 />
               </div>
 
@@ -1694,7 +1694,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   <span className="text-[10px] font-black uppercase text-[#717973] tracking-wider block">
                     Cálculo Automático de Jornal
                   </span>
-                  <div className="flex items-center gap-3 text-sm font-bold text-[#012d1d] flex-wrap">
+                  <div className="flex items-center gap-3 text-sm font-bold text-white flex-wrap">
                     <span>
                       Subtotal: <strong className="font-mono font-black">${(jornalRate * jornalCount).toLocaleString('es-CO')}</strong> ({jornalCount}d @ ${jornalRate.toLocaleString('es-CO')})
                     </span>
@@ -1721,7 +1721,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
                   <button
                     type="submit"
-                    className="bg-[#012d1d] hover:bg-[#002216] text-[#ffba38] font-black text-xs px-5 py-3 rounded-2xl shadow-lg transition-all flex items-center gap-2 border border-amber-400 cursor-pointer"
+                    className="bg-[#0D1A13] hover:bg-[#002216] text-[#ffba38] font-black text-xs px-5 py-3 rounded-2xl shadow-lg transition-all flex items-center gap-2 border border-amber-400 cursor-pointer"
                   >
                     <CheckCircle2 className="w-5 h-5" />
                     Liquidar & Pagar Jornal
@@ -1734,7 +1734,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
           {/* Histórico de Jornales Pagados */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="font-black text-base text-[#012d1d] flex items-center gap-2">
+              <h3 className="font-black text-base text-white flex items-center gap-2">
                 <Receipt className="w-5 h-5 text-[#ffba38]" />
                 Histórico de Jornales Liquidados en Finca
               </h3>
@@ -1745,7 +1745,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {farmPayrollRuns.filter((r) => r.periodType === 'Jornales / Ocasional').length === 0 ? (
-                <div className="col-span-full bg-white p-6 rounded-2xl border-2 border-dashed border-[#c1c8c2] text-center text-[#717973]">
+                <div className="col-span-full bg-[#15241C] p-6 rounded-2xl border-2 border-dashed border-white/10 text-center text-[#717973]">
                   <p className="font-bold text-xs">No se han registrado pagos por jornales aún.</p>
                   <p className="text-[11px] mt-1">Usa la calculadora arriba para liquidar el primer jornal de campo.</p>
                 </div>
@@ -1755,14 +1755,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   .map((run, runIdx) => (
                     <div
                       key={run.id || `jornal-run-${runIdx}`}
-                      className="bg-white rounded-2xl border-2 border-[#c1c8c2] p-4 shadow-sm hover:shadow-md transition-all space-y-2.5"
+                      className="bg-[#15241C] rounded-2xl border-2 border-white/10 p-4 shadow-sm hover:shadow-md transition-all space-y-2.5"
                     >
-                      <div className="flex items-start justify-between border-b pb-2 border-slate-100">
+                      <div className="flex items-start justify-between border-b pb-2 border-white/10">
                         <div>
                           <span className="bg-amber-100 text-amber-900 text-[9px] font-black px-2 py-0.5 rounded-full border border-amber-300">
                             NÓMINA POR JORNAL
                           </span>
-                          <h4 className="font-black text-sm text-[#012d1d] mt-1">{run.periodName}</h4>
+                          <h4 className="font-black text-sm text-white mt-1">{run.periodName}</h4>
                           <p className="text-[10px] text-[#717973] font-mono">Fecha: {run.paymentDate} • {run.farmName}</p>
                         </div>
                         <span className="bg-emerald-100 text-emerald-900 text-xs font-black px-2.5 py-1 rounded-xl font-mono">
@@ -1772,7 +1772,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
                       {run.items.map((item, idx) => (
                         <div key={item.employeeId ? `${item.employeeId}-${idx}` : `item-${idx}`} className="bg-[#f8f9f8] p-2.5 rounded-xl text-xs space-y-1">
-                          <div className="flex justify-between items-center font-bold text-[#012d1d]">
+                          <div className="flex justify-between items-center font-bold text-white">
                             <span>👤 {item.employeeName}</span>
                             <span className="text-[11px] font-mono font-black text-emerald-800">
                               {item.jornalesCount || item.daysWorked} Jornal{(item.jornalesCount || item.daysWorked) > 1 ? 'es' : ''}
@@ -1793,7 +1793,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                             Contabilizado en Finanzas (Mano de Obra)
                           </span>
-                          <span className="font-mono text-slate-500">ID: {run.financialTransactionId}</span>
+                          <span className="font-mono text-[#A5B8AC]">ID: {run.financialTransactionId}</span>
                         </div>
                       )}
                     </div>
@@ -1810,58 +1810,58 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
       {activeTab === 'employees' && (
         <div className="space-y-4">
           {/* Search bar */}
-          <div className="flex items-center gap-3 bg-white p-3 rounded-2xl border border-[#c1c8c2] shadow-sm">
+          <div className="flex items-center gap-3 bg-[#15241C] p-3 rounded-2xl border border-white/10 shadow-sm">
             <Search className="w-5 h-5 text-[#717973]" />
             <input
               type="text"
               placeholder="Buscar por nombre, cédula o cargo..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full text-xs font-medium focus:outline-none text-[#012d1d]"
+              className="w-full text-xs font-medium focus:outline-none text-white"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {farmEmployees.length === 0 ? (
-              <div className="col-span-full bg-white p-8 rounded-3xl border-2 border-dashed border-[#c1c8c2] text-center space-y-2">
+              <div className="col-span-full bg-[#15241C] p-8 rounded-3xl border-2 border-dashed border-white/10 text-center space-y-2">
                 <Users className="w-10 h-10 text-[#717973] mx-auto opacity-50" />
-                <p className="font-bold text-sm text-[#012d1d]">No se encontraron trabajadores en el directorio.</p>
+                <p className="font-bold text-sm text-white">No se encontraron trabajadores en el directorio.</p>
               </div>
             ) : (
               farmEmployees.map((emp, empIdx) => (
                 <div
                   key={emp.id || `emp-${empIdx}`}
-                  className="bg-white rounded-3xl border-2 border-[#c1c8c2] p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+                  className="bg-[#15241C] rounded-3xl border-2 border-white/10 p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4"
                 >
                   <div>
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black shadow-md shrink-0">
+                        <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black shadow-md shrink-0">
                           <Users className="w-5 h-5" />
                         </div>
                         <div>
-                          <h4 className="font-black text-sm text-[#012d1d]">{emp.fullName}</h4>
+                          <h4 className="font-black text-sm text-white">{emp.fullName}</h4>
                           <span className="text-[10px] font-mono font-bold text-[#717973]">C.C. {emp.documentId}</span>
                         </div>
                       </div>
 
                       <button
                         onClick={() => startEditEmployee(emp)}
-                        className="p-1.5 text-[#717973] hover:text-[#012d1d] hover:bg-slate-100 rounded-xl cursor-pointer"
+                        className="p-1.5 text-[#717973] hover:text-white hover:bg-[#1F3327] rounded-xl cursor-pointer"
                         title="Editar trabajador"
                       >
                         <Edit className="w-4 h-4" />
                       </button>
                     </div>
 
-                    <div className="mt-3 space-y-1.5 text-xs text-[#012d1d]">
-                      <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-100">
+                    <div className="mt-3 space-y-1.5 text-xs text-white">
+                      <div className="flex items-center justify-between bg-[#0D1A13] p-2 rounded-xl border border-white/10">
                         <span className="text-[#717973] text-[11px]">Cargo:</span>
-                        <span className="font-bold text-[11px] text-[#012d1d]">{emp.role}</span>
+                        <span className="font-bold text-[11px] text-white">{emp.role}</span>
                       </div>
 
                       <div className="flex items-center justify-between bg-emerald-50/60 p-2 rounded-xl border border-emerald-100">
-                        <span className="text-[#012d1d] text-[11px] font-bold">Fecha Ingreso / Antigüedad:</span>
+                        <span className="text-white text-[11px] font-bold">Fecha Ingreso / Antigüedad:</span>
                         <span className="font-mono font-bold text-[11px] text-emerald-900">
                           📅 {emp.startDate || '2025-01-15'} ({calculateSeniority(emp.startDate)})
                         </span>
@@ -1870,7 +1870,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                       {(() => {
                         const contractInfo = getContractInfo(emp.contractType);
                         return (
-                          <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-100">
+                          <div className="flex items-center justify-between bg-[#0D1A13] p-2 rounded-xl border border-white/10">
                             <span className="text-[#717973] text-[11px]">Modalidad Vinculación:</span>
                             <div className="flex items-center gap-1.5">
                               <span className={`font-extrabold text-[11px] px-2 py-0.5 rounded-lg border ${contractInfo.badgeBg} ${contractInfo.badgeText} ${contractInfo.badgeBorder}`}>
@@ -1878,7 +1878,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                               </span>
                               <button
                                 onClick={() => startEditEmployee(emp)}
-                                className="text-[10px] font-bold text-[#012d1d] hover:bg-[#012d1d] hover:text-white px-2 py-0.5 rounded-md border border-[#c1c8c2] bg-white transition-all cursor-pointer"
+                                className="text-[10px] font-bold text-white hover:bg-[#0D1A13] hover:text-white px-2 py-0.5 rounded-md border border-white/10 bg-[#15241C] transition-all cursor-pointer"
                                 title="Modificar modalidad de contrato y datos de vinculación"
                               >
                                 ✏️ Cambiar
@@ -1888,16 +1888,16 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                         );
                       })()}
 
-                      <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-100">
+                      <div className="flex items-center justify-between bg-[#0D1A13] p-2 rounded-xl border border-white/10">
                         <span className="text-[#717973] text-[11px]">Tarifa Base:</span>
                         <span className="font-black text-emerald-800 text-xs">
                           ${emp.baseRate.toLocaleString('es-CO')} {emp.contractType === 'Jornal Diario' ? '/día' : '/mes'}
                         </span>
                       </div>
 
-                      <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-100">
+                      <div className="flex items-center justify-between bg-[#0D1A13] p-2 rounded-xl border border-white/10">
                         <span className="text-[#717973] text-[11px]">Pago:</span>
-                        <span className="font-medium text-[11px] text-[#012d1d]">
+                        <span className="font-medium text-[11px] text-white">
                           💳 {emp.bankName} {emp.bankAccount ? `(${emp.bankAccount})` : ''}
                         </span>
                       </div>
@@ -1906,7 +1906,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
                   <div className="border-t border-[#eeeeee] pt-2 flex items-center justify-between text-[10px] text-[#717973]">
                     <span>📍 {emp.farmName}</span>
-                    <span className="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                    <span className="font-semibold text-emerald-700 bg-emerald-950/30 px-2 py-0.5 rounded-full border border-emerald-200">
                       {emp.status}
                     </span>
                   </div>
@@ -1922,9 +1922,9 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
       {/* ========================================================================= */}
       {activeTab === 'advances' && (
         <div className="space-y-4">
-          <div className="bg-white rounded-3xl border-2 border-[#c1c8c2] overflow-hidden shadow-sm">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-white/10 overflow-hidden shadow-sm">
             <div className="p-4 bg-[#f8f9f8] border-b border-[#eeeeee] flex items-center justify-between">
-              <h3 className="font-black text-sm text-[#012d1d] flex items-center gap-2">
+              <h3 className="font-black text-sm text-white flex items-center gap-2">
                 <DollarSign className="w-4 h-4 text-amber-500" />
                 Historial de Vales y Anticipos Registrados
               </h3>
@@ -1935,7 +1935,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-slate-100 text-[#012d1d] font-black uppercase text-[10px] border-b border-[#eeeeee]">
+                <thead className="bg-[#1F3327] text-white font-black uppercase text-[10px] border-b border-[#eeeeee]">
                   <tr>
                     <th className="p-3">Fecha</th>
                     <th className="p-3">Empleado</th>
@@ -1954,17 +1954,17 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     </tr>
                   ) : (
                     farmAdvances.map((adv, advIdx) => (
-                      <tr key={adv.id || `adv-${advIdx}`} className="hover:bg-slate-50">
+                      <tr key={adv.id || `adv-${advIdx}`} className="hover:bg-[#0D1A13]">
                         <td className="p-3 font-mono text-[11px] font-bold">{adv.date}</td>
-                        <td className="p-3 font-bold text-[#012d1d]">{adv.employeeName}</td>
+                        <td className="p-3 font-bold text-white">{adv.employeeName}</td>
                         <td className="p-3 text-[#717973]">{adv.farmName}</td>
-                        <td className="p-3 text-[#012d1d]">{adv.reason}</td>
+                        <td className="p-3 text-white">{adv.reason}</td>
                         <td className="p-3 text-right font-black text-rose-700">${adv.amount.toLocaleString('es-CO')}</td>
                         <td className="p-3 text-center">
                           <span
                             className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
                               adv.status === 'Descontado'
-                                ? 'bg-slate-100 text-slate-700 border-slate-300'
+                                ? 'bg-[#1F3327] text-white border-white/15'
                                 : 'bg-amber-100 text-amber-800 border-amber-300'
                             }`}
                           >
@@ -1990,17 +1990,17 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
           <div className="bg-gradient-to-br from-[#012d1d] via-[#002216] to-[#0d3f2c] text-white rounded-3xl p-5 sm:p-6 shadow-xl border-2 border-[#1b4332] space-y-5">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#ffba38] text-[#012d1d] flex items-center justify-center font-black shadow-lg shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#D4A94E] text-white flex items-center justify-center font-black shadow-lg shrink-0">
                   <ShieldCheck className="w-7 h-7" />
                 </div>
                 <div>
-                  <span className="bg-[#ffba38]/20 text-[#ffba38] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-[#ffba38]/30">
+                  <span className="bg-[#D4A94E]/20 text-[#ffba38] text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-[#ffba38]/30">
                     PILA & Pasarela PSE Directa
                   </span>
                   <h2 className="text-xl font-black text-white mt-0.5">
                     Planilla Integrada de Liquidación de Aportes (PILA)
                   </h2>
-                  <p className="text-xs text-[#c1ecd4]">
+                  <p className="text-xs text-[#A5B8AC]">
                     Genera la planilla unificada de Salud, Pensión, ARL y Caja de Compensación de la finca y paga directamente con PSE.
                   </p>
                 </div>
@@ -2020,25 +2020,25 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             <form onSubmit={handleGeneratePila} className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-[11px] font-bold text-[#c1ecd4] mb-1">
+                  <label className="block text-[11px] font-bold text-[#A5B8AC] mb-1">
                     Periodo de Cotización
                   </label>
                   <input
                     type="month"
                     value={pilaMonth}
                     onChange={(e) => setPilaMonth(e.target.value)}
-                    className="w-full p-2.5 rounded-xl bg-white text-[#012d1d] font-bold text-xs focus:outline-none"
+                    className="w-full p-2.5 rounded-xl bg-[#15241C] text-white font-bold text-xs focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-[#c1ecd4] mb-1">
+                  <label className="block text-[11px] font-bold text-[#A5B8AC] mb-1">
                     Operador PILA
                   </label>
                   <select
                     value={pilaOperator}
                     onChange={(e) => setPilaOperator(e.target.value as any)}
-                    className="w-full p-2.5 rounded-xl bg-white text-[#012d1d] font-bold text-xs focus:outline-none"
+                    className="w-full p-2.5 rounded-xl bg-[#15241C] text-white font-bold text-xs focus:outline-none"
                   >
                     <option value="Aportes en Línea">Aportes en Línea</option>
                     <option value="Mi Planilla">Mi Planilla (Compensar / SOI)</option>
@@ -2051,7 +2051,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 <div className="flex items-end gap-2">
                   <button
                     type="submit"
-                    className="flex-1 bg-[#ffba38] hover:bg-[#ffa000] text-[#012d1d] font-black text-xs py-2.5 px-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="flex-1 bg-[#D4A94E] hover:bg-[#ffa000] text-white font-black text-xs py-2.5 px-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <Sparkles className="w-4 h-4" />
                     Generar PILA Definitiva
@@ -2059,7 +2059,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowPayrollTemplatesModal(true)}
-                    className="bg-[#012d1d] hover:bg-[#002216] text-[#ffba38] font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-[#ffba38]/30 shrink-0"
+                    className="bg-[#0D1A13] hover:bg-[#002216] text-[#ffba38] font-bold text-xs py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-[#ffba38]/30 shrink-0"
                     title="Crea planillas o liquidaciones con plantillas especiales para Vacaciones, Bonificaciones y Cesantías"
                   >
                     <FileText className="w-4 h-4 text-[#ffba38]" />
@@ -2090,25 +2090,25 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
           {/* List of PILA Planillas */}
           <div className="space-y-4">
-            <h3 className="text-sm font-black text-[#012d1d] flex items-center gap-2">
+            <h3 className="text-sm font-black text-white flex items-center gap-2">
               <FileText className="w-4 h-4 text-emerald-800" />
               Planillas PILA Generadas, Borradores & Estado de Pago
             </h3>
 
             {pilasList.length === 0 ? (
-              <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-[#c1c8c2] text-center text-[#717973] space-y-2">
+              <div className="bg-[#15241C] rounded-3xl p-8 border-2 border-dashed border-white/10 text-center text-[#717973] space-y-2">
                 <ShieldCheck className="w-10 h-10 mx-auto text-[#c1c8c2]" />
-                <p className="font-bold text-sm text-[#012d1d]">No hay planillas PILA generadas aún</p>
+                <p className="font-bold text-sm text-white">No hay planillas PILA generadas aún</p>
                 <p className="text-xs">Usa el generador superior para crear la planilla del mes e iniciar el pago PSE.</p>
               </div>
             ) : (
               pilasList.map((pila, pilaIdx) => (
-                <div key={pila.id || `pila-${pilaIdx}`} className="bg-white rounded-3xl border-2 border-[#012d1d] overflow-hidden shadow-lg space-y-4 p-5">
+                <div key={pila.id || `pila-${pilaIdx}`} className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] overflow-hidden shadow-lg space-y-4 p-5">
                   {/* Planilla Header Bar */}
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-[#eeeeee] pb-4">
                     <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="bg-[#012d1d] text-[#ffba38] font-mono font-black text-xs px-2.5 py-0.5 rounded-lg">
+                        <span className="bg-[#0D1A13] text-[#ffba38] font-mono font-black text-xs px-2.5 py-0.5 rounded-lg">
                           PIN PILA: {pila.pilaPin}
                         </span>
                         <span className="bg-emerald-100 text-emerald-900 font-bold text-[11px] px-2.5 py-0.5 rounded-full border border-emerald-300">
@@ -2130,11 +2130,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                             : '⏳ PILA GENERADA (PENDIENTE PSE)'}
                         </span>
                       </div>
-                      <h4 className="text-base font-black text-[#012d1d]">
+                      <h4 className="text-base font-black text-white">
                         Planilla Integrada de Seguridad Social — {pila.farmName} ({pila.period})
                       </h4>
                       <p className="text-xs text-[#717973]">
-                        {pila.totalEmployees} Cotizantes | IBC Total: <strong className="text-[#012d1d]">${pila.totalIbc.toLocaleString('es-CO')}</strong> | Generada el {pila.generationDate}
+                        {pila.totalEmployees} Cotizantes | IBC Total: <strong className="text-white">${pila.totalIbc.toLocaleString('es-CO')}</strong> | Generada el {pila.generationDate}
                       </p>
                     </div>
 
@@ -2145,14 +2145,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                           setActivePilaDraft(pila);
                           setShowEditPilaDraftModal(true);
                         }}
-                        className="bg-slate-100 hover:bg-slate-200 text-[#012d1d] font-bold text-xs px-3.5 py-2.5 rounded-2xl border border-slate-300 transition-all flex items-center gap-1.5 cursor-pointer"
+                        className="bg-[#1F3327] hover:bg-[#202E25] text-white font-bold text-xs px-3.5 py-2.5 rounded-2xl border border-white/15 transition-all flex items-center gap-1.5 cursor-pointer"
                       >
                         <Edit className="w-4 h-4 text-emerald-800" />
                         <span>✏️ Editar Novedades</span>
                       </button>
 
                       {pila.status === 'Pagada PSE' ? (
-                        <div className="bg-emerald-50 border border-emerald-300 rounded-2xl p-2.5 text-right">
+                        <div className="bg-emerald-950/30 border border-emerald-300 rounded-2xl p-2.5 text-right">
                           <p className="text-[10px] uppercase font-bold text-emerald-700">Comprobante de Pago PSE</p>
                           <p className="text-xs font-mono font-black text-emerald-900">{pila.pseReference}</p>
                           <p className="text-[10px] text-emerald-800">Pagado el {pila.paymentDate}</p>
@@ -2175,9 +2175,9 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                             }
                             setShowPseModal(true);
                           }}
-                          className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-[#012d1d] font-black text-xs px-5 py-3 rounded-2xl shadow-xl transition-all flex items-center gap-2 border-2 border-amber-300 cursor-pointer animate-pulse"
+                          className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs px-5 py-3 rounded-2xl shadow-xl transition-all flex items-center gap-2 border-2 border-amber-300 cursor-pointer animate-pulse"
                         >
-                          <CreditCard className="w-5 h-5 text-[#012d1d]" />
+                          <CreditCard className="w-5 h-5 text-white" />
                           <span>💳 PAGAR $ {pila.grandTotalPila.toLocaleString('es-CO')} CON PSE</span>
                         </button>
                       )}
@@ -2185,42 +2185,42 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   </div>
 
                   {/* Contribution Summary Cards Grid */}
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-3 bg-[#f8f9f8] p-3.5 rounded-2xl border border-[#c1c8c2]">
-                    <div className="bg-white p-2.5 rounded-xl border border-slate-200">
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-3 bg-[#f8f9f8] p-3.5 rounded-2xl border border-white/10">
+                    <div className="bg-[#15241C] p-2.5 rounded-xl border border-white/10">
                       <span className="text-[10px] font-bold text-[#717973] uppercase">Salud (EPS 12.5%)</span>
-                      <p className="text-sm font-black text-[#012d1d]">${pila.totalHealth.toLocaleString('es-CO')}</p>
-                      <p className="text-[9px] text-slate-500">Emp: 4% | Patronal: 8.5%</p>
+                      <p className="text-sm font-black text-white">${pila.totalHealth.toLocaleString('es-CO')}</p>
+                      <p className="text-[9px] text-[#A5B8AC]">Emp: 4% | Patronal: 8.5%</p>
                     </div>
 
-                    <div className="bg-white p-2.5 rounded-xl border border-slate-200">
+                    <div className="bg-[#15241C] p-2.5 rounded-xl border border-white/10">
                       <span className="text-[10px] font-bold text-[#717973] uppercase">Pensión (16%)</span>
-                      <p className="text-sm font-black text-[#012d1d]">${pila.totalPension.toLocaleString('es-CO')}</p>
-                      <p className="text-[9px] text-slate-500">Emp: 4% | Patronal: 12%</p>
+                      <p className="text-sm font-black text-white">${pila.totalPension.toLocaleString('es-CO')}</p>
+                      <p className="text-[9px] text-[#A5B8AC]">Emp: 4% | Patronal: 12%</p>
                     </div>
 
-                    <div className="bg-white p-2.5 rounded-xl border border-slate-200">
+                    <div className="bg-[#15241C] p-2.5 rounded-xl border border-white/10">
                       <span className="text-[10px] font-bold text-[#717973] uppercase">ARL Agropecuario</span>
-                      <p className="text-sm font-black text-[#012d1d]">${pila.totalArl.toLocaleString('es-CO')}</p>
-                      <p className="text-[9px] text-slate-500">100% Patronal (Nivel III)</p>
+                      <p className="text-sm font-black text-white">${pila.totalArl.toLocaleString('es-CO')}</p>
+                      <p className="text-[9px] text-[#A5B8AC]">100% Patronal (Nivel III)</p>
                     </div>
 
-                    <div className="bg-white p-2.5 rounded-xl border border-slate-200">
+                    <div className="bg-[#15241C] p-2.5 rounded-xl border border-white/10">
                       <span className="text-[10px] font-bold text-[#717973] uppercase">Caja Compensación</span>
-                      <p className="text-sm font-black text-[#012d1d]">${pila.totalCaja.toLocaleString('es-CO')}</p>
-                      <p className="text-[9px] text-slate-500">4% Patronal (Comfama)</p>
+                      <p className="text-sm font-black text-white">${pila.totalCaja.toLocaleString('es-CO')}</p>
+                      <p className="text-[9px] text-[#A5B8AC]">4% Patronal (Comfama)</p>
                     </div>
 
-                    <div className="bg-[#012d1d] text-white p-2.5 rounded-xl border border-[#012d1d] col-span-2 md:col-span-1">
+                    <div className="bg-[#0D1A13] text-white p-2.5 rounded-xl border border-[#012d1d] col-span-2 md:col-span-1">
                       <span className="text-[10px] font-bold text-[#ffba38] uppercase">Total Planilla PILA</span>
                       <p className="text-base font-black text-white">${pila.grandTotalPila.toLocaleString('es-CO')}</p>
-                      <p className="text-[9px] text-[#c1ecd4]">Aportes Empleado + Patronales</p>
+                      <p className="text-[9px] text-[#A5B8AC]">Aportes Empleado + Patronales</p>
                     </div>
                   </div>
 
                   {/* Detail Table per Employee */}
                   <div className="overflow-x-auto border border-[#eeeeee] rounded-2xl">
                     <table className="w-full text-left text-xs">
-                      <thead className="bg-[#012d1d] text-white font-black uppercase text-[10px]">
+                      <thead className="bg-[#0D1A13] text-white font-black uppercase text-[10px]">
                         <tr>
                           <th className="p-2.5">Trabajador / Documento</th>
                           <th className="p-2.5">EPS / Fondo Pensión</th>
@@ -2232,29 +2232,29 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                           <th className="p-2.5 text-right font-black">Total Cotización</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#eeeeee] bg-white">
+                      <tbody className="divide-y divide-[#eeeeee] bg-[#15241C]">
                         {pila.items.map((item, idx) => (
-                          <tr key={item.documentId ? `${item.documentId}-${idx}` : `pila-item-${idx}`} className="hover:bg-slate-50">
-                            <td className="p-2.5 font-bold text-[#012d1d]">
+                          <tr key={item.documentId ? `${item.documentId}-${idx}` : `pila-item-${idx}`} className="hover:bg-[#0D1A13]">
+                            <td className="p-2.5 font-bold text-white">
                               {item.employeeName}
                               <div className="text-[10px] text-[#717973] font-normal font-mono">C.C. {item.documentId}</div>
                             </td>
                             <td className="p-2.5">
-                              <div className="font-semibold text-[11px] text-[#012d1d]">{item.epsName}</div>
+                              <div className="font-semibold text-[11px] text-white">{item.epsName}</div>
                               <div className="text-[10px] text-[#717973]">{item.pensionFund}</div>
                             </td>
-                            <td className="p-2.5 text-right font-bold text-[#012d1d]">${item.ibc.toLocaleString('es-CO')}</td>
+                            <td className="p-2.5 text-right font-bold text-white">${item.ibc.toLocaleString('es-CO')}</td>
                             <td className="p-2.5 text-right font-mono text-[11px]">
                               ${(item.healthWorker + item.healthEmployer).toLocaleString('es-CO')}
-                              <div className="text-[9px] text-slate-400">Ded: ${item.healthWorker.toLocaleString('es-CO')}</div>
+                              <div className="text-[9px] text-[#A5B8AC]">Ded: ${item.healthWorker.toLocaleString('es-CO')}</div>
                             </td>
                             <td className="p-2.5 text-right font-mono text-[11px]">
                               ${(item.pensionWorker + item.pensionEmployer).toLocaleString('es-CO')}
-                              <div className="text-[9px] text-slate-400">Ded: ${item.pensionWorker.toLocaleString('es-CO')}</div>
+                              <div className="text-[9px] text-[#A5B8AC]">Ded: ${item.pensionWorker.toLocaleString('es-CO')}</div>
                             </td>
                             <td className="p-2.5 text-right font-mono text-[11px]">${item.arlEmployer.toLocaleString('es-CO')}</td>
                             <td className="p-2.5 text-right font-mono text-[11px]">${item.cajaEmployer.toLocaleString('es-CO')}</td>
-                            <td className="p-2.5 text-right font-black text-[#012d1d]">${item.totalItem.toLocaleString('es-CO')}</td>
+                            <td className="p-2.5 text-right font-black text-white">${item.totalItem.toLocaleString('es-CO')}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -2277,14 +2277,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             if (e.target === e.currentTarget) setShowAddEmployeeModal(false);
           }}
         >
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto">
+          <div className="bg-[#15241C] rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto">
             <div className="flex justify-between items-center border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-9 h-9 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black">
+                <div className="w-9 h-9 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black">
                   <UserPlus className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#012d1d]">
+                  <h3 className="text-base font-black text-white">
                     {editingEmployee ? 'Editar Trabajador' : 'Registrar Nuevo Trabajador'}
                   </h3>
                   <p className="text-[11px] text-[#717973]">Ingresa los datos contractuales y bancarios.</p>
@@ -2300,11 +2300,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
             <form onSubmit={handleSaveEmployee} className="space-y-3 text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Finca Asignada</label>
+                <label className="block font-bold text-white mb-1">Finca Asignada</label>
                 <select
                   value={empFarmId}
                   onChange={(e) => setEmpFarmId(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-medium focus:border-[#012d1d] focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-medium focus:border-[#012d1d] focus:outline-none"
                 >
                   {farms.map((f, idx) => (
                     <option key={f.id || `farm-opt-${idx}`} value={f.id}>
@@ -2316,37 +2316,37 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Nombre Completo *</label>
+                  <label className="block font-bold text-white mb-1">Nombre Completo *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej. Jairo Benítez"
                     value={empName}
                     onChange={(e) => setEmpName(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Cédula / Documento *</label>
+                  <label className="block font-bold text-white mb-1">Cédula / Documento *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej. 1.094.882.110"
                     value={empDoc}
                     onChange={(e) => setEmpDoc(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Cargo / Rol</label>
+                  <label className="block font-bold text-white mb-1">Cargo / Rol</label>
                   <select
                     value={empRole}
                     onChange={(e) => setEmpRole(e.target.value as WorkerRole)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-medium focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-medium focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="Administrador / Mayordomo">Administrador / Mayordomo</option>
                     <option value="Vaquero / Ordeñador">Vaquero / Ordeñador</option>
@@ -2358,11 +2358,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Modalidad de Vinculación / Contrato *</label>
+                  <label className="block font-bold text-white mb-1">Modalidad de Vinculación / Contrato *</label>
                   <select
                     value={empContract}
                     onChange={(e) => setEmpContract(e.target.value as ContractType)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="Término Indefinido">Término Indefinido (Prestaciones Sociales Completas)</option>
                     <option value="Término Fijo">Término Fijo (Prestaciones Sociales)</option>
@@ -2380,10 +2380,10 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               {(() => {
                 const legalInfo = getContractInfo(empContract);
                 return (
-                  <div className={`p-3 rounded-2xl border ${legalInfo.badgeBorder} ${legalInfo.badgeBg} space-y-2 text-[#012d1d]`}>
+                  <div className={`p-3 rounded-2xl border ${legalInfo.badgeBorder} ${legalInfo.badgeBg} space-y-2 text-white`}>
                     <div className="flex items-center justify-between gap-2 border-b border-black/10 pb-1.5">
                       <div className="flex items-center gap-1.5 font-black text-xs">
-                        <ShieldCheck className="w-4 h-4 text-[#012d1d] shrink-0" />
+                        <ShieldCheck className="w-4 h-4 text-white shrink-0" />
                         <span>Régimen Legal Laboral: {legalInfo.labelShort}</span>
                       </div>
                       <span className="text-[10px] font-mono font-extrabold px-2 py-0.5 rounded-md bg-white/80 border border-black/10">
@@ -2396,12 +2396,12 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-0.5 text-[10px] font-bold">
-                      <div className={`p-1.5 rounded-xl border flex items-center gap-1.5 ${legalInfo.hasSocialBenefits ? 'bg-emerald-50 border-emerald-300 text-emerald-950' : 'bg-red-50 border-red-200 text-red-950'}`}>
+                      <div className={`p-1.5 rounded-xl border flex items-center gap-1.5 ${legalInfo.hasSocialBenefits ? 'bg-emerald-950/30 border-emerald-300 text-emerald-950' : 'bg-red-50 border-red-200 text-red-950'}`}>
                         {legalInfo.hasSocialBenefits ? <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" /> : <X className="w-3.5 h-3.5 shrink-0 text-red-600" />}
                         <span>{legalInfo.hasSocialBenefits ? 'Genera Prestaciones Sociales (Cesantías, Primas, Vac.)' : 'Sin Prestaciones Sociales (Honorarios Nétos)'}</span>
                       </div>
 
-                      <div className={`p-1.5 rounded-xl border flex items-center gap-1.5 ${legalInfo.hasAuxTransport ? 'bg-emerald-50 border-emerald-300 text-emerald-950' : 'bg-amber-50 border-amber-200 text-amber-950'}`}>
+                      <div className={`p-1.5 rounded-xl border flex items-center gap-1.5 ${legalInfo.hasAuxTransport ? 'bg-emerald-950/30 border-emerald-300 text-emerald-950' : 'bg-amber-950/30 border-amber-200 text-amber-950'}`}>
                         {legalInfo.hasAuxTransport ? <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" /> : <AlertCircle className="w-3.5 h-3.5 shrink-0 text-amber-600" />}
                         <span>{legalInfo.hasAuxTransport ? 'Auxilio de Transporte (Si gana ≤ 2 SMLMV)' : 'Sin Auxilio de Transporte'}</span>
                       </div>
@@ -2424,13 +2424,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Fecha de Ingreso / Inicio de Contrato *</label>
+                  <label className="block font-bold text-white mb-1">Fecha de Ingreso / Inicio de Contrato *</label>
                   <input
                     type="date"
                     required
                     value={empStartDate}
                     onChange={(e) => setEmpStartDate(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   />
                   <p className="text-[10px] text-[#717973] mt-1">
                     📅 Base para liquidación de Cesantías, Intereses, Primas y Vacaciones.
@@ -2438,11 +2438,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Frecuencia de Pago</label>
+                  <label className="block font-bold text-white mb-1">Frecuencia de Pago</label>
                   <select
                     value={empFrequency}
                     onChange={(e) => setEmpFrequency(e.target.value as any)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-medium focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-medium focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="Semanal">Semanal (Pago de Jornales los sábados)</option>
                     <option value="Quincenal">Quincenal (Cada 15 días)</option>
@@ -2453,7 +2453,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">
+                  <label className="block font-bold text-white mb-1">
                     {empContract === 'Jornal Diario' ? 'Tarifa Jornal Diario ($/Día)' : 'Sueldo Base Mensual ($)'}
                   </label>
                   <input
@@ -2462,12 +2462,12 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     step="5000"
                     value={empBaseRate}
                     onChange={(e) => setEmpBaseRate(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-black text-emerald-800 focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-black text-emerald-800 focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">
+                  <label className="block font-bold text-white mb-1">
                     Tarifa Fija por Jornal ($/Día)
                   </label>
                   <input
@@ -2477,43 +2477,43 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                     value={empDailyJornalRate}
                     onChange={(e) => setEmpDailyJornalRate(Number(e.target.value))}
                     placeholder="Ej. 65000"
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-black text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-black text-white focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Medio de Pago / Banco</label>
+                  <label className="block font-bold text-white mb-1">Medio de Pago / Banco</label>
                   <input
                     type="text"
                     placeholder="Ej. Bancolombia / Nequi / Efectivo"
                     value={empBank}
                     onChange={(e) => setEmpBank(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Número de Cuenta / Teléfono</label>
+                  <label className="block font-bold text-white mb-1">Número de Cuenta / Teléfono</label>
                   <input
                     type="text"
                     placeholder="Ej. 312-882109-12"
                     value={empAccount}
                     onChange={(e) => setEmpAccount(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Seguridad Social / EPS / Observaciones</label>
+                <label className="block font-bold text-white mb-1">Seguridad Social / EPS / Observaciones</label>
                 <input
                   type="text"
                   placeholder="Ej. Afiliado a Sura EPS y ARL Positiva"
                   value={empSocialSec}
                   onChange={(e) => setEmpSocialSec(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:border-[#012d1d] focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:border-[#012d1d] focus:outline-none"
                 />
               </div>
 
@@ -2521,13 +2521,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowAddEmployeeModal(false)}
-                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-slate-100"
+                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-[#1F3327]"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#012d1d] text-white font-black px-5 py-2.5 rounded-xl shadow-md hover:bg-[#002216] cursor-pointer"
+                  className="bg-[#0D1A13] text-white font-black px-5 py-2.5 rounded-xl shadow-md hover:bg-[#002216] cursor-pointer"
                 >
                   {editingEmployee ? 'Guardar Cambios' : 'Registrar Trabajador'}
                 </button>
@@ -2547,14 +2547,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             if (e.target === e.currentTarget) setShowCreateRunModal(false);
           }}
         >
-          <div className="bg-white rounded-3xl max-w-4xl w-full p-5 sm:p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto max-h-[92vh] overflow-y-auto">
+          <div className="bg-[#15241C] rounded-3xl max-w-4xl w-full p-5 sm:p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto max-h-[92vh] overflow-y-auto">
             <div className="flex justify-between items-center border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black shadow-md">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black shadow-md">
                   <Receipt className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#012d1d]">Planilla de Liquidación de Nómina</h3>
+                  <h3 className="text-base font-black text-white">Planilla de Liquidación de Nómina</h3>
                   <p className="text-[11px] text-[#717973]">
                     Liquidación para trabajadores activos. Puedes ajustar horas extras, bonos y deducciones.
                   </p>
@@ -2571,14 +2571,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             <form onSubmit={handleCreateRunSubmit} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Finca Asignada</label>
+                  <label className="block font-bold text-white mb-1">Finca Asignada</label>
                   <select
                     value={empFarmId}
                     onChange={(e) => {
                       setEmpFarmId(e.target.value);
                       handleInitializeRunItems(e.target.value);
                     }}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-bold focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-bold focus:border-[#012d1d] focus:outline-none"
                   >
                     {farms.map((f, idx) => (
                       <option key={f.id || `farm-run-opt-${idx}`} value={f.id}>
@@ -2589,23 +2589,23 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Nombre del Período *</label>
+                  <label className="block font-bold text-white mb-1">Nombre del Período *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej. Nómina 1ra Quincena Agosto 2026"
                     value={runPeriodName}
                     onChange={(e) => setRunPeriodName(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-bold focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-bold focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Tipo de Período</label>
+                  <label className="block font-bold text-white mb-1">Tipo de Período</label>
                   <select
                     value={runPeriodType}
                     onChange={(e) => setRunPeriodType(e.target.value as any)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-medium focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-medium focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="Quincenal">Quincenal (15 días)</option>
                     <option value="Mensual">Mensual (30 días)</option>
@@ -2617,32 +2617,32 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Fecha Inicio</label>
+                  <label className="block font-bold text-white mb-1">Fecha Inicio</label>
                   <input
                     type="date"
                     value={runStartDate}
                     onChange={(e) => setRunStartDate(e.target.value)}
-                    className="w-full p-2 rounded-xl border-2 border-[#c1c8c2] focus:outline-none"
+                    className="w-full p-2 rounded-xl border-2 border-white/10 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Fecha Fin</label>
+                  <label className="block font-bold text-white mb-1">Fecha Fin</label>
                   <input
                     type="date"
                     value={runEndDate}
                     onChange={(e) => setRunEndDate(e.target.value)}
-                    className="w-full p-2 rounded-xl border-2 border-[#c1c8c2] focus:outline-none"
+                    className="w-full p-2 rounded-xl border-2 border-white/10 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Fecha Programada de Pago</label>
+                  <label className="block font-bold text-white mb-1">Fecha Programada de Pago</label>
                   <input
                     type="date"
                     value={runPaymentDate}
                     onChange={(e) => setRunPaymentDate(e.target.value)}
-                    className="w-full p-2 rounded-xl border-2 border-[#c1c8c2] focus:outline-none"
+                    className="w-full p-2 rounded-xl border-2 border-white/10 focus:outline-none"
                   />
                 </div>
               </div>
@@ -2650,15 +2650,15 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               {/* Items Editable Table */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-black text-sm text-[#012d1d]">Detalle de Liquidación por Trabajador</h4>
+                  <h4 className="font-black text-sm text-white">Detalle de Liquidación por Trabajador</h4>
                   <span className="text-[11px] text-[#717973] font-bold">
                     {runItems.length} Trabajadores Incluidos
                   </span>
                 </div>
 
-                <div className="overflow-x-auto rounded-2xl border-2 border-[#c1c8c2]">
+                <div className="overflow-x-auto rounded-2xl border-2 border-white/10">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-[#012d1d] text-white font-black uppercase text-[10px]">
+                    <thead className="bg-[#0D1A13] text-white font-black uppercase text-[10px]">
                       <tr>
                         <th className="p-2.5">Trabajador</th>
                         <th className="p-2.5 w-16 text-center">Días</th>
@@ -2669,11 +2669,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                         <th className="p-2.5 w-32 text-right">Neto A Pagar</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#eeeeee] bg-white">
+                    <tbody className="divide-y divide-[#eeeeee] bg-[#15241C]">
                       {runItems.map((item, itemIdx) => (
-                        <tr key={item.employeeId ? `${item.employeeId}-${itemIdx}` : `run-item-${itemIdx}`} className="hover:bg-slate-50">
+                        <tr key={item.employeeId ? `${item.employeeId}-${itemIdx}` : `run-item-${itemIdx}`} className="hover:bg-[#0D1A13]">
                           <td className="p-2.5">
-                            <p className="font-bold text-[#012d1d]">{item.employeeName}</p>
+                            <p className="font-bold text-white">{item.employeeName}</p>
                             <p className="text-[10px] text-[#717973]">{item.role}</p>
                           </td>
                           <td className="p-2.5">
@@ -2685,7 +2685,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                               onChange={(e) =>
                                 handleUpdateRunItem(item.employeeId, 'daysWorked', Number(e.target.value))
                               }
-                              className="w-14 p-1 text-center font-bold border border-[#c1c8c2] rounded-lg"
+                              className="w-14 p-1 text-center font-bold border border-white/10 rounded-lg"
                             />
                           </td>
                           <td className="p-2.5">
@@ -2695,7 +2695,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                               onChange={(e) =>
                                 handleUpdateRunItem(item.employeeId, 'basePay', Number(e.target.value))
                               }
-                              className="w-24 p-1 text-right font-medium border border-[#c1c8c2] rounded-lg"
+                              className="w-24 p-1 text-right font-medium border border-white/10 rounded-lg"
                             />
                           </td>
                           <td className="p-2.5">
@@ -2705,7 +2705,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                               onChange={(e) =>
                                 handleUpdateRunItem(item.employeeId, 'overtimePay', Number(e.target.value))
                               }
-                              className="w-24 p-1 text-right font-medium text-blue-700 border border-[#c1c8c2] rounded-lg"
+                              className="w-24 p-1 text-right font-medium text-blue-700 border border-white/10 rounded-lg"
                             />
                           </td>
                           <td className="p-2.5">
@@ -2715,7 +2715,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                               onChange={(e) =>
                                 handleUpdateRunItem(item.employeeId, 'bonuses', Number(e.target.value))
                               }
-                              className="w-24 p-1 text-right font-medium text-emerald-700 border border-[#c1c8c2] rounded-lg"
+                              className="w-24 p-1 text-right font-medium text-emerald-700 border border-white/10 rounded-lg"
                             />
                           </td>
                           <td className="p-2.5">
@@ -2725,10 +2725,10 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                               onChange={(e) =>
                                 handleUpdateRunItem(item.employeeId, 'deductions', Number(e.target.value))
                               }
-                              className="w-24 p-1 text-right font-medium text-rose-700 border border-[#c1c8c2] rounded-lg"
+                              className="w-24 p-1 text-right font-medium text-rose-700 border border-white/10 rounded-lg"
                             />
                           </td>
-                          <td className="p-2.5 text-right font-black text-sm text-[#012d1d]">
+                          <td className="p-2.5 text-right font-black text-sm text-white">
                             ${item.netPayable.toLocaleString('es-CO')}
                           </td>
                         </tr>
@@ -2739,7 +2739,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               </div>
 
               {/* Total Calculation */}
-              <div className="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-center justify-between font-black text-sm text-[#012d1d]">
+              <div className="p-3 bg-emerald-950/30 rounded-2xl border border-emerald-200 flex items-center justify-between font-black text-sm text-white">
                 <span>TOTAL NÓMINA LIQUIDADA:</span>
                 <span className="text-xl text-emerald-900">
                   $
@@ -2753,13 +2753,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowCreateRunModal(false)}
-                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-slate-100"
+                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-[#1F3327]"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#012d1d] text-white font-black px-5 py-2.5 rounded-xl shadow-md hover:bg-[#002216] cursor-pointer"
+                  className="bg-[#0D1A13] text-white font-black px-5 py-2.5 rounded-xl shadow-md hover:bg-[#002216] cursor-pointer"
                 >
                   Guardar Planilla de Nómina
                 </button>
@@ -2779,14 +2779,14 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             if (e.target === e.currentTarget) setShowAddAdvanceModal(false);
           }}
         >
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto">
             <div className="flex justify-between items-center border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-9 h-9 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black">
+                <div className="w-9 h-9 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black">
                   <DollarSign className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#012d1d]">Registrar Vale / Anticipo</h3>
+                  <h3 className="text-base font-black text-white">Registrar Vale / Anticipo</h3>
                   <p className="text-[11px] text-[#717973]">Se descontará en la próxima liquidación.</p>
                 </div>
               </div>
@@ -2800,11 +2800,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
             <form onSubmit={handleCreateAdvanceSubmit} className="space-y-3 text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Seleccionar Trabajador *</label>
+                <label className="block font-bold text-white mb-1">Seleccionar Trabajador *</label>
                 <select
                   value={advEmpId}
                   onChange={(e) => setAdvEmpId(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-bold focus:border-[#012d1d] focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-bold focus:border-[#012d1d] focus:outline-none"
                 >
                   {farmEmployees.map((e, idx) => (
                     <option key={e.id || `adv-emp-${idx}`} value={e.id}>
@@ -2815,17 +2815,17 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Fecha del Anticipo</label>
+                <label className="block font-bold text-white mb-1">Fecha del Anticipo</label>
                 <input
                   type="date"
                   value={advDate}
                   onChange={(e) => setAdvDate(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Monto Anticipado ($) *</label>
+                <label className="block font-bold text-white mb-1">Monto Anticipado ($) *</label>
                 <input
                   type="number"
                   required
@@ -2833,18 +2833,18 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                   step="5000"
                   value={advAmount}
                   onChange={(e) => setAdvAmount(Number(e.target.value))}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-black text-rose-700 text-sm focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 font-black text-rose-700 text-sm focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Concepto / Motivo</label>
+                <label className="block font-bold text-white mb-1">Concepto / Motivo</label>
                 <input
                   type="text"
                   placeholder="Ej. Anticipo compra medicinas / Vales de mercado"
                   value={advReason}
                   onChange={(e) => setAdvReason(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 focus:outline-none"
                 />
               </div>
 
@@ -2852,13 +2852,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowAddAdvanceModal(false)}
-                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-slate-100"
+                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-[#1F3327]"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#012d1d] text-white font-black px-5 py-2.5 rounded-xl shadow-md hover:bg-[#002216] cursor-pointer"
+                  className="bg-[#0D1A13] text-white font-black px-5 py-2.5 rounded-xl shadow-md hover:bg-[#002216] cursor-pointer"
                 >
                   Registrar Vale
                 </button>
@@ -2878,11 +2878,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             if (e.target === e.currentTarget) setViewingPayslipRun(null);
           }}
         >
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-in fade-in border-2 border-[#012d1d] my-auto">
+          <div className="bg-[#15241C] rounded-3xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-in fade-in border-2 border-[#012d1d] my-auto">
             <div className="flex items-center justify-between pb-3 border-b border-[#eeeeee]">
               <div className="flex items-center gap-2">
-                <FileText className="w-5 h-5 text-[#012d1d]" />
-                <h3 className="font-black text-base text-[#012d1d]">Desprendible de Pago de Nómina</h3>
+                <FileText className="w-5 h-5 text-white" />
+                <h3 className="font-black text-base text-white">Desprendible de Pago de Nómina</h3>
               </div>
               <button
                 onClick={() => setViewingPayslipRun(null)}
@@ -2893,9 +2893,9 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             </div>
 
             {/* Payslip Card Printable Body */}
-            <div className="bg-[#f8f9f8] p-5 rounded-2xl border-2 border-[#c1c8c2] space-y-4 text-xs font-medium text-[#012d1d]">
-              <div className="text-center border-b pb-3 border-slate-200">
-                <h4 className="font-black text-base uppercase text-[#012d1d]">{viewingPayslipRun.run.farmName}</h4>
+            <div className="bg-[#f8f9f8] p-5 rounded-2xl border-2 border-white/10 space-y-4 text-xs font-medium text-white">
+              <div className="text-center border-b pb-3 border-white/10">
+                <h4 className="font-black text-base uppercase text-white">{viewingPayslipRun.run.farmName}</h4>
                 <p className="text-[10px] text-[#717973] font-bold uppercase">{viewingPayslipRun.run.periodName}</p>
                 <p className="text-[10px] text-[#717973]">
                   Periodo: {viewingPayslipRun.run.startDate} al {viewingPayslipRun.run.endDate}
@@ -2913,7 +2913,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 </div>
               </div>
 
-              <div className="space-y-1.5 border-t pt-3 border-slate-200">
+              <div className="space-y-1.5 border-t pt-3 border-white/10">
                 <div className="flex justify-between">
                   <span>Días Trabados ({viewingPayslipRun.item.daysWorked}d):</span>
                   <span className="font-bold">${viewingPayslipRun.item.basePay.toLocaleString('es-CO')}</span>
@@ -2949,13 +2949,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             <div className="flex items-center justify-between pt-2">
               <button
                 onClick={safePrint}
-                className="bg-[#012d1d] text-white font-bold text-xs px-4 py-2 rounded-xl flex items-center gap-2 cursor-pointer"
+                className="bg-[#0D1A13] text-white font-bold text-xs px-4 py-2 rounded-xl flex items-center gap-2 cursor-pointer"
               >
                 <Printer className="w-4 h-4 text-[#ffba38]" /> Imprimir Desprendible
               </button>
               <button
                 onClick={() => setViewingPayslipRun(null)}
-                className="bg-slate-200 text-slate-800 font-bold text-xs px-4 py-2 rounded-xl"
+                className="bg-[#202E25] text-white font-bold text-xs px-4 py-2 rounded-xl"
               >
                 Cerrar
               </button>
@@ -2974,22 +2974,22 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             if (e.target === e.currentTarget) setShowPseModal(false);
           }}
         >
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto">
+          <div className="bg-[#15241C] rounded-3xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d] my-auto">
             {/* Modal PSE Header */}
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black shadow-lg">
+                <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black shadow-lg">
                   <CreditCard className="w-7 h-7" />
                 </div>
                 <div>
                   <span className="bg-amber-100 text-amber-900 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-amber-300">
                     Pasarela PSE Oficial
                   </span>
-                  <h3 className="text-lg font-black text-[#012d1d] mt-0.5">
+                  <h3 className="text-lg font-black text-white mt-0.5">
                     Pago de Planilla PILA por PSE
                   </h3>
                   <p className="text-xs text-[#717973]">
-                    PIN PILA: <strong className="font-mono text-[#012d1d]">{activePilaForPse.pilaPin}</strong> ({activePilaForPse.operatorName})
+                    PIN PILA: <strong className="font-mono text-white">{activePilaForPse.pilaPin}</strong> ({activePilaForPse.operatorName})
                   </p>
                 </div>
               </div>
@@ -3006,7 +3006,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
               <div>
                 <p className="text-[10px] text-[#ffba38] uppercase font-black tracking-wider">Total Aportes a Debitar</p>
                 <p className="text-2xl font-black text-white">${activePilaForPse.grandTotalPila.toLocaleString('es-CO')}</p>
-                <p className="text-[10px] text-[#c1ecd4]">Salud + Pensión + ARL + Caja ({activePilaForPse.totalEmployees} empleados)</p>
+                <p className="text-[10px] text-[#A5B8AC]">Salud + Pensión + ARL + Caja ({activePilaForPse.totalEmployees} empleados)</p>
               </div>
               <Lock className="w-8 h-8 text-amber-400 opacity-80" />
             </div>
@@ -3014,13 +3014,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
             {/* PSE Bank Selection Form */}
             <form onSubmit={handleConfirmPsePayment} className="space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">
+                <label className="block font-bold text-white mb-1">
                   Seleccione su Entidad Bancaria (PSE) *
                 </label>
                 <select
                   value={pseBank}
                   onChange={(e) => setPseBank(e.target.value)}
-                  className="w-full p-3 rounded-2xl border-2 border-[#012d1d] bg-white font-black text-[#012d1d] text-sm focus:outline-none"
+                  className="w-full p-3 rounded-2xl border-2 border-[#012d1d] bg-[#15241C] font-black text-white text-sm focus:outline-none"
                 >
                   <option value="Bancolombia">Bancolombia</option>
                   <option value="Banco de Bogotá">Banco de Bogotá</option>
@@ -3039,11 +3039,11 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Tipo de Persona</label>
+                  <label className="block font-bold text-white mb-1">Tipo de Persona</label>
                   <select
                     value={psePersonType}
                     onChange={(e) => setPsePersonType(e.target.value as any)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white font-bold"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] font-bold"
                   >
                     <option value="Natural">Persona Natural</option>
                     <option value="Juridica">Persona Jurídica (Empresa)</option>
@@ -3051,29 +3051,29 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Número de Documento / NIT</label>
+                  <label className="block font-bold text-white mb-1">Número de Documento / NIT</label>
                   <input
                     type="text"
                     required
                     value={pseDocId}
                     onChange={(e) => setPseDocId(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-mono font-bold"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 font-mono font-bold"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Correo Electrónico de Confirmación</label>
+                <label className="block font-bold text-white mb-1">Correo Electrónico de Confirmación</label>
                 <input
                   type="email"
                   required
                   value={pseEmail}
                   onChange={(e) => setPseEmail(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] font-medium"
+                  className="w-full p-2.5 rounded-xl border-2 border-white/10 font-medium"
                 />
               </div>
 
-              <div className="bg-amber-50 p-3 rounded-xl border border-amber-200 text-[11px] text-amber-900 flex items-start gap-2">
+              <div className="bg-amber-950/30 p-3 rounded-xl border border-amber-200 text-[11px] text-amber-900 flex items-start gap-2">
                 <ShieldCheck className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <p>
                   Al hacer clic en <strong>Ir al Banco para Pagar con PSE</strong>, se simulará el débito seguro. El comprobante CUS y la transacción de Egreso se registrarán automáticamente en el módulo de Finanzas de la finca.
@@ -3084,13 +3084,13 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowPseModal(false)}
-                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-slate-100"
+                  className="px-4 py-2.5 rounded-xl font-bold text-[#717973] hover:bg-[#1F3327]"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-[#012d1d] font-black text-xs px-5 py-3 rounded-2xl shadow-xl transition-all flex items-center gap-2 border-2 border-amber-300 cursor-pointer"
+                  className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-xs px-5 py-3 rounded-2xl shadow-xl transition-all flex items-center gap-2 border-2 border-amber-300 cursor-pointer"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Ir al Banco para Pagar con PSE

@@ -210,7 +210,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
             onClick={() => setImportMode('file')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
               importMode === 'file'
-                ? 'bg-[#012d1d] text-white shadow-xs'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
                 : 'text-[#414844] hover:text-black'
             }`}
           >
@@ -222,7 +222,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
             onClick={() => setImportMode('paste')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
               importMode === 'paste'
-                ? 'bg-[#012d1d] text-white shadow-xs'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
                 : 'text-[#414844] hover:text-black'
             }`}
           >
@@ -234,7 +234,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
             onClick={() => setImportMode('manual')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all ${
               importMode === 'manual'
-                ? 'bg-[#012d1d] text-white shadow-xs'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
                 : 'text-[#414844] hover:text-black'
             }`}
           >
@@ -246,7 +246,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
         <button
           type="button"
           onClick={downloadExcelTemplate}
-          className="text-[11px] text-[#012d1d] hover:text-[#1b4332] font-semibold bg-[#e6f4ea] hover:bg-[#c1ecd4] px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-colors border border-[#a3e0be]"
+          className="text-[11px] text-white hover:text-[#1b4332] font-semibold bg-[#e6f4ea] hover:bg-[#c1ecd4] px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-colors border border-[#a3e0be]"
           title="Descargar formato Excel oficial con 9 columnas"
         >
           <Download className="w-3.5 h-3.5 text-[#2d6a4f]" />
@@ -268,7 +268,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
             className={`border-2 border-dashed rounded-2xl p-5 text-center cursor-pointer transition-all ${
               isDragging
                 ? 'border-[#012d1d] bg-[#c1ecd4]/20'
-                : 'border-[#c1c8c2] hover:border-[#012d1d] bg-[#fbfbfb] hover:bg-[#f3f6f4]'
+                : 'border-white/10 hover:border-[#012d1d] bg-[#fbfbfb] hover:bg-[#f3f6f4]'
             }`}
           >
             <input
@@ -283,11 +283,11 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
               }}
             />
             <div className="flex flex-col items-center justify-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-[#c1ecd4] text-[#012d1d] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#c1ecd4] text-white flex items-center justify-center">
                 <Upload className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs font-bold text-[#012d1d]">
+                <p className="text-xs font-bold text-white">
                   Haga clic o arrastre el archivo de Subasta / Compra aquí
                 </p>
                 <p className="text-[11px] text-[#717973] mt-0.5">
@@ -299,7 +299,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
 
           {/* Quick 1-Click Samples from Colombian Auctions */}
           <div className="bg-[#f5f8f6] border border-[#d6e2db] rounded-xl p-3">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-[#012d1d] mb-2">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-white mb-2">
               <Sparkles className="w-3.5 h-3.5 text-[#dc9a00]" />
               <span>Cargar Lote de Ejemplo (Prueba Rápida en 1 Clic):</span>
             </div>
@@ -307,10 +307,10 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
               <button
                 type="button"
                 onClick={() => handleLoadSample('subastar_ceba')}
-                className="text-left px-2.5 py-2 bg-white hover:bg-[#e6f4ea] border border-[#c1c8c2] rounded-lg text-[11px] font-medium transition-colors flex items-center justify-between shadow-xs"
+                className="text-left px-2.5 py-2 bg-[#15241C] hover:bg-[#e6f4ea] border border-white/10 rounded-lg text-[11px] font-medium transition-colors flex items-center justify-between shadow-xs"
               >
                 <div>
-                  <p className="font-bold text-[#012d1d]">Subastar S.A. (MC)</p>
+                  <p className="font-bold text-white">Subastar S.A. (MC)</p>
                   <p className="text-[10px] text-[#717973]">25 Novillos Machos Ceba</p>
                 </div>
                 <span className="text-[9px] bg-amber-100 text-amber-900 border border-amber-300 font-bold px-1.5 py-0.5 rounded">
@@ -321,10 +321,10 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
               <button
                 type="button"
                 onClick={() => handleLoadSample('subacasanare_cria')}
-                className="text-left px-2.5 py-2 bg-white hover:bg-[#e6f4ea] border border-[#c1c8c2] rounded-lg text-[11px] font-medium transition-colors flex items-center justify-between shadow-xs"
+                className="text-left px-2.5 py-2 bg-[#15241C] hover:bg-[#e6f4ea] border border-white/10 rounded-lg text-[11px] font-medium transition-colors flex items-center justify-between shadow-xs"
               >
                 <div>
-                  <p className="font-bold text-[#012d1d]">Subacasanare (ML/HL)</p>
+                  <p className="font-bold text-white">Subacasanare (ML/HL)</p>
                   <p className="text-[10px] text-[#717973]">18 Terneros Levante</p>
                 </div>
                 <span className="text-[9px] bg-blue-100 text-blue-900 border border-blue-300 font-bold px-1.5 py-0.5 rounded">
@@ -335,10 +335,10 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
               <button
                 type="button"
                 onClick={() => handleLoadSample('feria_leche')}
-                className="text-left px-2.5 py-2 bg-white hover:bg-[#e6f4ea] border border-[#c1c8c2] rounded-lg text-[11px] font-medium transition-colors flex items-center justify-between shadow-xs"
+                className="text-left px-2.5 py-2 bg-[#15241C] hover:bg-[#e6f4ea] border border-white/10 rounded-lg text-[11px] font-medium transition-colors flex items-center justify-between shadow-xs"
               >
                 <div>
-                  <p className="font-bold text-[#012d1d]">Feria Lechera (VP/HV)</p>
+                  <p className="font-bold text-white">Feria Lechera (VP/HV)</p>
                   <p className="text-[10px] text-[#717973]">10 Vientres Girolando</p>
                 </div>
                 <span className="text-[9px] bg-pink-100 text-pink-900 border border-pink-300 font-bold px-1.5 py-0.5 rounded">
@@ -361,14 +361,14 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
             value={pastedText}
             onChange={(e) => setPastedText(e.target.value)}
             placeholder={'Identificacion\tPeso\tRaza\tSexo\tColor\tTipo\tHierro\tPrecio\tGuia\n#8901\t380\tBrahman Blanco\tMC\tBlanco / Gris\tCeba\tHierro San Juan\t8800\tICA-GSMI-123456\n#8902\t365\tNelore\tMC\tBlanco / Gris\tCeba\tHierro San Juan\t8800\tICA-GSMI-123456'}
-            className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl p-2.5 font-mono text-xs focus:ring-2 focus:ring-[#012d1d] focus:outline-hidden"
+            className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl p-2.5 font-mono text-xs focus:ring-2 focus:ring-[#012d1d] focus:outline-hidden"
           />
           <div className="flex justify-end gap-2">
             <button
               type="button"
               onClick={handlePasteSubmit}
               disabled={!pastedText.trim()}
-              className="px-4 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-xs"
+              className="px-4 py-2 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold rounded-xl disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-xs"
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
               Procesar y Cargar Registros
@@ -381,7 +381,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
       {importMode === 'manual' && (
         <form onSubmit={handleAddManualAnimal} className="bg-[#fbfbfb] border border-[#d6e2db] rounded-2xl p-4 space-y-3 shadow-xs">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-extrabold text-[#012d1d] uppercase tracking-wider flex items-center gap-1.5">
+            <p className="text-xs font-extrabold text-white uppercase tracking-wider flex items-center gap-1.5">
               <Plus className="w-4 h-4 text-emerald-700" />
               Registro Individual de Compra (Animal por Animal *):
             </p>
@@ -401,7 +401,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                 value={manualTag}
                 onChange={(e) => setManualTag(e.target.value)}
                 placeholder="#8950 o 4092"
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold focus:ring-2 focus:ring-emerald-700"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold focus:ring-2 focus:ring-emerald-700"
                 required
               />
             </div>
@@ -417,7 +417,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                 value={manualWeight}
                 onChange={(e) => setManualWeight(e.target.value)}
                 placeholder="365.0"
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold text-emerald-900 focus:ring-2 focus:ring-emerald-700"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs font-mono font-bold text-emerald-900 focus:ring-2 focus:ring-emerald-700"
                 required
               />
             </div>
@@ -432,7 +432,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                 value={manualBreed}
                 onChange={(e) => setManualBreed(e.target.value)}
                 placeholder="Brahman Blanco / Nelore"
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs font-medium"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs font-medium"
                 required
               />
             </div>
@@ -445,7 +445,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
               <select
                 value={manualSexCode}
                 onChange={(e) => setManualSexCode(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1.5 text-xs font-bold text-[#012d1d]"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1.5 text-xs font-bold text-white"
               >
                 {LIVESTOCK_SEX_OPTIONS.map((opt) => (
                   <option key={opt.code} value={opt.code}>
@@ -463,7 +463,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                 value={manualColor}
                 onChange={(e) => setManualColor(e.target.value)}
                 placeholder="Blanco / Gris / Sardo"
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs"
               />
             </div>
 
@@ -473,7 +473,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
               <select
                 value={manualCategory}
                 onChange={(e) => setManualCategory(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs font-medium"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs font-medium"
               >
                 <option value="Ceba">Ceba Intensiva / Engorde</option>
                 <option value="Cría">Cría / Vientres</option>
@@ -491,7 +491,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                 value={manualBrandingIron}
                 onChange={(e) => setManualBrandingIron(e.target.value)}
                 placeholder="Hierro San Juan / SB"
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs"
               />
             </div>
 
@@ -503,7 +503,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                 value={manualPricePerKg}
                 onChange={(e) => setManualPricePerKg(e.target.value)}
                 placeholder="8750"
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs font-mono"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs font-mono"
               />
             </div>
 
@@ -517,7 +517,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                 value={manualMovementGuide}
                 onChange={(e) => setManualMovementGuide(e.target.value)}
                 placeholder="ICA-GSMI-2026-981245 o N° Certificado Zoosanitario"
-                className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1.5 text-xs font-mono"
+                className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs font-mono"
               />
             </div>
           </div>
@@ -528,7 +528,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
             </p>
             <button
               type="submit"
-              className="px-4 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-extrabold rounded-xl flex items-center gap-1.5 shadow-xs transition-all"
+              className="px-4 py-2 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-extrabold rounded-xl flex items-center gap-1.5 shadow-xs transition-all"
             >
               <Plus className="w-4 h-4" />
               Guardar Animal al Registro
@@ -550,24 +550,24 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
 
       {/* Summary Metrics Bar */}
       {animals.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-[#f0f4f1] border border-[#c1ecd4] rounded-xl p-2.5">
-          <div className="bg-white p-2 rounded-lg border border-[#d6e2db] text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-[#123F2A]/60 border border-[#c1ecd4] rounded-xl p-2.5">
+          <div className="bg-[#15241C] p-2 rounded-lg border border-[#d6e2db] text-center">
             <p className="text-[10px] text-[#717973] font-bold uppercase">Total Cabezas</p>
-            <p className="text-base font-extrabold text-[#012d1d]">{totalHeads}</p>
+            <p className="text-base font-extrabold text-white">{totalHeads}</p>
           </div>
-          <div className="bg-white p-2 rounded-lg border border-[#d6e2db] text-center">
+          <div className="bg-[#15241C] p-2 rounded-lg border border-[#d6e2db] text-center">
             <p className="text-[10px] text-[#717973] font-bold uppercase">Peso Total</p>
-            <p className="text-base font-extrabold text-[#012d1d] font-mono">
+            <p className="text-base font-extrabold text-white font-mono">
               {totalWeight.toLocaleString('es-CO')} <span className="text-xs font-normal">kg</span>
             </p>
           </div>
-          <div className="bg-white p-2 rounded-lg border border-[#d6e2db] text-center">
+          <div className="bg-[#15241C] p-2 rounded-lg border border-[#d6e2db] text-center">
             <p className="text-[10px] text-[#717973] font-bold uppercase">Peso Promedio</p>
             <p className="text-base font-extrabold text-emerald-800 font-mono">
               {avgWeight} <span className="text-xs font-normal">kg</span>
             </p>
           </div>
-          <div className="bg-white p-2 rounded-lg border border-[#d6e2db] text-center">
+          <div className="bg-[#15241C] p-2 rounded-lg border border-[#d6e2db] text-center">
             <p className="text-[10px] text-[#717973] font-bold uppercase">Inversión Compra</p>
             <p className="text-base font-extrabold text-[#79564b] font-mono">
               ${(totalCost / 1000000).toFixed(2)}M <span className="text-[10px] font-normal">COP</span>
@@ -578,10 +578,10 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
 
       {/* Animals Preview Data Table with 9 Columns */}
       {animals.length > 0 ? (
-        <div className="border border-[#c1c8c2] rounded-xl overflow-hidden bg-white shadow-xs">
+        <div className="border border-white/10 rounded-xl overflow-hidden bg-[#15241C] shadow-xs">
           <div className="max-h-72 overflow-y-auto overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse min-w-[980px]">
-              <thead className="bg-[#f3f4f3] sticky top-0 z-10 text-[10px] text-[#414844] font-extrabold uppercase border-b border-[#c1c8c2]">
+              <thead className="bg-[#f3f4f3] sticky top-0 z-10 text-[10px] text-[#414844] font-extrabold uppercase border-b border-white/10">
                 <tr>
                   <th className="py-2.5 px-3">#</th>
                   <th className="py-2.5 px-3">1. Identificación / N°</th>
@@ -607,13 +607,13 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                       <td className="py-2 px-3 text-[#717973] font-mono">{idx + 1}</td>
                       
                       {/* 1. Tag / ID */}
-                      <td className="py-2 px-3 font-bold font-mono text-[#012d1d]">
+                      <td className="py-2 px-3 font-bold font-mono text-white">
                         {isEditing ? (
                           <input
                             type="text"
                             value={editFormData.tag || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, tag: e.target.value })}
-                            className="w-24 px-1.5 py-0.5 border border-[#c1c8c2] rounded font-mono text-xs"
+                            className="w-24 px-1.5 py-0.5 border border-white/10 rounded font-mono text-xs"
                           />
                         ) : (
                           anim.tag
@@ -628,7 +628,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             step="0.5"
                             value={editFormData.weightKg || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, weightKg: parseFloat(e.target.value) })}
-                            className="w-16 px-1.5 py-0.5 border border-[#c1c8c2] rounded font-mono text-xs"
+                            className="w-16 px-1.5 py-0.5 border border-white/10 rounded font-mono text-xs"
                           />
                         ) : (
                           `${anim.weightKg} kg`
@@ -642,7 +642,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             type="text"
                             value={editFormData.breed || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, breed: e.target.value })}
-                            className="w-28 px-1.5 py-0.5 border border-[#c1c8c2] rounded text-xs"
+                            className="w-28 px-1.5 py-0.5 border border-white/10 rounded text-xs"
                           />
                         ) : (
                           anim.breed
@@ -663,7 +663,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                                 sex: matched ? matched.sex : 'macho',
                               });
                             }}
-                            className="px-1 py-0.5 border border-[#c1c8c2] rounded text-xs font-bold"
+                            className="px-1 py-0.5 border border-white/10 rounded text-xs font-bold"
                           >
                             {LIVESTOCK_SEX_OPTIONS.map((opt) => (
                               <option key={opt.code} value={opt.code}>
@@ -674,7 +674,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                         ) : (
                           <span
                             className={`inline-flex items-center px-1.5 py-0.5 rounded border text-[10px] font-extrabold ${
-                              sexOption ? sexOption.badgeBg : 'bg-gray-100 text-gray-800 border-gray-300'
+                              sexOption ? sexOption.badgeBg : 'bg-[#1F3327] text-white border-white/15'
                             }`}
                             title={sexOption ? sexOption.label : anim.sex}
                           >
@@ -690,7 +690,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             type="text"
                             value={editFormData.color || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, color: e.target.value })}
-                            className="w-24 px-1.5 py-0.5 border border-[#c1c8c2] rounded text-xs"
+                            className="w-24 px-1.5 py-0.5 border border-white/10 rounded text-xs"
                           />
                         ) : (
                           anim.color || 'Blanco / Gris'
@@ -704,7 +704,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             type="text"
                             value={editFormData.category || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, category: e.target.value })}
-                            className="w-20 px-1.5 py-0.5 border border-[#c1c8c2] rounded text-xs"
+                            className="w-20 px-1.5 py-0.5 border border-white/10 rounded text-xs"
                           />
                         ) : (
                           <span className="capitalize">{anim.category || 'Ceba'}</span>
@@ -718,7 +718,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             type="text"
                             value={editFormData.brandingIronName || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, brandingIronName: e.target.value })}
-                            className="w-24 px-1.5 py-0.5 border border-[#c1c8c2] rounded text-xs"
+                            className="w-24 px-1.5 py-0.5 border border-white/10 rounded text-xs"
                           />
                         ) : (
                           anim.brandingIronName || <span className="text-[#a0a8a2] italic">Sin marca</span>
@@ -732,11 +732,11 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             type="number"
                             value={editFormData.pricePerKg || defaultPricePerKg}
                             onChange={(e) => setEditFormData({ ...editFormData, pricePerKg: parseFloat(e.target.value) })}
-                            className="w-20 px-1.5 py-0.5 border border-[#c1c8c2] rounded font-mono text-xs"
+                            className="w-20 px-1.5 py-0.5 border border-white/10 rounded font-mono text-xs"
                           />
                         ) : (
                           <div>
-                            <span className="font-bold text-[#012d1d]">
+                            <span className="font-bold text-white">
                               ${((anim.totalPrice || anim.weightKg * (anim.pricePerKg || defaultPricePerKg)) / 1000).toFixed(0)}k
                             </span>
                             <span className="text-[10px] text-[#717973] block">
@@ -753,7 +753,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             type="text"
                             value={editFormData.movementGuideNumber || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, movementGuideNumber: e.target.value })}
-                            className="w-28 px-1.5 py-0.5 border border-[#c1c8c2] rounded font-mono text-xs"
+                            className="w-28 px-1.5 py-0.5 border border-white/10 rounded font-mono text-xs"
                           />
                         ) : (
                           anim.movementGuideNumber || <span className="text-[#a0a8a2] italic">Sin guía</span>
@@ -767,7 +767,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             <button
                               type="button"
                               onClick={() => handleSaveEdit(anim.id)}
-                              className="p-1 text-emerald-700 hover:bg-emerald-50 rounded"
+                              className="p-1 text-emerald-700 hover:bg-emerald-950/30 rounded"
                               title="Guardar"
                             >
                               <Check className="w-3.5 h-3.5" />
@@ -776,7 +776,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
                             <button
                               type="button"
                               onClick={() => handleStartEdit(anim)}
-                              className="p-1 text-[#717973] hover:text-[#012d1d] rounded"
+                              className="p-1 text-[#717973] hover:text-white rounded"
                               title="Editar"
                             >
                               <Edit2 className="w-3.5 h-3.5" />
@@ -798,7 +798,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
               </tbody>
             </table>
           </div>
-          <div className="bg-[#f9f9f9] px-3 py-2 border-t border-[#c1c8c2] flex items-center justify-between text-[11px] text-[#717973]">
+          <div className="bg-[#f9f9f9] px-3 py-2 border-t border-white/10 flex items-center justify-between text-[11px] text-[#717973]">
             <span>{animals.length} animales registrados en este lote</span>
             <button
               type="button"
@@ -810,7 +810,7 @@ export const AuctionExcelImporter: React.FC<AuctionExcelImporterProps> = ({
           </div>
         </div>
       ) : (
-        <div className="p-4 bg-[#f9f9f9] border border-dashed border-[#c1c8c2] rounded-xl text-center text-xs text-[#717973]">
+        <div className="p-4 bg-[#f9f9f9] border border-dashed border-white/10 rounded-xl text-center text-xs text-[#717973]">
           Aún no se han cargado animales para este lote. Cargue un archivo Excel/CSV, pegue una tabla, agregue uno a uno o use los botones de ejemplo arriba.
         </div>
       )}

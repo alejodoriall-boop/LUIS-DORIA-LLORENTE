@@ -147,25 +147,25 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-200">
-      <div className="bg-white border-2 border-[#012d1d] rounded-3xl max-w-md w-full shadow-2xl overflow-hidden flex flex-col my-auto">
+      <div className="bg-[#15241C] border-2 border-[#012d1d] rounded-3xl max-w-md w-full shadow-2xl overflow-hidden flex flex-col my-auto">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white p-5 flex items-center justify-between border-b border-[#1b4332]">
+        <div className="bg-[#0D1A13] text-white p-5 flex items-center justify-between border-b border-[#1b4332]">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#1b4332] text-[#ffba38] rounded-2xl border border-[#ffba38]/30">
+            <div className="p-3 bg-[#123F2A] text-[#ffba38] rounded-2xl border border-[#ffba38]/30">
               <Lock className="w-6 h-6 animate-pulse" />
             </div>
             <div>
               <h2 className="text-lg font-black tracking-tight text-white uppercase font-mono flex items-center gap-2">
                 CLAVE DE SEGURIDAD
               </h2>
-              <p className="text-xs text-[#c1ecd4]/80 mt-0.5">
+              <p className="text-xs text-[#A5B8AC]/80 mt-0.5">
                 Autorización para habilitar módulo
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-[#1b4332] text-[#c1ecd4] hover:text-white hover:bg-rose-900 transition-colors cursor-pointer"
+            className="p-2 rounded-xl bg-[#123F2A] text-[#A5B8AC] hover:text-white hover:bg-rose-900 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -175,14 +175,14 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
         <div className="p-5 space-y-5 bg-[#fcfdfc]">
           {/* Target Module Info */}
           <div className="bg-[#eaf4ee] border border-[#c1ecd4] p-3.5 rounded-2xl flex items-center gap-3">
-            <div className="p-2 bg-[#012d1d] text-[#ffba38] rounded-xl shrink-0">
+            <div className="p-2 bg-[#0D1A13] text-[#ffba38] rounded-xl shrink-0">
               <Milk className="w-5 h-5" />
             </div>
             <div>
               <p className="text-[10px] font-mono uppercase font-black text-emerald-800">
                 Acción Restringida
               </p>
-              <p className="text-xs font-extrabold text-[#012d1d]">
+              <p className="text-xs font-extrabold text-white">
                 Habilitar: <span className="underline">{moduleName}</span>
               </p>
             </div>
@@ -191,7 +191,7 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
           {!isChangingPin ? (
             <>
               {/* Default PIN Notice */}
-              <div className="bg-amber-50 border border-amber-200 p-3 rounded-2xl flex items-start gap-2.5">
+              <div className="bg-amber-950/30 border border-amber-200 p-3 rounded-2xl flex items-start gap-2.5">
                 <Sparkles className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                 <div className="text-xs text-amber-900 leading-snug">
                   <p className="font-bold">Clave por defecto del sistema: <span className="font-mono text-sm bg-amber-200/80 px-1.5 py-0.5 rounded text-amber-950 font-black">1234</span></p>
@@ -204,14 +204,14 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
               {/* PIN Display & Input */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-extrabold text-[#012d1d] uppercase font-mono flex items-center gap-1.5">
+                  <label className="text-xs font-extrabold text-white uppercase font-mono flex items-center gap-1.5">
                     <KeyRound className="w-4 h-4 text-[#ffba38]" />
                     INGRESA CÓDIGO / PIN:
                   </label>
                   <button
                     type="button"
                     onClick={() => setShowPin(!showPin)}
-                    className="text-[11px] font-bold text-gray-500 hover:text-[#012d1d] flex items-center gap-1 cursor-pointer"
+                    className="text-[11px] font-bold text-[#A5B8AC] hover:text-white flex items-center gap-1 cursor-pointer"
                   >
                     {showPin ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                     <span>{showPin ? 'Ocultar' : 'Mostrar'}</span>
@@ -219,7 +219,7 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                 </div>
 
                 {/* Input Dots Visualizer */}
-                <div className="bg-white border-2 border-[#012d1d]/30 focus-within:border-[#012d1d] p-3 rounded-2xl flex items-center justify-between shadow-xs transition-colors">
+                <div className="bg-[#15241C] border-2 border-[#012d1d]/30 focus-within:border-[#012d1d] p-3 rounded-2xl flex items-center justify-between shadow-xs transition-colors">
                   <input
                     type={showPin ? 'text' : 'password'}
                     value={pinInput}
@@ -235,13 +235,13 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                     placeholder="••••"
                     maxLength={8}
                     autoFocus
-                    className="w-full bg-transparent text-center text-2xl font-mono font-black text-[#012d1d] tracking-widest outline-none placeholder:text-gray-300"
+                    className="w-full bg-transparent text-center text-2xl font-mono font-black text-white tracking-widest outline-none placeholder:text-[#A5B8AC]"
                   />
                   {pinInput.length > 0 && (
                     <button
                       type="button"
                       onClick={handleKeypadClear}
-                      className="text-gray-400 hover:text-rose-600 p-1 cursor-pointer"
+                      className="text-[#A5B8AC] hover:text-rose-600 p-1 cursor-pointer"
                       title="Borrar todo"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -256,7 +256,7 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                       key={num}
                       type="button"
                       onClick={() => handleKeypadPress(num)}
-                      className="py-3 bg-white hover:bg-[#eaf4ee] active:bg-[#012d1d] active:text-white text-[#012d1d] border border-gray-200 hover:border-[#012d1d] rounded-2xl font-mono text-xl font-bold transition-all cursor-pointer shadow-2xs flex items-center justify-center"
+                      className="py-3 bg-[#15241C] hover:bg-[#eaf4ee] active:bg-[#0D1A13] active:text-white text-white border border-white/10 hover:border-[#012d1d] rounded-2xl font-mono text-xl font-bold transition-all cursor-pointer shadow-2xs flex items-center justify-center"
                     >
                       {num}
                     </button>
@@ -264,21 +264,21 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                   <button
                     type="button"
                     onClick={handleKeypadClear}
-                    className="py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-200 rounded-2xl font-mono text-xs font-extrabold uppercase transition-colors cursor-pointer"
+                    className="py-3 bg-[#1F3327] hover:bg-gray-200 text-white border border-white/10 rounded-2xl font-mono text-xs font-extrabold uppercase transition-colors cursor-pointer"
                   >
                     Borrar
                   </button>
                   <button
                     type="button"
                     onClick={() => handleKeypadPress('0')}
-                    className="py-3 bg-white hover:bg-[#eaf4ee] active:bg-[#012d1d] active:text-white text-[#012d1d] border border-gray-200 hover:border-[#012d1d] rounded-2xl font-mono text-xl font-bold transition-all cursor-pointer shadow-2xs flex items-center justify-center"
+                    className="py-3 bg-[#15241C] hover:bg-[#eaf4ee] active:bg-[#0D1A13] active:text-white text-white border border-white/10 hover:border-[#012d1d] rounded-2xl font-mono text-xl font-bold transition-all cursor-pointer shadow-2xs flex items-center justify-center"
                   >
                     0
                   </button>
                   <button
                     type="button"
                     onClick={handleKeypadDelete}
-                    className="py-3 bg-gray-100 hover:bg-rose-100 text-rose-800 border border-gray-200 hover:border-rose-300 rounded-2xl font-mono text-xs font-extrabold transition-colors cursor-pointer flex items-center justify-center"
+                    className="py-3 bg-[#1F3327] hover:bg-rose-100 text-rose-800 border border-white/10 hover:border-rose-300 rounded-2xl font-mono text-xs font-extrabold transition-colors cursor-pointer flex items-center justify-center"
                   >
                     <Delete className="w-5 h-5" />
                   </button>
@@ -287,21 +287,21 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
 
               {/* Error or Success Notice */}
               {errorMsg && (
-                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-900 rounded-2xl text-xs font-bold flex items-center gap-2 animate-in fade-in">
+                <div className="p-3 bg-rose-950/30 border border-rose-200 text-rose-900 rounded-2xl text-xs font-bold flex items-center gap-2 animate-in fade-in">
                   <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />
                   <span>{errorMsg}</span>
                 </div>
               )}
 
               {/* Toggle to change PIN */}
-              <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+              <div className="pt-2 border-t border-white/10 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => {
                     setErrorMsg(null);
                     setIsChangingPin(true);
                   }}
-                  className="text-xs font-bold text-[#012d1d] hover:underline flex items-center gap-1.5 cursor-pointer"
+                  className="text-xs font-bold text-white hover:underline flex items-center gap-1.5 cursor-pointer"
                 >
                   <Settings className="w-3.5 h-3.5 text-[#ffba38]" />
                   <span>¿Deseas cambiar la clave de seguridad?</span>
@@ -311,22 +311,22 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
           ) : (
             /* Change PIN Form */
             <form onSubmit={handleChangePinSubmit} className="space-y-3">
-              <div className="flex items-center justify-between border-b border-gray-200 pb-2">
-                <h3 className="text-xs font-extrabold text-[#012d1d] uppercase font-mono flex items-center gap-1.5">
+              <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                <h3 className="text-xs font-extrabold text-white uppercase font-mono flex items-center gap-1.5">
                   <Settings className="w-4 h-4 text-[#ffba38]" />
                   CONFIGURAR NUEVA CLAVE
                 </h3>
                 <button
                   type="button"
                   onClick={() => setIsChangingPin(false)}
-                  className="text-xs font-bold text-gray-500 hover:text-[#012d1d] cursor-pointer"
+                  className="text-xs font-bold text-[#A5B8AC] hover:text-white cursor-pointer"
                 >
                   Volver al Teclado
                 </button>
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                <label className="block text-[11px] font-bold text-white mb-1">
                   Clave Actual (defecto 1234):
                 </label>
                 <input
@@ -334,12 +334,12 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                   value={currentPinInput}
                   onChange={(e) => setCurrentPinInput(e.target.value)}
                   placeholder="Clave actual..."
-                  className="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-xs font-mono font-bold outline-none focus:ring-2 focus:ring-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/15 rounded-xl text-xs font-mono font-bold outline-none focus:ring-2 focus:ring-[#012d1d]"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                <label className="block text-[11px] font-bold text-white mb-1">
                   Nueva Clave Personalizada:
                 </label>
                 <input
@@ -347,12 +347,12 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                   value={newPinInput}
                   onChange={(e) => setNewPinInput(e.target.value)}
                   placeholder="Mínimo 4 dígitos..."
-                  className="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-xs font-mono font-bold outline-none focus:ring-2 focus:ring-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/15 rounded-xl text-xs font-mono font-bold outline-none focus:ring-2 focus:ring-[#012d1d]"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                <label className="block text-[11px] font-bold text-white mb-1">
                   Confirmar Nueva Clave:
                 </label>
                 <input
@@ -360,19 +360,19 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                   value={confirmNewPinInput}
                   onChange={(e) => setConfirmNewPinInput(e.target.value)}
                   placeholder="Repite la nueva clave..."
-                  className="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-xs font-mono font-bold outline-none focus:ring-2 focus:ring-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/15 rounded-xl text-xs font-mono font-bold outline-none focus:ring-2 focus:ring-[#012d1d]"
                 />
               </div>
 
               {errorMsg && (
-                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-900 rounded-2xl text-xs font-bold flex items-center gap-2">
+                <div className="p-3 bg-rose-950/30 border border-rose-200 text-rose-900 rounded-2xl text-xs font-bold flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />
                   <span>{errorMsg}</span>
                 </div>
               )}
 
               {pinChangeSuccessMsg && (
-                <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-2xl text-xs font-bold flex items-center gap-2">
+                <div className="p-3 bg-emerald-950/30 border border-emerald-200 text-emerald-900 rounded-2xl text-xs font-bold flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>{pinChangeSuccessMsg}</span>
                 </div>
@@ -382,13 +382,13 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsChangingPin(false)}
-                  className="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold rounded-xl cursor-pointer"
+                  className="flex-1 py-2.5 bg-[#1F3327] hover:bg-gray-200 text-white text-xs font-bold rounded-xl cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl cursor-pointer shadow-xs"
+                  className="flex-1 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold rounded-xl cursor-pointer shadow-xs"
                 >
                   Guardar Clave
                 </button>
@@ -399,16 +399,16 @@ export const ModuleUnlockPinModal: React.FC<ModuleUnlockPinModalProps> = ({
 
         {/* Footer Actions */}
         {!isChangingPin && (
-          <div className="bg-gray-50 border-t border-gray-200 p-4 flex items-center justify-between gap-3">
+          <div className="bg-[#0D1A13] border-t border-white/10 p-4 flex items-center justify-between gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-bold rounded-xl cursor-pointer transition-colors"
+              className="px-4 py-2.5 bg-gray-200 hover:bg-gray-300 text-white text-xs font-bold rounded-xl cursor-pointer transition-colors"
             >
               Cancelar
             </button>
             <button
               onClick={handleVerifyPin}
-              className="flex-1 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-black uppercase font-mono rounded-xl cursor-pointer transition-colors shadow-md flex items-center justify-center gap-2"
+              className="flex-1 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-black uppercase font-mono rounded-xl cursor-pointer transition-colors shadow-md flex items-center justify-center gap-2"
             >
               <ShieldCheck className="w-4 h-4 text-[#ffba38]" />
               <span>DESBLOQUEAR & ACTIVAR</span>

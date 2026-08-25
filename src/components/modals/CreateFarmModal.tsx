@@ -126,11 +126,11 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#c1c8c2] shadow-2xl w-full max-w-3xl overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="bg-[#15241C] rounded-2xl sm:rounded-3xl border-2 border-white/10 shadow-2xl w-full max-w-3xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Modal Header */}
-        <div className="bg-[#012d1d] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-[#2d6a4f]">
+        <div className="bg-[#0D1A13] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-[#2d6a4f]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#1b4332] text-[#c1ecd4] rounded-2xl border border-[#2d6a4f]">
+            <div className="p-2.5 bg-[#123F2A] text-[#A5B8AC] rounded-2xl border border-[#2d6a4f]">
               <Building className="w-6 h-6" />
             </div>
             <div>
@@ -138,11 +138,11 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                 <h3 className="font-extrabold text-lg sm:text-xl tracking-tight text-white">
                   Crear Nueva Finca / Predio
                 </h3>
-                <span className="text-[10px] font-bold uppercase bg-[#ffba38] text-[#523700] px-2 py-0.5 rounded-full font-mono">
+                <span className="text-[10px] font-bold uppercase bg-[#D4A94E] text-[#0D1A13] px-2 py-0.5 rounded-full font-mono">
                   Multi-Finca
                 </span>
               </div>
-              <p className="text-xs text-[#c1ecd4]/80 mt-0.5">
+              <p className="text-xs text-[#A5B8AC]/80 mt-0.5">
                 Registra un nuevo predio ganadero con cartografía, potreros y hato independiente.
               </p>
             </div>
@@ -157,16 +157,16 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
         </div>
 
         {/* Step Indicator Tabs */}
-        <div className="flex border-b border-[#c1c8c2] bg-[#f8faf8] px-4 sm:px-6">
+        <div className="flex border-b border-white/10 bg-[#f8faf8] px-4 sm:px-6">
           <button
             onClick={() => setActiveStep(1)}
             className={`flex-1 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-all ${
               activeStep === 1
-                ? 'border-[#012d1d] text-[#012d1d] bg-white'
-                : 'border-transparent text-[#717973] hover:text-[#1a1c1c]'
+                ? 'border-[#012d1d] text-white bg-[#15241C]'
+                : 'border-transparent text-[#717973] hover:text-white'
             }`}
           >
-            <span className="w-5 h-5 rounded-full bg-[#012d1d] text-white text-[11px] flex items-center justify-center font-bold">
+            <span className="w-5 h-5 rounded-full bg-[#0D1A13] text-white text-[11px] flex items-center justify-center font-bold">
               1
             </span>
             <span className="hidden sm:inline">Datos Legales</span>
@@ -177,11 +177,11 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
             onClick={() => setActiveStep(2)}
             className={`flex-1 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-all ${
               activeStep === 2
-                ? 'border-[#012d1d] text-[#012d1d] bg-white'
-                : 'border-transparent text-[#717973] hover:text-[#1a1c1c]'
+                ? 'border-[#012d1d] text-white bg-[#15241C]'
+                : 'border-transparent text-[#717973] hover:text-white'
             }`}
           >
-            <span className="w-5 h-5 rounded-full bg-[#012d1d] text-white text-[11px] flex items-center justify-center font-bold">
+            <span className="w-5 h-5 rounded-full bg-[#0D1A13] text-white text-[11px] flex items-center justify-center font-bold">
               2
             </span>
             <span className="hidden sm:inline">Ubicación y GPS</span>
@@ -192,11 +192,11 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
             onClick={() => setActiveStep(3)}
             className={`flex-1 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-all ${
               activeStep === 3
-                ? 'border-[#012d1d] text-[#012d1d] bg-white'
-                : 'border-transparent text-[#717973] hover:text-[#1a1c1c]'
+                ? 'border-[#012d1d] text-white bg-[#15241C]'
+                : 'border-transparent text-[#717973] hover:text-white'
             }`}
           >
-            <span className="w-5 h-5 rounded-full bg-[#012d1d] text-white text-[11px] flex items-center justify-center font-bold">
+            <span className="w-5 h-5 rounded-full bg-[#0D1A13] text-white text-[11px] flex items-center justify-center font-bold">
               3
             </span>
             <span className="hidden sm:inline">Potreros y Producción</span>
@@ -217,7 +217,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
           {activeStep === 1 && (
             <div className="space-y-4 animate-in fade-in duration-150">
               <div>
-                <label className="block text-xs font-extrabold text-[#012d1d] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-extrabold text-white uppercase tracking-wider mb-1">
                   Nombre del Predio / Finca <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -229,7 +229,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     setErrorMsg(null);
                   }}
                   placeholder="Ej. Hacienda San Jerónimo, Finca El Porvenir..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#c1c8c2] text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#fcfdfc] font-medium"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#fcfdfc] font-medium"
                 />
               </div>
 
@@ -243,7 +243,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     value={legalOwner}
                     onChange={(e) => setLegalOwner(e.target.value)}
                     placeholder="Ej. Inversiones Agropecuarias S.A.S."
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
 
@@ -256,7 +256,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
                     placeholder="Ej. +57 310 555 1234"
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
 
@@ -269,7 +269,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     value={registrationNumber}
                     onChange={(e) => setRegistrationNumber(e.target.value)}
                     placeholder="Ej. ICA-23001-0982"
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
 
@@ -282,7 +282,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     value={cadastralCode}
                     onChange={(e) => setCadastralCode(e.target.value)}
                     placeholder="Ej. 2300100020034..."
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
               </div>
@@ -296,7 +296,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Ej. Finca destinada a ceba con pastoreo intensivo y banco forrajero..."
-                  className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                  className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                 />
               </div>
             </div>
@@ -307,7 +307,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
             <div className="space-y-4 animate-in fade-in duration-150">
               {/* Region Presets Quick Filler */}
               <div className="p-3 bg-[#eafaf1] rounded-2xl border border-[#c1ecd4]">
-                <div className="flex items-center gap-1.5 text-xs font-extrabold text-[#012d1d] mb-2">
+                <div className="flex items-center gap-1.5 text-xs font-extrabold text-white mb-2">
                   <Sparkles className="w-4 h-4 text-[#ffba38]" />
                   <span>Autocompletar por Zona / Región Ganadera:</span>
                 </div>
@@ -319,8 +319,8 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                       onClick={() => handleApplyPreset(p)}
                       className={`text-xs px-2.5 py-1.5 rounded-lg border font-semibold transition-all ${
                         department === p.department
-                          ? 'bg-[#012d1d] text-white border-[#012d1d]'
-                          : 'bg-white text-[#012d1d] border-[#c1c8c2] hover:bg-[#c1ecd4]/40'
+                          ? 'bg-[#0D1A13] text-white border-[#012d1d]'
+                          : 'bg-[#15241C] text-white border-white/10 hover:bg-[#c1ecd4]/40'
                       }`}
                     >
                       {p.department} ({p.municipality})
@@ -338,7 +338,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     type="text"
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
 
@@ -350,7 +350,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     type="text"
                     value={municipality}
                     onChange={(e) => setMunicipality(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
 
@@ -362,14 +362,14 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     type="text"
                     value={vereda}
                     onChange={(e) => setVereda(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+                  <label className="block text-xs font-extrabold text-white mb-1">
                     Área Total del Predio (Hectáreas) <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -379,7 +379,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     required
                     value={totalAreaHa}
                     onChange={(e) => setTotalAreaHa(Number(e.target.value))}
-                    className="w-full px-3 py-2.5 rounded-xl border-2 border-[#2d6a4f] text-sm font-bold text-[#012d1d] focus:outline-none bg-[#f4fbf7]"
+                    className="w-full px-3 py-2.5 rounded-xl border-2 border-[#2d6a4f] text-sm font-bold text-white focus:outline-none bg-[#f4fbf7]"
                   />
                   <span className="text-[10px] text-[#717973] mt-0.5 block">
                     Equivalente a {(totalAreaHa * 10000).toLocaleString()} m²
@@ -394,7 +394,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     type="number"
                     value={elevationMsnm}
                     onChange={(e) => setElevationMsnm(Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
 
@@ -407,7 +407,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     step="0.0001"
                     value={centerLat}
                     onChange={(e) => setCenterLat(Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                   />
                 </div>
               </div>
@@ -421,7 +421,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                   step="0.0001"
                   value={centerLng}
                   onChange={(e) => setCenterLng(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-white"
+                  className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#15241C]"
                 />
               </div>
             </div>
@@ -431,7 +431,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
           {activeStep === 3 && (
             <div className="space-y-4 animate-in fade-in duration-150">
               <div>
-                <label className="block text-xs font-extrabold text-[#012d1d] uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-extrabold text-white uppercase tracking-wider mb-1.5">
                   Enfoque Productivo Principal
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -448,13 +448,13 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                       onClick={() => setProductionType(item.id as FarmProductionType)}
                       className={`p-3 rounded-xl border text-left transition-all ${
                         productionType === item.id
-                          ? 'border-[#012d1d] bg-[#012d1d] text-white shadow-md'
-                          : 'border-[#c1c8c2] bg-white hover:bg-[#eeeeee] text-[#1a1c1c]'
+                          ? 'border-[#012d1d] bg-[#0D1A13] text-white shadow-md'
+                          : 'border-white/10 bg-[#15241C] hover:bg-[#eeeeee] text-white'
                       }`}
                     >
                       <div className="text-xl mb-1">{item.icon}</div>
                       <p className="font-bold text-xs">{item.label}</p>
-                      <p className={`text-[10px] mt-0.5 ${productionType === item.id ? 'text-[#c1ecd4]' : 'text-[#717973]'}`}>
+                      <p className={`text-[10px] mt-0.5 ${productionType === item.id ? 'text-[#A5B8AC]' : 'text-[#717973]'}`}>
                         {item.desc}
                       </p>
                     </button>
@@ -470,7 +470,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                   <select
                     value={initialPaddocksCount}
                     onChange={(e) => setInitialPaddocksCount(Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-semibold bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-semibold bg-[#15241C]"
                   >
                     <option value={0}>0 (Empezar mapa en blanco)</option>
                     <option value={4}>4 Potreros Rotacionales</option>
@@ -488,7 +488,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                   <select
                     value={predominantPasture}
                     onChange={(e) => setPredominantPasture(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-semibold bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-semibold bg-[#15241C]"
                   >
                     <option value="Brachiaria Brizantha cv. Marandú">Brachiaria Brizantha cv. Marandú</option>
                     <option value="Panicum Maximum cv. Mombasa">Panicum Maximum cv. Mombasa</option>
@@ -507,7 +507,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                   <select
                     value={fenceType}
                     onChange={(e) => setFenceType(e.target.value as FenceType)}
-                    className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-semibold bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-semibold bg-[#15241C]"
                   >
                     <option value="electrica">Cerca Eléctrica Ganadera</option>
                     <option value="puas">Alambre de Púas Tradicional</option>
@@ -520,7 +520,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
               {/* Summary card */}
               <div className="p-4 bg-[#f4fbf7] rounded-2xl border border-[#c1ecd4] space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#012d1d]">
+                  <span className="text-xs font-bold text-white">
                     Resumen del Nuevo Predio Ganadero
                   </span>
                   <span className="text-[10px] font-mono text-[#2d6a4f] bg-[#c1ecd4] px-2 py-0.5 rounded font-bold">
@@ -528,17 +528,17 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-center pt-1">
-                  <div className="p-2 bg-white rounded-xl border border-[#c1ecd4]">
+                  <div className="p-2 bg-[#15241C] rounded-xl border border-[#c1ecd4]">
                     <p className="text-[10px] text-[#717973] uppercase font-bold">Área Predial</p>
-                    <p className="text-base font-extrabold text-[#012d1d]">{totalAreaHa} Ha</p>
+                    <p className="text-base font-extrabold text-white">{totalAreaHa} Ha</p>
                   </div>
-                  <div className="p-2 bg-white rounded-xl border border-[#c1ecd4]">
+                  <div className="p-2 bg-[#15241C] rounded-xl border border-[#c1ecd4]">
                     <p className="text-[10px] text-[#717973] uppercase font-bold">Potreros</p>
-                    <p className="text-base font-extrabold text-[#012d1d]">
+                    <p className="text-base font-extrabold text-white">
                       {initialPaddocksCount > 0 ? `${initialPaddocksCount} (~${avgPaddockHa} Ha/c.u)` : '0'}
                     </p>
                   </div>
-                  <div className="p-2 bg-white rounded-xl border border-[#c1ecd4]">
+                  <div className="p-2 bg-[#15241C] rounded-xl border border-[#c1ecd4]">
                     <p className="text-[10px] text-[#717973] uppercase font-bold">Hato Estimado</p>
                     <p className="text-base font-extrabold text-[#2d6a4f]">~{estimatedHeads} Cabezas</p>
                   </div>
@@ -548,7 +548,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
           )}
 
           {/* Footer Controls */}
-          <div className="pt-3 border-t border-[#c1c8c2] flex items-center justify-between gap-3">
+          <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-3">
             <div>
               {activeStep > 1 && (
                 <button
@@ -581,7 +581,7 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
                     setErrorMsg(null);
                     setActiveStep((prev) => (prev + 1) as any);
                   }}
-                  className="px-5 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-extrabold rounded-xl shadow-md transition-all flex items-center gap-1.5"
+                  className="px-5 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-extrabold rounded-xl shadow-md transition-all flex items-center gap-1.5"
                 >
                   <span>Siguiente Paso</span>
                   <span>→</span>
@@ -589,9 +589,9 @@ export const CreateFarmModal: React.FC<CreateFarmModalProps> = ({
               ) : (
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] text-xs font-extrabold rounded-xl shadow-lg transition-all flex items-center gap-2 border border-[#ffba38]/80 cursor-pointer active:scale-98"
+                  className="px-6 py-2.5 bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] text-xs font-extrabold rounded-xl shadow-lg transition-all flex items-center gap-2 border border-[#ffba38]/80 cursor-pointer active:scale-98"
                 >
-                  <PlusCircle className="w-4 h-4 text-[#012d1d]" />
+                  <PlusCircle className="w-4 h-4 text-white" />
                   <span>Crear y Activar Finca</span>
                 </button>
               )}

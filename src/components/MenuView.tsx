@@ -151,13 +151,13 @@ export const MenuView: React.FC<MenuViewProps> = ({
   return (
     <div className="space-y-6 w-full pb-12">
       {/* Subtab Navigation */}
-      <div className="flex bg-[#eeeeee] p-1.5 rounded-2xl border border-[#c1c8c2] gap-1">
+      <div className="flex bg-[#eeeeee] p-1.5 rounded-2xl border border-white/10 gap-1">
         <button
           onClick={() => setActiveSubTab('assistant')}
           className={`flex-1 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 ${
             activeSubTab === 'assistant'
-              ? 'bg-[#012d1d] text-white shadow-sm'
-              : 'text-[#414844] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-sm'
+              : 'text-[#414844] hover:text-white'
           }`}
         >
           <Sparkles className="w-4 h-4 text-[#ffba38]" />
@@ -168,11 +168,11 @@ export const MenuView: React.FC<MenuViewProps> = ({
           onClick={() => setActiveSubTab('sanitario')}
           className={`flex-1 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 ${
             activeSubTab === 'sanitario'
-              ? 'bg-[#012d1d] text-white shadow-sm'
-              : 'text-[#414844] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-sm'
+              : 'text-[#414844] hover:text-white'
           }`}
         >
-          <Stethoscope className="w-4 h-4 text-[#c1ecd4]" />
+          <Stethoscope className="w-4 h-4 text-[#A5B8AC]" />
           Plan Sanitario & Retiros ({withdrawalAnimals.length})
         </button>
 
@@ -180,8 +180,8 @@ export const MenuView: React.FC<MenuViewProps> = ({
           onClick={() => setActiveSubTab('settings')}
           className={`flex-1 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 ${
             activeSubTab === 'settings'
-              ? 'bg-[#012d1d] text-white shadow-sm'
-              : 'text-[#414844] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-sm'
+              : 'text-[#414844] hover:text-white'
           }`}
         >
           <Database className="w-4 h-4" />
@@ -191,15 +191,15 @@ export const MenuView: React.FC<MenuViewProps> = ({
 
       {/* SubTab 1: Asistente IA Agropecuario */}
       {activeSubTab === 'assistant' && (
-        <div className="bg-white rounded-2xl border border-[#c1c8c2] card-shadow overflow-hidden flex flex-col h-[620px]">
+        <div className="bg-[#15241C] rounded-2xl border border-white/10 card-shadow overflow-hidden flex flex-col h-[620px]">
           {/* Assistant Header */}
-          <div className="bg-[#1b4332] text-white p-4 flex items-center justify-between">
+          <div className="bg-[#123F2A] text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <GanaderIALogo variant="icon" size="md" />
               <div>
                 <h3 className="font-bold text-sm md:text-base flex items-center gap-2">
                   <span>Ganader<span className="text-[#ffba38]">IA.</span> Assistant</span>
-                  <span className="text-[10px] bg-[#ffba38] text-[#523700] px-1.5 py-0.2 rounded font-bold">2.5 FLASH</span>
+                  <span className="text-[10px] bg-[#D4A94E] text-[#0D1A13] px-1.5 py-0.2 rounded font-bold">2.5 FLASH</span>
                 </h3>
                 <p className="text-xs text-[#86af99]">
                   Especialista zootecnista y veterinario con acceso a tus datos de hato
@@ -218,19 +218,19 @@ export const MenuView: React.FC<MenuViewProps> = ({
                   <span>Vincular WhatsApp</span>
                 </button>
               )}
-              <span className="text-xs text-[#c1ecd4] bg-[#012d1d] px-2 py-1 rounded-lg flex items-center gap-1 font-mono">
+              <span className="text-xs text-[#A5B8AC] bg-[#0D1A13] px-2 py-1 rounded-lg flex items-center gap-1 font-mono">
                 <Wifi className="w-3 h-3 text-emerald-400" /> Online
               </span>
             </div>
           </div>
 
           {/* Quick Prompts */}
-          <div className="p-3 bg-[#f3f3f3] border-b border-[#c1c8c2] overflow-x-auto flex gap-2">
+          <div className="p-3 bg-[#f3f3f3] border-b border-white/10 overflow-x-auto flex gap-2">
             {quickPrompts.map((prompt, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSendMessage(prompt)}
-                className="shrink-0 text-[11px] font-medium bg-white hover:bg-[#e8e8e8] text-[#012d1d] px-3 py-1.5 rounded-full border border-[#c1c8c2] transition-colors"
+                className="shrink-0 text-[11px] font-medium bg-[#15241C] hover:bg-[#e8e8e8] text-white px-3 py-1.5 rounded-full border border-white/10 transition-colors"
               >
                 {prompt}
               </button>
@@ -247,8 +247,8 @@ export const MenuView: React.FC<MenuViewProps> = ({
                 <div
                   className={`max-w-[85%] md:max-w-[75%] rounded-2xl p-3.5 text-xs md:text-sm leading-relaxed shadow-xs ${
                     msg.sender === 'user'
-                      ? 'bg-[#012d1d] text-white rounded-br-none'
-                      : 'bg-white border border-[#c1c8c2] text-[#1a1c1c] rounded-bl-none'
+                      ? 'bg-[#0D1A13] text-white rounded-br-none'
+                      : 'bg-[#15241C] border border-white/10 text-white rounded-bl-none'
                   }`}
                 >
                   <p className="whitespace-pre-line">{msg.text}</p>
@@ -258,7 +258,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
             ))}
 
             {isTyping && (
-              <div className="flex items-center gap-2 text-xs text-[#717973] p-2 bg-white rounded-xl border border-[#c1c8c2] w-fit">
+              <div className="flex items-center gap-2 text-xs text-[#717973] p-2 bg-[#15241C] rounded-xl border border-white/10 w-fit">
                 <span className="animate-bounce">●</span>
                 <span className="animate-bounce delay-100">●</span>
                 <span className="animate-bounce delay-200">●</span>
@@ -268,18 +268,18 @@ export const MenuView: React.FC<MenuViewProps> = ({
           </div>
 
           {/* Input Box */}
-          <div className="p-3 bg-white border-t border-[#c1c8c2] flex gap-2">
+          <div className="p-3 bg-[#15241C] border-t border-white/10 flex gap-2">
             <input
               type="text"
               placeholder="Pregunta sobre genética, vacunas, nutrición o tiempos de retiro..."
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-              className="flex-1 bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-4 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#012d1d]"
+              className="flex-1 bg-[#f3f3f3] border border-white/10 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#012d1d]"
             />
             <button
               onClick={() => handleSendMessage()}
-              className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] p-3 rounded-xl tactical-shadow transition-colors"
+              className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] p-3 rounded-xl tactical-shadow transition-colors"
             >
               <Send className="w-4 h-4" />
             </button>
@@ -291,7 +291,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
       {activeSubTab === 'sanitario' && (
         <div className="space-y-6">
           {/* Main Sanitary Plan Header Banner */}
-          <div className="bg-[#012d1d] text-white p-5 md:p-6 rounded-3xl border border-[#1b4332] card-shadow flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5">
+          <div className="bg-[#0D1A13] text-white p-5 md:p-6 rounded-3xl border border-[#1b4332] card-shadow flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5">
             <div className="flex items-start gap-3.5">
               <div className="p-3.5 bg-[#083d28] border border-[#2d6a4f] text-emerald-300 rounded-2xl shrink-0 shadow-inner">
                 <Stethoscope className="w-7 h-7" />
@@ -313,12 +313,12 @@ export const MenuView: React.FC<MenuViewProps> = ({
                     <ShieldCheck className="w-4 h-4 text-emerald-400" />
                     {sanitaryProtocols.length} Protocolos Configurados
                   </span>
-                  <span className="text-slate-400">•</span>
+                  <span className="text-[#A5B8AC]">•</span>
                   <span className="text-pink-300 flex items-center gap-1">
                     <Pill className="w-4 h-4 text-pink-400" />
                     {sanitaryApplications.length} Jornadas en Historial
                   </span>
-                  <span className="text-slate-400">•</span>
+                  <span className="text-[#A5B8AC]">•</span>
                   <span className="text-amber-300 flex items-center gap-1">
                     <Clock className="w-4 h-4 text-amber-400" />
                     {withdrawalAnimals.length} En Tiempo de Retiro
@@ -337,7 +337,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
               </button>
               <button
                 onClick={() => (onOpenSanitaryPlanModal ? onOpenSanitaryPlanModal('protocols') : onOpenWithdrawalModal())}
-                className="flex-1 lg:flex-initial bg-[#ffba38] hover:bg-[#ffc857] text-[#523700] px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5 active:scale-95"
+                className="flex-1 lg:flex-initial bg-[#D4A94E] hover:bg-[#ffc857] text-[#0D1A13] px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md flex items-center justify-center gap-1.5 active:scale-95"
               >
                 <Plus className="w-4 h-4" />
                 <span>Gestionar Protocolos</span>
@@ -347,7 +347,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
 
           {/* Pending Activities Banner */}
           {onOpenPendingActivitiesModal && (
-            <div className="bg-[#012d1d] text-white p-5 rounded-2xl border border-[#1b4332] card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div className="bg-[#0D1A13] text-white p-5 rounded-2xl border border-[#1b4332] card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-emerald-800 text-emerald-300 rounded-xl">
                   <CalendarDays className="w-6 h-6" />
@@ -366,7 +366,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
               </div>
               <button
                 onClick={onOpenPendingActivitiesModal}
-                className="bg-[#ffba38] hover:bg-[#ffc857] text-[#523700] px-5 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md shrink-0 flex items-center gap-1.5"
+                className="bg-[#D4A94E] hover:bg-[#ffc857] text-[#0D1A13] px-5 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-md shrink-0 flex items-center gap-1.5"
               >
                 <ClipboardList className="w-4 h-4" />
                 Abrir Reporte Completo
@@ -406,7 +406,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
           {/* Active Withdrawal Banner */}
           <div className="bg-[#ffdeac] text-[#604100] p-5 rounded-2xl border-l-4 border-[#523700] card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
-              <h3 className="font-bold text-lg text-[#523700] flex items-center gap-2">
+              <h3 className="font-bold text-lg text-[#0D1A13] flex items-center gap-2">
                 <Clock className="w-5 h-5" />
                 Animales con Periodo de Retiro Activo ({withdrawalAnimals.length})
               </h3>
@@ -423,9 +423,9 @@ export const MenuView: React.FC<MenuViewProps> = ({
           </div>
 
           {/* Protocols Quick List / Cards */}
-          <div className="bg-white rounded-2xl border border-[#c1c8c2] card-shadow p-5 space-y-4">
+          <div className="bg-[#15241C] rounded-2xl border border-white/10 card-shadow p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h4 className="font-bold text-sm text-[#012d1d] flex items-center gap-2">
+              <h4 className="font-bold text-sm text-white flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-emerald-700" />
                 Esquemas & Protocolos Sanitarios Programados ({sanitaryProtocols.length})
               </h4>
@@ -452,11 +452,11 @@ export const MenuView: React.FC<MenuViewProps> = ({
                         ? 'bg-red-50/50 border-red-300'
                         : isCompleted
                         ? 'bg-emerald-50/40 border-emerald-200'
-                        : 'bg-[#f9fbf9] border-slate-200'
+                        : 'bg-[#f9fbf9] border-white/10'
                     }`}
                   >
                     <div className="flex justify-between items-start gap-2">
-                      <span className="font-bold text-xs text-slate-900 line-clamp-1">{prot.name}</span>
+                      <span className="font-bold text-xs text-white line-clamp-1">{prot.name}</span>
                       {isUrgent ? (
                         <span className="text-[10px] font-black bg-red-500 text-white px-1.5 py-0.2 rounded shrink-0 animate-pulse">
                           URGENTE
@@ -471,10 +471,10 @@ export const MenuView: React.FC<MenuViewProps> = ({
                         </span>
                       )}
                     </div>
-                    <p className="text-[11px] text-slate-600 mt-1">
+                    <p className="text-[11px] text-[#A5B8AC] mt-1">
                       <strong>Biológico:</strong> {prot.productName} ({prot.dosage})
                     </p>
-                    <p className="text-[10px] text-slate-500 mt-0.5">
+                    <p className="text-[10px] text-[#A5B8AC] mt-0.5">
                       👥 {prot.targetGroup} • ⏳ Retiro: {prot.meatWithdrawalDays}d
                     </p>
                   </div>
@@ -484,9 +484,9 @@ export const MenuView: React.FC<MenuViewProps> = ({
           </div>
 
           {/* Withdrawal Animals Table */}
-          <div className="bg-white rounded-2xl border border-[#c1c8c2] card-shadow overflow-hidden p-4 md:p-5">
+          <div className="bg-[#15241C] rounded-2xl border border-white/10 card-shadow overflow-hidden p-4 md:p-5">
             <div className="flex items-center justify-between mb-3">
-              <h4 className="font-bold text-sm text-[#012d1d]">
+              <h4 className="font-bold text-sm text-white">
                 Monitoreo Individual de Fármacos Residuales
               </h4>
               <button
@@ -500,7 +500,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="border-b-2 border-[#c1c8c2]">
+                  <tr className="border-b-2 border-white/10">
                     <th className="pb-2 text-[10px] uppercase font-bold text-[#717973]">Arete / Nombre</th>
                     <th className="pb-2 text-[10px] uppercase font-bold text-[#717973]">Medicamento Aplicado</th>
                     <th className="pb-2 text-[10px] uppercase font-bold text-[#717973]">Fecha Aplicación</th>
@@ -511,13 +511,13 @@ export const MenuView: React.FC<MenuViewProps> = ({
                 <tbody className="divide-y divide-[#eeeeee]">
                   {withdrawalAnimals.map((w) => (
                     <tr key={w.id} className="hover:bg-[#f9f9f9]">
-                      <td className="py-3 font-semibold text-[#012d1d]">
+                      <td className="py-3 font-semibold text-white">
                         <span className="font-mono bg-[#f3f3f3] px-1.5 py-0.5 rounded mr-1">
                           {w.tagId}
                         </span>
                         {w.name}
                       </td>
-                      <td className="py-3 text-[#1a1c1c]">{w.medication}</td>
+                      <td className="py-3 text-white">{w.medication}</td>
                       <td className="py-3 text-[#717973] font-mono">{w.appliedDate}</td>
                       <td className="py-3 font-mono">{w.withdrawalDays} días</td>
                       <td className="py-3">
@@ -539,9 +539,9 @@ export const MenuView: React.FC<MenuViewProps> = ({
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Farm Profile Box */}
-            <div className="bg-white p-5 rounded-2xl border border-[#c1c8c2] card-shadow space-y-4">
+            <div className="bg-[#15241C] p-5 rounded-2xl border border-white/10 card-shadow space-y-4">
               <div className="flex items-center justify-between">
-                <h4 className="font-bold text-base text-[#012d1d] flex items-center gap-2">
+                <h4 className="font-bold text-base text-white flex items-center gap-2">
                   <Building className="w-5 h-5 text-[#2d6a4f]" />
                   Información del Predio & SIG
                 </h4>
@@ -549,7 +549,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
                   {onOpenCreateFarmModal && (
                     <button
                       onClick={onOpenCreateFarmModal}
-                      className="text-xs font-bold bg-[#ffba38] text-[#523700] px-2.5 py-1.5 rounded-xl hover:bg-[#ffdeac] transition-colors flex items-center gap-1"
+                      className="text-xs font-bold bg-[#D4A94E] text-[#0D1A13] px-2.5 py-1.5 rounded-xl hover:bg-[#ffdeac] transition-colors flex items-center gap-1"
                     >
                       <PlusCircle className="w-3.5 h-3.5" />
                       <span>+ Nueva Finca</span>
@@ -558,7 +558,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
                   {onNavigateGis && (
                     <button
                       onClick={onNavigateGis}
-                      className="text-xs font-bold bg-[#1b4332] text-[#c1ecd4] px-2.5 py-1.5 rounded-xl hover:bg-[#2d6a4f] transition-colors flex items-center gap-1"
+                      className="text-xs font-bold bg-[#123F2A] text-[#A5B8AC] px-2.5 py-1.5 rounded-xl hover:bg-[#1F6547] transition-colors flex items-center gap-1"
                     >
                       <span>Abrir SIG</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -571,26 +571,26 @@ export const MenuView: React.FC<MenuViewProps> = ({
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between py-1.5 border-b border-[#eeeeee]">
                   <span className="text-[#717973]">Nombre del Predio:</span>
-                  <span className="font-bold text-[#012d1d]">
+                  <span className="font-bold text-white">
                     {currentFarm?.profile.name || 'Finca La Esperanza'}
                   </span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#eeeeee]">
                   <span className="text-[#717973]">Ubicación:</span>
-                  <span className="font-semibold text-[#1a1c1c]">
+                  <span className="font-semibold text-white">
                     {currentFarm?.profile.municipality}, {currentFarm?.profile.department} (
                     {currentFarm?.profile.vereda})
                   </span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#eeeeee]">
                   <span className="text-[#717973]">Registro Sanitario ICA:</span>
-                  <span className="font-mono font-bold text-[#1a1c1c]">
+                  <span className="font-mono font-bold text-white">
                     {currentFarm?.profile.registrationNumber || 'ICA-23001-0982'}
                   </span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#eeeeee]">
                   <span className="text-[#717973]">Área Total:</span>
-                  <span className="font-bold text-[#1a1c1c]">
+                  <span className="font-bold text-white">
                     {currentFarm?.profile.totalAreaHa || 420.5} Hectáreas (
                     {currentFarm?.paddocks.length || 8} Potreros SIG)
                   </span>
@@ -603,7 +603,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#eeeeee]">
                   <span className="text-[#717973]">Elevación & Relieve:</span>
-                  <span className="font-bold text-[#1a1c1c]">
+                  <span className="font-bold text-white">
                     {currentFarm?.profile.elevationMsnm || 135} msnm •{' '}
                     {currentFarm?.contours?.length || 6} Curvas de Nivel
                   </span>
@@ -620,7 +620,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
                     {onOpenFarmManagerModal && (
                       <button
                         onClick={onOpenFarmManagerModal}
-                        className="text-[11px] text-[#012d1d] font-bold hover:underline flex items-center gap-0.5"
+                        className="text-[11px] text-white font-bold hover:underline flex items-center gap-0.5"
                       >
                         <Settings className="w-3 h-3" /> Administrar
                       </button>
@@ -635,8 +635,8 @@ export const MenuView: React.FC<MenuViewProps> = ({
                           onClick={() => onSelectFarm && onSelectFarm(f.profile.id)}
                           className={`text-xs px-2.5 py-1.5 rounded-xl border transition-all flex items-center gap-1 ${
                             isSel
-                              ? 'bg-[#012d1d] text-white border-[#012d1d] font-bold'
-                              : 'bg-[#f8faf8] text-[#414844] border-[#c1c8c2] hover:bg-[#c1ecd4]/40'
+                              ? 'bg-[#0D1A13] text-white border-[#012d1d] font-bold'
+                              : 'bg-[#f8faf8] text-[#414844] border-white/10 hover:bg-[#c1ecd4]/40'
                           }`}
                         >
                           <span>{f.profile.name}</span>
@@ -650,8 +650,8 @@ export const MenuView: React.FC<MenuViewProps> = ({
             </div>
 
             {/* Data Export & Reports */}
-            <div className="bg-white p-5 rounded-2xl border border-[#c1c8c2] card-shadow space-y-4">
-              <h4 className="font-bold text-base text-[#012d1d] flex items-center gap-2">
+            <div className="bg-[#15241C] p-5 rounded-2xl border border-white/10 card-shadow space-y-4">
+              <h4 className="font-bold text-base text-white flex items-center gap-2">
                 <FileSpreadsheet className="w-5 h-5" />
                 Exportación de Reportes
               </h4>
@@ -661,7 +661,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
               <div className="space-y-2 pt-2">
                 <button
                   onClick={() => alert('Generando exportación en CSV del Hato Ganadero...')}
-                  className="w-full bg-[#f3f3f3] hover:bg-[#e8e8e8] text-[#012d1d] font-bold text-xs py-2.5 px-4 rounded-xl border border-[#c1c8c2] flex items-center justify-between transition-colors"
+                  className="w-full bg-[#f3f3f3] hover:bg-[#e8e8e8] text-white font-bold text-xs py-2.5 px-4 rounded-xl border border-white/10 flex items-center justify-between transition-colors"
                 >
                   <span>Exportar Inventario Bovino (CSV)</span>
                   <Download className="w-4 h-4" />
@@ -669,7 +669,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
 
                 <button
                   onClick={() => alert('Generando planilla de control lechero mensual...')}
-                  className="w-full bg-[#f3f3f3] hover:bg-[#e8e8e8] text-[#012d1d] font-bold text-xs py-2.5 px-4 rounded-xl border border-[#c1c8c2] flex items-center justify-between transition-colors"
+                  className="w-full bg-[#f3f3f3] hover:bg-[#e8e8e8] text-white font-bold text-xs py-2.5 px-4 rounded-xl border border-white/10 flex items-center justify-between transition-colors"
                 >
                   <span>Exportar Planilla de Ordeño y Calidad (Excel)</span>
                   <Download className="w-4 h-4" />

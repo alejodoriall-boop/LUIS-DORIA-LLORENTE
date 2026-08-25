@@ -402,7 +402,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-5xl h-[90vh] max-h-[820px] flex flex-col overflow-hidden border border-slate-200 animate-in zoom-in-95 duration-200">
+      <div className="bg-[#15241C] rounded-3xl shadow-2xl w-full max-w-5xl h-[90vh] max-h-[820px] flex flex-col overflow-hidden border border-white/10 animate-in zoom-in-95 duration-200">
         {/* Header */}
         <div className="px-5 py-3.5 bg-[#075e54] text-white flex items-center justify-between shrink-0 shadow-md">
           <div className="flex items-center gap-3">
@@ -441,14 +441,14 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex items-center justify-between px-5 bg-slate-100 border-b border-slate-200 text-xs font-bold shrink-0">
+        <div className="flex items-center justify-between px-5 bg-[#1F3327] border-b border-white/10 text-xs font-bold shrink-0">
           <div className="flex items-center gap-1">
             <button
               onClick={() => setActiveTab('playground')}
               className={`py-3 px-4 flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
                 activeTab === 'playground'
-                  ? 'border-[#075e54] text-[#075e54] bg-white shadow-xs'
-                  : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                  ? 'border-[#075e54] text-[#075e54] bg-[#15241C] shadow-xs'
+                  : 'border-transparent text-[#A5B8AC] hover:text-white hover:bg-slate-200/60'
               }`}
             >
               <Bot className="w-4 h-4" />
@@ -459,8 +459,8 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
               onClick={() => setActiveTab('qr_config')}
               className={`py-3 px-4 flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
                 activeTab === 'qr_config'
-                  ? 'border-[#075e54] text-[#075e54] bg-white shadow-xs'
-                  : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                  ? 'border-[#075e54] text-[#075e54] bg-[#15241C] shadow-xs'
+                  : 'border-transparent text-[#A5B8AC] hover:text-white hover:bg-slate-200/60'
               }`}
             >
               <QrCode className="w-4 h-4" />
@@ -471,8 +471,8 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
               onClick={() => setActiveTab('guide')}
               className={`py-3 px-4 flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
                 activeTab === 'guide'
-                  ? 'border-[#075e54] text-[#075e54] bg-white shadow-xs'
-                  : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                  ? 'border-[#075e54] text-[#075e54] bg-[#15241C] shadow-xs'
+                  : 'border-transparent text-[#A5B8AC] hover:text-white hover:bg-slate-200/60'
               }`}
             >
               <Code className="w-4 h-4" />
@@ -480,24 +480,24 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
             </button>
           </div>
 
-          <span className="hidden md:block text-[11px] text-slate-500 font-mono">
+          <span className="hidden md:block text-[11px] text-[#A5B8AC] font-mono">
             {botPhoneNumber}
           </span>
         </div>
 
         {/* Content Body */}
-        <div className="flex-1 overflow-hidden bg-slate-50 flex flex-col">
+        <div className="flex-1 overflow-hidden bg-[#0D1A13] flex flex-col">
           {/* TAB 1: PLAYGROUND SIMULATOR */}
           {activeTab === 'playground' && (
             <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden h-full">
               {/* Left Column: Preset Test Scenarios Toolbar */}
-              <div className="lg:col-span-4 bg-white border-r border-slate-200 p-4 overflow-y-auto space-y-4 flex flex-col">
+              <div className="lg:col-span-4 bg-[#15241C] border-r border-white/10 p-4 overflow-y-auto space-y-4 flex flex-col">
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#A5B8AC] flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-[#075e54]" />
                     <span>Casos de Prueba en Potrero</span>
                   </h3>
-                  <p className="text-[11px] text-slate-500 mt-0.5">
+                  <p className="text-[11px] text-[#A5B8AC] mt-0.5">
                     Haz clic en cualquier escenario para simular una nota de voz o mensaje del mayordomo:
                   </p>
                 </div>
@@ -516,7 +516,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                         🎙️ Audio 0:14
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-600 line-clamp-2 italic">
+                    <p className="text-[11px] text-[#A5B8AC] line-clamp-2 italic">
                       "Don Alejo, parió la vaca 4512 un ternero macho de 38 kilos en el bajo..."
                     </p>
                     <span className="text-[10px] text-amber-800 font-semibold block mt-1">
@@ -537,7 +537,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                         Baja Inventario
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-600 line-clamp-2 italic">
+                    <p className="text-[11px] text-[#A5B8AC] line-clamp-2 italic">
                       "Despachamos 18 novillos al Frigorífico Central a $9.100/kg, guía 44812..."
                     </p>
                     <span className="text-[10px] text-rose-800 font-semibold block mt-1">
@@ -558,7 +558,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                         GDP +820g
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-600 line-clamp-2 italic">
+                    <p className="text-[11px] text-[#A5B8AC] line-clamp-2 italic">
                       "Pesamos el lote Ceba 1 completo. 22 novillos dieron 9.460 kg..."
                     </p>
                   </button>
@@ -576,28 +576,28 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                         28 Días Retiro
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-600 line-clamp-2 italic">
+                    <p className="text-[11px] text-[#A5B8AC] line-clamp-2 italic">
                       "Le aplicamos Oxitetraciclina al lote 3 por neumonía..."
                     </p>
                   </button>
 
                   <button
                     onClick={() => sendPresetScenario('incomplete')}
-                    className="w-full text-left p-3 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all cursor-pointer group"
+                    className="w-full text-left p-3 rounded-2xl bg-[#0D1A13] hover:bg-[#1F3327] border border-white/10 transition-all cursor-pointer group"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-                        <Bot className="w-3.5 h-3.5 text-slate-600" />
+                      <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                        <Bot className="w-3.5 h-3.5 text-[#A5B8AC]" />
                         5. Manejo de Incompletitud
                       </span>
-                      <span className="text-[9px] bg-slate-200 text-slate-800 px-1.5 py-0.2 rounded-full font-bold">
+                      <span className="text-[9px] bg-[#202E25] text-white px-1.5 py-0.2 rounded-full font-bold">
                         Falta dato
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-600 line-clamp-2 italic">
+                    <p className="text-[11px] text-[#A5B8AC] line-clamp-2 italic">
                       "Parió la vaca 3105 en el callejón."
                     </p>
-                    <span className="text-[10px] text-slate-700 font-semibold block mt-1">
+                    <span className="text-[10px] text-white font-semibold block mt-1">
                       → Pregunta en 1 sola frase corta por el peso y sexo
                     </span>
                   </button>
@@ -605,15 +605,15 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
 
                 {/* JSON Inspector Preview */}
                 {selectedJsonView && (
-                  <div className="mt-auto pt-3 border-t border-slate-200">
+                  <div className="mt-auto pt-3 border-t border-white/10">
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-[11px] font-bold text-slate-700 flex items-center gap-1">
+                      <span className="text-[11px] font-bold text-white flex items-center gap-1">
                         <Code className="w-3.5 h-3.5 text-indigo-600" />
                         JSON Generado para API
                       </span>
                       <button
                         onClick={() => copyToClipboard(JSON.stringify(selectedJsonView, null, 2), 'json_preview')}
-                        className="text-[10px] text-slate-500 hover:text-slate-800 font-bold flex items-center gap-1 cursor-pointer"
+                        className="text-[10px] text-[#A5B8AC] hover:text-white font-bold flex items-center gap-1 cursor-pointer"
                       >
                         {copiedKey === 'json_preview' ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
                         <span>{copiedKey === 'json_preview' ? 'Copiado' : 'Copiar'}</span>
@@ -686,8 +686,8 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                         <div
                           className={`max-w-[85%] sm:max-w-[75%] rounded-2xl p-3 shadow-xs text-xs relative ${
                             isUser
-                              ? 'bg-[#d9fdd3] text-slate-900 rounded-tr-none'
-                              : 'bg-white text-slate-900 rounded-tl-none border border-slate-100'
+                              ? 'bg-[#d9fdd3] text-white rounded-tr-none'
+                              : 'bg-[#15241C] text-white rounded-tl-none border border-white/10'
                           }`}
                         >
                           {/* Audio player simulation */}
@@ -700,7 +700,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                                 <div className="h-1.5 bg-emerald-200 rounded-full overflow-hidden">
                                   <div className="h-full bg-[#075e54] w-2/3" />
                                 </div>
-                                <div className="flex justify-between text-[9px] text-slate-500 mt-1 font-mono">
+                                <div className="flex justify-between text-[9px] text-[#A5B8AC] mt-1 font-mono">
                                   <span>Audio de voz ({m.audioDuration || '0:12'})</span>
                                   <span className="text-emerald-700 font-bold">Whisper Transcrito</span>
                                 </div>
@@ -712,7 +712,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
 
                           {/* Action Button for 2-step confirmation */}
                           {m.requiresConfirmation && !m.confirmed && (
-                            <div className="mt-2.5 pt-2 border-t border-slate-200 flex items-center gap-2">
+                            <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center gap-2">
                               <button
                                 onClick={() => triggerChatFlow('1', false)}
                                 className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] rounded-lg transition cursor-pointer flex items-center gap-1 shadow-xs"
@@ -722,7 +722,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                               </button>
                               <button
                                 onClick={() => triggerChatFlow('2', false)}
-                                className="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-[11px] rounded-lg transition cursor-pointer"
+                                className="px-3 py-1 bg-[#1F3327] hover:bg-[#202E25] text-white font-semibold text-[11px] rounded-lg transition cursor-pointer"
                               >
                                 2️⃣ Corregir
                               </button>
@@ -730,7 +730,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                           )}
 
                           {/* Footer Info */}
-                          <div className="flex items-center justify-end gap-1 mt-1 text-[9.5px] text-slate-400">
+                          <div className="flex items-center justify-end gap-1 mt-1 text-[9.5px] text-[#A5B8AC]">
                             <span>{m.time}</span>
                             {isUser && <Check className="w-3 h-3 text-sky-600" />}
                           </div>
@@ -741,8 +741,8 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
 
                   {isBotTyping && (
                     <div className="flex justify-start">
-                      <div className="bg-white rounded-2xl rounded-tl-none p-3 shadow-xs border border-slate-100 flex items-center gap-1.5">
-                        <span className="text-xs text-slate-500 italic">GanaderIA Bot está procesando zootécnicamente</span>
+                      <div className="bg-[#15241C] rounded-2xl rounded-tl-none p-3 shadow-xs border border-white/10 flex items-center gap-1.5">
+                        <span className="text-xs text-[#A5B8AC] italic">GanaderIA Bot está procesando zootécnicamente</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-[#075e54] animate-bounce" />
                         <span className="w-1.5 h-1.5 rounded-full bg-[#075e54] animate-bounce [animation-delay:0.2s]" />
                         <span className="w-1.5 h-1.5 rounded-full bg-[#075e54] animate-bounce [animation-delay:0.4s]" />
@@ -754,12 +754,12 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                 {/* Input Bar */}
                 <form
                   onSubmit={handleSendCustomMessage}
-                  className="p-2.5 bg-[#f0f2f5] border-t border-slate-300 flex items-center gap-2 shrink-0"
+                  className="p-2.5 bg-[#f0f2f5] border-t border-white/15 flex items-center gap-2 shrink-0"
                 >
                   <button
                     type="button"
                     onClick={() => sendPresetScenario('birth')}
-                    className="p-2 text-slate-500 hover:text-[#075e54] hover:bg-slate-200 rounded-full transition cursor-pointer"
+                    className="p-2 text-[#A5B8AC] hover:text-[#075e54] hover:bg-[#202E25] rounded-full transition cursor-pointer"
                     title="Simular Nota de Voz"
                   >
                     <Mic className="w-5 h-5" />
@@ -770,7 +770,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     placeholder="Escribe como mayordomo (ej: 'parió la vaca 4512 un macho de 38kg')..."
-                    className="flex-1 bg-white border border-slate-300 rounded-full px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#075e54]"
+                    className="flex-1 bg-[#15241C] border border-white/15 rounded-full px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#075e54]"
                   />
 
                   <button
@@ -789,10 +789,10 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
           {activeTab === 'qr_config' && (
             <div className="flex-1 p-5 overflow-y-auto space-y-6 max-w-4xl mx-auto w-full">
               {/* QR Code Linking Card */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 flex flex-col md:flex-row items-center gap-6">
-                <div className="p-4 bg-slate-50 border-2 border-dashed border-emerald-300 rounded-3xl flex flex-col items-center justify-center shrink-0">
-                  <div className="w-40 h-40 bg-white p-2 rounded-2xl shadow-inner flex items-center justify-center relative">
-                    <QrCode className="w-36 h-36 text-slate-900" />
+              <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-white/10 flex flex-col md:flex-row items-center gap-6">
+                <div className="p-4 bg-[#0D1A13] border-2 border-dashed border-emerald-300 rounded-3xl flex flex-col items-center justify-center shrink-0">
+                  <div className="w-40 h-40 bg-[#15241C] p-2 rounded-2xl shadow-inner flex items-center justify-center relative">
+                    <QrCode className="w-36 h-36 text-white" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg border-2 border-white">
                         <Smartphone className="w-5 h-5" />
@@ -807,7 +807,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
 
                 <div className="flex-1 space-y-3">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base font-bold text-slate-900">
+                    <h3 className="text-base font-bold text-white">
                       Número Oficial Conectado para {currentFarm?.profile.name || 'San Juan'}
                     </h3>
                     <span className="bg-emerald-100 text-emerald-900 text-xs font-bold px-2.5 py-1 rounded-full">
@@ -815,22 +815,22 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                     </span>
                   </div>
 
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-[#A5B8AC] leading-relaxed">
                     Cualquier audio, imagen o mensaje enviado desde los teléfonos autorizados a este número de WhatsApp será procesado por el motor zootécnico de IA e impactará el software en tiempo real.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                    <div className="bg-[#0D1A13] p-3 rounded-2xl border border-white/10">
+                      <span className="text-[10px] text-[#A5B8AC] font-bold uppercase tracking-wider block">
                         Número de la Finca:
                       </span>
-                      <span className="text-sm font-mono font-bold text-slate-900">
+                      <span className="text-sm font-mono font-bold text-white">
                         {botPhoneNumber}
                       </span>
                     </div>
 
-                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                    <div className="bg-[#0D1A13] p-3 rounded-2xl border border-white/10">
+                      <span className="text-[10px] text-[#A5B8AC] font-bold uppercase tracking-wider block">
                         Estado del Webhook:
                       </span>
                       <span className="text-xs font-bold text-emerald-700 flex items-center gap-1 mt-0.5">
@@ -843,14 +843,14 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
               </div>
 
               {/* Authorized Phones Management */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-4">
+              <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-white/10 space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
                       <User className="w-4 h-4 text-[#075e54]" />
                       <span>Teléfonos y Operarios Autorizados</span>
                     </h3>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-[#A5B8AC]">
                       Solo los números registrados en esta lista tienen autorización para registrar eventos y bajas de inventario.
                     </p>
                   </div>
@@ -870,33 +870,33 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                     <h4 className="text-xs font-bold text-emerald-950">Nuevo Operario / Mayordomo Autorizado</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div>
-                        <label className="text-[10px] font-bold text-slate-600 block mb-1">Nombre Completo</label>
+                        <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Nombre Completo</label>
                         <input
                           type="text"
                           value={newPhoneName}
                           onChange={(e) => setNewPhoneName(e.target.value)}
                           placeholder="Ej. Don Hernán (Mayordomo)"
-                          className="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs focus:ring-2 focus:ring-emerald-600"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-xl px-3 py-1.5 text-xs focus:ring-2 focus:ring-emerald-600"
                           required
                         />
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold text-slate-600 block mb-1">Número de WhatsApp (con país)</label>
+                        <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Número de WhatsApp (con país)</label>
                         <input
                           type="text"
                           value={newPhoneNumber}
                           onChange={(e) => setNewPhoneNumber(e.target.value)}
                           placeholder="+57 311 234 5678"
-                          className="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs focus:ring-2 focus:ring-emerald-600"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-xl px-3 py-1.5 text-xs focus:ring-2 focus:ring-emerald-600"
                           required
                         />
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold text-slate-600 block mb-1">Rol / Permisos</label>
+                        <label className="text-[10px] font-bold text-[#A5B8AC] block mb-1">Rol / Permisos</label>
                         <select
                           value={newPhoneRole}
                           onChange={(e) => setNewPhoneRole(e.target.value)}
-                          className="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs focus:ring-2 focus:ring-emerald-600"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-xl px-3 py-1.5 text-xs focus:ring-2 focus:ring-emerald-600"
                         >
                           <option value="Admin Total">Admin Total (Ventas, Sanidad, Altas)</option>
                           <option value="Operativo / Campo">Operativo / Campo (Nacimientos, Pesajes)</option>
@@ -910,7 +910,7 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                       <button
                         type="button"
                         onClick={() => setShowAddPhone(false)}
-                        className="px-3 py-1.5 bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl"
+                        className="px-3 py-1.5 bg-[#202E25] text-white text-xs font-semibold rounded-xl"
                       >
                         Cancelar
                       </button>
@@ -928,22 +928,22 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                   {authorizedPhones.map((p) => (
                     <div key={p.id} className="py-2.5 flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs">
+                        <div className="w-8 h-8 rounded-full bg-[#1F3327] text-white flex items-center justify-center font-bold text-xs">
                           {p.name.charAt(0)}
                         </div>
                         <div>
-                          <p className="text-xs font-bold text-slate-900">{p.name}</p>
-                          <p className="text-[11px] font-mono text-slate-500">{p.phone}</p>
+                          <p className="text-xs font-bold text-white">{p.name}</p>
+                          <p className="text-[11px] font-mono text-[#A5B8AC]">{p.phone}</p>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <span className="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-semibold">
+                        <span className="text-[10px] bg-[#1F3327] text-white px-2 py-0.5 rounded-full font-semibold">
                           {p.role}
                         </span>
                         <button
                           onClick={() => handleDeletePhone(p.id)}
-                          className="text-slate-400 hover:text-rose-600 p-1 rounded-lg transition"
+                          className="text-[#A5B8AC] hover:text-rose-600 p-1 rounded-lg transition"
                           title="Eliminar autorización"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -955,18 +955,18 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
               </div>
 
               {/* Bot Security & Automation Switches */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-3">
-                <h3 className="text-sm font-bold text-slate-900">
+              <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-white/10 space-y-3">
+                <h3 className="text-sm font-bold text-white">
                   Políticas de Seguridad y Automatización IA
                 </h3>
 
                 <div className="space-y-3 pt-1">
-                  <label className="flex items-center justify-between p-3 bg-slate-50 rounded-2xl cursor-pointer">
+                  <label className="flex items-center justify-between p-3 bg-[#0D1A13] rounded-2xl cursor-pointer">
                     <div>
-                      <span className="text-xs font-bold text-slate-900 block">
+                      <span className="text-xs font-bold text-white block">
                         Confirmación en 2 Pasos para Ventas y Bajas
                       </span>
-                      <span className="text-[11px] text-slate-500">
+                      <span className="text-[11px] text-[#A5B8AC]">
                         Exige confirmación con "1" o "Sí" antes de descargar animales del inventario activo.
                       </span>
                     </div>
@@ -978,12 +978,12 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-3 bg-slate-50 rounded-2xl cursor-pointer">
+                  <label className="flex items-center justify-between p-3 bg-[#0D1A13] rounded-2xl cursor-pointer">
                     <div>
-                      <span className="text-xs font-bold text-slate-900 block">
+                      <span className="text-xs font-bold text-white block">
                         Transcripción Inteligente de Notas de Voz (Whisper)
                       </span>
-                      <span className="text-[11px] text-slate-500">
+                      <span className="text-[11px] text-[#A5B8AC]">
                         Convierte audios de mayordomos y vaqueros a texto estructurado en tiempo real.
                       </span>
                     </div>
@@ -995,12 +995,12 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                     />
                   </label>
 
-                  <label className="flex items-center justify-between p-3 bg-slate-50 rounded-2xl cursor-pointer">
+                  <label className="flex items-center justify-between p-3 bg-[#0D1A13] rounded-2xl cursor-pointer">
                     <div>
-                      <span className="text-xs font-bold text-slate-900 block">
+                      <span className="text-xs font-bold text-white block">
                         Alertas Automáticas de Tiempo de Retiro Fármacos
                       </span>
-                      <span className="text-[11px] text-slate-500">
+                      <span className="text-[11px] text-[#A5B8AC]">
                         Advierte de inmediato los días de retiro de carne y leche cuando se aplican antibióticos.
                       </span>
                     </div>
@@ -1020,25 +1020,25 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
           {activeTab === 'guide' && (
             <div className="flex-1 p-5 overflow-y-auto space-y-6 max-w-4xl mx-auto w-full">
               {/* Webhook Connection Endpoints */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-4">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-white/10 space-y-4">
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
                   <Code className="w-4 h-4 text-[#075e54]" />
                   <span>Configuración del Webhook en Meta for Developers</span>
                 </h3>
 
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-[#A5B8AC] leading-relaxed">
                   Para conectar tu cuenta corporativa de WhatsApp Cloud API, ingresa al panel de Meta Developers en la sección <b>WhatsApp &gt; Configuration &gt; Webhook</b> e ingresa estos valores:
                 </p>
 
                 <div className="space-y-3 pt-1">
                   <div>
-                    <label className="text-[11px] font-bold text-slate-700 block mb-1">Callback URL (Webhook Endpoint)</label>
+                    <label className="text-[11px] font-bold text-white block mb-1">Callback URL (Webhook Endpoint)</label>
                     <div className="flex items-center gap-2">
                       <input
                         type="text"
                         readOnly
                         value={webhookUrl}
-                        className="flex-1 bg-slate-100 border border-slate-300 rounded-xl px-3 py-2 text-xs font-mono text-slate-800"
+                        className="flex-1 bg-[#1F3327] border border-white/15 rounded-xl px-3 py-2 text-xs font-mono text-white"
                       />
                       <button
                         onClick={() => copyToClipboard(webhookUrl, 'webhook_url')}
@@ -1051,13 +1051,13 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-bold text-slate-700 block mb-1">Verify Token</label>
+                    <label className="text-[11px] font-bold text-white block mb-1">Verify Token</label>
                     <div className="flex items-center gap-2">
                       <input
                         type="text"
                         readOnly
                         value={verifyToken}
-                        className="flex-1 bg-slate-100 border border-slate-300 rounded-xl px-3 py-2 text-xs font-mono text-slate-800"
+                        className="flex-1 bg-[#1F3327] border border-white/15 rounded-xl px-3 py-2 text-xs font-mono text-white"
                       />
                       <button
                         onClick={() => copyToClipboard(verifyToken, 'verify_token')}
@@ -1072,32 +1072,32 @@ export const WhatsAppIntegrationModal: React.FC<WhatsAppIntegrationModalProps> =
               </div>
 
               {/* Technical Architecture Pipeline */}
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-4">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-white/10 space-y-4">
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
                   <Activity className="w-4 h-4 text-emerald-700" />
                   <span>Pipeline Técnico de Procesamiento Multimodal</span>
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
-                  <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase">Paso 1: Ingress</span>
-                    <p className="font-bold text-slate-800">WhatsApp Cloud API</p>
-                    <p className="text-[11px] text-slate-500">Recibe payload firmado con `X-Hub-Signature-256` y valida remitente en Redis.</p>
+                  <div className="p-3 bg-[#0D1A13] rounded-2xl border border-white/10 space-y-1">
+                    <span className="text-[10px] font-bold text-[#A5B8AC] uppercase">Paso 1: Ingress</span>
+                    <p className="font-bold text-white">WhatsApp Cloud API</p>
+                    <p className="text-[11px] text-[#A5B8AC]">Recibe payload firmado con `X-Hub-Signature-256` y valida remitente en Redis.</p>
                   </div>
 
-                  <div className="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 space-y-1">
+                  <div className="p-3 bg-emerald-950/30 rounded-2xl border border-emerald-200 space-y-1">
                     <span className="text-[10px] font-bold text-emerald-700 uppercase">Paso 2: Audio & OCR</span>
                     <p className="font-bold text-emerald-950">Whisper & Gemini Vision</p>
                     <p className="text-[11px] text-emerald-800">Convierte notas de voz (.ogg) y extrae pesos de fotos de pantallas de báscula.</p>
                   </div>
 
-                  <div className="p-3 bg-amber-50 rounded-2xl border border-amber-200 space-y-1">
+                  <div className="p-3 bg-amber-950/30 rounded-2xl border border-amber-200 space-y-1">
                     <span className="text-[10px] font-bold text-amber-700 uppercase">Paso 3: Zootecnia IA</span>
                     <p className="font-bold text-amber-950">Gemini 2.5 Flash</p>
                     <p className="text-[11px] text-amber-800">Estructura datos, calcula chapeta #9085-T326 y valida retiros sanitarios.</p>
                   </div>
 
-                  <div className="p-3 bg-blue-50 rounded-2xl border border-blue-200 space-y-1">
+                  <div className="p-3 bg-blue-950/30 rounded-2xl border border-blue-200 space-y-1">
                     <span className="text-[10px] font-bold text-blue-700 uppercase">Paso 4: Base de Datos</span>
                     <p className="font-bold text-blue-950">Campaña Ganadora</p>
                     <p className="text-[11px] text-blue-800">Afecta inventario activo, libros de nacimientos y genera comprobantes.</p>

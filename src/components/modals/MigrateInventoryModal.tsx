@@ -499,9 +499,9 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-5xl h-[92vh] max-h-[850px] flex flex-col overflow-hidden border border-slate-200">
+      <div className="bg-[#15241C] rounded-3xl shadow-2xl w-full max-w-5xl h-[92vh] max-h-[850px] flex flex-col overflow-hidden border border-white/10">
         {/* Header */}
-        <div className="px-6 py-4 bg-[#012d1d] text-white flex items-center justify-between shrink-0 shadow-md">
+        <div className="px-6 py-4 bg-[#0D1A13] text-white flex items-center justify-between shrink-0 shadow-md">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-emerald-500 text-slate-950 flex items-center justify-center shadow-md shrink-0">
               <Database className="w-5 h-5" />
@@ -531,64 +531,64 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
         </div>
 
         {/* Stepper Wizard Bar */}
-        <div className="bg-slate-50 border-b border-slate-200 px-6 py-3 shrink-0 flex items-center justify-between">
+        <div className="bg-[#0D1A13] border-b border-white/10 px-6 py-3 shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-6 text-xs">
             <div
               onClick={() => setActiveStep(1)}
               className={`flex items-center gap-2 cursor-pointer ${
-                activeStep === 1 ? 'font-bold text-[#012d1d]' : 'text-slate-500'
+                activeStep === 1 ? 'font-bold text-white' : 'text-[#A5B8AC]'
               }`}
             >
               <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${
-                activeStep === 1 ? 'bg-[#012d1d] text-white' : 'bg-slate-200 text-slate-700'
+                activeStep === 1 ? 'bg-[#0D1A13] text-white' : 'bg-[#202E25] text-white'
               }`}>
                 1
               </span>
               <span className="hidden sm:inline">Cargar Archivo</span>
             </div>
 
-            <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+            <ChevronRight className="w-3.5 h-3.5 text-[#A5B8AC]" />
 
             <div
               onClick={() => rawHeaders.length > 0 && setActiveStep(2)}
               className={`flex items-center gap-2 ${
                 rawHeaders.length > 0 ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
-              } ${activeStep === 2 ? 'font-bold text-[#012d1d]' : 'text-slate-500'}`}
+              } ${activeStep === 2 ? 'font-bold text-white' : 'text-[#A5B8AC]'}`}
             >
               <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${
-                activeStep === 2 ? 'bg-[#012d1d] text-white' : 'bg-slate-200 text-slate-700'
+                activeStep === 2 ? 'bg-[#0D1A13] text-white' : 'bg-[#202E25] text-white'
               }`}>
                 2
               </span>
               <span className="hidden sm:inline">Mapear Columnas</span>
             </div>
 
-            <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+            <ChevronRight className="w-3.5 h-3.5 text-[#A5B8AC]" />
 
             <div
               onClick={() => rawHeaders.length > 0 && setActiveStep(3)}
               className={`flex items-center gap-2 ${
                 rawHeaders.length > 0 ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
-              } ${activeStep === 3 ? 'font-bold text-[#012d1d]' : 'text-slate-500'}`}
+              } ${activeStep === 3 ? 'font-bold text-white' : 'text-[#A5B8AC]'}`}
             >
               <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${
-                activeStep === 3 ? 'bg-[#012d1d] text-white' : 'bg-slate-200 text-slate-700'
+                activeStep === 3 ? 'bg-[#0D1A13] text-white' : 'bg-[#202E25] text-white'
               }`}>
                 3
               </span>
               <span className="hidden sm:inline">Validar y Previsualizar</span>
             </div>
 
-            <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+            <ChevronRight className="w-3.5 h-3.5 text-[#A5B8AC]" />
 
             <div
               onClick={() => transformedPreview.length > 0 && setActiveStep(4)}
               className={`flex items-center gap-2 ${
                 transformedPreview.length > 0 ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
-              } ${activeStep === 4 ? 'font-bold text-[#012d1d]' : 'text-slate-500'}`}
+              } ${activeStep === 4 ? 'font-bold text-white' : 'text-[#A5B8AC]'}`}
             >
               <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold ${
-                activeStep === 4 ? 'bg-[#012d1d] text-white' : 'bg-slate-200 text-slate-700'
+                activeStep === 4 ? 'bg-[#0D1A13] text-white' : 'bg-[#202E25] text-white'
               }`}>
                 4
               </span>
@@ -597,11 +597,11 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-[11px] text-slate-500 font-medium hidden sm:inline">Predio Destino:</span>
+            <span className="text-[11px] text-[#A5B8AC] font-medium hidden sm:inline">Predio Destino:</span>
             <select
               value={selectedFarmId}
               onChange={(e) => setSelectedFarmId(e.target.value)}
-              className="bg-white border border-slate-300 rounded-xl px-2.5 py-1 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+              className="bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-emerald-600"
             >
               {farms.map((farm) => (
                 <option key={farm.profile.id} value={farm.profile.id}>
@@ -618,10 +618,10 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
           {activeStep === 1 && (
             <div className="max-w-3xl mx-auto space-y-6 animate-in fade-in duration-200">
               <div className="text-center space-y-2">
-                <h3 className="text-base font-bold text-slate-900">
+                <h3 className="text-base font-bold text-white">
                   Carga tu Archivo de Inventario Actual
                 </h3>
-                <p className="text-xs text-slate-500 max-w-lg mx-auto">
+                <p className="text-xs text-[#A5B8AC] max-w-lg mx-auto">
                   Sube cualquier archivo en formato <strong>.xlsx, .xls o .csv</strong>. El motor inteligente detectará automáticamente las columnas de identificación, pesos, categorías y marcas.
                 </p>
               </div>
@@ -638,7 +638,7 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 className={`border-2 border-dashed rounded-3xl p-8 sm:p-12 text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-3 ${
                   isDragging
                     ? 'border-emerald-500 bg-emerald-50/50 scale-[1.01]'
-                    : 'border-slate-300 hover:border-emerald-600 bg-white hover:bg-slate-50/80 shadow-xs'
+                    : 'border-white/15 hover:border-emerald-600 bg-[#15241C] hover:bg-slate-50/80 shadow-xs'
                 }`}
               >
                 <input
@@ -661,16 +661,16 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 </div>
 
                 <div>
-                  <span className="block text-sm font-bold text-slate-800">
+                  <span className="block text-sm font-bold text-white">
                     {isLoading ? 'Analizando estructura del archivo...' : 'Haz clic o arrastra tu archivo aquí'}
                   </span>
-                  <span className="block text-xs text-slate-400 mt-1">
+                  <span className="block text-xs text-[#A5B8AC] mt-1">
                     Formatos admitidos: Excel (.XLSX, .XLS) y CSV delimitado por comas o punto y coma
                   </span>
                 </div>
 
                 {fileName && (
-                  <div className="bg-emerald-50 text-emerald-900 border border-emerald-200 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 mt-2">
+                  <div className="bg-emerald-950/30 text-emerald-900 border border-emerald-200 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 mt-2">
                     <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-700" />
                     <span>{fileName} ({rawRows.length} registros detectados)</span>
                   </div>
@@ -678,23 +678,23 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
               </div>
 
               {errorMessage && (
-                <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-2xl text-xs flex items-center gap-3">
+                <div className="bg-rose-950/30 border border-rose-200 text-rose-800 p-4 rounded-2xl text-xs flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />
                   <span>{errorMessage}</span>
                 </div>
               )}
 
               {/* Template Helper Card */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+              <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
                 <div className="flex items-center gap-3 text-left">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-950/30 text-blue-700 flex items-center justify-center shrink-0">
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900">
+                    <h4 className="text-xs font-bold text-white">
                       ¿No tienes un formato estructurado?
                     </h4>
-                    <p className="text-[11px] text-slate-500">
+                    <p className="text-[11px] text-[#A5B8AC]">
                       Descarga nuestra plantilla oficial de Excel con ejemplos precargados y llena los datos de tu finca.
                     </p>
                   </div>
@@ -703,9 +703,9 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 <button
                   type="button"
                   onClick={handleDownloadDemoTemplate}
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition shrink-0 cursor-pointer"
+                  className="bg-[#1F3327] hover:bg-[#202E25] text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition shrink-0 cursor-pointer"
                 >
-                  <Download className="w-3.5 h-3.5 text-slate-600" />
+                  <Download className="w-3.5 h-3.5 text-[#A5B8AC]" />
                   <span>Descargar Plantilla Demo (.xlsx)</span>
                 </button>
               </div>
@@ -717,11 +717,11 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
             <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-200">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-2">
+                  <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
                     <Sliders className="w-4 h-4 text-emerald-700" />
                     Mapeo y Correspondencia de Columnas
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-[#A5B8AC] mt-0.5">
                     Asocia los encabezados de tu archivo Excel con los campos del sistema ganadero.
                   </p>
                 </div>
@@ -729,7 +729,7 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 <button
                   type="button"
                   onClick={() => autoDetectMappings(rawHeaders)}
-                  className="bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-emerald-950/30 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   Auto-Detectar
@@ -737,17 +737,17 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
               </div>
 
               {/* Mapping Grid */}
-              <div className="bg-white rounded-3xl border border-slate-200 shadow-xs p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-xs p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* 1. Chapeta / ID */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1 flex items-center justify-between">
+                  <label className="block text-xs font-bold text-white mb-1 flex items-center justify-between">
                     <span>N° Arete / Chapeta / ID *</span>
-                    <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">Obligatorio</span>
+                    <span className="text-[10px] text-emerald-700 font-bold bg-emerald-950/30 px-1.5 py-0.5 rounded">Obligatorio</span>
                   </label>
                   <select
                     value={columnMapping.tag}
                     onChange={(e) => setColumnMapping({ ...columnMapping, tag: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-bold text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-bold text-white"
                   >
                     <option value="">-- Seleccionar Columna --</option>
                     {rawHeaders.map((h) => (
@@ -760,14 +760,14 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
                 {/* 2. Peso Actual */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1 flex items-center justify-between">
+                  <label className="block text-xs font-bold text-white mb-1 flex items-center justify-between">
                     <span>Peso Vivo Actual (Kg) *</span>
-                    <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">Recomendado</span>
+                    <span className="text-[10px] text-emerald-700 font-bold bg-emerald-950/30 px-1.5 py-0.5 rounded">Recomendado</span>
                   </label>
                   <select
                     value={columnMapping.weightKg}
                     onChange={(e) => setColumnMapping({ ...columnMapping, weightKg: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-bold text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-bold text-white"
                   >
                     <option value="">-- Sin columna de peso (usar 350 kg por defecto) --</option>
                     {rawHeaders.map((h) => (
@@ -780,13 +780,13 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
                 {/* 3. Sexo */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-white mb-1">
                     Sexo / Género (Macho / Hembra)
                   </label>
                   <select
                     value={columnMapping.sex}
                     onChange={(e) => setColumnMapping({ ...columnMapping, sex: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-medium text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-medium text-white"
                   >
                     <option value="">-- Detectar o Macho por defecto --</option>
                     {rawHeaders.map((h) => (
@@ -799,13 +799,13 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
                 {/* 4. Categoría Zootécnica */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-white mb-1">
                     Categoría Productiva (Ceba, Cría, Levante, Vientre)
                   </label>
                   <select
                     value={columnMapping.category}
                     onChange={(e) => setColumnMapping({ ...columnMapping, category: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-medium text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-medium text-white"
                   >
                     <option value="">-- Usar categoría fija ({defaultCategory}) --</option>
                     {rawHeaders.map((h) => (
@@ -818,13 +818,13 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
                 {/* 5. Lote de Asignación */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-white mb-1">
                     Nombre o Código de Lote
                   </label>
                   <select
                     value={columnMapping.lotName}
                     onChange={(e) => setColumnMapping({ ...columnMapping, lotName: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-medium text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-medium text-white"
                   >
                     <option value="">-- Agrupar en lote único ({defaultLotName}) --</option>
                     {rawHeaders.map((h) => (
@@ -837,13 +837,13 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
                 {/* 6. Potrero de Ubicación */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-white mb-1">
                     Potrero Asignado
                   </label>
                   <select
                     value={columnMapping.paddockName}
                     onChange={(e) => setColumnMapping({ ...columnMapping, paddockName: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-medium text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-medium text-white"
                   >
                     <option value="">-- Potrero por defecto ({defaultPaddockName}) --</option>
                     {rawHeaders.map((h) => (
@@ -856,13 +856,13 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
                 {/* 7. Raza / Cruce */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-white mb-1">
                     Raza o Fenotipo
                   </label>
                   <select
                     value={columnMapping.breed}
                     onChange={(e) => setColumnMapping({ ...columnMapping, breed: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-medium text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-medium text-white"
                   >
                     <option value="">-- Raza por defecto ({defaultBreed}) --</option>
                     {rawHeaders.map((h) => (
@@ -875,13 +875,13 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
 
                 {/* 8. Hierro / Marca a Fuego */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-800 mb-1">
+                  <label className="block text-xs font-bold text-white mb-1">
                     Hierro / Marca de Fuego
                   </label>
                   <select
                     value={columnMapping.brandingIron}
                     onChange={(e) => setColumnMapping({ ...columnMapping, brandingIron: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2 text-xs font-medium text-slate-800"
+                    className="w-full bg-[#0D1A13] border border-white/15 rounded-xl p-2 text-xs font-medium text-white"
                   >
                     <option value="">-- Sin columna de hierro --</option>
                     {rawHeaders.map((h) => (
@@ -894,26 +894,26 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
               </div>
 
               {/* Fallback Defaults */}
-              <div className="bg-slate-100 p-4 rounded-2xl border border-slate-200 text-xs space-y-3">
-                <span className="font-bold text-slate-800 block">
+              <div className="bg-[#1F3327] p-4 rounded-2xl border border-white/10 text-xs space-y-3">
+                <span className="font-bold text-white block">
                   Valores Predeterminados (para filas sin datos específicos):
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <label className="text-[11px] font-medium text-slate-600 block mb-1">Lote por defecto</label>
+                    <label className="text-[11px] font-medium text-[#A5B8AC] block mb-1">Lote por defecto</label>
                     <input
                       type="text"
                       value={defaultLotName}
                       onChange={(e) => setDefaultLotName(e.target.value)}
-                      className="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-bold"
+                      className="w-full bg-[#15241C] border border-white/15 rounded-lg p-2 text-xs font-bold"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-medium text-slate-600 block mb-1">Categoría por defecto</label>
+                    <label className="text-[11px] font-medium text-[#A5B8AC] block mb-1">Categoría por defecto</label>
                     <select
                       value={defaultCategory}
                       onChange={(e) => setDefaultCategory(e.target.value)}
-                      className="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-bold"
+                      className="w-full bg-[#15241C] border border-white/15 rounded-lg p-2 text-xs font-bold"
                     >
                       <option value="Ceba">Ceba (Engorde)</option>
                       <option value="Levante">Levante</option>
@@ -923,12 +923,12 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                     </select>
                   </div>
                   <div>
-                    <label className="text-[11px] font-medium text-slate-600 block mb-1">Precio base por kg ($)</label>
+                    <label className="text-[11px] font-medium text-[#A5B8AC] block mb-1">Precio base por kg ($)</label>
                     <input
                       type="number"
                       value={fallbackPricePerKg}
                       onChange={(e) => setFallbackPricePerKg(parseFloat(e.target.value) || 8500)}
-                      className="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-bold font-mono"
+                      className="w-full bg-[#15241C] border border-white/15 rounded-lg p-2 text-xs font-bold font-mono"
                     />
                   </div>
                 </div>
@@ -938,14 +938,14 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setActiveStep(1)}
-                  className="bg-slate-200 hover:bg-slate-300 text-slate-800 px-5 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer"
+                  className="bg-[#202E25] hover:bg-slate-300 text-white px-5 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer"
                 >
                   Regresar a Carga
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveStep(3)}
-                  className="bg-[#012d1d] hover:bg-[#02412a] text-white px-6 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 shadow-md transition cursor-pointer"
+                  className="bg-[#0D1A13] hover:bg-[#02412a] text-white px-6 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 shadow-md transition cursor-pointer"
                 >
                   <span>Previsualizar {rawRows.length} Animales</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -959,11 +959,11 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
             <div className="space-y-4 animate-in fade-in duration-200">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-2">
+                  <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
                     <Eye className="w-4 h-4 text-emerald-700" />
                     Previsualización de Datos Transformados
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-[#A5B8AC]">
                     Se detectaron <strong>{transformedPreview.length} animales</strong> listos para ser incorporados al hato de <strong>{activeFarm?.profile.name}</strong>.
                   </p>
                 </div>
@@ -979,14 +979,14 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
               </div>
 
               {/* Lotes a Crear */}
-              <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs">
-                <span className="text-xs font-bold text-slate-800 block mb-2">
+              <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs">
+                <span className="text-xs font-bold text-white block mb-2">
                   Lotes que se crearán automáticamente:
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {calculatedLots.map((lot) => (
-                    <div key={lot.id} className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs flex items-center gap-2">
-                      <span className="font-bold text-slate-900">{lot.name}</span>
+                    <div key={lot.id} className="bg-[#0D1A13] border border-white/10 rounded-xl px-3 py-1.5 text-xs flex items-center gap-2">
+                      <span className="font-bold text-white">{lot.name}</span>
                       <span className="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-md text-[10px]">
                         {lot.heads} cabezas ({lot.avgWeightKg} kg prom)
                       </span>
@@ -996,10 +996,10 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
               </div>
 
               {/* Tabla de Muestra */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+              <div className="bg-[#15241C] rounded-2xl border border-white/10 shadow-xs overflow-hidden">
                 <div className="overflow-x-auto max-h-[340px]">
                   <table className="w-full text-left text-xs border-collapse">
-                    <thead className="bg-slate-100 text-slate-700 font-bold sticky top-0 z-10 border-b border-slate-200">
+                    <thead className="bg-[#1F3327] text-white font-bold sticky top-0 z-10 border-b border-white/10">
                       <tr>
                         <th className="py-2.5 px-3">#</th>
                         <th className="py-2.5 px-3">Chapeta / ID</th>
@@ -1015,27 +1015,27 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                     </thead>
                     <tbody className="divide-y divide-slate-100 font-medium">
                       {transformedPreview.slice(0, 100).map((animal, idx) => (
-                        <tr key={animal.id} className="hover:bg-slate-50">
-                          <td className="py-2 px-3 text-slate-400 font-mono text-[11px]">{idx + 1}</td>
-                          <td className="py-2 px-3 font-mono font-bold text-slate-900">{animal.tag}</td>
+                        <tr key={animal.id} className="hover:bg-[#0D1A13]">
+                          <td className="py-2 px-3 text-[#A5B8AC] font-mono text-[11px]">{idx + 1}</td>
+                          <td className="py-2 px-3 font-mono font-bold text-white">{animal.tag}</td>
                           <td className="py-2 px-3">
                             <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded uppercase ${
-                              animal.sex === 'macho' ? 'bg-blue-50 text-blue-800' : 'bg-pink-50 text-pink-800'
+                              animal.sex === 'macho' ? 'bg-blue-950/30 text-blue-800' : 'bg-pink-50 text-pink-800'
                             }`}>
                               {animal.sex}
                             </span>
                           </td>
-                          <td className="py-2 px-3 text-slate-700">{animal.breed}</td>
+                          <td className="py-2 px-3 text-white">{animal.breed}</td>
                           <td className="py-2 px-3">
-                            <span className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded text-[11px]">
+                            <span className="bg-[#1F3327] text-white px-2 py-0.5 rounded text-[11px]">
                               {animal.category}
                             </span>
                           </td>
                           <td className="py-2 px-3 font-mono font-bold text-emerald-800">{animal.weightKg} kg</td>
-                          <td className="py-2 px-3 text-slate-700">{animal.lotCode}</td>
-                          <td className="py-2 px-3 text-slate-600 text-[11px]">{animal.paddockName}</td>
-                          <td className="py-2 px-3 text-slate-600 font-mono text-[11px]">{animal.brandingIronName || '-'}</td>
-                          <td className="py-2 px-3 font-mono text-slate-800">${(animal.totalPrice || 0).toLocaleString()}</td>
+                          <td className="py-2 px-3 text-white">{animal.lotCode}</td>
+                          <td className="py-2 px-3 text-[#A5B8AC] text-[11px]">{animal.paddockName}</td>
+                          <td className="py-2 px-3 text-[#A5B8AC] font-mono text-[11px]">{animal.brandingIronName || '-'}</td>
+                          <td className="py-2 px-3 font-mono text-white">${(animal.totalPrice || 0).toLocaleString()}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -1043,7 +1043,7 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 </div>
 
                 {transformedPreview.length > 100 && (
-                  <div className="bg-slate-50 p-2.5 text-center text-xs text-slate-500 font-medium border-t border-slate-200">
+                  <div className="bg-[#0D1A13] p-2.5 text-center text-xs text-[#A5B8AC] font-medium border-t border-white/10">
                     Mostrando las primeras 100 filas de {transformedPreview.length} totales. Todas las filas serán importadas al confirmar.
                   </div>
                 )}
@@ -1053,14 +1053,14 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setActiveStep(2)}
-                  className="bg-slate-200 hover:bg-slate-300 text-slate-800 px-5 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer"
+                  className="bg-[#202E25] hover:bg-slate-300 text-white px-5 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer"
                 >
                   Ajustar Mapeo
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveStep(4)}
-                  className="bg-[#012d1d] hover:bg-[#02412a] text-white px-6 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 shadow-md transition cursor-pointer"
+                  className="bg-[#0D1A13] hover:bg-[#02412a] text-white px-6 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 shadow-md transition cursor-pointer"
                 >
                   <span>Continuar a Confirmación</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1077,10 +1077,10 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <h3 className="text-lg font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-white">
                   ¿Confirmar e Inyectar Inventario al Predio?
                 </h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-[#A5B8AC]">
                   Se agregarán de forma inmediata todos los animales y se actualizarán los contadores zootécnicos del predio.
                 </p>
               </div>
@@ -1121,7 +1121,7 @@ export const MigrateInventoryModal: React.FC<MigrateInventoryModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setActiveStep(3)}
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-3 rounded-2xl font-bold text-xs transition cursor-pointer"
+                  className="bg-[#1F3327] hover:bg-[#202E25] text-white px-6 py-3 rounded-2xl font-bold text-xs transition cursor-pointer"
                 >
                   Regresar a Revisar
                 </button>

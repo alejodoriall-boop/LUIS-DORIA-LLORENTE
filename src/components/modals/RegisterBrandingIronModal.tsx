@@ -116,18 +116,18 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white border-2 border-[#012d1d] rounded-3xl max-w-4xl lg:max-w-5xl w-full shadow-2xl overflow-hidden my-8">
+      <div className="bg-[#15241C] border-2 border-[#012d1d] rounded-3xl max-w-4xl lg:max-w-5xl w-full shadow-2xl overflow-hidden my-8">
         {/* Header */}
         <div className="bg-gradient-to-r from-[#012d1d] via-[#083d28] to-[#012d1d] p-5 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#ffba38] text-[#523700] rounded-2xl font-black shadow-inner">
+            <div className="p-2.5 bg-[#D4A94E] text-[#0D1A13] rounded-2xl font-black shadow-inner">
               <Flame className="w-6 h-6 animate-pulse" />
             </div>
             <div>
               <h3 className="text-lg font-black tracking-tight">
                 {initialIron ? 'Editar Hierro de Marcar' : 'Registrar Hierro Ganadero / Marca a Fuego'}
               </h3>
-              <p className="text-xs text-[#c1ecd4]">
+              <p className="text-xs text-[#A5B8AC]">
                 Patente oficial de hierros de propiedad, venta y contra-marcas de la ganadería
               </p>
             </div>
@@ -162,7 +162,7 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
               )}
 
               <div>
-                <span className="bg-[#ffba38]/20 text-[#ffe082] border border-[#ffba38]/40 text-[9.5px] font-mono font-bold px-2 py-0.5 rounded uppercase">
+                <span className="bg-[#D4A94E]/20 text-[#ffe082] border border-[#ffba38]/40 text-[9.5px] font-mono font-bold px-2 py-0.5 rounded uppercase">
                   VISTA PREVIA DEL HIERRO
                 </span>
                 <h4 className="text-base font-bold text-white mt-0.5">
@@ -186,7 +186,7 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
           {/* Main Form Fields */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+              <label className="block text-xs font-bold text-white uppercase mb-1">
                 Nombre del Hierro / Propietario *
               </label>
               <input
@@ -195,12 +195,12 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ej: Hierro Principal H1 - Las Delicias"
-                className="w-full bg-[#f4fbf6] border border-[#a5d6a7] rounded-xl px-3 py-2 font-bold text-xs text-[#012d1d] focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full bg-[#f4fbf6] border border-[#a5d6a7] rounded-xl px-3 py-2 font-bold text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+              <label className="block text-xs font-bold text-white uppercase mb-1">
                 Código / Iniciales o Sigla *
               </label>
               <input
@@ -209,18 +209,18 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
                 value={code}
                 onChange={(e) => setCode(e.target.value.toUpperCase())}
                 placeholder="Ej: H1, HLD, G1"
-                className="w-full bg-[#f4fbf6] border border-[#a5d6a7] rounded-xl px-3 py-2 font-mono font-black text-xs text-[#012d1d] uppercase focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full bg-[#f4fbf6] border border-[#a5d6a7] rounded-xl px-3 py-2 font-mono font-black text-xs text-white uppercase focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+              <label className="block text-xs font-bold text-white uppercase mb-1">
                 Ubicación del Hierro en el Animal *
               </label>
               <select
                 value={bodyLocation}
                 onChange={(e) => setBodyLocation(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-semibold text-xs text-[#012d1d]"
+                className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-semibold text-xs text-white"
               >
                 {BODY_LOCATIONS.map((loc) => (
                   <option key={loc} value={loc}>
@@ -231,13 +231,13 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+              <label className="block text-xs font-bold text-white uppercase mb-1">
                 Tipo de Hierro / Uso *
               </label>
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-semibold text-xs text-[#012d1d]"
+                className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-semibold text-xs text-white"
               >
                 <option value="propiedad">🔥 Hierro de Propiedad (Nacimiento / Marca Oficial)</option>
                 <option value="ventanilla">⚡ Hierro de Ventanilla / Venta (Contra-marca)</option>
@@ -247,7 +247,7 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+              <label className="block text-xs font-bold text-white uppercase mb-1">
                 N° Registro ICA / RUP / Patente
               </label>
               <input
@@ -255,18 +255,18 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
                 value={registrationNumber}
                 onChange={(e) => setRegistrationNumber(e.target.value)}
                 placeholder="Ej: ICA-R-9842 o RUP-10293"
-                className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-xs text-[#012d1d]"
+                className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-xs text-white"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+              <label className="block text-xs font-bold text-white uppercase mb-1">
                 Predio / Finca Asignada
               </label>
               <select
                 value={selectedFarmId}
                 onChange={(e) => setSelectedFarmId(e.target.value)}
-                className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-semibold text-xs text-[#012d1d]"
+                className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-semibold text-xs text-white"
               >
                 <option value="">Todas las Fincas (Global)</option>
                 {farms.map((f) => (
@@ -280,7 +280,7 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
 
           {/* Symbol Presets */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1.5">
+            <label className="block text-xs font-bold text-white uppercase mb-1.5">
               Símbolo / Ícono Representativo del Hierro
             </label>
             <div className="flex flex-wrap gap-2">
@@ -291,8 +291,8 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
                   onClick={() => setSymbolIcon(sym)}
                   className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-black transition-all cursor-pointer ${
                     symbolIcon === sym
-                      ? 'bg-[#012d1d] text-[#ffba38] ring-2 ring-[#ffba38] shadow-md scale-105'
-                      : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2eae4] border border-[#c1c8c2]'
+                      ? 'bg-[#0D1A13] text-[#ffba38] ring-2 ring-[#ffba38] shadow-md scale-105'
+                      : 'bg-[#123F2A]/60 text-white hover:bg-[#e2eae4] border border-white/10'
                   }`}
                 >
                   {sym}
@@ -303,7 +303,7 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
 
           {/* Cargar Fotografía del Hierro / Marca */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1.5 flex items-center justify-between">
+            <label className="block text-xs font-bold text-white uppercase mb-1.5 flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <Camera className="w-4 h-4 text-[#ff8f00]" />
                 Fotografía Real o Imagen de la Patente del Hierro
@@ -321,14 +321,14 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
                     <span className="bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded-md inline-flex items-center gap-1">
                       <Check className="w-3 h-3 text-emerald-700" /> Imagen Cargada Exitosamente
                     </span>
-                    <p className="text-xs font-semibold text-[#012d1d] mt-1">
+                    <p className="text-xs font-semibold text-white mt-1">
                       Fotografía del hierro guardada en el expediente.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <label className="p-2 bg-[#012d1d] text-white hover:bg-[#1b4332] rounded-xl text-xs font-bold transition-all flex items-center gap-1 cursor-pointer">
+                  <label className="p-2 bg-[#0D1A13] text-white hover:bg-[#123F2A] rounded-xl text-xs font-bold transition-all flex items-center gap-1 cursor-pointer">
                     <Upload className="w-3.5 h-3.5 text-[#ffba38]" />
                     <span>Cambiar</span>
                     <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
@@ -344,11 +344,11 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
                 </div>
               </div>
             ) : (
-              <label className="border-2 border-dashed border-[#c1c8c2] hover:border-[#012d1d] bg-[#fafcfb] hover:bg-[#f0f4f1] rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all group">
+              <label className="border-2 border-dashed border-white/10 hover:border-[#012d1d] bg-[#fafcfb] hover:bg-[#123F2A]/60 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all group">
                 <div className="w-10 h-10 rounded-full bg-[#e8f5e9] group-hover:bg-[#c8e6c9] flex items-center justify-center mb-2 transition-colors">
-                  <Upload className="w-5 h-5 text-[#012d1d]" />
+                  <Upload className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xs font-bold text-[#012d1d]">
+                <span className="text-xs font-bold text-white">
                   Haga clic para subir una foto o escaneo del hierro
                 </span>
                 <span className="text-[11px] text-[#717973] mt-0.5">
@@ -361,7 +361,7 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
 
           {/* Notes */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+            <label className="block text-xs font-bold text-white uppercase mb-1">
               Observaciones / Registro Legal
             </label>
             <textarea
@@ -369,7 +369,7 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Detalles sobre el diseño, patente municipal o resolución ICA de la marca..."
-              className="w-full bg-white border border-[#c1c8c2] rounded-xl p-2.5 text-xs text-[#012d1d]"
+              className="w-full bg-[#15241C] border border-white/10 rounded-xl p-2.5 text-xs text-white"
             />
           </div>
 
@@ -378,13 +378,13 @@ export const RegisterBrandingIronModal: React.FC<RegisterBrandingIronModalProps>
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl border border-[#c1c8c2] text-xs font-bold text-[#414844] hover:bg-[#f0f0f0] transition-colors cursor-pointer"
+              className="px-4 py-2.5 rounded-xl border border-white/10 text-xs font-bold text-[#414844] hover:bg-[#f0f0f0] transition-colors cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="px-5 py-2.5 rounded-xl bg-[#012d1d] text-white hover:bg-[#1b4332] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-md"
+              className="px-5 py-2.5 rounded-xl bg-[#0D1A13] text-white hover:bg-[#123F2A] text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-md"
             >
               <Check className="w-4 h-4 text-[#ffba38]" />
               <span>{initialIron ? 'Guardar Cambios' : 'Registrar Hierro'}</span>

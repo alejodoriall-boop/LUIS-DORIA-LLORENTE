@@ -121,11 +121,11 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow max-w-3xl w-full overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
+      <div className="bg-[#15241C] rounded-3xl border border-white/10 card-shadow max-w-3xl w-full overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
         {/* Modal Header */}
-        <div className="bg-[#1b4332] text-white p-5 flex items-center justify-between shrink-0">
+        <div className="bg-[#123F2A] text-white p-5 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#012d1d] border border-[#2d6a4f] flex items-center justify-center text-[#ffba38]">
+            <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] border border-[#2d6a4f] flex items-center justify-center text-[#ffba38]">
               <Scale className="w-6 h-6" />
             </div>
             <div>
@@ -148,7 +148,7 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
         {/* Scrollable Body */}
         <div className="flex-1 overflow-y-auto p-5 md:p-6 space-y-6 bg-[#f9f9f9]">
           {/* Paddock Selector */}
-          <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 card-shadow flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
             <div className="w-full sm:w-auto">
               <label className="text-[11px] font-bold text-[#717973] uppercase block mb-1">
                 Seleccionar Potrero de la Finca
@@ -156,7 +156,7 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
               <select
                 value={selectedPaddockId}
                 onChange={(e) => setSelectedPaddockId(e.target.value)}
-                className="w-full sm:w-64 bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs md:text-sm font-bold text-[#012d1d]"
+                className="w-full sm:w-64 bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 text-xs md:text-sm font-bold text-white"
               >
                 {paddocks.map((p) => (
                   <option key={p.id} value={p.id}>
@@ -166,9 +166,9 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
               </select>
             </div>
 
-            <div className="flex items-center gap-2 bg-[#f3f3f3] px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs">
+            <div className="flex items-center gap-2 bg-[#f3f3f3] px-3 py-2 rounded-xl border border-white/10 text-xs">
               <span className="text-[#717973]">Pasto:</span>
-              <span className="font-bold text-[#012d1d]">
+              <span className="font-bold text-white">
                 {selectedPaddock?.pastureType || 'Brachiaria'}
               </span>
             </div>
@@ -176,9 +176,9 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
 
           {/* Core Calculation Outputs Banner */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow text-center">
+            <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 card-shadow text-center">
               <p className="text-[10px] uppercase font-bold text-[#717973]">Capacidad Instantánea</p>
-              <p className="text-xl font-mono font-extrabold text-[#012d1d]">
+              <p className="text-xl font-mono font-extrabold text-white">
                 {result.instantaneousUGG}{' '}
                 <span className="text-xs font-bold text-[#717973]">UGG</span>
               </p>
@@ -187,9 +187,9 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
               </p>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow text-center">
+            <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 card-shadow text-center">
               <p className="text-[10px] uppercase font-bold text-[#717973]">Cabezas Permitidas</p>
-              <p className="text-xl font-mono font-extrabold text-[#523700]">
+              <p className="text-xl font-mono font-extrabold text-[#0D1A13]">
                 {result.maxHeadsForDuration}
               </p>
               <p className="text-[10px] text-[#717973]">
@@ -197,9 +197,9 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
               </p>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow text-center">
+            <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 card-shadow text-center">
               <p className="text-[10px] uppercase font-bold text-[#717973]">Forraje Aprovechable</p>
-              <p className="text-xl font-mono font-extrabold text-[#012d1d]">
+              <p className="text-xl font-mono font-extrabold text-white">
                 {(result.usableForageKg / 1000).toFixed(1)}{' '}
                 <span className="text-xs font-bold text-[#717973]">Ton</span>
               </p>
@@ -208,9 +208,9 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
               </p>
             </div>
 
-            <div className="bg-white p-3.5 rounded-2xl border border-[#c1c8c2] card-shadow text-center">
+            <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 card-shadow text-center">
               <p className="text-[10px] uppercase font-bold text-[#717973]">Potreros en Rotación</p>
-              <p className="text-xl font-mono font-extrabold text-[#012d1d]">
+              <p className="text-xl font-mono font-extrabold text-white">
                 {result.totalPaddocksNeededInRotation}
               </p>
               <p className="text-[10px] text-[#717973]">
@@ -225,7 +225,7 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
               actualDaysDuration < occupancyDays
                 ? 'bg-[#ffdad6] text-[#ba1a1a] border-[#ba1a1a]'
                 : actualDaysDuration > occupancyDays * 1.8
-                ? 'bg-[#ffdeac] text-[#523700] border-[#ffba38]'
+                ? 'bg-[#ffdeac] text-[#0D1A13] border-[#ffba38]'
                 : 'bg-[#c1ecd4] text-[#002114] border-[#1b4332]'
             }`}
           >
@@ -253,18 +253,18 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
           </div>
 
           {/* Interactive Parameter Sliders */}
-          <div className="bg-white p-5 rounded-2xl border border-[#c1c8c2] card-shadow space-y-5">
-            <h4 className="font-bold text-xs text-[#012d1d] uppercase tracking-wider">
+          <div className="bg-[#15241C] p-5 rounded-2xl border border-white/10 card-shadow space-y-5">
+            <h4 className="font-bold text-xs text-white uppercase tracking-wider">
               Variables Zootécnicas de Aforo
             </h4>
 
             {/* Slider 1: Aforo kg/m² */}
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs">
-                <label className="font-bold text-[#012d1d]">
+                <label className="font-bold text-white">
                   1. Aforo de Forraje Verde (kg/m²):
                 </label>
-                <span className="font-mono font-extrabold text-[#012d1d] bg-[#f3f3f3] px-2 py-0.5 rounded border border-[#c1c8c2]">
+                <span className="font-mono font-extrabold text-white bg-[#f3f3f3] px-2 py-0.5 rounded border border-white/10">
                   {forageYieldKgM2} kg/m² ({forageYieldKgM2 * 10} Ton MV/Ha)
                 </span>
               </div>
@@ -295,7 +295,7 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
                   step="0.1"
                   value={areaHa}
                   onChange={(e) => setAreaHa(Math.max(0.1, parseFloat(e.target.value) || 0.1))}
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d] text-xs"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white text-xs"
                 />
               </div>
 
@@ -308,7 +308,7 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
                   step="10"
                   value={animalWeightKg}
                   onChange={(e) => setAnimalWeightKg(Math.max(50, parseInt(e.target.value) || 50))}
-                  className="w-full bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d] text-xs"
+                  className="w-full bg-[#f3f3f3] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white text-xs"
                 />
               </div>
             </div>
@@ -317,8 +317,8 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
                 <div className="flex justify-between text-xs">
-                  <span className="font-bold text-[#012d1d]">Días de Ocupación:</span>
-                  <span className="font-mono font-bold text-[#523700]">{occupancyDays} días</span>
+                  <span className="font-bold text-white">Días de Ocupación:</span>
+                  <span className="font-mono font-bold text-[#0D1A13]">{occupancyDays} días</span>
                 </div>
                 <input
                   type="range"
@@ -336,7 +336,7 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
 
               <div className="space-y-1">
                 <div className="flex justify-between text-xs">
-                  <span className="font-bold text-[#012d1d]">Días de Descanso:</span>
+                  <span className="font-bold text-white">Días de Descanso:</span>
                   <span className="font-mono font-bold text-emerald-800">{restDays} días</span>
                 </div>
                 <input
@@ -387,24 +387,24 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
           </div>
 
           {/* Water Supply Math */}
-          <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-3">
-            <h4 className="font-bold text-xs text-[#012d1d] uppercase tracking-wider flex items-center gap-1.5">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 card-shadow space-y-3">
+            <h4 className="font-bold text-xs text-white uppercase tracking-wider flex items-center gap-1.5">
               <Droplets className="w-4 h-4 text-blue-600" />
               Requerimiento Hídrico del Lote
             </h4>
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-3 bg-[#f3f3f3] rounded-xl border border-[#c1c8c2]">
+              <div className="p-3 bg-[#f3f3f3] rounded-xl border border-white/10">
                 <span className="text-[10px] text-[#717973] uppercase font-bold block">
                   Consumo Diario Total
                 </span>
-                <span className="text-base font-mono font-bold text-[#012d1d]">
+                <span className="text-base font-mono font-bold text-white">
                   {result.dailyWaterNeedLiters.toLocaleString()} Litros / día
                 </span>
                 <span className="text-[10px] text-[#717973]">
                   (~65 L/cab/día para {currentHeads} animales)
                 </span>
               </div>
-              <div className="p-3 bg-[#f3f3f3] rounded-xl border border-[#c1c8c2]">
+              <div className="p-3 bg-[#f3f3f3] rounded-xl border border-white/10">
                 <span className="text-[10px] text-[#717973] uppercase font-bold block">
                   Caudal Mínimo en Bebedero
                 </span>
@@ -418,17 +418,17 @@ export const CarryingCapacityCalculator: React.FC<CarryingCapacityCalculatorProp
         </div>
 
         {/* Modal Footer */}
-        <div className="bg-[#eeeeee] p-4 border-t border-[#c1c8c2] flex items-center justify-between shrink-0">
+        <div className="bg-[#eeeeee] p-4 border-t border-white/10 flex items-center justify-between shrink-0">
           <button
             onClick={onClose}
-            className="px-4 py-2.5 rounded-xl border border-[#c1c8c2] text-xs font-bold text-[#414844] hover:bg-white transition-colors"
+            className="px-4 py-2.5 rounded-xl border border-white/10 text-xs font-bold text-[#414844] hover:bg-[#15241C] transition-colors"
           >
             Cancelar
           </button>
 
           <button
             onClick={handleSave}
-            className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-bold text-xs md:text-sm px-6 py-2.5 rounded-xl tactical-shadow transition-all flex items-center gap-2"
+            className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-bold text-xs md:text-sm px-6 py-2.5 rounded-xl tactical-shadow transition-all flex items-center gap-2"
           >
             <Save className="w-4 h-4" />
             Guardar Aforo en Potrero

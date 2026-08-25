@@ -172,7 +172,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 font-sans antialiased selection:bg-[#c1ecd4] selection:text-[#002114]">
+    <div className="min-h-screen bg-[#15241C] text-white font-sans antialiased selection:bg-[#c1ecd4] selection:text-[#002114]">
       {/* 1. Sticky Navigation Bar */}
       <LandingNavbar
         onLoginClick={onLoginClick}
@@ -196,7 +196,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </div>
 
             {/* Main Hero Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-neutral-900 tracking-tight leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
               El software inteligente que transforma la gestión de tu{' '}
               <span className="text-[#004D38] underline decoration-[#f2a900] decoration-wavy decoration-from-font">
                 ganadería
@@ -204,7 +204,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-6 text-lg sm:text-xl text-neutral-600 font-normal leading-relaxed max-w-3xl mx-auto">
+            <p className="mt-6 text-lg sm:text-xl text-[#A5B8AC] font-normal leading-relaxed max-w-3xl mx-auto">
               Control integral de inventarios, pesajes, nacimientos, plan sanitario y suplementación para hatos bovinos y bubalinos. Registra eventos en campo directamente desde WhatsApp.
             </p>
 
@@ -222,15 +222,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               <button
                 type="button"
                 onClick={onLoginClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-bold text-neutral-800 bg-white hover:bg-neutral-50 rounded-2xl border border-neutral-300/80 shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 text-base font-bold text-white bg-[#15241C] hover:bg-[#0D1A13] rounded-2xl border border-white/15/80 shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98"
               >
                 <span>Iniciar Sesión</span>
-                <span className="text-neutral-400">→</span>
+                <span className="text-[#A5B8AC]">→</span>
               </button>
             </div>
 
             {/* Trust Micro-Bullets */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-neutral-500 font-semibold">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-[#A5B8AC] font-semibold">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span>14 días de prueba sin tarjeta</span>
@@ -248,7 +248,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
           {/* Interactive Hero UI Mockup */}
           <div className="mt-14 sm:mt-18 relative max-w-5xl mx-auto">
-            <div className="relative rounded-2xl sm:rounded-3xl p-2 sm:p-4 bg-neutral-900/5 ring-1 ring-neutral-900/10 shadow-2xl backdrop-blur-xl">
+            <div className="relative rounded-2xl sm:rounded-3xl p-2 sm:p-4 bg-[#15241C]/5 ring-1 ring-neutral-900/10 shadow-2xl backdrop-blur-xl">
               <div className="bg-[#00281c] rounded-xl sm:rounded-2xl border border-emerald-900/40 p-4 sm:p-6 text-white overflow-hidden shadow-inner">
                 
                 {/* Header Mockup Top Bar */}
@@ -325,18 +325,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       <FeatureGrid />
 
       {/* 4. Social Proof & Confidence Metrics */}
-      <section id="beneficios" className="py-20 bg-white border-b border-neutral-200/80">
+      <section id="beneficios" className="py-20 bg-[#15241C] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {metrics.map((m, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/60">
+              <div key={idx} className="p-6 rounded-2xl bg-[#0D1A13] border border-white/10">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#004D38] tracking-tight">
                   {m.value}
                 </div>
-                <div className="mt-2 text-sm sm:text-base font-bold text-neutral-900">
+                <div className="mt-2 text-sm sm:text-base font-bold text-white">
                   {m.label}
                 </div>
-                <div className="mt-1 text-xs text-neutral-500">
+                <div className="mt-1 text-xs text-[#A5B8AC]">
                   {m.desc}
                 </div>
               </div>
@@ -349,10 +349,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       <section className="py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               Una plataforma adaptada al rol de cada miembro del equipo
             </h2>
-            <p className="mt-4 text-neutral-600 text-base">
+            <p className="mt-4 text-[#A5B8AC] text-base">
               Desde la toma de decisiones financieras hasta el reporte diario en el corral.
             </p>
           </div>
@@ -364,26 +364,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 onClick={() => setSelectedRoleIndex(idx)}
                 className={`p-7 rounded-2xl border transition-all cursor-pointer ${
                   selectedRoleIndex === idx
-                    ? 'bg-white border-[#004D38] shadow-md ring-2 ring-[#004D38]/10'
-                    : 'bg-white/60 border-neutral-200/80 hover:bg-white hover:border-neutral-300'
+                    ? 'bg-[#15241C] border-[#004D38] shadow-md ring-2 ring-[#004D38]/10'
+                    : 'bg-white/60 border-white/10 hover:bg-[#15241C] hover:border-white/15'
                 }`}
               >
                 <span className="inline-block px-3 py-1 rounded-full bg-[#004D38]/10 text-[#004D38] text-xs font-bold mb-3">
                   {r.badge}
                 </span>
-                <h3 className="text-xl font-extrabold text-neutral-900 tracking-tight">
+                <h3 className="text-xl font-extrabold text-white tracking-tight">
                   {r.title}
                 </h3>
                 <div className="text-xs font-semibold text-emerald-800 mt-1">
                   {r.tagline}
                 </div>
-                <p className="mt-3 text-neutral-600 text-sm leading-relaxed">
+                <p className="mt-3 text-[#A5B8AC] text-sm leading-relaxed">
                   {r.description}
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-neutral-100 space-y-2">
                   {r.highlights.map((h, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs font-semibold text-neutral-700">
+                    <div key={i} className="flex items-center gap-2 text-xs font-semibold text-[#A5B8AC]">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#004D38] shrink-0" />
                       <span>{h}</span>
                     </div>
@@ -396,41 +396,41 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* 6. Testimonials */}
-      <section className="py-24 bg-white border-y border-neutral-200/80">
+      <section className="py-24 bg-[#15241C] border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               La voz de ganaderos que lideran el sector
             </h2>
-            <p className="mt-3 text-neutral-600 text-base">
+            <p className="mt-3 text-[#A5B8AC] text-base">
               Productores en Córdoba, Meta, Antioquia y Magdalena confían en GanaderIA.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, idx) => (
-              <div key={idx} className="p-7 rounded-2xl bg-neutral-50 border border-neutral-200/80 flex flex-col justify-between">
+              <div key={idx} className="p-7 rounded-2xl bg-[#0D1A13] border border-white/10 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-1 text-amber-400 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-amber-400" />
                     ))}
                   </div>
-                  <p className="text-neutral-700 text-sm italic leading-relaxed">
+                  <p className="text-[#A5B8AC] text-sm italic leading-relaxed">
                     "{t.quote}"
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-neutral-200 flex items-center gap-3">
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
                   <img
                     src={t.avatar}
                     alt={t.author}
-                    className="w-11 h-11 rounded-full object-cover border border-neutral-300"
+                    className="w-11 h-11 rounded-full object-cover border border-white/15"
                     referrerPolicy="no-referrer"
                   />
                   <div>
-                    <div className="text-sm font-bold text-neutral-900">{t.author}</div>
-                    <div className="text-xs text-neutral-500">{t.role}</div>
+                    <div className="text-sm font-bold text-white">{t.author}</div>
+                    <div className="text-xs text-[#A5B8AC]">{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -443,13 +443,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       <section id="precios" className="py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-200/80 text-neutral-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#202E25]/80 text-white text-xs font-bold uppercase tracking-wider mb-3">
               Planes Flexibles
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               Precios justos para cada escala ganadera
             </h2>
-            <p className="mt-3 text-neutral-600 text-base">
+            <p className="mt-3 text-[#A5B8AC] text-base">
               Sin contratos forzosos. Cancela o cambia de plan en cualquier momento.
             </p>
           </div>
@@ -461,7 +461,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 className={`rounded-3xl p-8 flex flex-col justify-between transition-all ${
                   plan.popular
                     ? 'bg-[#003829] text-white shadow-2xl ring-4 ring-[#004D38]/30 relative scale-105 z-10'
-                    : 'bg-white text-neutral-900 border border-neutral-200/90 shadow-xs'
+                    : 'bg-[#15241C] text-white border border-white/10/90 shadow-xs'
                 }`}
               >
                 <div>
@@ -470,28 +470,28 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                       className={`text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full ${
                         plan.popular
                           ? 'bg-[#f2a900] text-neutral-950'
-                          : 'bg-neutral-100 text-neutral-700'
+                          : 'bg-[#1F3327] text-[#A5B8AC]'
                       }`}
                     >
                       {plan.badge}
                     </span>
                   </div>
 
-                  <h3 className={`text-2xl font-black tracking-tight ${plan.popular ? 'text-white' : 'text-neutral-900'}`}>
+                  <h3 className={`text-2xl font-black tracking-tight ${plan.popular ? 'text-white' : 'text-white'}`}>
                     {plan.name}
                   </h3>
-                  <p className={`mt-2 text-sm ${plan.popular ? 'text-emerald-200' : 'text-neutral-600'}`}>
+                  <p className={`mt-2 text-sm ${plan.popular ? 'text-emerald-200' : 'text-[#A5B8AC]'}`}>
                     {plan.description}
                   </p>
 
                   <div className="mt-6 mb-6">
                     <span className="text-4xl font-black">{plan.price}</span>
-                    <span className={`text-xs font-medium ml-2 ${plan.popular ? 'text-emerald-300' : 'text-neutral-500'}`}>
+                    <span className={`text-xs font-medium ml-2 ${plan.popular ? 'text-emerald-300' : 'text-[#A5B8AC]'}`}>
                       {plan.period}
                     </span>
                   </div>
 
-                  <div className="space-y-3 pt-6 border-t border-neutral-200/20">
+                  <div className="space-y-3 pt-6 border-t border-white/10/20">
                     {plan.features.map((feat, i) => (
                       <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm font-medium">
                         <CheckCircle2
@@ -499,7 +499,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                             plan.popular ? 'text-[#f2a900]' : 'text-emerald-600'
                           }`}
                         />
-                        <span className={plan.popular ? 'text-emerald-100' : 'text-neutral-700'}>
+                        <span className={plan.popular ? 'text-emerald-100' : 'text-[#A5B8AC]'}>
                           {feat}
                         </span>
                       </div>
@@ -527,13 +527,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       {/* 8. FAQs */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#15241C]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-neutral-900 tracking-tight">
+            <h2 className="text-3xl font-black text-white tracking-tight">
               Preguntas Frecuentes
             </h2>
-            <p className="mt-2 text-neutral-600 text-sm">
+            <p className="mt-2 text-[#A5B8AC] text-sm">
               Resolvemos tus dudas antes de iniciar tu prueba gratuita.
             </p>
           </div>
@@ -542,22 +542,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="border border-neutral-200 rounded-xl overflow-hidden bg-neutral-50/60 transition-colors"
+                className="border border-white/10 rounded-xl overflow-hidden bg-[#0D1A13]/60 transition-colors"
               >
                 <button
                   type="button"
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full p-5 text-left font-bold text-neutral-900 flex items-center justify-between gap-4 cursor-pointer"
+                  className="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4 cursor-pointer"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-neutral-500 transition-transform ${
+                    className={`w-4 h-4 text-[#A5B8AC] transition-transform ${
                       activeFaq === idx ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
                 {activeFaq === idx && (
-                  <div className="px-5 pb-5 text-sm text-neutral-600 leading-relaxed border-t border-neutral-200/60 pt-3">
+                  <div className="px-5 pb-5 text-sm text-[#A5B8AC] leading-relaxed border-t border-white/10 pt-3">
                     {faq.a}
                   </div>
                 )}

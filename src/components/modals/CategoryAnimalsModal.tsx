@@ -238,7 +238,7 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
     countText: string;
     badgeColor: string;
   }[] = [
-    { key: 'todos', label: 'Todos los Ejemplares', countText: '382 Cabezas', badgeColor: 'bg-[#012d1d] text-white' },
+    { key: 'todos', label: 'Todos los Ejemplares', countText: '382 Cabezas', badgeColor: 'bg-[#0D1A13] text-white' },
     { key: 'vacas_ordeno', label: 'Vacas en Ordeño', countText: '280 Cabezas', badgeColor: 'bg-emerald-700 text-white' },
     { key: 'vacas_secas', label: 'Vacas Secas / Horras', countText: '38 Cabezas', badgeColor: 'bg-[#79564b] text-white' },
     { key: 'toros_lecheros', label: 'Toros Lecheros', countText: '4 Cabezas', badgeColor: 'bg-[#523700] text-[#ffba38]' },
@@ -248,19 +248,19 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-xs flex items-center justify-center p-3 md:p-5 overflow-y-auto animate-in fade-in duration-200">
-      <div className="bg-white border-2 border-[#012d1d] rounded-3xl max-w-5xl w-full shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
+      <div className="bg-[#15241C] border-2 border-[#012d1d] rounded-3xl max-w-5xl w-full shadow-2xl overflow-hidden flex flex-col my-auto max-h-[92vh]">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white p-4 md:p-5 flex items-center justify-between border-b border-[#1b4332] shrink-0">
+        <div className="bg-[#0D1A13] text-white p-4 md:p-5 flex items-center justify-between border-b border-[#1b4332] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#1b4332] text-[#ffba38] rounded-2xl border border-[#ffba38]/30">
+            <div className="p-3 bg-[#123F2A] text-[#ffba38] rounded-2xl border border-[#ffba38]/30">
               <MilkGlassIcon className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="bg-[#ffba38] text-[#012d1d] text-[10px] font-black uppercase font-mono px-2 py-0.5 rounded-md">
+                <span className="bg-[#D4A94E] text-white text-[10px] font-black uppercase font-mono px-2 py-0.5 rounded-md">
                   Inventario en Módulo
                 </span>
-                <span className="text-xs text-[#c1ecd4]/80 font-mono">382 Cabezas Totales</span>
+                <span className="text-xs text-[#A5B8AC]/80 font-mono">382 Cabezas Totales</span>
               </div>
               <h2 className="text-lg md:text-xl font-black tracking-tight text-white uppercase font-mono mt-0.5">
                 {moduleTitle}
@@ -270,7 +270,7 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-2.5 rounded-2xl bg-[#1b4332] text-[#c1ecd4] hover:text-white hover:bg-rose-900 transition-colors cursor-pointer"
+            className="p-2.5 rounded-2xl bg-[#123F2A] text-[#A5B8AC] hover:text-white hover:bg-rose-900 transition-colors cursor-pointer"
             title="Cerrar ventana"
           >
             <X className="w-5 h-5" />
@@ -285,8 +285,8 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
               onClick={() => setActiveCategoryFilter(cat.key)}
               className={`px-3.5 py-2 rounded-2xl text-xs font-mono font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-2 ${
                 activeCategoryFilter === cat.key
-                  ? 'bg-[#012d1d] text-[#ffba38] shadow-md scale-102 border border-[#ffba38]/40'
-                  : 'bg-white hover:bg-[#e0efe6] text-[#012d1d] border border-[#c1ecd4]'
+                  ? 'bg-[#0D1A13] text-[#ffba38] shadow-md scale-102 border border-[#ffba38]/40'
+                  : 'bg-[#15241C] hover:bg-[#e0efe6] text-white border border-[#c1ecd4]'
               }`}
             >
               <span>{cat.label}</span>
@@ -298,20 +298,20 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="p-4 bg-gray-50 border-b border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        <div className="p-4 bg-[#0D1A13] border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
           <div className="relative w-full sm:w-80">
-            <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-[#A5B8AC] absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Buscar por Arete, Nombre, RFID o Raza..."
-              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-2xl text-xs font-medium outline-none focus:ring-2 focus:ring-[#012d1d] shadow-2xs"
+              className="w-full pl-10 pr-4 py-2 bg-[#15241C] border border-white/15 rounded-2xl text-xs font-medium outline-none focus:ring-2 focus:ring-[#012d1d] shadow-2xs"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-700"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#A5B8AC] hover:text-white"
               >
                 ✕
               </button>
@@ -324,14 +324,14 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
               className={`px-3 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 border ${
                 healthFilterOnly
                   ? 'bg-rose-100 border-rose-300 text-rose-900 shadow-2xs'
-                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-100'
+                  : 'bg-[#15241C] border-white/15 text-white hover:bg-[#1F3327]'
               }`}
             >
-              <ShieldAlert className={`w-3.5 h-3.5 ${healthFilterOnly ? 'text-rose-600' : 'text-gray-500'}`} />
+              <ShieldAlert className={`w-3.5 h-3.5 ${healthFilterOnly ? 'text-rose-600' : 'text-[#A5B8AC]'}`} />
               <span>Sólo con Alertas Médicas</span>
             </button>
 
-            <span className="text-xs text-gray-500 font-mono font-bold bg-gray-200 px-3 py-1.5 rounded-2xl">
+            <span className="text-xs text-[#A5B8AC] font-mono font-bold bg-gray-200 px-3 py-1.5 rounded-2xl">
               {filteredAnimals.length} mostrados
             </span>
           </div>
@@ -340,16 +340,16 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
         {/* Modal Table Content */}
         <div className="p-4 overflow-y-auto flex-1 custom-scrollbar space-y-3">
           {filteredAnimals.length === 0 ? (
-            <div className="text-center py-12 bg-gray-50 rounded-2xl border border-dashed border-gray-300 p-6">
-              <Search className="w-10 h-10 text-gray-300 mx-auto mb-2" />
-              <p className="text-sm font-bold text-gray-700">No se encontraron animales con el filtro seleccionado.</p>
-              <p className="text-xs text-gray-500 mt-1">Prueba cambiando el término de búsqueda o limpia los filtros.</p>
+            <div className="text-center py-12 bg-[#0D1A13] rounded-2xl border border-dashed border-white/15 p-6">
+              <Search className="w-10 h-10 text-[#A5B8AC] mx-auto mb-2" />
+              <p className="text-sm font-bold text-white">No se encontraron animales con el filtro seleccionado.</p>
+              <p className="text-xs text-[#A5B8AC] mt-1">Prueba cambiando el término de búsqueda o limpia los filtros.</p>
             </div>
           ) : (
-            <div className="overflow-x-auto border border-gray-200 rounded-2xl shadow-2xs bg-white">
+            <div className="overflow-x-auto border border-white/10 rounded-2xl shadow-2xs bg-[#15241C]">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#c1ecd4] font-mono font-bold text-[11px] uppercase tracking-wider">
+                  <tr className="bg-[#0D1A13] text-[#A5B8AC] font-mono font-bold text-[11px] uppercase tracking-wider">
                     <th className="p-3">Ejemplar / Arete</th>
                     <th className="p-3">Categoría / Subgrupo</th>
                     <th className="p-3">Raza & Edad</th>
@@ -365,14 +365,14 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
                       {/* Arete / Tag */}
                       <td className="p-3 font-sans">
                         <div className="flex items-center gap-2">
-                          <div className="p-1.5 bg-[#eaf4ee] text-[#012d1d] font-mono font-black text-xs rounded-xl border border-[#c1ecd4]">
+                          <div className="p-1.5 bg-[#eaf4ee] text-white font-mono font-black text-xs rounded-xl border border-[#c1ecd4]">
                             {animal.tag}
                           </div>
                           <div>
-                            <span className="font-extrabold text-[#012d1d] block text-xs group-hover:text-[#2d6a4f] transition-colors">
+                            <span className="font-extrabold text-white block text-xs group-hover:text-[#2d6a4f] transition-colors">
                               {animal.name}
                             </span>
-                            <span className="text-[10px] text-gray-500 font-mono">
+                            <span className="text-[10px] text-[#A5B8AC] font-mono">
                               Peso: {animal.weightKg} kg
                             </span>
                           </div>
@@ -387,7 +387,7 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
                             : animal.category === 'vacas_secas'
                             ? 'bg-amber-100 text-amber-900 border border-amber-300'
                             : animal.category === 'toros_lecheros'
-                            ? 'bg-amber-50 text-amber-950 border border-amber-400 font-black'
+                            ? 'bg-amber-950/30 text-amber-950 border border-amber-400 font-black'
                             : animal.category === 'terneras_crias'
                             ? 'bg-blue-100 text-blue-900 border border-blue-300'
                             : 'bg-purple-100 text-purple-900 border border-purple-300'
@@ -398,8 +398,8 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
 
                       {/* Breed & Age */}
                       <td className="p-3">
-                        <span className="font-bold text-gray-800 block text-xs">{animal.breed}</span>
-                        <span className="text-[10.5px] text-gray-500 font-mono">
+                        <span className="font-bold text-white block text-xs">{animal.breed}</span>
+                        <span className="text-[10.5px] text-[#A5B8AC] font-mono">
                           {Math.floor(animal.ageMonths / 12) > 0 ? `${Math.floor(animal.ageMonths / 12)}a ` : ''}
                           {animal.ageMonths % 12} meses
                         </span>
@@ -413,7 +413,7 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
                             {animal.rfidChip}
                           </span>
                         ) : (
-                          <span className="text-gray-400 italic text-[11px]">Sin RFID</span>
+                          <span className="text-[#A5B8AC] italic text-[11px]">Sin RFID</span>
                         )}
                       </td>
 
@@ -421,10 +421,10 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
                       <td className="p-3">
                         {animal.category === 'vacas_ordeno' && (
                           <div>
-                            <span className="font-black text-xs text-[#012d1d] font-mono block">
+                            <span className="font-black text-xs text-white font-mono block">
                               🥛 {animal.dailyMilkLiters} L / Día
                             </span>
-                            <span className="text-[10px] text-gray-500 font-mono">
+                            <span className="text-[10px] text-[#A5B8AC] font-mono">
                               DEL: {animal.lactationDays} días
                             </span>
                           </div>
@@ -476,7 +476,7 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
                       </td>
 
                       {/* Lot / Paddock */}
-                      <td className="p-3 text-xs text-gray-700 font-medium">
+                      <td className="p-3 text-xs text-white font-medium">
                         {animal.lotName}
                       </td>
 
@@ -488,7 +488,7 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
                             <span>{animal.healthAlert}</span>
                           </span>
                         ) : (
-                          <span className="bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-lg border border-emerald-200 inline-flex items-center gap-1">
+                          <span className="bg-emerald-950/30 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-lg border border-emerald-200 inline-flex items-center gap-1">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                             <span>Sano / Normal</span>
                           </span>
@@ -503,8 +503,8 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 border-t border-gray-200 p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
-          <div className="text-xs text-gray-500 font-mono font-bold flex items-center gap-2">
+        <div className="bg-[#0D1A13] border-t border-white/10 p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+          <div className="text-xs text-[#A5B8AC] font-mono font-bold flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#ffba38]" />
             <span>Mostrando {filteredAnimals.length} ejemplares registrados en esta categoría de la finca.</span>
           </div>
@@ -512,7 +512,7 @@ export const CategoryAnimalsModal: React.FC<CategoryAnimalsModalProps> = ({
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               onClick={onClose}
-              className="w-full sm:w-auto px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-bold rounded-xl cursor-pointer transition-colors"
+              className="w-full sm:w-auto px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-white text-xs font-bold rounded-xl cursor-pointer transition-colors"
             >
               Cerrar Vista
             </button>

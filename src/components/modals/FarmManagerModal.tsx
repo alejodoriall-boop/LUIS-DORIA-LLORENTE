@@ -83,11 +83,11 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#c1c8c2] shadow-2xl w-full max-w-4xl overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="bg-[#15241C] rounded-2xl sm:rounded-3xl border-2 border-white/10 shadow-2xl w-full max-w-4xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-[#2d6a4f]">
+        <div className="bg-[#0D1A13] text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between border-b border-[#2d6a4f]">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-[#1b4332] text-[#c1ecd4] rounded-xl border border-[#2d6a4f]">
+            <div className="p-2 bg-[#123F2A] text-[#A5B8AC] rounded-xl border border-[#2d6a4f]">
               <Building className="w-4 h-4" />
             </div>
             <div>
@@ -99,7 +99,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                   {farms.length} {farms.length === 1 ? 'Predio' : 'Predios'}
                 </span>
               </div>
-              <p className="text-xs text-[#c1ecd4]/80 mt-0.5">
+              <p className="text-xs text-[#A5B8AC]/80 mt-0.5">
                 Gestiona y alterna entre múltiples predios con cartografía, potreros y hatos independientes.
               </p>
             </div>
@@ -114,14 +114,14 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
         </div>
 
         {/* Global Stats Ribbon */}
-        <div className="grid grid-cols-3 bg-[#f3f9f5] border-b border-[#c1c8c2] px-4 py-2.5 text-center">
+        <div className="grid grid-cols-3 bg-[#f3f9f5] border-b border-white/10 px-4 py-2.5 text-center">
           <div>
             <span className="text-[10px] font-bold text-[#717973] uppercase block">Área Consolidada</span>
-            <span className="text-sm sm:text-base font-extrabold text-[#012d1d]">
+            <span className="text-sm sm:text-base font-extrabold text-white">
               {totalHectaresAllFarms.toLocaleString('es-CO', { maximumFractionDigits: 1 })} Ha
             </span>
           </div>
-          <div className="border-x border-[#c1c8c2]">
+          <div className="border-x border-white/10">
             <span className="text-[10px] font-bold text-[#717973] uppercase block">Hato Total</span>
             <span className="text-sm sm:text-base font-extrabold text-[#2d6a4f]">
               {totalHeadsAllFarms.toLocaleString()} Cabezas
@@ -129,7 +129,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
           </div>
           <div>
             <span className="text-[10px] font-bold text-[#717973] uppercase block">Potreros Mapeados</span>
-            <span className="text-sm sm:text-base font-extrabold text-[#012d1d]">
+            <span className="text-sm sm:text-base font-extrabold text-white">
               {totalPaddocksAllFarms} Potreros
             </span>
           </div>
@@ -156,13 +156,13 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
 
             <div className="flex items-center gap-2">
               {/* Status Filters */}
-              <div className="flex items-center bg-[#f0f4f1] p-1 rounded-xl border border-[#c1c8c2]">
+              <div className="flex items-center bg-[#123F2A]/60 p-1 rounded-xl border border-white/10">
                 <button
                   onClick={() => setStatusFilter('all')}
                   className={`text-[10px] font-extrabold px-2.5 py-1 rounded-lg transition-all ${
                     statusFilter === 'all'
-                      ? 'bg-[#012d1d] text-white shadow-xs'
-                      : 'text-[#414844] hover:text-[#012d1d]'
+                      ? 'bg-[#0D1A13] text-white shadow-xs'
+                      : 'text-[#414844] hover:text-white'
                   }`}
                 >
                   Todos ({farms.length})
@@ -171,8 +171,8 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                   onClick={() => setStatusFilter('active')}
                   className={`text-[10px] font-extrabold px-2.5 py-1 rounded-lg transition-all ${
                     statusFilter === 'active'
-                      ? 'bg-[#012d1d] text-white shadow-xs'
-                      : 'text-[#414844] hover:text-[#012d1d]'
+                      ? 'bg-[#0D1A13] text-white shadow-xs'
+                      : 'text-[#414844] hover:text-white'
                   }`}
                 >
                   Activos ({farms.filter((f) => !f.profile.isDisabled).length})
@@ -194,7 +194,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                   onClose();
                   onOpenCreateFarm();
                 }}
-                className="bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer shrink-0"
+                className="bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer shrink-0"
               >
                 <PlusCircle className="w-4 h-4 text-[#ffba38]" />
                 <span className="hidden sm:inline">+ Crear Nueva Finca</span>
@@ -231,7 +231,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                       ? 'border-amber-300 bg-amber-50/50 opacity-90'
                       : isActive
                       ? 'border-[#012d1d] bg-[#f4fbf7] shadow-md ring-1 ring-[#012d1d]'
-                      : 'border-[#c1c8c2] bg-white hover:border-[#717973]'
+                      : 'border-white/10 bg-[#15241C] hover:border-[#717973]'
                   }`}
                 >
                   {/* Top card info */}
@@ -239,11 +239,11 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                     <div className="flex items-start justify-between gap-2">
                       <div>
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <h4 className="font-extrabold text-base text-[#012d1d]">
+                          <h4 className="font-extrabold text-base text-white">
                             {f.profile.name}
                           </h4>
                           {isActive && !isDisabled && (
-                            <span className="text-[10px] uppercase font-bold bg-[#012d1d] text-[#c1ecd4] px-2 py-0.5 rounded-md flex items-center gap-1">
+                            <span className="text-[10px] uppercase font-bold bg-[#0D1A13] text-[#A5B8AC] px-2 py-0.5 rounded-md flex items-center gap-1">
                               <Check className="w-3 h-3 text-[#ffba38]" /> Selección Activa
                             </span>
                           )}
@@ -268,19 +268,19 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
 
                     {/* Metric pills */}
                     <div className="grid grid-cols-3 gap-2 my-3 text-center">
-                      <div className="p-2 bg-white/80 rounded-xl border border-[#c1c8c2]">
+                      <div className="p-2 bg-white/80 rounded-xl border border-white/10">
                         <p className="text-[9px] font-bold text-[#717973] uppercase">Área Total</p>
-                        <p className="text-xs sm:text-sm font-extrabold text-[#012d1d]">
+                        <p className="text-xs sm:text-sm font-extrabold text-white">
                           {f.profile.totalAreaHa} Ha
                         </p>
                       </div>
-                      <div className="p-2 bg-white/80 rounded-xl border border-[#c1c8c2]">
+                      <div className="p-2 bg-white/80 rounded-xl border border-white/10">
                         <p className="text-[9px] font-bold text-[#717973] uppercase">Potreros</p>
-                        <p className="text-xs sm:text-sm font-extrabold text-[#012d1d]">
+                        <p className="text-xs sm:text-sm font-extrabold text-white">
                           {f.paddocks.length} Pot.
                         </p>
                       </div>
-                      <div className="p-2 bg-white/80 rounded-xl border border-[#c1c8c2]">
+                      <div className="p-2 bg-white/80 rounded-xl border border-white/10">
                         <p className="text-[9px] font-bold text-[#717973] uppercase">Hato</p>
                         <p className="text-xs sm:text-sm font-extrabold text-[#2d6a4f]">
                           {f.headsCount || f.profile.headsCount || 0} Cab.
@@ -313,7 +313,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                   </div>
 
                   {/* Actions toolbar */}
-                  <div className="pt-3 mt-3 border-t border-[#c1c8c2]/60 flex items-center justify-between gap-1.5">
+                  <div className="pt-3 mt-3 border-t border-white/10/60 flex items-center justify-between gap-1.5">
                     <div className="flex items-center gap-1 flex-wrap">
                       {!isActive && !isDisabled && (
                         <button
@@ -321,7 +321,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                             onSelectFarm(f.profile.id);
                             showToast(`Finca ${f.profile.name} activada.`);
                           }}
-                          className="px-3 py-1.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer"
+                          className="px-3 py-1.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer"
                         >
                           <Check className="w-3.5 h-3.5 text-[#ffba38]" />
                           <span>Seleccionar</span>
@@ -366,7 +366,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                           onClose();
                           if (onNavigateGis) onNavigateGis();
                         }}
-                        className="px-2.5 py-1.5 bg-white hover:bg-[#eeeeee] text-[#012d1d] border border-[#c1c8c2] text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer"
+                        className="px-2.5 py-1.5 bg-[#15241C] hover:bg-[#eeeeee] text-white border border-white/10 text-xs font-bold rounded-xl transition-colors flex items-center gap-1 cursor-pointer"
                         title="Ver mapa SIG"
                       >
                         <Compass className="w-3.5 h-3.5 text-[#2d6a4f]" />
@@ -375,7 +375,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
 
                       <button
                         onClick={() => onOpenEditFarm(f.profile.id)}
-                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-[#c1c8c2] cursor-pointer"
+                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-white/10 cursor-pointer"
                         title="Editar datos o estado del predio"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
@@ -383,7 +383,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
 
                       <button
                         onClick={() => handleExportGeoJSON(f)}
-                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-[#c1c8c2] cursor-pointer"
+                        className="p-1.5 hover:bg-[#eeeeee] text-[#414844] rounded-xl transition-colors border border-white/10 cursor-pointer"
                         title="Exportar GeoJSON"
                       >
                         <Download className="w-3.5 h-3.5" />
@@ -444,7 +444,7 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 sm:px-6 bg-[#f8faf8] border-t border-[#c1c8c2] flex flex-col sm:flex-row items-center justify-between gap-2.5">
+        <div className="p-4 sm:px-6 bg-[#f8faf8] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2.5">
           <button
             onClick={() => {
               if (
@@ -468,15 +468,15 @@ export const FarmManagerModal: React.FC<FarmManagerModalProps> = ({
                 onClose();
                 onOpenCreateFarm();
               }}
-              className="flex-1 sm:flex-none px-4 py-2.5 bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] text-xs font-extrabold rounded-xl shadow transition-all flex items-center justify-center gap-1.5 border border-[#ffba38]/80 cursor-pointer"
+              className="flex-1 sm:flex-none px-4 py-2.5 bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] text-xs font-extrabold rounded-xl shadow transition-all flex items-center justify-center gap-1.5 border border-[#ffba38]/80 cursor-pointer"
             >
-              <PlusCircle className="w-4 h-4 text-[#012d1d]" />
+              <PlusCircle className="w-4 h-4 text-white" />
               <span>Crear Nueva Finca</span>
             </button>
 
             <button
               onClick={onClose}
-              className="flex-1 sm:flex-none px-5 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl shadow-sm transition-colors"
+              className="flex-1 sm:flex-none px-5 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold rounded-xl shadow-sm transition-colors"
             >
               Cerrar
             </button>

@@ -525,7 +525,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
       case 'financiero_contador':
         return 'bg-purple-100 text-purple-900 border-purple-300';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-300';
+        return 'bg-[#1F3327] text-white border-white/15';
     }
   };
 
@@ -553,12 +553,12 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
     <div className="space-y-6 w-full pb-24">
       {/* HEADER BANNER */}
       <div className="bg-gradient-to-br from-[#012d1d] via-[#02402a] to-[#011c12] text-white p-6 rounded-3xl border border-[#ffba38]/30 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-[#ffba38]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-[#D4A94E]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="bg-[#ffba38] text-[#012d1d] text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1">
+              <span className="bg-[#D4A94E] text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5" /> Módulo Administrativo
               </span>
               <span className="text-emerald-300 text-xs font-mono font-bold">
@@ -572,12 +572,12 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               <div className="group relative inline-flex items-center">
                 <button
                   type="button"
-                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  className="text-[#a3b8ad] hover:text-[#A5B8AC] transition-colors p-0.5 rounded cursor-pointer"
                   title="Asignación de perfiles para Propietarios, Administradores, Veterinarios/Zootecnistas, Mayordomos/Caporales y Financieros/Contadores con control de firmas y matriz de permisos por módulo."
                 >
                   <Info className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                   Asignación de perfiles para <b>Propietarios, Administradores, Veterinarios/Zootecnistas, Mayordomos/Caporales y Financieros/Contadores</b> con control de firmas y matriz de permisos por módulo.
                 </div>
               </div>
@@ -586,9 +586,9 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
 
           <button
             onClick={handleOpenCreateModal}
-            className="bg-[#ffba38] hover:bg-[#e0a22e] text-[#012d1d] font-black text-xs uppercase px-5 py-3 rounded-2xl transition shadow-lg flex items-center justify-center gap-2 self-start md:self-auto border border-[#ffba38]"
+            className="bg-[#D4A94E] hover:bg-[#e0a22e] text-white font-black text-xs uppercase px-5 py-3 rounded-2xl transition shadow-lg flex items-center justify-center gap-2 self-start md:self-auto border border-[#ffba38]"
           >
-            <UserPlus className="w-4 h-4 text-[#012d1d]" />
+            <UserPlus className="w-4 h-4 text-white" />
             <span>Crear Usuario / Rol Administrativo</span>
           </button>
         </div>
@@ -600,7 +600,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               👑 Propietario(s)
             </span>
             <span className="text-xl font-black text-white mt-0.5 block">{ownersCount}</span>
-            <span className="text-[10px] text-gray-300">Socios / Dueños</span>
+            <span className="text-[10px] text-[#A5B8AC]">Socios / Dueños</span>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10">
@@ -608,7 +608,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               🏢 Administrador(es)
             </span>
             <span className="text-xl font-black text-white mt-0.5 block">{adminsCount}</span>
-            <span className="text-[10px] text-gray-300">Gerencia Operativa</span>
+            <span className="text-[10px] text-[#A5B8AC]">Gerencia Operativa</span>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10">
@@ -616,7 +616,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               🩺 Veterinarios
             </span>
             <span className="text-xl font-black text-white mt-0.5 block">{vetsCount}</span>
-            <span className="text-[10px] text-gray-300">Zootecnia & Sanidad</span>
+            <span className="text-[10px] text-[#A5B8AC]">Zootecnia & Sanidad</span>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10">
@@ -624,7 +624,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               🤠 Mayordomos
             </span>
             <span className="text-xl font-black text-white mt-0.5 block">{foremenCount}</span>
-            <span className="text-[10px] text-gray-300">Supervisión de Campo</span>
+            <span className="text-[10px] text-[#A5B8AC]">Supervisión de Campo</span>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10 col-span-2 sm:col-span-1">
@@ -632,20 +632,20 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               💼 Financiero / Contador
             </span>
             <span className="text-xl font-black text-white mt-0.5 block">{financialCount}</span>
-            <span className="text-[10px] text-gray-300">Contabilidad & PILA</span>
+            <span className="text-[10px] text-[#A5B8AC]">Contabilidad & PILA</span>
           </div>
         </div>
       </div>
 
       {/* SUB-TABS NAVIGATION */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 pb-2">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-2">
         <div className="flex items-center gap-2 overflow-x-auto">
           <button
             onClick={() => setActiveSubTab('directorio')}
             className={`px-4 py-2.5 rounded-xl font-bold text-xs uppercase transition flex items-center gap-2 whitespace-nowrap ${
               activeSubTab === 'directorio'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md font-black'
-                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md font-black'
+                : 'bg-[#15241C] text-[#A5B8AC] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Users className="w-4 h-4" />
@@ -656,8 +656,8 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
             onClick={() => setActiveSubTab('matriz')}
             className={`px-4 py-2.5 rounded-xl font-bold text-xs uppercase transition flex items-center gap-2 whitespace-nowrap ${
               activeSubTab === 'matriz'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md font-black'
-                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md font-black'
+                : 'bg-[#15241C] text-[#A5B8AC] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <FileSpreadsheet className="w-4 h-4" />
@@ -668,8 +668,8 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
             onClick={() => setActiveSubTab('notificaciones')}
             className={`px-4 py-2.5 rounded-xl font-bold text-xs uppercase transition flex items-center gap-2 whitespace-nowrap ${
               activeSubTab === 'notificaciones'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md font-black'
-                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md font-black'
+                : 'bg-[#15241C] text-[#A5B8AC] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Mail className="w-4 h-4" />
@@ -680,8 +680,8 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
             onClick={() => setActiveSubTab('auditoria')}
             className={`px-4 py-2.5 rounded-xl font-bold text-xs uppercase transition flex items-center gap-2 whitespace-nowrap ${
               activeSubTab === 'auditoria'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md font-black'
-                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md font-black'
+                : 'bg-[#15241C] text-[#A5B8AC] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Clock className="w-4 h-4" />
@@ -692,19 +692,19 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
         {activeSubTab === 'directorio' && (
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <div className="relative flex-1 sm:w-64">
-              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
+              <Search className="w-4 h-4 text-[#A5B8AC] absolute left-3 top-3" />
               <input
                 type="text"
                 placeholder="Buscar por nombre, cédula o email..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full text-xs font-semibold pl-9 pr-3 py-2 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                className="w-full text-xs font-semibold pl-9 pr-3 py-2 bg-[#15241C] rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
               />
             </div>
             <select
               value={selectedRoleFilter}
               onChange={(e) => setSelectedRoleFilter(e.target.value)}
-              className="text-xs font-bold bg-white text-gray-700 px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+              className="text-xs font-bold bg-[#15241C] text-white px-3 py-2 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
             >
               <option value="todos">Todos los Roles</option>
               <option value="propietario">👑 Propietario(s)</option>
@@ -724,17 +724,17 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
             {filteredUsers.map((user) => (
               <div
                 key={user.id}
-                className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition space-y-3 relative flex flex-col justify-between"
+                className="bg-[#15241C] p-5 rounded-2xl border border-white/10 shadow-sm hover:shadow-md transition space-y-3 relative flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-start justify-between gap-2 border-b border-gray-100 pb-3">
+                  <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black text-base shadow-sm">
+                      <div className="w-10 h-10 rounded-xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black text-base shadow-sm">
                         {user.fullName.charAt(0)}
                       </div>
                       <div>
-                        <h3 className="font-black text-sm text-gray-900 leading-tight">{user.fullName}</h3>
-                        <span className="text-[11px] text-gray-500 font-mono block">C.C. {user.documentId}</span>
+                        <h3 className="font-black text-sm text-white leading-tight">{user.fullName}</h3>
+                        <span className="text-[11px] text-[#A5B8AC] font-mono block">C.C. {user.documentId}</span>
                       </div>
                     </div>
                     <span
@@ -746,32 +746,32 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                     </span>
                   </div>
 
-                  <div className="mt-3 space-y-1.5 text-xs text-gray-600">
+                  <div className="mt-3 space-y-1.5 text-xs text-[#A5B8AC]">
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-gray-500">Cargo Específico:</span>
-                      <span className="font-bold text-gray-900">{user.customRoleTitle || 'Sin especificar'}</span>
+                      <span className="font-semibold text-[#A5B8AC]">Cargo Específico:</span>
+                      <span className="font-bold text-white">{user.customRoleTitle || 'Sin especificar'}</span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-gray-500">Email:</span>
-                      <span className="font-mono text-gray-800">{user.email || 'N/A'}</span>
+                      <span className="font-semibold text-[#A5B8AC]">Email:</span>
+                      <span className="font-mono text-white">{user.email || 'N/A'}</span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-gray-500">Teléfono:</span>
-                      <span className="font-mono text-gray-800">{user.phone || 'N/A'}</span>
+                      <span className="font-semibold text-[#A5B8AC]">Teléfono:</span>
+                      <span className="font-mono text-white">{user.phone || 'N/A'}</span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-gray-500">PIN de Firma:</span>
-                      <span className="font-mono font-bold bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-[10px]">
+                      <span className="font-semibold text-[#A5B8AC]">PIN de Firma:</span>
+                      <span className="font-mono font-bold bg-[#1F3327] text-white px-2 py-0.5 rounded text-[10px]">
                         •••• ({user.securityPin})
                       </span>
                     </div>
 
                     {/* ROLE SPECIFIC ATTR DISPLAY */}
                     {user.roleType === 'propietario' && user.ownershipPercentage !== undefined && (
-                      <div className="flex items-center justify-between bg-amber-50 p-1.5 rounded-lg border border-amber-200 mt-1">
+                      <div className="flex items-center justify-between bg-amber-950/30 p-1.5 rounded-lg border border-amber-200 mt-1">
                         <span className="font-bold text-amber-900">Participación Accionaria:</span>
                         <span className="font-black text-amber-900">{user.ownershipPercentage}%</span>
                       </div>
@@ -779,7 +779,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
 
                     {(user.roleType === 'administrador' || user.roleType === 'financiero_contador') &&
                       user.maxDisbursementApproval !== undefined && (
-                        <div className="flex items-center justify-between bg-blue-50 p-1.5 rounded-lg border border-blue-200 mt-1">
+                        <div className="flex items-center justify-between bg-blue-950/30 p-1.5 rounded-lg border border-blue-200 mt-1">
                           <span className="font-bold text-blue-900">Límite Desembolso:</span>
                           <span className="font-black text-blue-900">
                             ${user.maxDisbursementApproval.toLocaleString()} COP
@@ -789,7 +789,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
 
                     {(user.roleType === 'veterinario' || user.roleType === 'financiero_contador') &&
                       user.professionalLicenseNo && (
-                        <div className="flex items-center justify-between bg-emerald-50 p-1.5 rounded-lg border border-emerald-200 mt-1">
+                        <div className="flex items-center justify-between bg-emerald-950/30 p-1.5 rounded-lg border border-emerald-200 mt-1">
                           <span className="font-bold text-emerald-900">Matrícula / TP:</span>
                           <span className="font-mono font-bold text-emerald-900">{user.professionalLicenseNo}</span>
                         </div>
@@ -806,28 +806,28 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                   </div>
 
                   {/* ACTIVE PERMISSIONS BADGES */}
-                  <div className="mt-3 pt-2 border-t border-gray-100">
-                    <span className="text-[10px] font-bold uppercase text-gray-400 block mb-1">
+                  <div className="mt-3 pt-2 border-t border-white/10">
+                    <span className="text-[10px] font-bold uppercase text-[#A5B8AC] block mb-1">
                       Módulos Habilitados:
                     </span>
                     <div className="flex flex-wrap gap-1">
                       {user.permissions.cattle && (
-                        <span className="bg-emerald-50 text-emerald-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-emerald-200">
+                        <span className="bg-emerald-950/30 text-emerald-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-emerald-200">
                           Ganado
                         </span>
                       )}
                       {user.permissions.dairy && (
-                        <span className="bg-blue-50 text-blue-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-blue-200">
+                        <span className="bg-blue-950/30 text-blue-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-blue-200">
                           Lechería
                         </span>
                       )}
                       {user.permissions.sanitary && (
-                        <span className="bg-rose-50 text-rose-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-rose-200">
+                        <span className="bg-rose-950/30 text-rose-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-rose-200">
                           Sanidad
                         </span>
                       )}
                       {user.permissions.finance && (
-                        <span className="bg-purple-50 text-purple-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-purple-200">
+                        <span className="bg-purple-950/30 text-purple-800 text-[9px] font-bold px-1.5 py-0.5 rounded border border-purple-200">
                           Finanzas
                         </span>
                       )}
@@ -837,7 +837,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                         </span>
                       )}
                       {user.permissions.admin && (
-                        <span className="bg-amber-50 text-amber-900 text-[9px] font-bold px-1.5 py-0.5 rounded border border-amber-200">
+                        <span className="bg-amber-950/30 text-amber-900 text-[9px] font-bold px-1.5 py-0.5 rounded border border-amber-200">
                           Admin
                         </span>
                       )}
@@ -846,21 +846,21 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                 </div>
 
                 {/* CARD FOOTER ACTIONS */}
-                <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-gray-400">
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-[#A5B8AC]">
                     Último acceso: {user.lastLogin || 'Hoy'}
                   </span>
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => handleOpenEditModal(user)}
-                      className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                      className="p-1.5 text-blue-600 hover:bg-blue-950/30 rounded-lg transition"
                       title="Editar usuario y rol"
                     >
                       <Edit className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => handleDeleteUser(user.id, user.fullName)}
-                      className="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition"
+                      className="p-1.5 text-rose-600 hover:bg-rose-950/30 rounded-lg transition"
                       title="Revocar acceso"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -872,13 +872,13 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
           </div>
 
           {filteredUsers.length === 0 && (
-            <div className="p-12 text-center bg-white rounded-2xl border border-gray-200 space-y-3">
-              <Users className="w-12 h-12 text-gray-300 mx-auto" />
-              <h3 className="font-bold text-gray-700">No se encontraron usuarios administrativos</h3>
-              <p className="text-xs text-gray-500">Pruebe ajustando los filtros de búsqueda o cree un nuevo rol.</p>
+            <div className="p-12 text-center bg-[#15241C] rounded-2xl border border-white/10 space-y-3">
+              <Users className="w-12 h-12 text-[#A5B8AC] mx-auto" />
+              <h3 className="font-bold text-white">No se encontraron usuarios administrativos</h3>
+              <p className="text-xs text-[#A5B8AC]">Pruebe ajustando los filtros de búsqueda o cree un nuevo rol.</p>
               <button
                 onClick={handleOpenCreateModal}
-                className="bg-[#012d1d] text-[#ffba38] text-xs font-bold px-4 py-2 rounded-xl"
+                className="bg-[#0D1A13] text-[#ffba38] text-xs font-bold px-4 py-2 rounded-xl"
               >
                 + Crear Usuario / Rol
               </button>
@@ -889,20 +889,20 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
 
       {/* SUB-TAB 2: MATRIZ DE PERMISOS POR ROL */}
       {activeSubTab === 'matriz' && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm space-y-4 overflow-x-auto">
+        <div className="bg-[#15241C] rounded-2xl border border-white/10 p-5 shadow-sm space-y-4 overflow-x-auto">
           <div>
-            <h3 className="font-black text-base text-[#012d1d] flex items-center gap-2">
+            <h3 className="font-black text-base text-white flex items-center gap-2">
               <FileSpreadsheet className="w-5 h-5 text-emerald-600" />
               <span>Matriz de Control de Accesos & Permisos por Módulo</span>
             </h3>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-[#A5B8AC]">
               Desglose detallado de privilegios asignados por cada rol en los 10 módulos principales del sistema.
             </p>
           </div>
 
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-gray-100 text-gray-800 uppercase font-black border-b border-gray-200">
+              <tr className="bg-[#1F3327] text-white uppercase font-black border-b border-white/10">
                 <th className="p-3">Usuario & Rol</th>
                 <th className="p-2 text-center">Ganado</th>
                 <th className="p-2 text-center">Lechería</th>
@@ -918,10 +918,10 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
             </thead>
             <tbody className="divide-y divide-gray-100">
               {adminUsers.map((user) => (
-                <tr key={user.id} className="hover:bg-gray-50">
+                <tr key={user.id} className="hover:bg-[#0D1A13]">
                   <td className="p-3">
-                    <div className="font-bold text-gray-900">{user.fullName}</div>
-                    <div className="text-[10px] text-gray-500 font-mono">
+                    <div className="font-bold text-white">{user.fullName}</div>
+                    <div className="text-[10px] text-[#A5B8AC] font-mono">
                       {getRoleLabel(user.roleType)} • {user.customRoleTitle || ''}
                     </div>
                   </td>
@@ -929,70 +929,70 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                     {user.permissions.cattle ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.dairy ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.genetics ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.sanitary ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.finance ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.payroll ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.inventory ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.gis ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.admin ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                   <td className="p-2 text-center">
                     {user.permissions.reports ? (
                       <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" />
                     ) : (
-                      <X className="w-4 h-4 text-gray-300 mx-auto" />
+                      <X className="w-4 h-4 text-[#A5B8AC] mx-auto" />
                     )}
                   </td>
                 </tr>
@@ -1014,14 +1014,14 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
 
       {/* SUB-TAB 4: REGISTRO DE AUDITORÍA & SEGURIDAD */}
       {activeSubTab === 'auditoria' && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+        <div className="bg-[#15241C] rounded-2xl border border-white/10 p-5 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
             <div>
-              <h3 className="font-black text-base text-[#012d1d] flex items-center gap-2">
+              <h3 className="font-black text-base text-white flex items-center gap-2">
                 <Clock className="w-5 h-5 text-amber-600" />
                 <span>Historial de Auditoría & Trazabilidad de Acciones</span>
               </h3>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-[#A5B8AC]">
                 Registro inmutable de actividades administrativas, firmas digitales y cambios de configuración.
               </p>
             </div>
@@ -1034,23 +1034,23 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
             {auditLogs.map((log) => (
               <div
                 key={log.id}
-                className="p-3.5 bg-gray-50 rounded-xl border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs"
+                className="p-3.5 bg-[#0D1A13] rounded-xl border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-black text-gray-900">{log.userName}</span>
-                    <span className="text-[10px] font-mono bg-gray-200 text-gray-800 px-1.5 py-0.5 rounded">
+                    <span className="font-black text-white">{log.userName}</span>
+                    <span className="text-[10px] font-mono bg-gray-200 text-white px-1.5 py-0.5 rounded">
                       {log.userRole}
                     </span>
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-950/30 px-1.5 py-0.5 rounded border border-emerald-200">
                       {log.module}
                     </span>
                   </div>
-                  <p className="text-gray-700 font-medium">{log.details}</p>
+                  <p className="text-white font-medium">{log.details}</p>
                 </div>
-                <div className="text-right sm:text-right font-mono text-[11px] text-gray-400 whitespace-nowrap">
+                <div className="text-right sm:text-right font-mono text-[11px] text-[#A5B8AC] whitespace-nowrap">
                   <div>{log.timestamp}</div>
-                  <span className="text-[10px] text-gray-500 font-semibold">{log.action}</span>
+                  <span className="text-[10px] text-[#A5B8AC] font-semibold">{log.action}</span>
                 </div>
               </div>
             ))}
@@ -1061,24 +1061,24 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
       {/* MODAL: CREAR / EDITAR USUARIO Y ROL ADMINISTRATIVO */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-gray-200 space-y-5 my-8">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+          <div className="bg-[#15241C] rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-white/10 space-y-5 my-8">
+            <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div className="flex items-center gap-2.5">
-                <div className="p-2.5 bg-[#012d1d] text-[#ffba38] rounded-2xl">
+                <div className="p-2.5 bg-[#0D1A13] text-[#ffba38] rounded-2xl">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-black text-lg text-gray-900">
+                  <h3 className="font-black text-lg text-white">
                     {editingUser ? 'Editar Usuario / Rol Administrativo' : 'Crear Nuevo Usuario y Rol'}
                   </h3>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-[#A5B8AC]">
                     Defina el cargo, privilegios de acceso y firma de seguridad.
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-2 text-gray-400 hover:text-gray-700 rounded-xl hover:bg-gray-100 transition"
+                className="p-2 text-[#A5B8AC] hover:text-white rounded-xl hover:bg-[#1F3327] transition"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1093,7 +1093,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                 <select
                   value={formRoleType}
                   onChange={(e) => handleRoleTypeChange(e.target.value as SystemRoleType)}
-                  className="w-full text-xs font-black bg-white text-gray-900 p-3 rounded-xl border border-amber-300 focus:ring-2 focus:ring-[#012d1d]"
+                  className="w-full text-xs font-black bg-[#15241C] text-white p-3 rounded-xl border border-amber-300 focus:ring-2 focus:ring-[#012d1d]"
                 >
                   <option value="propietario">👑 Propietario(s) / Socio Accionista / Dueño</option>
                   <option value="administrador">🏢 Administrador(es) General / Gerente Operativo</option>
@@ -1107,62 +1107,62 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               {/* INFORMACIÓN PERSONAL */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-gray-700 block mb-1">Nombre Completo *</label>
+                  <label className="font-bold text-white block mb-1">Nombre Completo *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej: Don Juan Carlos Restrepo"
                     value={formFullName}
                     onChange={(e) => setFormFullName(e.target.value)}
-                    className="w-full p-2.5 bg-gray-50 rounded-xl border border-gray-200 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                    className="w-full p-2.5 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-gray-700 block mb-1">Cédula / Documento ID *</label>
+                  <label className="font-bold text-white block mb-1">Cédula / Documento ID *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej: 79.482.109"
                     value={formDocumentId}
                     onChange={(e) => setFormDocumentId(e.target.value)}
-                    className="w-full p-2.5 bg-gray-50 rounded-xl border border-gray-200 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                    className="w-full p-2.5 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-gray-700 block mb-1">Correo Electrónico</label>
+                  <label className="font-bold text-white block mb-1">Correo Electrónico</label>
                   <input
                     type="email"
                     placeholder="correo@ejemplo.com"
                     value={formEmail}
                     onChange={(e) => setFormEmail(e.target.value)}
-                    className="w-full p-2.5 bg-gray-50 rounded-xl border border-gray-200 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                    className="w-full p-2.5 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-gray-700 block mb-1">Teléfono de Contacto</label>
+                  <label className="font-bold text-white block mb-1">Teléfono de Contacto</label>
                   <input
                     type="text"
                     placeholder="+57 310 000 0000"
                     value={formPhone}
                     onChange={(e) => setFormPhone(e.target.value)}
-                    className="w-full p-2.5 bg-gray-50 rounded-xl border border-gray-200 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                    className="w-full p-2.5 bg-[#0D1A13] rounded-xl border border-white/10 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
                   />
                 </div>
               </div>
 
               {/* TÍTULO DE CARGO & CAMPOS ESPECÍFICOS SEGÚN EL ROL */}
-              <div className="p-3.5 bg-gray-50 rounded-2xl border border-gray-200 space-y-3">
+              <div className="p-3.5 bg-[#0D1A13] rounded-2xl border border-white/10 space-y-3">
                 <div>
-                  <label className="font-bold text-gray-800 block mb-1">Título Específico del Cargo</label>
+                  <label className="font-bold text-white block mb-1">Título Específico del Cargo</label>
                   <input
                     type="text"
                     placeholder="Ej: Director Ganadero / Zootecnista Senior"
                     value={formCustomRoleTitle}
                     onChange={(e) => setFormCustomRoleTitle(e.target.value)}
-                    className="w-full p-2.5 bg-white rounded-xl border border-gray-200 text-xs font-semibold"
+                    className="w-full p-2.5 bg-[#15241C] rounded-xl border border-white/10 text-xs font-semibold"
                   />
                 </div>
 
@@ -1178,7 +1178,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                       max="100"
                       value={formOwnershipPercentage}
                       onChange={(e) => setFormOwnershipPercentage(Number(e.target.value))}
-                      className="w-full p-2.5 bg-white rounded-xl border border-amber-300 text-xs font-bold text-amber-900"
+                      className="w-full p-2.5 bg-[#15241C] rounded-xl border border-amber-300 text-xs font-bold text-amber-900"
                     />
                   </div>
                 )}
@@ -1195,7 +1195,7 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                       step="1000000"
                       value={formMaxDisbursementApproval}
                       onChange={(e) => setFormMaxDisbursementApproval(Number(e.target.value))}
-                      className="w-full p-2.5 bg-white rounded-xl border border-blue-300 text-xs font-bold text-blue-900"
+                      className="w-full p-2.5 bg-[#15241C] rounded-xl border border-blue-300 text-xs font-bold text-blue-900"
                     />
                   </div>
                 )}
@@ -1210,29 +1210,29 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
                       placeholder="Ej: COMVEZCOL-14209 / ICA-0924 / TP-192842"
                       value={formProfessionalLicenseNo}
                       onChange={(e) => setFormProfessionalLicenseNo(e.target.value)}
-                      className="w-full p-2.5 bg-white rounded-xl border border-emerald-300 text-xs font-mono font-bold text-emerald-900"
+                      className="w-full p-2.5 bg-[#15241C] rounded-xl border border-emerald-300 text-xs font-mono font-bold text-emerald-900"
                     />
                   </div>
                 )}
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="font-bold text-gray-700 block mb-1">PIN de Firma / Seguridad (4 Dígitos)</label>
+                    <label className="font-bold text-white block mb-1">PIN de Firma / Seguridad (4 Dígitos)</label>
                     <input
                       type="text"
                       maxLength={6}
                       value={formSecurityPin}
                       onChange={(e) => setFormSecurityPin(e.target.value)}
-                      className="w-full p-2.5 bg-white rounded-xl border border-gray-300 text-xs font-mono font-bold text-center tracking-widest text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#15241C] rounded-xl border border-white/15 text-xs font-mono font-bold text-center tracking-widest text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="font-bold text-gray-700 block mb-1">Estado del Acceso</label>
+                    <label className="font-bold text-white block mb-1">Estado del Acceso</label>
                     <select
                       value={formStatus}
                       onChange={(e) => setFormStatus(e.target.value as any)}
-                      className="w-full p-2.5 bg-white rounded-xl border border-gray-300 text-xs font-bold"
+                      className="w-full p-2.5 bg-[#15241C] rounded-xl border border-white/15 text-xs font-bold"
                     >
                       <option value="activo">✅ Activo</option>
                       <option value="inactivo">⏸️ Inactivo</option>
@@ -1243,127 +1243,127 @@ export const AdminManagementView: React.FC<AdminManagementViewProps> = ({
               </div>
 
               {/* MATRIZ DE PERMISOS DE ACCESO POR MÓDULO */}
-              <div className="space-y-2 border-t border-gray-100 pt-3">
-                <label className="font-black text-gray-900 uppercase tracking-wider block text-[10.5px]">
+              <div className="space-y-2 border-t border-white/10 pt-3">
+                <label className="font-black text-white uppercase tracking-wider block text-[10.5px]">
                   2. Configuración de Permisos por Módulo:
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 bg-gray-50 p-3 rounded-2xl border border-gray-200">
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 bg-[#0D1A13] p-3 rounded-2xl border border-white/10">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.cattle}
                       onChange={(e) => setFormPermissions({ ...formPermissions, cattle: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Ganado & Pesajes</span>
+                    <span className="font-semibold text-white">Ganado & Pesajes</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.dairy}
                       onChange={(e) => setFormPermissions({ ...formPermissions, dairy: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Lechería & Ordeño</span>
+                    <span className="font-semibold text-white">Lechería & Ordeño</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.genetics}
                       onChange={(e) => setFormPermissions({ ...formPermissions, genetics: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Genética & Embrios</span>
+                    <span className="font-semibold text-white">Genética & Embrios</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.sanitary}
                       onChange={(e) => setFormPermissions({ ...formPermissions, sanitary: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Sanidad & Recetas</span>
+                    <span className="font-semibold text-white">Sanidad & Recetas</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.finance}
                       onChange={(e) => setFormPermissions({ ...formPermissions, finance: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Finanzas & Costos</span>
+                    <span className="font-semibold text-white">Finanzas & Costos</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.payroll}
                       onChange={(e) => setFormPermissions({ ...formPermissions, payroll: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Nómina & PILA</span>
+                    <span className="font-semibold text-white">Nómina & PILA</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.inventory}
                       onChange={(e) => setFormPermissions({ ...formPermissions, inventory: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Almacén & Lotes</span>
+                    <span className="font-semibold text-white">Almacén & Lotes</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.admin}
                       onChange={(e) => setFormPermissions({ ...formPermissions, admin: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-[#012d1d]">Gestión Admin</span>
+                    <span className="font-semibold text-white">Gestión Admin</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-1.5 hover:bg-white rounded-lg cursor-pointer">
+                  <label className="flex items-center gap-2 p-1.5 hover:bg-[#15241C] rounded-lg cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formPermissions.reports}
                       onChange={(e) => setFormPermissions({ ...formPermissions, reports: e.target.checked })}
-                      className="rounded text-[#012d1d] focus:ring-[#012d1d]"
+                      className="rounded text-white focus:ring-[#012d1d]"
                     />
-                    <span className="font-semibold text-gray-800">Informes Ejecutivos</span>
+                    <span className="font-semibold text-white">Informes Ejecutivos</span>
                   </label>
                 </div>
               </div>
 
               {/* OBSERVACIONES */}
               <div>
-                <label className="font-bold text-gray-700 block mb-1">Notas u Observaciones del Cargo</label>
+                <label className="font-bold text-white block mb-1">Notas u Observaciones del Cargo</label>
                 <textarea
                   rows={2}
                   placeholder="Detalles de responsabilidad, funciones clave o restricciones..."
                   value={formNotes}
                   onChange={(e) => setFormNotes(e.target.value)}
-                  className="w-full p-2.5 bg-gray-50 rounded-xl border border-gray-200 text-xs"
+                  className="w-full p-2.5 bg-[#0D1A13] rounded-xl border border-white/10 text-xs"
                 />
               </div>
 
               {/* BUTTONS */}
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-100 rounded-xl transition"
+                  className="px-4 py-2.5 text-xs font-bold text-[#A5B8AC] hover:bg-[#1F3327] rounded-xl transition"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 text-xs font-black bg-[#012d1d] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md flex items-center gap-2"
+                  className="px-5 py-2.5 text-xs font-black bg-[#0D1A13] hover:bg-[#02402a] text-[#ffba38] rounded-xl transition shadow-md flex items-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   <span>{editingUser ? 'Guardar Cambios' : 'Crear Usuario / Rol'}</span>

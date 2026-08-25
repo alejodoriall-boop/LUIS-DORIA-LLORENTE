@@ -1736,7 +1736,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
   return (
     <div className="space-y-6 w-full pb-16">
       {/* Top Banner & Main Sub-tab Header */}
-      <div className="bg-[#012d1d] text-white rounded-3xl p-5 md:p-6 shadow-xl border-2 border-[#1b4332] relative overflow-hidden">
+      <div className="bg-[#0D1A13] text-white rounded-3xl p-5 md:p-6 shadow-xl border-2 border-[#1b4332] relative overflow-hidden">
         <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
           <Dna className="w-80 h-80 text-[#ffba38]" />
         </div>
@@ -1750,12 +1750,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <div className="group relative inline-flex items-center">
                 <button
                   type="button"
-                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  className="text-[#a3b8ad] hover:text-[#A5B8AC] transition-colors p-0.5 rounded cursor-pointer"
                   title="Control completo de Inseminación Artificial (IATF), Transferencia de Embriones (TE/FIV), Vacas Donadoras & Receptoras, Inventario de Pajuelas y Fechas Clave."
                 >
                   <Info className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                   Control completo de Inseminación Artificial (IATF), Transferencia de Embriones (TE/FIV), Vacas Donadoras & Receptoras,
                   Inventario de Pajuelas (Toro Propio vs Semen Comprado) y Fechas Clave (Sincronización, Servicio, DG, Parto).
                 </div>
@@ -1776,14 +1776,14 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             )}
             <button
               onClick={onOpenBreedingSimulator}
-              className="bg-[#1b4332] hover:bg-[#123627] text-white border border-[#c1ecd4]/30 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-xs active:scale-95"
+              className="bg-[#123F2A] hover:bg-[#123627] text-white border border-[#c1ecd4]/30 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-xs active:scale-95"
             >
               <Zap className="w-4 h-4 text-[#ffba38]" />
               Simulador Cruzamientos
             </button>
             <button
               onClick={onOpenNewEventModal}
-              className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer shadow-md active:scale-95"
+              className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer shadow-md active:scale-95"
             >
               <PlusCircle className="w-4 h-4" />
               Nuevo Evento
@@ -1797,8 +1797,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('kpis_ia')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'kpis_ia'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <Bot className="w-4 h-4" />
@@ -1809,8 +1809,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('insemination')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'insemination'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <Syringe className="w-4 h-4" />
@@ -1821,8 +1821,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('embryo_transfer')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'embryo_transfer'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <Microscope className="w-4 h-4" />
@@ -1833,8 +1833,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('donors_receptors')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'donors_receptors'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <Award className="w-4 h-4" />
@@ -1845,8 +1845,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('bulls_semen')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'bulls_semen'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <Container className="w-4 h-4" />
@@ -1857,8 +1857,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('females')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'females'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <UserCheck className="w-4 h-4" />
@@ -1869,8 +1869,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('pedigree')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'pedigree'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <GitFork className="w-4 h-4" />
@@ -1881,8 +1881,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             onClick={() => setActiveSubTab('progeny_testing')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'progeny_testing'
-                ? 'bg-[#ffba38] text-[#012d1d] shadow-md scale-[1.02]'
-                : 'bg-[#002216]/60 text-[#c1ecd4] hover:bg-[#1b4332] hover:text-white'
+                ? 'bg-[#D4A94E] text-white shadow-md scale-[1.02]'
+                : 'bg-[#002216]/60 text-[#A5B8AC] hover:bg-[#123F2A] hover:text-white'
             }`}
           >
             <GitFork className="w-4 h-4 text-[#ffba38]" />
@@ -1895,10 +1895,10 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {formSuccessMessage && (
         <div className="p-4 bg-[#c1ecd4] border-2 border-[#012d1d] text-[#002114] rounded-2xl flex items-center justify-between shadow-md animate-in fade-in slide-in-from-top-3">
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-[#012d1d] shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
             <p className="text-xs font-extrabold">{formSuccessMessage}</p>
           </div>
-          <button onClick={() => setFormSuccessMessage(null)} className="text-[#012d1d] hover:text-black">
+          <button onClick={() => setFormSuccessMessage(null)} className="text-white hover:text-black">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -1911,12 +1911,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
         <div className="space-y-6">
           {/* Top Herd KPIs */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+            <div className="p-4 bg-[#15241C] rounded-2xl border border-white/10 card-shadow space-y-1">
               <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
                 Tasa de Preñez
               </span>
               <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.tasaPrenez}%</span>
+                <span className="text-2xl font-black text-white font-mono">{herdKPIs.tasaPrenez}%</span>
                 <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
                   Óptimo
                 </span>
@@ -1924,12 +1924,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <p className="text-[10px] text-[#717973]">Hato preñado active</p>
             </div>
 
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+            <div className="p-4 bg-[#15241C] rounded-2xl border border-white/10 card-shadow space-y-1">
               <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
                 Tasa Concepción
               </span>
               <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.tasaConcepcion}%</span>
+                <span className="text-2xl font-black text-white font-mono">{herdKPIs.tasaConcepcion}%</span>
                 <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
                   IA / TE
                 </span>
@@ -1937,12 +1937,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <p className="text-[10px] text-[#717973]">1er servicio efectivo</p>
             </div>
 
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+            <div className="p-4 bg-[#15241C] rounded-2xl border border-white/10 card-shadow space-y-1">
               <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
                 Días Abiertos (DA)
               </span>
               <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.avgDA}d</span>
+                <span className="text-2xl font-black text-white font-mono">{herdKPIs.avgDA}d</span>
                 <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${herdKPIs.avgDA > 90 ? 'bg-[#ffdad6] text-[#93000a]' : 'bg-[#c1ecd4] text-[#002114]'}`}>
                   Meta &lt;90d
                 </span>
@@ -1950,25 +1950,25 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <p className="text-[10px] text-[#717973]">Parto a concepción</p>
             </div>
 
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+            <div className="p-4 bg-[#15241C] rounded-2xl border border-white/10 card-shadow space-y-1">
               <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
                 Intervalo Partos
               </span>
               <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{herdKPIs.avgIEP}d</span>
-                <span className="text-[9px] font-bold bg-[#e8f5ec] text-[#012d1d] px-1.5 py-0.5 rounded">
+                <span className="text-2xl font-black text-white font-mono">{herdKPIs.avgIEP}d</span>
+                <span className="text-[9px] font-bold bg-[#e8f5ec] text-white px-1.5 py-0.5 rounded">
                   12.4 Meses
                 </span>
               </div>
               <p className="text-[10px] text-[#717973]">Proyección IEP</p>
             </div>
 
-            <div className="p-4 bg-white rounded-2xl border border-[#c1c8c2] card-shadow space-y-1">
+            <div className="p-4 bg-[#15241C] rounded-2xl border border-white/10 card-shadow space-y-1">
               <span className="text-[10px] font-extrabold text-[#79564b] uppercase tracking-wider block">
                 Donadoras Activas
               </span>
               <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#012d1d] font-mono">{donors.length}</span>
+                <span className="text-2xl font-black text-white font-mono">{donors.length}</span>
                 <span className="text-[9px] font-bold bg-[#c1ecd4] text-[#002114] px-1.5 py-0.5 rounded">
                   FIV / OPU
                 </span>
@@ -1976,31 +1976,31 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <p className="text-[10px] text-[#717973]">Vacas donadoras</p>
             </div>
 
-            <div className="p-4 bg-[#ffba38]/15 rounded-2xl border-2 border-[#ffba38] card-shadow space-y-1">
-              <span className="text-[10px] font-extrabold text-[#523700] uppercase tracking-wider block flex items-center gap-1">
+            <div className="p-4 bg-[#D4A94E]/15 rounded-2xl border-2 border-[#ffba38] card-shadow space-y-1">
+              <span className="text-[10px] font-extrabold text-[#0D1A13] uppercase tracking-wider block flex items-center gap-1">
                 <AlertTriangle className="w-3.5 h-3.5 text-[#b27b00]" /> Días Abiertos &gt;90d
               </span>
               <div className="flex items-baseline justify-between">
-                <span className="text-2xl font-black text-[#523700] font-mono">
+                <span className="text-2xl font-black text-[#0D1A13] font-mono">
                   {herdKPIs.openDaysAlertCount}
                 </span>
-                <span className="text-[9px] font-extrabold bg-[#ffba38] text-[#523700] px-1.5 py-0.5 rounded">
+                <span className="text-[9px] font-extrabold bg-[#D4A94E] text-[#0D1A13] px-1.5 py-0.5 rounded">
                   Alertas
                 </span>
               </div>
-              <p className="text-[10px] text-[#523700]">Revisión veterinaria</p>
+              <p className="text-[10px] text-[#0D1A13]">Revisión veterinaria</p>
             </div>
           </div>
 
           {/* AI Language Assistant */}
           <div className="bg-gradient-to-br from-white to-[#f4fbf7] rounded-3xl border-2 border-[#1b4332]/30 card-shadow p-5 md:p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-[#c1c8c2] pb-3">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
                   <Bot className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-base md:text-lg font-black text-[#012d1d]">
+                  <h3 className="text-base md:text-lg font-black text-white">
                     Procesador Reproductivo en Lenguaje Natural (IA GanaderIA)
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -2009,7 +2009,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </div>
               </div>
               <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-mono font-bold bg-[#c1ecd4] text-[#002114] px-2.5 py-1 rounded-full border border-[#012d1d]/20">
-                <Sparkles className="w-3 h-3 text-[#012d1d]" /> IA ACTIVADA
+                <Sparkles className="w-3 h-3 text-white" /> IA ACTIVADA
               </span>
             </div>
 
@@ -2022,12 +2022,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   if (e.key === 'Enter') handleProcessNaturalLanguage(naturalInput);
                 }}
                 placeholder="Ej: Transferimos hoy embrión FIV de Donadora V-504 a la receptora Rosita 102..."
-                className="flex-1 bg-white border-2 border-[#c1c8c2] focus:border-[#012d1d] rounded-2xl px-4 py-3 text-xs md:text-sm text-[#012d1d] font-medium placeholder:text-[#a0a5a2] shadow-inner outline-none"
+                className="flex-1 bg-[#15241C] border-2 border-white/10 focus:border-[#012d1d] rounded-2xl px-4 py-3 text-xs md:text-sm text-white font-medium placeholder:text-[#a0a5a2] shadow-inner outline-none"
               />
               <button
                 type="button"
                 onClick={() => handleProcessNaturalLanguage(naturalInput)}
-                className="bg-[#012d1d] hover:bg-[#1b4332] text-white px-5 py-3 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-md active:scale-95"
+                className="bg-[#0D1A13] hover:bg-[#123F2A] text-white px-5 py-3 rounded-2xl text-xs font-black transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-md active:scale-95"
               >
                 <Send className="w-4 h-4 text-[#ffba38]" />
                 Procesar e Interpretar
@@ -2035,18 +2035,18 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             </div>
 
             {nlpAnalysis && (
-              <div className="p-5 bg-white border-2 border-[#012d1d] rounded-2xl space-y-4 shadow-lg animate-in fade-in">
+              <div className="p-5 bg-[#15241C] border-2 border-[#012d1d] rounded-2xl space-y-4 shadow-lg animate-in fade-in">
                 <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-emerald-700" />
                     <div>
-                      <h4 className="text-sm font-black text-[#012d1d]">
+                      <h4 className="text-sm font-black text-white">
                         Evento Extraído ({nlpAnalysis.confidence}% Precisión)
                       </h4>
                       <p className="text-xs text-[#717973]">{nlpAnalysis.summaryText}</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono font-bold bg-[#ffba38] text-[#523700] px-2.5 py-1 rounded">
+                  <span className="text-[10px] font-mono font-bold bg-[#D4A94E] text-[#0D1A13] px-2.5 py-1 rounded">
                     {nlpAnalysis.eventType}
                   </span>
                 </div>
@@ -2054,11 +2054,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
                   <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
                     <span className="text-[10px] text-[#79564b] font-bold block uppercase">Hembra</span>
-                    <span className="font-mono font-black text-[#012d1d]">{nlpAnalysis.cowTag}</span>
+                    <span className="font-mono font-black text-white">{nlpAnalysis.cowTag}</span>
                   </div>
                   <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
                     <span className="text-[10px] text-[#79564b] font-bold block uppercase">Semental / Pajuela</span>
-                    <span className="font-mono font-bold text-[#012d1d]">{nlpAnalysis.bullId}</span>
+                    <span className="font-mono font-bold text-white">{nlpAnalysis.bullId}</span>
                   </div>
                   <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
                     <span className="text-[10px] text-[#79564b] font-bold block uppercase">Agendamiento Palpación</span>
@@ -2066,7 +2066,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
                   <div className="p-2.5 bg-[#f8f9f8] rounded-xl border border-[#e2e2e2]">
                     <span className="text-[10px] text-[#79564b] font-bold block uppercase">Parto Proyectado (FPP)</span>
-                    <span className="font-mono font-bold text-[#012d1d]">{nlpAnalysis.fppDate}</span>
+                    <span className="font-mono font-bold text-white">{nlpAnalysis.fppDate}</span>
                   </div>
                 </div>
 
@@ -2081,7 +2081,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   <button
                     type="button"
                     onClick={handleConfirmNlpRecord}
-                    className="px-5 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md"
+                    className="px-5 py-2 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black rounded-xl text-xs flex items-center gap-1.5 shadow-md"
                   >
                     <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                     Confirmar Registro
@@ -2094,19 +2094,19 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
           {/* ------------------------------------------------------------------------- */}
           {/* MÓDULO INFORMATIVO DE LÍNEAS GENÉTICAS, MORFOLOGÍA Y EFICIENCIA (AL FINAL) */}
           {/* ------------------------------------------------------------------------- */}
-          <div className="bg-white rounded-3xl p-5 md:p-6 border-2 border-[#012d1d] card-shadow space-y-5 animate-in fade-in">
+          <div className="bg-[#15241C] rounded-3xl p-5 md:p-6 border-2 border-[#012d1d] card-shadow space-y-5 animate-in fade-in">
             {/* Module Header */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#e2e2e2] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
                   <Dna className="w-6 h-6" />
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-base md:text-lg font-black text-[#012d1d]">
+                    <h3 className="text-base md:text-lg font-black text-white">
                       Líneas Genéticas, Morfología y Eficiencia Reproductiva
                     </h3>
-                    <span className="bg-[#ffba38] text-[#523700] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase shadow-xs">
+                    <span className="bg-[#D4A94E] text-[#0D1A13] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase shadow-xs">
                       {GENETIC_LINES_CATALOG.length} Razas / Líneas Prototipo
                     </span>
                   </div>
@@ -2117,7 +2117,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-[11px] font-bold text-[#012d1d] bg-[#f4fbf7] border border-[#a2cfb8] px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-2xs">
+                <span className="text-[11px] font-bold text-white bg-[#f4fbf7] border border-[#a2cfb8] px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-2xs">
                   <Award className="w-4 h-4 text-emerald-700" />
                   Hato Multirracial Adaptado
                 </span>
@@ -2135,8 +2135,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     onClick={() => setSelectedGeneticLineId(line.id)}
                     className={`px-4 py-2.5 rounded-2xl text-xs font-black transition-all flex items-center gap-2 shrink-0 cursor-pointer border ${
                       isSelected
-                        ? 'bg-[#012d1d] text-[#ffba38] border-[#012d1d] shadow-md scale-[1.01]'
-                        : 'bg-[#f8f9f8] text-[#555] border-[#c1c8c2] hover:bg-slate-100 hover:text-black'
+                        ? 'bg-[#0D1A13] text-[#ffba38] border-[#012d1d] shadow-md scale-[1.01]'
+                        : 'bg-[#f8f9f8] text-[#555] border-white/10 hover:bg-[#1F3327] hover:text-black'
                     }`}
                   >
                     <Sparkles className={`w-3.5 h-3.5 ${isSelected ? 'text-[#ffba38]' : 'text-[#717973]'}`} />
@@ -2150,7 +2150,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             {(() => {
               const activeLine = GENETIC_LINES_CATALOG.find((l) => l.id === selectedGeneticLineId) || GENETIC_LINES_CATALOG[0];
               return (
-                <div className="bg-[#f8fbf9] border-2 border-[#1b4332]/20 rounded-2xl p-4 sm:p-5 space-y-5">
+                <div className="bg-[#15241C] border-2 border-[#1b4332]/20 rounded-2xl p-4 sm:p-5 space-y-5">
                   {/* Top Info Banner & Photo Header */}
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
                     {/* Left Column: Photo Prototype Box */}
@@ -2168,24 +2168,24 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
                       {/* Top Badges */}
                       <div className="relative z-10 flex justify-between items-start gap-2">
-                        <span className="bg-[#012d1d]/90 backdrop-blur-md text-[#ffba38] font-mono text-[10px] font-black px-2.5 py-1 rounded-xl border border-[#ffba38]/30 shadow-md">
+                        <span className="bg-[#0D1A13]/90 backdrop-blur-md text-[#ffba38] font-mono text-[10px] font-black px-2.5 py-1 rounded-xl border border-[#ffba38]/30 shadow-md">
                           PROTOTIPO REAL DE RAZA
                         </span>
 
                         <button
                           type="button"
                           onClick={() => setViewingPrototypePhoto({ url: activeLine.photoUrl, title: activeLine.name })}
-                          className="bg-white/95 hover:bg-white text-[#012d1d] p-2 rounded-xl text-xs font-black flex items-center gap-1 shadow-md cursor-pointer backdrop-blur-sm transition-all"
+                          className="bg-white/95 hover:bg-[#15241C] text-white p-2 rounded-xl text-xs font-black flex items-center gap-1 shadow-md cursor-pointer backdrop-blur-sm transition-all"
                           title="Ampliar Fotografía Prototipo"
                         >
-                          <Camera className="w-4 h-4 text-[#012d1d]" />
+                          <Camera className="w-4 h-4 text-white" />
                           <span className="text-[10px] hidden sm:inline">Ver Foto Full</span>
                         </button>
                       </div>
 
                       {/* Bottom Caption Overlay */}
                       <div className="relative z-10 space-y-1 text-white">
-                        <span className="text-[10px] font-mono font-bold uppercase text-[#c1ecd4] tracking-wider block">
+                        <span className="text-[10px] font-mono font-bold uppercase text-[#A5B8AC] tracking-wider block">
                           {activeLine.origin}
                         </span>
                         <h4 className="text-lg font-black text-white leading-tight drop-shadow-sm">
@@ -2195,7 +2195,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           {activeLine.subtitle}
                         </p>
                         <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-white/20">
-                          <span className="text-[10px] font-extrabold bg-[#ffba38] text-[#523700] px-2.5 py-0.5 rounded-lg shadow-2xs">
+                          <span className="text-[10px] font-extrabold bg-[#D4A94E] text-[#0D1A13] px-2.5 py-0.5 rounded-lg shadow-2xs">
                             Aptitud: {activeLine.aptitude}
                           </span>
                           <span className="text-[10px] font-mono font-bold bg-white/20 text-white px-2 py-0.5 rounded-lg backdrop-blur-xs">
@@ -2208,14 +2208,14 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     {/* Right Column: Morphological Features & Pureness Badges */}
                     <div className="lg:col-span-7 flex flex-col justify-between space-y-3">
                       <div className="space-y-3">
-                        <div className="flex items-center justify-between border-b border-[#c1c8c2] pb-2">
+                        <div className="flex items-center justify-between border-b border-white/10 pb-2">
                           <div className="flex items-center gap-2">
-                            <Activity className="w-4 h-4 text-[#012d1d]" />
-                            <h5 className="font-black text-xs md:text-sm text-[#012d1d] uppercase tracking-wider">
+                            <Activity className="w-4 h-4 text-white" />
+                            <h5 className="font-black text-xs md:text-sm text-white uppercase tracking-wider">
                               Características Morfológicas & Estándar Fenotípico
                             </h5>
                           </div>
-                          <span className="text-[10px] font-mono font-black bg-[#e8f5ec] text-[#012d1d] px-2.5 py-0.5 rounded border border-[#c1ecd4]">
+                          <span className="text-[10px] font-mono font-black bg-[#e8f5ec] text-white px-2.5 py-0.5 rounded border border-[#c1ecd4]">
                             {activeLine.heterosisGrade}
                           </span>
                         </div>
@@ -2223,8 +2223,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         {/* Morphology Details Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
                           {/* 1. Head Profile */}
-                          <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 shadow-2xs">
-                            <span className="font-extrabold text-[#012d1d] text-[11px] flex items-center gap-1.5">
+                          <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 shadow-2xs">
+                            <span className="font-extrabold text-white text-[11px] flex items-center gap-1.5">
                               <Dna className="w-3.5 h-3.5 text-amber-700" /> Cabeza, Perfil & Orejas
                             </span>
                             <p className="text-[11px] text-[#555] leading-relaxed">
@@ -2233,8 +2233,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           </div>
 
                           {/* 2. Body Conformation */}
-                          <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 shadow-2xs">
-                            <span className="font-extrabold text-[#012d1d] text-[11px] flex items-center gap-1.5">
+                          <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 shadow-2xs">
+                            <span className="font-extrabold text-white text-[11px] flex items-center gap-1.5">
                               <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" /> Conformación & Capacidad Torácica
                             </span>
                             <p className="text-[11px] text-[#555] leading-relaxed">
@@ -2243,8 +2243,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           </div>
 
                           {/* 3. Udder Structure */}
-                          <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 shadow-2xs">
-                            <span className="font-extrabold text-[#012d1d] text-[11px] flex items-center gap-1.5">
+                          <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 shadow-2xs">
+                            <span className="font-extrabold text-white text-[11px] flex items-center gap-1.5">
                               <Heart className="w-3.5 h-3.5 text-pink-700" /> Sistema Mamario & Ubre
                             </span>
                             <p className="text-[11px] text-[#555] leading-relaxed">
@@ -2253,8 +2253,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           </div>
 
                           {/* 4. Thermal & Skin Adaptation */}
-                          <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 shadow-2xs">
-                            <span className="font-extrabold text-[#012d1d] text-[11px] flex items-center gap-1.5">
+                          <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 shadow-2xs">
+                            <span className="font-extrabold text-white text-[11px] flex items-center gap-1.5">
                               <Zap className="w-3.5 h-3.5 text-blue-700" /> Adaptación Térmica & Piel
                             </span>
                             <p className="text-[11px] text-[#555] leading-relaxed">
@@ -2265,7 +2265,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       </div>
 
                       {/* Bone & Feet Note */}
-                      <div className="p-2.5 bg-[#f4fbf7] border border-[#a2cfb8] rounded-xl text-[11px] font-medium text-[#012d1d] flex items-center gap-2">
+                      <div className="p-2.5 bg-[#f4fbf7] border border-[#a2cfb8] rounded-xl text-[11px] font-medium text-white flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
                         <span>
                           <strong>Aplomos & Estructura Ósea:</strong> {activeLine.morphology.boneAndFeet}
@@ -2275,9 +2275,9 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   {/* Bottom Section: Reproductive & Productive Efficiency KPIs Dashboard */}
-                  <div className="space-y-3 pt-2 border-t border-[#c1c8c2]">
+                  <div className="space-y-3 pt-2 border-t border-white/10">
                     <div className="flex items-center justify-between">
-                      <h5 className="font-black text-xs md:text-sm text-[#012d1d] uppercase tracking-wider flex items-center gap-2">
+                      <h5 className="font-black text-xs md:text-sm text-white uppercase tracking-wider flex items-center gap-2">
                         <TrendingUp className="w-4 h-4 text-emerald-700" />
                         Indicadores de Eficiencia Reproductiva y Productividad
                       </h5>
@@ -2288,29 +2288,29 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 text-xs">
                       {/* EPP */}
-                      <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 text-center shadow-2xs">
+                      <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 text-center shadow-2xs">
                         <span className="text-[10px] font-extrabold text-[#79564b] uppercase block">
                           Edad 1er Parto (EPP)
                         </span>
-                        <span className="font-mono text-base font-black text-[#012d1d] block">
+                        <span className="font-mono text-base font-black text-white block">
                           {activeLine.reproductiveEfficiency.epp}
                         </span>
                         <span className="text-[9.5px] text-[#717973] block">Precocidad Sexual</span>
                       </div>
 
                       {/* IEP */}
-                      <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 text-center shadow-2xs">
+                      <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 text-center shadow-2xs">
                         <span className="text-[10px] font-extrabold text-[#79564b] uppercase block">
                           Intervalo Partos (IEP)
                         </span>
-                        <span className="font-mono text-base font-black text-[#012d1d] block">
+                        <span className="font-mono text-base font-black text-white block">
                           {activeLine.reproductiveEfficiency.iep}
                         </span>
                         <span className="text-[9.5px] text-[#717973] block">Eficiencia Anual</span>
                       </div>
 
                       {/* Conception Rate */}
-                      <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 text-center shadow-2xs">
+                      <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 text-center shadow-2xs">
                         <span className="text-[10px] font-extrabold text-[#79564b] uppercase block">
                           Tasa Concepción 1er Serv.
                         </span>
@@ -2321,18 +2321,18 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       </div>
 
                       {/* Daily Yield / Weight */}
-                      <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 text-center shadow-2xs">
+                      <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 text-center shadow-2xs">
                         <span className="text-[10px] font-extrabold text-[#79564b] uppercase block">
                           Producción / Destete
                         </span>
-                        <span className="font-mono text-xs font-black text-[#012d1d] block leading-snug">
+                        <span className="font-mono text-xs font-black text-white block leading-snug">
                           {activeLine.reproductiveEfficiency.dailyYieldOrWeight}
                         </span>
                         <span className="text-[9.5px] text-[#717973] block">Rendimiento Finca</span>
                       </div>
 
                       {/* OPU/TE Viability */}
-                      <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 text-center shadow-2xs">
+                      <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 text-center shadow-2xs">
                         <span className="text-[10px] font-extrabold text-[#79564b] uppercase block">
                           Respuesta OPU / TE
                         </span>
@@ -2343,11 +2343,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       </div>
 
                       {/* Useful Life */}
-                      <div className="p-3 bg-white rounded-xl border border-[#c1c8c2] space-y-1 text-center shadow-2xs">
+                      <div className="p-3 bg-[#15241C] rounded-xl border border-white/10 space-y-1 text-center shadow-2xs">
                         <span className="text-[10px] font-extrabold text-[#79564b] uppercase block">
                           Vida Útil
                         </span>
-                        <span className="font-mono text-base font-black text-[#012d1d] block">
+                        <span className="font-mono text-base font-black text-white block">
                           {activeLine.reproductiveEfficiency.usefulLife}
                         </span>
                         <span className="text-[9.5px] text-[#717973] block">Longevidad Hato</span>
@@ -2373,7 +2373,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         onClick={() => {
                           setActiveSubTab('pedigree');
                         }}
-                        className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] text-xs font-black px-3.5 py-2 rounded-xl flex items-center gap-1.5 cursor-pointer shrink-0 transition-all shadow-sm"
+                        className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] text-xs font-black px-3.5 py-2 rounded-xl flex items-center gap-1.5 cursor-pointer shrink-0 transition-all shadow-sm"
                       >
                         <span>Ver Sementales Pedigrí</span>
                         <ChevronRight className="w-4 h-4" />
@@ -2393,13 +2393,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {activeSubTab === 'insemination' && (
         <div className="space-y-6">
           {/* Header & Quick Action */}
-          <div className="bg-white rounded-3xl p-5 border border-[#c1c8c2] card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div className="bg-[#15241C] rounded-3xl p-5 border border-white/10 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
                 <Syringe className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-black text-[#012d1d]">
+                <h3 className="text-lg font-black text-white">
                   Módulo de Inseminación Artificial (IA & IATF)
                 </h3>
               </div>
@@ -2407,7 +2407,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <button
               onClick={() => setShowAddSyncModal(true)}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer"
+              className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer"
             >
               <Plus className="w-4 h-4 text-[#ffba38]" />
               Crear Sincronización IATF
@@ -2417,7 +2417,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
           {/* Active Synchronization Protocols Grid */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h4 className="text-sm font-black text-[#012d1d] uppercase tracking-wider flex items-center gap-2">
+              <h4 className="text-sm font-black text-white uppercase tracking-wider flex items-center gap-2">
                 <CalendarDays className="w-4 h-4 text-[#1b4332]" />
                 Protocolos de Sincronización IATF Activos
               </h4>
@@ -2428,22 +2428,22 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {syncProtocols.map((sync) => (
-                <div key={sync.id} className="p-5 bg-white rounded-2xl border-2 border-[#1b4332]/20 card-shadow space-y-3">
+                <div key={sync.id} className="p-5 bg-[#15241C] rounded-2xl border-2 border-[#1b4332]/20 card-shadow space-y-3">
                   <div className="flex justify-between items-start">
                     <div>
-                      <span className="text-[10px] font-mono font-bold uppercase bg-[#e8f5ec] text-[#012d1d] px-2 py-0.5 rounded border border-[#c1ecd4]">
+                      <span className="text-[10px] font-mono font-bold uppercase bg-[#e8f5ec] text-white px-2 py-0.5 rounded border border-[#c1ecd4]">
                         {sync.technique}
                       </span>
-                      <h5 className="text-base font-black text-[#012d1d] mt-1">{sync.name}</h5>
+                      <h5 className="text-base font-black text-white mt-1">{sync.name}</h5>
                     </div>
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#ffba38] text-[#523700]">
+                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#D4A94E] text-[#0D1A13]">
                       {sync.status}
                     </span>
                   </div>
 
                   {/* Palpation Lot Susceptibility Badge */}
                   {sync.palpationLotName && (
-                    <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200 space-y-1 text-xs">
+                    <div className="p-2.5 bg-amber-950/30 rounded-xl border border-amber-200 space-y-1 text-xs">
                       <div className="flex items-center justify-between">
                         <span className="font-extrabold text-amber-950 flex items-center gap-1.5 text-[11px]">
                           <Stethoscope className="w-3.5 h-3.5 text-amber-800" />
@@ -2478,11 +2478,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   <div className="grid grid-cols-2 gap-2 text-xs font-mono bg-[#f8f9f8] p-3 rounded-xl border border-[#e2e2e2]">
                     <div>
                       <span className="text-[10px] text-[#79564b] block font-extrabold">FECHA INICIO HORMONAS</span>
-                      <span className="font-bold text-[#012d1d]">{sync.startDate}</span>
+                      <span className="font-bold text-white">{sync.startDate}</span>
                     </div>
                     <div>
                       <span className="text-[10px] text-[#79564b] block font-extrabold">RETIRO DISPOSITIVO (DIB)</span>
-                      <span className="font-bold text-[#012d1d]">{sync.deviceWithdrawalDate}</span>
+                      <span className="font-bold text-white">{sync.deviceWithdrawalDate}</span>
                     </div>
                     <div>
                       <span className="text-[10px] text-[#79564b] block font-extrabold">INSEMINACIÓN IATF</span>
@@ -2490,15 +2490,15 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     </div>
                     <div>
                       <span className="text-[10px] text-[#79564b] block font-extrabold">CHEQUEO PALPACIÓN (45d)</span>
-                      <span className="font-black text-[#012d1d]">{sync.scheduledPalpationDate}</span>
+                      <span className="font-black text-white">{sync.scheduledPalpationDate}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between text-xs pt-1">
                     <span className="text-[#717973] font-medium">
-                      Protocolo: <strong className="text-[#012d1d]">{sync.hormonalProtocolUsed}</strong>
+                      Protocolo: <strong className="text-white">{sync.hormonalProtocolUsed}</strong>
                     </span>
-                    <span className="font-mono font-black bg-[#012d1d] text-[#c1ecd4] px-2.5 py-0.5 rounded text-[11px]">
+                    <span className="font-mono font-black bg-[#0D1A13] text-[#A5B8AC] px-2.5 py-0.5 rounded text-[11px]">
                       {sync.femaleCount} Hembras
                     </span>
                   </div>
@@ -2506,7 +2506,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   {/* Assigned inventory females badges */}
                   <div className="pt-2 border-t border-[#e2e2e2] space-y-1.5">
                     <div className="flex items-center justify-between text-[11px]">
-                      <span className="font-extrabold text-[#012d1d] uppercase tracking-wider">
+                      <span className="font-extrabold text-white uppercase tracking-wider">
                         Hembras del Inventario Asignadas
                       </span>
                       <span className="text-[10px] text-[#717973]">Categorías Extraídas</span>
@@ -2521,7 +2521,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         return (
                           <span
                             key={fid}
-                            className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10.5px] font-mono font-bold bg-[#f4fbf7] border border-[#c1c8c2] text-[#012d1d]"
+                            className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10.5px] font-mono font-bold bg-[#f4fbf7] border border-white/10 text-white"
                           >
                             <span>{animal?.tagId || fid}</span>
                             <span
@@ -2542,23 +2542,23 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
           </div>
 
           {/* REGISTRATION FORM FOR INSEMINATION (TOGGLE: INDIVIDUAL VS BATCH) */}
-          <div className="p-5 md:p-6 bg-white rounded-3xl border-2 border-[#1b4332]/30 card-shadow space-y-5">
+          <div className="p-5 md:p-6 bg-[#15241C] rounded-3xl border-2 border-[#1b4332]/30 card-shadow space-y-5">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#e2e2e2] pb-4">
               <div className="flex items-center gap-2">
                 <Syringe className="w-5 h-5 text-[#ffba38]" />
-                <h4 className="text-base font-black text-[#012d1d]">
+                <h4 className="text-base font-black text-white">
                   Registro de Inseminación Artificial (IA / IATF)
                 </h4>
               </div>
 
               {/* Mode Toggle Switch */}
-              <div className="bg-[#f8f9f8] p-1 rounded-2xl border border-[#c1c8c2] flex items-center gap-1">
+              <div className="bg-[#f8f9f8] p-1 rounded-2xl border border-white/10 flex items-center gap-1">
                 <button
                   type="button"
                   onClick={() => setIaMode('individual')}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
                     iaMode === 'individual'
-                      ? 'bg-[#012d1d] text-white shadow-sm'
+                      ? 'bg-[#0D1A13] text-white shadow-sm'
                       : 'text-[#555] hover:text-black'
                   }`}
                 >
@@ -2569,7 +2569,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   onClick={() => setIaMode('batch')}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
                     iaMode === 'batch'
-                      ? 'bg-[#ffba38] text-[#523700] shadow-sm'
+                      ? 'bg-[#D4A94E] text-[#0D1A13] shadow-sm'
                       : 'text-[#555] hover:text-black'
                   }`}
                 >
@@ -2585,8 +2585,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <div className="p-4 bg-[#f4fbf7] border-2 border-[#1b4332]/30 rounded-2xl space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Search className="w-4 h-4 text-[#012d1d]" />
-                      <label className="font-extrabold text-[#012d1d] text-xs uppercase tracking-wider">
+                      <Search className="w-4 h-4 text-white" />
+                      <label className="font-extrabold text-white text-xs uppercase tracking-wider">
                         1. Seleccionar o Digitar Número de Vaca / Arete
                       </label>
                     </div>
@@ -2607,7 +2607,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           value={iaCowTagInput}
                           onChange={(e) => setIaCowTagInput(e.target.value)}
                           placeholder="Ej: 504, 102, 3341, V-504..."
-                          className="w-full pl-9 pr-3 py-2.5 bg-white border border-[#c1c8c2] rounded-xl font-mono font-black text-sm text-[#012d1d] placeholder:font-normal placeholder:text-[#a0a5a2]"
+                          className="w-full pl-9 pr-3 py-2.5 bg-[#15241C] border border-white/10 rounded-xl font-mono font-black text-sm text-white placeholder:font-normal placeholder:text-[#a0a5a2]"
                         />
                       </div>
                     </div>
@@ -2623,7 +2623,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           const matched = females.find((f) => f.id === e.target.value);
                           if (matched) setIaCowTagInput(matched.tagId);
                         }}
-                        className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                        className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl font-bold text-xs text-white"
                       >
                         {females.map((f) => (
                           <option key={f.id} value={f.id}>
@@ -2652,37 +2652,37 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
                     <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-xs">
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Arete / Número</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Arete / Número</span>
                         <span className="font-mono text-base font-black text-white">{activeIaCow.tagId}</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Nombre Vaca</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Nombre Vaca</span>
                         <span className="font-bold text-white truncate block">{activeIaCow.name}</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Raza / Genética</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Raza / Genética</span>
                         <span className="font-semibold text-slate-100">{activeIaCow.breed}</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Lote Actual</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Lote Actual</span>
                         <span className="font-bold text-[#ffba38]">{activeIaCow.lotName || 'Lote 1 - Ordeño'}</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Condición Corporal</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Condición Corporal</span>
                         <span className="font-mono font-bold text-white">{activeIaCow.bodyConditionScore || '3.5 - Óptima'}</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Días Abiertos</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Días Abiertos</span>
                         <span className="font-mono font-bold text-[#ffba38]">{activeIaCow.diasAbiertos} días</span>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] pt-1 border-t border-white/10 font-mono text-slate-200">
                       <div>
-                        <span className="text-[#c1ecd4] font-bold">Madre Directa (Genealogía):</span> {activeIaCow.damName || activeIaCow.motherDirect || 'Lucero 14 (Holstein - Registro)'}
+                        <span className="text-[#A5B8AC] font-bold">Madre Directa (Genealogía):</span> {activeIaCow.damName || activeIaCow.motherDirect || 'Lucero 14 (Holstein - Registro)'}
                       </div>
                       <div>
-                        <span className="text-[#c1ecd4] font-bold">Padre / Toro Previo:</span> {activeIaCow.sireName || activeIaCow.bullOrSemenUsed || 'Semen Raza Pura'}
+                        <span className="text-[#A5B8AC] font-bold">Padre / Toro Previo:</span> {activeIaCow.sireName || activeIaCow.bullOrSemenUsed || 'Semen Raza Pura'}
                       </div>
                     </div>
                   </div>
@@ -2691,11 +2691,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 {/* Additional Event Form Details */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Padre / Semen del Sistema *</label>
+                    <label className="block font-extrabold text-white mb-1">Padre / Semen del Sistema *</label>
                     <select
                       value={formBullId}
                       onChange={(e) => setFormBullId(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white"
                     >
                       {semenInventory.map((s) => (
                         <option key={s.id} value={s.id}>
@@ -2706,22 +2706,22 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Madre Directa (Auto-Cargada del Inventario)</label>
+                    <label className="block font-extrabold text-white mb-1">Madre Directa (Auto-Cargada del Inventario)</label>
                     <input
                       type="text"
                       value={iaMotherName}
                       onChange={(e) => setIaMotherName(e.target.value)}
                       placeholder="Ej: Lucero 14 (Holstein)"
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-semibold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-semibold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Estado / Condición Corporal (CC 1-5) *</label>
+                    <label className="block font-extrabold text-white mb-1">Estado / Condición Corporal (CC 1-5) *</label>
                     <select
                       value={iaBodyCondition}
                       onChange={(e) => setIaBodyCondition(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white"
                     >
                       <option value="1.0 - Muy Delgada / Emaciada">1.0 - Muy Delgada / Emaciada</option>
                       <option value="2.0 - Delgada">2.0 - Delgada</option>
@@ -2734,32 +2734,32 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Fecha de la Inseminación *</label>
+                    <label className="block font-extrabold text-white mb-1">Fecha de la Inseminación *</label>
                     <input
                       type="date"
                       value={eventDate}
                       onChange={(e) => setEventDate(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-mono font-bold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-mono font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Inseminador / Técnico Responsable</label>
+                    <label className="block font-extrabold text-white mb-1">Inseminador / Técnico Responsable</label>
                     <input
                       type="text"
                       value={iaTechnician}
                       onChange={(e) => setIaTechnician(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-semibold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-semibold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Protocolo IATF Aplicado</label>
+                    <label className="block font-extrabold text-white mb-1">Protocolo IATF Aplicado</label>
                     <input
                       type="text"
                       value={iaProtocol}
                       onChange={(e) => setIaProtocol(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-semibold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-semibold text-white"
                     />
                   </div>
                 </div>
@@ -2767,16 +2767,16 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 {/* Live Projections Preview Card */}
                 <div className="p-4 bg-[#e8f5ec] rounded-2xl border border-[#c1ecd4] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
                   <div>
-                    <span className="text-[10px] font-extrabold text-[#012d1d] uppercase block">
+                    <span className="text-[10px] font-extrabold text-white uppercase block">
                       FECHA POSIBLE DEL PARTO (FPP +283 días)
                     </span>
-                    <span className="font-mono text-base font-black text-[#012d1d]">
+                    <span className="font-mono text-base font-black text-white">
                       {new Date(new Date(eventDate).getTime() + 283 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
                     </span>
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-extrabold text-[#012d1d] uppercase block">
+                    <span className="text-[10px] font-extrabold text-white uppercase block">
                       CONFIRMACIÓN DE PREÑEZ (DG PALPACIÓN 45d)
                     </span>
                     <span className="font-mono text-base font-black text-emerald-800">
@@ -2785,10 +2785,10 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-extrabold text-[#012d1d] uppercase block">
+                    <span className="text-[10px] font-extrabold text-white uppercase block">
                       VACA Y PADRE ASIGNADOS
                     </span>
-                    <span className="font-semibold text-[#012d1d]">
+                    <span className="font-semibold text-white">
                       {activeIaCow?.tagId} × {semenInventory.find((s) => s.id === formBullId)?.bullName || 'Semen'}
                     </span>
                   </div>
@@ -2824,7 +2824,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       setFormSuccessMessage(`✅ Inseminación de ${targetCow.tagId} (${targetCow.name}) cargada del inventario y registrada exitosamente con semen de ${chosenSemen.bullName}.`);
                       setTimeout(() => setFormSuccessMessage(null), 4000);
                     }}
-                    className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-black px-6 py-3 rounded-2xl text-xs flex items-center gap-2 shadow-md cursor-pointer active:scale-95 transition-all"
+                    className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black px-6 py-3 rounded-2xl text-xs flex items-center gap-2 shadow-md cursor-pointer active:scale-95 transition-all"
                   >
                     <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                     Guardar Inseminación IA con Datos de Inventario
@@ -2837,12 +2837,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             {iaMode === 'batch' && (
               <div className="space-y-6">
                 {/* Batch Mode Header Banner */}
-                <div className="p-4 bg-[#fff8e8] border-2 border-[#ffba38] rounded-2xl text-xs text-[#523700] space-y-3">
+                <div className="p-4 bg-[#fff8e8] border-2 border-[#ffba38] rounded-2xl text-xs text-[#0D1A13] space-y-3">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
                       <Sparkles className="w-5 h-5 text-[#b27b00] shrink-0" />
                       <div>
-                        <h4 className="font-extrabold text-[#523700] text-sm">Inseminación por Lote con Configuración Individual por Vaca</h4>
+                        <h4 className="font-extrabold text-[#0D1A13] text-sm">Inseminación por Lote con Configuración Individual por Vaca</h4>
                         <p className="text-[11px] text-[#7a5300]">
                           Selecciona las vacas del inventario. Frente a cada vaca puedes asignar la pajuela del toro, si es sexada o convencional, fecha, estado corporal, responsable y observaciones.
                         </p>
@@ -2855,14 +2855,14 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           const allIds = females.map((f) => f.id);
                           setIaBatchSelectedIds(allIds);
                         }}
-                        className="px-3 py-1.5 bg-[#ffba38] hover:bg-[#e0a020] text-[#523700] font-black rounded-xl text-xs cursor-pointer shadow-sm transition-all"
+                        className="px-3 py-1.5 bg-[#D4A94E] hover:bg-[#e0a020] text-[#0D1A13] font-black rounded-xl text-xs cursor-pointer shadow-sm transition-all"
                       >
                         Seleccionar Todas ({females.length})
                       </button>
                       <button
                         type="button"
                         onClick={() => setIaBatchSelectedIds([])}
-                        className="px-3 py-1.5 bg-white text-[#523700] font-bold rounded-xl text-xs border border-[#b27b00] hover:bg-amber-50 cursor-pointer transition-all"
+                        className="px-3 py-1.5 bg-[#15241C] text-[#0D1A13] font-bold rounded-xl text-xs border border-[#b27b00] hover:bg-amber-950/30 cursor-pointer transition-all"
                       >
                         Limpiar Selección
                       </button>
@@ -2873,11 +2873,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 {/* Quick Selection Checkbox Matrix */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="block font-extrabold text-[#012d1d] text-xs uppercase tracking-wider">
+                    <label className="block font-extrabold text-white text-xs uppercase tracking-wider">
                       1. Seleccionar Vacas para el Lote ({iaBatchSelectedIds.length} de {females.length} elegidas)
                     </label>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-h-40 overflow-y-auto p-3 bg-[#f8f9f8] border border-[#c1c8c2] rounded-2xl custom-scrollbar">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-h-40 overflow-y-auto p-3 bg-[#f8f9f8] border border-white/10 rounded-2xl custom-scrollbar">
                     {females.map((f) => {
                       const isChecked = iaBatchSelectedIds.includes(f.id);
                       return (
@@ -2892,8 +2892,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           }}
                           className={`flex items-center gap-2 p-2 rounded-xl text-xs cursor-pointer border transition-all ${
                             isChecked
-                              ? 'bg-[#c1ecd4]/60 border-[#012d1d] font-black text-[#012d1d] shadow-sm'
-                              : 'bg-white border-[#e2e2e2] text-[#555] hover:bg-slate-50'
+                              ? 'bg-[#c1ecd4]/60 border-[#012d1d] font-black text-white shadow-sm'
+                              : 'bg-[#15241C] border-[#e2e2e2] text-[#555] hover:bg-[#0D1A13]'
                           }`}
                         >
                           <input
@@ -2902,7 +2902,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                             onChange={() => {}}
                             className="rounded accent-[#012d1d]"
                           />
-                          <span className="font-mono font-bold text-[#012d1d]">{f.tagId}</span> - <span className="truncate">{f.name}</span>
+                          <span className="font-mono font-bold text-white">{f.tagId}</span> - <span className="truncate">{f.name}</span>
                         </label>
                       );
                     })}
@@ -2912,7 +2912,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 {/* Per-Cow Options Table / List */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <label className="block font-extrabold text-[#012d1d] text-xs uppercase tracking-wider">
+                    <label className="block font-extrabold text-white text-xs uppercase tracking-wider">
                       2. Lista Detallada de Inseminación por Vaca ({iaBatchSelectedIds.length} Animales en Tabla)
                     </label>
                     <span className="text-[11px] font-bold text-[#555]">
@@ -2921,15 +2921,15 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   {iaBatchSelectedIds.length === 0 ? (
-                    <div className="p-8 text-center bg-[#f8f9f8] border border-dashed border-[#c1c8c2] rounded-2xl text-[#717973] text-xs space-y-1">
-                      <p className="font-bold text-[#012d1d]">No has seleccionado ninguna vaca para el lote.</p>
+                    <div className="p-8 text-center bg-[#f8f9f8] border border-dashed border-white/10 rounded-2xl text-[#717973] text-xs space-y-1">
+                      <p className="font-bold text-white">No has seleccionado ninguna vaca para el lote.</p>
                       <p>Marca las casillas en el paso 1 arriba para desplegar la lista de inseminación.</p>
                     </div>
                   ) : (
-                    <div className="border border-[#c1c8c2] rounded-2xl overflow-hidden bg-white shadow-sm overflow-x-auto">
+                    <div className="border border-white/10 rounded-2xl overflow-hidden bg-[#15241C] shadow-sm overflow-x-auto">
                       <table className="w-full text-left border-collapse min-w-[950px]">
                         <thead>
-                          <tr className="bg-[#012d1d] text-white text-[11px] font-mono uppercase tracking-wider">
+                          <tr className="bg-[#0D1A13] text-white text-[11px] font-mono uppercase tracking-wider">
                             <th className="p-3">#</th>
                             <th className="p-3">Vaca / Arete</th>
                             <th className="p-3 w-56">Pajilla / Toro (Inf Toro)</th>
@@ -2952,7 +2952,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                 <td className="p-3 font-mono font-bold text-[#717973]">{index + 1}</td>
 
                                 <td className="p-3">
-                                  <div className="font-mono font-black text-[#012d1d] text-sm">{cow.tagId}</div>
+                                  <div className="font-mono font-black text-white text-sm">{cow.tagId}</div>
                                   <div className="font-semibold text-[#333] text-[11px] truncate max-w-[120px]">{cow.name}</div>
                                   <div className="text-[10px] text-[#717973]">{cow.breed}</div>
                                 </td>
@@ -2961,7 +2961,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                   <select
                                     value={row.semenId}
                                     onChange={(e) => updateBatchRow(cowId, 'semenId', e.target.value)}
-                                    className="w-full p-2 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-2 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white text-xs"
                                   >
                                     {semenInventory.map((s) => (
                                       <option key={s.id} value={s.id}>
@@ -2979,8 +2979,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                       row.isSexed === 'sexada_hembra'
                                         ? 'bg-pink-50 border-pink-300 text-pink-900'
                                         : row.isSexed === 'sexada_macho'
-                                        ? 'bg-blue-50 border-blue-300 text-blue-900'
-                                        : 'bg-[#f8f9f8] border-[#c1c8c2] text-[#012d1d]'
+                                        ? 'bg-blue-950/30 border-blue-300 text-blue-900'
+                                        : 'bg-[#f8f9f8] border-white/10 text-white'
                                     }`}
                                   >
                                     <option value="convencional">Convencional</option>
@@ -2994,7 +2994,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                     type="date"
                                     value={row.eventDate}
                                     onChange={(e) => updateBatchRow(cowId, 'eventDate', e.target.value)}
-                                    className="w-full p-2 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-mono font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-2 bg-[#f8f9f8] border border-white/10 rounded-xl font-mono font-bold text-white text-xs"
                                   />
                                 </td>
 
@@ -3002,7 +3002,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                   <select
                                     value={row.bodyCondition}
                                     onChange={(e) => updateBatchRow(cowId, 'bodyCondition', e.target.value)}
-                                    className="w-full p-2 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-2 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white text-xs"
                                   >
                                     <option value="3.5 - Óptima / Buena">3.5 - Óptima</option>
                                     <option value="3.0 - Buena / Normal">3.0 - Buena</option>
@@ -3017,7 +3017,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                     type="text"
                                     value={row.technician}
                                     onChange={(e) => updateBatchRow(cowId, 'technician', e.target.value)}
-                                    className="w-full p-2 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-semibold text-[#012d1d] text-xs"
+                                    className="w-full p-2 bg-[#f8f9f8] border border-white/10 rounded-xl font-semibold text-white text-xs"
                                   />
                                 </td>
 
@@ -3027,7 +3027,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                     placeholder="Ej: Celo natural, IATF..."
                                     value={row.notes}
                                     onChange={(e) => updateBatchRow(cowId, 'notes', e.target.value)}
-                                    className="w-full p-2 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl text-xs text-[#012d1d]"
+                                    className="w-full p-2 bg-[#f8f9f8] border border-white/10 rounded-xl text-xs text-white"
                                   />
                                 </td>
 
@@ -3051,7 +3051,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </div>
 
                 {/* Batch Calculated Summary & Save Button */}
-                <div className="p-4 bg-[#012d1d] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
+                <div className="p-4 bg-[#0D1A13] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
                   <div className="space-y-1">
                     <span className="text-[10px] font-mono font-bold text-[#ffba38] uppercase tracking-wider block">
                       RESUMEN PROYECTADO DEL LOTE ({iaBatchSelectedIds.length} VACAS A INSEMINAR)
@@ -3065,7 +3065,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       </span>
                       <span>
                         Confirmación DG Promedio:{' '}
-                        <strong className="text-[#c1ecd4] text-sm">
+                        <strong className="text-[#A5B8AC] text-sm">
                           {new Date(new Date(eventDate).getTime() + 45 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
                         </strong>
                       </span>
@@ -3115,7 +3115,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       );
                       setTimeout(() => setFormSuccessMessage(null), 5000);
                     }}
-                    className="w-full sm:w-auto bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-black px-6 py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md active:scale-95 disabled:opacity-50"
+                    className="w-full sm:w-auto bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-black px-6 py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md active:scale-95 disabled:opacity-50"
                   >
                     <CheckCircle2 className="w-4 h-4" />
                     Guardar y Ejecutar Inseminación por Lote ({iaBatchSelectedIds.length})
@@ -3132,13 +3132,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'embryo_transfer' && (
         <div className="space-y-6">
-          <div className="bg-white rounded-3xl p-5 border border-[#c1c8c2] card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div className="bg-[#15241C] rounded-3xl p-5 border border-white/10 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
                 <Microscope className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-black text-[#012d1d]">
+                <h3 className="text-lg font-black text-white">
                   Módulo de Transferencia de Embriones (TE & FIV)
                 </h3>
                 <p className="text-xs text-[#717973]">
@@ -3149,7 +3149,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <button
               onClick={() => setShowAddReceptorModal(true)}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer"
+              className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer"
             >
               <Plus className="w-4 h-4 text-[#ffba38]" />
               Sincronizar Vaca Receptora
@@ -3160,7 +3160,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
           <div className="bg-[#041c14] text-white rounded-3xl p-5 md:p-6 border-2 border-[#1b4332] shadow-2xl space-y-4">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-[#1b4332] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-2xl bg-[#ffba38] text-[#523700] flex items-center justify-center shrink-0 shadow-lg font-black">
+                <div className="w-11 h-11 rounded-2xl bg-[#D4A94E] text-[#0D1A13] flex items-center justify-center shrink-0 shadow-lg font-black">
                   <Dna className="w-5 h-5 animate-pulse" />
                 </div>
                 <div>
@@ -3171,12 +3171,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     <div className="group relative inline-flex items-center">
                       <button
                         type="button"
-                        className="text-[#a2b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                        className="text-[#a2b8ad] hover:text-[#A5B8AC] transition-colors p-0.5 rounded cursor-pointer"
                         title="Catálogo de embriones FIV en tarjetas compactas. Colores sutiles: Transparente (Fecundado), Oscuro (Transferido) y Gris (Vitrificado)."
                       >
                         <Info className="w-4 h-4" />
                       </button>
-                      <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                      <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                         Catálogo de embriones FIV en tarjetas compactas. Colores sutiles: Transparente (Fecundado), Oscuro (Transferido) y Gris (Vitrificado).
                       </div>
                     </div>
@@ -3189,7 +3189,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowBatchEmbryoModal(true)}
-                  className="bg-[#012d1d] hover:bg-[#083a27] text-[#ffba38] border border-[#ffba38]/40 font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
+                  className="bg-[#0D1A13] hover:bg-[#083a27] text-[#ffba38] border border-[#ffba38]/40 font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
                 >
                   <Layers3 className="w-4 h-4 text-[#ffba38]" />
                   Crear por Lote
@@ -3198,9 +3198,9 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowCreateEmbryoModal(true)}
-                  className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-md cursor-pointer transition-all active:scale-95"
+                  className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-md cursor-pointer transition-all active:scale-95"
                 >
-                  <Plus className="w-4 h-4 text-[#523700]" />
+                  <Plus className="w-4 h-4 text-[#0D1A13]" />
                   Crear Embrión
                 </button>
 
@@ -3218,13 +3218,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             {/* Status Color Key / Filter Bar */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#08291d] p-3 rounded-2xl border border-[#1b4332]">
               <div className="flex items-center gap-2 flex-wrap text-xs">
-                <span className="text-[11px] font-bold text-[#c1ecd4] uppercase tracking-wider mr-1">Filtrar:</span>
+                <span className="text-[11px] font-bold text-[#A5B8AC] uppercase tracking-wider mr-1">Filtrar:</span>
                 <button
                   type="button"
                   onClick={() => setEmbryoFilterStatus('all')}
                   className={`px-2.5 py-1 rounded-xl font-bold text-xs cursor-pointer transition-all ${
                     embryoFilterStatus === 'all'
-                      ? 'bg-white text-[#012d1d] shadow-sm font-black'
+                      ? 'bg-[#15241C] text-white shadow-sm font-black'
                       : 'bg-white/10 text-white hover:bg-white/20'
                   }`}
                 >
@@ -3252,7 +3252,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   className={`px-2.5 py-1 rounded-xl font-bold text-xs cursor-pointer transition-all flex items-center gap-1 border ${
                     embryoFilterStatus === 'transferido'
                       ? 'bg-slate-900 text-purple-200 border-purple-400 ring-2 ring-purple-400/50 font-black shadow-lg'
-                      : 'bg-slate-900/60 text-slate-300 border-slate-700 hover:bg-slate-900'
+                      : 'bg-slate-900/60 text-[#A5B8AC] border-slate-700 hover:bg-slate-900'
                   }`}
                 >
                   <span className="w-2 h-2 rounded-full bg-purple-400 inline-block"></span>
@@ -3275,7 +3275,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               {/* Color Legend explanation */}
-              <div className="flex items-center gap-2 text-[10px] font-mono text-[#c1ecd4]">
+              <div className="flex items-center gap-2 text-[10px] font-mono text-[#A5B8AC]">
                 <div className="flex items-center gap-1">
                   <span className="w-2.5 h-2.5 rounded-sm bg-white/10 border border-amber-400/50 inline-block"></span>
                   <span>Transparente</span>
@@ -3320,7 +3320,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           >
                             {emb.code}
                           </span>
-                          <span className="text-[9.5px] font-bold text-[#c1ecd4] truncate block">
+                          <span className="text-[9.5px] font-bold text-[#A5B8AC] truncate block">
                             {emb.stage.replace('Blastocisto', 'Blast.')} ({emb.quality})
                           </span>
                         </div>
@@ -3351,7 +3351,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           <span className="text-[#a2b8ad]">Padre:</span>
                           <span className="font-bold truncate max-w-[80px]" title={emb.sireName}>{emb.sireName.split(' ')[0]}</span>
                         </div>
-                        <div className="flex justify-between text-[#c1ecd4]/90 text-[9px]">
+                        <div className="flex justify-between text-[#A5B8AC]/90 text-[9px]">
                           <span className="text-[#a2b8ad]">Ubicación:</span>
                           <span className="truncate max-w-[80px]">{emb.lotCanister?.split('/')[1] || emb.lotCanister || 'T-1'}</span>
                         </div>
@@ -3413,8 +3413,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
           </div>
 
           {/* Active Embryo Transfers Table */}
-          <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow overflow-hidden p-5 space-y-4">
-            <h4 className="text-sm font-black text-[#012d1d] uppercase tracking-wider flex items-center gap-2">
+          <div className="bg-[#15241C] rounded-3xl border border-white/10 card-shadow overflow-hidden p-5 space-y-4">
+            <h4 className="text-sm font-black text-white uppercase tracking-wider flex items-center gap-2">
               <Dna className="w-4 h-4 text-[#1b4332]" />
               Programa Activo de Receptores & Embriones FIV ({receptors.length} Receptoras)
             </h4>
@@ -3422,7 +3422,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#c1ecd4] text-[10.5px] font-extrabold uppercase tracking-wider">
+                  <tr className="bg-[#0D1A13] text-[#A5B8AC] text-[10.5px] font-extrabold uppercase tracking-wider">
                     <th className="p-3 pl-4">Vaca Receptora</th>
                     <th className="p-3">Estado Sincronización</th>
                     <th className="p-3">Cuerpo Lúteo (CL)</th>
@@ -3433,22 +3433,22 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </thead>
                 <tbody className="divide-y divide-[#eeeeee] text-xs font-medium">
                   {receptors.map((rec) => (
-                    <tr key={rec.id} className="hover:bg-[#f8fbf9]">
-                      <td className="p-3 pl-4 font-black text-[#012d1d]">
+                    <tr key={rec.id} className="hover:bg-[#15241C]">
+                      <td className="p-3 pl-4 font-black text-white">
                         {rec.tagId} - {rec.name} ({rec.breed})
                       </td>
                       <td className="p-3 font-semibold">
-                        <span className="px-2 py-0.5 rounded bg-[#e8f5ec] text-[#012d1d] text-[11px] font-bold">
+                        <span className="px-2 py-0.5 rounded bg-[#e8f5ec] text-white text-[11px] font-bold">
                           {rec.synchronizationStatus}
                         </span>
                       </td>
-                      <td className="p-3 font-mono text-[#523700] font-bold">
+                      <td className="p-3 font-mono text-[#0D1A13] font-bold">
                         {rec.lutealBodyQuality || 'CL Grado 1 (Excelente)'}
                       </td>
-                      <td className="p-3 font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 font-mono font-bold text-white">
                         {rec.assignedDonorId ? `Donadora ${rec.assignedDonorId}` : 'Donadora FIV Elite'}
                       </td>
-                      <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-center font-mono font-bold text-white">
                         {rec.lastTransferDate || 'Reciente'}
                       </td>
                       <td className="p-3 text-center">
@@ -3456,7 +3456,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           rec.pregnancyStatus === 'Gestante'
                             ? 'bg-[#c1ecd4] text-[#002114]'
                             : rec.pregnancyStatus === 'Pendiente DG'
-                            ? 'bg-[#ffba38] text-[#523700]'
+                            ? 'bg-[#D4A94E] text-[#0D1A13]'
                             : 'bg-[#ffdad6] text-[#93000a]'
                         }`}>
                           {rec.pregnancyStatus}
@@ -3470,23 +3470,23 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
           </div>
 
           {/* REGISTRATION FORM FOR EMBRYO TRANSFER (TOGGLE: INDIVIDUAL VS BATCH) */}
-          <div className="p-5 md:p-6 bg-white rounded-3xl border-2 border-[#1b4332]/30 card-shadow space-y-5">
+          <div className="p-5 md:p-6 bg-[#15241C] rounded-3xl border-2 border-[#1b4332]/30 card-shadow space-y-5">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#e2e2e2] pb-4">
               <div className="flex items-center gap-2">
                 <Microscope className="w-5 h-5 text-[#ffba38]" />
-                <h4 className="text-base font-black text-[#012d1d]">
+                <h4 className="text-base font-black text-white">
                   Registro de Transferencia de Embrión (TE / FIV)
                 </h4>
               </div>
 
               {/* Mode Toggle Switch */}
-              <div className="bg-[#f8f9f8] p-1 rounded-2xl border border-[#c1c8c2] flex items-center gap-1">
+              <div className="bg-[#f8f9f8] p-1 rounded-2xl border border-white/10 flex items-center gap-1">
                 <button
                   type="button"
                   onClick={() => setTeMode('individual')}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
                     teMode === 'individual'
-                      ? 'bg-[#012d1d] text-white shadow-sm'
+                      ? 'bg-[#0D1A13] text-white shadow-sm'
                       : 'text-[#555] hover:text-black'
                   }`}
                 >
@@ -3497,7 +3497,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   onClick={() => setTeMode('batch')}
                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
                     teMode === 'batch'
-                      ? 'bg-[#ffba38] text-[#523700] shadow-sm'
+                      ? 'bg-[#D4A94E] text-[#0D1A13] shadow-sm'
                       : 'text-[#555] hover:text-black'
                   }`}
                 >
@@ -3513,8 +3513,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <div className="p-4 bg-[#f4fbf7] border-2 border-[#1b4332]/30 rounded-2xl space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Search className="w-4 h-4 text-[#012d1d]" />
-                      <label className="font-extrabold text-[#012d1d] text-xs uppercase tracking-wider">
+                      <Search className="w-4 h-4 text-white" />
+                      <label className="font-extrabold text-white text-xs uppercase tracking-wider">
                         1. Seleccionar o Digitar Número de Vaca Receptora
                       </label>
                     </div>
@@ -3535,7 +3535,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           value={teReceptorTagInput}
                           onChange={(e) => setTeReceptorTagInput(e.target.value)}
                           placeholder="Ej: BR-102, 102, 3341, 901..."
-                          className="w-full pl-9 pr-3 py-2.5 bg-white border border-[#c1c8c2] rounded-xl font-mono font-black text-sm text-[#012d1d] placeholder:font-normal placeholder:text-[#a0a5a2]"
+                          className="w-full pl-9 pr-3 py-2.5 bg-[#15241C] border border-white/10 rounded-xl font-mono font-black text-sm text-white placeholder:font-normal placeholder:text-[#a0a5a2]"
                         />
                       </div>
                     </div>
@@ -3551,7 +3551,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           const matched = receptors.find((r) => r.id === e.target.value);
                           if (matched) setTeReceptorTagInput(matched.tagId);
                         }}
-                        className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                        className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl font-bold text-xs text-white"
                       >
                         {receptors.map((r) => (
                           <option key={r.id} value={r.id}>
@@ -3580,15 +3580,15 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
                     <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Arete / ID</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Arete / ID</span>
                         <span className="font-mono text-sm font-black text-white">{activeTeReceptor.tagId}</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Nombre / Raza</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Nombre / Raza</span>
                         <span className="font-bold text-white truncate block">{activeTeReceptor.name} ({activeTeReceptor.breed})</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Categoría Reproductiva</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Categoría Reproductiva</span>
                         <select
                           value={teFemaleCategory}
                           onChange={(e) => setTeFemaleCategory(e.target.value as 'Vaca' | 'Novilla')}
@@ -3599,11 +3599,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         </select>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Cuerpo Lúteo (CL)</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Cuerpo Lúteo (CL)</span>
                         <span className="font-mono font-bold text-[#ffba38]">{activeTeReceptor.lutealBodyQuality || 'CL Grado 1'}</span>
                       </div>
                       <div>
-                        <span className="text-[9.5px] text-[#c1ecd4] font-bold uppercase block">Gestación Actual</span>
+                        <span className="text-[9.5px] text-[#A5B8AC] font-bold uppercase block">Gestación Actual</span>
                         <span className="font-bold text-emerald-300">{activeTeReceptor.pregnancyStatus}</span>
                       </div>
                     </div>
@@ -3612,7 +3612,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Vaca Receptora *</label>
+                    <label className="block font-extrabold text-white mb-1">Vaca Receptora *</label>
                     <select
                       value={teSelectedReceptorId}
                       onChange={(e) => {
@@ -3620,7 +3620,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         const matched = receptors.find((r) => r.id === e.target.value);
                         if (matched) setTeReceptorTagInput(matched.tagId);
                       }}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white"
                     >
                       {receptors.map((r) => (
                         <option key={r.id} value={r.id}>
@@ -3631,11 +3631,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Calidad del Cuerpo Lúteo (CL) *</label>
+                    <label className="block font-extrabold text-white mb-1">Calidad del Cuerpo Lúteo (CL) *</label>
                     <select
                       value={teLutealQuality}
                       onChange={(e) => setTeLutealQuality(e.target.value as any)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white"
                     >
                       <option value="CL Grado 1 (Excelente)">CL Grado 1 (Excelente - Tono & Vascularizado)</option>
                       <option value="CL Grado 2 (Bueno)">CL Grado 2 (Bueno - Aceptable para TE)</option>
@@ -3644,11 +3644,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Estado Corporal Receptora (CC)</label>
+                    <label className="block font-extrabold text-white mb-1">Estado Corporal Receptora (CC)</label>
                     <select
                       value={teBodyCondition}
                       onChange={(e) => setTeBodyCondition(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white"
                     >
                       <option value="3.5 - Óptima">3.5 - Óptima</option>
                       <option value="3.0 - Normal">3.0 - Normal</option>
@@ -3657,22 +3657,22 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Fecha de la Transferencia (TE)</label>
+                    <label className="block font-extrabold text-white mb-1">Fecha de la Transferencia (TE)</label>
                     <input
                       type="date"
                       value={teTransferDate}
                       onChange={(e) => setTeTransferDate(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-mono font-bold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-mono font-bold text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-extrabold text-[#012d1d] mb-1">Veterinario Responsable TE</label>
+                    <label className="block font-extrabold text-white mb-1">Veterinario Responsable TE</label>
                     <input
                       type="text"
                       value={teTechnician}
                       onChange={(e) => setTeTechnician(e.target.value)}
-                      className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-semibold text-[#012d1d]"
+                      className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-semibold text-white"
                     />
                   </div>
                 </div>
@@ -3680,16 +3680,16 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 {/* Calculated Live Dates for TE */}
                 <div className="p-4 bg-[#f4fbf7] rounded-2xl border border-[#c1ecd4] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
                   <div>
-                    <span className="text-[10px] font-extrabold text-[#012d1d] uppercase block">
+                    <span className="text-[10px] font-extrabold text-white uppercase block">
                       FECHA POSIBLE DEL PARTO (FPP +280 días)
                     </span>
-                    <span className="font-mono text-base font-black text-[#012d1d]">
+                    <span className="font-mono text-base font-black text-white">
                       {new Date(new Date(teTransferDate).getTime() + 280 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
                     </span>
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-extrabold text-[#012d1d] uppercase block">
+                    <span className="text-[10px] font-extrabold text-white uppercase block">
                       CONFIRMACIÓN PREÑEZ (ECOGRAFÍA DG 35d)
                     </span>
                     <span className="font-mono text-base font-black text-emerald-800">
@@ -3698,10 +3698,10 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-extrabold text-[#012d1d] uppercase block">
+                    <span className="text-[10px] font-extrabold text-white uppercase block">
                       VACA RECEPTORA Y EMBRIÓN
                     </span>
-                    <span className="font-semibold text-[#012d1d]">
+                    <span className="font-semibold text-white">
                       Rec: {activeTeReceptor?.tagId} | Madre: {activeTeDonor?.tagId} | Genética: {teEmbryoOriginType === 'propia' ? 'Propia' : 'Adquirida'}
                     </span>
                   </div>
@@ -3734,7 +3734,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       );
                       setTimeout(() => setFormSuccessMessage(null), 5000);
                     }}
-                    className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-black px-6 py-3 rounded-2xl text-xs flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
+                    className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black px-6 py-3 rounded-2xl text-xs flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
                   >
                     <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                     Guardar Transferencia TE & Registrar Genealogía de la Ganadería
@@ -3750,9 +3750,9 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <div className="p-4 bg-[#e8f5ec] border-2 border-[#1b4332]/30 rounded-2xl text-xs text-[#002114] space-y-3">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 text-[#012d1d] shrink-0" />
+                      <Sparkles className="w-5 h-5 text-white shrink-0" />
                       <div>
-                        <h4 className="font-extrabold text-[#012d1d] text-sm">Transferencia de Embriones (TE / FIV) por Lote</h4>
+                        <h4 className="font-extrabold text-white text-sm">Transferencia de Embriones (TE / FIV) por Lote</h4>
                         <p className="text-[11px] text-[#2d5240]">
                           Selecciona las vacas receptoras del programa. Para cada receptora puedes asignar la donadora madre, el semental/padre FIV, tipo de embrión, calidad del cuerpo lúteo (CL), fecha, responsable y observaciones.
                         </p>
@@ -3765,14 +3765,14 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           const allIds = receptors.map((r) => r.id);
                           setTeBatchSelectedIds(allIds);
                         }}
-                        className="px-3 py-1.5 bg-[#012d1d] hover:bg-[#1b4332] text-white font-black rounded-xl text-xs cursor-pointer shadow-sm transition-all"
+                        className="px-3 py-1.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black rounded-xl text-xs cursor-pointer shadow-sm transition-all"
                       >
                         Seleccionar Todas ({receptors.length})
                       </button>
                       <button
                         type="button"
                         onClick={() => setTeBatchSelectedIds([])}
-                        className="px-3 py-1.5 bg-white text-[#012d1d] font-bold rounded-xl text-xs border border-[#012d1d] hover:bg-emerald-50 cursor-pointer transition-all"
+                        className="px-3 py-1.5 bg-[#15241C] text-white font-bold rounded-xl text-xs border border-[#012d1d] hover:bg-emerald-950/30 cursor-pointer transition-all"
                       >
                         Limpiar Selección
                       </button>
@@ -3783,11 +3783,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 {/* Quick Selection Checkbox Matrix */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="block font-extrabold text-[#012d1d] text-xs uppercase tracking-wider">
+                    <label className="block font-extrabold text-white text-xs uppercase tracking-wider">
                       1. Seleccionar Receptoras para el Lote ({teBatchSelectedIds.length} de {receptors.length} elegidas)
                     </label>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-h-40 overflow-y-auto p-3 bg-[#f8f9f8] border border-[#c1c8c2] rounded-2xl custom-scrollbar">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-h-40 overflow-y-auto p-3 bg-[#f8f9f8] border border-white/10 rounded-2xl custom-scrollbar">
                     {receptors.map((r) => {
                       const isChecked = teBatchSelectedIds.includes(r.id);
                       return (
@@ -3802,8 +3802,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           }}
                           className={`flex items-center gap-2 p-2 rounded-xl text-xs cursor-pointer border transition-all ${
                             isChecked
-                              ? 'bg-[#c1ecd4]/60 border-[#012d1d] font-black text-[#012d1d] shadow-sm'
-                              : 'bg-white border-[#e2e2e2] text-[#555] hover:bg-slate-50'
+                              ? 'bg-[#c1ecd4]/60 border-[#012d1d] font-black text-white shadow-sm'
+                              : 'bg-[#15241C] border-[#e2e2e2] text-[#555] hover:bg-[#0D1A13]'
                           }`}
                         >
                           <input
@@ -3812,7 +3812,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                             onChange={() => {}}
                             className="rounded accent-[#012d1d]"
                           />
-                          <span className="font-mono font-bold text-[#012d1d]">{r.tagId}</span> - <span className="truncate">{r.name}</span>
+                          <span className="font-mono font-bold text-white">{r.tagId}</span> - <span className="truncate">{r.name}</span>
                         </label>
                       );
                     })}
@@ -3823,28 +3823,28 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <label className="block font-extrabold text-[#012d1d] text-xs uppercase tracking-wider">
+                      <label className="block font-extrabold text-white text-xs uppercase tracking-wider">
                         2. Lista Detallada de Transferencia de Embrión por Receptora ({teBatchSelectedIds.length} Receptoras en Lote)
                       </label>
                       <p className="text-[11px] text-[#555] font-medium">
                         Configura para cada receptora el origen de la donadora madre (Propia / Adquirida), el semental padre (Propio / Comprado) y el tipo de embrión para construir la genealogía propia de la ganadería.
                       </p>
                     </div>
-                    <span className="text-[10px] font-mono font-bold bg-[#012d1d] text-white px-3 py-1 rounded-xl shrink-0 self-start sm:self-auto">
+                    <span className="text-[10px] font-mono font-bold bg-[#0D1A13] text-white px-3 py-1 rounded-xl shrink-0 self-start sm:self-auto">
                       Análisis de Cruces & Genealogía en Vivo
                     </span>
                   </div>
 
                   {teBatchSelectedIds.length === 0 ? (
-                    <div className="p-8 text-center bg-[#f8f9f8] border border-dashed border-[#c1c8c2] rounded-2xl text-[#717973] text-xs space-y-1">
-                      <p className="font-bold text-[#012d1d]">No has seleccionado ninguna receptora para el lote.</p>
+                    <div className="p-8 text-center bg-[#f8f9f8] border border-dashed border-white/10 rounded-2xl text-[#717973] text-xs space-y-1">
+                      <p className="font-bold text-white">No has seleccionado ninguna receptora para el lote.</p>
                       <p>Marca las casillas en el paso 1 arriba para desplegar la lista de transferencias.</p>
                     </div>
                   ) : (
-                    <div className="border border-[#c1c8c2] rounded-2xl overflow-hidden bg-white shadow-sm overflow-x-auto">
+                    <div className="border border-white/10 rounded-2xl overflow-hidden bg-[#15241C] shadow-sm overflow-x-auto">
                       <table className="w-full text-left border-collapse min-w-[1280px]">
                         <thead>
-                          <tr className="bg-[#012d1d] text-white text-[10.5px] font-mono uppercase tracking-wider">
+                          <tr className="bg-[#0D1A13] text-white text-[10.5px] font-mono uppercase tracking-wider">
                             <th className="p-3">#</th>
                             <th className="p-3">Vaca Receptora & Categoría</th>
                             <th className="p-3 w-56">Madre Donadora & Origen</th>
@@ -3873,7 +3873,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                 <td className="p-3 font-mono font-bold text-[#717973]">{index + 1}</td>
 
                                 <td className="p-3 space-y-1">
-                                  <div className="font-mono font-black text-[#012d1d] text-sm">{rec.tagId}</div>
+                                  <div className="font-mono font-black text-white text-sm">{rec.tagId}</div>
                                   <div className="font-semibold text-[#333] text-[11px] truncate max-w-[120px]">{rec.name}</div>
                                   <div className="text-[10px] text-[#717973]">{rec.breed}</div>
                                   <select
@@ -3895,7 +3895,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                   <select
                                     value={row.donorId}
                                     onChange={(e) => updateBatchTeRow(recId, 'donorId', e.target.value)}
-                                    className="w-full p-1.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-lg font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-1.5 bg-[#f8f9f8] border border-white/10 rounded-lg font-bold text-white text-xs"
                                   >
                                     {donors.map((d) => (
                                       <option key={d.id} value={d.id}>
@@ -3909,8 +3909,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                       onChange={(e) => updateBatchTeRow(recId, 'maternalOrigin', e.target.value as any)}
                                       className={`text-[10px] font-bold p-1 rounded-md border ${
                                         row.maternalOrigin === 'propia'
-                                          ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                                          : 'bg-amber-50 text-amber-900 border-amber-300'
+                                          ? 'bg-emerald-950/30 text-emerald-800 border-emerald-300'
+                                          : 'bg-amber-950/30 text-amber-900 border-amber-300'
                                       }`}
                                     >
                                       <option value="propia">Propia Ganadería</option>
@@ -3924,7 +3924,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                   <select
                                     value={row.semenId}
                                     onChange={(e) => updateBatchTeRow(recId, 'semenId', e.target.value)}
-                                    className="w-full p-1.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-lg font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-1.5 bg-[#f8f9f8] border border-white/10 rounded-lg font-bold text-white text-xs"
                                   >
                                     {semenInventory.map((s) => (
                                       <option key={s.id} value={s.id}>
@@ -3938,8 +3938,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                       onChange={(e) => updateBatchTeRow(recId, 'paternalOrigin', e.target.value as any)}
                                       className={`text-[10px] font-bold p-1 rounded-md border ${
                                         row.paternalOrigin === 'propio'
-                                          ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                                          : 'bg-purple-50 text-purple-900 border-purple-300'
+                                          ? 'bg-emerald-950/30 text-emerald-800 border-emerald-300'
+                                          : 'bg-purple-950/30 text-purple-900 border-purple-300'
                                       }`}
                                     >
                                       <option value="propio">Toro Propio Finca</option>
@@ -3951,7 +3951,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                 {/* CROSSBREED RESULT BADGE */}
                                 <td className="p-3">
                                   <div className="p-2 bg-[#f4fbf7] border border-[#c1ecd4] rounded-xl space-y-1">
-                                    <span className="font-extrabold text-[#012d1d] text-[11px] block leading-tight">
+                                    <span className="font-extrabold text-white text-[11px] block leading-tight">
                                       {crossResult.crossName}
                                     </span>
                                     <span className="text-[9.5px] font-medium text-[#006e48] block leading-tight">
@@ -3965,7 +3965,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                   <select
                                     value={row.embryoType}
                                     onChange={(e) => updateBatchTeRow(recId, 'embryoType', e.target.value)}
-                                    className="w-full p-1.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-lg font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-1.5 bg-[#f8f9f8] border border-white/10 rounded-lg font-bold text-white text-xs"
                                   >
                                     <option value="FIV Fresco - Grado 1">FIV Fresco - Grado 1</option>
                                     <option value="FIV Vitrificado (Direct Transfer)">FIV Vitrificado DT</option>
@@ -3979,7 +3979,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                   <select
                                     value={row.lutealQuality}
                                     onChange={(e) => updateBatchTeRow(recId, 'lutealQuality', e.target.value)}
-                                    className="w-full p-1.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-lg font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-1.5 bg-[#f8f9f8] border border-white/10 rounded-lg font-bold text-white text-xs"
                                   >
                                     <option value="CL Grado 1 (Excelente)">CL Grado 1 (Excelente)</option>
                                     <option value="CL Grado 2 (Bueno)">CL Grado 2 (Bueno)</option>
@@ -3993,7 +3993,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                     type="date"
                                     value={row.transferDate}
                                     onChange={(e) => updateBatchTeRow(recId, 'transferDate', e.target.value)}
-                                    className="w-full p-1.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-lg font-mono font-bold text-[#012d1d] text-xs"
+                                    className="w-full p-1.5 bg-[#f8f9f8] border border-white/10 rounded-lg font-mono font-bold text-white text-xs"
                                   />
                                 </td>
 
@@ -4003,7 +4003,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                     type="text"
                                     value={row.technician}
                                     onChange={(e) => updateBatchTeRow(recId, 'technician', e.target.value)}
-                                    className="w-full p-1.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-lg font-semibold text-[#012d1d] text-xs"
+                                    className="w-full p-1.5 bg-[#f8f9f8] border border-white/10 rounded-lg font-semibold text-white text-xs"
                                   />
                                 </td>
 
@@ -4014,7 +4014,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                                     placeholder="Ej: Genealogía propia, canastilla #4..."
                                     value={row.notes}
                                     onChange={(e) => updateBatchTeRow(recId, 'notes', e.target.value)}
-                                    className="w-full p-1.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-lg text-xs text-[#012d1d]"
+                                    className="w-full p-1.5 bg-[#f8f9f8] border border-white/10 rounded-lg text-xs text-white"
                                   />
                                 </td>
 
@@ -4038,7 +4038,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </div>
 
                 {/* Batch Calculated Summary & Save Button */}
-                <div className="p-4 bg-[#012d1d] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
+                <div className="p-4 bg-[#0D1A13] text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
                   <div className="space-y-1">
                     <span className="text-[10px] font-mono font-bold text-[#ffba38] uppercase tracking-wider block">
                       PROYECCIÓN DE TRANSFERENCIA TE POR LOTE ({teBatchSelectedIds.length} RECEPTORAS)
@@ -4052,7 +4052,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       </span>
                       <span>
                         Ecografía DG Promedio:{' '}
-                        <strong className="text-[#c1ecd4] text-sm">
+                        <strong className="text-[#A5B8AC] text-sm">
                           {new Date(new Date(teTransferDate).getTime() + 35 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
                         </strong>
                       </span>
@@ -4086,7 +4086,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       );
                       setTimeout(() => setFormSuccessMessage(null), 5000);
                     }}
-                    className="w-full sm:w-auto bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-black px-6 py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md active:scale-95 disabled:opacity-50"
+                    className="w-full sm:w-auto bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-black px-6 py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md active:scale-95 disabled:opacity-50"
                   >
                     <CheckCircle2 className="w-4 h-4" />
                     Guardar y Ejecutar Transferencia por Lote ({teBatchSelectedIds.length})
@@ -4103,9 +4103,9 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'donors_receptors' && (
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-5 rounded-3xl border border-[#c1c8c2] card-shadow">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#15241C] p-5 rounded-3xl border border-white/10 card-shadow">
             <div>
-              <h3 className="text-lg font-black text-[#012d1d]">Catálogo de Vacas Donadoras & Vacas Receptoras</h3>
+              <h3 className="text-lg font-black text-white">Catálogo de Vacas Donadoras & Vacas Receptoras</h3>
               <p className="text-xs text-[#717973]">
                 Clasificación genética de hembras de elite (Donadoras OPU/FIV) y matriz receptoras de embriones.
               </p>
@@ -4114,14 +4114,14 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             <div className="flex gap-2">
               <button
                 onClick={() => setShowAddDonorModal(true)}
-                className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-extrabold px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-sm"
+                className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-extrabold px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-sm"
               >
                 <Plus className="w-4 h-4 text-[#ffba38]" />
                 + Nueva Donadora
               </button>
               <button
                 onClick={() => setShowAddReceptorModal(true)}
-                className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-sm"
+                className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-sm"
               >
                 <Plus className="w-4 h-4" />
                 + Nueva Receptora
@@ -4131,20 +4131,20 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
           {/* Donors Cards */}
           <div className="space-y-3">
-            <h4 className="text-sm font-black text-[#012d1d] uppercase tracking-wider flex items-center gap-2">
+            <h4 className="text-sm font-black text-white uppercase tracking-wider flex items-center gap-2">
               <Award className="w-4 h-4 text-[#ffba38]" />
               Vacas Donadoras de Elite ({donors.length})
             </h4>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {donors.map((donor) => (
-                <div key={donor.id} className="p-5 bg-white rounded-2xl border-2 border-[#ffba38]/50 card-shadow space-y-3">
+                <div key={donor.id} className="p-5 bg-[#15241C] rounded-2xl border-2 border-[#ffba38]/50 card-shadow space-y-3">
                   <div className="flex justify-between items-start">
                     <div>
-                      <span className="text-[10px] font-mono font-bold bg-[#ffba38] text-[#523700] px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono font-bold bg-[#D4A94E] text-[#0D1A13] px-2 py-0.5 rounded">
                         {donor.geneticsCategory}
                       </span>
-                      <h5 className="text-base font-black text-[#012d1d] mt-1">
+                      <h5 className="text-base font-black text-white mt-1">
                         {donor.tagId} - {donor.name}
                       </h5>
                       <span className="text-xs text-[#717973]">{donor.breed}</span>
@@ -4159,11 +4159,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   <div className="grid grid-cols-3 gap-2 bg-[#f8f9f8] p-3 rounded-xl text-xs text-center border border-[#e2e2e2]">
                     <div>
                       <span className="text-[10px] text-[#79564b] font-bold block uppercase">Colectas OPU</span>
-                      <span className="font-mono font-black text-sm text-[#012d1d]">{donor.totalOpuCollections}</span>
+                      <span className="font-mono font-black text-sm text-white">{donor.totalOpuCollections}</span>
                     </div>
                     <div>
                       <span className="text-[10px] text-[#79564b] font-bold block uppercase">Embriones Producidos</span>
-                      <span className="font-mono font-black text-sm text-[#012d1d]">{donor.totalEmbryosProduced}</span>
+                      <span className="font-mono font-black text-sm text-white">{donor.totalEmbryosProduced}</span>
                     </div>
                     <div>
                       <span className="text-[10px] text-[#79564b] font-bold block uppercase">Tasa Viabilidad</span>
@@ -4182,13 +4182,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'bulls_semen' && (
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-5 rounded-3xl border border-[#c1c8c2] card-shadow">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#15241C] p-5 rounded-3xl border border-white/10 card-shadow">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
                 <Container className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-black text-[#012d1d]">
+                <h3 className="text-lg font-black text-white">
                   Inventario de Sementales: Toros Propios vs. Termo de Nitrógeno (Semen Comprado)
                 </h3>
                 <p className="text-xs text-[#717973]">
@@ -4199,7 +4199,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <button
               onClick={() => setShowAddSemenModal(true)}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md shrink-0"
+              className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md shrink-0"
             >
               <Plus className="w-4 h-4 text-[#ffba38]" />
               + Registrar Pajuelas / Semental
@@ -4210,7 +4210,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             {semenInventory.map((item) => (
               <div
                 key={item.id}
-                className={`p-5 bg-white rounded-2xl border-2 card-shadow space-y-3 ${
+                className={`p-5 bg-[#15241C] rounded-2xl border-2 card-shadow space-y-3 ${
                   item.originType === 'Toro Propio Finca' ? 'border-[#012d1d]/40' : 'border-[#ffba38]/60'
                 }`}
               >
@@ -4219,15 +4219,15 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
                       item.originType === 'Toro Propio Finca'
                         ? 'bg-[#c1ecd4] text-[#002114]'
-                        : 'bg-[#ffba38] text-[#523700]'
+                        : 'bg-[#D4A94E] text-[#0D1A13]'
                     }`}>
                       {item.originType}
                     </span>
-                    <h5 className="text-base font-black text-[#012d1d] mt-1">{item.bullName}</h5>
+                    <h5 className="text-base font-black text-white mt-1">{item.bullName}</h5>
                     <span className="text-xs text-[#717973] font-mono">{item.codeOrRegister} • {item.breed}</span>
                   </div>
 
-                  <span className="font-mono text-sm font-black text-[#012d1d] bg-[#f8f9f8] px-3 py-1 rounded-xl border border-[#e2e2e2]">
+                  <span className="font-mono text-sm font-black text-white bg-[#f8f9f8] px-3 py-1 rounded-xl border border-[#e2e2e2]">
                     {item.availableStraws} Pajuelas
                   </span>
                 </div>
@@ -4235,11 +4235,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono bg-[#f8f9f8] p-3 rounded-xl border border-[#e2e2e2]">
                   <div>
                     <span className="text-[10px] text-[#79564b] block font-bold">PROVEEDOR / FINCA</span>
-                    <span className="font-bold text-[#012d1d]">{item.supplierOrFarm || 'N/A'}</span>
+                    <span className="font-bold text-white">{item.supplierOrFarm || 'N/A'}</span>
                   </div>
                   <div>
                     <span className="text-[10px] text-[#79564b] block font-bold">TERMO / CANASTILLA</span>
-                    <span className="font-bold text-[#012d1d]">{item.tankCanister || 'Monta Directa'}</span>
+                    <span className="font-bold text-white">{item.tankCanister || 'Monta Directa'}</span>
                   </div>
                 </div>
               </div>
@@ -4253,7 +4253,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'females' && (
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow">
+          <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 bg-[#15241C] p-4 rounded-2xl border border-white/10 card-shadow">
             <div className="relative flex-1">
               <Search className="w-4 h-4 text-[#717973] absolute left-3 top-1/2 -translate-y-1/2" />
               <input
@@ -4261,16 +4261,16 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar por Arete, Nombre, Raza o Lote..."
-                className="w-full pl-9 pr-4 py-2 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl text-xs font-semibold text-[#012d1d] outline-none"
+                className="w-full pl-9 pr-4 py-2 bg-[#f8f9f8] border border-white/10 rounded-xl text-xs font-semibold text-white outline-none"
               />
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow overflow-hidden">
+          <div className="bg-[#15241C] rounded-3xl border border-white/10 card-shadow overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#c1ecd4] text-[10.5px] font-extrabold uppercase tracking-wider">
+                  <tr className="bg-[#0D1A13] text-[#A5B8AC] text-[10.5px] font-extrabold uppercase tracking-wider">
                     <th className="p-3.5 pl-5">Arete / Vaca</th>
                     <th className="p-3.5">Estado Fisiológico</th>
                     <th className="p-3.5">EPS / EPP</th>
@@ -4282,8 +4282,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </thead>
                 <tbody className="divide-y divide-[#eeeeee] text-xs">
                   {females.map((female) => (
-                    <tr key={female.id} className="hover:bg-[#f8fbf9]">
-                      <td className="p-3.5 pl-5 font-black text-[#012d1d]">
+                    <tr key={female.id} className="hover:bg-[#15241C]">
+                      <td className="p-3.5 pl-5 font-black text-white">
                         {female.tagId} - {female.name} ({female.breed})
                       </td>
                       <td className="p-3.5 font-bold">
@@ -4294,10 +4294,10 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       <td className="p-3.5 font-mono text-[11px]">
                         EPS: {female.epsMonths}m | EPP: {female.eppMonths}m
                       </td>
-                      <td className="p-3.5 text-center font-mono font-black text-[#012d1d]">
+                      <td className="p-3.5 text-center font-mono font-black text-white">
                         {female.diasAbiertos}d
                       </td>
-                      <td className="p-3.5 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3.5 text-center font-mono font-bold text-white">
                         {female.iepDays}d
                       </td>
                       <td className="p-3.5 text-center font-mono font-bold">
@@ -4319,19 +4319,19 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* SUBMODULE 7: PEDIGRÍ & SEMENTALES                                         */}
       {/* ========================================================================= */}
       {activeSubTab === 'pedigree' && (
-        <div className="bg-white rounded-3xl p-6 border border-[#c1c8c2] card-shadow space-y-4">
+        <div className="bg-[#15241C] rounded-3xl p-6 border border-white/10 card-shadow space-y-4">
           <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
-            <h3 className="text-lg font-black text-[#012d1d]">Certificado de Pedigrí & Evaluación de DEPs</h3>
+            <h3 className="text-lg font-black text-white">Certificado de Pedigrí & Evaluación de DEPs</h3>
             <button
               onClick={onOpenCertificateModal}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-white px-4 py-2 rounded-xl text-xs font-black shadow-sm"
+              className="bg-[#0D1A13] hover:bg-[#123F2A] text-white px-4 py-2 rounded-xl text-xs font-black shadow-sm"
             >
               Ver Certificado Oficial
             </button>
           </div>
 
           <div className="p-4 bg-[#f8f9f8] rounded-2xl border border-[#e2e2e2] space-y-2">
-            <h4 className="font-black text-sm text-[#012d1d]">{currentBull.name} ({currentBull.code})</h4>
+            <h4 className="font-black text-sm text-white">{currentBull.name} ({currentBull.code})</h4>
             <p className="text-xs text-[#717973] font-medium">
               Raza: {currentBull.breed} • Pureza: {currentBull.purityPercentage}% • Registro Asocebú: {currentBull.registrationNumber}
             </p>
@@ -4342,9 +4342,9 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: ADD DONOR */}
       {showAddDonorModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { setShowAddDonorModal(false); setShowAddReceptorModal(false); setShowAddSemenModal(false); setShowAddSyncModal(false); } }}>
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95">
             <div className="flex justify-between items-center border-b pb-3">
-              <h3 className="text-base font-black text-[#012d1d]">Declarar Nueva Vaca Donadora</h3>
+              <h3 className="text-base font-black text-white">Declarar Nueva Vaca Donadora</h3>
               <button onClick={() => setShowAddDonorModal(false)} className="text-[#717973] hover:text-black">
                 <X className="w-5 h-5" />
               </button>
@@ -4352,7 +4352,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <form onSubmit={handleAddDonor} className="space-y-3 text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Número / Arete Tag ID *</label>
+                <label className="block font-bold text-white mb-1">Número / Arete Tag ID *</label>
                 <input
                   type="text"
                   required
@@ -4364,7 +4364,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Nombre de la Donadora</label>
+                <label className="block font-bold text-white mb-1">Nombre de la Donadora</label>
                 <input
                   type="text"
                   value={newDonorName}
@@ -4375,7 +4375,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Categoría Genética</label>
+                <label className="block font-bold text-white mb-1">Categoría Genética</label>
                 <select
                   value={newDonorCategory}
                   onChange={(e) => setNewDonorCategory(e.target.value as any)}
@@ -4397,7 +4397,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-white font-black rounded-xl shadow-md"
+                  className="px-5 py-2 bg-[#0D1A13] text-white font-black rounded-xl shadow-md"
                 >
                   Guardar Donadora
                 </button>
@@ -4410,9 +4410,9 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: ADD RECEPTOR */}
       {showAddReceptorModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95">
             <div className="flex justify-between items-center border-b pb-3">
-              <h3 className="text-base font-black text-[#012d1d]">Sincronizar / Agregar Vaca Receptora</h3>
+              <h3 className="text-base font-black text-white">Sincronizar / Agregar Vaca Receptora</h3>
               <button onClick={() => setShowAddReceptorModal(false)} className="text-[#717973] hover:text-black">
                 <X className="w-5 h-5" />
               </button>
@@ -4420,7 +4420,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <form onSubmit={handleAddReceptor} className="space-y-3 text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Arete Tag ID Receptora *</label>
+                <label className="block font-bold text-white mb-1">Arete Tag ID Receptora *</label>
                 <input
                   type="text"
                   required
@@ -4432,7 +4432,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Nombre / Identificación</label>
+                <label className="block font-bold text-white mb-1">Nombre / Identificación</label>
                 <input
                   type="text"
                   value={newReceptorName}
@@ -4452,7 +4452,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-white font-black rounded-xl shadow-md"
+                  className="px-5 py-2 bg-[#0D1A13] text-white font-black rounded-xl shadow-md"
                 >
                   Guardar Receptora
                 </button>
@@ -4465,9 +4465,9 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: ADD SEMEN / BULL */}
       {showAddSemenModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95">
             <div className="flex justify-between items-center border-b pb-3">
-              <h3 className="text-base font-black text-[#012d1d]">Registrar Toro Propio o Semen Comprado</h3>
+              <h3 className="text-base font-black text-white">Registrar Toro Propio o Semen Comprado</h3>
               <button onClick={() => setShowAddSemenModal(false)} className="text-[#717973] hover:text-black">
                 <X className="w-5 h-5" />
               </button>
@@ -4475,7 +4475,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <form onSubmit={handleAddSemen} className="space-y-3 text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Nombre del Semental / Toro *</label>
+                <label className="block font-bold text-white mb-1">Nombre del Semental / Toro *</label>
                 <input
                   type="text"
                   required
@@ -4487,7 +4487,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Origen Genético *</label>
+                <label className="block font-bold text-white mb-1">Origen Genético *</label>
                 <select
                   value={newSemenOrigin}
                   onChange={(e) => setNewSemenOrigin(e.target.value as any)}
@@ -4501,7 +4501,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               {newSemenOrigin === 'Semen Comprado (Termo)' && (
                 <>
                   <div>
-                    <label className="block font-bold text-[#012d1d] mb-1">Proveedor / Casa Genética</label>
+                    <label className="block font-bold text-white mb-1">Proveedor / Casa Genética</label>
                     <input
                       type="text"
                       value={newSemenSupplier}
@@ -4512,7 +4512,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-bold text-[#012d1d] mb-1">Cantidad de Pajuelas Adquiridas</label>
+                    <label className="block font-bold text-white mb-1">Cantidad de Pajuelas Adquiridas</label>
                     <input
                       type="number"
                       value={newSemenStraws}
@@ -4533,7 +4533,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-white font-black rounded-xl shadow-md"
+                  className="px-5 py-2 bg-[#0D1A13] text-white font-black rounded-xl shadow-md"
                 >
                   Guardar Semental
                 </button>
@@ -4546,10 +4546,10 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: ADD SYNC PROTOCOL WITH INVENTORY FEMALE SELECTION AND VACA/NOVILLA CLASSIFICATION */}
       {showAddSyncModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto custom-scrollbar">
+          <div className="bg-[#15241C] rounded-3xl max-w-2xl w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto custom-scrollbar">
             <div className="flex justify-between items-center border-b border-[#e2e2e2] pb-3">
               <div>
-                <h3 className="text-base font-black text-[#012d1d]">
+                <h3 className="text-base font-black text-white">
                   Crear Protocolo IATF / TETF & Asignar Hembras
                 </h3>
                 <p className="text-[11px] text-[#717973]">
@@ -4563,7 +4563,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <form onSubmit={handleAddSync} className="space-y-4 text-xs">
               {/* PALPATION LOT SUSCEPTIBILITY & 30-DAY EXPIRATION RULE */}
-              <div className="p-4 bg-amber-50 rounded-2xl border-2 border-amber-300 space-y-3">
+              <div className="p-4 bg-amber-950/30 rounded-2xl border-2 border-amber-300 space-y-3">
                 <div className="flex items-center justify-between border-b border-amber-200 pb-2">
                   <div className="flex items-center gap-2">
                     <Stethoscope className="w-4 h-4 text-amber-800" />
@@ -4584,7 +4584,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       value={newSyncPalpationLotName}
                       onChange={(e) => setNewSyncPalpationLotName(e.target.value)}
                       placeholder="Ej. Lote Palpación Julio - Potrero 4"
-                      className="w-full p-2 bg-white border border-amber-300 rounded-xl font-bold text-[#012d1d]"
+                      className="w-full p-2 bg-[#15241C] border border-amber-300 rounded-xl font-bold text-white"
                     />
                   </div>
 
@@ -4594,7 +4594,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       type="date"
                       value={newSyncPalpationDate}
                       onChange={(e) => setNewSyncPalpationDate(e.target.value)}
-                      className="w-full p-2 bg-white border border-amber-300 rounded-xl font-mono font-bold text-[#012d1d]"
+                      className="w-full p-2 bg-[#15241C] border border-amber-300 rounded-xl font-mono font-bold text-white"
                     />
                   </div>
 
@@ -4603,7 +4603,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     <select
                       value={newSyncSusceptibilityType}
                       onChange={(e) => setNewSyncSusceptibilityType(e.target.value as any)}
-                      className="w-full p-2 bg-white border border-amber-300 rounded-xl font-bold text-[#012d1d]"
+                      className="w-full p-2 bg-[#15241C] border border-amber-300 rounded-xl font-bold text-white"
                     >
                       <option value="Inseminación (IATF)">Inseminación (IATF)</option>
                       <option value="Transferencia de Embriones (TETF)">Transferencia de Embriones (TETF)</option>
@@ -4651,23 +4651,23 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Nombre del Protocolo / Lote *</label>
+                  <label className="block font-bold text-white mb-1">Nombre del Protocolo / Lote *</label>
                   <input
                     type="text"
                     required
                     value={newSyncName}
                     onChange={(e) => setNewSyncName(e.target.value)}
                     placeholder="Ej: Sincronización IATF Lote 4"
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Técnica Reproductiva *</label>
+                  <label className="block font-bold text-white mb-1">Técnica Reproductiva *</label>
                   <select
                     value={newSyncTechnique}
                     onChange={(e) => setNewSyncTechnique(e.target.value as any)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-white"
                   >
                     <option value="IATF (Inseminación a Tiempo Fijo)">IATF (Inseminación a Tiempo Fijo)</option>
                     <option value="TETF (Transferencia a Tiempo Fijo)">TETF (Transferencia a Tiempo Fijo)</option>
@@ -4675,32 +4675,32 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Fecha de Inicio Hormonal (DIB/CIDR) *</label>
+                  <label className="block font-bold text-white mb-1">Fecha de Inicio Hormonal (DIB/CIDR) *</label>
                   <input
                     type="date"
                     value={newSyncStartDate}
                     onChange={(e) => setNewSyncStartDate(e.target.value)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-mono font-bold text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Hembras Seleccionadas (Conteo)</label>
+                  <label className="block font-bold text-white mb-1">Hembras Seleccionadas (Conteo)</label>
                   <input
                     type="number"
                     value={newSyncSelectedFemaleIds.length || newSyncCount}
                     readOnly
-                    className="w-full p-2.5 bg-[#e8f5ec] border border-[#c1ecd4] rounded-xl font-mono font-black text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#e8f5ec] border border-[#c1ecd4] rounded-xl font-mono font-black text-white"
                   />
                 </div>
               </div>
 
               {/* SELECTION OF FEMALES FROM INVENTORY */}
               <div className="p-4 bg-[#f4fbf7] border-2 border-[#012d1d]/20 rounded-2xl space-y-3">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[#c1c8c2] pb-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-white/10 pb-2">
                   <div className="flex items-center gap-2">
-                    <Database className="w-4 h-4 text-[#012d1d]" />
-                    <label className="font-black text-[#012d1d] text-xs uppercase tracking-wider">
+                    <Database className="w-4 h-4 text-white" />
+                    <label className="font-black text-white text-xs uppercase tracking-wider">
                       Seleccionar Hembras del Inventario ({newSyncSelectedFemaleIds.length} de {availableInventoryFemales.length} seleccionadas)
                     </label>
                   </div>
@@ -4708,7 +4708,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     <button
                       type="button"
                       onClick={() => setNewSyncSelectedFemaleIds(availableInventoryFemales.map((f) => f.id))}
-                      className="px-2.5 py-1 bg-[#012d1d] text-white font-bold rounded-lg text-[10px] hover:bg-[#1b4332] cursor-pointer"
+                      className="px-2.5 py-1 bg-[#0D1A13] text-white font-bold rounded-lg text-[10px] hover:bg-[#123F2A] cursor-pointer"
                     >
                       Todas ({availableInventoryFemales.length})
                     </button>
@@ -4739,7 +4739,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     <button
                       type="button"
                       onClick={() => setNewSyncSelectedFemaleIds([])}
-                      className="px-2.5 py-1 bg-white text-[#555] border border-[#c1c8c2] font-semibold rounded-lg text-[10px] hover:bg-slate-100 cursor-pointer"
+                      className="px-2.5 py-1 bg-[#15241C] text-[#555] border border-white/10 font-semibold rounded-lg text-[10px] hover:bg-[#1F3327] cursor-pointer"
                     >
                       Limpiar
                     </button>
@@ -4754,7 +4754,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     value={syncFemaleSearchQuery}
                     onChange={(e) => setSyncFemaleSearchQuery(e.target.value)}
                     placeholder="Filtrar por arete, nombre o raza..."
-                    className="w-full pl-8 pr-3 py-1.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-semibold text-[#012d1d]"
+                    className="w-full pl-8 pr-3 py-1.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-semibold text-white"
                   />
                 </div>
 
@@ -4773,8 +4773,8 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           key={f.id}
                           className={`flex items-center justify-between p-2 rounded-xl border text-xs transition-all ${
                             isSelected
-                              ? 'bg-[#c1ecd4]/50 border-[#012d1d] font-bold text-[#012d1d]'
-                              : 'bg-white border-[#e2e2e2] text-[#555] hover:bg-slate-50'
+                              ? 'bg-[#c1ecd4]/50 border-[#012d1d] font-bold text-white'
+                              : 'bg-[#15241C] border-[#e2e2e2] text-[#555] hover:bg-[#0D1A13]'
                           }`}
                         >
                           <label
@@ -4793,7 +4793,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                               onChange={() => {}}
                               className="rounded accent-[#012d1d]"
                             />
-                            <span className="font-mono font-black text-[#012d1d]">{f.tagId}</span>
+                            <span className="font-mono font-black text-white">{f.tagId}</span>
                             <span className="truncate max-w-[140px] text-[#333] font-semibold">{f.name}</span>
                             <span className="text-[10px] text-[#717973]">({f.breed})</span>
                           </label>
@@ -4827,13 +4827,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowAddSyncModal(false)}
-                  className="px-4 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl hover:bg-slate-200 cursor-pointer"
+                  className="px-4 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl hover:bg-[#202E25] cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white font-black rounded-xl shadow-md cursor-pointer flex items-center gap-2"
+                  className="px-6 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black rounded-xl shadow-md cursor-pointer flex items-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                   Agendar Protocolo ({newSyncSelectedFemaleIds.length} Hembras)
@@ -4847,17 +4847,17 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: CREAR / GESTIONAR LOTE DE EMBRIONES ENLISTADOS Y ESCANEO DE PLANILLA */}
       {showBatchEmbryoModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4" onClick={(e) => { if (e.target === e.currentTarget) setShowBatchEmbryoModal(false); }}>
-          <div className="bg-white rounded-3xl max-w-6xl w-full p-4 sm:p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] flex flex-col border-2 border-[#012d1d]">
+          <div className="bg-[#15241C] rounded-3xl max-w-6xl w-full p-4 sm:p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] flex flex-col border-2 border-[#012d1d]">
             {/* Header */}
             <div className="flex justify-between items-center border-b border-[#e2e2e2] pb-3 shrink-0">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black shadow-md">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black shadow-md">
                   <Layers3 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#012d1d] flex items-center gap-2">
+                  <h3 className="text-base font-black text-white flex items-center gap-2">
                     Crear y Enlistar Lote de Embriones FIV
-                    <span className="bg-[#ffba38]/30 text-[#012d1d] text-[10px] font-mono px-2 py-0.5 rounded-full border border-[#ffba38]">
+                    <span className="bg-[#D4A94E]/30 text-white text-[10px] font-mono px-2 py-0.5 rounded-full border border-[#ffba38]">
                       {batchDraftItems.length} Unidades
                     </span>
                   </h3>
@@ -4869,7 +4869,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <button
                 type="button"
                 onClick={() => setShowBatchEmbryoModal(false)}
-                className="text-[#717973] hover:text-black p-1.5 rounded-xl hover:bg-slate-100 cursor-pointer"
+                className="text-[#717973] hover:text-black p-1.5 rounded-xl hover:bg-[#1F3327] cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -4881,12 +4881,12 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <div className="p-3 bg-[#f2f8f5] border border-[#a2cfb8] rounded-2xl space-y-2 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Camera className="w-4 h-4 text-[#012d1d]" />
-                    <span className="font-extrabold text-xs text-[#012d1d]">
+                    <Camera className="w-4 h-4 text-white" />
+                    <span className="font-extrabold text-xs text-white">
                       Cargar Foto de Planilla de Campo (OCR IA)
                     </span>
                   </div>
-                  <label className="bg-[#012d1d] hover:bg-[#1b4332] text-white text-[11px] font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 cursor-pointer shadow-sm transition-all">
+                  <label className="bg-[#0D1A13] hover:bg-[#123F2A] text-white text-[11px] font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 cursor-pointer shadow-sm transition-all">
                     <Upload className="w-3.5 h-3.5 text-[#ffba38]" />
                     <span>Seleccionar / Foto</span>
                     <input
@@ -4912,16 +4912,16 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               {/* Preset Generator Control */}
-              <div className="p-3 bg-[#f8f9f8] border border-[#c1c8c2] rounded-2xl space-y-2">
+              <div className="p-3 bg-[#f8f9f8] border border-white/10 rounded-2xl space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-extrabold text-xs text-[#012d1d] flex items-center gap-1.5">
-                    <FileSpreadsheet className="w-4 h-4 text-[#012d1d]" />
+                  <span className="font-extrabold text-xs text-white flex items-center gap-1.5">
+                    <FileSpreadsheet className="w-4 h-4 text-white" />
                     Generador Masivo de Lote Base
                   </span>
                   <button
                     type="button"
                     onClick={() => generateBatchDraftList()}
-                    className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] text-[11px] font-black px-3 py-1.5 rounded-xl flex items-center gap-1 cursor-pointer transition-all shadow-sm"
+                    className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] text-[11px] font-black px-3 py-1.5 rounded-xl flex items-center gap-1 cursor-pointer transition-all shadow-sm"
                   >
                     <Zap className="w-3.5 h-3.5" />
                     Regenerar {batchCount} Filas
@@ -4937,7 +4937,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       max={50}
                       value={batchCount}
                       onChange={(e) => setBatchCount(Number(e.target.value))}
-                      className="w-full p-1 bg-white border border-[#c1c8c2] rounded-lg font-mono font-bold text-center text-[#012d1d]"
+                      className="w-full p-1 bg-[#15241C] border border-white/10 rounded-lg font-mono font-bold text-center text-white"
                     />
                   </div>
                   <div>
@@ -4946,7 +4946,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       type="text"
                       value={batchPrefix}
                       onChange={(e) => setBatchPrefix(e.target.value)}
-                      className="w-full p-1 bg-white border border-[#c1c8c2] rounded-lg font-mono font-bold text-[#012d1d]"
+                      className="w-full p-1 bg-[#15241C] border border-white/10 rounded-lg font-mono font-bold text-white"
                     />
                   </div>
                   <div>
@@ -4954,7 +4954,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     <select
                       value={batchStatus}
                       onChange={(e) => setBatchStatus(e.target.value as any)}
-                      className="w-full p-1 bg-white border border-[#c1c8c2] rounded-lg font-bold text-[#012d1d]"
+                      className="w-full p-1 bg-[#15241C] border border-white/10 rounded-lg font-bold text-white"
                     >
                       <option value="fecundado">Fecundado</option>
                       <option value="transferido">Transferido</option>
@@ -4967,7 +4967,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                       type="text"
                       value={batchCanister}
                       onChange={(e) => setBatchCanister(e.target.value)}
-                      className="w-full p-1 bg-white border border-[#c1c8c2] rounded-lg font-bold text-[#012d1d]"
+                      className="w-full p-1 bg-[#15241C] border border-white/10 rounded-lg font-bold text-white"
                     />
                   </div>
                 </div>
@@ -4975,13 +4975,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             </div>
 
             {/* BATCH ITEMS LIST TABLE (LOTE ENLISTADO) */}
-            <div className="flex-1 overflow-hidden flex flex-col border border-[#c1c8c2] rounded-2xl bg-white shadow-inner">
-              <div className="p-2.5 bg-[#012d1d] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shrink-0">
+            <div className="flex-1 overflow-hidden flex flex-col border border-white/10 rounded-2xl bg-[#15241C] shadow-inner">
+              <div className="p-2.5 bg-[#0D1A13] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shrink-0">
                 <div className="flex items-center gap-2">
                   <span className="font-extrabold text-xs text-[#ffba38]">
                     Listado Individual de Embriones ({batchDraftItems.length} Registros)
                   </span>
-                  <span className="text-[10px] text-[#c1ecd4]">
+                  <span className="text-[10px] text-[#A5B8AC]">
                     ({batchDraftItems.filter((i) => i.verifiedInPhysicalStraw).length} Verificados en Físico)
                   </span>
                 </div>
@@ -4999,7 +4999,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   <button
                     type="button"
                     onClick={handleAddDraftRow}
-                    className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] text-[10px] font-black px-2.5 py-1 rounded-lg flex items-center gap-1 cursor-pointer"
+                    className="bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] text-[10px] font-black px-2.5 py-1 rounded-lg flex items-center gap-1 cursor-pointer"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     Agregar Fila
@@ -5011,7 +5011,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <div className="flex-1 overflow-auto p-1 custom-scrollbar">
                 <table className="w-full text-left border-collapse text-[11px]">
                   <thead>
-                    <tr className="bg-[#f2f4f2] text-[#012d1d] font-extrabold uppercase text-[10px] border-b border-[#c1c8c2] sticky top-0 z-10 shadow-xs">
+                    <tr className="bg-[#f2f4f2] text-white font-extrabold uppercase text-[10px] border-b border-white/10 sticky top-0 z-10 shadow-xs">
                       <th className="p-2 text-center w-8">#</th>
                       <th className="p-2">Código Embrión</th>
                       <th className="p-2">N° Pajilla / Físico</th>
@@ -5027,7 +5027,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </thead>
                   <tbody className="divide-y divide-[#e2e2e2]">
                     {batchDraftItems.map((item, idx) => (
-                      <tr key={item.id} className="hover:bg-[#f8fbf9] transition-colors">
+                      <tr key={item.id} className="hover:bg-[#15241C] transition-colors">
                         <td className="p-2 text-center font-mono font-bold text-[#717973]">
                           {idx + 1}
                         </td>
@@ -5038,7 +5038,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                             type="text"
                             value={item.code || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'code', e.target.value)}
-                            className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-mono font-bold text-xs text-[#012d1d]"
+                            className="w-full p-1 bg-[#f8f9f8] border border-white/10 rounded font-mono font-bold text-xs text-white"
                           />
                         </td>
 
@@ -5049,7 +5049,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                             value={item.strawNumber || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'strawNumber', e.target.value)}
                             placeholder="Ej: PAJ-801"
-                            className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-mono font-bold text-xs text-[#012d1d]"
+                            className="w-full p-1 bg-[#f8f9f8] border border-white/10 rounded font-mono font-bold text-xs text-white"
                           />
                         </td>
 
@@ -5058,7 +5058,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           <select
                             value={item.donorId || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'donorId', e.target.value)}
-                            className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[11px] text-[#012d1d]"
+                            className="w-full p-1 bg-[#f8f9f8] border border-white/10 rounded font-bold text-[11px] text-white"
                           >
                             {donors.map((d) => (
                               <option key={d.id} value={d.id}>
@@ -5073,7 +5073,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           <select
                             value={item.sireName || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'sireName', e.target.value)}
-                            className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[11px] text-[#012d1d]"
+                            className="w-full p-1 bg-[#f8f9f8] border border-white/10 rounded font-bold text-[11px] text-white"
                           >
                             {semenInventory.map((s) => (
                               <option key={s.id} value={s.bullName}>
@@ -5088,7 +5088,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           <select
                             value={item.stage || 'Blastocisto Grado 1'}
                             onChange={(e) => handleUpdateDraftRow(idx, 'stage', e.target.value)}
-                            className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[10.5px] text-[#012d1d]"
+                            className="w-full p-1 bg-[#f8f9f8] border border-white/10 rounded font-bold text-[10.5px] text-white"
                           >
                             <option value="Blastocisto Grado 1">Blastocisto G1</option>
                             <option value="Blastocisto Grado 2">Blastocisto G2</option>
@@ -5102,7 +5102,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                           <select
                             value={item.quality || 'Excelente'}
                             onChange={(e) => handleUpdateDraftRow(idx, 'quality', e.target.value)}
-                            className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[10.5px] text-[#012d1d]"
+                            className="w-full p-1 bg-[#f8f9f8] border border-white/10 rounded font-bold text-[10.5px] text-white"
                           >
                             <option value="Excelente">Excelente</option>
                             <option value="Bueno">Bueno</option>
@@ -5135,7 +5135,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                             value={item.receptorTag || ''}
                             onChange={(e) => handleUpdateDraftRow(idx, 'receptorTag', e.target.value)}
                             disabled={item.status !== 'transferido'}
-                            className="w-full p-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded font-bold text-[10.5px] text-[#012d1d] disabled:opacity-40"
+                            className="w-full p-1 bg-[#f8f9f8] border border-white/10 rounded font-bold text-[10.5px] text-white disabled:opacity-40"
                           >
                             <option value="">-- Receptora --</option>
                             {receptors.map((r) => (
@@ -5154,7 +5154,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                             className={`w-full px-2 py-1 rounded-lg text-[10px] font-extrabold flex items-center justify-center gap-1 cursor-pointer transition-colors border ${
                               item.verifiedInPhysicalStraw
                                 ? 'bg-emerald-600 text-white border-emerald-500 shadow-xs'
-                                : 'bg-amber-50 text-amber-900 border-amber-300 hover:bg-amber-100'
+                                : 'bg-amber-950/30 text-amber-900 border-amber-300 hover:bg-amber-100'
                             }`}
                           >
                             {item.verifiedInPhysicalStraw ? '✓ Verificada' : '⚠️ Pendiente'}
@@ -5167,7 +5167,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                             <button
                               type="button"
                               onClick={() => handleDuplicateDraftRow(idx)}
-                              className="text-[#717973] hover:text-[#012d1d] p-1 rounded hover:bg-slate-200"
+                              className="text-[#717973] hover:text-white p-1 rounded hover:bg-[#202E25]"
                               title="Duplicar Fila"
                             >
                               <Copy className="w-3.5 h-3.5" />
@@ -5191,7 +5191,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             {/* Bottom Controls */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-[#e2e2e2] shrink-0">
-              <div className="text-xs font-bold text-[#012d1d] flex items-center gap-2">
+              <div className="text-xs font-bold text-white flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 <span>
                   Resumen: <strong>{batchDraftItems.length}</strong> embriones listados |{' '}
@@ -5206,14 +5206,14 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowBatchEmbryoModal(false)}
-                  className="w-1/2 sm:w-auto px-4 py-2.5 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl hover:bg-slate-200 cursor-pointer text-xs"
+                  className="w-1/2 sm:w-auto px-4 py-2.5 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl hover:bg-[#202E25] cursor-pointer text-xs"
                 >
                   Cancelar
                 </button>
                 <button
                   type="button"
                   onClick={handleSaveBatchEmbryos}
-                  className="w-1/2 sm:w-auto px-6 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white font-black rounded-xl shadow-md cursor-pointer flex items-center justify-center gap-2 text-xs"
+                  className="w-1/2 sm:w-auto px-6 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black rounded-xl shadow-md cursor-pointer flex items-center justify-center gap-2 text-xs"
                 >
                   <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                   Guardar Lote Enlistado ({batchDraftItems.length} Unidades)
@@ -5227,7 +5227,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: PLANILLA DE CAMPO & REPORTE PDF DE TRANSFERENCIA */}
       {showPrintReportModal && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) setShowPrintReportModal(false); }}>
-          <div className="bg-white rounded-3xl max-w-4xl w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] overflow-y-auto custom-scrollbar border-2 border-[#012d1d]">
+          <div className="bg-[#15241C] rounded-3xl max-w-4xl w-full p-6 space-y-5 shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] overflow-y-auto custom-scrollbar border-2 border-[#012d1d]">
             {/* Header controls (Hidden during print) */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-[#e2e2e2] pb-4">
               <div className="flex items-center gap-3">
@@ -5235,7 +5235,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   <Printer className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#012d1d]">
+                  <h3 className="text-base font-black text-white">
                     Planilla de Campo para Transferencia de Embriones
                   </h3>
                   <p className="text-[11px] text-[#717973]">
@@ -5256,7 +5256,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowPrintReportModal(false)}
-                  className="p-2 text-[#717973] hover:text-black cursor-pointer rounded-xl bg-slate-100"
+                  className="p-2 text-[#717973] hover:text-black cursor-pointer rounded-xl bg-[#1F3327]"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -5266,48 +5266,48 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             {/* Editable Field Report Metadata */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-[#f8f9f8] p-3 rounded-2xl border border-[#e2e2e2] text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Nombre de Ganadería / Finca:</label>
+                <label className="block font-bold text-white mb-1">Nombre de Ganadería / Finca:</label>
                 <input
                   type="text"
                   value={reportFarmName}
                   onChange={(e) => setReportFarmName(e.target.value)}
-                  className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                  className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl font-bold text-xs text-white"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Veterinario / Técnico Responsable:</label>
+                <label className="block font-bold text-white mb-1">Veterinario / Técnico Responsable:</label>
                 <input
                   type="text"
                   value={reportVeterinarian}
                   onChange={(e) => setReportVeterinarian(e.target.value)}
-                  className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                  className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl font-bold text-xs text-white"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Protocolo / Lote de Trabajo:</label>
+                <label className="block font-bold text-white mb-1">Protocolo / Lote de Trabajo:</label>
                 <input
                   type="text"
                   value={reportProtocolName}
                   onChange={(e) => setReportProtocolName(e.target.value)}
-                  className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                  className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl font-bold text-xs text-white"
                 />
               </div>
             </div>
 
             {/* PRINTABLE REPORT PREVIEW CONTAINER */}
-            <div id="printableFieldReport" className="p-6 bg-white border-2 border-[#012d1d] rounded-2xl space-y-4 text-black">
+            <div id="printableFieldReport" className="p-6 bg-[#15241C] border-2 border-[#012d1d] rounded-2xl space-y-4 text-black">
               {/* Report Header */}
               <div className="border-b-2 border-black pb-4 flex justify-between items-start">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-600">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#A5B8AC]">
                     BOVINO PRO - TECNOLOGÍA EN REPRODUCCIÓN ANIMAL
                   </span>
                   <h2 className="text-lg font-black uppercase text-black tracking-tight">
                     PLANILLA TÉCNICA DE CAMPO - TRANSFERENCIA DE EMBRIONES FIV
                   </h2>
-                  <p className="text-xs font-bold text-slate-800">
+                  <p className="text-xs font-bold text-white">
                     {reportFarmName}
                   </p>
                 </div>
@@ -5319,18 +5319,18 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               {/* Instructions Banner for Field Operator */}
-              <div className="p-2.5 bg-slate-100 border border-slate-300 rounded-lg text-[10.5px] font-sans flex items-center justify-between">
+              <div className="p-2.5 bg-[#1F3327] border border-white/15 rounded-lg text-[10.5px] font-sans flex items-center justify-between">
                 <span>
                   <strong>Indicaciones de Manga:</strong> Evaluar Cuerpo Lúteo (CL Der/Izq) y Condición Corporal (CC 1-5). Marcar con <strong>[X]</strong> en la casilla 'Aplicado' tras depositar el embrión en el cuerno ipsilateral al CL.
                 </span>
-                <span className="font-mono font-bold text-slate-700">Total: {embryos.length} Embriones</span>
+                <span className="font-mono font-bold text-white">Total: {embryos.length} Embriones</span>
               </div>
 
               {/* Field Printable Table */}
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse border border-black text-[10.5px] font-mono">
                   <thead>
-                    <tr className="bg-slate-200 text-black border-b-2 border-black font-black uppercase">
+                    <tr className="bg-[#202E25] text-black border-b-2 border-black font-black uppercase">
                       <th className="p-2 border border-black text-center w-8">#</th>
                       <th className="p-2 border border-black">Código Embrión</th>
                       <th className="p-2 border border-black">Estadio / Calidad</th>
@@ -5357,17 +5357,17 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                         <td className="p-2 border border-black font-bold">
                           {emb.receptorTag || '[   ] Sin Asignar'}
                         </td>
-                        <td className="p-2 border border-black text-center font-bold text-slate-400">
+                        <td className="p-2 border border-black text-center font-bold text-[#A5B8AC]">
                           [ &nbsp;&nbsp;&nbsp;&nbsp; ]
                         </td>
-                        <td className="p-2 border border-black text-center font-bold text-slate-400">
+                        <td className="p-2 border border-black text-center font-bold text-[#A5B8AC]">
                           [ &nbsp;&nbsp; ]
                         </td>
                         <td className="p-2 border border-black text-center">
                           <span className="inline-block w-4 h-4 border border-black rounded-sm align-middle"></span>
                           <span className="ml-1 font-bold">Sí</span>
                         </td>
-                        <td className="p-2 border border-black text-[9.5px] text-slate-500 italic">
+                        <td className="p-2 border border-black text-[9.5px] text-[#A5B8AC] italic">
                           ___________________
                         </td>
                       </tr>
@@ -5381,21 +5381,21 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <div className="space-y-10">
                   <div>
                     <p className="font-bold mb-1">Notas de Manga / Observaciones Adicionales:</p>
-                    <div className="border border-slate-300 rounded p-2 text-slate-400 text-[10px]">
+                    <div className="border border-white/15 rounded p-2 text-[#A5B8AC] text-[10px]">
                       .........................................................................................................................................................<br />
                       .........................................................................................................................................................
                     </div>
                   </div>
                   <div className="border-t border-black pt-1 text-center">
                     <p className="font-bold text-black">{reportVeterinarian}</p>
-                    <p className="text-[10px] text-slate-600">Médico Veterinario Transferidor / M.P.</p>
+                    <p className="text-[10px] text-[#A5B8AC]">Médico Veterinario Transferidor / M.P.</p>
                   </div>
                 </div>
 
                 <div className="space-y-10">
                   <div>
                     <p className="font-bold mb-1">Resumen Estadístico del Trabajo:</p>
-                    <div className="border border-slate-300 rounded p-2 text-[10.5px] space-y-1">
+                    <div className="border border-white/15 rounded p-2 text-[10.5px] space-y-1">
                       <div className="flex justify-between"><span>Embriones Programados:</span><strong>{embryos.length}</strong></div>
                       <div className="flex justify-between"><span>Receptoras Transferidas:</span><strong>{embryos.filter(e => e.status === 'transferido').length}</strong></div>
                       <div className="flex justify-between"><span>Vitrificados / Reserva:</span><strong>{embryos.filter(e => e.status === 'vitrificado').length}</strong></div>
@@ -5403,7 +5403,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   </div>
                   <div className="border-t border-black pt-1 text-center">
                     <p className="font-bold text-black">Administración de la Ganadería</p>
-                    <p className="text-[10px] text-slate-600">Firma del Propietario / Gerente de Producción</p>
+                    <p className="text-[10px] text-[#A5B8AC]">Firma del Propietario / Gerente de Producción</p>
                   </div>
                 </div>
               </div>
@@ -5413,7 +5413,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <button
                 type="button"
                 onClick={() => setShowPrintReportModal(false)}
-                className="px-5 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl text-xs hover:bg-slate-200 cursor-pointer"
+                className="px-5 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl text-xs hover:bg-[#202E25] cursor-pointer"
               >
                 Cerrar
               </button>
@@ -5445,14 +5445,14 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: CREAR EMBRIÓN EN FORMA CIRCULAR */}
       {showCreateEmbryoModal && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-xs z-50 flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { setShowCreateEmbryoModal(false); setSelectedEmbryoDetail(null); } }}>
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto custom-scrollbar border-2 border-[#012d1d]">
+          <div className="bg-[#15241C] rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[90vh] overflow-y-auto custom-scrollbar border-2 border-[#012d1d]">
             <div className="flex justify-between items-center border-b border-[#e2e2e2] pb-3">
               <div className="flex items-center gap-2">
                 <div className="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center font-black shadow-md">
                   <Dna className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#012d1d]">
+                  <h3 className="text-base font-black text-white">
                     Crear Nuevo Embrión (Representación Circular)
                   </h3>
                   <p className="text-[11px] text-[#717973]">
@@ -5467,24 +5467,24 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
             <form onSubmit={handleCreateEmbryo} className="space-y-3.5 text-xs">
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Código / Arete de Embrión *</label>
+                <label className="block font-bold text-white mb-1">Código / Arete de Embrión *</label>
                 <input
                   type="text"
                   required
                   value={newEmbryoCode}
                   onChange={(e) => setNewEmbryoCode(e.target.value)}
                   placeholder={`Ej: EMB-2026-FIV-0${embryos.length + 1}`}
-                  className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-mono font-bold text-xs text-[#012d1d]"
+                  className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-mono font-bold text-xs text-white"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Vaca Donadora (Madre) *</label>
+                  <label className="block font-bold text-white mb-1">Vaca Donadora (Madre) *</label>
                   <select
                     value={newEmbryoDonorId}
                     onChange={(e) => setNewEmbryoDonorId(e.target.value)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-xs text-white"
                   >
                     {donors.map((d) => (
                       <option key={d.id} value={d.id}>
@@ -5495,11 +5495,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Semental / Toro (Padre) *</label>
+                  <label className="block font-bold text-white mb-1">Semental / Toro (Padre) *</label>
                   <select
                     value={newEmbryoSireName}
                     onChange={(e) => setNewEmbryoSireName(e.target.value)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-xs text-white"
                   >
                     {semenInventory.map((s) => (
                       <option key={s.id} value={s.bullName}>
@@ -5512,22 +5512,22 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Fecha de Fecundación FIV *</label>
+                  <label className="block font-bold text-white mb-1">Fecha de Fecundación FIV *</label>
                   <input
                     type="date"
                     required
                     value={newEmbryoFecundationDate}
                     onChange={(e) => setNewEmbryoFecundationDate(e.target.value)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-mono font-bold text-xs text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-mono font-bold text-xs text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Estadio Celular *</label>
+                  <label className="block font-bold text-white mb-1">Estadio Celular *</label>
                   <select
                     value={newEmbryoStage}
                     onChange={(e) => setNewEmbryoStage(e.target.value as any)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-xs text-white"
                   >
                     <option value="Blastocisto Grado 1">Blastocisto Grado 1 (Excelente)</option>
                     <option value="Blastocisto Grado 2">Blastocisto Grado 2 (Bueno)</option>
@@ -5539,7 +5539,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
               {/* ESTADO CON CODIFICACIÓN DE COLOR */}
               <div className="p-3 bg-[#f4fbf7] border-2 border-[#012d1d]/20 rounded-2xl space-y-2">
-                <label className="block font-black text-[#012d1d] text-xs uppercase tracking-wider">
+                <label className="block font-black text-white text-xs uppercase tracking-wider">
                   Estado Actual del Embrión & Color Asignado *
                 </label>
                 <div className="grid grid-cols-3 gap-2">
@@ -5549,7 +5549,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     className={`p-2.5 rounded-xl text-[11px] font-black border flex flex-col items-center justify-center gap-1 cursor-pointer transition-all ${
                       newEmbryoStatus === 'fecundado'
                         ? 'bg-amber-500 text-white border-amber-300 ring-2 ring-amber-400 shadow-md'
-                        : 'bg-white text-amber-900 border-amber-200 hover:bg-amber-50'
+                        : 'bg-[#15241C] text-amber-900 border-amber-200 hover:bg-amber-950/30'
                     }`}
                   >
                     <span className="w-3 h-3 rounded-full bg-amber-300 border border-white"></span>
@@ -5562,7 +5562,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     className={`p-2.5 rounded-xl text-[11px] font-black border flex flex-col items-center justify-center gap-1 cursor-pointer transition-all ${
                       newEmbryoStatus === 'transferido'
                         ? 'bg-purple-600 text-white border-purple-300 ring-2 ring-purple-400 shadow-md'
-                        : 'bg-white text-purple-900 border-purple-200 hover:bg-purple-50'
+                        : 'bg-[#15241C] text-purple-900 border-purple-200 hover:bg-purple-950/30'
                     }`}
                   >
                     <span className="w-3 h-3 rounded-full bg-purple-300 border border-white"></span>
@@ -5575,7 +5575,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                     className={`p-2.5 rounded-xl text-[11px] font-black border flex flex-col items-center justify-center gap-1 cursor-pointer transition-all ${
                       newEmbryoStatus === 'vitrificado'
                         ? 'bg-emerald-600 text-white border-emerald-300 ring-2 ring-emerald-400 shadow-md'
-                        : 'bg-white text-emerald-900 border-emerald-200 hover:bg-emerald-50'
+                        : 'bg-[#15241C] text-emerald-900 border-emerald-200 hover:bg-emerald-950/30'
                     }`}
                   >
                     <span className="w-3 h-3 rounded-full bg-emerald-300 border border-white"></span>
@@ -5586,11 +5586,11 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
               {newEmbryoStatus === 'transferido' && (
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Vaca Receptora Asignada *</label>
+                  <label className="block font-bold text-white mb-1">Vaca Receptora Asignada *</label>
                   <select
                     value={newEmbryoReceptorTag}
                     onChange={(e) => setNewEmbryoReceptorTag(e.target.value)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-xs text-white"
                   >
                     <option value="">-- Seleccionar Receptora --</option>
                     {receptors.map((r) => (
@@ -5604,22 +5604,22 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Ubicación / Canastilla Termo</label>
+                  <label className="block font-bold text-white mb-1">Ubicación / Canastilla Termo</label>
                   <input
                     type="text"
                     value={newEmbryoCanister}
                     onChange={(e) => setNewEmbryoCanister(e.target.value)}
                     placeholder="Ej: Termo 1 / Canastilla A-3"
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-semibold text-xs text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-semibold text-xs text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#012d1d] mb-1">Calidad Morfológica</label>
+                  <label className="block font-bold text-white mb-1">Calidad Morfológica</label>
                   <select
                     value={newEmbryoQuality}
                     onChange={(e) => setNewEmbryoQuality(e.target.value as any)}
-                    className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl font-bold text-xs text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl font-bold text-xs text-white"
                   >
                     <option value="Excelente">Excelente (Grado 1)</option>
                     <option value="Bueno">Bueno (Grado 2)</option>
@@ -5629,13 +5629,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               </div>
 
               <div>
-                <label className="block font-bold text-[#012d1d] mb-1">Observaciones / Detalles OPU</label>
+                <label className="block font-bold text-white mb-1">Observaciones / Detalles OPU</label>
                 <input
                   type="text"
                   value={newEmbryoNotes}
                   onChange={(e) => setNewEmbryoNotes(e.target.value)}
                   placeholder="Ej: Producido por fertilización in vitro día 7..."
-                  className="w-full p-2.5 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl text-xs text-[#012d1d]"
+                  className="w-full p-2.5 bg-[#f8f9f8] border border-white/10 rounded-xl text-xs text-white"
                 />
               </div>
 
@@ -5643,13 +5643,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowCreateEmbryoModal(false)}
-                  className="px-4 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl hover:bg-slate-200 cursor-pointer"
+                  className="px-4 py-2 bg-[#f3f3f3] text-[#414844] font-semibold rounded-xl hover:bg-[#202E25] cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white font-black rounded-xl shadow-md cursor-pointer flex items-center gap-2"
+                  className="px-6 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black rounded-xl shadow-md cursor-pointer flex items-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                   Guardar Embrión Circular
@@ -5663,7 +5663,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: DETALLE & CAMBIO DE ESTADO DE EMBRIÓN CIRCULAR */}
       {selectedEmbryoDetail && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d]">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl animate-in fade-in zoom-in-95 border-2 border-[#012d1d]">
             <div className="flex justify-between items-start border-b border-[#e2e2e2] pb-3">
               <div className="flex items-center gap-3">
                 <div
@@ -5681,7 +5681,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
                   <span className="text-[10px] font-mono font-bold uppercase text-[#717973]">
                     {selectedEmbryoDetail.code}
                   </span>
-                  <h3 className="text-base font-black text-[#012d1d]">
+                  <h3 className="text-base font-black text-white">
                     {selectedEmbryoDetail.stage}
                   </h3>
                 </div>
@@ -5714,17 +5714,17 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
                 <div className="flex justify-between">
                   <span className="text-[#717973]">Madre Donadora:</span>
-                  <span className="font-bold text-[#012d1d]">{selectedEmbryoDetail.donorName}</span>
+                  <span className="font-bold text-white">{selectedEmbryoDetail.donorName}</span>
                 </div>
 
                 <div className="flex justify-between">
                   <span className="text-[#717973]">Padre Semental:</span>
-                  <span className="font-bold text-[#012d1d]">{selectedEmbryoDetail.sireName}</span>
+                  <span className="font-bold text-white">{selectedEmbryoDetail.sireName}</span>
                 </div>
 
                 <div className="flex justify-between">
                   <span className="text-[#717973]">Fecha Fecundación:</span>
-                  <span className="font-bold text-[#012d1d]">{selectedEmbryoDetail.fecundationDate}</span>
+                  <span className="font-bold text-white">{selectedEmbryoDetail.fecundationDate}</span>
                 </div>
 
                 {selectedEmbryoDetail.receptorTag && (
@@ -5736,13 +5736,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
 
                 <div className="flex justify-between">
                   <span className="text-[#717973]">Ubicación / Canastilla:</span>
-                  <span className="font-bold text-[#012d1d]">{selectedEmbryoDetail.lotCanister || 'Termo 1'}</span>
+                  <span className="font-bold text-white">{selectedEmbryoDetail.lotCanister || 'Termo 1'}</span>
                 </div>
               </div>
 
               {/* Cambiar Estado Directamente */}
               <div className="p-3 bg-[#f4fbf7] border border-[#c1ecd4] rounded-xl space-y-2">
-                <label className="block font-black text-[#012d1d] text-[11px] uppercase tracking-wider">
+                <label className="block font-black text-white text-[11px] uppercase tracking-wider">
                   Cambiar Estado del Embrión:
                 </label>
                 <div className="flex gap-2">
@@ -5784,7 +5784,7 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
               <button
                 type="button"
                 onClick={() => setSelectedEmbryoDetail(null)}
-                className="px-5 py-2 bg-[#012d1d] text-white font-black rounded-xl text-xs hover:bg-[#1b4332] cursor-pointer"
+                className="px-5 py-2 bg-[#0D1A13] text-white font-black rounded-xl text-xs hover:bg-[#123F2A] cursor-pointer"
               >
                 Cerrar
               </button>
@@ -5795,18 +5795,18 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
       {/* MODAL: PROTOTYPE PHOTO FULL VIEW */}
       {viewingPrototypePhoto && (
         <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) setViewingPrototypePhoto(null); }}>
-          <div className="bg-white rounded-3xl max-w-4xl w-full p-4 md:p-5 space-y-4 shadow-2xl border-2 border-[#012d1d] flex flex-col">
+          <div className="bg-[#15241C] rounded-3xl max-w-4xl w-full p-4 md:p-5 space-y-4 shadow-2xl border-2 border-[#012d1d] flex flex-col">
             <div className="flex justify-between items-center border-b border-[#e2e2e2] pb-3">
               <div className="flex items-center gap-2">
-                <Camera className="w-5 h-5 text-[#012d1d]" />
-                <h3 className="font-black text-[#012d1d] text-base md:text-lg">
+                <Camera className="w-5 h-5 text-white" />
+                <h3 className="font-black text-white text-base md:text-lg">
                   Prototipo Racial: {viewingPrototypePhoto.title}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setViewingPrototypePhoto(null)}
-                className="text-[#717973] hover:text-black p-1.5 rounded-xl hover:bg-slate-100 cursor-pointer"
+                className="text-[#717973] hover:text-black p-1.5 rounded-xl hover:bg-[#1F3327] cursor-pointer"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -5821,13 +5821,13 @@ export const GeneticsView: React.FC<GeneticsViewProps> = ({
             </div>
 
             <div className="flex justify-between items-center pt-2 border-t border-[#e2e2e2] text-xs text-[#717973]">
-              <span className="font-mono font-bold text-[#012d1d]">
+              <span className="font-mono font-bold text-white">
                 Fotografía de Referencia Prototípica • Sistema GanaderIA
               </span>
               <button
                 type="button"
                 onClick={() => setViewingPrototypePhoto(null)}
-                className="bg-[#012d1d] text-white px-5 py-2 rounded-xl font-black hover:bg-[#1b4332] cursor-pointer shadow-md"
+                className="bg-[#0D1A13] text-white px-5 py-2 rounded-xl font-black hover:bg-[#123F2A] cursor-pointer shadow-md"
               >
                 Cerrar
               </button>

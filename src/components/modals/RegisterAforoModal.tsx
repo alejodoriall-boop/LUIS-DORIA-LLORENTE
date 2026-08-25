@@ -216,16 +216,16 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-4xl lg:max-w-5xl w-full overflow-hidden shadow-2xl border border-[#c1c8c2] animate-in fade-in zoom-in-95 duration-200 my-auto">
+      <div className="bg-[#15241C] rounded-3xl max-w-4xl lg:max-w-5xl w-full overflow-hidden shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-200 my-auto">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white p-4 sm:p-5 flex items-center justify-between">
+        <div className="bg-[#0D1A13] text-white p-4 sm:p-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#ffba38] text-[#012d1d] rounded-2xl shadow-sm">
+            <div className="p-2.5 bg-[#D4A94E] text-white rounded-2xl shadow-sm">
               <GrassIcon className="w-5 h-5 stroke-[2.5]" />
             </div>
             <div>
               <h2 className="text-base sm:text-lg font-black tracking-tight">Nuevo Aforo de Pastos</h2>
-              <p className="text-xs text-[#c1ecd4]/80 font-medium">
+              <p className="text-xs text-[#A5B8AC]/80 font-medium">
                 Muestreo de biomasa forrajera y capacidad de carga por marco
               </p>
             </div>
@@ -248,9 +248,9 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
           )}
 
           {/* Section 1: Ubicación y Datos Generales */}
-          <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] space-y-3">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 space-y-3">
             <div className="flex items-center justify-between border-b border-[#e2ede6] pb-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-[#012d1d] flex items-center gap-1.5">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
                 <Wheat className="w-4 h-4 text-[#ffba38]" />
                 1. Ubicación y Datos de Campo
               </span>
@@ -268,7 +268,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                 <select
                   value={farmId}
                   onChange={(e) => setFarmId(e.target.value)}
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
                 >
                   {farms.map((f) => (
                     <option key={f.profile.id} value={f.profile.id}>
@@ -286,7 +286,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                 <select
                   value={paddockId}
                   onChange={(e) => setPaddockId(e.target.value)}
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
                 >
                   {farmPaddocks.map((p) => (
                     <option key={p.id} value={p.id}>
@@ -306,7 +306,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                    className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
                   />
                 </div>
               </div>
@@ -321,7 +321,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                   value={samplerName}
                   onChange={(e) => setSamplerName(e.target.value)}
                   placeholder="Ej. Ing. Carlos, Mayordomo Pedro"
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-medium text-[#1a1c1c] focus:outline-none focus:border-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-medium text-white focus:outline-none focus:border-[#012d1d]"
                 />
               </div>
 
@@ -333,7 +333,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                 <select
                   value={grassType}
                   onChange={(e) => handleGrassTypeChange(e.target.value)}
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
                 >
                   {GRASS_TYPES_PRESETS.map((g) => (
                     <option key={g.name} value={g.name}>
@@ -351,7 +351,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                 <select
                   value={season}
                   onChange={(e) => setSeason(e.target.value as AforoSeason)}
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d] focus:outline-none focus:border-[#012d1d]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white focus:outline-none focus:border-[#012d1d]"
                 >
                   <option value="lluvia">🌧️ Temporada de Lluvias (Invierno)</option>
                   <option value="sequia">☀️ Temporada de Sequía (Verano)</option>
@@ -362,9 +362,9 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
           </div>
 
           {/* Section 2: Marco y Pesaje de Muestras */}
-          <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] space-y-3">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 space-y-3">
             <div className="flex items-center justify-between border-b border-[#e2ede6] pb-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-[#012d1d] flex items-center gap-1.5">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
                 <Ruler className="w-4 h-4 text-[#ffba38]" />
                 2. Cortes de Marco (Pesaje de Forraje Verde)
               </span>
@@ -373,7 +373,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                 <select
                   value={frameSizeM2}
                   onChange={(e) => setFrameSizeM2(parseFloat(e.target.value))}
-                  className="p-1 bg-white border border-[#c1c8c2] rounded-lg text-xs font-bold text-[#012d1d]"
+                  className="p-1 bg-[#15241C] border border-white/10 rounded-lg text-xs font-bold text-white"
                 >
                   <option value={1.0}>1.0 m² (1m x 1m)</option>
                   <option value={0.5}>0.5 m² (1m x 0.5m)</option>
@@ -394,9 +394,9 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
               {cuts.map((cut, idx) => (
                 <div
                   key={cut.frameIndex}
-                  className="grid grid-cols-12 gap-2 items-center bg-white p-2 rounded-xl border border-[#c1c8c2]"
+                  className="grid grid-cols-12 gap-2 items-center bg-[#15241C] p-2 rounded-xl border border-white/10"
                 >
-                  <span className="col-span-2 text-xs font-extrabold text-[#012d1d] pl-1">
+                  <span className="col-span-2 text-xs font-extrabold text-white pl-1">
                     Marco #{cut.frameIndex}
                   </span>
                   <div className="col-span-4 flex items-center gap-1">
@@ -406,7 +406,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                       min="0.1"
                       value={cut.weightKg}
                       onChange={(e) => handleUpdateCutWeight(idx, e.target.value)}
-                      className="w-full p-1.5 bg-[#f8fbf9] border border-[#c1c8c2] rounded-lg text-xs font-bold text-[#012d1d] text-center focus:outline-none focus:border-[#012d1d]"
+                      className="w-full p-1.5 bg-[#15241C] border border-white/10 rounded-lg text-xs font-bold text-white text-center focus:outline-none focus:border-[#012d1d]"
                     />
                     <span className="text-[10px] font-bold text-[#717973]">kg</span>
                   </div>
@@ -417,7 +417,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                       max="200"
                       value={cut.heightCm || ''}
                       onChange={(e) => handleUpdateCutHeight(idx, e.target.value)}
-                      className="w-full p-1.5 bg-[#f8fbf9] border border-[#c1c8c2] rounded-lg text-xs font-bold text-[#012d1d] text-center focus:outline-none focus:border-[#012d1d]"
+                      className="w-full p-1.5 bg-[#15241C] border border-white/10 rounded-lg text-xs font-bold text-white text-center focus:outline-none focus:border-[#012d1d]"
                       placeholder="45"
                     />
                     <span className="text-[10px] font-bold text-[#717973]">cm</span>
@@ -439,7 +439,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
             <button
               type="button"
               onClick={handleAddFrame}
-              className="w-full py-2 bg-white hover:bg-[#e8f3ed] text-[#012d1d] font-bold text-xs rounded-xl border border-dashed border-[#2d6a4f] transition-all cursor-pointer flex items-center justify-center gap-1.5"
+              className="w-full py-2 bg-[#15241C] hover:bg-[#e8f3ed] text-white font-bold text-xs rounded-xl border border-dashed border-[#2d6a4f] transition-all cursor-pointer flex items-center justify-center gap-1.5"
             >
               <Plus className="w-4 h-4 text-[#ffba38]" />
               <span>+ Agregar Cuadro de Muestreo</span>
@@ -449,25 +449,25 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
             <div className="bg-[#e8f3ed] p-3 rounded-xl border border-[#c1ecd4] flex flex-wrap items-center justify-between gap-2 text-xs">
               <div>
                 <span className="text-[#414844] font-medium">Promedio por Marco: </span>
-                <span className="font-extrabold text-[#012d1d] font-mono">
+                <span className="font-extrabold text-white font-mono">
                   {avgWeightPerFrameKg.toFixed(2)} kg
                 </span>
               </div>
               <div>
                 <span className="text-[#414844] font-medium">Rendimiento m²: </span>
-                <span className="font-extrabold text-[#012d1d] font-mono">
+                <span className="font-extrabold text-white font-mono">
                   {avgGreenYieldKgM2.toFixed(2)} kg/m²
                 </span>
               </div>
-              <div className="bg-[#012d1d] text-white px-2.5 py-1 rounded-lg font-extrabold font-mono text-xs shadow-2xs">
+              <div className="bg-[#0D1A13] text-white px-2.5 py-1 rounded-lg font-extrabold font-mono text-xs shadow-2xs">
                 {totalGreenYieldTonHa.toFixed(1)} Ton Verde / Ha
               </div>
             </div>
           </div>
 
           {/* Section 3: Parámetros de Aprovechamiento y Carga */}
-          <div className="bg-[#f8fbf9] p-4 rounded-2xl border border-[#c1c8c2] space-y-3">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-[#012d1d] flex items-center gap-1.5 border-b border-[#e2ede6] pb-2 block">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 space-y-3">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5 border-b border-[#e2ede6] pb-2 block">
               <Sliders className="w-4 h-4 text-[#ffba38]" />
               3. Ajuste de Pérdidas y Consumo Ganadero
             </span>
@@ -484,7 +484,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                     max="50"
                     value={dryMatterPercentage}
                     onChange={(e) => setDryMatterPercentage(parseFloat(e.target.value) || 20)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                   <span className="text-xs font-bold text-[#717973]">%</span>
                 </div>
@@ -501,7 +501,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                     max="60"
                     value={grazingLossPercentage}
                     onChange={(e) => setGrazingLossPercentage(parseFloat(e.target.value) || 30)}
-                    className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   />
                   <span className="text-xs font-bold text-[#717973]">%</span>
                 </div>
@@ -516,14 +516,14 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                   min="1"
                   value={currentAnimalsCount}
                   onChange={(e) => setCurrentAnimalsCount(parseInt(e.target.value) || 0)}
-                  className="w-full p-2 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                  className="w-full p-2 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                 />
               </div>
             </div>
           </div>
 
           {/* Section 4: Live Results Box */}
-          <div className="bg-[#012d1d] text-white p-4 rounded-2xl shadow-md space-y-3">
+          <div className="bg-[#0D1A13] text-white p-4 rounded-2xl shadow-md space-y-3">
             <div className="flex items-center justify-between border-b border-white/10 pb-2">
               <span className="text-xs font-extrabold uppercase tracking-wider text-[#ffba38] flex items-center gap-1.5">
                 <TrendingUp className="w-4 h-4" />
@@ -548,7 +548,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
-                <span className="block text-[9.5px] font-semibold text-[#c1ecd4] uppercase">
+                <span className="block text-[9.5px] font-semibold text-[#A5B8AC] uppercase">
                   Forraje Útil (Kg/Ha)
                 </span>
                 <span className="text-base font-extrabold text-white font-mono">
@@ -557,7 +557,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
               </div>
 
               <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
-                <span className="block text-[9.5px] font-semibold text-[#c1ecd4] uppercase">
+                <span className="block text-[9.5px] font-semibold text-[#A5B8AC] uppercase">
                   Materia Seca (Kg MS/Ha)
                 </span>
                 <span className="text-base font-extrabold text-[#ffba38] font-mono">
@@ -566,7 +566,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
               </div>
 
               <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
-                <span className="block text-[9.5px] font-semibold text-[#c1ecd4] uppercase">
+                <span className="block text-[9.5px] font-semibold text-[#A5B8AC] uppercase">
                   Capacidad Carga (UA/Ha)
                 </span>
                 <span className="text-base font-extrabold text-white font-mono">
@@ -574,7 +574,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
                 </span>
               </div>
 
-              <div className="bg-[#ffba38] text-[#012d1d] p-2.5 rounded-xl font-bold shadow-inner">
+              <div className="bg-[#D4A94E] text-white p-2.5 rounded-xl font-bold shadow-inner">
                 <span className="block text-[9.5px] font-extrabold uppercase opacity-80">
                   Días Pastoreo Lote
                 </span>
@@ -595,7 +595,7 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Ej. Buena presencia de trébol/leguminosa, libre de malezas leñosas, rebrote uniforme..."
-              className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-medium text-[#1a1c1c] focus:outline-none focus:border-[#012d1d]"
+              className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-medium text-white focus:outline-none focus:border-[#012d1d]"
             />
           </div>
 
@@ -604,13 +604,13 @@ export const RegisterAforoModal: React.FC<RegisterAforoModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-2.5 px-4 bg-white hover:bg-[#f0f0f0] text-[#414844] font-bold text-xs rounded-xl border border-[#c1c8c2] transition-all cursor-pointer"
+              className="flex-1 py-2.5 px-4 bg-[#15241C] hover:bg-[#f0f0f0] text-[#414844] font-bold text-xs rounded-xl border border-white/10 transition-all cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex-1 py-2.5 px-4 bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+              className="flex-1 py-2.5 px-4 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
             >
               <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
               <span>Guardar Aforo de Pastos</span>

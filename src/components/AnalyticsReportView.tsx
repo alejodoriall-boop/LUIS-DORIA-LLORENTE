@@ -1082,7 +1082,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
     <div className="space-y-6 w-full print:p-0 print:space-y-4">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-5 right-5 z-50 bg-[#012d1d] text-[#ffba38] border-2 border-[#ffba38] px-5 py-3 rounded-2xl shadow-2xl font-bold text-xs flex items-center gap-3 animate-in fade-in slide-in-from-top-4 print:hidden">
+        <div className="fixed top-5 right-5 z-50 bg-[#0D1A13] text-[#ffba38] border-2 border-[#ffba38] px-5 py-3 rounded-2xl shadow-2xl font-bold text-xs flex items-center gap-3 animate-in fade-in slide-in-from-top-4 print:hidden">
           <Sparkles className="w-5 h-5 text-[#ffba38] shrink-0" />
           <span>{toastMessage}</span>
         </div>
@@ -1094,12 +1094,12 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       <div className="bg-gradient-to-r from-[#012d1d] via-[#083e29] to-[#012d1d] text-white rounded-3xl p-5 md:p-7 border-2 border-[#012d1d] card-shadow space-y-5 print:hidden">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 border-b border-[#1b5e43] pb-5">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-[#ffba38] text-[#012d1d] flex items-center justify-center font-black text-2xl shrink-0 shadow-lg">
-              <BarChart3 className="w-8 h-8 text-[#012d1d]" />
+            <div className="w-14 h-14 rounded-2xl bg-[#D4A94E] text-white flex items-center justify-center font-black text-2xl shrink-0 shadow-lg">
+              <BarChart3 className="w-8 h-8 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="bg-[#ffba38] text-[#012d1d] text-[10px] font-mono font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="bg-[#D4A94E] text-white text-[10px] font-mono font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
                   MÓDULO DE INTELIGENCIA DE DATOS & INFORMES
                 </span>
                 <span className="bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full">
@@ -1118,7 +1118,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                   >
                     <Info className="w-4 h-4" />
                   </button>
-                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                     Consolidado integral de métricas de <b>Producción Láctea, Ganancia de Peso (GDP), Reproducción, Balance Forrajero y Estructura Financiera</b> con diagnóstico zootécnico automático.
                   </div>
                 </div>
@@ -1138,9 +1138,9 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={handlePrintReport}
-              className="bg-[#ffba38] hover:bg-[#e0a020] text-[#012d1d] px-4 py-2.5 rounded-2xl font-black text-xs flex items-center gap-2 transition-all cursor-pointer shadow-md"
+              className="bg-[#D4A94E] hover:bg-[#e0a020] text-white px-4 py-2.5 rounded-2xl font-black text-xs flex items-center gap-2 transition-all cursor-pointer shadow-md"
             >
-              <Printer className="w-4 h-4 text-[#012d1d]" />
+              <Printer className="w-4 h-4 text-white" />
               Imprimir / PDF Informe
             </button>
 
@@ -1227,7 +1227,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             <h1 className="text-2xl font-black text-black uppercase tracking-tight">
               INFORME TECNICO Y DIAGNOSTICO ZOOTECNICO CONSOLIDADO
             </h1>
-            <p className="text-xs font-bold text-gray-700">
+            <p className="text-xs font-bold text-white">
               Plataforma GanaderIA v3.2 • Sistema de Gestión de Información Pecuaria
             </p>
           </div>
@@ -1243,48 +1243,48 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* EXECUTIVE KPI STRIP                                                       */}
       {/* ========================================================================= */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-        <div className="bg-white rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
+        <div className="bg-[#15241C] rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-mono font-black uppercase">Producción Leche</span>
             <Milk className="w-4 h-4 text-blue-600" />
           </div>
-          <span className="text-2xl font-mono font-black text-[#012d1d] block">19.1 L/v/día</span>
+          <span className="text-2xl font-mono font-black text-white block">19.1 L/v/día</span>
           <div className="flex items-center gap-1 text-[11px] text-emerald-700 font-bold">
             <TrendingUp className="w-3.5 h-3.5" />
             <span>+1.2 L vs mes anterior</span>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
+        <div className="bg-[#15241C] rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-mono font-black uppercase">GDP Ceba Promedio</span>
             <Beef className="w-4 h-4 text-rose-600" />
           </div>
-          <span className="text-2xl font-mono font-black text-[#012d1d] block">+1,250 g/día</span>
+          <span className="text-2xl font-mono font-black text-white block">+1,250 g/día</span>
           <div className="flex items-center gap-1 text-[11px] text-emerald-700 font-bold">
             <TrendingUp className="w-3.5 h-3.5" />
             <span>+85 g/d vs target</span>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
+        <div className="bg-[#15241C] rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-mono font-black uppercase">Tasa de Preñez global</span>
             <Dna className="w-4 h-4 text-purple-600" />
           </div>
-          <span className="text-2xl font-mono font-black text-[#012d1d] block">64.8%</span>
+          <span className="text-2xl font-mono font-black text-white block">64.8%</span>
           <div className="flex items-center gap-1 text-[11px] text-emerald-700 font-bold">
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span>IEP: 398 días (Óptimo)</span>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
+        <div className="bg-[#15241C] rounded-2xl border-2 border-[#012d1d] p-4 card-shadow space-y-1">
           <div className="flex items-center justify-between text-[#717973]">
             <span className="text-[10px] font-mono font-black uppercase">Carga Animal (UGM/ha)</span>
             <Wheat className="w-4 h-4 text-amber-600" />
           </div>
-          <span className="text-2xl font-mono font-black text-[#012d1d] block">2.15 UGM/ha</span>
+          <span className="text-2xl font-mono font-black text-white block">2.15 UGM/ha</span>
           <div className="flex items-center gap-1 text-[11px] text-[#717973] font-bold">
             <Layers className="w-3.5 h-3.5" />
             <span>Capacidad: 2.30 UGM/ha</span>
@@ -1307,17 +1307,17 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* ========================================================================= */}
       {/* DIAGNÓSTICO ZOOTÉCNICO EJECUTIVO (TEXTUAL BRIEF)                         */}
       {/* ========================================================================= */}
-      <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+      <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
         <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
+            <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
               <Sparkles className="w-5 h-5 text-[#ffba38]" />
             </div>
             <div>
-              <span className="bg-[#012d1d] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
+              <span className="bg-[#0D1A13] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
                 Síntesis Ejecutiva & Evaluación Zootécnica
               </span>
-              <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+              <h3 className="font-black text-lg text-white mt-0.5">
                 Diagnóstico de Salud Operativa y Rentabilidad Pecuaria
               </h3>
             </div>
@@ -1402,15 +1402,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* CAPÍTULO 1: PRODUCCIÓN LÁCTEA & CURVA DE ORDEÑO                          */}
       {/* ========================================================================= */}
       {includedChapters.ch1_leche && (
-        <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
+        <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
           <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
             <div className="flex items-center gap-3">
               <Milk className="w-6 h-6 text-blue-600" />
               <div>
-                <span className="text-[10px] font-mono font-black text-blue-800 uppercase bg-blue-50 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-mono font-black text-blue-800 uppercase bg-blue-950/30 px-2 py-0.5 rounded-md">
                   CAPÍTULO 1
                 </span>
-                <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+                <h3 className="font-black text-lg text-white mt-0.5">
                   Producción de Leche, Calidad Sanitaria & Correlación de Lluvia
                 </h3>
               </div>
@@ -1427,12 +1427,12 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {/* Main Recharts Area & Line Chart */}
             <div className="lg:col-span-2 space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d] flex items-center justify-between">
+              <h4 className="font-black text-xs uppercase text-white flex items-center justify-between">
                 <span>Evolución Diaria L/Vaca y Precipitaciones Pluviométricas (mm):</span>
                 <span className="text-[10px] text-blue-700 font-mono">L/vaca/día vs Pluviometría</span>
               </h4>
 
-              <div className="h-64 bg-[#f8fdfa] p-3 rounded-2xl border border-[#c1c8c2]">
+              <div className="h-64 bg-[#f8fdfa] p-3 rounded-2xl border border-white/10">
                 <ResponsiveContainer width="100%" height="100%">
                   <ComposedChart data={MILK_PRODUCTION_TREND}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e2efe8" />
@@ -1450,11 +1450,11 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
             {/* Quality Breakdown & Indicators */}
             <div className="space-y-3">
-              <h4 className="font-black text-xs uppercase text-[#012d1d]">
+              <h4 className="font-black text-xs uppercase text-white">
                 Indicadores Sanitarios y Valorización por Calidad:
               </h4>
 
-              <div className="bg-[#f8fdfa] p-4 rounded-2xl border border-[#c1c8c2] space-y-3">
+              <div className="bg-[#f8fdfa] p-4 rounded-2xl border border-white/10 space-y-3">
                 <div className="flex items-center justify-between text-xs border-b border-[#e2efe8] pb-2">
                   <span className="font-bold text-[#717973]">Células Somáticas (CCS):</span>
                   <span className="font-mono font-black text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
@@ -1464,12 +1464,12 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
                 <div className="flex items-center justify-between text-xs border-b border-[#e2efe8] pb-2">
                   <span className="font-bold text-[#717973]">Grasa Butírica Promedio:</span>
-                  <span className="font-mono font-black text-[#012d1d]">3.82%</span>
+                  <span className="font-mono font-black text-white">3.82%</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs border-b border-[#e2efe8] pb-2">
                   <span className="font-bold text-[#717973]">Proteína Láctea Promedio:</span>
-                  <span className="font-mono font-black text-[#012d1d]">3.35%</span>
+                  <span className="font-mono font-black text-white">3.35%</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs border-b border-[#e2efe8] pb-2">
@@ -1477,7 +1477,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                   <span className="font-mono font-black text-emerald-800">1.8% de la hato</span>
                 </div>
 
-                <div className="bg-[#012d1d] text-white p-3 rounded-xl text-center font-mono">
+                <div className="bg-[#0D1A13] text-white p-3 rounded-xl text-center font-mono">
                   <span className="text-[10px] text-emerald-200 uppercase font-bold block">Precio Promedio Pagado</span>
                   <span className="text-lg font-black text-[#ffba38]">$0.50 USD / Litro</span>
                 </div>
@@ -1494,7 +1494,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 <span className="text-[10px] font-mono font-bold text-blue-900 bg-blue-100 px-2 py-0.5 rounded uppercase border border-blue-300">
                   📈 ANALÍTICA DE LACTANCIAS POR CAMPAÑA
                 </span>
-                <h4 className="font-black text-base text-[#012d1d] mt-1 flex items-center gap-2">
+                <h4 className="font-black text-base text-white mt-1 flex items-center gap-2">
                   <Milk className="w-5 h-5 text-blue-700" />
                   <span>Gráficas de Lactancias: Curva de Producción (DEL) & Producción Acumulada (#1 a #5)</span>
                 </h4>
@@ -1503,15 +1503,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 </p>
               </div>
 
-              <span className="text-xs font-mono font-bold bg-[#012d1d] text-[#ffba38] px-3 py-1.5 rounded-xl self-start sm:self-auto border border-[#ffba38]/40">
+              <span className="text-xs font-mono font-bold bg-[#0D1A13] text-[#ffba38] px-3 py-1.5 rounded-xl self-start sm:self-auto border border-[#ffba38]/40">
                 Pico Vital: 3ª y 4ª Lactancia (34 L/día)
               </span>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Chart A: Lactation Curve lines */}
-              <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] space-y-2">
-                <span className="text-xs font-black text-[#012d1d] uppercase block">
+              <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-white/10 space-y-2">
+                <span className="text-xs font-black text-white uppercase block">
                   Curva de Lactancia: Primíparas vs Secundíparas vs Multíparas
                 </span>
                 <div className="h-56 w-full">
@@ -1547,8 +1547,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               </div>
 
               {/* Chart B: Consecutive Lactations BarChart */}
-              <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] space-y-2">
-                <span className="text-xs font-black text-[#012d1d] uppercase block">
+              <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-white/10 space-y-2">
+                <span className="text-xs font-black text-white uppercase block">
                   Producción Acumulada a 305 Días por Lactancia (#1 a #5)
                 </span>
                 <div className="h-56 w-full">
@@ -1587,7 +1587,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 <span className="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded uppercase border border-emerald-300">
                   REPORTE COMPLETO Y CONSOLIDADO INDIVIDUAL
                 </span>
-                <h4 className="font-black text-base text-[#012d1d] mt-1 flex items-center gap-2">
+                <h4 className="font-black text-base text-white mt-1 flex items-center gap-2">
                   <FileSpreadsheet className="w-5 h-5 text-emerald-700" />
                   <span>Matriz Individual Animal por Animal: Parámetros Reproductivos, Eficiencia & Trazabilidad Histórica</span>
                 </h4>
@@ -1598,19 +1598,19 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
               {/* KPI Strip for Cows */}
               <div className="flex items-center gap-2 text-xs font-mono font-bold shrink-0">
-                <div className="px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-xl text-blue-950">
+                <div className="px-3 py-1.5 bg-blue-950/30 border border-blue-200 rounded-xl text-blue-950">
                   <span className="text-[10px] text-blue-700 block uppercase font-sans">Total Evaluadas</span>
                   <span className="text-sm font-black">{cowSummaryMetrics.totalCows} Vacas</span>
                 </div>
-                <div className="px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-950">
+                <div className="px-3 py-1.5 bg-emerald-950/30 border border-emerald-200 rounded-xl text-emerald-950">
                   <span className="text-[10px] text-emerald-700 block uppercase font-sans">Prom. L/Vaca/Día</span>
                   <span className="text-sm font-black">{cowSummaryMetrics.avgDailyMilk} L/d</span>
                 </div>
-                <div className="px-3 py-1.5 bg-purple-50 border border-purple-200 rounded-xl text-purple-950">
+                <div className="px-3 py-1.5 bg-purple-950/30 border border-purple-200 rounded-xl text-purple-950">
                   <span className="text-[10px] text-purple-700 block uppercase font-sans">Días Abiertos Prom.</span>
                   <span className="text-sm font-black">{cowSummaryMetrics.avgDaysOpen} días</span>
                 </div>
-                <div className="px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-950">
+                <div className="px-3 py-1.5 bg-amber-950/30 border border-amber-200 rounded-xl text-amber-950">
                   <span className="text-[10px] text-amber-800 block uppercase font-sans">Preñez Hato</span>
                   <span className="text-sm font-black">{cowSummaryMetrics.pregRatePercent}%</span>
                 </div>
@@ -1618,7 +1618,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             </div>
 
             {/* SEARCH AND FILTERS TOOLBAR */}
-            <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2.5 text-xs">
+            <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-white/10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2.5 text-xs">
               {/* Search input */}
               <div className="relative md:col-span-2">
                 <Search className="w-4 h-4 absolute left-3 top-2.5 text-[#717973]" />
@@ -1627,7 +1627,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                   placeholder="Buscar por Arete, Nombre, Chip RFID, Registro o Raza..."
                   value={cowSearchQuery}
                   onChange={(e) => setCowSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 bg-white rounded-xl border border-[#c1c8c2] text-xs font-medium text-[#012d1d] focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
+                  className="w-full pl-9 pr-3 py-2 bg-[#15241C] rounded-xl border border-white/10 text-xs font-medium text-white focus:outline-none focus:ring-2 focus:ring-[#012d1d]"
                 />
               </div>
 
@@ -1636,7 +1636,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 <select
                   value={cowReproFilter}
                   onChange={(e) => setCowReproFilter(e.target.value)}
-                  className="w-full py-2 px-2.5 bg-white rounded-xl border border-[#c1c8c2] text-xs font-bold text-[#012d1d]"
+                  className="w-full py-2 px-2.5 bg-[#15241C] rounded-xl border border-white/10 text-xs font-bold text-white"
                 >
                   <option value="todas">🎯 Estado Repro: Todos</option>
                   <option value="gestante">🟢 Gestantes</option>
@@ -1652,7 +1652,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 <select
                   value={cowLotFilter}
                   onChange={(e) => setCowLotFilter(e.target.value)}
-                  className="w-full py-2 px-2.5 bg-white rounded-xl border border-[#c1c8c2] text-xs font-bold text-[#012d1d]"
+                  className="w-full py-2 px-2.5 bg-[#15241C] rounded-xl border border-white/10 text-xs font-bold text-white"
                 >
                   <option value="todos">🏠 Lote: Todos</option>
                   <option value="Lote 01 - Alta Producción">Lote 01 - Alta Producción</option>
@@ -1667,7 +1667,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 <select
                   value={cowSortField}
                   onChange={(e: any) => setCowSortField(e.target.value)}
-                  className="w-full py-2 px-2 bg-white rounded-xl border border-[#c1c8c2] text-xs font-bold text-[#012d1d]"
+                  className="w-full py-2 px-2 bg-[#15241C] rounded-xl border border-white/10 text-xs font-bold text-white"
                 >
                   <option value="currentDailyLiters">Sort: Producción L/d</option>
                   <option value="daysInMilkDEL">Sort: DEL (Días Leche)</option>
@@ -1678,7 +1678,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 </select>
                 <button
                   onClick={() => setCowSortOrder(cowSortOrder === 'asc' ? 'desc' : 'asc')}
-                  className="p-2 bg-white border border-[#c1c8c2] rounded-xl hover:bg-emerald-50 text-[#012d1d]"
+                  className="p-2 bg-[#15241C] border border-white/10 rounded-xl hover:bg-emerald-950/30 text-white"
                   title="Alternar Orden Ascendente / Descendente"
                 >
                   <ArrowUpDown className="w-4 h-4" />
@@ -1687,10 +1687,10 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             </div>
 
             {/* CONSOLIDATED ANIMAL TABLE */}
-            <div className="overflow-x-auto rounded-2xl border border-[#c1c8c2] bg-white">
+            <div className="overflow-x-auto rounded-2xl border border-white/10 bg-[#15241C]">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#012d1d] text-white font-mono text-[10px] uppercase tracking-wider">
+                  <tr className="bg-[#0D1A13] text-white font-mono text-[10px] uppercase tracking-wider">
                     <th className="p-3">Animal & Trazabilidad</th>
                     <th className="p-3">Raza & Linaje (Madre x Padre)</th>
                     <th className="p-3 text-center">Parto / DEL</th>
@@ -1704,7 +1704,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                     <th className="p-3 text-center">Acción</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#eeeeee] font-medium text-[#012d1d]">
+                <tbody className="divide-y divide-[#eeeeee] font-medium text-white">
                   {filteredAndSortedCows.length === 0 ? (
                     <tr>
                       <td colSpan={11} className="p-8 text-center text-[#717973] font-bold">
@@ -1719,7 +1719,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                         servida_iatf: { bg: 'bg-purple-100 text-purple-900 border-purple-300', icon: '🟣' },
                         seca_gestante: { bg: 'bg-amber-100 text-amber-900 border-amber-300', icon: '🟡' },
                         anestro: { bg: 'bg-rose-100 text-rose-900 border-rose-300', icon: '🔴' },
-                      }[cow.reproStatus] || { bg: 'bg-gray-100 text-gray-800', icon: '⚪' };
+                      }[cow.reproStatus] || { bg: 'bg-[#1F3327] text-white', icon: '⚪' };
 
                       return (
                         <tr key={cow.id} className="hover:bg-emerald-50/60 transition-all">
@@ -1730,7 +1730,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                                 #{cow.earTag.replace('VACA-', '')}
                               </div>
                               <div>
-                                <span className="font-black text-[#012d1d] block">
+                                <span className="font-black text-white block">
                                   {cow.cowName} ({cow.earTag})
                                 </span>
                                 <span className="text-[10px] font-mono text-[#717973] block">
@@ -1742,7 +1742,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
                           {/* Raza & Linaje */}
                           <td className="p-3">
-                            <span className="font-bold text-[#012d1d] block text-xs">{cow.breed}</span>
+                            <span className="font-bold text-white block text-xs">{cow.breed}</span>
                             <span className="text-[10px] text-[#717973] block">
                               M: {cow.damTag} | P: {cow.sireName}
                             </span>
@@ -1775,7 +1775,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
                           {/* Eficiencia MS */}
                           <td className="p-3 text-center font-mono text-xs">
-                            <span className="font-black text-slate-900 block">
+                            <span className="font-black text-white block">
                               {cow.feedEfficiencyLKgMS} L/kg MS
                             </span>
                             <span className="text-[10px] text-emerald-700 font-bold block">
@@ -1793,7 +1793,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
                           {/* Días Abiertos / IEP */}
                           <td className="p-3 text-center font-mono text-xs">
-                            <span className="font-black text-[#012d1d] block">
+                            <span className="font-black text-white block">
                               {cow.daysOpen} DA
                             </span>
                             <span className="text-[10px] text-purple-800 font-bold block">
@@ -1803,7 +1803,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
                           {/* Último Servicio / Semen */}
                           <td className="p-3 text-center font-mono text-[11px]">
-                            <span className="font-bold text-[#012d1d] block">
+                            <span className="font-bold text-white block">
                               {cow.lastServiceDate}
                             </span>
                             <span className="text-[10px] text-[#717973] block truncate max-w-[120px]">
@@ -1825,7 +1825,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                           <td className="p-3 text-center">
                             <button
                               onClick={() => setSelectedCowForDetail(cow)}
-                              className="px-2.5 py-1.5 bg-[#012d1d] text-[#ffba38] hover:bg-[#083e29] font-mono font-bold text-[10px] rounded-xl flex items-center gap-1 mx-auto transition-all shadow-sm"
+                              className="px-2.5 py-1.5 bg-[#0D1A13] text-[#ffba38] hover:bg-[#083e29] font-mono font-bold text-[10px] rounded-xl flex items-center gap-1 mx-auto transition-all shadow-sm"
                             >
                               <Eye className="w-3.5 h-3.5" />
                               <span>Ficha</span>
@@ -1847,16 +1847,16 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* ========================================================================= */}
       {selectedCowForDetail && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 print:hidden animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 card-shadow space-y-6 relative">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 card-shadow space-y-6 relative">
             {/* Modal Header */}
             <div className="flex items-start justify-between border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-black text-lg font-mono border border-[#083e29]">
+                <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-black text-lg font-mono border border-[#083e29]">
                   #{selectedCowForDetail.earTag.replace('VACA-', '')}
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-black text-xl text-[#012d1d]">
+                    <h3 className="font-black text-xl text-white">
                       {selectedCowForDetail.cowName} ({selectedCowForDetail.earTag})
                     </h3>
                     <span className="bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-mono font-black px-2 py-0.5 rounded-md">
@@ -1871,7 +1871,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
               <button
                 onClick={() => setSelectedCowForDetail(null)}
-                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-rose-100 text-slate-700 hover:text-rose-700 flex items-center justify-center font-bold transition-all"
+                className="w-8 h-8 rounded-full bg-[#1F3327] hover:bg-rose-100 text-white hover:text-rose-700 flex items-center justify-center font-bold transition-all"
               >
                 ✕
               </button>
@@ -1881,15 +1881,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
               <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-emerald-200">
                 <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Madre Biológica</span>
-                <span className="font-bold text-[#012d1d] block mt-0.5">{selectedCowForDetail.damTag}</span>
+                <span className="font-bold text-white block mt-0.5">{selectedCowForDetail.damTag}</span>
               </div>
               <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-emerald-200">
                 <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Toro / Padre</span>
-                <span className="font-bold text-[#012d1d] block mt-0.5">{selectedCowForDetail.sireName}</span>
+                <span className="font-bold text-white block mt-0.5">{selectedCowForDetail.sireName}</span>
               </div>
               <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-emerald-200">
                 <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Edad / Naci.</span>
-                <span className="font-bold text-[#012d1d] block mt-0.5">{selectedCowForDetail.ageMonths}m ({selectedCowForDetail.birthDate})</span>
+                <span className="font-bold text-white block mt-0.5">{selectedCowForDetail.ageMonths}m ({selectedCowForDetail.birthDate})</span>
               </div>
               <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-emerald-200">
                 <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Estado Sanitario</span>
@@ -1899,7 +1899,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
             {/* Current Lactation Performance Cards */}
             <div className="space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d] flex items-center gap-1.5">
+              <h4 className="font-black text-xs uppercase text-white flex items-center gap-1.5">
                 <Milk className="w-4 h-4 text-blue-600" />
                 <span>Rendimiento Lactancia Actual (Lactancia #{selectedCowForDetail.lactationNumber})</span>
               </h4>
@@ -1933,15 +1933,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
             {/* Parámetros Reproductivos & Cronograma */}
             <div className="space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d] flex items-center gap-1.5">
+              <h4 className="font-black text-xs uppercase text-white flex items-center gap-1.5">
                 <Dna className="w-4 h-4 text-purple-600" />
                 <span>Estado Reproductivo & Trazabilidad Inseminaciones</span>
               </h4>
 
-              <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono">
+              <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono">
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Diagnóstico Reproductivo</span>
-                  <span className="font-black text-[#012d1d] block text-sm mt-0.5">{selectedCowForDetail.reproStatusLabel}</span>
+                  <span className="font-black text-white block text-sm mt-0.5">{selectedCowForDetail.reproStatusLabel}</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Días Abiertos (DA)</span>
@@ -1949,26 +1949,26 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Intervalo Parto Proyectado</span>
-                  <span className="font-black text-[#012d1d] block text-sm mt-0.5">IEP: {selectedCowForDetail.projectedIEPDays} días</span>
+                  <span className="font-black text-white block text-sm mt-0.5">IEP: {selectedCowForDetail.projectedIEPDays} días</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Servicios p/ Concepción (SPC)</span>
-                  <span className="font-bold text-[#012d1d] block mt-0.5">{selectedCowForDetail.servicesPerConception} servicios</span>
+                  <span className="font-bold text-white block mt-0.5">{selectedCowForDetail.servicesPerConception} servicios</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Última Inseminación / Servicio</span>
-                  <span className="font-bold text-[#012d1d] block mt-0.5">{selectedCowForDetail.lastServiceDate}</span>
+                  <span className="font-bold text-white block mt-0.5">{selectedCowForDetail.lastServiceDate}</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-sans font-bold block">Toro / Semen Utilizado</span>
-                  <span className="font-bold text-[#012d1d] block mt-0.5">{selectedCowForDetail.sireUsedLastService}</span>
+                  <span className="font-bold text-white block mt-0.5">{selectedCowForDetail.sireUsedLastService}</span>
                 </div>
               </div>
             </div>
 
             {/* HISTORIAL COMPLETO DE LACTANCIAS PREVIAS */}
             <div className="space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d] flex items-center justify-between">
+              <h4 className="font-black text-xs uppercase text-white flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4 text-emerald-700" />
                   <span>Historial de Lactancias Previas & Trazabilidad de Crías Nacidas</span>
@@ -1979,14 +1979,14 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               </h4>
 
               {selectedCowForDetail.previousLactations.length === 0 ? (
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-center text-xs text-[#717973]">
+                <div className="p-4 bg-[#0D1A13] rounded-2xl border border-white/10 text-center text-xs text-[#717973]">
                   Animal en su <b>Primer Parto (Vaca Primeriza)</b>. No registra lactancias previas completadas.
                 </div>
               ) : (
-                <div className="overflow-x-auto rounded-2xl border border-[#c1c8c2]">
+                <div className="overflow-x-auto rounded-2xl border border-white/10">
                   <table className="w-full text-left border-collapse text-xs">
                     <thead>
-                      <tr className="bg-[#012d1d] text-white font-mono text-[10px] uppercase">
+                      <tr className="bg-[#0D1A13] text-white font-mono text-[10px] uppercase">
                         <th className="p-2.5">N° Lactancia</th>
                         <th className="p-2.5 text-center">Duración (Días)</th>
                         <th className="p-2.5 text-center">Producción Total</th>
@@ -1996,7 +1996,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                         <th className="p-2.5 text-center">Peso Nacer</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#eeeeee] font-medium text-[#012d1d]">
+                    <tbody className="divide-y divide-[#eeeeee] font-medium text-white">
                       {selectedCowForDetail.previousLactations.map((lact, idx) => (
                         <tr key={idx} className="hover:bg-emerald-50/50">
                           <td className="p-2.5 font-bold font-mono">Lactancia #{lact.lactationNo}</td>
@@ -2022,7 +2022,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             <div className="pt-2 flex justify-end">
               <button
                 onClick={() => setSelectedCowForDetail(null)}
-                className="px-5 py-2.5 bg-[#012d1d] text-white rounded-xl font-bold text-xs hover:bg-[#083e29]"
+                className="px-5 py-2.5 bg-[#0D1A13] text-white rounded-xl font-bold text-xs hover:bg-[#083e29]"
               >
                 Cerrar Ficha del Animal
               </button>
@@ -2035,15 +2035,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* CAPÍTULO 2: CEBA & GANANCIA DIARIA DE PESO (GDP)                         */}
       {/* ========================================================================= */}
       {includedChapters.ch2_ceba && (
-        <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
+        <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
           <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
             <div className="flex items-center gap-3">
               <Beef className="w-6 h-6 text-rose-600" />
               <div>
-                <span className="text-[10px] font-mono font-black text-rose-800 uppercase bg-rose-50 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-mono font-black text-rose-800 uppercase bg-rose-950/30 px-2 py-0.5 rounded-md">
                   CAPÍTULO 2
                 </span>
-                <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+                <h3 className="font-black text-lg text-white mt-0.5">
                   Análisis de Ceba Intensiva, Conversión Alimenticia & GDP por Lote
                 </h3>
               </div>
@@ -2062,7 +2062,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             <div className="lg:col-span-2 overflow-x-auto">
               <table className="w-full text-xs text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                  <tr className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                     <th className="p-2.5 rounded-tl-xl">Lote de Ganado</th>
                     <th className="p-2.5 text-center">Cabezas</th>
                     <th className="p-2.5 text-center">Peso Entrada</th>
@@ -2074,13 +2074,13 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 </thead>
                 <tbody className="divide-y divide-[#eeeeee]">
                   {GDP_LOT_PERFORMANCE.map((lot, idx) => (
-                    <tr key={idx} className="hover:bg-[#f8fdfa] font-medium text-[#012d1d]">
-                      <td className="p-2.5 font-bold text-[#012d1d]">
+                    <tr key={idx} className="hover:bg-[#f8fdfa] font-medium text-white">
+                      <td className="p-2.5 font-bold text-white">
                         {lot.lotName}
                       </td>
                       <td className="p-2.5 text-center font-mono font-bold">{lot.animalCount}</td>
                       <td className="p-2.5 text-center font-mono text-[#717973]">{lot.entryWeightKg} kg</td>
-                      <td className="p-2.5 text-center font-mono font-bold text-[#012d1d]">{lot.currentWeightKg} kg</td>
+                      <td className="p-2.5 text-center font-mono font-bold text-white">{lot.currentWeightKg} kg</td>
                       <td className="p-2.5 text-center font-mono font-black text-emerald-800">
                         +{lot.gdpGramsDay} g/d
                       </td>
@@ -2094,10 +2094,10 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
             {/* GDP Chart */}
             <div className="space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d]">
+              <h4 className="font-black text-xs uppercase text-white">
                 Comparativo GDP (g/día) por Lote:
               </h4>
-              <div className="h-56 bg-[#f8fdfa] p-2 rounded-2xl border border-[#c1c8c2]">
+              <div className="h-56 bg-[#f8fdfa] p-2 rounded-2xl border border-white/10">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={GDP_LOT_PERFORMANCE} layout="vertical">
                     <CartesianGrid strokeDasharray="3 3" stroke="#e2efe8" />
@@ -2117,15 +2117,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* CAPÍTULO 3: REPRODUCCIÓN & GENÉTICA                                      */}
       {/* ========================================================================= */}
       {includedChapters.ch3_reproduccion && (
-        <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
+        <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
           <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
             <div className="flex items-center gap-3">
               <Dna className="w-6 h-6 text-purple-600" />
               <div>
-                <span className="text-[10px] font-mono font-black text-purple-800 uppercase bg-purple-50 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-mono font-black text-purple-800 uppercase bg-purple-950/30 px-2 py-0.5 rounded-md">
                   CAPÍTULO 3
                 </span>
-                <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+                <h3 className="font-black text-lg text-white mt-0.5">
                   Eficiencia Reproductiva del Hato & Ranking de Reproductores
                 </h3>
               </div>
@@ -2142,10 +2142,10 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {/* Reproductive Pie Chart */}
             <div className="space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d]">
+              <h4 className="font-black text-xs uppercase text-white">
                 Distribución Estado Reproductivo Hembras:
               </h4>
-              <div className="h-60 bg-[#f8fdfa] p-2 rounded-2xl border border-[#c1c8c2] flex items-center justify-center">
+              <div className="h-60 bg-[#f8fdfa] p-2 rounded-2xl border border-white/10 flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie data={REPRODUCTIVE_STATUS_DISTRIBUTION} dataKey="count" nameKey="statusName" cx="50%" cy="50%" outerRadius={70} label={({ percent }) => `${(percent * 100).toFixed(0)}%`}>
@@ -2161,14 +2161,14 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
             {/* Sire Performance Table */}
             <div className="lg:col-span-2 space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d]">
+              <h4 className="font-black text-xs uppercase text-white">
                 Desempeño de Toros / Semen en Progenie:
               </h4>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-xs text-left border-collapse">
                   <thead>
-                    <tr className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                    <tr className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                       <th className="p-2.5 rounded-tl-xl">Reproductor (Toro / Semen)</th>
                       <th className="p-2.5 text-center">Concepción %</th>
                       <th className="p-2.5 text-center">Crías Nacidas</th>
@@ -2178,8 +2178,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                   </thead>
                   <tbody className="divide-y divide-[#eeeeee]">
                     {GENETICS_SIRE_RANKING.map((bull, idx) => (
-                      <tr key={idx} className="hover:bg-[#f8fdfa] font-medium text-[#012d1d]">
-                        <td className="p-2.5 font-bold text-[#012d1d]">
+                      <tr key={idx} className="hover:bg-[#f8fdfa] font-medium text-white">
+                        <td className="p-2.5 font-bold text-white">
                           {bull.bullName}
                         </td>
                         <td className="p-2.5 text-center font-mono font-black text-purple-900">{bull.conceptionRatePercent}%</td>
@@ -2188,7 +2188,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                           {bull.daughterMilkAvgLiters > 0 ? `${bull.daughterMilkAvgLiters} L/v/d` : 'N/A (Carne)'}
                         </td>
                         <td className="p-2.5 text-center">
-                          <span className="bg-[#ffba38] text-[#012d1d] font-mono font-black px-2 py-0.5 rounded-md text-[11px]">
+                          <span className="bg-[#D4A94E] text-white font-mono font-black px-2 py-0.5 rounded-md text-[11px]">
                             {bull.ratingScore} / 10
                           </span>
                         </td>
@@ -2206,15 +2206,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* CAPÍTULO 4: ESTRUCTURA DE COSTOS & MARGENES FINANCIEROS                  */}
       {/* ========================================================================= */}
       {includedChapters.ch4_finanzas && (
-        <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
+        <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
           <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
             <div className="flex items-center gap-3">
-              <DollarSign className="w-6 h-6 text-[#012d1d]" />
+              <DollarSign className="w-6 h-6 text-white" />
               <div>
-                <span className="text-[10px] font-mono font-black text-[#012d1d] uppercase bg-amber-100 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-mono font-black text-white uppercase bg-amber-100 px-2 py-0.5 rounded-md">
                   CAPÍTULO 4
                 </span>
-                <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+                <h3 className="font-black text-lg text-white mt-0.5">
                   Estructura Económica, Desglose de Gastos & Margen Neto por Hectárea
                 </h3>
               </div>
@@ -2231,11 +2231,11 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {/* Financial Trend Bar Chart */}
             <div className="lg:col-span-2 space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d]">
+              <h4 className="font-black text-xs uppercase text-white">
                 Ingresos vs Egresos vs Utilidad Neta ($ USD):
               </h4>
 
-              <div className="h-60 bg-[#f8fdfa] p-3 rounded-2xl border border-[#c1c8c2]">
+              <div className="h-60 bg-[#f8fdfa] p-3 rounded-2xl border border-white/10">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={FINANCIAL_MONTHLY_TREND}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e2efe8" />
@@ -2253,19 +2253,19 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
             {/* Expenses Pie Legend */}
             <div className="space-y-2">
-              <h4 className="font-black text-xs uppercase text-[#012d1d]">
+              <h4 className="font-black text-xs uppercase text-white">
                 Composición de Gastos Operativos:
               </h4>
 
-              <div className="bg-[#f8fdfa] p-3 rounded-2xl border border-[#c1c8c2] space-y-2 text-xs">
+              <div className="bg-[#f8fdfa] p-3 rounded-2xl border border-white/10 space-y-2 text-xs">
                 {COST_BREAKDOWN_DATA.map((cost, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-2 bg-white rounded-xl border border-[#e2efe8]">
+                  <div key={idx} className="flex items-center justify-between p-2 bg-[#15241C] rounded-xl border border-[#e2efe8]">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full" style={{ backgroundColor: cost.color }} />
-                      <span className="font-medium text-[#012d1d]">{cost.name}</span>
+                      <span className="font-medium text-white">{cost.name}</span>
                     </div>
                     <div className="font-mono font-bold text-right">
-                      <span className="text-[#012d1d] block">{cost.value}%</span>
+                      <span className="text-white block">{cost.value}%</span>
                       <span className="text-[10px] text-[#717973]">${cost.amountUSD.toLocaleString()}</span>
                     </div>
                   </div>
@@ -2280,15 +2280,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* CAPÍTULO 5: BALANCE FORRAJERO & CAPACIDAD DE CARGA                       */}
       {/* ========================================================================= */}
       {includedChapters.ch5_forrajero && (
-        <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4 print:break-inside-avoid">
+        <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4 print:break-inside-avoid">
           <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
             <div className="flex items-center gap-3">
               <Wheat className="w-6 h-6 text-emerald-700" />
               <div>
-                <span className="text-[10px] font-mono font-black text-emerald-800 uppercase bg-emerald-50 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-mono font-black text-emerald-800 uppercase bg-emerald-950/30 px-2 py-0.5 rounded-md">
                   CAPÍTULO 5
                 </span>
-                <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+                <h3 className="font-black text-lg text-white mt-0.5">
                   Balance Forrajero, Aforos de Pastura & Carga Sustentable por Potrero
                 </h3>
               </div>
@@ -2303,15 +2303,15 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-            <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] space-y-1 text-center">
+            <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-white/10 space-y-1 text-center">
               <span className="text-[10px] uppercase font-bold text-[#717973] block">Oferta Forrajera Promedio</span>
               <span className="text-2xl font-mono font-black text-emerald-800">12,450 kg MS/ha/año</span>
               <span className="text-[10px] text-[#525a55] block">Especies Brachiaria Brizantha / Humidicola</span>
             </div>
 
-            <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] space-y-1 text-center">
+            <div className="p-4 bg-[#f8fdfa] rounded-2xl border border-white/10 space-y-1 text-center">
               <span className="text-[10px] uppercase font-bold text-[#717973] block">Demanda de Materia Seca</span>
-              <span className="text-2xl font-mono font-black text-[#012d1d]">10,120 kg MS/ha/año</span>
+              <span className="text-2xl font-mono font-black text-white">10,120 kg MS/ha/año</span>
               <span className="text-[10px] text-[#525a55] block">Consumo hato al 2.8% del Peso Vivo</span>
             </div>
 
@@ -2328,17 +2328,17 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* CAPÍTULO 6: PLAN DE RECOMENDACIONES TÁCTICAS & HOJA DE RUTA               */}
       {/* ========================================================================= */}
       {includedChapters.ch6_recomendaciones && (
-        <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
+        <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 print:break-inside-avoid">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#eeeeee] pb-4 gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#ffba38] text-[#012d1d] flex items-center justify-center font-black shrink-0">
-                <Lightbulb className="w-6 h-6 text-[#012d1d]" />
+              <div className="w-10 h-10 rounded-2xl bg-[#D4A94E] text-white flex items-center justify-center font-black shrink-0">
+                <Lightbulb className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-[10px] font-mono font-black text-[#012d1d] uppercase bg-amber-100 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-mono font-black text-white uppercase bg-amber-100 px-2 py-0.5 rounded-md">
                   CAPÍTULO 6
                 </span>
-                <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+                <h3 className="font-black text-lg text-white mt-0.5">
                   Plan Estratégico de Recomendaciones Tácticas & Hoja de Ruta
                 </h3>
               </div>
@@ -2347,7 +2347,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             <div className="flex flex-wrap items-center gap-2 print:hidden">
               <button
                 onClick={() => setShowAddRecModal(true)}
-                className="bg-[#012d1d] hover:bg-[#083e29] text-[#ffba38] border border-[#ffba38] px-3.5 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer"
+                className="bg-[#0D1A13] hover:bg-[#083e29] text-[#ffba38] border border-[#ffba38] px-3.5 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer"
               >
                 <Plus className="w-4 h-4 text-[#ffba38]" />
                 Nueva Recomendación
@@ -2364,7 +2364,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
           {/* SUMMARY STRIP FOR RECOMMENDATIONS */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-            <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] space-y-0.5">
+            <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-white/10 space-y-0.5">
               <span className="text-[10px] font-mono uppercase font-bold text-[#717973] block">
                 Impacto Potencial Total
               </span>
@@ -2373,7 +2373,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               </span>
             </div>
 
-            <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-[#c1c8c2] space-y-0.5">
+            <div className="p-3 bg-[#f8fdfa] rounded-2xl border border-white/10 space-y-0.5">
               <span className="text-[10px] font-mono uppercase font-bold text-[#717973] block">
                 Costo de Implementación
               </span>
@@ -2382,7 +2382,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               </span>
             </div>
 
-            <div className="p-3 bg-amber-50 rounded-2xl border border-amber-300 space-y-0.5">
+            <div className="p-3 bg-amber-950/30 rounded-2xl border border-amber-300 space-y-0.5">
               <span className="text-[10px] font-mono uppercase font-bold text-amber-900 block">
                 Beneficio Neto Estimado
               </span>
@@ -2391,7 +2391,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               </span>
             </div>
 
-            <div className="p-3 bg-blue-50 rounded-2xl border border-blue-300 space-y-0.5">
+            <div className="p-3 bg-blue-950/30 rounded-2xl border border-blue-300 space-y-0.5">
               <span className="text-[10px] font-mono uppercase font-bold text-blue-900 block">
                 Avance de Ejecución
               </span>
@@ -2407,7 +2407,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           </div>
 
           {/* RECOMMENDATIONS FILTERS BAR */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#f8fdfa] p-3 rounded-2xl border border-[#c1c8c2] print:hidden text-xs">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#f8fdfa] p-3 rounded-2xl border border-white/10 print:hidden text-xs">
             <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
               <span className="font-bold text-[#717973] flex items-center gap-1">
                 <Filter className="w-3.5 h-3.5" />
@@ -2417,8 +2417,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 onClick={() => setRecCatFilter('todas')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   recCatFilter === 'todas'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-white text-[#717973] border border-[#c1c8c2]'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#15241C] text-[#717973] border border-white/10'
                 }`}
               >
                 Todas ({recommendations.length})
@@ -2427,8 +2427,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 onClick={() => setRecCatFilter('nutricion')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   recCatFilter === 'nutricion'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-white text-[#717973] border border-[#c1c8c2]'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#15241C] text-[#717973] border border-white/10'
                 }`}
               >
                 🌾 Nutrición
@@ -2437,8 +2437,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 onClick={() => setRecCatFilter('reproduccion')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   recCatFilter === 'reproduccion'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-white text-[#717973] border border-[#c1c8c2]'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#15241C] text-[#717973] border border-white/10'
                 }`}
               >
                 🧬 Reproducción
@@ -2447,8 +2447,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 onClick={() => setRecCatFilter('pastos')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   recCatFilter === 'pastos'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-white text-[#717973] border border-[#c1c8c2]'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#15241C] text-[#717973] border border-white/10'
                 }`}
               >
                 🌿 Pastos
@@ -2457,8 +2457,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 onClick={() => setRecCatFilter('sanidad')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   recCatFilter === 'sanidad'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-white text-[#717973] border border-[#c1c8c2]'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#15241C] text-[#717973] border border-white/10'
                 }`}
               >
                 🛡️ Sanidad
@@ -2467,8 +2467,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 onClick={() => setRecCatFilter('finanzas')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   recCatFilter === 'finanzas'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-white text-[#717973] border border-[#c1c8c2]'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#15241C] text-[#717973] border border-white/10'
                 }`}
               >
                 💵 Finanzas
@@ -2480,7 +2480,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               <select
                 value={recPriorityFilter}
                 onChange={(e) => setRecPriorityFilter(e.target.value)}
-                className="bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1 font-bold text-[#012d1d] focus:outline-none"
+                className="bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1 font-bold text-white focus:outline-none"
               >
                 <option value="todas">Todas las Prioridades</option>
                 <option value="alta">🔴 Alta Prioridad</option>
@@ -2493,7 +2493,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           {/* RECOMMENDATIONS CARDS GRID */}
           <div className="space-y-4">
             {filteredRecommendations.length === 0 ? (
-              <div className="text-center py-8 bg-[#f8fdfa] rounded-2xl border border-dashed border-[#c1c8c2]">
+              <div className="text-center py-8 bg-[#f8fdfa] rounded-2xl border border-dashed border-white/10">
                 <Info className="w-8 h-8 text-[#717973] mx-auto mb-2" />
                 <p className="text-xs font-bold text-[#717973]">
                   No se encontraron recomendaciones con los filtros seleccionados.
@@ -2516,7 +2516,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 }[rec.category];
 
                 const statusBadge = {
-                  pendiente: { label: '⏳ Pendiente', bg: 'bg-slate-100 text-slate-800 border-slate-300' },
+                  pendiente: { label: '⏳ Pendiente', bg: 'bg-[#1F3327] text-white border-white/15' },
                   en_progreso: { label: '🔄 En Progreso', bg: 'bg-blue-100 text-blue-900 border-blue-300' },
                   completada: { label: '✅ Ejecutada', bg: 'bg-emerald-100 text-emerald-900 border-emerald-300' },
                 }[rec.status];
@@ -2528,8 +2528,8 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                       rec.status === 'completada'
                         ? 'bg-emerald-50/50 border-emerald-300'
                         : rec.priority === 'alta'
-                        ? 'bg-white border-[#012d1d]'
-                        : 'bg-white border-[#c1c8c2]'
+                        ? 'bg-[#15241C] border-[#012d1d]'
+                        : 'bg-[#15241C] border-white/10'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#eeeeee] pb-2.5">
@@ -2537,7 +2537,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                         <span className={`text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full border ${priorityBadge.bg}`}>
                           {priorityBadge.label}
                         </span>
-                        <span className="text-[10px] font-mono font-bold bg-[#f8fdfa] text-[#012d1d] border border-[#c1c8c2] px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-mono font-bold bg-[#f8fdfa] text-white border border-white/10 px-2.5 py-0.5 rounded-full">
                           {categoryLabel}
                         </span>
                         <span className="text-[10px] font-mono font-bold text-[#717973] flex items-center gap-1">
@@ -2555,14 +2555,14 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                           {rec.status === 'completada' ? (
                             <CheckSquare className="w-3.5 h-3.5 text-emerald-700" />
                           ) : (
-                            <Square className="w-3.5 h-3.5 text-slate-500" />
+                            <Square className="w-3.5 h-3.5 text-[#A5B8AC]" />
                           )}
                           <span>{statusBadge.label}</span>
                         </button>
 
                         <button
                           onClick={() => handleDeleteRec(rec.id)}
-                          className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg transition-all"
+                          className="p-1.5 text-[#A5B8AC] hover:text-rose-600 rounded-lg transition-all"
                           title="Eliminar recomendación"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -2571,14 +2571,14 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                     </div>
 
                     <div>
-                      <h4 className="font-black text-sm text-[#012d1d] flex items-center gap-2">
+                      <h4 className="font-black text-sm text-white flex items-center gap-2">
                         <span>{rec.title}</span>
                       </h4>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                       <div className="bg-[#f8fdfa] p-3 rounded-xl border border-[#e2efe8] space-y-1">
-                        <span className="font-black text-[#012d1d] text-[10px] uppercase block">
+                        <span className="font-black text-white text-[10px] uppercase block">
                           ⚠ Diagnóstico / Oportunidad:
                         </span>
                         <p className="text-[#525a55] font-medium leading-relaxed">
@@ -2597,7 +2597,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                     </div>
 
                     {/* FINANCIAL METRICS BAR */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs bg-[#012d1d] text-white p-3 rounded-xl font-mono">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs bg-[#0D1A13] text-white p-3 rounded-xl font-mono">
                       <div>
                         <span className="text-[9px] text-emerald-300 uppercase block">Impacto Estimado</span>
                         <span className="font-black text-[#ffba38]">
@@ -2639,14 +2639,14 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* ========================================================================= */}
       {showAddRecModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 space-y-5 card-shadow my-8">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 space-y-5 card-shadow my-8">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                   <Plus className="w-6 h-6 text-[#ffba38]" />
                 </div>
                 <div>
-                  <h3 className="font-black text-lg text-[#012d1d]">
+                  <h3 className="font-black text-lg text-white">
                     Agregar Recomendación al Informe
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -2657,7 +2657,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
               <button
                 onClick={() => setShowAddRecModal(false)}
-                className="text-slate-400 hover:text-black font-bold text-sm"
+                className="text-[#A5B8AC] hover:text-black font-bold text-sm"
               >
                 ✕
               </button>
@@ -2665,7 +2665,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
             <form onSubmit={handleCreateRec} className="space-y-4 text-xs">
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">
+                <label className="font-bold text-white block mb-1">
                   Título de la Recomendación: *
                 </label>
                 <input
@@ -2674,19 +2674,19 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                   placeholder="Ej: Implementación de Creep Feeding en terneros de cría"
                   value={newRec.title}
                   onChange={(e) => setNewRec({ ...newRec, title: e.target.value })}
-                  className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl px-3 py-2 font-medium text-[#012d1d] focus:outline-none"
+                  className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl px-3 py-2 font-medium text-white focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">
+                  <label className="font-bold text-white block mb-1">
                     Categoría:
                   </label>
                   <select
                     value={newRec.category}
                     onChange={(e) => setNewRec({ ...newRec, category: e.target.value as any })}
-                    className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d] focus:outline-none"
+                    className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl px-3 py-2 font-bold text-white focus:outline-none"
                   >
                     <option value="nutricion">🌾 Nutrición & Alimentación</option>
                     <option value="reproduccion">🧬 Reproducción & Genética</option>
@@ -2697,13 +2697,13 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">
+                  <label className="font-bold text-white block mb-1">
                     Nivel de Prioridad:
                   </label>
                   <select
                     value={newRec.priority}
                     onChange={(e) => setNewRec({ ...newRec, priority: e.target.value as any })}
-                    className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d] focus:outline-none"
+                    className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl px-3 py-2 font-bold text-white focus:outline-none"
                   >
                     <option value="alta">🔴 Alta Prioridad</option>
                     <option value="media">🟡 Media Prioridad</option>
@@ -2713,7 +2713,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">
+                <label className="font-bold text-white block mb-1">
                   Diagnóstico / Situación Encontrada:
                 </label>
                 <textarea
@@ -2721,12 +2721,12 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                   placeholder="Describa el problema o causa raíz identificada..."
                   value={newRec.problemStatement}
                   onChange={(e) => setNewRec({ ...newRec, problemStatement: e.target.value })}
-                  className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl p-3 font-medium text-[#012d1d] focus:outline-none"
+                  className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl p-3 font-medium text-white focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">
+                <label className="font-bold text-white block mb-1">
                   Solución Propuesta & Protocolo Técnico: *
                 </label>
                 <textarea
@@ -2735,13 +2735,13 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                   placeholder="Describa los pasos de implementación y formulación..."
                   value={newRec.proposedSolution}
                   onChange={(e) => setNewRec({ ...newRec, proposedSolution: e.target.value })}
-                  className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl p-3 font-medium text-[#012d1d] focus:outline-none"
+                  className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl p-3 font-medium text-white focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">
+                  <label className="font-bold text-white block mb-1">
                     Impacto Estimado ($ USD):
                   </label>
                   <input
@@ -2749,12 +2749,12 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                     min={0}
                     value={newRec.financialImpactUSD}
                     onChange={(e) => setNewRec({ ...newRec, financialImpactUSD: Number(e.target.value) })}
-                    className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d] focus:outline-none"
+                    className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">
+                  <label className="font-bold text-white block mb-1">
                     Costo Implementación ($ USD):
                   </label>
                   <input
@@ -2762,12 +2762,12 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                     min={0}
                     value={newRec.implementationCostUSD}
                     onChange={(e) => setNewRec({ ...newRec, implementationCostUSD: Number(e.target.value) })}
-                    className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d] focus:outline-none"
+                    className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">
+                  <label className="font-bold text-white block mb-1">
                     Plazo (Días):
                   </label>
                   <input
@@ -2775,20 +2775,20 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                     min={1}
                     value={newRec.timeframeDays}
                     onChange={(e) => setNewRec({ ...newRec, timeframeDays: Number(e.target.value) })}
-                    className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d] focus:outline-none"
+                    className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">
+                <label className="font-bold text-white block mb-1">
                   Responsable de Ejecución:
                 </label>
                 <input
                   type="text"
                   value={newRec.responsibleRole}
                   onChange={(e) => setNewRec({ ...newRec, responsibleRole: e.target.value })}
-                  className="w-full bg-[#f8fdfa] border border-[#c1c8c2] rounded-xl px-3 py-2 font-medium text-[#012d1d] focus:outline-none"
+                  className="w-full bg-[#f8fdfa] border border-white/10 rounded-xl px-3 py-2 font-medium text-white focus:outline-none"
                 />
               </div>
 
@@ -2796,13 +2796,13 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowAddRecModal(false)}
-                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl cursor-pointer"
+                  className="px-4 py-2 bg-[#1F3327] hover:bg-[#202E25] text-white font-bold rounded-xl cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] hover:bg-[#083e29] text-[#ffba38] font-black rounded-xl cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] hover:bg-[#083e29] text-[#ffba38] font-black rounded-xl cursor-pointer"
                 >
                   Guardar Recomendación
                 </button>
@@ -2816,7 +2816,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
       {/* CAPÍTULO 7: ANÁLISIS AGROCLIMÁTICO DE LLUVIAS & BALANCE HÍDRICO           */}
       {/* ========================================================================= */}
       {includedChapters.ch7_lluvias && (
-        <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-6 print:break-inside-avoid">
+        <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-6 print:break-inside-avoid">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#eeeeee] pb-4 gap-3">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-blue-100 text-blue-900 flex items-center justify-center font-black shrink-0 border border-blue-300">
@@ -2826,7 +2826,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                 <span className="text-[10px] font-mono font-black text-blue-900 uppercase bg-blue-100 px-2 py-0.5 rounded-md border border-blue-200">
                   CAPÍTULO 7
                 </span>
-                <h3 className="font-black text-lg text-[#012d1d] mt-0.5">
+                <h3 className="font-black text-lg text-white mt-0.5">
                   Análisis Agroclimático de Lluvias, Pluviometría & Balance Hídrico
                 </h3>
               </div>
@@ -2895,9 +2895,9 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
 
           {/* MAIN GRAPH: LLUVIAS VS EVAPOTRANSPIRACIÓN Y CRECIMIENTO DE PASTO */}
           <div className="space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#f8fdfa] p-3 rounded-2xl border border-[#c1c8c2]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#f8fdfa] p-3 rounded-2xl border border-white/10">
               <div>
-                <h4 className="font-bold text-xs text-[#012d1d] flex items-center gap-2">
+                <h4 className="font-bold text-xs text-white flex items-center gap-2">
                   <CloudRain className="w-4 h-4 text-blue-600" />
                   <span>Régimen Pluviométrico (mm) vs Evapotranspiración (ET0) y Tasa de Crecimiento Forrajero</span>
                 </h4>
@@ -2948,7 +2948,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
           {/* STATIONS & PLUVIOMETERS DETAILED TABLE */}
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between">
-              <h4 className="font-bold text-xs text-[#012d1d] flex items-center gap-2">
+              <h4 className="font-bold text-xs text-white flex items-center gap-2">
                 <Building2 className="w-4 h-4 text-emerald-800" />
                 <span>Monitoreo por Pluviómetros Sectorizados & Estado de Reservorios</span>
               </h4>
@@ -2957,10 +2957,10 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
               </span>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl border border-[#c1c8c2]">
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#012d1d] text-white font-mono text-[10px] uppercase">
+                  <tr className="bg-[#0D1A13] text-white font-mono text-[10px] uppercase">
                     <th className="p-2.5">Estación / Potrero Sectorizado</th>
                     <th className="p-2.5 text-center">Acumulado Mes (mm)</th>
                     <th className="p-2.5 text-center">Días de Lluvia</th>
@@ -2969,17 +2969,17 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                     <th className="p-2.5 text-center">Estado del Suelo</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#eeeeee] font-medium text-[#012d1d]">
+                <tbody className="divide-y divide-[#eeeeee] font-medium text-white">
                   {RAINGAUGE_STATIONS.map((st, i) => {
                     const statusBadge = {
                       optimo: { label: '🟢 Humedad Óptima', bg: 'bg-emerald-100 text-emerald-900 border-emerald-300' },
                       alerta_leve: { label: '🟡 Ligero Déficit', bg: 'bg-amber-100 text-amber-900 border-amber-300' },
                       saturado: { label: '🔵 Suelo Saturado', bg: 'bg-blue-100 text-blue-900 border-blue-300' },
-                    }[st.estado] || { label: st.estado, bg: 'bg-gray-100 text-gray-800' };
+                    }[st.estado] || { label: st.estado, bg: 'bg-[#1F3327] text-white' };
 
                     return (
                       <tr key={i} className="hover:bg-emerald-50/50 transition-all">
-                        <td className="p-2.5 font-bold text-[#012d1d]">
+                        <td className="p-2.5 font-bold text-white">
                           {st.stationName}
                         </td>
                         <td className="p-2.5 text-center font-mono font-black text-blue-900">
@@ -2993,7 +2993,7 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
                         </td>
                         <td className="p-2.5 text-center font-mono font-bold">
                           <div className="flex items-center justify-center gap-1.5">
-                            <div className="w-16 bg-slate-200 rounded-full h-2 overflow-hidden">
+                            <div className="w-16 bg-[#202E25] rounded-full h-2 overflow-hidden">
                               <div
                                 className="bg-blue-600 h-full rounded-full"
                                 style={{ width: `${st.reservorioNivel}%` }}
@@ -3059,14 +3059,14 @@ export const AnalyticsReportView: React.FC<AnalyticsReportViewProps> = ({
             <div className="border-t-2 border-black pt-2 font-bold uppercase">
               Dr. Alejandro Gómez - Médico Veterinario Zootecnista
             </div>
-            <p className="text-[10px] text-gray-600">Matrícula Profesional MP-88421</p>
+            <p className="text-[10px] text-[#A5B8AC]">Matrícula Profesional MP-88421</p>
           </div>
 
           <div>
             <div className="border-t-2 border-black pt-2 font-bold uppercase">
               Ing. Carlos Mendoza - Gerente Técnico de Operaciones
             </div>
-            <p className="text-[10px] text-gray-600">Ganadería El Paraíso & Asociados</p>
+            <p className="text-[10px] text-[#A5B8AC]">Ganadería El Paraíso & Asociados</p>
           </div>
         </div>
       </div>

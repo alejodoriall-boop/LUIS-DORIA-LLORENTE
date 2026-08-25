@@ -482,7 +482,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
     <div className="space-y-6 w-full pb-12">
       {/* Inventory Feedback Banner */}
       {inventoryBannerMessage && (
-        <div className="bg-[#1b4332] text-[#c1ecd4] px-4 py-3 rounded-2xl shadow-lg border border-[#c1ecd4]/30 flex items-center justify-between animate-in fade-in slide-in-from-top-2">
+        <div className="bg-[#123F2A] text-[#A5B8AC] px-4 py-3 rounded-2xl shadow-lg border border-[#c1ecd4]/30 flex items-center justify-between animate-in fade-in slide-in-from-top-2">
           <div className="flex items-center gap-2.5 text-xs font-bold">
             <Sparkles className="w-5 h-5 text-[#ffba38] shrink-0" />
             <span>{inventoryBannerMessage}</span>
@@ -497,19 +497,19 @@ export const CattleView: React.FC<CattleViewProps> = ({
       )}
 
       {/* Top Main Header & Operational Controls */}
-      <div className="bg-[#012d1d] text-white rounded-3xl p-5 md:p-6 shadow-lg border border-[#1b4332] space-y-4">
+      <div className="bg-[#0D1A13] text-white rounded-3xl p-5 md:p-6 shadow-lg border border-[#1b4332] space-y-4">
         {/* Header Title, Metadata & Action */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="bg-[#1b4332] text-[#c1ecd4] text-[10px] font-bold uppercase px-2.5 py-0.5 rounded font-mono border border-[#2d6a4f]">
+              <span className="bg-[#123F2A] text-[#A5B8AC] text-[10px] font-bold uppercase px-2.5 py-0.5 rounded font-mono border border-[#2d6a4f]">
                 Inventario Multi-Predio
               </span>
               <span className="text-xs text-[#a3b8ad] font-medium">
                 {eligibleFarms.length} {eligibleFarms.length === 1 ? 'Predio activo' : 'Predios activos'}
               </span>
               <span className="text-[#2d6a4f] text-xs">•</span>
-              <span className="text-xs text-[#c1ecd4] font-medium">
+              <span className="text-xs text-[#A5B8AC] font-medium">
                 Modo: {!isLotsEnabled ? 'Manejo por Predios' : 'Manejo por Lotes Activo'}
               </span>
             </div>
@@ -533,16 +533,16 @@ export const CattleView: React.FC<CattleViewProps> = ({
               <button
                 type="button"
                 onClick={() => onToggleLotsModule?.(true)}
-                className="px-4 py-2.5 bg-[#ffba38] hover:bg-[#ffdeac] text-[#012d1d] font-bold text-xs rounded-xl transition-all cursor-pointer whitespace-nowrap shadow-sm active:scale-95 flex items-center gap-2"
+                className="px-4 py-2.5 bg-[#D4A94E] hover:bg-[#ffdeac] text-white font-bold text-xs rounded-xl transition-all cursor-pointer whitespace-nowrap shadow-sm active:scale-95 flex items-center gap-2"
               >
-                <Layers className="w-4 h-4 text-[#012d1d]" />
+                <Layers className="w-4 h-4 text-white" />
                 <span>Habilitar Manejo por Lotes</span>
               </button>
             ) : (
               <button
                 type="button"
                 onClick={() => onToggleLotsModule?.(false)}
-                className="px-4 py-2.5 bg-[#1b4332] hover:bg-[#2d6a4f] text-[#c1ecd4] font-bold text-xs rounded-xl transition-all cursor-pointer whitespace-nowrap border border-[#2d6a4f] flex items-center gap-2"
+                className="px-4 py-2.5 bg-[#123F2A] hover:bg-[#1F6547] text-[#A5B8AC] font-bold text-xs rounded-xl transition-all cursor-pointer whitespace-nowrap border border-[#2d6a4f] flex items-center gap-2"
               >
                 <Building2 className="w-4 h-4 text-[#ffba38]" />
                 <span>Volver a Manejo por Predios</span>
@@ -555,8 +555,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {pendingCategoryAlerts.length > 0 && (
           <div className="bg-[#523700]/40 border border-[#ffba38]/70 p-3.5 px-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-[#ffba38] text-[#523700] rounded-xl shrink-0 shadow-xs">
-                <Zap className="w-4 h-4 text-[#523700]" />
+              <div className="p-2 bg-[#D4A94E] text-[#0D1A13] rounded-xl shrink-0 shadow-xs">
+                <Zap className="w-4 h-4 text-[#0D1A13]" />
               </div>
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
@@ -577,9 +577,9 @@ export const CattleView: React.FC<CattleViewProps> = ({
 
             <button
               onClick={() => setIsCategoryApprovalModalOpen(true)}
-              className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#012d1d] font-bold text-xs px-4 py-2 rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-[#D4A94E] hover:bg-[#ffdeac] text-white font-bold text-xs px-4 py-2 rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
             >
-              <Zap className="w-3.5 h-3.5 text-[#012d1d]" />
+              <Zap className="w-3.5 h-3.5 text-white" />
               <span>Revisar y Aprobar ({pendingCategoryAlerts.length})</span>
             </button>
           </div>
@@ -591,19 +591,19 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 1. Ingreso Nuevo Individual / Lote */}
         <button
           onClick={() => setIsNewAnimalModalOpen(true)}
-          className="bg-white hover:bg-slate-50 text-slate-900 p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
+          className="bg-[#15241C] hover:bg-[#0D1A13] text-white p-3.5 rounded-2xl border border-white/10 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
           <div className="flex items-center justify-between w-full">
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-emerald-950/30 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:scale-105 transition-transform">
               <PlusCircle className="w-4 h-4" />
             </div>
-            <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded">Alta</span>
+            <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-950/30 px-1.5 py-0.5 rounded">Alta</span>
           </div>
           <div>
-            <span className="block font-bold text-xs text-slate-900 leading-tight">
+            <span className="block font-bold text-xs text-white leading-tight">
               Ingreso Nuevo
             </span>
-            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+            <span className="block text-[10.5px] text-[#A5B8AC] font-medium leading-tight mt-0.5">
               Nacidos & Compras
             </span>
           </div>
@@ -612,7 +612,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 2. Migrar Inventario Existente */}
         <button
           onClick={() => setIsMigrateModalOpen(true)}
-          className="bg-emerald-50/60 hover:bg-emerald-100/70 text-slate-900 p-3.5 rounded-2xl border border-emerald-300 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
+          className="bg-emerald-50/60 hover:bg-emerald-100/70 text-white p-3.5 rounded-2xl border border-emerald-300 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
           <div className="flex items-center justify-between w-full">
             <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center border border-emerald-500 group-hover:scale-105 transition-transform shadow-xs">
@@ -623,7 +623,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
             </span>
           </div>
           <div>
-            <span className="block font-bold text-xs text-slate-900 leading-tight">
+            <span className="block font-bold text-xs text-white leading-tight">
               Migrar Inventario
             </span>
             <span className="block text-[10.5px] text-emerald-800 font-medium leading-tight mt-0.5">
@@ -635,10 +635,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 2. Módulo de Destete */}
         <button
           onClick={() => setIsWeaningModalOpen(true)}
-          className="bg-white hover:bg-amber-50/50 text-slate-900 p-3.5 rounded-2xl border border-amber-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
+          className="bg-[#15241C] hover:bg-amber-50/50 text-white p-3.5 rounded-2xl border border-amber-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
           <div className="flex items-center justify-between w-full">
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-amber-950/30 text-amber-700 flex items-center justify-center border border-amber-100 group-hover:scale-105 transition-transform">
               <Flame className="w-4 h-4" />
             </div>
             <span className="text-[9px] font-bold bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded uppercase font-mono">
@@ -646,10 +646,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
             </span>
           </div>
           <div>
-            <span className="block font-bold text-xs text-slate-900 leading-tight">
+            <span className="block font-bold text-xs text-white leading-tight">
               Proceso Destete
             </span>
-            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+            <span className="block text-[10.5px] text-[#A5B8AC] font-medium leading-tight mt-0.5">
               Hierro & Asocebú
             </span>
           </div>
@@ -660,15 +660,15 @@ export const CattleView: React.FC<CattleViewProps> = ({
           onClick={() => setIsCategoryApprovalModalOpen(true)}
           className={`p-3.5 rounded-2xl border shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer ${
             pendingCategoryAlerts.length > 0
-              ? 'bg-amber-50/70 border-amber-300 text-slate-900 hover:bg-amber-50'
-              : 'bg-white hover:bg-slate-50 border-slate-200/90 text-slate-900'
+              ? 'bg-amber-50/70 border-amber-300 text-white hover:bg-amber-950/30'
+              : 'bg-[#15241C] hover:bg-[#0D1A13] border-white/10 text-white'
           }`}
         >
           <div className="flex items-center justify-between w-full">
             <div className={`w-8 h-8 rounded-xl flex items-center justify-center border transition-transform group-hover:scale-105 ${
               pendingCategoryAlerts.length > 0
                 ? 'bg-amber-100 text-amber-800 border-amber-200'
-                : 'bg-slate-100 text-slate-700 border-slate-200'
+                : 'bg-[#1F3327] text-white border-white/10'
             }`}>
               <Zap className="w-4 h-4" />
             </div>
@@ -679,10 +679,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
             )}
           </div>
           <div>
-            <span className="block font-bold text-xs text-slate-900 leading-tight">
+            <span className="block font-bold text-xs text-white leading-tight">
               Reclasificación
             </span>
-            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+            <span className="block text-[10.5px] text-[#A5B8AC] font-medium leading-tight mt-0.5">
               Reglas Peso & Edad
             </span>
           </div>
@@ -691,19 +691,19 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 4. Control de Pesaje */}
         <button
           onClick={() => onOpenWeightModal()}
-          className="bg-white hover:bg-slate-50 text-slate-900 p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
+          className="bg-[#15241C] hover:bg-[#0D1A13] text-white p-3.5 rounded-2xl border border-white/10 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
           <div className="flex items-center justify-between w-full">
-            <div className="w-8 h-8 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center border border-sky-100 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-sky-950/30 text-sky-700 flex items-center justify-center border border-sky-100 group-hover:scale-105 transition-transform">
               <Scale className="w-4 h-4" />
             </div>
-            <span className="text-[10px] font-semibold text-sky-800 bg-sky-50 px-1.5 py-0.5 rounded">GDP</span>
+            <span className="text-[10px] font-semibold text-sky-800 bg-sky-950/30 px-1.5 py-0.5 rounded">GDP</span>
           </div>
           <div>
-            <span className="block font-bold text-xs text-slate-900 leading-tight">
+            <span className="block font-bold text-xs text-white leading-tight">
               Control Pesaje
             </span>
-            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+            <span className="block text-[10.5px] text-[#A5B8AC] font-medium leading-tight mt-0.5">
               Registrar Pesos & GDP
             </span>
           </div>
@@ -712,7 +712,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* 5. Transferencias & Salidas */}
         <button
           onClick={() => setIsMovementModalOpen(true)}
-          className="bg-white hover:bg-slate-50 text-slate-900 p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
+          className="bg-[#15241C] hover:bg-[#0D1A13] text-white p-3.5 rounded-2xl border border-white/10 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer"
         >
           <div className="flex items-center justify-between w-full">
             <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center border border-indigo-100 group-hover:scale-105 transition-transform">
@@ -721,10 +721,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
             <span className="text-[10px] font-semibold text-indigo-800 bg-indigo-50 px-1.5 py-0.5 rounded">Mov</span>
           </div>
           <div>
-            <span className="block font-bold text-xs text-slate-900 leading-tight">
+            <span className="block font-bold text-xs text-white leading-tight">
               Transferencias
             </span>
-            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+            <span className="block text-[10.5px] text-[#A5B8AC] font-medium leading-tight mt-0.5">
               Traslados & Salidas
             </span>
           </div>
@@ -735,8 +735,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
           onClick={() => setIsNumberingPolicyModalOpen(true)}
           className={`p-3.5 rounded-2xl border shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 text-left group cursor-pointer ${
             farmNumberingPolicy.isLocked
-              ? 'bg-amber-50/50 hover:bg-amber-50 border-amber-200/90 text-slate-900'
-              : 'bg-white hover:bg-emerald-50/50 border-emerald-200/90 text-slate-900'
+              ? 'bg-amber-50/50 hover:bg-amber-950/30 border-amber-200/90 text-white'
+              : 'bg-[#15241C] hover:bg-emerald-50/50 border-emerald-200/90 text-white'
           }`}
         >
           <div className="flex items-center justify-between w-full">
@@ -756,10 +756,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
             </span>
           </div>
           <div>
-            <span className="block font-bold text-xs text-slate-900 leading-tight">
+            <span className="block font-bold text-xs text-white leading-tight">
               Numeración Hato
             </span>
-            <span className="block text-[10.5px] text-slate-500 font-medium leading-tight mt-0.5">
+            <span className="block text-[10.5px] text-[#A5B8AC] font-medium leading-tight mt-0.5">
               {farmNumberingPolicy.isLocked ? 'Política Inmutable' : '4 Esquemas & Adopción'}
             </span>
           </div>
@@ -769,10 +769,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
       {/* ========================================================================= */}
       {/* 1. CATEGORY SELECTOR TABS (Ceba, Cría, Lechería, Genética, Todos) */}
       {/* ========================================================================= */}
-      <div className="bg-white p-4 rounded-2xl border-2 border-[#c1c8c2] card-shadow space-y-3">
+      <div className="bg-[#15241C] p-4 rounded-2xl border-2 border-white/10 card-shadow space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-[#012d1d] uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
               <Filter className="w-4 h-4 text-[#2d6a4f]" />
               Filtrar Inventario por Categoría Productiva:
             </span>
@@ -799,7 +799,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between relative ${
                   isSelected
                     ? `${def.colorBg} ${def.colorText} border-[#012d1d] shadow-md ring-2 ring-[#012d1d]/20`
-                    : 'bg-[#fbfbfb] hover:bg-[#f0f4f1] text-[#1a1c1c] border-[#c1c8c2]'
+                    : 'bg-[#fbfbfb] hover:bg-[#123F2A]/60 text-white border-white/10'
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
@@ -826,11 +826,11 @@ export const CattleView: React.FC<CattleViewProps> = ({
         {/* ========================================================================= */}
         {/* 2. DYNAMIC PREDIOS / FINCAS SELECTOR & VIEW MODE TABS */}
         {/* ========================================================================= */}
-        <div className="pt-3 border-t border-[#c1c8c2] space-y-3">
+        <div className="pt-3 border-t border-white/10 space-y-3">
           {/* Row 1: View Mode Tabs */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-[#f0f4f1] p-1.5 rounded-2xl border border-[#c1c8c2]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 bg-[#123F2A]/60 p-1.5 rounded-2xl border border-white/10">
             <div className="flex items-center gap-1.5 px-2">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#012d1d]">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-white">
                 Modo de Visualización:
               </span>
             </div>
@@ -840,8 +840,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 onClick={() => setViewMode('lots')}
                 className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
                   viewMode === 'lots'
-                    ? 'bg-[#012d1d] text-white shadow-xs'
-                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-[#012d1d]'
+                    ? 'bg-[#0D1A13] text-white shadow-xs'
+                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-white'
                 }`}
               >
                 {isLotsEnabled ? (
@@ -861,8 +861,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 onClick={() => setViewMode('totalized')}
                 className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
                   viewMode === 'totalized'
-                    ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
-                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-[#012d1d]'
+                    ? 'bg-[#0D1A13] text-[#ffba38] shadow-xs'
+                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-white'
                 }`}
               >
                 <Table className="w-3.5 h-3.5 text-[#ffba38]" />
@@ -873,11 +873,11 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 onClick={() => setViewMode('paddocks')}
                 className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
                   viewMode === 'paddocks'
-                    ? 'bg-[#012d1d] text-white shadow-xs'
-                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-[#012d1d]'
+                    ? 'bg-[#0D1A13] text-white shadow-xs'
+                    : 'text-[#414844] hover:bg-[#e2eae5] hover:text-white'
                 }`}
               >
-                <Leaf className="w-3.5 h-3.5 text-[#c1ecd4]" />
+                <Leaf className="w-3.5 h-3.5 text-[#A5B8AC]" />
                 <span>Potreros por Predio</span>
               </button>
             </div>
@@ -886,7 +886,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
           {/* Row 2: Filter by Farm */}
           <div className="flex items-center gap-2 flex-wrap pt-1">
             <span className="text-xs font-bold text-[#414844] flex items-center gap-1.5 pr-1 whitespace-nowrap">
-              <Building2 className="w-3.5 h-3.5 text-[#012d1d]" />
+              <Building2 className="w-3.5 h-3.5 text-white" />
               Predios con este inventario:
             </span>
 
@@ -895,8 +895,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
               onClick={() => setActiveFarmFilter('all')}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap ${
                 effectiveFarmFilter === 'all'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'bg-[#f4fbf7] text-[#012d1d] hover:bg-[#c1ecd4]/50 border border-[#c1c8c2]'
+                  ? 'bg-[#0D1A13] text-white shadow-xs'
+                  : 'bg-[#f4fbf7] text-white hover:bg-[#c1ecd4]/50 border border-white/10'
               }`}
             >
               <span>Todos los Predios ({eligibleFarms.length})</span>
@@ -916,13 +916,13 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   }}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 border whitespace-nowrap ${
                     isSelected
-                      ? 'bg-[#1b4332] text-white border-[#1b4332] shadow-xs'
-                      : 'bg-white text-[#1a1c1c] border-[#c1c8c2] hover:border-[#012d1d] hover:bg-[#f8fbf9]'
+                      ? 'bg-[#123F2A] text-white border-[#1b4332] shadow-xs'
+                      : 'bg-[#15241C] text-white border-white/10 hover:border-[#012d1d] hover:bg-[#15241C]'
                   }`}
                 >
                   <MapPin className={`w-3 h-3 ${isSelected ? 'text-[#ffba38]' : 'text-[#717973]'}`} />
                   <span>{f.profile.name}</span>
-                  <span className={`text-[10px] font-mono font-bold px-1.5 py-0.2 rounded ${isSelected ? 'bg-white/20 text-white' : 'bg-[#eef2ef] text-[#2d6a4f]'}`}>
+                  <span className={`text-[10px] font-mono font-bold px-1.5 py-0.2 rounded ${isSelected ? 'bg-white/20 text-white' : 'bg-[#202E25] text-[#2d6a4f]'}`}>
                     {heads} cab.
                   </span>
                 </button>
@@ -956,9 +956,9 @@ export const CattleView: React.FC<CattleViewProps> = ({
       )}
 
       {/* Filters Bar: Search, Sex, Age */}
-      <section className="bg-[#f3f3f3] p-3.5 md:p-4 rounded-2xl border border-[#c1c8c2] flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+      <section className="bg-[#f3f3f3] p-3.5 md:p-4 rounded-2xl border border-white/10 flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
         <div className="flex items-center gap-2 text-[#414844] text-xs font-bold uppercase tracking-wider">
-          <Search className="w-4 h-4 text-[#012d1d]" />
+          <Search className="w-4 h-4 text-white" />
           <span>Búsqueda y Filtros de Campo:</span>
         </div>
 
@@ -971,7 +971,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
               placeholder="Buscar por lote, arete, predio o potrero..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 bg-white border border-[#c1c8c2] rounded-xl text-xs text-[#1a1c1c] focus:outline-none focus:border-[#012d1d]"
+              className="w-full pl-9 pr-3 py-1.5 bg-[#15241C] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-[#012d1d]"
             />
           </div>
 
@@ -979,7 +979,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
           <select
             value={selectedSex}
             onChange={(e) => setSelectedSex(e.target.value)}
-            className="bg-white border border-[#c1c8c2] px-3 py-1.5 rounded-xl text-xs text-[#1a1c1c] focus:border-[#012d1d] focus:outline-none font-medium"
+            className="bg-[#15241C] border border-white/10 px-3 py-1.5 rounded-xl text-xs text-white focus:border-[#012d1d] focus:outline-none font-medium"
           >
             <option value="">Sexo (Todos)</option>
             <option value="m">Machos (Novillos / Toros / Torretes)</option>
@@ -990,7 +990,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
           <select
             value={selectedAge}
             onChange={(e) => setSelectedAge(e.target.value)}
-            className="bg-white border border-[#c1c8c2] px-3 py-1.5 rounded-xl text-xs text-[#1a1c1c] focus:border-[#012d1d] focus:outline-none font-medium"
+            className="bg-[#15241C] border border-white/10 px-3 py-1.5 rounded-xl text-xs text-white focus:border-[#012d1d] focus:outline-none font-medium"
           >
             <option value="">Edad (Todas)</option>
             <option value="1">0-6 Meses (Cría al pie)</option>
@@ -1015,10 +1015,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
               return (
                 <article
                   key={farmSum.farmName}
-                  className="bg-white rounded-2xl border-2 border-[#012d1d]/30 shadow-sm overflow-hidden flex flex-col hover:border-[#012d1d] transition-all hover:shadow-md"
+                  className="bg-[#15241C] rounded-2xl border-2 border-[#012d1d]/30 shadow-sm overflow-hidden flex flex-col hover:border-[#012d1d] transition-all hover:shadow-md"
                 >
                   {/* Header */}
-                  <div className="px-4 py-3 bg-[#012d1d] text-white flex justify-between items-center border-b border-[#012d1d]">
+                  <div className="px-4 py-3 bg-[#0D1A13] text-white flex justify-between items-center border-b border-[#012d1d]">
                     <div className="flex items-center gap-2">
                       <Building2 className="w-5 h-5 text-[#ffba38]" />
                       <span className="font-mono text-xs font-bold text-white tracking-wider uppercase">
@@ -1033,7 +1033,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   {/* Body */}
                   <div className="p-4 md:p-5 flex flex-col gap-4 flex-grow justify-between">
                     <div>
-                      <h3 className="font-bold text-lg text-[#012d1d] leading-snug">
+                      <h3 className="font-bold text-lg text-white leading-snug">
                         {farmSum.farmName}
                       </h3>
                       <p className="text-xs text-[#414844] mt-0.5 font-medium">
@@ -1045,11 +1045,11 @@ export const CattleView: React.FC<CattleViewProps> = ({
                     <div className="bg-[#f4fbf7] p-3 rounded-xl border border-[#c1ecd4] grid grid-cols-2 gap-2 text-xs">
                       <div>
                         <span className="text-[10px] text-[#717973] uppercase font-bold block">Peso Promedio</span>
-                        <span className="font-mono text-lg font-bold text-[#012d1d]">{farmSum.avgWeightPerHead} kg</span>
+                        <span className="font-mono text-lg font-bold text-white">{farmSum.avgWeightPerHead} kg</span>
                       </div>
                       <div>
                         <span className="text-[10px] text-[#717973] uppercase font-bold block">Peso Total</span>
-                        <span className="font-mono text-lg font-bold text-[#012d1d]">{farmSum.totalWeightTon} Ton</span>
+                        <span className="font-mono text-lg font-bold text-white">{farmSum.totalWeightTon} Ton</span>
                       </div>
                       <div>
                         <span className="text-[10px] text-[#717973] uppercase font-bold block">GDP Ponderada</span>
@@ -1057,7 +1057,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                       </div>
                       <div>
                         <span className="text-[10px] text-[#717973] uppercase font-bold block">Valor Comercial</span>
-                        <span className="font-mono text-lg font-bold text-[#523700]">${(farmSum.totalEstimatedValueCop / 1000000).toFixed(1)}M</span>
+                        <span className="font-mono text-lg font-bold text-[#0D1A13]">${(farmSum.totalEstimatedValueCop / 1000000).toFixed(1)}M</span>
                       </div>
                     </div>
 
@@ -1065,7 +1065,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                     <div className="pt-3 border-t border-[#eeeeee] flex items-center justify-between gap-2">
                       <button
                         onClick={() => onOpenWeightModal(firstLotId)}
-                        className="flex-1 text-xs font-bold py-2 px-3 rounded-xl bg-[#f3f3f3] hover:bg-[#e8e8e8] text-[#012d1d] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                        className="flex-1 text-xs font-bold py-2 px-3 rounded-xl bg-[#f3f3f3] hover:bg-[#e8e8e8] text-white transition-colors flex items-center justify-center gap-1 cursor-pointer"
                       >
                         <Scale className="w-3.5 h-3.5 text-[#2d6a4f]" />
                         Pesar Predio
@@ -1090,7 +1090,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                           estimatedValueCop: farmSum.totalEstimatedValueCop,
                           animals: allFarmAnimals,
                         })}
-                        className="text-xs font-bold py-2 px-3 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+                        className="text-xs font-bold py-2 px-3 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
                       >
                         <Eye className="w-3.5 h-3.5 text-[#ffba38]" />
                         Ver Bovinos ({farmSum.totalHeads})
@@ -1115,13 +1115,13 @@ export const CattleView: React.FC<CattleViewProps> = ({
             return (
               <article
                 key={lot.id}
-                className="bg-white rounded-2xl border-2 border-[#c1c8c2] shadow-sm overflow-hidden flex flex-col hover:border-[#012d1d] transition-all hover:shadow-md"
+                className="bg-[#15241C] rounded-2xl border-2 border-white/10 shadow-sm overflow-hidden flex flex-col hover:border-[#012d1d] transition-all hover:shadow-md"
               >
                 {/* Header with Code, Category Tag and PROMINENT Farm Badge */}
                 <div
-                  className={`px-4 py-2.5 flex justify-between items-center border-b border-[#c1c8c2] ${
+                  className={`px-4 py-2.5 flex justify-between items-center border-b border-white/10 ${
                     isCeba
-                      ? 'bg-[#1b4332]'
+                      ? 'bg-[#123F2A]'
                       : isCria
                       ? 'bg-[#79564b]'
                       : isLeche
@@ -1133,8 +1133,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
                     <span className="font-mono text-xs font-bold text-white tracking-wider">
                       {lot.code}
                     </span>
-                    <span className="text-[10px] bg-[#ffba38] text-[#523700] px-2 py-0.5 rounded font-extrabold flex items-center gap-1 shadow-xs truncate max-w-[160px]">
-                      <Building2 className="w-3 h-3 text-[#523700] shrink-0" />
+                    <span className="text-[10px] bg-[#D4A94E] text-[#0D1A13] px-2 py-0.5 rounded font-extrabold flex items-center gap-1 shadow-xs truncate max-w-[160px]">
+                      <Building2 className="w-3 h-3 text-[#0D1A13] shrink-0" />
                       <span className="truncate">{lot.farmName || 'Predio Principal'}</span>
                     </span>
                   </div>
@@ -1162,12 +1162,12 @@ export const CattleView: React.FC<CattleViewProps> = ({
                       {/* Prominent Finca / Predio Tag inside card body for maximum clarity */}
                       <div className="mb-1">
                         <span className="text-[11px] font-bold text-[#2d6a4f] bg-[#f4fbf7] border border-[#c1ecd4] px-2 py-0.5 rounded-lg inline-flex items-center gap-1">
-                          <Building className="w-3 h-3 text-[#012d1d]" />
+                          <Building className="w-3 h-3 text-white" />
                           Predio: <strong>{lot.farmName || 'Predio Principal'}</strong>
                         </span>
                       </div>
 
-                      <h3 className="font-bold text-lg text-[#012d1d] leading-snug">{lot.name}</h3>
+                      <h3 className="font-bold text-lg text-white leading-snug">{lot.name}</h3>
                       <p className="text-xs text-[#414844] mt-0.5 font-medium">
                         {lot.heads} {lot.sexLabel} • {lot.ageRange}
                       </p>
@@ -1177,7 +1177,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                       </p>
                     </div>
                     <div className="p-2 bg-[#f3f3f3] rounded-xl text-[#717973] shrink-0">
-                      {isCeba && <Beef className="w-5 h-5 text-[#012d1d]" />}
+                      {isCeba && <Beef className="w-5 h-5 text-white" />}
                       {isCria && <Baby className="w-5 h-5 text-[#79564b]" />}
                       {isLeche && <Droplet className="w-5 h-5 text-[#0077b6]" />}
                       {isGenetica && <Dna className="w-5 h-5 text-[#b07d00]" />}
@@ -1185,7 +1185,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   </div>
 
                   {/* GDP Box */}
-                  <div className="bg-[#f3f3f3] p-3 rounded-xl flex flex-col gap-1 border border-[#c1c8c2]">
+                  <div className="bg-[#f3f3f3] p-3 rounded-xl flex flex-col gap-1 border border-white/10">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[#79564b]">
                         GDP PROMEDIO
@@ -1197,14 +1197,14 @@ export const CattleView: React.FC<CattleViewProps> = ({
 
                     <div className="flex items-baseline justify-between">
                       <div className="flex items-baseline gap-1.5">
-                        <span className="font-mono text-2xl md:text-3xl font-bold text-[#012d1d]">
+                        <span className="font-mono text-2xl md:text-3xl font-bold text-white">
                           {lot.gdpCurrent.toFixed(2)}
                         </span>
                         <span className="text-xs text-[#414844]">kg/día</span>
                       </div>
                       <div className="text-right">
                         <span className="text-[10px] text-[#717973] block uppercase font-bold">Peso Total Lote</span>
-                        <span className="font-mono font-bold text-xs text-[#012d1d]">
+                        <span className="font-mono font-bold text-xs text-white">
                           {(lot.heads * lot.currentAvgWeight).toLocaleString()} kg
                         </span>
                       </div>
@@ -1215,7 +1215,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                       <div
                         className={`h-full rounded-full ${
                           isCeba
-                            ? 'bg-[#ffba38]'
+                            ? 'bg-[#D4A94E]'
                             : isCria
                             ? 'bg-[#79564b]'
                             : isLeche
@@ -1233,16 +1233,16 @@ export const CattleView: React.FC<CattleViewProps> = ({
                       <span className="text-[#414844]">
                         {isCeba ? 'Proyección Frigorífico' : isCria ? 'Proyección Destete' : isLeche ? 'Peso Corporal Ordeño' : 'Proyección Registro'}
                       </span>
-                      <span className="text-[#012d1d] font-bold font-mono">
+                      <span className="text-white font-bold font-mono">
                         {lot.currentAvgWeight}kg / {lot.targetWeight}kg
                       </span>
                     </div>
 
-                    <div className="w-full bg-[#e8e8e8] h-3.5 rounded-full overflow-hidden border border-[#c1c8c2] relative">
+                    <div className="w-full bg-[#e8e8e8] h-3.5 rounded-full overflow-hidden border border-white/10 relative">
                       <div
                         className={`h-full relative rounded-full transition-all duration-500 ${
                           isCeba
-                            ? 'bg-[#012d1d]'
+                            ? 'bg-[#0D1A13]'
                             : isCria
                             ? 'bg-[#79564b]'
                             : isLeche
@@ -1257,7 +1257,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
 
                     <div className="flex justify-between items-center text-[11px] text-[#717973] mt-0.5 font-medium">
                       <span>{progressPercent}% meta lograda</span>
-                      <span className="font-mono font-bold text-[#012d1d]">
+                      <span className="font-mono font-bold text-white">
                         Est. Salida: {lot.estDaysToExit} Días
                       </span>
                     </div>
@@ -1267,7 +1267,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   <div className="pt-3 border-t border-[#eeeeee] flex items-center justify-between gap-2">
                     <button
                       onClick={() => onOpenWeightModal(lot.id)}
-                      className="flex-1 text-xs font-bold py-2 px-3 rounded-xl bg-[#f3f3f3] hover:bg-[#e8e8e8] text-[#012d1d] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                      className="flex-1 text-xs font-bold py-2 px-3 rounded-xl bg-[#f3f3f3] hover:bg-[#e8e8e8] text-white transition-colors flex items-center justify-center gap-1 cursor-pointer"
                     >
                       <Scale className="w-3.5 h-3.5 text-[#2d6a4f]" />
                       Pesar Lote
@@ -1275,7 +1275,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
 
                     <button
                       onClick={() => setActiveLotDetail(lot)}
-                      className="text-xs font-bold py-2 px-3 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+                      className="text-xs font-bold py-2 px-3 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
                     >
                       <Eye className="w-3.5 h-3.5 text-[#ffba38]" />
                       Ver Animales ({lot.heads})
@@ -1288,9 +1288,9 @@ export const CattleView: React.FC<CattleViewProps> = ({
           )}
 
           {/* Global Summary Card */}
-          <article className="bg-[#eeeeee] rounded-2xl border-2 border-[#c1c8c2] shadow-sm p-5 flex flex-col justify-between">
+          <article className="bg-[#eeeeee] rounded-2xl border-2 border-white/10 shadow-sm p-5 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-2 text-[#012d1d]">
+              <div className="flex items-center gap-2 mb-2 text-white">
                 <BarChart3 className="w-5 h-5" />
                 <h3 className="font-bold text-lg">Resumen de Categoría</h3>
               </div>
@@ -1299,18 +1299,18 @@ export const CattleView: React.FC<CattleViewProps> = ({
               </p>
 
               <ul className="flex flex-col gap-2.5">
-                <li className="flex justify-between items-center py-2 border-b border-[#c1c8c2]">
+                <li className="flex justify-between items-center py-2 border-b border-white/10">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#414844]">
                     TOTAL CABEZAS
                   </span>
-                  <span className="font-mono text-xl text-[#012d1d] font-bold">{totalHeads}</span>
+                  <span className="font-mono text-xl text-white font-bold">{totalHeads}</span>
                 </li>
 
-                <li className="flex justify-between items-center py-2 border-b border-[#c1c8c2]">
+                <li className="flex justify-between items-center py-2 border-b border-white/10">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#414844]">
                     GDP PROMEDIO GLOBAL
                   </span>
-                  <span className="font-mono text-xl text-[#012d1d] font-bold">
+                  <span className="font-mono text-xl text-white font-bold">
                     {avgGdpGlobal} kg/d
                   </span>
                 </li>
@@ -1319,17 +1319,17 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#414844]">
                     PRÓX. SALIDAS MERCADO
                   </span>
-                  <span className="font-mono text-xl text-[#523700] font-bold">
+                  <span className="font-mono text-xl text-[#0D1A13] font-bold">
                     {nearestLot?.heads || 45} ({nearestExit} d)
                   </span>
                 </li>
               </ul>
             </div>
 
-            <div className="mt-6 pt-3 border-t border-[#c1c8c2] flex justify-end">
+            <div className="mt-6 pt-3 border-t border-white/10 flex justify-end">
               <button
                 onClick={onOpenReportModal}
-                className="text-[#012d1d] font-bold text-xs hover:bg-[#e2e2e2] px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer"
+                className="text-white font-bold text-xs hover:bg-[#e2e2e2] px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 VER REPORTE COMPLETO <ArrowRight className="w-4 h-4" />
               </button>
@@ -1345,8 +1345,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
         <div className="space-y-6">
           {/* Consolidated Top Metric Bar (6 KPIs) */}
           <section className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
-              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
                 <span className="text-[10px] font-bold uppercase truncate">
                   {isLotsEnabled ? 'Total Lotes' : 'Total Predios'}
                 </span>
@@ -1356,43 +1356,43 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   <Building2 className="w-4 h-4 text-emerald-800 shrink-0" />
                 )}
               </div>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">
+              <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate tracking-tight">
                 {isLotsEnabled ? grandMetrics.totalLots : grandMetrics.farmSummaries.length}
               </p>
-              <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">
+              <p className="text-[10px] text-[#A5B8AC] mt-1 font-medium truncate">
                 {isLotsEnabled ? 'Lotes registrados' : 'Predios con inventario'}
               </p>
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
-              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
                 <span className="text-[10px] font-bold uppercase truncate">Total Cabezas</span>
                 <Beef className="w-4 h-4 text-amber-600 shrink-0" />
               </div>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">{grandMetrics.totalHeads.toLocaleString()}</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate tracking-tight">{grandMetrics.totalHeads.toLocaleString()}</p>
               <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">Bovinos en inventario</p>
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
-              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
                 <span className="text-[10px] font-bold uppercase truncate">Peso Total</span>
                 <Scale className="w-4 h-4 text-emerald-800 shrink-0" />
               </div>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">{grandMetrics.totalWeightTon} Ton</p>
-              <p className="text-[10px] text-slate-500 mt-1 font-mono font-medium truncate">{grandMetrics.totalWeightKg.toLocaleString()} kg</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate tracking-tight">{grandMetrics.totalWeightTon} Ton</p>
+              <p className="text-[10px] text-[#A5B8AC] mt-1 font-mono font-medium truncate">{grandMetrics.totalWeightKg.toLocaleString()} kg</p>
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
-              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
                 <span className="text-[10px] font-bold uppercase truncate">Peso Promedio</span>
                 <TrendingUp className="w-4 h-4 text-emerald-700 shrink-0" />
               </div>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate tracking-tight">{grandMetrics.avgWeightGlobal} kg</p>
-              <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">Promedio ponderado</p>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate tracking-tight">{grandMetrics.avgWeightGlobal} kg</p>
+              <p className="text-[10px] text-[#A5B8AC] mt-1 font-medium truncate">Promedio ponderado</p>
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
-              <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+            <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+              <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
                 <span className="text-[10px] font-bold uppercase truncate">GDP Ponderada</span>
                 <Zap className="w-4 h-4 text-amber-600 shrink-0" />
               </div>
@@ -1413,10 +1413,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
           </section>
 
           {/* Consolidated Totalized Table Grouped by Farm */}
-          <div className="bg-white border-2 border-[#c1c8c2] rounded-2xl card-shadow overflow-hidden">
-            <div className="bg-[#012d1d] text-white p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div className="bg-[#15241C] border-2 border-white/10 rounded-2xl card-shadow overflow-hidden">
+            <div className="bg-[#0D1A13] text-white p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <span className="bg-[#ffba38] text-[#523700] text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono">
+                <span className="bg-[#D4A94E] text-[#0D1A13] text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono">
                   RESUMEN TOTALIZADO MULTI-PREDIO
                 </span>
                 <h2 className="text-xl font-bold mt-1 text-white">
@@ -1424,7 +1424,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                     ? 'Consolidado General de Lotes por Finca o Predio'
                     : 'Consolidado General de Inventario por Predio o Finca'}
                 </h2>
-                <p className="text-xs text-[#c1ecd4]">
+                <p className="text-xs text-[#A5B8AC]">
                   Información totalizada con número de cabezas, peso total, GDP promedio y valorización comercial.
                 </p>
               </div>
@@ -1432,7 +1432,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
               <div className="flex items-center gap-2">
                 <button
                   onClick={onOpenReportModal}
-                  className="bg-[#1b4332] hover:bg-[#2d6a4f] text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-all flex items-center gap-1.5 border border-white/20 cursor-pointer"
+                  className="bg-[#123F2A] hover:bg-[#1F6547] text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-all flex items-center gap-1.5 border border-white/20 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5 text-[#ffba38]" />
                   <span>Exportar Consolidado</span>
@@ -1444,7 +1444,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#f0f4f1] text-[#012d1d] font-bold uppercase tracking-wider text-[11px] border-b-2 border-[#c1c8c2]">
+                  <tr className="bg-[#123F2A]/60 text-white font-bold uppercase tracking-wider text-[11px] border-b-2 border-white/10">
                     <th className="p-3">Predio / Finca</th>
                     {isLotsEnabled && <th className="p-3">Código y Lote</th>}
                     <th className="p-3">Categoría</th>
@@ -1467,7 +1467,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                         {/* Farm Header Row */}
                         <tr
                           onClick={() => isLotsEnabled && toggleFarmExpand(farmSum.farmName)}
-                          className={`bg-[#eef5f1] hover:bg-[#e2efe8] font-bold text-[#012d1d] transition-colors border-t-2 border-[#c1c8c2] ${
+                          className={`bg-[#1F3327] hover:bg-[#263D30] font-bold text-white transition-colors border-t-2 border-white/10 ${
                             isLotsEnabled ? 'cursor-pointer' : ''
                           }`}
                         >
@@ -1475,41 +1475,41 @@ export const CattleView: React.FC<CattleViewProps> = ({
                             <div className="flex items-center gap-2">
                               {isLotsEnabled && (
                                 isCollapsed ? (
-                                  <ChevronRight className="w-4 h-4 text-[#012d1d]" />
+                                  <ChevronRight className="w-4 h-4 text-white" />
                                 ) : (
-                                  <ChevronDown className="w-4 h-4 text-[#012d1d]" />
+                                  <ChevronDown className="w-4 h-4 text-white" />
                                 )
                               )}
-                              <Building2 className="w-4 h-4 text-[#2d6a4f]" />
-                              <span className="text-sm font-black">{farmSum.farmName}</span>
-                              <span className="text-[10px] bg-[#012d1d] text-[#ffba38] px-2 py-0.5 rounded font-mono">
+                              <Building2 className="w-4 h-4 text-[#D4A94E]" />
+                              <span className="text-sm font-black text-white">{farmSum.farmName}</span>
+                              <span className="text-[10px] bg-[#0D1A13] text-[#D4A94E] border border-[#D4A94E]/30 px-2 py-0.5 rounded font-mono font-bold">
                                 {isLotsEnabled
                                   ? `${farmSum.totalLots} ${farmSum.totalLots === 1 ? 'Lote' : 'Lotes'}`
                                   : 'Predio Activo'}
                               </span>
                             </div>
                           </td>
-                          <td className="p-3 text-center font-mono font-bold text-sm bg-white/40">
+                          <td className="p-3 text-center font-mono font-bold text-sm bg-black/20 text-white">
                             {farmSum.totalHeads}
                           </td>
-                          <td className="p-3 text-right font-mono font-bold bg-white/40">
+                          <td className="p-3 text-right font-mono font-bold bg-black/20 text-white">
                             {farmSum.avgWeightPerHead} kg
                           </td>
-                          <td className="p-3 text-right font-mono font-bold text-sm text-[#012d1d] bg-white/40">
+                          <td className="p-3 text-right font-mono font-bold text-sm text-white bg-black/20">
                             {farmSum.totalWeightKg.toLocaleString()} kg ({farmSum.totalWeightTon} Ton)
                           </td>
-                          <td className="p-3 text-right font-mono font-bold text-emerald-800 bg-white/40">
+                          <td className="p-3 text-right font-mono font-bold text-emerald-400 bg-black/20">
                             +{farmSum.avgGdpWeighted}
                           </td>
-                          <td className="p-3 text-xs text-[#717973] font-normal">
+                          <td className="p-3 text-xs text-[#A5B8AC] font-normal">
                             Promedio Ponderado
                           </td>
-                          <td className="p-3 text-right font-mono font-bold text-[#523700] bg-white/40">
+                          <td className="p-3 text-right font-mono font-bold text-[#D4A94E] bg-black/20">
                             ${(farmSum.totalEstimatedValueCop / 1000000).toFixed(2)}M
                           </td>
                           <td className="p-3 text-center">
                             {isLotsEnabled ? (
-                              <span className="text-[10px] font-bold text-[#2d6a4f] underline">
+                              <span className="text-[10px] font-bold text-[#D4A94E] underline">
                                 {isCollapsed ? 'Expandir' : 'Contraer'}
                               </span>
                             ) : (
@@ -1535,7 +1535,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                                     animals: allFarmAnimals,
                                   });
                                 }}
-                                className="px-2.5 py-1 bg-[#012d1d] hover:bg-[#1b4332] text-white rounded-lg font-bold text-[10px] transition-all cursor-pointer flex items-center gap-1 mx-auto"
+                                className="px-2.5 py-1 bg-[#0D1A13] hover:bg-[#123F2A] text-white rounded-lg font-bold text-[10px] transition-all cursor-pointer flex items-center gap-1 mx-auto"
                               >
                                 <Eye className="w-3 h-3 text-[#ffba38]" />
                                 <span>Ver Bovinos</span>
@@ -1560,26 +1560,26 @@ export const CattleView: React.FC<CattleViewProps> = ({
                                     {lot.farmName || farmSum.farmName}
                                   </span>
                                 </td>
-                                <td className="p-3 font-semibold text-[#012d1d]">
+                                <td className="p-3 font-semibold text-white">
                                   <div className="flex items-center gap-1.5">
-                                    <span className="font-mono bg-[#012d1d] text-white px-1.5 py-0.2 rounded text-[10px]">
+                                    <span className="font-mono bg-[#0D1A13] text-white px-1.5 py-0.2 rounded text-[10px]">
                                       {lot.code}
                                     </span>
                                     <span>{lot.name}</span>
                                   </div>
                                 </td>
                                 <td className="p-3">
-                                  <span className="bg-[#f0f4f1] text-[#012d1d] font-bold text-[10px] px-2 py-0.5 rounded uppercase">
+                                  <span className="bg-[#123F2A]/60 text-white font-bold text-[10px] px-2 py-0.5 rounded uppercase">
                                     {lot.categoryLabel || lot.category}
                                   </span>
                                 </td>
-                                <td className="p-3 text-center font-mono font-bold text-sm text-[#012d1d]">
+                                <td className="p-3 text-center font-mono font-bold text-sm text-white">
                                   {lot.heads}
                                 </td>
                                 <td className="p-3 text-right font-mono font-semibold">
                                   {lot.currentAvgWeight} kg
                                 </td>
-                                <td className="p-3 text-right font-mono font-bold text-[#012d1d]">
+                                <td className="p-3 text-right font-mono font-bold text-white">
                                   {lotWeightKg.toLocaleString()} kg
                                 </td>
                                 <td className="p-3 text-right font-mono font-bold text-emerald-700">
@@ -1588,13 +1588,13 @@ export const CattleView: React.FC<CattleViewProps> = ({
                                 <td className="p-3 text-xs text-[#414844] truncate max-w-[150px]">
                                   {lot.pastureType}
                                 </td>
-                                <td className="p-3 text-right font-mono font-semibold text-[#523700]">
+                                <td className="p-3 text-right font-mono font-semibold text-[#0D1A13]">
                                   ${(valCop / 1000000).toFixed(2)}M
                                 </td>
                                 <td className="p-3 text-center">
                                   <button
                                     onClick={() => setActiveLotDetail(lot)}
-                                    className="px-2.5 py-1 bg-[#012d1d] hover:bg-[#1b4332] text-white rounded-lg font-bold text-[10px] transition-all cursor-pointer flex items-center gap-1 mx-auto"
+                                    className="px-2.5 py-1 bg-[#0D1A13] hover:bg-[#123F2A] text-white rounded-lg font-bold text-[10px] transition-all cursor-pointer flex items-center gap-1 mx-auto"
                                   >
                                     <Eye className="w-3 h-3 text-[#ffba38]" />
                                     <span>Ver Animales</span>
@@ -1609,7 +1609,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 </tbody>
                 {/* Grand Total Footer Row */}
                 <tfoot>
-                  <tr className="bg-[#012d1d] text-white font-extrabold border-t-4 border-[#ffba38]">
+                  <tr className="bg-[#0D1A13] text-white font-extrabold border-t-4 border-[#ffba38]">
                     <td colSpan={isLotsEnabled ? 3 : 2} className="p-4 text-sm uppercase tracking-wider">
                       GRAND TOTAL CONSOLIDADO MULTI-PREDIO
                     </td>
@@ -1622,10 +1622,10 @@ export const CattleView: React.FC<CattleViewProps> = ({
                     <td className="p-4 text-right font-mono text-base text-white">
                       {grandMetrics.totalWeightKg.toLocaleString()} kg ({grandMetrics.totalWeightTon} Ton)
                     </td>
-                    <td className="p-4 text-right font-mono text-sm text-[#c1ecd4]">
+                    <td className="p-4 text-right font-mono text-sm text-[#A5B8AC]">
                       +{grandMetrics.avgGdpGlobal} kg/d
                     </td>
-                    <td className="p-4 text-xs font-normal text-[#c1ecd4]">
+                    <td className="p-4 text-xs font-normal text-[#A5B8AC]">
                       {isLotsEnabled
                         ? `${grandMetrics.totalLots} Lotes Registrados`
                         : `${grandMetrics.farmSummaries.length} Predios Registrados`}
@@ -1634,7 +1634,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                       ${(grandMetrics.totalEstimatedValueCop / 1000000).toFixed(2)}M COP
                     </td>
                     <td className="p-4 text-center">
-                      <span className="text-[10px] text-[#c1ecd4] font-mono">100% OK</span>
+                      <span className="text-[10px] text-[#A5B8AC] font-mono">100% OK</span>
                     </td>
                   </tr>
                 </tfoot>
@@ -1656,16 +1656,16 @@ export const CattleView: React.FC<CattleViewProps> = ({
             return (
               <div
                 key={farm.profile.id}
-                className="bg-white rounded-2xl border-2 border-[#c1c8c2] card-shadow overflow-hidden"
+                className="bg-[#15241C] rounded-2xl border-2 border-white/10 card-shadow overflow-hidden"
               >
                 {/* Farm Segment Header */}
-                <div className="bg-[#012d1d] text-white p-4 md:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div className="bg-[#0D1A13] text-white p-4 md:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="bg-[#ffba38] text-[#523700] text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase">
+                      <span className="bg-[#D4A94E] text-[#0D1A13] text-[10px] font-bold px-2 py-0.5 rounded font-mono uppercase">
                         PREDIO: {farm.profile.code || farm.profile.id.toUpperCase()}
                       </span>
-                      <span className="text-xs text-[#c1ecd4] font-medium flex items-center gap-1">
+                      <span className="text-xs text-[#A5B8AC] font-medium flex items-center gap-1">
                         <MapPin className="w-3 h-3" />
                         {farm.profile.municipality}, {farm.profile.department}
                       </span>
@@ -1674,7 +1674,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                     <h2 className="text-xl font-bold tracking-tight text-white mt-1">
                       {farm.profile.name}
                     </h2>
-                    <p className="text-xs text-[#c1ecd4]/80 mt-0.5">
+                    <p className="text-xs text-[#A5B8AC]/80 mt-0.5">
                       {farm.profile.notes || 'Predio ganadero registrado en el sistema SIG.'}
                     </p>
                   </div>
@@ -1682,23 +1682,23 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   {/* Farm Summary Chips */}
                   <div className="flex items-center gap-2 flex-wrap">
                     <div className="bg-white/10 px-3 py-1.5 rounded-xl text-center border border-white/10">
-                      <p className="text-[10px] text-[#c1ecd4] font-bold uppercase">Área Total</p>
+                      <p className="text-[10px] text-[#A5B8AC] font-bold uppercase">Área Total</p>
                       <p className="font-mono font-bold text-sm text-white">{seg.totalAreaHa} Ha</p>
                     </div>
 
                     <div className="bg-white/10 px-3 py-1.5 rounded-xl text-center border border-white/10">
-                      <p className="text-[10px] text-[#c1ecd4] font-bold uppercase">Potreros</p>
+                      <p className="text-[10px] text-[#A5B8AC] font-bold uppercase">Potreros</p>
                       <p className="font-mono font-bold text-sm text-[#ffba38]">{seg.totalPaddocks}</p>
                     </div>
 
                     <div className="bg-white/10 px-3 py-1.5 rounded-xl text-center border border-white/10">
-                      <p className="text-[10px] text-[#c1ecd4] font-bold uppercase">Ocupados</p>
+                      <p className="text-[10px] text-[#A5B8AC] font-bold uppercase">Ocupados</p>
                       <p className="font-mono font-bold text-sm text-[#ffdad6]">{seg.occupiedCount}</p>
                     </div>
 
                     <div className="bg-white/10 px-3 py-1.5 rounded-xl text-center border border-white/10">
-                      <p className="text-[10px] text-[#c1ecd4] font-bold uppercase">En Descanso</p>
-                      <p className="font-mono font-bold text-sm text-[#c1ecd4]">{seg.restingCount}</p>
+                      <p className="text-[10px] text-[#A5B8AC] font-bold uppercase">En Descanso</p>
+                      <p className="font-mono font-bold text-sm text-[#A5B8AC]">{seg.restingCount}</p>
                     </div>
                   </div>
                 </div>
@@ -1706,7 +1706,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                 {/* Paddocks Grid for this Farm */}
                 <div className="p-4 md:p-5">
                   {paddocks.length === 0 ? (
-                    <div className="p-8 text-center bg-[#f9f9f9] rounded-xl border border-dashed border-[#c1c8c2]">
+                    <div className="p-8 text-center bg-[#f9f9f9] rounded-xl border border-dashed border-white/10">
                       <Leaf className="w-8 h-8 text-[#717973] mx-auto mb-2 opacity-60" />
                       <p className="font-bold text-xs text-[#414844]">No hay potreros delimitados para este predio.</p>
                       <p className="text-[11px] text-[#717973] mt-0.5">Utiliza el módulo SIG para dibujar o importar potreros KML.</p>
@@ -1721,15 +1721,15 @@ export const CattleView: React.FC<CattleViewProps> = ({
                         return (
                           <div
                             key={p.id}
-                            className="bg-[#fbfbfb] hover:bg-white p-4 rounded-xl border border-[#c1c8c2] hover:border-[#012d1d] transition-all card-shadow space-y-2.5 flex flex-col justify-between"
+                            className="bg-[#fbfbfb] hover:bg-[#15241C] p-4 rounded-xl border border-white/10 hover:border-[#012d1d] transition-all card-shadow space-y-2.5 flex flex-col justify-between"
                           >
                             <div>
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
-                                  <span className="font-mono bg-[#012d1d] text-[#ffba38] text-xs font-bold px-2 py-0.5 rounded">
+                                  <span className="font-mono bg-[#0D1A13] text-[#ffba38] text-xs font-bold px-2 py-0.5 rounded">
                                     {p.code}
                                   </span>
-                                  <h4 className="font-bold text-sm text-[#012d1d] truncate">{p.name}</h4>
+                                  <h4 className="font-bold text-sm text-white truncate">{p.name}</h4>
                                 </div>
 
                                 <span
@@ -1738,7 +1738,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                                       ? 'bg-[#ffdad6] text-[#ba1a1a]'
                                       : isReady
                                       ? 'bg-[#c1ecd4] text-[#002114]'
-                                      : 'bg-[#fff3cd] text-[#523700]'
+                                      : 'bg-[#fff3cd] text-[#0D1A13]'
                                   }`}
                                 >
                                   {isOccupied ? '🔴 Ocupado' : isReady ? '🟢 Listo' : '🟡 Descanso'}
@@ -1750,16 +1750,16 @@ export const CattleView: React.FC<CattleViewProps> = ({
                                   <Leaf className="w-3.5 h-3.5 text-[#2d6a4f]" />
                                   {p.pastureType}
                                 </span>
-                                <span className="font-mono font-bold text-[#012d1d]">{p.areaHa} Ha</span>
+                                <span className="font-mono font-bold text-white">{p.areaHa} Ha</span>
                               </div>
 
                               {/* Occupancy or Rest details */}
-                              <div className="mt-2 p-2.5 bg-white rounded-lg border border-[#e5e7eb] text-xs space-y-1">
+                              <div className="mt-2 p-2.5 bg-[#15241C] rounded-lg border border-[#e5e7eb] text-xs space-y-1">
                                 {isOccupied ? (
                                   <>
-                                    <div className="flex justify-between font-bold text-[#012d1d]">
+                                    <div className="flex justify-between font-bold text-white">
                                       <span>🐄 {p.assignedLotName || 'Lote Activo'}</span>
-                                      <span className="font-mono text-[#523700]">{p.currentHeads || 45} cab.</span>
+                                      <span className="font-mono text-[#0D1A13]">{p.currentHeads || 45} cab.</span>
                                     </div>
                                     <div className="flex justify-between text-[10px] text-[#717973]">
                                       <span>Día {p.daysInOccupancy || 1} de pastoreo</span>
@@ -1782,7 +1782,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                             </div>
 
                             <div className="flex items-center justify-between text-[11px] pt-1 text-[#717973]">
-                              <span>Condición: <strong className="text-[#012d1d] capitalize">{p.pastureCondition}</strong></span>
+                              <span>Condición: <strong className="text-white capitalize">{p.pastureCondition}</strong></span>
                               <span className="font-mono text-[#2d6a4f] font-bold">Máx {p.maxHeadsRecommended || Math.round(p.areaHa * 2.5)} Cab.</span>
                             </div>
                           </div>
@@ -1802,23 +1802,23 @@ export const CattleView: React.FC<CattleViewProps> = ({
       {/* ========================================================================= */}
       {activeLotDetail && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4" onClick={(e) => { if (e.target === e.currentTarget) setActiveLotDetail(null); }}>
-          <div className="bg-white rounded-2xl max-w-4xl w-full p-5 md:p-6 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] overflow-y-auto flex flex-col justify-between">
+          <div className="bg-[#15241C] rounded-2xl max-w-4xl w-full p-5 md:p-6 border-2 border-white/10 shadow-2xl animate-in fade-in zoom-in-95 max-h-[92vh] overflow-y-auto flex flex-col justify-between">
             {/* Modal Header */}
             <div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-[#012d1d] gap-2">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-mono text-xs text-white bg-[#012d1d] font-bold px-2 py-0.5 rounded">
+                    <span className="font-mono text-xs text-white bg-[#0D1A13] font-bold px-2 py-0.5 rounded">
                       {activeLotDetail.code}
                     </span>
                     {/* PROMINENT FARM BADGE IN FRONT OF LOT INFORMATION */}
-                    <span className="bg-[#ffba38] text-[#523700] text-xs font-black px-2.5 py-0.5 rounded-md flex items-center gap-1 shadow-xs">
-                      <Building2 className="w-3.5 h-3.5 text-[#523700]" />
+                    <span className="bg-[#D4A94E] text-[#0D1A13] text-xs font-black px-2.5 py-0.5 rounded-md flex items-center gap-1 shadow-xs">
+                      <Building2 className="w-3.5 h-3.5 text-[#0D1A13]" />
                       <span>PREDIO / FINCA: {activeLotDetail.farmName || 'Predio Principal'}</span>
                     </span>
                   </div>
 
-                  <h3 className="text-xl md:text-2xl font-bold text-[#012d1d] mt-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mt-1">
                     {activeLotDetail.name}
                   </h3>
                 </div>
@@ -1835,26 +1835,26 @@ export const CattleView: React.FC<CattleViewProps> = ({
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-4 text-xs">
                 <div className="p-3 bg-[#f4fbf7] border border-[#c1ecd4] rounded-xl">
                   <p className="text-[#717973] font-semibold text-[10px] uppercase">Cabezas en Lote</p>
-                  <p className="text-xl font-black font-mono text-[#012d1d]">
+                  <p className="text-xl font-black font-mono text-white">
                     {activeLotDetail.heads} bovinos
                   </p>
                 </div>
 
-                <div className="p-3 bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl">
+                <div className="p-3 bg-[#f3f3f3] border border-white/10 rounded-xl">
                   <p className="text-[#717973] font-semibold text-[10px] uppercase">Peso Prom. / Cabeza</p>
-                  <p className="text-xl font-black font-mono text-[#012d1d]">
+                  <p className="text-xl font-black font-mono text-white">
                     {activeLotDetail.currentAvgWeight} kg
                   </p>
                 </div>
 
-                <div className="p-3 bg-[#f3f3f3] border border-[#c1c8c2] rounded-xl">
+                <div className="p-3 bg-[#f3f3f3] border border-white/10 rounded-xl">
                   <p className="text-[#717973] font-semibold text-[10px] uppercase">Peso Total Lote</p>
-                  <p className="text-xl font-black font-mono text-[#012d1d]">
+                  <p className="text-xl font-black font-mono text-white">
                     {(activeLotDetail.heads * activeLotDetail.currentAvgWeight).toLocaleString()} kg
                   </p>
                 </div>
 
-                <div className="p-3 bg-[#012d1d] text-white rounded-xl">
+                <div className="p-3 bg-[#0D1A13] text-white rounded-xl">
                   <p className="text-[#ffba38] font-semibold text-[10px] uppercase">Valor Comercial Est.</p>
                   <p className="text-xl font-black font-mono text-[#ffba38]">
                     ${((activeLotDetail.heads * activeLotDetail.currentAvgWeight * getPricePerKgByCategory(activeLotDetail.category)) / 1000000).toFixed(2)}M
@@ -1863,13 +1863,13 @@ export const CattleView: React.FC<CattleViewProps> = ({
               </div>
 
               {/* Modal Tabs: Animals List vs Weights History */}
-              <div className="flex items-center gap-2 border-b border-[#c1c8c2] mb-4">
+              <div className="flex items-center gap-2 border-b border-white/10 mb-4">
                 <button
                   onClick={() => setModalTab('animals')}
                   className={`pb-2 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                     modalTab === 'animals'
-                      ? 'border-b-2 border-[#012d1d] text-[#012d1d]'
-                      : 'text-[#717973] hover:text-[#012d1d]'
+                      ? 'border-b-2 border-[#012d1d] text-white'
+                      : 'text-[#717973] hover:text-white'
                   }`}
                 >
                   <Beef className="w-4 h-4 text-[#2d6a4f]" />
@@ -1880,8 +1880,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   onClick={() => setModalTab('weights')}
                   className={`pb-2 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                     modalTab === 'weights'
-                      ? 'border-b-2 border-[#012d1d] text-[#012d1d]'
-                      : 'text-[#717973] hover:text-[#012d1d]'
+                      ? 'border-b-2 border-[#012d1d] text-white'
+                      : 'text-[#717973] hover:text-white'
                   }`}
                 >
                   <Calendar className="w-4 h-4 text-[#2d6a4f]" />
@@ -1892,7 +1892,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
               {/* TAB 1: INDIVIDUAL ANIMALS TABLE (WITH PREDIOS IN FRONT OF EACH ANIMAL) */}
               {modalTab === 'animals' && (
                 <div className="space-y-3">
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 bg-[#f8faf8] p-2.5 rounded-xl border border-[#c1c8c2]">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 bg-[#f8faf8] p-2.5 rounded-xl border border-white/10">
                     <div className="relative flex-1 w-full sm:w-auto">
                       <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#717973]" />
                       <input
@@ -1900,7 +1900,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                         placeholder="Buscar animal por arete, raza, sexo o predio..."
                         value={animalSearchQuery}
                         onChange={(e) => setAnimalSearchQuery(e.target.value)}
-                        className="w-full pl-8 pr-3 py-1 bg-white border border-[#c1c8c2] rounded-lg text-xs text-[#1a1c1c] focus:outline-none focus:border-[#012d1d]"
+                        className="w-full pl-8 pr-3 py-1 bg-[#15241C] border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-[#012d1d]"
                       />
                     </div>
                     <span className="text-[11px] font-bold text-[#2d6a4f]">
@@ -1909,9 +1909,9 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   </div>
 
                   {/* Individual Animals List Table */}
-                  <div className="border border-[#c1c8c2] rounded-xl overflow-x-auto max-h-[340px] overflow-y-auto">
+                  <div className="border border-white/10 rounded-xl overflow-x-auto max-h-[340px] overflow-y-auto">
                     <table className="w-full text-left border-collapse text-xs">
-                      <thead className="sticky top-0 bg-[#012d1d] text-white font-bold text-[10.5px] uppercase tracking-wider z-10">
+                      <thead className="sticky top-0 bg-[#0D1A13] text-white font-bold text-[10.5px] uppercase tracking-wider z-10">
                         <tr>
                           <th className="p-2.5">Predio / Finca</th>
                           <th className="p-2.5">Arete / Tag</th>
@@ -1934,12 +1934,12 @@ export const CattleView: React.FC<CattleViewProps> = ({
                             <tr key={animal.id} className="hover:bg-[#f4fbf7] transition-colors">
                               {/* PREDIOS DISPLAYED PROMINENTLY IN FRONT OF EACH ANIMAL */}
                               <td className="p-2.5">
-                                <span className="bg-[#f4fbf7] text-[#012d1d] border border-[#c1ecd4] font-extrabold px-2 py-0.5 rounded text-[10.5px] inline-flex items-center gap-1 shadow-2xs">
+                                <span className="bg-[#f4fbf7] text-white border border-[#c1ecd4] font-extrabold px-2 py-0.5 rounded text-[10.5px] inline-flex items-center gap-1 shadow-2xs">
                                   <Building2 className="w-3 h-3 text-[#2d6a4f]" />
                                   <span>{animal.origin || activeLotDetail.farmName || 'Predio Principal'}</span>
                                 </span>
                               </td>
-                              <td className="p-2.5 font-mono font-bold text-[#012d1d]">
+                              <td className="p-2.5 font-mono font-bold text-white">
                                 {animal.tag}
                                 {animal.name && <span className="block text-[10px] text-[#717973] font-sans font-normal">{animal.name}</span>}
                               </td>
@@ -1965,13 +1965,13 @@ export const CattleView: React.FC<CattleViewProps> = ({
                                   </span>
                                 )}
                               </td>
-                              <td className="p-2.5 font-medium text-[#1a1c1c]">
+                              <td className="p-2.5 font-medium text-white">
                                 {animal.breed}
                               </td>
                               <td className="p-2.5 text-[#414844] capitalize">
                                 {animal.sex === 'macho' ? 'Macho' : 'Hembra'} • {animal.ageMonths || 18}m
                               </td>
-                              <td className="p-2.5 text-right font-mono font-bold text-[#012d1d]">
+                              <td className="p-2.5 text-right font-mono font-bold text-white">
                                 {animal.weightKg} kg
                               </td>
                               <td className="p-2.5 text-right font-mono font-bold text-emerald-700">
@@ -1980,9 +1980,9 @@ export const CattleView: React.FC<CattleViewProps> = ({
                               <td className="p-2.5 text-center">
                                 <button
                                   onClick={() => setSelectedAnimalForFicha(animal)}
-                                  className="px-2 py-1 bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-[10px] rounded-lg transition-all flex items-center gap-1 mx-auto cursor-pointer"
+                                  className="px-2 py-1 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-[10px] rounded-lg transition-all flex items-center gap-1 mx-auto cursor-pointer"
                                 >
-                                  <Eye className="w-3 h-3 text-[#c1ecd4]" />
+                                  <Eye className="w-3 h-3 text-[#A5B8AC]" />
                                   <span>Ficha</span>
                                 </button>
                               </td>
@@ -1998,19 +1998,19 @@ export const CattleView: React.FC<CattleViewProps> = ({
               {/* TAB 2: WEIGHT HISTORY */}
               {modalTab === 'weights' && (
                 <div className="space-y-3">
-                  <p className="font-bold text-[#012d1d] text-xs">Histórico de Pesajes Recientes del Lote</p>
-                  <div className="border border-[#c1c8c2] rounded-xl overflow-hidden divide-y divide-[#eeeeee]">
+                  <p className="font-bold text-white text-xs">Histórico de Pesajes Recientes del Lote</p>
+                  <div className="border border-white/10 rounded-xl overflow-hidden divide-y divide-[#eeeeee]">
                     {activeLotDetail.historyWeights.map((hw, i) => (
                       <div key={i} className="flex justify-between px-3 py-2 text-xs">
-                        <span className="font-medium text-[#1a1c1c]">{hw.date}</span>
-                        <span className="font-mono font-bold text-[#012d1d]">{hw.weight} kg</span>
+                        <span className="font-medium text-white">{hw.date}</span>
+                        <span className="font-mono font-bold text-white">{hw.weight} kg</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="p-3 bg-[#f3f3f3] rounded-xl border border-[#c1c8c2] text-xs">
+                  <div className="p-3 bg-[#f3f3f3] rounded-xl border border-white/10 text-xs">
                     <p className="text-[#717973] font-semibold mb-1">Notas de Manejo y Pastura</p>
-                    <p className="text-[#1a1c1c]">{activeLotDetail.notes}</p>
+                    <p className="text-white">{activeLotDetail.notes}</p>
                     <p className="text-[11px] text-[#2d6a4f] font-bold mt-1">
                       Pastura: {activeLotDetail.pastureType}
                     </p>
@@ -2027,7 +2027,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                   setActiveLotDetail(null);
                   onOpenWeightModal(lotId);
                 }}
-                className="flex-1 bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                className="flex-1 bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >
                 <Scale className="w-4 h-4" />
                 Registrar Pesaje de Lote
@@ -2086,17 +2086,17 @@ export const CattleView: React.FC<CattleViewProps> = ({
       {/* ========================================================================= */}
       {selectedAnimalForFicha && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) setSelectedAnimalForFicha(null); }}>
-          <div className="bg-white rounded-3xl max-w-xl w-full p-5 md:p-6 border border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[92vh] flex flex-col justify-between">
+          <div className="bg-[#15241C] rounded-3xl max-w-xl w-full p-5 md:p-6 border border-white/10 shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[92vh] flex flex-col justify-between">
             <div>
               {/* Header */}
               <div className="flex items-center justify-between pb-3.5 border-b border-[#eeeeee]">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-[#012d1d] text-[#c1ecd4] rounded-2xl shadow-sm">
+                  <div className="p-2.5 bg-[#0D1A13] text-[#A5B8AC] rounded-2xl shadow-sm">
                     <Tag className="w-6 h-6 text-[#ffba38]" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-black text-[#012d1d] bg-[#f4fbf7] border border-[#c1ecd4] px-2 py-0.5 rounded">
+                      <span className="font-mono text-xs font-black text-white bg-[#f4fbf7] border border-[#c1ecd4] px-2 py-0.5 rounded">
                         Arete: {selectedAnimalForFicha.tag}
                       </span>
                       {selectedAnimalForFicha.originType === 'nacido' && (
@@ -2115,7 +2115,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg font-black text-[#012d1d] mt-1">
+                    <h3 className="text-lg font-black text-white mt-1">
                       {selectedAnimalForFicha.name || `Bovino ${selectedAnimalForFicha.breed}`}
                     </h3>
                   </div>
@@ -2132,19 +2132,19 @@ export const CattleView: React.FC<CattleViewProps> = ({
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-3 text-xs">
                 <div className="p-2.5 bg-[#f4fbf7] border border-[#c1ecd4] rounded-2xl">
                   <p className="text-[#717973] font-bold text-[9px] uppercase">Peso Actual</p>
-                  <p className="text-base font-black font-mono text-[#012d1d]">{selectedAnimalForFicha.weightKg} kg</p>
+                  <p className="text-base font-black font-mono text-white">{selectedAnimalForFicha.weightKg} kg</p>
                 </div>
-                <div className="p-2.5 bg-[#f3f3f3] border border-[#c1c8c2] rounded-2xl">
+                <div className="p-2.5 bg-[#f3f3f3] border border-white/10 rounded-2xl">
                   <p className="text-[#717973] font-bold text-[9px] uppercase">Raza / Sexo</p>
-                  <p className="text-xs font-bold text-[#012d1d] capitalize">{selectedAnimalForFicha.breed} ({selectedAnimalForFicha.sex})</p>
+                  <p className="text-xs font-bold text-white capitalize">{selectedAnimalForFicha.breed} ({selectedAnimalForFicha.sex})</p>
                 </div>
-                <div className="p-2.5 bg-[#f3f3f3] border border-[#c1c8c2] rounded-2xl">
+                <div className="p-2.5 bg-[#f3f3f3] border border-white/10 rounded-2xl">
                   <p className="text-[#717973] font-bold text-[9px] uppercase">Color / Pelaje</p>
-                  <p className="text-xs font-bold text-[#012d1d]">{selectedAnimalForFicha.color || 'Blanco / Gris'}</p>
+                  <p className="text-xs font-bold text-white">{selectedAnimalForFicha.color || 'Blanco / Gris'}</p>
                 </div>
-                <div className="p-2.5 bg-[#f3f3f3] border border-[#c1c8c2] rounded-2xl">
+                <div className="p-2.5 bg-[#f3f3f3] border border-white/10 rounded-2xl">
                   <p className="text-[#717973] font-bold text-[9px] uppercase">Tipo / Categoría</p>
-                  <p className="text-xs font-bold text-[#012d1d] capitalize">
+                  <p className="text-xs font-bold text-white capitalize">
                     {selectedAnimalForFicha.cattleType === 'puro_registrable' || selectedAnimalForFicha.cattleType === 'puro_registro'
                       ? 'Puro / Registrable'
                       : selectedAnimalForFicha.cattleType === 'puro_comercial'
@@ -2157,7 +2157,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
               {/* Hierro / Marca Asignada */}
               <div className="p-3 bg-gradient-to-r from-[#2a1b12] to-[#120b07] border-2 border-[#ffba38]/60 rounded-2xl text-white flex items-center justify-between my-3 shadow-md">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#ffba38] text-[#523700] flex items-center justify-center text-xl font-black shadow-inner">
+                  <div className="w-10 h-10 rounded-xl bg-[#D4A94E] text-[#0D1A13] flex items-center justify-center text-xl font-black shadow-inner">
                     {selectedAnimalForFicha.brandingIronSymbol || '🔥'}
                   </div>
                   <div>
@@ -2207,19 +2207,19 @@ export const CattleView: React.FC<CattleViewProps> = ({
               {/* Weaning Details if available */}
               {selectedAnimalForFicha.weaningInfo && (
                 <div className="p-3.5 bg-[#fff8e7] border-2 border-[#ffe082] rounded-2xl space-y-2 mb-3 text-xs">
-                  <h4 className="font-bold text-[#523700] flex items-center justify-between border-b border-[#ffe082] pb-1.5">
+                  <h4 className="font-bold text-[#0D1A13] flex items-center justify-between border-b border-[#ffe082] pb-1.5">
                     <span className="flex items-center gap-1.5">
                       <Flame className="w-4 h-4 text-[#ff8f00]" /> Registro Oficial de Destete
                     </span>
-                    <span className="text-[9.5px] bg-[#ffba38] text-[#523700] px-2 py-0.2 rounded font-mono font-bold">
+                    <span className="text-[9.5px] bg-[#D4A94E] text-[#0D1A13] px-2 py-0.2 rounded font-mono font-bold">
                       Etapa Destete
                     </span>
                   </h4>
                   <div className="grid grid-cols-2 gap-2 text-[11px]">
-                    <div><span className="text-[#523700] font-semibold">Fecha Destete:</span> <strong>{selectedAnimalForFicha.weaningInfo.weaningDate}</strong></div>
-                    <div><span className="text-[#523700] font-semibold">Peso Destete:</span> <strong className="font-mono">{selectedAnimalForFicha.weaningInfo.weaningWeightKg} kg</strong></div>
-                    <div><span className="text-[#523700] font-semibold">GDP Predestete:</span> <strong className="font-mono text-[#1b5e20]">{selectedAnimalForFicha.weaningInfo.dailyGainKg || 0.75} kg/día</strong></div>
-                    <div><span className="text-[#523700] font-semibold">Marca Definitiva:</span> <strong className="font-mono bg-white px-1.5 py-0.5 rounded border border-[#ffe082]">{selectedAnimalForFicha.weaningInfo.brandCode} ({selectedAnimalForFicha.weaningInfo.brandType.replace('_', ' ')})</strong></div>
+                    <div><span className="text-[#0D1A13] font-semibold">Fecha Destete:</span> <strong>{selectedAnimalForFicha.weaningInfo.weaningDate}</strong></div>
+                    <div><span className="text-[#0D1A13] font-semibold">Peso Destete:</span> <strong className="font-mono">{selectedAnimalForFicha.weaningInfo.weaningWeightKg} kg</strong></div>
+                    <div><span className="text-[#0D1A13] font-semibold">GDP Predestete:</span> <strong className="font-mono text-[#1b5e20]">{selectedAnimalForFicha.weaningInfo.dailyGainKg || 0.75} kg/día</strong></div>
+                    <div><span className="text-[#0D1A13] font-semibold">Marca Definitiva:</span> <strong className="font-mono bg-[#15241C] px-1.5 py-0.5 rounded border border-[#ffe082]">{selectedAnimalForFicha.weaningInfo.brandCode} ({selectedAnimalForFicha.weaningInfo.brandType.replace('_', ' ')})</strong></div>
                     {selectedAnimalForFicha.weaningInfo.asocebuRegisterNumber && (
                       <div className="col-span-2 text-[#4a148c] bg-[#f3e5f5] p-2 rounded-xl border border-[#ce93d8] flex items-center justify-between">
                         <span className="font-bold">🏆 Registro Asocebú: {selectedAnimalForFicha.weaningInfo.asocebuRegisterNumber}</span>
@@ -2260,8 +2260,8 @@ export const CattleView: React.FC<CattleViewProps> = ({
               )}
 
               {/* Location */}
-              <div className="p-3 bg-[#f8faf8] border border-[#c1c8c2] rounded-2xl text-xs space-y-1">
-                <p className="font-bold text-[#012d1d] flex items-center gap-1">
+              <div className="p-3 bg-[#f8faf8] border border-white/10 rounded-2xl text-xs space-y-1">
+                <p className="font-bold text-white flex items-center gap-1">
                   <Building2 className="w-3.5 h-3.5 text-[#2d6a4f]" /> Ubicación Actual en Ganadería
                 </p>
                 <p className="text-[#414844]">
@@ -2273,7 +2273,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
             <div className="pt-4 mt-4 border-t border-[#eeeeee] flex justify-end">
               <button
                 onClick={() => setSelectedAnimalForFicha(null)}
-                className="px-5 py-2 rounded-xl bg-[#012d1d] text-white font-bold text-xs cursor-pointer hover:bg-[#1b4332]"
+                className="px-5 py-2 rounded-xl bg-[#0D1A13] text-white font-bold text-xs cursor-pointer hover:bg-[#123F2A]"
               >
                 Cerrar Ficha
               </button>

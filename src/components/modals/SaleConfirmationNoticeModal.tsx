@@ -73,7 +73,7 @@ export const SaleConfirmationNoticeModal: React.FC<SaleConfirmationNoticeModalPr
     >
       <div
         id="sale-confirmation-modal"
-        className="bg-white rounded-3xl max-w-2xl w-full border-2 border-emerald-600 shadow-2xl overflow-hidden animate-in zoom-in-95 flex flex-col text-left my-auto"
+        className="bg-[#15241C] rounded-3xl max-w-2xl w-full border-2 border-emerald-600 shadow-2xl overflow-hidden animate-in zoom-in-95 flex flex-col text-left my-auto"
       >
         {/* Header con estilo de confirmación y sello de éxito */}
         <div className="bg-gradient-to-r from-emerald-950 via-emerald-900 to-[#012d1d] text-white p-5 sm:p-6 relative overflow-hidden border-b border-emerald-800">
@@ -139,72 +139,72 @@ export const SaleConfirmationNoticeModal: React.FC<SaleConfirmationNoticeModalPr
               </div>
             </div>
 
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between">
+            <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs flex items-center justify-between">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#A5B8AC]">
                   Animales Despachados
                 </p>
                 <div className="flex items-baseline gap-1.5 mt-0.5">
-                  <span className="text-2xl font-black text-slate-900">{data.headsCount}</span>
-                  <span className="text-xs font-bold text-slate-600">Cabezas</span>
+                  <span className="text-2xl font-black text-white">{data.headsCount}</span>
+                  <span className="text-xs font-bold text-[#A5B8AC]">Cabezas</span>
                 </div>
                 {formattedWeight && (
-                  <p className="text-[10px] text-slate-500 font-semibold mt-0.5">
+                  <p className="text-[10px] text-[#A5B8AC] font-semibold mt-0.5">
                     Biomasa Total: {formattedWeight}
                   </p>
                 )}
               </div>
-              <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800">
+              <div className="w-11 h-11 rounded-xl bg-emerald-950/30 border border-emerald-200 flex items-center justify-center text-emerald-800">
                 <TrendingDown className="w-6 h-6" />
               </div>
             </div>
           </div>
 
           {/* Ficha de Detalles de la Transacción */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-4 space-y-3 shadow-xs">
-            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-2">
+          <div className="bg-[#15241C] rounded-2xl border border-white/10 p-4 space-y-3 shadow-xs">
+            <h4 className="text-xs font-black uppercase tracking-wider text-white flex items-center gap-2 border-b border-white/10 pb-2">
               <Receipt className="w-4 h-4 text-emerald-700" />
               Comprobante de Salida Comercial
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-              <div className="flex items-start gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                <Building2 className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                <Building2 className="w-4 h-4 text-[#A5B8AC] shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Predio Origen</span>
-                  <span className="font-bold text-slate-900">{data.farmName}</span>
+                  <span className="text-[10px] font-bold text-[#A5B8AC] block uppercase">Predio Origen</span>
+                  <span className="font-bold text-white">{data.farmName}</span>
                   {data.paddockName && (
-                    <span className="text-[10px] text-slate-500 block">Potrero: {data.paddockName}</span>
+                    <span className="text-[10px] text-[#A5B8AC] block">Potrero: {data.paddockName}</span>
                   )}
                 </div>
               </div>
 
-              <div className="flex items-start gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                <Truck className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                <Truck className="w-4 h-4 text-[#A5B8AC] shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Comprador / Destino</span>
-                  <span className="font-bold text-slate-900">{data.buyerName}</span>
+                  <span className="text-[10px] font-bold text-[#A5B8AC] block uppercase">Comprador / Destino</span>
+                  <span className="font-bold text-white">{data.buyerName}</span>
                   {data.destination && (
-                    <span className="text-[10px] text-slate-500 block">Dest: {data.destination}</span>
+                    <span className="text-[10px] text-[#A5B8AC] block">Dest: {data.destination}</span>
                   )}
                 </div>
               </div>
 
-              <div className="flex items-start gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <div className="flex items-start gap-2 bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Guía Sanitaria ICA</span>
+                  <span className="text-[10px] font-bold text-[#A5B8AC] block uppercase">Guía Sanitaria ICA</span>
                   <span className="font-mono font-black text-emerald-900">
                     {data.icaGuideNumber || 'En trámite / No especificada'}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                <FileText className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 bg-[#0D1A13] p-2.5 rounded-xl border border-white/10">
+                <FileText className="w-4 h-4 text-[#A5B8AC] shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] font-bold text-slate-400 block uppercase">Factura / Fecha</span>
-                  <span className="font-bold text-slate-900">
+                  <span className="text-[10px] font-bold text-[#A5B8AC] block uppercase">Factura / Fecha</span>
+                  <span className="font-bold text-white">
                     {data.invoiceNumber || 'S/N'} • {data.date}
                   </span>
                 </div>
@@ -227,7 +227,7 @@ export const SaleConfirmationNoticeModal: React.FC<SaleConfirmationNoticeModalPr
                   data.animalTags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-1 bg-white text-emerald-950 font-mono font-bold text-[11px] rounded-lg border border-emerald-300 shadow-2xs"
+                      className="px-2 py-1 bg-[#15241C] text-emerald-950 font-mono font-bold text-[11px] rounded-lg border border-emerald-300 shadow-2xs"
                     >
                       {tag}
                     </span>
@@ -241,7 +241,7 @@ export const SaleConfirmationNoticeModal: React.FC<SaleConfirmationNoticeModalPr
             </div>
 
             {/* Lista de Acciones Automáticas Ejecutadas */}
-            <div className="p-3 bg-slate-100/80 rounded-xl border border-slate-200/80 text-[11px] text-slate-700 space-y-1">
+            <div className="p-3 bg-slate-100/80 rounded-xl border border-white/10 text-[11px] text-white space-y-1">
               <div className="flex items-center gap-1.5 font-bold text-emerald-800">
                 <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
                 <span>Inventario actualizado: Las cabezas y chapetas fueron dadas de baja en el hato.</span>
@@ -250,7 +250,7 @@ export const SaleConfirmationNoticeModal: React.FC<SaleConfirmationNoticeModalPr
                 <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
                 <span>Contabilidad sincronizada: Se generó el comprobante de ingreso financiero.</span>
               </div>
-              <div className="flex items-center gap-1.5 font-semibold text-slate-600">
+              <div className="flex items-center gap-1.5 font-semibold text-[#A5B8AC]">
                 <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
                 <span>Trazabilidad archivada: El registro quedó disponible para auditoría y reportes ICA.</span>
               </div>
@@ -259,13 +259,13 @@ export const SaleConfirmationNoticeModal: React.FC<SaleConfirmationNoticeModalPr
         </div>
 
         {/* Footer con Acciones */}
-        <div className="bg-white p-4 sm:p-5 border-t border-slate-200 flex items-center justify-between flex-wrap gap-3">
+        <div className="bg-[#15241C] p-4 sm:p-5 border-t border-white/10 flex items-center justify-between flex-wrap gap-3">
           <button
             type="button"
             onClick={handlePrint}
-            className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="px-3.5 py-2 bg-[#1F3327] hover:bg-[#202E25] text-white font-bold rounded-xl text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
           >
-            <Printer className="w-4 h-4 text-slate-600" />
+            <Printer className="w-4 h-4 text-[#A5B8AC]" />
             <span>Imprimir Comprobante</span>
           </button>
 

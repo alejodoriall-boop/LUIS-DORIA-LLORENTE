@@ -22,12 +22,12 @@ export const OperationalCard: React.FC<OperationalCardProps> = ({
   const baseClasses = 'rounded-2xl transition-all duration-150 border';
   const selectedClasses = selected
     ? 'bg-[#F4F8F5] border-[#123F2A] shadow-sm ring-1 ring-[#123F2A]/20'
-    : 'bg-white border-[#D6DED7] hover:border-[#C3CEC5] shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(4,56,37,0.06)]';
+    : 'bg-[#15241C] border-white/10 hover:border-[#C3CEC5] shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(4,56,37,0.06)]';
   const paddingClass = noPadding ? '' : 'p-4 sm:p-5';
 
   return (
     <div
-      className={`${baseClasses} ${selectedClasses} ${paddingClass} text-[#18241D] ${className}`}
+      className={`${baseClasses} ${selectedClasses} ${paddingClass} text-white ${className}`}
       {...props}
     >
       {children}
@@ -55,14 +55,14 @@ export const LightFormField: React.FC<LightFormFieldProps> = ({
   return (
     <div className={`space-y-1.5 ${className}`}>
       {label && (
-        <label className="block text-xs font-bold text-[#18241D] tracking-tight">
+        <label className="block text-xs font-bold text-white tracking-tight">
           {label} {required && <span className="text-[#C63D50]">*</span>}
         </label>
       )}
       {children}
       {error && <p className="text-xs text-[#C63D50] font-medium">{error}</p>}
       {helperText && !error && (
-        <p className="text-[11px] text-[#526158]">{helperText}</p>
+        <p className="text-[11px] text-[#A5B8AC]">{helperText}</p>
       )}
     </div>
   );
@@ -88,7 +88,7 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
     warning: 'bg-[#FFF2D5] text-[#B7791F] border-[#FFE199]',
     danger: 'bg-[#FDE5E9] text-[#C63D50] border-[#F9B6C2]',
     info: 'bg-[#E2ECFA] text-[#356FC0] border-[#B7D2F5]',
-    neutral: 'bg-[#EEF2ED] text-[#526158] border-[#D6DED7]',
+    neutral: 'bg-[#1F3327] text-[#A5B8AC] border-white/10',
     gold: 'bg-[#F4EBD8] text-[#9E7728] border-[#E8D2A7]',
   };
 
@@ -122,7 +122,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[#D6DED7] ${className}`}>
+    <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-white/10 ${className}`}>
       <div className="flex items-center gap-3">
         {icon && (
           <div className="w-10 h-10 rounded-xl bg-[#DDEBE3] text-[#123F2A] flex items-center justify-center shrink-0 shadow-xs">
@@ -131,12 +131,12 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         )}
         <div>
           <div className="flex items-center gap-2 flex-wrap">
-            <h2 className="text-lg sm:text-xl font-extrabold text-[#18241D] tracking-tight">
+            <h2 className="text-lg sm:text-xl font-extrabold text-white tracking-tight">
               {title}
             </h2>
             {badge}
           </div>
-          {subtitle && <p className="text-xs text-[#526158] font-medium">{subtitle}</p>}
+          {subtitle && <p className="text-xs text-[#A5B8AC] font-medium">{subtitle}</p>}
         </div>
       </div>
       {actions && <div className="flex items-center gap-2 flex-wrap">{actions}</div>}
@@ -186,7 +186,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   return (
     <button
       type="button"
-      className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-[#123F2A] bg-white hover:bg-[#EEF2ED] border border-[#D6DED7] hover:border-[#C3CEC5] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs active:scale-[0.98] ${className}`}
+      className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-[#123F2A] bg-[#15241C] hover:bg-[#1F3327] border border-white/10 hover:border-[#C3CEC5] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs active:scale-[0.98] ${className}`}
       {...props}
     >
       {icon && <span className="shrink-0">{icon}</span>}
@@ -224,7 +224,7 @@ export const LightModalBody: React.FC<LightModalProps> = ({
   };
 
   return (
-    <div className={`w-full ${widthClasses[maxWidth]} bg-[#F5F7F3] rounded-3xl overflow-hidden shadow-2xl border border-[#D6DED7] flex flex-col text-[#18241D]`}>
+    <div className={`w-full ${widthClasses[maxWidth]} bg-[#0D1A13] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col text-white`}>
       {/* Dark Institutional Green Header */}
       <div className="bg-[#123F2A] px-5 py-4 flex items-center justify-between text-white shrink-0 border-b border-[#1F6547]">
         <div className="flex items-center gap-3">
@@ -249,13 +249,13 @@ export const LightModalBody: React.FC<LightModalProps> = ({
       </div>
 
       {/* Light Body */}
-      <div className="p-5 overflow-y-auto max-h-[78vh] space-y-4 text-[#18241D]">
+      <div className="p-5 overflow-y-auto max-h-[78vh] space-y-4 text-white">
         {children}
       </div>
 
       {/* Light Footer */}
       {footer && (
-        <div className="bg-white px-5 py-3.5 border-t border-[#D6DED7] flex items-center justify-end gap-2 shrink-0">
+        <div className="bg-[#15241C] px-5 py-3.5 border-t border-white/10 flex items-center justify-end gap-2 shrink-0">
           {footer}
         </div>
       )}

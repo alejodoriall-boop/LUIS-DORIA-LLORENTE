@@ -306,14 +306,14 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
   return (
     <div className="space-y-6 w-full">
       {/* Header Banner */}
-      <section className="bg-[#012d1d] text-white rounded-3xl p-5 md:p-6 shadow-xl border-2 border-[#1b4332] relative overflow-hidden">
+      <section className="bg-[#0D1A13] text-white rounded-3xl p-5 md:p-6 shadow-xl border-2 border-[#1b4332] relative overflow-hidden">
         <div className="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none flex items-center pr-8">
           <HorseIcon className="w-80 h-80 text-white" />
         </div>
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffba38]/20 border border-[#ffba38]/40 text-[#ffba38] text-xs font-bold tracking-wider uppercase mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A94E]/20 border border-[#ffba38]/40 text-[#ffba38] text-xs font-bold tracking-wider uppercase mb-2">
               <HorseIcon className="w-4 h-4" />
               <span>Módulo Específico de Trabajo & Apoyo</span>
             </div>
@@ -324,12 +324,12 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
               <div className="group relative inline-flex items-center">
                 <button
                   type="button"
-                  className="text-[#a3b8ad] hover:text-[#c1ecd4] transition-colors p-0.5 rounded cursor-pointer"
+                  className="text-[#a3b8ad] hover:text-[#A5B8AC] transition-colors p-0.5 rounded cursor-pointer"
                   title="Gestión especializada de caballos de vaquería, mulas de carga/enjalma y asnos reproductores. Registro de herrajes, libretas sanitarias y certificados de Coggins AIE."
                 >
                   <Info className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#1b4332] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#123F2A] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                   Gestión especializada de caballos de vaquería, mulas de carga/enjalma y asnos reproductores. Registro de herrajes, libretas sanitarias y certificados de Coggins AIE.
                 </div>
               </div>
@@ -348,7 +348,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
 
             <button
               onClick={() => setIsAddModalOpen(true)}
-              className="px-4 py-2.5 rounded-2xl bg-[#ffba38] hover:bg-[#e0a02e] text-[#012d1d] text-xs font-extrabold transition-all flex items-center gap-2 shadow-lg cursor-pointer"
+              className="px-4 py-2.5 rounded-2xl bg-[#D4A94E] hover:bg-[#e0a02e] text-white text-xs font-extrabold transition-all flex items-center gap-2 shadow-lg cursor-pointer"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
               <span>Registrar Nuevo Equino</span>
@@ -359,16 +359,16 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
 
       {/* KPI Cards */}
       <section className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+        <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">Total Equinos</span>
             <HorseIcon className="w-4 h-4 text-emerald-800 shrink-0" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate">{kpis.total}</p>
-          <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">Ejemplares registrados</p>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate">{kpis.total}</p>
+          <p className="text-[10px] text-[#A5B8AC] mt-1 font-medium truncate">Ejemplares registrados</p>
         </div>
 
-        <div className="bg-white border border-emerald-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+        <div className="bg-[#15241C] border border-emerald-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
           <div className="flex items-center justify-between text-emerald-900 gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase text-emerald-700 truncate">Caballares</span>
             <HorseIcon className="w-4 h-4 text-emerald-700 shrink-0" />
@@ -377,7 +377,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
           <p className="text-[10px] text-emerald-700 mt-1 font-medium truncate">Caballos & Yeguas</p>
         </div>
 
-        <div className="bg-white border border-amber-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+        <div className="bg-[#15241C] border border-amber-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
           <div className="flex items-center justify-between text-amber-900 gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase text-amber-700 truncate">Mulares</span>
             <Footprints className="w-4 h-4 text-amber-700 shrink-0" />
@@ -386,7 +386,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
           <p className="text-[10px] text-amber-700 mt-1 font-medium truncate">Carga & Trabajo</p>
         </div>
 
-        <div className="bg-white border border-indigo-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+        <div className="bg-[#15241C] border border-indigo-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
           <div className="flex items-center justify-between text-indigo-900 gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase text-indigo-700 truncate">Asnales</span>
             <Tag className="w-4 h-4 text-indigo-700 shrink-0" />
@@ -395,16 +395,16 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
           <p className="text-[10px] text-indigo-700 mt-1 font-medium truncate">Burros & Asnas</p>
         </div>
 
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-600 gap-1 min-w-0">
+        <div className="bg-[#15241C] border border-white/10 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#A5B8AC] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">En Vaquería</span>
             <User className="w-4 h-4 text-emerald-700 shrink-0" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 mt-2 truncate">{kpis.enTrabajo}</p>
-          <p className="text-[10px] text-slate-500 mt-1 font-medium truncate">Trabajo Activo</p>
+          <p className="text-xl sm:text-2xl font-bold font-mono text-white mt-2 truncate">{kpis.enTrabajo}</p>
+          <p className="text-[10px] text-[#A5B8AC] mt-1 font-medium truncate">Trabajo Activo</p>
         </div>
 
-        <div className="bg-white border border-rose-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+        <div className="bg-[#15241C] border border-rose-200 rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
           <div className="flex items-center justify-between text-rose-900 gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase text-rose-700 truncate">Herraje / AIE</span>
             <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />
@@ -415,7 +415,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
       </section>
 
       {/* Filter Tabs & Search Bar */}
-      <section className="bg-white p-4 rounded-2xl border-2 border-[#c1c8c2] shadow-xs space-y-4">
+      <section className="bg-[#15241C] p-4 rounded-2xl border-2 border-white/10 shadow-xs space-y-4">
         {/* Top Species Tabs */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#eeeeee] pb-3">
           <div className="flex items-center gap-1.5 overflow-x-auto">
@@ -423,8 +423,8 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
               onClick={() => setSpeciesTab('all')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 speciesTab === 'all'
-                  ? 'bg-[#012d1d] text-white shadow-xs'
-                  : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+                  ? 'bg-[#0D1A13] text-white shadow-xs'
+                  : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
               }`}
             >
               Todos ({equines.length})
@@ -435,7 +435,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 speciesTab === 'caballar'
                   ? 'bg-emerald-800 text-white shadow-xs'
-                  : 'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 border border-emerald-200'
+                  : 'bg-emerald-950/30 text-emerald-900 hover:bg-emerald-100 border border-emerald-200'
               }`}
             >
               <HorseIcon className="w-3.5 h-3.5" />
@@ -447,7 +447,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 speciesTab === 'mular'
                   ? 'bg-amber-800 text-white shadow-xs'
-                  : 'bg-amber-50 text-amber-900 hover:bg-amber-100 border border-amber-200'
+                  : 'bg-amber-950/30 text-amber-900 hover:bg-amber-100 border border-amber-200'
               }`}
             >
               <Footprints className="w-3.5 h-3.5" />
@@ -468,11 +468,11 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
           </div>
 
           {/* View Mode Toggle */}
-          <div className="flex items-center gap-1 bg-[#f0f4f1] p-1 rounded-xl border border-[#c1c8c2]">
+          <div className="flex items-center gap-1 bg-[#123F2A]/60 p-1 rounded-xl border border-white/10">
             <button
               onClick={() => setViewMode('cards')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                viewMode === 'cards' ? 'bg-[#012d1d] text-white' : 'text-[#717973] hover:text-black'
+                viewMode === 'cards' ? 'bg-[#0D1A13] text-white' : 'text-[#717973] hover:text-black'
               }`}
             >
               Tarjetas
@@ -480,7 +480,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
             <button
               onClick={() => setViewMode('table')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                viewMode === 'table' ? 'bg-[#012d1d] text-white' : 'text-[#717973] hover:text-black'
+                viewMode === 'table' ? 'bg-[#0D1A13] text-white' : 'text-[#717973] hover:text-black'
               }`}
             >
               Tabla Detallada
@@ -498,17 +498,17 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar por nombre, hierro, RFID, arriero..."
-              className="w-full pl-9 pr-3 py-2 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-medium focus:outline-none focus:border-[#012d1d]"
+              className="w-full pl-9 pr-3 py-2 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-medium focus:outline-none focus:border-[#012d1d]"
             />
           </div>
 
           {/* Farm Filter */}
           <div className="flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-[#012d1d] shrink-0" />
+            <Building2 className="w-4 h-4 text-white shrink-0" />
             <select
               value={selectedFarmFilter}
               onChange={(e) => setSelectedFarmFilter(e.target.value)}
-              className="w-full py-2 px-3 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold focus:outline-none focus:border-[#012d1d]"
+              className="w-full py-2 px-3 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold focus:outline-none focus:border-[#012d1d]"
             >
               <option value="all">Todos los Predios / Fincas</option>
               {farms.map((f) => (
@@ -521,11 +521,11 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
 
           {/* Aptitude Filter */}
           <div className="flex items-center gap-2">
-            <Activity className="w-4 h-4 text-[#012d1d] shrink-0" />
+            <Activity className="w-4 h-4 text-white shrink-0" />
             <select
               value={selectedAptitudeFilter}
               onChange={(e) => setSelectedAptitudeFilter(e.target.value)}
-              className="w-full py-2 px-3 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold focus:outline-none focus:border-[#012d1d]"
+              className="w-full py-2 px-3 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold focus:outline-none focus:border-[#012d1d]"
             >
               <option value="all">Todas las Aptitudes de Trabajo</option>
               <option value="trabajo_vaqueria">Trabajo & Vaquería</option>
@@ -548,7 +548,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
             return (
               <article
                 key={eq.id}
-                className="bg-white rounded-2xl border-2 border-[#c1c8c2] shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#012d1d] transition-all"
+                className="bg-[#15241C] rounded-2xl border-2 border-white/10 shadow-xs overflow-hidden flex flex-col justify-between hover:border-[#012d1d] transition-all"
               >
                 {/* Card Top Header */}
                 <div className="p-4 bg-[#f4fbf7] border-b border-[#c1ecd4] flex items-start justify-between gap-2">
@@ -557,11 +557,11 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                       <span className={`px-2 py-0.5 rounded text-[10px] font-extrabold border ${speciesBadge.bg}`}>
                         {speciesBadge.label}
                       </span>
-                      <span className="font-mono text-xs font-bold bg-[#012d1d] text-[#ffba38] px-2 py-0.5 rounded">
+                      <span className="font-mono text-xs font-bold bg-[#0D1A13] text-[#ffba38] px-2 py-0.5 rounded">
                         {eq.earTagOrIron}
                       </span>
                     </div>
-                    <h3 className="font-bold text-lg text-[#012d1d] mt-1.5 leading-snug">
+                    <h3 className="font-bold text-lg text-white mt-1.5 leading-snug">
                       {eq.name}
                     </h3>
                     <p className="text-xs text-[#717973] font-medium">
@@ -580,7 +580,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   <div className="grid grid-cols-2 gap-2 text-xs bg-[#f9f9f9] p-3 rounded-xl border border-[#eeeeee]">
                     <div>
                       <span className="text-[10px] text-[#717973] uppercase font-bold block">Predio</span>
-                      <span className="font-bold text-[#012d1d]">{eq.farmName}</span>
+                      <span className="font-bold text-white">{eq.farmName}</span>
                     </div>
                     <div>
                       <span className="text-[10px] text-[#717973] uppercase font-bold block">Aptitud</span>
@@ -588,7 +588,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     </div>
                     <div>
                       <span className="text-[10px] text-[#717973] uppercase font-bold block">Edad / Peso</span>
-                      <span className="font-mono font-bold text-[#012d1d]">{eq.ageYears} años • {eq.weightKg} kg</span>
+                      <span className="font-mono font-bold text-white">{eq.ageYears} años • {eq.weightKg} kg</span>
                     </div>
                     <div>
                       <span className="text-[10px] text-[#717973] uppercase font-bold block">Encargado</span>
@@ -597,7 +597,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   </div>
 
                   {/* Sanitary & Farriery Status */}
-                  <div className={`p-3 rounded-xl border text-xs ${isNearHerraje ? 'bg-rose-50 border-rose-200 text-rose-900' : 'bg-emerald-50 border-emerald-200 text-emerald-900'}`}>
+                  <div className={`p-3 rounded-xl border text-xs ${isNearHerraje ? 'bg-rose-950/30 border-rose-200 text-rose-900' : 'bg-emerald-950/30 border-emerald-200 text-emerald-900'}`}>
                     <div className="flex items-center justify-between font-bold text-[11px]">
                       <span className="flex items-center gap-1">
                         <Footprints className="w-3.5 h-3.5" />
@@ -616,7 +616,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                 <div className="p-3 bg-[#f9f9f9] border-t border-[#eeeeee] flex items-center justify-between gap-2">
                   <button
                     onClick={() => setSelectedEquineForHerraje(eq)}
-                    className="flex-1 py-1.5 px-2.5 bg-[#f0f4f1] hover:bg-[#e2efe8] text-[#012d1d] text-[11px] font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1 border border-[#c1c8c2]"
+                    className="flex-1 py-1.5 px-2.5 bg-[#123F2A]/60 hover:bg-[#e2efe8] text-white text-[11px] font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1 border border-white/10"
                   >
                     <Footprints className="w-3.5 h-3.5 text-[#2d6a4f]" />
                     <span>Herraje</span>
@@ -624,7 +624,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
 
                   <button
                     onClick={() => setSelectedEquineForSanitary(eq)}
-                    className="flex-1 py-1.5 px-2.5 bg-[#f0f4f1] hover:bg-[#e2efe8] text-[#012d1d] text-[11px] font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1 border border-[#c1c8c2]"
+                    className="flex-1 py-1.5 px-2.5 bg-[#123F2A]/60 hover:bg-[#e2efe8] text-white text-[11px] font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1 border border-white/10"
                   >
                     <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
                     <span>Sanidad</span>
@@ -632,7 +632,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
 
                   <button
                     onClick={() => setSelectedEquineDetail(eq)}
-                    className="py-1.5 px-3 bg-[#012d1d] hover:bg-[#1b4332] text-white text-[11px] font-bold rounded-xl transition-all cursor-pointer flex items-center gap-1 shadow-2xs"
+                    className="py-1.5 px-3 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-[11px] font-bold rounded-xl transition-all cursor-pointer flex items-center gap-1 shadow-2xs"
                   >
                     <Eye className="w-3.5 h-3.5 text-[#ffba38]" />
                     <span>Ficha</span>
@@ -644,11 +644,11 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
         </div>
       ) : (
         /* TABLE VIEW */
-        <div className="bg-white rounded-2xl border-2 border-[#c1c8c2] shadow-xs overflow-hidden">
+        <div className="bg-[#15241C] rounded-2xl border-2 border-white/10 shadow-xs overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-[#012d1d] text-white text-[11px] uppercase tracking-wider font-extrabold border-b border-[#012d1d]">
+                <tr className="bg-[#0D1A13] text-white text-[11px] uppercase tracking-wider font-extrabold border-b border-[#012d1d]">
                   <th className="p-3">Hierro / Tag</th>
                   <th className="p-3">Nombre</th>
                   <th className="p-3">Especie</th>
@@ -667,8 +667,8 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
 
                   return (
                     <tr key={eq.id} className="hover:bg-[#f4fbf7] transition-colors">
-                      <td className="p-3 font-mono font-bold text-[#012d1d]">{eq.earTagOrIron}</td>
-                      <td className="p-3 font-bold text-sm text-[#012d1d]">{eq.name}</td>
+                      <td className="p-3 font-mono font-bold text-white">{eq.earTagOrIron}</td>
+                      <td className="p-3 font-bold text-sm text-white">{eq.name}</td>
                       <td className="p-3">
                         <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${speciesBadge.bg}`}>
                           {eq.species.toUpperCase()}
@@ -678,17 +678,17 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                         {eq.breed} <br />
                         <span className="text-[10px] text-[#717973]">{eq.coatColor}</span>
                       </td>
-                      <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-center font-mono font-bold text-white">
                         {eq.ageYears} yrs / {eq.weightKg} kg
                       </td>
-                      <td className="p-3 text-[#012d1d] font-bold">{eq.farmName}</td>
+                      <td className="p-3 text-white font-bold">{eq.farmName}</td>
                       <td className="p-3 text-[#2d6a4f] font-bold">{getAptitudeLabel(eq.aptitude)}</td>
-                      <td className="p-3 font-mono text-[#012d1d]">{eq.nextHerrajeDueDate || 'N/A'}</td>
+                      <td className="p-3 font-mono text-white">{eq.nextHerrajeDueDate || 'N/A'}</td>
                       <td className="p-3 font-mono text-xs">{eq.aieCertificateCode || 'Sin certificado'}</td>
                       <td className="p-3 text-right">
                         <button
                           onClick={() => setSelectedEquineDetail(eq)}
-                          className="px-2.5 py-1 bg-[#012d1d] text-white rounded-lg font-bold text-[10px] hover:bg-[#1b4332] cursor-pointer"
+                          className="px-2.5 py-1 bg-[#0D1A13] text-white rounded-lg font-bold text-[10px] hover:bg-[#123F2A] cursor-pointer"
                         >
                           Ver Ficha
                         </button>
@@ -705,15 +705,15 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
       {/* MODAL: REGISTRAR NUEVO EQUINO */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 shadow-2xl relative my-8">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 shadow-2xl relative my-8">
             <button
               onClick={() => setIsAddModalOpen(false)}
-              className="absolute right-4 top-4 text-gray-400 hover:text-black"
+              className="absolute right-4 top-4 text-[#A5B8AC] hover:text-black"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#012d1d] font-bold text-lg mb-4 border-b border-[#eeeeee] pb-3">
+            <div className="flex items-center gap-2 text-white font-bold text-lg mb-4 border-b border-[#eeeeee] pb-3">
               <HorseIcon className="w-6 h-6 text-[#ffba38]" />
               <span>Registrar Nuevo Equino / Mular / Asnal</span>
             </div>
@@ -727,7 +727,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   <select
                     value={newSpecies}
                     onChange={(e) => setNewSpecies(e.target.value as EquineSpecies)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                   >
                     <option value="caballar">Caballar (Caballo / Yegua)</option>
                     <option value="mular">Mular (Mula / Macho Mular)</option>
@@ -745,7 +745,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     value={newTag}
                     onChange={(e) => setNewTag(e.target.value)}
                     placeholder="Ej: H-12, MUL-08"
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-mono font-bold"
                   />
                 </div>
 
@@ -759,7 +759,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
                     placeholder="Ej: Relámpago, Consentida"
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                   />
                 </div>
               </div>
@@ -770,7 +770,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   <select
                     value={newSex}
                     onChange={(e) => setNewSex(e.target.value as any)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                   >
                     <option value="capon">Capón (Macho castrado)</option>
                     <option value="macho">Macho Entero (Reproductor)</option>
@@ -785,7 +785,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     value={newBreed}
                     onChange={(e) => setNewBreed(e.target.value)}
                     placeholder="Criollo Colombiano, Cuarto de Milla..."
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-medium"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-medium"
                   />
                 </div>
 
@@ -796,7 +796,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     value={newCoat}
                     onChange={(e) => setNewCoat(e.target.value)}
                     placeholder="Castaño, Alazán, Bayo, Roano..."
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-medium"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-medium"
                   />
                 </div>
               </div>
@@ -808,7 +808,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     type="number"
                     value={newAge}
                     onChange={(e) => setNewAge(Number(e.target.value))}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-mono font-bold"
                   />
                 </div>
 
@@ -818,7 +818,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     type="number"
                     value={newWeight}
                     onChange={(e) => setNewWeight(Number(e.target.value))}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-mono font-bold"
                   />
                 </div>
 
@@ -827,7 +827,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   <select
                     value={newFarm}
                     onChange={(e) => setNewFarm(e.target.value)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                   >
                     {farms.map((f) => (
                       <option key={f.profile.id} value={f.profile.name}>
@@ -844,7 +844,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   <select
                     value={newAptitude}
                     onChange={(e) => setNewAptitude(e.target.value as EquineAptitude)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                   >
                     <option value="trabajo_vaqueria">Trabajo & Vaquería</option>
                     <option value="carga_enjalma">Carga & Enjalma</option>
@@ -860,7 +860,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     value={newRider}
                     onChange={(e) => setNewRider(e.target.value)}
                     placeholder="Ej: Don Carlos Mendoza"
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-medium"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-medium"
                   />
                 </div>
               </div>
@@ -872,7 +872,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   value={newObs}
                   onChange={(e) => setNewObs(e.target.value)}
                   placeholder="Comportamiento, detalles sanitarios o antecedentes..."
-                  className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-medium"
+                  className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-medium"
                 />
               </div>
 
@@ -880,13 +880,13 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2.5 rounded-xl bg-gray-100 text-gray-700 text-xs font-bold"
+                  className="px-4 py-2.5 rounded-xl bg-[#1F3327] text-white text-xs font-bold"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-[#012d1d] text-white text-xs font-bold hover:bg-[#1b4332]"
+                  className="px-5 py-2.5 rounded-xl bg-[#0D1A13] text-white text-xs font-bold hover:bg-[#123F2A]"
                 >
                   Guardar Ejemplar
                 </button>
@@ -899,20 +899,20 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
       {/* MODAL: REGISTRAR HERRAJE */}
       {selectedEquineForHerraje && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-6 shadow-2xl relative">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-6 shadow-2xl relative">
             <button
               onClick={() => setSelectedEquineForHerraje(null)}
-              className="absolute right-4 top-4 text-gray-400 hover:text-black"
+              className="absolute right-4 top-4 text-[#A5B8AC] hover:text-black"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#012d1d] font-bold text-lg mb-2">
+            <div className="flex items-center gap-2 text-white font-bold text-lg mb-2">
               <Footprints className="w-6 h-6 text-[#2d6a4f]" />
               <span>Registrar Herraje & Mantenimiento de Cascos</span>
             </div>
             <p className="text-xs text-[#717973] mb-4">
-              Ejemplar: <span className="font-bold text-[#012d1d]">{selectedEquineForHerraje.name} ({selectedEquineForHerraje.earTagOrIron})</span>
+              Ejemplar: <span className="font-bold text-white">{selectedEquineForHerraje.name} ({selectedEquineForHerraje.earTagOrIron})</span>
             </p>
 
             <form onSubmit={handleSaveHerraje} className="space-y-4">
@@ -923,7 +923,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   required
                   value={herrajeDate}
                   onChange={(e) => setHerrajeDate(e.target.value)}
-                  className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold"
+                  className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-mono font-bold"
                 />
               </div>
 
@@ -932,7 +932,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                 <select
                   value={herrajeType}
                   onChange={(e) => setHerrajeType(e.target.value as any)}
-                  className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                  className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                 >
                   <option value="completo">Herraje Completo (4 Patas)</option>
                   <option value="delantero">Herraje Solo Delanteros</option>
@@ -947,7 +947,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     type="text"
                     value={farrierName}
                     onChange={(e) => setFarrierName(e.target.value)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                   />
                 </div>
 
@@ -957,7 +957,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     type="number"
                     value={herrajeCost}
                     onChange={(e) => setHerrajeCost(Number(e.target.value))}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-mono font-bold"
                   />
                 </div>
               </div>
@@ -969,7 +969,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   value={herrajeNotes}
                   onChange={(e) => setHerrajeNotes(e.target.value)}
                   placeholder="Especifique si requirió ramplón, tratamiento de palma o tipo de herradura..."
-                  className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-medium"
+                  className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-medium"
                 />
               </div>
 
@@ -977,13 +977,13 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedEquineForHerraje(null)}
-                  className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 text-xs font-bold"
+                  className="px-4 py-2 rounded-xl bg-[#1F3327] text-white text-xs font-bold"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-[#012d1d] text-white text-xs font-bold hover:bg-[#1b4332]"
+                  className="px-5 py-2 rounded-xl bg-[#0D1A13] text-white text-xs font-bold hover:bg-[#123F2A]"
                 >
                   Guardar Herraje
                 </button>
@@ -996,20 +996,20 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
       {/* MODAL: REGISTRAR EVENTO SANITARIO */}
       {selectedEquineForSanitary && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-6 shadow-2xl relative">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-6 shadow-2xl relative">
             <button
               onClick={() => setSelectedEquineForSanitary(null)}
-              className="absolute right-4 top-4 text-gray-400 hover:text-black"
+              className="absolute right-4 top-4 text-[#A5B8AC] hover:text-black"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#012d1d] font-bold text-lg mb-2">
+            <div className="flex items-center gap-2 text-white font-bold text-lg mb-2">
               <ShieldCheck className="w-6 h-6 text-blue-700" />
               <span>Registrar Evento Sanitario & Vacunación</span>
             </div>
             <p className="text-xs text-[#717973] mb-4">
-              Ejemplar: <span className="font-bold text-[#012d1d]">{selectedEquineForSanitary.name}</span>
+              Ejemplar: <span className="font-bold text-white">{selectedEquineForSanitary.name}</span>
             </p>
 
             <form onSubmit={handleSaveSanitary} className="space-y-4">
@@ -1025,7 +1025,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     else if (val === 'tetanos') setSanitaryTitle('Vacuna Tétanos Equino');
                     else if (val === 'desparasitacion') setSanitaryTitle('Desparasitación Oral');
                   }}
-                  className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                  className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                 >
                   <option value="aie_coggins">Examen AIE (Coggins Anemia Infecciosa)</option>
                   <option value="encefalitis">Vacuna Encefalitis Equina</option>
@@ -1042,7 +1042,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                   required
                   value={sanitaryTitle}
                   onChange={(e) => setSanitaryTitle(e.target.value)}
-                  className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                  className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                 />
               </div>
 
@@ -1053,7 +1053,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     type="text"
                     value={sanitaryLab}
                     onChange={(e) => setSanitaryLab(e.target.value)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-medium"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-medium"
                   />
                 </div>
 
@@ -1064,7 +1064,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     value={sanitaryResult}
                     onChange={(e) => setSanitaryResult(e.target.value)}
                     placeholder="NEGATIVO, 2 ml, etc."
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-bold"
                   />
                 </div>
               </div>
@@ -1077,7 +1077,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     required
                     value={sanitaryDate}
                     onChange={(e) => setSanitaryDate(e.target.value)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-mono font-bold"
                   />
                 </div>
 
@@ -1087,7 +1087,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                     type="date"
                     value={sanitaryDueDate}
                     onChange={(e) => setSanitaryDueDate(e.target.value)}
-                    className="w-full p-2.5 bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold"
+                    className="w-full p-2.5 bg-[#f9f9f9] border border-white/10 rounded-xl text-xs font-mono font-bold"
                   />
                 </div>
               </div>
@@ -1096,13 +1096,13 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedEquineForSanitary(null)}
-                  className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 text-xs font-bold"
+                  className="px-4 py-2 rounded-xl bg-[#1F3327] text-white text-xs font-bold"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-[#012d1d] text-white text-xs font-bold hover:bg-[#1b4332]"
+                  className="px-5 py-2 rounded-xl bg-[#0D1A13] text-white text-xs font-bold hover:bg-[#123F2A]"
                 >
                   Guardar Sanidad
                 </button>
@@ -1115,23 +1115,23 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
       {/* MODAL: VER FICHA COMPLETA */}
       {selectedEquineDetail && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-3xl w-full p-6 shadow-2xl relative my-8">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-3xl w-full p-6 shadow-2xl relative my-8">
             <button
               onClick={() => setSelectedEquineDetail(null)}
-              className="absolute right-4 top-4 text-gray-400 hover:text-black"
+              className="absolute right-4 top-4 text-[#A5B8AC] hover:text-black"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-3 border-b border-[#eeeeee] pb-4 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold text-xl shadow-md">
+              <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold text-xl shadow-md">
                 <HorseIcon className="w-7 h-7" />
               </div>
               <div>
-                <span className="font-mono text-xs font-bold bg-[#ffba38] text-[#012d1d] px-2 py-0.5 rounded">
+                <span className="font-mono text-xs font-bold bg-[#D4A94E] text-white px-2 py-0.5 rounded">
                   {selectedEquineDetail.earTagOrIron}
                 </span>
-                <h2 className="text-xl font-bold text-[#012d1d] mt-1">{selectedEquineDetail.name}</h2>
+                <h2 className="text-xl font-bold text-white mt-1">{selectedEquineDetail.name}</h2>
                 <p className="text-xs text-[#717973] font-medium">
                   {selectedEquineDetail.species.toUpperCase()} • {selectedEquineDetail.breed} ({selectedEquineDetail.coatColor})
                 </p>
@@ -1143,7 +1143,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-[#f4fbf7] p-4 rounded-2xl border border-[#c1ecd4]">
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Predio Actual</span>
-                  <span className="font-bold text-[#012d1d]">{selectedEquineDetail.farmName}</span>
+                  <span className="font-bold text-white">{selectedEquineDetail.farmName}</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Aptitud Principal</span>
@@ -1151,51 +1151,51 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Edad / Peso</span>
-                  <span className="font-mono font-bold text-[#012d1d]">{selectedEquineDetail.ageYears} Años • {selectedEquineDetail.weightKg} kg</span>
+                  <span className="font-mono font-bold text-white">{selectedEquineDetail.ageYears} Años • {selectedEquineDetail.weightKg} kg</span>
                 </div>
                 <div>
                   <span className="text-[10px] text-[#717973] uppercase font-bold block">Encargado</span>
-                  <span className="font-bold text-[#012d1d]">{selectedEquineDetail.assignedRiderOrWorker || 'Sin asignar'}</span>
+                  <span className="font-bold text-white">{selectedEquineDetail.assignedRiderOrWorker || 'Sin asignar'}</span>
                 </div>
               </div>
 
               {/* Pedigree & Identification */}
               <div className="bg-[#f9f9f9] p-4 rounded-2xl border border-[#eeeeee]">
-                <h4 className="font-bold text-[#012d1d] uppercase text-[11px] mb-2 flex items-center gap-1.5">
+                <h4 className="font-bold text-white uppercase text-[11px] mb-2 flex items-center gap-1.5">
                   <Tag className="w-4 h-4 text-[#ffba38]" />
                   <span>Genealogía & Chip RFID</span>
                 </h4>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                   <div>
                     <span className="text-[10px] text-[#717973] block font-bold">Padre (Sire):</span>
-                    <span className="font-medium text-[#012d1d]">{selectedEquineDetail.fatherName || 'No registrado'}</span>
+                    <span className="font-medium text-white">{selectedEquineDetail.fatherName || 'No registrado'}</span>
                   </div>
                   <div>
                     <span className="text-[10px] text-[#717973] block font-bold">Madre (Dam):</span>
-                    <span className="font-medium text-[#012d1d]">{selectedEquineDetail.motherName || 'No registrada'}</span>
+                    <span className="font-medium text-white">{selectedEquineDetail.motherName || 'No registrada'}</span>
                   </div>
                   <div>
                     <span className="text-[10px] text-[#717973] block font-bold">Chip RFID:</span>
-                    <span className="font-mono text-[#012d1d]">{selectedEquineDetail.rfidChip || 'Sin Chip registrado'}</span>
+                    <span className="font-mono text-white">{selectedEquineDetail.rfidChip || 'Sin Chip registrado'}</span>
                   </div>
                 </div>
               </div>
 
               {/* History of Farriery */}
               <div>
-                <h4 className="font-bold text-[#012d1d] uppercase text-[11px] mb-2 flex items-center gap-1.5">
+                <h4 className="font-bold text-white uppercase text-[11px] mb-2 flex items-center gap-1.5">
                   <Footprints className="w-4 h-4 text-[#2d6a4f]" />
                   <span>Historial de Herrajes</span>
                 </h4>
                 {selectedEquineDetail.herrajeHistory && selectedEquineDetail.herrajeHistory.length > 0 ? (
                   <div className="space-y-1.5">
                     {selectedEquineDetail.herrajeHistory.map((h) => (
-                      <div key={h.id} className="p-2.5 bg-white rounded-xl border border-[#eeeeee] flex items-center justify-between text-xs">
+                      <div key={h.id} className="p-2.5 bg-[#15241C] rounded-xl border border-[#eeeeee] flex items-center justify-between text-xs">
                         <div>
-                          <span className="font-mono font-bold text-[#012d1d]">{h.date}</span> - <span className="font-bold">{h.type.toUpperCase()}</span> por <span className="text-[#2d6a4f]">{h.farrierName}</span>
+                          <span className="font-mono font-bold text-white">{h.date}</span> - <span className="font-bold">{h.type.toUpperCase()}</span> por <span className="text-[#2d6a4f]">{h.farrierName}</span>
                           {h.notes && <p className="text-[11px] text-[#717973]">{h.notes}</p>}
                         </div>
-                        <span className="font-mono font-bold text-[#523700]">${h.costCop.toLocaleString('es-CO')} COP</span>
+                        <span className="font-mono font-bold text-[#0D1A13]">${h.costCop.toLocaleString('es-CO')} COP</span>
                       </div>
                     ))}
                   </div>
@@ -1206,20 +1206,20 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
 
               {/* History of Sanitary Events */}
               <div>
-                <h4 className="font-bold text-[#012d1d] uppercase text-[11px] mb-2 flex items-center gap-1.5">
+                <h4 className="font-bold text-white uppercase text-[11px] mb-2 flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-blue-700" />
                   <span>Historial de Vacunación & Coggins AIE</span>
                 </h4>
                 {selectedEquineDetail.sanitaryHistory && selectedEquineDetail.sanitaryHistory.length > 0 ? (
                   <div className="space-y-1.5">
                     {selectedEquineDetail.sanitaryHistory.map((s) => (
-                      <div key={s.id} className="p-2.5 bg-white rounded-xl border border-[#eeeeee] flex items-center justify-between text-xs">
+                      <div key={s.id} className="p-2.5 bg-[#15241C] rounded-xl border border-[#eeeeee] flex items-center justify-between text-xs">
                         <div>
-                          <span className="font-mono font-bold text-[#012d1d]">{s.date}</span> - <span className="font-bold">{s.title}</span> ({s.laboratoryOrMedication})
+                          <span className="font-mono font-bold text-white">{s.date}</span> - <span className="font-bold">{s.title}</span> ({s.laboratoryOrMedication})
                           <p className="text-[11px] text-[#717973]">Resultado/Dosis: {s.resultOrDose}</p>
                         </div>
                         {s.nextDueDate && (
-                          <span className="text-[10px] bg-blue-50 text-blue-900 font-bold px-2 py-0.5 rounded">
+                          <span className="text-[10px] bg-blue-950/30 text-blue-900 font-bold px-2 py-0.5 rounded">
                             Vence: {s.nextDueDate}
                           </span>
                         )}
@@ -1235,7 +1235,7 @@ export const EquinesView: React.FC<EquinesViewProps> = ({
             <div className="pt-4 mt-4 border-t border-[#eeeeee] flex justify-end">
               <button
                 onClick={() => setSelectedEquineDetail(null)}
-                className="px-5 py-2 rounded-xl bg-[#012d1d] text-white text-xs font-bold"
+                className="px-5 py-2 rounded-xl bg-[#0D1A13] text-white text-xs font-bold"
               >
                 Cerrar Ficha
               </button>

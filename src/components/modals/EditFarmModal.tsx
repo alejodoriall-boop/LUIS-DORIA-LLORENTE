@@ -86,16 +86,16 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#c1c8c2] shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="bg-[#15241C] rounded-2xl sm:rounded-3xl border-2 border-white/10 shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white px-5 py-4 sm:px-6 flex items-center justify-between border-b border-[#2d6a4f]">
+        <div className="bg-[#0D1A13] text-white px-5 py-4 sm:px-6 flex items-center justify-between border-b border-[#2d6a4f]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#1b4332] text-[#c1ecd4] rounded-2xl border border-[#2d6a4f]">
+            <div className="p-2.5 bg-[#123F2A] text-[#A5B8AC] rounded-2xl border border-[#2d6a4f]">
               <Edit3 className="w-5 h-5" />
             </div>
             <div>
               <h3 className="font-extrabold text-lg text-white">Editar Datos del Predio</h3>
-              <p className="text-xs text-[#c1ecd4]/80 mt-0.5">
+              <p className="text-xs text-[#A5B8AC]/80 mt-0.5">
                 {farm.name} • {farm.municipality}, {farm.department}
               </p>
             </div>
@@ -118,7 +118,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
           )}
 
           <div>
-            <label className="block text-xs font-extrabold text-[#012d1d] uppercase tracking-wider mb-1">
+            <label className="block text-xs font-extrabold text-white uppercase tracking-wider mb-1">
               Nombre de la Finca / Predio <span className="text-red-500">*</span>
             </label>
             <input
@@ -126,7 +126,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#c1c8c2] text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#fcfdfc]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-white/10 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] bg-[#fcfdfc]"
             />
           </div>
 
@@ -139,7 +139,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="text"
                 value={legalOwner}
                 onChange={(e) => setLegalOwner(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
               />
             </div>
 
@@ -151,7 +151,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="text"
                 value={contactPhone}
                 onChange={(e) => setContactPhone(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
               />
             </div>
 
@@ -163,7 +163,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="text"
                 value={registrationNumber}
                 onChange={(e) => setRegistrationNumber(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
               />
             </div>
 
@@ -175,7 +175,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="text"
                 value={cadastralCode}
                 onChange={(e) => setCadastralCode(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
               />
             </div>
           </div>
@@ -189,7 +189,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="text"
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm"
               />
             </div>
 
@@ -201,7 +201,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="text"
                 value={municipality}
                 onChange={(e) => setMunicipality(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm"
               />
             </div>
 
@@ -213,14 +213,14 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="text"
                 value={vereda}
                 onChange={(e) => setVereda(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+              <label className="block text-xs font-extrabold text-white mb-1">
                 Área Total (Hectáreas)
               </label>
               <input
@@ -229,7 +229,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 step="0.1"
                 value={totalAreaHa}
                 onChange={(e) => setTotalAreaHa(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-xl border-2 border-[#2d6a4f] text-sm font-bold text-[#012d1d]"
+                className="w-full px-3 py-2 rounded-xl border-2 border-[#2d6a4f] text-sm font-bold text-white"
               />
             </div>
 
@@ -241,7 +241,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
                 type="number"
                 value={elevationMsnm}
                 onChange={(e) => setElevationMsnm(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm"
               />
             </div>
 
@@ -252,7 +252,7 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
               <select
                 value={productionType}
                 onChange={(e) => setProductionType(e.target.value as FarmProductionType)}
-                className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm font-bold bg-white"
+                className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm font-bold bg-[#15241C]"
               >
                 <option value="ceba">Ceba Intensiva</option>
                 <option value="cria">Cría y Levante</option>
@@ -271,15 +271,15 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl border border-[#c1c8c2] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
+              className="w-full px-3 py-2 rounded-xl border border-white/10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
             />
           </div>
 
           {/* Estado del Predio (Habilitado / Deshabilitado) */}
-          <div className="p-3.5 rounded-2xl bg-[#f8faf8] border-2 border-[#c1c8c2] space-y-2">
+          <div className="p-3.5 rounded-2xl bg-[#f8faf8] border-2 border-white/10 space-y-2">
             <div className="flex items-center justify-between">
               <div>
-                <label className="font-extrabold text-xs text-[#012d1d] flex items-center gap-1.5">
+                <label className="font-extrabold text-xs text-white flex items-center gap-1.5">
                   <Power className={`w-4 h-4 ${isDisabled ? 'text-amber-600' : 'text-emerald-700'}`} />
                   <span>Estado del Predio / Finca:</span>
                 </label>
@@ -320,14 +320,14 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
             </div>
 
             {isDisabled && (
-              <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-[10.5px] text-amber-900 font-medium">
+              <div className="p-2.5 bg-amber-950/30 border border-amber-200 rounded-xl text-[10.5px] text-amber-900 font-medium">
                 💡 <b>Información Segura:</b> Al deshabilitar este predio, <b>no se borra ninguna información</b> (se mantienen intactos potreros, pluviómetros, pesajes, inventario y movimientos). Solo se oculta temporalmente para evitar registros por error.
               </div>
             )}
           </div>
 
           {/* Footer buttons */}
-          <div className="pt-3 border-t border-[#c1c8c2] flex items-center justify-end gap-2.5">
+          <div className="pt-3 border-t border-white/10 flex items-center justify-end gap-2.5">
             <button
               type="button"
               onClick={onClose}
@@ -337,9 +337,9 @@ export const EditFarmModal: React.FC<EditFarmModalProps> = ({
             </button>
             <button
               type="submit"
-              className="px-5 py-2.5 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-extrabold rounded-xl shadow-md transition-all flex items-center gap-1.5"
+              className="px-5 py-2.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-extrabold rounded-xl shadow-md transition-all flex items-center gap-1.5"
             >
-              <Save className="w-4 h-4 text-[#c1ecd4]" />
+              <Save className="w-4 h-4 text-[#A5B8AC]" />
               <span>Guardar Cambios</span>
             </button>
           </div>

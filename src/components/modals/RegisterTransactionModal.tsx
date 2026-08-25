@@ -88,20 +88,20 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full p-6 shadow-2xl border border-[#ffe066] relative animate-in fade-in zoom-in duration-200">
+      <div className="bg-[#15241C] rounded-3xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full p-6 shadow-2xl border border-[#ffe066] relative animate-in fade-in zoom-in duration-200">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 text-[#A5B8AC] hover:text-[#A5B8AC] rounded-full hover:bg-[#1F3327] transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-[#012d1d] text-[#ffba38] rounded-2xl shadow-sm">
+          <div className="p-3 bg-[#0D1A13] text-[#ffba38] rounded-2xl shadow-sm">
             <DollarSign className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-xl font-black text-[#012d1d]">
+            <h3 className="text-xl font-black text-white">
               Registrar Movimiento Financiero
             </h3>
             <p className="text-xs text-[#717973] font-semibold">
@@ -146,7 +146,7 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
           {/* Farm & Date Row */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+              <label className="block text-xs font-extrabold text-white mb-1">
                 Finca Imputada
               </label>
               <select
@@ -163,7 +163,7 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
             </div>
 
             <div>
-              <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+              <label className="block text-xs font-extrabold text-white mb-1">
                 Fecha
               </label>
               <input
@@ -179,7 +179,7 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
           {/* Category & Business Unit Row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+              <label className="block text-xs font-extrabold text-white mb-1">
                 Rubro / Categoría
               </label>
               <select
@@ -202,8 +202,8 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
             </div>
 
             <div>
-              <label className="block text-xs font-extrabold text-[#012d1d] mb-1 flex items-center gap-1">
-                <Layers3 className="w-3.5 h-3.5 text-[#012d1d]" />
+              <label className="block text-xs font-extrabold text-white mb-1 flex items-center gap-1">
+                <Layers3 className="w-3.5 h-3.5 text-white" />
                 Unidad de Negocio
               </label>
               <select
@@ -222,7 +222,7 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
 
           {/* Amount */}
           <div>
-            <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+            <label className="block text-xs font-extrabold text-white mb-1">
               Monto Total en Pesos ($ COP)
             </label>
             <input
@@ -243,7 +243,7 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
           {/* Optional Headcount / Kg */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+              <label className="block text-xs font-extrabold text-white mb-1">
                 Cabezas / Animales (Opcional)
               </label>
               <input
@@ -256,7 +256,7 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
             </div>
 
             <div>
-              <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+              <label className="block text-xs font-extrabold text-white mb-1">
                 Kilos o Litros (Opcional)
               </label>
               <input
@@ -271,7 +271,7 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
 
           {/* Description */}
           <div>
-            <label className="block text-xs font-extrabold text-[#012d1d] mb-1">
+            <label className="block text-xs font-extrabold text-white mb-1">
               Detalle / Observaciones
             </label>
             <input
@@ -288,13 +288,13 @@ export const RegisterTransactionModal: React.FC<RegisterTransactionModalProps> =
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-3 rounded-2xl border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+              className="flex-1 py-3 rounded-2xl border border-white/15 text-xs font-bold text-[#A5B8AC] hover:bg-[#1F3327] transition-colors cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex-1 py-3 rounded-2xl bg-[#012d1d] hover:bg-[#02402a] text-[#ffba38] text-xs font-black shadow-lg transition-all cursor-pointer"
+              className="flex-1 py-3 rounded-2xl bg-[#0D1A13] hover:bg-[#02402a] text-[#ffba38] text-xs font-black shadow-lg transition-all cursor-pointer"
             >
               Guardar Movimiento
             </button>

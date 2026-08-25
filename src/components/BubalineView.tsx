@@ -227,13 +227,13 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
       case 'bufala_produccion':
         return { label: 'Búfala en Ordeño', bg: 'bg-sky-100 text-sky-900 border-sky-200' };
       case 'bufala_seca':
-        return { label: 'Búfala Seca / Descanso', bg: 'bg-slate-100 text-slate-800 border-slate-200' };
+        return { label: 'Búfala Seca / Descanso', bg: 'bg-[#1F3327] text-white border-white/10' };
       case 'bufalo_reproductor':
         return { label: 'Búfalo Reproductor (Padrón)', bg: 'bg-rose-100 text-rose-900 border-rose-200' };
       case 'bufalo_ceba':
         return { label: 'Búfalo Ceba / Carne', bg: 'bg-indigo-100 text-indigo-900 border-indigo-200' };
       default:
-        return { label: 'Búfalo', bg: 'bg-slate-100 text-slate-800 border-slate-200' };
+        return { label: 'Búfalo', bg: 'bg-[#1F3327] text-white border-white/10' };
     }
   };
 
@@ -455,14 +455,14 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
       </div>
 
       {/* Navigation Subtabs */}
-      <div className="flex items-center justify-between border-b border-slate-200">
+      <div className="flex items-center justify-between border-b border-white/10">
         <div className="flex gap-2">
           <button
             onClick={() => setActiveSubTab('inventory')}
             className={`px-4 py-2.5 text-xs font-bold border-b-2 transition flex items-center gap-2 cursor-pointer ${
               activeSubTab === 'inventory'
                 ? 'border-emerald-800 text-emerald-950'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                : 'border-transparent text-[#A5B8AC] hover:text-white'
             }`}
           >
             <BuffaloIcon className="w-4 h-4" />
@@ -474,7 +474,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
             className={`px-4 py-2.5 text-xs font-bold border-b-2 transition flex items-center gap-2 cursor-pointer ${
               activeSubTab === 'dairy'
                 ? 'border-emerald-800 text-emerald-950'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                : 'border-transparent text-[#A5B8AC] hover:text-white'
             }`}
           >
             <Droplets className="w-4 h-4 text-sky-600" />
@@ -486,7 +486,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
             className={`px-4 py-2.5 text-xs font-bold border-b-2 transition flex items-center gap-2 cursor-pointer ${
               activeSubTab === 'reproduction'
                 ? 'border-emerald-800 text-emerald-950'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                : 'border-transparent text-[#A5B8AC] hover:text-white'
             }`}
           >
             <HeartPulse className="w-4 h-4 text-pink-600" />
@@ -498,7 +498,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
             className={`px-4 py-2.5 text-xs font-bold border-b-2 transition flex items-center gap-2 cursor-pointer ${
               activeSubTab === 'calculator'
                 ? 'border-emerald-800 text-emerald-950'
-                : 'border-transparent text-slate-500 hover:text-slate-900'
+                : 'border-transparent text-[#A5B8AC] hover:text-white'
             }`}
           >
             <Sparkles className="w-4 h-4 text-amber-500" />
@@ -513,15 +513,15 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
       {activeSubTab === 'inventory' && (
         <div className="space-y-4">
           {/* Filter Bar */}
-          <div className="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="relative w-full md:w-80">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#A5B8AC] absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Buscar por arete, nombre, RFID o potrero..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-emerald-800"
+                className="w-full pl-9 pr-3 py-1.5 text-xs bg-[#0D1A13] border border-white/10 rounded-xl focus:bg-[#15241C] focus:outline-emerald-800"
               />
             </div>
 
@@ -529,7 +529,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
               <select
                 value={selectedBreedFilter}
                 onChange={(e) => setSelectedBreedFilter(e.target.value)}
-                className="px-2.5 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700"
+                className="px-2.5 py-1.5 text-xs bg-[#0D1A13] border border-white/10 rounded-xl text-white"
               >
                 <option value="all">Todas las Razas</option>
                 <option value="Murrah">Murrah (Leche/Doble Propósito)</option>
@@ -541,7 +541,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
               <select
                 value={selectedCategoryFilter}
                 onChange={(e) => setSelectedCategoryFilter(e.target.value)}
-                className="px-2.5 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700"
+                className="px-2.5 py-1.5 text-xs bg-[#0D1A13] border border-white/10 rounded-xl text-white"
               >
                 <option value="all">Todas las Categorías</option>
                 <option value="bufala_produccion">Búfala en Ordeño</option>
@@ -555,7 +555,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
               <select
                 value={wallowFilter}
                 onChange={(e) => setWallowFilter(e.target.value as any)}
-                className="px-2.5 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700"
+                className="px-2.5 py-1.5 text-xs bg-[#0D1A13] border border-white/10 rounded-xl text-white"
               >
                 <option value="all">Revolcadero: Todos</option>
                 <option value="with_wallow">Con Poza / Agua (✓)</option>
@@ -573,23 +573,23 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                 <div
                   key={animal.id}
                   onClick={() => setSelectedAnimalDetail(animal)}
-                  className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs hover:shadow-md hover:border-emerald-700/40 transition-all cursor-pointer group flex flex-col justify-between relative overflow-hidden"
+                  className="bg-[#15241C] rounded-2xl border border-white/10 p-4 shadow-2xs hover:shadow-md hover:border-emerald-700/40 transition-all cursor-pointer group flex flex-col justify-between relative overflow-hidden"
                 >
                   {/* Top Bar */}
                   <div>
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-100 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <div className="w-8 h-8 rounded-xl bg-emerald-950/30 text-emerald-900 border border-emerald-100 flex items-center justify-center group-hover:scale-105 transition-transform">
                           <BuffaloIcon className="w-5 h-5" />
                         </div>
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="font-bold text-sm text-slate-900 font-mono">#{animal.earTag}</span>
-                            <span className="text-xs font-semibold text-slate-700 truncate max-w-[130px]">
+                            <span className="font-bold text-sm text-white font-mono">#{animal.earTag}</span>
+                            <span className="text-xs font-semibold text-white truncate max-w-[130px]">
                               {animal.name}
                             </span>
                           </div>
-                          <p className="text-[10px] text-slate-400 font-medium">
+                          <p className="text-[10px] text-[#A5B8AC] font-medium">
                             {animal.breed} • {animal.sex === 'hembra' ? 'Hembra' : 'Macho'} • {animal.ageMonths} meses
                           </p>
                         </div>
@@ -601,27 +601,27 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                     </div>
 
                     {/* Weight & Production Bar */}
-                    <div className="grid grid-cols-2 gap-2 mt-3.5 pt-3 border-t border-slate-100 text-xs">
-                      <div className="bg-slate-50 p-2 rounded-xl border border-slate-100">
-                        <span className="text-[10px] text-slate-400 block font-medium">Peso & GDP</span>
+                    <div className="grid grid-cols-2 gap-2 mt-3.5 pt-3 border-t border-white/10 text-xs">
+                      <div className="bg-[#0D1A13] p-2 rounded-xl border border-white/10">
+                        <span className="text-[10px] text-[#A5B8AC] block font-medium">Peso & GDP</span>
                         <div className="flex items-baseline gap-1 mt-0.5">
-                          <span className="font-bold text-slate-800 font-mono">{animal.weightKg} kg</span>
+                          <span className="font-bold text-white font-mono">{animal.weightKg} kg</span>
                           <span className="text-[10px] text-emerald-700 font-mono">+{animal.dailyWeightGainG}g/d</span>
                         </div>
                       </div>
 
-                      <div className="bg-slate-50 p-2 rounded-xl border border-slate-100">
-                        <span className="text-[10px] text-slate-400 block font-medium">
+                      <div className="bg-[#0D1A13] p-2 rounded-xl border border-white/10">
+                        <span className="text-[10px] text-[#A5B8AC] block font-medium">
                           {animal.isMilking ? 'Ordeño & Grasa' : 'Estado Reproductivo'}
                         </span>
                         <div className="flex items-baseline gap-1 mt-0.5">
                           {animal.isMilking ? (
                             <>
-                              <span className="font-bold text-slate-800 font-mono">{animal.dailyMilkLiters} L</span>
+                              <span className="font-bold text-white font-mono">{animal.dailyMilkLiters} L</span>
                               <span className="text-[10px] text-amber-700 font-mono font-bold">({animal.lastFatPercentage}% G)</span>
                             </>
                           ) : (
-                            <span className="font-bold text-slate-800 capitalize truncate text-[11px]">
+                            <span className="font-bold text-white capitalize truncate text-[11px]">
                               {animal.reproductiveStatus.replace('_', ' ')}
                             </span>
                           )}
@@ -630,25 +630,25 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                     </div>
 
                     {/* Paddock & Wallow Amenity */}
-                    <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-600 bg-slate-50/50 p-2 rounded-xl border border-slate-100">
+                    <div className="mt-2.5 flex items-center justify-between text-[11px] text-[#A5B8AC] bg-slate-50/50 p-2 rounded-xl border border-white/10">
                       <span className="truncate flex items-center gap-1">
-                        <Building2 className="w-3 h-3 text-slate-400 shrink-0" />
+                        <Building2 className="w-3 h-3 text-[#A5B8AC] shrink-0" />
                         {animal.paddockName}
                       </span>
 
                       <div className="flex items-center gap-2 shrink-0">
                         {animal.hasWallowAccess ? (
-                          <span className="inline-flex items-center gap-0.5 text-[9.5px] font-semibold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200" title="Acceso a Poza de Agua / Revolcadero">
+                          <span className="inline-flex items-center gap-0.5 text-[9.5px] font-semibold text-sky-700 bg-sky-950/30 px-1.5 py-0.5 rounded border border-sky-200" title="Acceso a Poza de Agua / Revolcadero">
                             <Waves className="w-2.5 h-2.5" /> Poza
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-0.5 text-[9.5px] font-semibold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200" title="Sin poza en potrero">
+                          <span className="inline-flex items-center gap-0.5 text-[9.5px] font-semibold text-amber-700 bg-amber-950/30 px-1.5 py-0.5 rounded border border-amber-200" title="Sin poza en potrero">
                             <Sun className="w-2.5 h-2.5" /> Sombra {animal.shadeCoveragePct}%
                           </span>
                         )}
 
                         {animal.toxocaraDewormed && (
-                          <span className="inline-flex items-center gap-0.5 text-[9.5px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200" title="Desparasitación Toxocara vitulorum aplicada">
+                          <span className="inline-flex items-center gap-0.5 text-[9.5px] font-semibold text-emerald-700 bg-emerald-950/30 px-1.5 py-0.5 rounded border border-emerald-200" title="Desparasitación Toxocara vitulorum aplicada">
                             <CheckCircle2 className="w-2.5 h-2.5" /> T. vitulorum
                           </span>
                         )}
@@ -657,7 +657,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                   </div>
 
                   {/* Footer Arrow */}
-                  <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[10.5px] text-slate-400 group-hover:text-emerald-800 transition-colors">
+                  <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[10.5px] text-[#A5B8AC] group-hover:text-emerald-800 transition-colors">
                     <span>Ver ficha zootécnica y curvas</span>
                     <ChevronRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -694,10 +694,10 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
           </div>
 
           {/* Milk Records Table */}
-          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs">
+          <div className="bg-[#15241C] rounded-2xl border border-white/10 overflow-hidden shadow-2xs">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-semibold">
+                <tr className="bg-[#0D1A13] border-b border-white/10 text-[#A5B8AC] font-semibold">
                   <th className="p-3">Búfala</th>
                   <th className="p-3">Fecha & Turno</th>
                   <th className="p-3">Litros</th>
@@ -712,29 +712,29 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                 {milkRecords.map((rec) => (
                   <tr key={rec.id} className="hover:bg-slate-50/70 transition-colors">
                     <td className="p-3">
-                      <p className="font-bold text-slate-900 font-mono">#{rec.animalTag}</p>
-                      <p className="text-[10.5px] text-slate-400">{rec.animalName}</p>
+                      <p className="font-bold text-white font-mono">#{rec.animalTag}</p>
+                      <p className="text-[10.5px] text-[#A5B8AC]">{rec.animalName}</p>
                     </td>
-                    <td className="p-3 text-slate-600 capitalize">
-                      {rec.date} • <span className="font-medium text-slate-800">{rec.shift}</span>
+                    <td className="p-3 text-[#A5B8AC] capitalize">
+                      {rec.date} • <span className="font-medium text-white">{rec.shift}</span>
                     </td>
-                    <td className="p-3 font-bold text-slate-900 font-mono">{rec.liters} L</td>
+                    <td className="p-3 font-bold text-white font-mono">{rec.liters} L</td>
                     <td className="p-3">
                       <span className="font-bold text-amber-700 font-mono">{rec.fatPercentage}%</span>
                     </td>
-                    <td className="p-3 font-mono text-slate-700">{rec.proteinPercentage}%</td>
+                    <td className="p-3 font-mono text-white">{rec.proteinPercentage}%</td>
                     <td className="p-3">
-                      <span className="font-bold text-emerald-800 font-mono bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      <span className="font-bold text-emerald-800 font-mono bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-200">
                         {rec.totalSolidsPercentage}% ST
                       </span>
                     </td>
                     <td className="p-3">
-                      <span className="font-bold text-slate-900 font-mono">{rec.estimatedMozzarellaKg} kg</span>
-                      <span className="text-[9.5px] text-slate-400 block">
+                      <span className="font-bold text-white font-mono">{rec.estimatedMozzarellaKg} kg</span>
+                      <span className="text-[9.5px] text-[#A5B8AC] block">
                         (~{(rec.liters / (rec.estimatedMozzarellaKg || 1)).toFixed(2)} L/kg)
                       </span>
                     </td>
-                    <td className="p-3 font-mono text-slate-600">
+                    <td className="p-3 font-mono text-[#A5B8AC]">
                       {rec.sccK} <span className="text-[10px] text-emerald-600 font-bold">✓ Óptimo</span>
                     </td>
                   </tr>
@@ -768,12 +768,12 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                 const progressPct = Math.min(100, Math.round((daysGest / 312) * 100));
 
                 return (
-                  <div key={animal.id} className="bg-white rounded-2xl border border-slate-200 p-4 shadow-2xs space-y-3">
+                  <div key={animal.id} className="bg-[#15241C] rounded-2xl border border-white/10 p-4 shadow-2xs space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="font-bold text-slate-900 text-sm font-mono">#{animal.earTag}</span>
-                        <span className="text-xs font-semibold text-slate-700 ml-2">{animal.name}</span>
-                        <p className="text-[10.5px] text-slate-400">{animal.breed} • {animal.totalCalvings} partos previos</p>
+                        <span className="font-bold text-white text-sm font-mono">#{animal.earTag}</span>
+                        <span className="text-xs font-semibold text-white ml-2">{animal.name}</span>
+                        <p className="text-[10.5px] text-[#A5B8AC]">{animal.breed} • {animal.totalCalvings} partos previos</p>
                       </div>
                       <span className="text-[10px] font-bold bg-pink-100 text-pink-900 border border-pink-200 px-2 py-0.5 rounded-full capitalize">
                         {animal.reproductiveStatus}
@@ -783,10 +783,10 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                     {/* Progress Bar for 312 days */}
                     <div className="space-y-1">
                       <div className="flex items-center justify-between text-[11px]">
-                        <span className="text-slate-500 font-medium">Progreso Gestacional ({daysGest} / 312 Días)</span>
-                        <span className="font-mono font-bold text-slate-800">{progressPct}%</span>
+                        <span className="text-[#A5B8AC] font-medium">Progreso Gestacional ({daysGest} / 312 Días)</span>
+                        <span className="font-mono font-bold text-white">{progressPct}%</span>
                       </div>
-                      <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                      <div className="w-full h-2.5 bg-[#1F3327] rounded-full overflow-hidden">
                         <div
                           className="h-full bg-linear-to-r from-pink-500 to-rose-600 rounded-full transition-all"
                           style={{ width: `${progressPct}%` }}
@@ -795,9 +795,9 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 text-xs pt-1">
-                      <div className="bg-slate-50 p-2 rounded-xl border border-slate-100">
-                        <span className="text-[10px] text-slate-400 block">Fecha Servicio</span>
-                        <span className="font-bold text-slate-800">{animal.lastServiceDate || 'S/R'}</span>
+                      <div className="bg-[#0D1A13] p-2 rounded-xl border border-white/10">
+                        <span className="text-[10px] text-[#A5B8AC] block">Fecha Servicio</span>
+                        <span className="font-bold text-white">{animal.lastServiceDate || 'S/R'}</span>
                       </div>
 
                       <div className="bg-pink-50/50 p-2 rounded-xl border border-pink-100">
@@ -818,52 +818,52 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
       {activeSubTab === 'calculator' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {/* Inputs */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-4 lg:col-span-1">
-            <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
+          <div className="bg-[#15241C] p-5 rounded-2xl border border-white/10 shadow-2xs space-y-4 lg:col-span-1">
+            <div className="flex items-center gap-2 border-b border-white/10 pb-3">
               <Sparkles className="w-4 h-4 text-amber-500" />
-              <h3 className="text-sm font-bold text-slate-900">Parámetros del Lote</h3>
+              <h3 className="text-sm font-bold text-white">Parámetros del Lote</h3>
             </div>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-600 font-semibold mb-1">Volumen de Leche (Litros)</label>
+                <label className="block text-[#A5B8AC] font-semibold mb-1">Volumen de Leche (Litros)</label>
                 <input
                   type="number"
                   value={calcLiters}
                   onChange={(e) => setCalcLiters(e.target.value)}
-                  className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white font-mono font-bold"
+                  className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl focus:bg-[#15241C] font-mono font-bold"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-600 font-semibold mb-1">% Grasa Butirométrica (6.5% - 9.0%)</label>
+                <label className="block text-[#A5B8AC] font-semibold mb-1">% Grasa Butirométrica (6.5% - 9.0%)</label>
                 <input
                   type="number"
                   step="0.1"
                   value={calcFat}
                   onChange={(e) => setCalcFat(e.target.value)}
-                  className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white font-mono font-bold text-amber-800"
+                  className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl focus:bg-[#15241C] font-mono font-bold text-amber-800"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-600 font-semibold mb-1">% Proteína / Caseína (3.8% - 4.8%)</label>
+                <label className="block text-[#A5B8AC] font-semibold mb-1">% Proteína / Caseína (3.8% - 4.8%)</label>
                 <input
                   type="number"
                   step="0.1"
                   value={calcProtein}
                   onChange={(e) => setCalcProtein(e.target.value)}
-                  className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white font-mono font-bold"
+                  className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl focus:bg-[#15241C] font-mono font-bold"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-600 font-semibold mb-1">Precio Base por Litro ($ COP)</label>
+                <label className="block text-[#A5B8AC] font-semibold mb-1">Precio Base por Litro ($ COP)</label>
                 <input
                   type="number"
                   value={calcBasePriceCop}
                   onChange={(e) => setCalcBasePriceCop(e.target.value)}
-                  className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white font-mono font-bold"
+                  className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl focus:bg-[#15241C] font-mono font-bold"
                 />
               </div>
             </div>
@@ -924,7 +924,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
       {/* ========================================================================= */}
       {isAddAnimalModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 max-h-[90vh] flex flex-col">
+          <div className="bg-[#15241C] w-full max-w-lg rounded-3xl shadow-2xl border border-white/10 overflow-hidden animate-in fade-in zoom-in-95 max-h-[90vh] flex flex-col">
             <div className="p-4 sm:p-5 bg-[#032418] text-white flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <BuffaloIcon className="w-5 h-5 text-[#facc15]" />
@@ -932,7 +932,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
               </div>
               <button
                 onClick={() => setIsAddAnimalModalOpen(false)}
-                className="text-slate-400 hover:text-white cursor-pointer"
+                className="text-[#A5B8AC] hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -941,36 +941,36 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
             <form onSubmit={handleSaveAnimal} className="p-5 space-y-4 overflow-y-auto custom-scrollbar flex-1 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Arete Visual / Chapeta *</label>
+                  <label className="block text-white font-semibold mb-1">Arete Visual / Chapeta *</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej. BUF-512"
                     value={newEarTag}
                     onChange={(e) => setNewEarTag(e.target.value)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white font-mono font-bold"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl focus:bg-[#15241C] font-mono font-bold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Nombre / Identificador</label>
+                  <label className="block text-white font-semibold mb-1">Nombre / Identificador</label>
                   <input
                     type="text"
                     placeholder="Ej. Murrah Linda"
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl focus:bg-[#15241C]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Raza Bubalina</label>
+                  <label className="block text-white font-semibold mb-1">Raza Bubalina</label>
                   <select
                     value={newBreed}
                     onChange={(e) => setNewBreed(e.target.value as BubalineBreed)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl"
                   >
                     <option value="Murrah">Murrah</option>
                     <option value="Mediterránea">Mediterránea</option>
@@ -982,7 +982,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Categoría Zootécnica</label>
+                  <label className="block text-white font-semibold mb-1">Categoría Zootécnica</label>
                   <select
                     value={newCategory}
                     onChange={(e) => {
@@ -996,7 +996,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                         if (val === 'bufala_produccion') setNewIsMilking(true);
                       }
                     }}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl"
                   >
                     <option value="bufala_produccion">Búfala en Ordeño</option>
                     <option value="bufala_primipara">Búfala 1er Vientre</option>
@@ -1013,22 +1013,22 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Peso Actual (kg)</label>
+                  <label className="block text-white font-semibold mb-1">Peso Actual (kg)</label>
                   <input
                     type="number"
                     value={newWeightKg}
                     onChange={(e) => setNewWeightKg(e.target.value)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl font-mono"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Fecha de Nacimiento</label>
+                  <label className="block text-white font-semibold mb-1">Fecha de Nacimiento</label>
                   <input
                     type="date"
                     value={newBirthDate}
                     onChange={(e) => setNewBirthDate(e.target.value)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl"
                   />
                 </div>
               </div>
@@ -1047,7 +1047,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                       onChange={(e) => setNewHasWallow(e.target.checked)}
                       className="rounded text-emerald-700 focus:ring-emerald-700"
                     />
-                    <span className="text-slate-700 font-medium">Potrero con Poza / Revolcadero</span>
+                    <span className="text-white font-medium">Potrero con Poza / Revolcadero</span>
                   </label>
 
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -1057,16 +1057,16 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                       onChange={(e) => setNewToxocaraDewormed(e.target.checked)}
                       className="rounded text-emerald-700 focus:ring-emerald-700"
                     />
-                    <span className="text-slate-700 font-medium">Desparasitado *T. vitulorum*</span>
+                    <span className="text-white font-medium">Desparasitado *T. vitulorum*</span>
                   </label>
                 </div>
               </div>
 
-              <div className="pt-2 flex justify-end gap-2 border-t border-slate-100">
+              <div className="pt-2 flex justify-end gap-2 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setIsAddAnimalModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold"
+                  className="px-4 py-2 rounded-xl text-[#A5B8AC] hover:bg-[#1F3327] font-semibold"
                 >
                   Cancelar
                 </button>
@@ -1087,7 +1087,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
       {/* ========================================================================= */}
       {isAddMilkModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-md rounded-3xl shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95">
+          <div className="bg-[#15241C] w-full max-w-md rounded-3xl shadow-2xl border border-white/10 overflow-hidden animate-in fade-in zoom-in-95">
             <div className="p-4 sm:p-5 bg-sky-950 text-white flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Droplets className="w-5 h-5 text-sky-300" />
@@ -1095,7 +1095,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
               </div>
               <button
                 onClick={() => setIsAddMilkModalOpen(false)}
-                className="text-slate-400 hover:text-white cursor-pointer"
+                className="text-[#A5B8AC] hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1103,12 +1103,12 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
 
             <form onSubmit={handleSaveMilkRecord} className="p-5 space-y-4 text-xs">
               <div>
-                <label className="block text-slate-700 font-semibold mb-1">Seleccionar Búfala en Ordeño *</label>
+                <label className="block text-white font-semibold mb-1">Seleccionar Búfala en Ordeño *</label>
                 <select
                   required
                   value={milkTargetAnimalId}
                   onChange={(e) => setMilkTargetAnimalId(e.target.value)}
-                  className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl"
+                  className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl"
                 >
                   <option value="">Seleccione una búfala...</option>
                   {bubalineAnimals
@@ -1123,23 +1123,23 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Litros Producidos</label>
+                  <label className="block text-white font-semibold mb-1">Litros Producidos</label>
                   <input
                     type="number"
                     step="0.1"
                     required
                     value={milkLiters}
                     onChange={(e) => setMilkLiters(e.target.value)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl font-mono font-bold"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl font-mono font-bold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">Turno de Ordeño</label>
+                  <label className="block text-white font-semibold mb-1">Turno de Ordeño</label>
                   <select
                     value={milkShift}
                     onChange={(e) => setMilkShift(e.target.value as any)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl"
                   >
                     <option value="mañana">Mañana</option>
                     <option value="tarde">Tarde</option>
@@ -1150,33 +1150,33 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">% Grasa Butirométrica</label>
+                  <label className="block text-white font-semibold mb-1">% Grasa Butirométrica</label>
                   <input
                     type="number"
                     step="0.1"
                     value={milkFatPct}
                     onChange={(e) => setMilkFatPct(e.target.value)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl font-mono font-bold text-amber-800"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl font-mono font-bold text-amber-800"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-slate-700 font-semibold mb-1">% Proteína</label>
+                  <label className="block text-white font-semibold mb-1">% Proteína</label>
                   <input
                     type="number"
                     step="0.1"
                     value={milkProteinPct}
                     onChange={(e) => setMilkProteinPct(e.target.value)}
-                    className="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl font-mono"
+                    className="w-full p-2 bg-[#0D1A13] border border-white/10 rounded-xl font-mono"
                   />
                 </div>
               </div>
 
-              <div className="pt-2 flex justify-end gap-2 border-t border-slate-100">
+              <div className="pt-2 flex justify-end gap-2 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setIsAddMilkModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold"
+                  className="px-4 py-2 rounded-xl text-[#A5B8AC] hover:bg-[#1F3327] font-semibold"
                 >
                   Cancelar
                 </button>
@@ -1197,7 +1197,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
       {/* ========================================================================= */}
       {selectedAnimalDetail && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 max-h-[90vh] flex flex-col">
+          <div className="bg-[#15241C] w-full max-w-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden animate-in fade-in zoom-in-95 max-h-[90vh] flex flex-col">
             {/* Modal Header */}
             <div className="p-4 sm:p-5 bg-[#032418] text-white flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -1216,7 +1216,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
               </div>
               <button
                 onClick={() => setSelectedAnimalDetail(null)}
-                className="text-slate-400 hover:text-white cursor-pointer"
+                className="text-[#A5B8AC] hover:text-white cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1225,15 +1225,15 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
             {/* Modal Body */}
             <div className="p-5 space-y-4 overflow-y-auto custom-scrollbar flex-1 text-xs">
               {/* Category & RFID Badge */}
-              <div className="flex items-center justify-between p-3 bg-slate-50 rounded-2xl border border-slate-200">
+              <div className="flex items-center justify-between p-3 bg-[#0D1A13] rounded-2xl border border-white/10">
                 <div>
-                  <span className="text-[10.5px] text-slate-400 block font-medium">Categoría Zootécnica</span>
-                  <span className="font-bold text-slate-800 text-sm">
+                  <span className="text-[10.5px] text-[#A5B8AC] block font-medium">Categoría Zootécnica</span>
+                  <span className="font-bold text-white text-sm">
                     {getCategoryBadge(selectedAnimalDetail.category).label}
                   </span>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10.5px] text-slate-400 block font-medium">Identificación Secundaria</span>
+                  <span className="text-[10.5px] text-[#A5B8AC] block font-medium">Identificación Secundaria</span>
                   <span className="font-mono font-bold text-emerald-800">
                     {selectedAnimalDetail.rfidOrTattoo || 'Sin RFID/Tatuaje'}
                   </span>
@@ -1242,27 +1242,27 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
 
               {/* Physical & Growth Metrics */}
               <div className="grid grid-cols-3 gap-3">
-                <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                  <span className="text-[10px] text-slate-400 block font-medium">Peso Corporal</span>
-                  <p className="text-lg font-bold font-mono text-slate-900 mt-0.5">{selectedAnimalDetail.weightKg} kg</p>
+                <div className="bg-[#0D1A13] p-3 rounded-2xl border border-white/10">
+                  <span className="text-[10px] text-[#A5B8AC] block font-medium">Peso Corporal</span>
+                  <p className="text-lg font-bold font-mono text-white mt-0.5">{selectedAnimalDetail.weightKg} kg</p>
                   <p className="text-[9.5px] text-emerald-700 font-medium mt-0.5">+{selectedAnimalDetail.dailyWeightGainG} g/día</p>
                 </div>
 
-                <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                  <span className="text-[10px] text-slate-400 block font-medium">Potrero Asignado</span>
-                  <p className="text-xs font-bold text-slate-800 mt-1 truncate">{selectedAnimalDetail.paddockName}</p>
-                  <p className="text-[9.5px] text-slate-500 mt-0.5">Sombra: {selectedAnimalDetail.shadeCoveragePct}%</p>
+                <div className="bg-[#0D1A13] p-3 rounded-2xl border border-white/10">
+                  <span className="text-[10px] text-[#A5B8AC] block font-medium">Potrero Asignado</span>
+                  <p className="text-xs font-bold text-white mt-1 truncate">{selectedAnimalDetail.paddockName}</p>
+                  <p className="text-[9.5px] text-[#A5B8AC] mt-0.5">Sombra: {selectedAnimalDetail.shadeCoveragePct}%</p>
                 </div>
 
-                <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                  <span className="text-[10px] text-slate-400 block font-medium">Termorregulación</span>
+                <div className="bg-[#0D1A13] p-3 rounded-2xl border border-white/10">
+                  <span className="text-[10px] text-[#A5B8AC] block font-medium">Termorregulación</span>
                   <div className="mt-1">
                     {selectedAnimalDetail.hasWallowAccess ? (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-sky-700 bg-sky-950/30 px-2 py-0.5 rounded border border-sky-200">
                         <Waves className="w-3 h-3" /> Con Poza
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-950/30 px-2 py-0.5 rounded border border-amber-200">
                         <Sun className="w-3 h-3" /> Sin Poza
                       </span>
                     )}
@@ -1284,20 +1284,20 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                   </div>
 
                   <div className="grid grid-cols-4 gap-2 pt-1 text-center">
-                    <div className="bg-white p-2 rounded-xl border border-sky-100">
-                      <span className="text-[9.5px] text-slate-400 block">Producción</span>
-                      <span className="font-bold text-slate-900 font-mono text-xs">{selectedAnimalDetail.dailyMilkLiters} L/d</span>
+                    <div className="bg-[#15241C] p-2 rounded-xl border border-sky-100">
+                      <span className="text-[9.5px] text-[#A5B8AC] block">Producción</span>
+                      <span className="font-bold text-white font-mono text-xs">{selectedAnimalDetail.dailyMilkLiters} L/d</span>
                     </div>
-                    <div className="bg-white p-2 rounded-xl border border-sky-100">
-                      <span className="text-[9.5px] text-slate-400 block">% Grasa</span>
+                    <div className="bg-[#15241C] p-2 rounded-xl border border-sky-100">
+                      <span className="text-[9.5px] text-[#A5B8AC] block">% Grasa</span>
                       <span className="font-bold text-amber-800 font-mono text-xs">{selectedAnimalDetail.lastFatPercentage}%</span>
                     </div>
-                    <div className="bg-white p-2 rounded-xl border border-sky-100">
-                      <span className="text-[9.5px] text-slate-400 block">% Proteína</span>
-                      <span className="font-bold text-slate-800 font-mono text-xs">{selectedAnimalDetail.lastProteinPercentage}%</span>
+                    <div className="bg-[#15241C] p-2 rounded-xl border border-sky-100">
+                      <span className="text-[9.5px] text-[#A5B8AC] block">% Proteína</span>
+                      <span className="font-bold text-white font-mono text-xs">{selectedAnimalDetail.lastProteinPercentage}%</span>
                     </div>
-                    <div className="bg-white p-2 rounded-xl border border-sky-100">
-                      <span className="text-[9.5px] text-slate-400 block">Sólidos Totales</span>
+                    <div className="bg-[#15241C] p-2 rounded-xl border border-sky-100">
+                      <span className="text-[9.5px] text-[#A5B8AC] block">Sólidos Totales</span>
                       <span className="font-bold text-emerald-800 font-mono text-xs">{selectedAnimalDetail.lastSolidsPercentage}%</span>
                     </div>
                   </div>
@@ -1317,11 +1317,11 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 pt-1">
-                  <div className="bg-white p-2.5 rounded-xl border border-pink-100">
-                    <span className="text-[10px] text-slate-400 block">Último Servicio / Monta</span>
-                    <span className="font-bold text-slate-800">{selectedAnimalDetail.lastServiceDate || 'Sin registro'}</span>
+                  <div className="bg-[#15241C] p-2.5 rounded-xl border border-pink-100">
+                    <span className="text-[10px] text-[#A5B8AC] block">Último Servicio / Monta</span>
+                    <span className="font-bold text-white">{selectedAnimalDetail.lastServiceDate || 'Sin registro'}</span>
                   </div>
-                  <div className="bg-white p-2.5 rounded-xl border border-pink-100">
+                  <div className="bg-[#15241C] p-2.5 rounded-xl border border-pink-100">
                     <span className="text-[10px] text-pink-700 block font-medium">Fecha Probable de Parto (FPP)</span>
                     <span className="font-bold text-pink-950 font-mono">{selectedAnimalDetail.expectedCalvingDate || 'No gestante'}</span>
                   </div>
@@ -1329,21 +1329,21 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
               </div>
 
               {/* Sanitary Notes & Deworming */}
-              <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-1.5">
-                <span className="font-bold text-slate-800 block text-xs">Sanidad & Manejo Neonatal</span>
+              <div className="p-3 bg-[#0D1A13] border border-white/10 rounded-2xl space-y-1.5">
+                <span className="font-bold text-white block text-xs">Sanidad & Manejo Neonatal</span>
                 <div className="flex items-center gap-2">
                   {selectedAnimalDetail.toxocaraDewormed ? (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-200">
                       <CheckCircle2 className="w-3 h-3" /> Desparasitación *Toxocara vitulorum* aplicada (15 días)
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 bg-rose-950/30 px-2 py-0.5 rounded border border-rose-200">
                       <AlertTriangle className="w-3 h-3" /> Pendiente Desparasitación *T. vitulorum*
                     </span>
                   )}
                 </div>
                 {selectedAnimalDetail.sanitaryNotes && (
-                  <p className="text-[11px] text-slate-600 italic mt-1 bg-white p-2 rounded-xl border border-slate-100">
+                  <p className="text-[11px] text-[#A5B8AC] italic mt-1 bg-[#15241C] p-2 rounded-xl border border-white/10">
                     "{selectedAnimalDetail.sanitaryNotes}"
                   </p>
                 )}
@@ -1351,7 +1351,7 @@ export const BubalineView: React.FC<BubalineViewProps> = ({
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 bg-slate-50 border-t border-slate-100 flex justify-end">
+            <div className="p-4 bg-[#0D1A13] border-t border-white/10 flex justify-end">
               <button
                 onClick={() => setSelectedAnimalDetail(null)}
                 className="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold cursor-pointer transition text-xs"

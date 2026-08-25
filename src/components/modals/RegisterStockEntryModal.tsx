@@ -206,11 +206,11 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl border-2 border-[#012d1d] shadow-2xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden flex flex-col my-6">
+      <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] shadow-2xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden flex flex-col my-6">
         {/* Modal Header */}
-        <div className="bg-[#012d1d] text-white p-5 flex items-center justify-between border-b-2 border-[#ffba38]">
+        <div className="bg-[#0D1A13] text-white p-5 flex items-center justify-between border-b-2 border-[#ffba38]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#1b4332] rounded-2xl text-[#ffba38] border border-[#2d6a4f]">
+            <div className="p-2.5 bg-[#123F2A] rounded-2xl text-[#ffba38] border border-[#2d6a4f]">
               <PackagePlus className="w-6 h-6 text-[#ffba38]" />
             </div>
             <div>
@@ -225,21 +225,21 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-white/10 text-[#c1ecd4] transition-colors cursor-pointer"
+            className="p-2 rounded-full hover:bg-white/10 text-[#A5B8AC] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Mode Switcher: Manual vs Camera / Invoice Scan */}
-        <div className="p-4 bg-[#f0f4f1] border-b border-[#c1c8c2] flex gap-2">
+        <div className="p-4 bg-[#123F2A]/60 border-b border-white/10 flex gap-2">
           <button
             type="button"
             onClick={() => setEntryMode('manual')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
               entryMode === 'manual'
-                ? 'bg-[#012d1d] text-white shadow-xs'
-                : 'bg-white text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-white shadow-xs'
+                : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
             }`}
           >
             <FileText className="w-4 h-4 text-[#ffba38]" />
@@ -251,8 +251,8 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
             onClick={() => setEntryMode('camera_ocr')}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${
               entryMode === 'camera_ocr'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
-                : 'bg-white text-[#414844] hover:bg-[#e2efe8] border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-xs'
+                : 'bg-[#15241C] text-[#414844] hover:bg-[#e2efe8] border border-white/10'
             }`}
           >
             <Camera className="w-4 h-4 text-[#0077b6]" />
@@ -266,7 +266,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
             <div className="bg-[#eef8ff] border-2 border-dashed border-[#0077b6] rounded-2xl p-6 text-center space-y-3">
               <Scan className="w-10 h-10 text-[#0077b6] mx-auto animate-pulse" />
               <div>
-                <h3 className="text-sm font-bold text-[#012d1d]">
+                <h3 className="text-sm font-bold text-white">
                   Escaneo de Facturas o Remisiones
                 </h3>
                 <p className="text-xs text-[#414844] mt-1 max-w-sm mx-auto">
@@ -290,7 +290,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
             {isScanning && (
               <div className="p-4 bg-[#fff8e7] border-2 border-[#ffba38] rounded-2xl text-center space-y-2">
                 <Sparkles className="w-6 h-6 text-[#d97706] mx-auto animate-spin" />
-                <p className="text-xs font-bold text-[#523700]">
+                <p className="text-xs font-bold text-[#0D1A13]">
                   Analizando texto e ítems de la factura con visión de IA...
                 </p>
               </div>
@@ -299,7 +299,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
             {/* Photo Preview & Detected Results */}
             {photoPreview && !isScanning && scannedItems.length > 0 && (
               <div className="space-y-3 pt-2">
-                <div className="flex items-center justify-between text-xs font-bold text-[#012d1d]">
+                <div className="flex items-center justify-between text-xs font-bold text-white">
                   <span className="flex items-center gap-1 text-[#2d6a4f]">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     Ítems Detectados en la Factura ({scannedItems.length}):
@@ -310,11 +310,11 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                   {scannedItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-3 bg-[#f8fbf9] border border-[#c1c8c2] rounded-2xl flex items-center justify-between gap-2"
+                      className="p-3 bg-[#15241C] border border-white/10 rounded-2xl flex items-center justify-between gap-2"
                     >
                       <div>
                         <div className="flex items-center gap-1.5">
-                          <span className="font-bold text-xs text-[#012d1d]">{item.itemName}</span>
+                          <span className="font-bold text-xs text-white">{item.itemName}</span>
                           <span className="text-[9px] bg-[#c1ecd4] text-[#002114] font-mono px-1.5 py-0.5 rounded font-bold">
                             {item.confidenceScore}% Precisión
                           </span>
@@ -327,7 +327,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                       <button
                         type="button"
                         onClick={() => handleApplyScannedItem(item)}
-                        className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs px-3 py-1.5 rounded-xl cursor-pointer transition-all"
+                        className="bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs px-3 py-1.5 rounded-xl cursor-pointer transition-all"
                       >
                         Ingresar Ítem
                       </button>
@@ -341,14 +341,14 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
           <form onSubmit={handleSubmit} className="p-5 space-y-4 max-h-[70vh] overflow-y-auto">
             {/* Target Farm */}
             <div>
-              <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1 flex items-center gap-1.5">
+              <label className="block text-xs font-bold text-white uppercase mb-1 flex items-center gap-1.5">
                 <Building2 className="w-4 h-4 text-[#2d6a4f]" />
                 Finca o Predio Receptora:
               </label>
               <select
                 value={selectedFarmId}
                 onChange={(e) => setSelectedFarmId(e.target.value)}
-                className="w-full p-2.5 bg-[#f8fbf9] border-2 border-[#c1c8c2] rounded-2xl text-xs font-bold text-[#012d1d]"
+                className="w-full p-2.5 bg-[#15241C] border-2 border-white/10 rounded-2xl text-xs font-bold text-white"
               >
                 {farms.map((f) => (
                   <option key={f.profile.id} value={f.profile.id}>
@@ -361,13 +361,13 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
             {/* Existing Item or Create New Item Toggle */}
             <div className="p-3 bg-[#f0f7f4] border border-[#c1ecd4] rounded-2xl space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#012d1d]">¿Producto Existente o Nuevo?</span>
+                <span className="text-xs font-bold text-white">¿Producto Existente o Nuevo?</span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setIsNewItem(false)}
                     className={`px-3 py-1 rounded-xl text-xs font-bold cursor-pointer ${
-                      !isNewItem ? 'bg-[#012d1d] text-white' : 'bg-white text-[#414844] border border-[#c1c8c2]'
+                      !isNewItem ? 'bg-[#0D1A13] text-white' : 'bg-[#15241C] text-[#414844] border border-white/10'
                     }`}
                   >
                     Existente
@@ -376,7 +376,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                     type="button"
                     onClick={() => setIsNewItem(true)}
                     className={`px-3 py-1 rounded-xl text-xs font-bold cursor-pointer ${
-                      isNewItem ? 'bg-[#012d1d] text-[#ffba38]' : 'bg-white text-[#414844] border border-[#c1c8c2]'
+                      isNewItem ? 'bg-[#0D1A13] text-[#ffba38]' : 'bg-[#15241C] text-[#414844] border border-white/10'
                     }`}
                   >
                     + Nuevo Producto
@@ -392,7 +392,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                   <select
                     value={selectedItemId}
                     onChange={(e) => setSelectedItemId(e.target.value)}
-                    className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#012d1d]"
+                    className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                   >
                     {farmItems.map((i) => (
                       <option key={i.id} value={i.id}>
@@ -408,7 +408,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
             {isNewItem && (
               <div className="space-y-3 bg-[#fafafa] p-3.5 rounded-2xl border border-[#eeeeee]">
                 <div>
-                  <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+                  <label className="block text-xs font-bold text-white uppercase mb-1">
                     Nombre Completo del Producto / Insumo:
                   </label>
                   <input
@@ -416,7 +416,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Ej. Sal Mineralizada SLA 8% Cría"
-                    className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#1a1c1c]"
+                    className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                     required
                   />
                 </div>
@@ -431,7 +431,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                         <button
                           type="button"
                           onClick={onOpenCreateCategoryModal}
-                          className="text-[10px] font-bold text-[#2d6a4f] hover:text-[#012d1d] flex items-center gap-0.5 cursor-pointer"
+                          className="text-[10px] font-bold text-[#2d6a4f] hover:text-white flex items-center gap-0.5 cursor-pointer"
                         >
                           <Plus className="w-3 h-3 text-[#ffba38]" />
                           <span>+ Crear Nueva</span>
@@ -441,7 +441,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value as InventoryCategory)}
-                      className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#1a1c1c]"
+                      className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                     >
                       {Object.entries(categories).map(([key, info]) => (
                         <option key={key} value={key}>
@@ -460,7 +460,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                       value={brand}
                       onChange={(e) => setBrand(e.target.value)}
                       placeholder="Ej. SLA Nutrición"
-                      className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-medium text-[#1a1c1c]"
+                      className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-medium text-white"
                     />
                   </div>
                 </div>
@@ -475,7 +475,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                       value={unit}
                       onChange={(e) => setUnit(e.target.value)}
                       placeholder="Ej. Saco 40kg, Frasco 500ml"
-                      className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#1a1c1c]"
+                      className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                       required
                     />
                   </div>
@@ -489,7 +489,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                       min="1"
                       value={minStockAlert}
                       onChange={(e) => setMinStockAlert(parseInt(e.target.value) || 5)}
-                      className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#1a1c1c]"
+                      className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
                     />
                   </div>
                 </div>
@@ -521,7 +521,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                   step="1000"
                   value={unitCostEstimate}
                   onChange={(e) => setUnitCostEstimate(parseInt(e.target.value) || 0)}
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-mono font-bold text-[#1a1c1c]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-mono font-bold text-white"
                 />
               </div>
             </div>
@@ -536,7 +536,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                   value={batchNumber}
                   onChange={(e) => setBatchNumber(e.target.value)}
                   placeholder="Ej. LOT-2026-88"
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-mono text-[#1a1c1c]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-mono text-white"
                 />
               </div>
 
@@ -548,7 +548,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                   type="date"
                   value={expirationDate}
                   onChange={(e) => setExpirationDate(e.target.value)}
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs text-[#1a1c1c]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs text-white"
                 />
               </div>
             </div>
@@ -564,7 +564,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                   value={invoiceNumber}
                   onChange={(e) => setInvoiceNumber(e.target.value)}
                   placeholder="Ej. FE-9842"
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-mono text-[#1a1c1c]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-mono text-white"
                 />
               </div>
 
@@ -577,7 +577,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                   value={supplierName}
                   onChange={(e) => setSupplierName(e.target.value)}
                   placeholder="Ej. Agroinsumos del Sinú"
-                  className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs text-[#1a1c1c]"
+                  className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs text-white"
                 />
               </div>
             </div>
@@ -591,7 +591,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Ej. Guardado en Estiba 2 del bodegón principal"
-                className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs text-[#1a1c1c]"
+                className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs text-white"
               />
             </div>
 
@@ -606,7 +606,7 @@ export const RegisterStockEntryModal: React.FC<RegisterStockEntryModalProps> = (
               </button>
               <button
                 type="submit"
-                className="flex-1 py-3 bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
+                className="flex-1 py-3 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <CheckCircle2 className="w-4 h-4 text-[#ffba38]" />
                 <span>Guardar Recepción</span>

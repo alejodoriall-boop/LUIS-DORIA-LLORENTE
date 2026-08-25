@@ -46,14 +46,14 @@ const QUARTER_SCORE_LABELS: Record<
   negativo: {
     label: '0 / Negativo',
     badgeClass: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-    bgClass: 'bg-emerald-50',
+    bgClass: 'bg-emerald-950/30',
     borderClass: 'border-emerald-300',
     textClass: 'text-emerald-700',
   },
   trazas: {
     label: 'T / Trazas',
     badgeClass: 'bg-amber-100 text-amber-800 border-amber-300',
-    bgClass: 'bg-amber-50',
+    bgClass: 'bg-amber-950/30',
     borderClass: 'border-amber-300',
     textClass: 'text-amber-700',
   },
@@ -239,9 +239,9 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-slate-900/80 backdrop-blur-xs overflow-y-auto">
-      <div className="bg-white w-full max-w-5xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="bg-[#15241C] w-full max-w-5xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header Bar */}
-        <div className="bg-[#012d1d] text-white p-5 md:p-6 flex items-start justify-between gap-4 shrink-0 border-b border-[#1b4332]">
+        <div className="bg-[#0D1A13] text-white p-5 md:p-6 flex items-start justify-between gap-4 shrink-0 border-b border-[#1b4332]">
           <div className="flex items-center gap-3.5">
             <div className="p-3 bg-red-950/80 text-red-400 rounded-2xl border border-red-800/80 shadow-inner">
               <FlaskConical className="w-7 h-7 text-red-400" />
@@ -271,19 +271,19 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
 
         {/* Top Summary Banner KPIs */}
         <div className="bg-[#f0f7f4] border-b border-[#c1ecd4] p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs shrink-0">
-          <div className="bg-white p-3 rounded-2xl border border-[#c1ecd4] shadow-2xs">
+          <div className="bg-[#15241C] p-3 rounded-2xl border border-[#c1ecd4] shadow-2xs">
             <span className="text-[10px] font-bold text-[#717973] uppercase tracking-wider block">
               Casos Activos Totales
             </span>
             <div className="flex items-baseline gap-1 mt-0.5">
-              <span className="text-xl font-black text-[#012d1d] font-mono">
+              <span className="text-xl font-black text-white font-mono">
                 {activeInTreatmentCount}
               </span>
               <span className="text-[10px] text-[#2d6a4f]">vacas</span>
             </div>
           </div>
 
-          <div className="bg-white p-3 rounded-2xl border border-red-200 shadow-2xs">
+          <div className="bg-[#15241C] p-3 rounded-2xl border border-red-200 shadow-2xs">
             <span className="text-[10px] font-bold text-red-700 uppercase tracking-wider block">
               Cuadro Clínico Crítico
             </span>
@@ -295,7 +295,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
             </div>
           </div>
 
-          <div className="bg-white p-3 rounded-2xl border border-[#c1ecd4] shadow-2xs">
+          <div className="bg-[#15241C] p-3 rounded-2xl border border-[#c1ecd4] shadow-2xs">
             <span className="text-[10px] font-bold text-[#717973] uppercase tracking-wider block">
               Retención Antibiótico
             </span>
@@ -307,7 +307,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
             </div>
           </div>
 
-          <div className="bg-white p-3 rounded-2xl border border-[#c1ecd4] shadow-2xs flex items-center justify-between">
+          <div className="bg-[#15241C] p-3 rounded-2xl border border-[#c1ecd4] shadow-2xs flex items-center justify-between">
             <div>
               <span className="text-[10px] font-bold text-[#717973] uppercase tracking-wider block">
                 Casos Curados Total
@@ -321,14 +321,14 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
         </div>
 
         {/* Tab Switcher */}
-        <div className="px-6 pt-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-4 shrink-0">
+        <div className="px-6 pt-4 bg-[#0D1A13] border-b border-white/10 flex items-center justify-between gap-4 shrink-0">
           <div className="flex gap-2">
             <button
               onClick={() => setActiveTab('lista')}
               className={`px-4 py-2.5 font-bold text-xs rounded-t-xl transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === 'lista'
-                  ? 'bg-white text-[#012d1d] border-t-2 border-x border-[#012d1d] shadow-2xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  ? 'bg-[#15241C] text-white border-t-2 border-x border-[#012d1d] shadow-2xs'
+                  : 'text-[#A5B8AC] hover:text-white hover:bg-[#1F3327]'
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -339,7 +339,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
               onClick={() => setActiveTab('nuevo')}
               className={`px-4 py-2.5 font-bold text-xs rounded-t-xl transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === 'nuevo'
-                  ? 'bg-[#012d1d] text-white shadow-2xs'
+                  ? 'bg-[#0D1A13] text-white shadow-2xs'
                   : 'bg-emerald-800 text-white hover:bg-emerald-700'
               }`}
             >
@@ -364,21 +364,21 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
           {activeTab === 'lista' && (
             <div className="space-y-4">
               {/* Search and Filters */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#15241C] p-3 rounded-2xl border border-white/10 shadow-2xs">
                 <div className="relative w-full sm:w-72">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <Search className="w-4 h-4 text-[#A5B8AC] absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Buscar por arete, nombre o tratamiento..."
-                    className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                    className="w-full pl-9 pr-3 py-1.5 text-xs bg-[#0D1A13] border border-white/10 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                   />
                 </div>
 
                 <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto">
-                  <Filter className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                  <span className="text-[11px] font-bold text-slate-600 shrink-0">Estado:</span>
+                  <Filter className="w-3.5 h-3.5 text-[#A5B8AC] shrink-0" />
+                  <span className="text-[11px] font-bold text-[#A5B8AC] shrink-0">Estado:</span>
                   {[
                     { id: 'todos', label: 'Todos' },
                     { id: 'en_tratamiento', label: 'En Tratamiento' },
@@ -390,8 +390,8 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       onClick={() => setFilterStatus(st.id)}
                       className={`px-3 py-1 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
                         filterStatus === st.id
-                          ? 'bg-[#012d1d] text-white'
-                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                          ? 'bg-[#0D1A13] text-white'
+                          : 'bg-[#1F3327] text-white hover:bg-[#202E25]'
                       }`}
                     >
                       {st.label}
@@ -402,14 +402,14 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
 
               {/* Records List Grid */}
               {filteredRecords.length === 0 ? (
-                <div className="bg-white p-8 rounded-2xl border border-dashed border-slate-300 text-center space-y-3">
-                  <FlaskConical className="w-12 h-12 text-slate-300 mx-auto" />
-                  <p className="text-sm font-bold text-slate-600">
+                <div className="bg-[#15241C] p-8 rounded-2xl border border-dashed border-white/15 text-center space-y-3">
+                  <FlaskConical className="w-12 h-12 text-[#A5B8AC] mx-auto" />
+                  <p className="text-sm font-bold text-[#A5B8AC]">
                     No se encontraron registros de mastitis con el filtro seleccionado.
                   </p>
                   <button
                     onClick={() => setActiveTab('nuevo')}
-                    className="px-4 py-2 bg-[#012d1d] text-white text-xs font-bold rounded-xl hover:bg-[#1b4332] transition-all cursor-pointer"
+                    className="px-4 py-2 bg-[#0D1A13] text-white text-xs font-bold rounded-xl hover:bg-[#123F2A] transition-all cursor-pointer"
                   >
                     Registrar Primer Caso Positivo
                   </button>
@@ -419,19 +419,19 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                   {filteredRecords.map((item) => (
                     <div
                       key={item.id}
-                      className={`bg-white rounded-2xl border p-4 md:p-5 shadow-2xs space-y-3 transition-all ${
+                      className={`bg-[#15241C] rounded-2xl border p-4 md:p-5 shadow-2xs space-y-3 transition-all ${
                         item.severity === 'critica' && item.status !== 'curado'
                           ? 'border-red-300 bg-red-50/20'
-                          : 'border-slate-200'
+                          : 'border-white/10'
                       }`}
                     >
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-emerald-300 flex items-center justify-center font-black font-mono text-sm shadow-2xs">
+                          <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-emerald-300 flex items-center justify-center font-black font-mono text-sm shadow-2xs">
                             {item.cowTag}
                           </div>
                           <div>
-                            <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                            <h3 className="text-base font-extrabold text-white flex items-center gap-2">
                               <span>{item.cowName}</span>
                               <span
                                 className={`text-[10px] uppercase font-black px-2.5 py-0.5 rounded-full border ${
@@ -445,7 +445,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                                 Severidad: {item.severity}
                               </span>
                             </h3>
-                            <p className="text-xs text-slate-500 font-medium flex items-center gap-2 mt-0.5">
+                            <p className="text-xs text-[#A5B8AC] font-medium flex items-center gap-2 mt-0.5">
                               <span>Prueba: {item.testType}</span>
                               <span>•</span>
                               <span>Fecha: {item.testDate}</span>
@@ -494,7 +494,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
 
                           <button
                             onClick={() => onDeleteRecord(item.id)}
-                            className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all cursor-pointer"
+                            className="p-1.5 text-[#A5B8AC] hover:text-red-600 hover:bg-red-50 rounded-xl transition-all cursor-pointer"
                             title="Eliminar este registro"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -504,8 +504,8 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
 
                       {/* Udder Quarters Anatomical Diagram */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-2">
-                          <span className="text-[10px] font-extrabold uppercase text-slate-500 tracking-wider block">
+                        <div className="bg-[#0D1A13] p-3.5 rounded-2xl border border-white/10 space-y-2">
+                          <span className="text-[10px] font-extrabold uppercase text-[#A5B8AC] tracking-wider block">
                             Evaluación por Cuartos Mamarios (Ubre)
                           </span>
 
@@ -518,7 +518,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                                 QUARTER_SCORE_LABELS[item.quarters.anteriorIzquierdo].borderClass
                               }`}
                             >
-                              <span className="text-[9.5px] font-bold text-slate-500 uppercase block">
+                              <span className="text-[9.5px] font-bold text-[#A5B8AC] uppercase block">
                                 Ant. Izquierdo (AI)
                               </span>
                               <span
@@ -538,7 +538,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                                 QUARTER_SCORE_LABELS[item.quarters.anteriorDerecho].borderClass
                               }`}
                             >
-                              <span className="text-[9.5px] font-bold text-slate-500 uppercase block">
+                              <span className="text-[9.5px] font-bold text-[#A5B8AC] uppercase block">
                                 Ant. Derecho (AD)
                               </span>
                               <span
@@ -558,7 +558,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                                 QUARTER_SCORE_LABELS[item.quarters.posteriorIzquierdo].borderClass
                               }`}
                             >
-                              <span className="text-[9.5px] font-bold text-slate-500 uppercase block">
+                              <span className="text-[9.5px] font-bold text-[#A5B8AC] uppercase block">
                                 Post. Izquierdo (PI)
                               </span>
                               <span
@@ -578,7 +578,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                                 QUARTER_SCORE_LABELS[item.quarters.posteriorDerecho].borderClass
                               }`}
                             >
-                              <span className="text-[9.5px] font-bold text-slate-500 uppercase block">
+                              <span className="text-[9.5px] font-bold text-[#A5B8AC] uppercase block">
                                 Post. Derecho (PD)
                               </span>
                               <span
@@ -593,24 +593,24 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                         </div>
 
                         {/* Medical Details & Antibiotic Withdrawal */}
-                        <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-2 flex flex-col justify-between text-xs">
+                        <div className="bg-[#0D1A13] p-3.5 rounded-2xl border border-white/10 space-y-2 flex flex-col justify-between text-xs">
                           <div className="space-y-1.5">
-                            <div className="flex justify-between items-center border-b border-slate-200 pb-1.5">
-                              <span className="text-slate-600 font-medium">Patógeno Aislado:</span>
-                              <span className="font-bold text-slate-900 font-mono">
+                            <div className="flex justify-between items-center border-b border-white/10 pb-1.5">
+                              <span className="text-[#A5B8AC] font-medium">Patógeno Aislado:</span>
+                              <span className="font-bold text-white font-mono">
                                 {item.pathogenIsolated || 'En laboratorio'}
                               </span>
                             </div>
 
-                            <div className="flex justify-between items-center border-b border-slate-200 pb-1.5">
-                              <span className="text-slate-600 font-medium">Tratamiento Aplicado:</span>
-                              <span className="font-bold text-slate-900 text-right max-w-xs">
+                            <div className="flex justify-between items-center border-b border-white/10 pb-1.5">
+                              <span className="text-[#A5B8AC] font-medium">Tratamiento Aplicado:</span>
+                              <span className="font-bold text-white text-right max-w-xs">
                                 {item.treatmentApplied}
                               </span>
                             </div>
 
-                            <div className="flex justify-between items-center border-b border-slate-200 pb-1.5">
-                              <span className="text-slate-600 font-medium">RCS Estimado:</span>
+                            <div className="flex justify-between items-center border-b border-white/10 pb-1.5">
+                              <span className="text-[#A5B8AC] font-medium">RCS Estimado:</span>
                               <span className="font-bold text-red-700 font-mono">
                                 {item.somaticCellCountK ? `${item.somaticCellCountK}k cel/ml` : 'N/A'}
                               </span>
@@ -622,7 +622,7 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                             <div
                               className={`p-2.5 rounded-xl border flex items-center justify-between gap-2 ${
                                 item.status === 'curado'
-                                  ? 'bg-slate-100 border-slate-300 text-slate-600'
+                                  ? 'bg-[#1F3327] border-white/15 text-[#A5B8AC]'
                                   : 'bg-amber-100 border-amber-300 text-amber-900'
                               }`}
                             >
@@ -646,8 +646,8 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       </div>
 
                       {item.notes && (
-                        <div className="bg-white p-2.5 rounded-xl border border-slate-200 text-xs text-slate-600 italic flex items-center gap-2">
-                          <FileText className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        <div className="bg-[#15241C] p-2.5 rounded-xl border border-white/10 text-xs text-[#A5B8AC] italic flex items-center gap-2">
+                          <FileText className="w-3.5 h-3.5 text-[#A5B8AC] shrink-0" />
                           <span>Notas: "{item.notes}"</span>
                         </div>
                       )}
@@ -661,15 +661,15 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
           {/* TAB 2: REGISTER NEW POSITIVE MASTITIS DIAGNOSIS */}
           {activeTab === 'nuevo' && (
             <form onSubmit={handleSubmitNewRecord} className="space-y-6">
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
-                <h3 className="text-sm font-extrabold text-[#012d1d] uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 pb-2">
+              <div className="bg-[#15241C] p-5 rounded-2xl border border-white/10 shadow-2xs space-y-4">
+                <h3 className="text-sm font-extrabold text-white uppercase tracking-wider flex items-center gap-2 border-b border-white/10 pb-2">
                   <Stethoscope className="w-4 h-4 text-[#2d6a4f]" />
                   <span>1. Identificación de la Vaca y Método de Diagnóstico</span>
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Arete / ID de la Vaca *
                     </label>
                     <input
@@ -678,12 +678,12 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       value={cowTag}
                       onChange={(e) => setCowTag(e.target.value)}
                       placeholder="Ej: VACA-104"
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d] font-bold uppercase"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d] font-bold uppercase"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Nombre / Registro
                     </label>
                     <input
@@ -691,12 +691,12 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       value={cowName}
                       onChange={(e) => setCowName(e.target.value)}
                       placeholder="Ej: Estrella Holstein"
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Fecha de Muestreo / Prueba
                     </label>
                     <input
@@ -704,20 +704,20 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       required
                       value={testDate}
                       onChange={(e) => setTestDate(e.target.value)}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Método de Diagnóstico
                     </label>
                     <select
                       value={testType}
                       onChange={(e) => setTestType(e.target.value as MastitisTestType)}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     >
                       <option value="CMT (California Mastitis Test)">
                         CMT (California Mastitis Test)
@@ -735,13 +735,13 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Clasificación de Mastitis
                     </label>
                     <select
                       value={mastitisType}
                       onChange={(e) => setMastitisType(e.target.value as MastitisType)}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     >
                       <option value="clinica_aguda">Clínica Aguda (Ubre inflamada, grumos)</option>
                       <option value="subclinica">Subclínica (Sin síntomas visibles, RCS alto)</option>
@@ -750,13 +750,13 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Nivel de Severidad
                     </label>
                     <select
                       value={severity}
                       onChange={(e) => setSeverity(e.target.value as 'critica' | 'moderada' | 'leve')}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     >
                       <option value="critica">Crítica (Fiebre / Inflamación grave)</option>
                       <option value="moderada">Moderada (Grumos moderados / Dolor local)</option>
@@ -770,11 +770,11 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
               <div className="bg-[#f0f7f4] p-5 rounded-2xl border border-[#c1ecd4] shadow-2xs space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#c1ecd4] pb-2">
                   <div>
-                    <h3 className="text-sm font-extrabold text-[#012d1d] uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="text-sm font-extrabold text-white uppercase tracking-wider flex items-center gap-2">
                       <Milk className="w-4 h-4 text-[#ffba38]" />
                       <span>2. Evaluación Anatómica por Cuartos Mamarios (Prueba CMT)</span>
                     </h3>
-                    <p className="text-xs text-slate-600">
+                    <p className="text-xs text-[#A5B8AC]">
                       Seleccione la reactividad del reactivo CMT para cada uno de los 4 cuartos de la ubre.
                     </p>
                   </div>
@@ -782,9 +782,9 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Front Left / Anterior Izquierdo */}
-                  <div className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-2">
+                  <div className="bg-[#15241C] p-3.5 rounded-xl border border-white/10 space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-xs font-black text-[#012d1d] uppercase">
+                      <span className="text-xs font-black text-white uppercase">
                         Anterior Izquierdo (AI)
                       </span>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${QUARTER_SCORE_LABELS[quarters.anteriorIzquierdo].badgeClass}`}>
@@ -800,8 +800,8 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                           onClick={() => handleQuarterScoreChange('anteriorIzquierdo', score)}
                           className={`p-1.5 rounded-lg font-bold border transition-all cursor-pointer text-center ${
                             quarters.anteriorIzquierdo === score
-                              ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-2xs'
-                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200'
+                              ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-2xs'
+                              : 'bg-[#0D1A13] text-white hover:bg-[#1F3327] border-white/10'
                           }`}
                         >
                           {score === 'negativo' ? '0' : score === 'trazas' ? 'T' : score === 'positivo_1' ? '+' : score === 'positivo_2' ? '++' : '+++'}
@@ -811,9 +811,9 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                   </div>
 
                   {/* Front Right / Anterior Derecho */}
-                  <div className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-2">
+                  <div className="bg-[#15241C] p-3.5 rounded-xl border border-white/10 space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-xs font-black text-[#012d1d] uppercase">
+                      <span className="text-xs font-black text-white uppercase">
                         Anterior Derecho (AD)
                       </span>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${QUARTER_SCORE_LABELS[quarters.anteriorDerecho].badgeClass}`}>
@@ -829,8 +829,8 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                           onClick={() => handleQuarterScoreChange('anteriorDerecho', score)}
                           className={`p-1.5 rounded-lg font-bold border transition-all cursor-pointer text-center ${
                             quarters.anteriorDerecho === score
-                              ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-2xs'
-                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200'
+                              ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-2xs'
+                              : 'bg-[#0D1A13] text-white hover:bg-[#1F3327] border-white/10'
                           }`}
                         >
                           {score === 'negativo' ? '0' : score === 'trazas' ? 'T' : score === 'positivo_1' ? '+' : score === 'positivo_2' ? '++' : '+++'}
@@ -840,9 +840,9 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                   </div>
 
                   {/* Rear Left / Posterior Izquierdo */}
-                  <div className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-2">
+                  <div className="bg-[#15241C] p-3.5 rounded-xl border border-white/10 space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-xs font-black text-[#012d1d] uppercase">
+                      <span className="text-xs font-black text-white uppercase">
                         Posterior Izquierdo (PI)
                       </span>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${QUARTER_SCORE_LABELS[quarters.posteriorIzquierdo].badgeClass}`}>
@@ -858,8 +858,8 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                           onClick={() => handleQuarterScoreChange('posteriorIzquierdo', score)}
                           className={`p-1.5 rounded-lg font-bold border transition-all cursor-pointer text-center ${
                             quarters.posteriorIzquierdo === score
-                              ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-2xs'
-                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200'
+                              ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-2xs'
+                              : 'bg-[#0D1A13] text-white hover:bg-[#1F3327] border-white/10'
                           }`}
                         >
                           {score === 'negativo' ? '0' : score === 'trazas' ? 'T' : score === 'positivo_1' ? '+' : score === 'positivo_2' ? '++' : '+++'}
@@ -869,9 +869,9 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                   </div>
 
                   {/* Rear Right / Posterior Derecho */}
-                  <div className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-2">
+                  <div className="bg-[#15241C] p-3.5 rounded-xl border border-white/10 space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-xs font-black text-[#012d1d] uppercase">
+                      <span className="text-xs font-black text-white uppercase">
                         Posterior Derecho (PD)
                       </span>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${QUARTER_SCORE_LABELS[quarters.posteriorDerecho].badgeClass}`}>
@@ -887,8 +887,8 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                           onClick={() => handleQuarterScoreChange('posteriorDerecho', score)}
                           className={`p-1.5 rounded-lg font-bold border transition-all cursor-pointer text-center ${
                             quarters.posteriorDerecho === score
-                              ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-2xs'
-                              : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200'
+                              ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-2xs'
+                              : 'bg-[#0D1A13] text-white hover:bg-[#1F3327] border-white/10'
                           }`}
                         >
                           {score === 'negativo' ? '0' : score === 'trazas' ? 'T' : score === 'positivo_1' ? '+' : score === 'positivo_2' ? '++' : '+++'}
@@ -900,21 +900,21 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
               </div>
 
               {/* SECTION 3: PATHOGEN, TREATMENT & WITHDRAWAL PERIOD */}
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-4">
-                <h3 className="text-sm font-extrabold text-[#012d1d] uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 pb-2">
+              <div className="bg-[#15241C] p-5 rounded-2xl border border-white/10 shadow-2xs space-y-4">
+                <h3 className="text-sm font-extrabold text-white uppercase tracking-wider flex items-center gap-2 border-b border-white/10 pb-2">
                   <ShieldAlert className="w-4 h-4 text-amber-600" />
                   <span>3. Patógeno, Tratamiento y Tiempo de Retiro en Leche</span>
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Patógeno Aislado / Sospechado
                     </label>
                     <select
                       value={pathogenIsolated}
                       onChange={(e) => setPathogenIsolated(e.target.value)}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     >
                       {COMMON_PATHOGENS.map((p) => (
                         <option key={p} value={p}>
@@ -925,21 +925,21 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Conteo de Células Somáticas (RCS k/ml)
                     </label>
                     <input
                       type="number"
                       value={somaticCellCountK}
                       onChange={(e) => setSomaticCellCountK(Number(e.target.value))}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="sm:col-span-2">
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Tratamiento Aplicado (Intramamario / Sistémico) *
                     </label>
                     <input
@@ -948,12 +948,12 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       value={treatmentApplied}
                       onChange={(e) => setTreatmentApplied(e.target.value)}
                       placeholder="Ej: Cefalexina Intramamaria 100mg + Meloxicam"
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Días de Retiro Sanitario (Carencia)
                     </label>
                     <input
@@ -962,14 +962,14 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       max="30"
                       value={withdrawalDays}
                       onChange={(e) => setWithdrawalDays(Number(e.target.value))}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d] font-bold text-amber-800"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d] font-bold text-amber-800"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Veterinario Responsable
                     </label>
                     <input
@@ -977,12 +977,12 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       value={veterinarian}
                       onChange={(e) => setVeterinarian(e.target.value)}
                       placeholder="Ej: Dr. Carlos Mendoza"
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold text-white mb-1">
                       Observaciones / Cuidados Especiales
                     </label>
                     <input
@@ -990,25 +990,25 @@ export const RegisterMastitisModal: React.FC<RegisterMastitisModalProps> = ({
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Ej: Ordeñar al final del lote de producción"
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
+                      className="w-full px-3 py-2 text-xs border border-white/15 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-[#012d1d]"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Form Buttons */}
-              <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-200">
+              <div className="flex items-center justify-end gap-3 pt-2 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setActiveTab('lista')}
-                  className="px-5 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all cursor-pointer"
+                  className="px-5 py-2.5 text-xs font-bold text-white bg-[#1F3327] hover:bg-[#202E25] rounded-xl transition-all cursor-pointer"
                 >
                   Cancelar
                 </button>
 
                 <button
                   type="submit"
-                  className="px-6 py-2.5 text-xs font-black text-white bg-[#012d1d] hover:bg-[#1b4332] rounded-xl transition-all cursor-pointer shadow-md flex items-center gap-2"
+                  className="px-6 py-2.5 text-xs font-black text-white bg-[#0D1A13] hover:bg-[#123F2A] rounded-xl transition-all cursor-pointer shadow-md flex items-center gap-2"
                 >
                   <Check className="w-4 h-4 text-emerald-400" />
                   <span>Guardar Registro Diagnóstico</span>

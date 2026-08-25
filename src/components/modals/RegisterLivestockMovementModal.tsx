@@ -181,15 +181,15 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white rounded-3xl max-w-4xl lg:max-w-5xl w-full p-5 md:p-6 border border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[92vh] flex flex-col">
+      <div className="bg-[#15241C] rounded-3xl max-w-4xl lg:max-w-5xl w-full p-5 md:p-6 border border-white/10 shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[92vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-[#eeeeee] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#012d1d] text-[#c1ecd4] rounded-2xl shadow-sm">
+            <div className="p-2.5 bg-[#0D1A13] text-[#A5B8AC] rounded-2xl shadow-sm">
               <ArrowRightLeft className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-[#012d1d]">
+              <h3 className="text-lg font-black text-white">
                 Movilización & Trazabilidad de Lotes de Ganado
               </h3>
               <p className="text-xs text-[#717973] font-medium">
@@ -209,7 +209,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
         <form onSubmit={handleSubmit} className="overflow-y-auto flex-1 pr-1 py-4 space-y-4 text-xs">
           {/* Action Type Selector */}
           <div>
-            <label className="block text-[11px] font-black text-[#012d1d] uppercase mb-2">
+            <label className="block text-[11px] font-black text-white uppercase mb-2">
               Tipo de Movimiento o Transacción
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -221,8 +221,8 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 }}
                 className={`p-2.5 rounded-2xl border-2 flex flex-col items-center gap-1 transition-all text-center cursor-pointer ${
                   movementType === 'transferencia_interna'
-                    ? 'border-[#012d1d] bg-[#e8f5e9] text-[#012d1d] font-black shadow-xs ring-1 ring-[#012d1d]'
-                    : 'border-[#c1c8c2] bg-white text-[#717973] hover:bg-[#f9f9f9]'
+                    ? 'border-[#012d1d] bg-[#e8f5e9] text-white font-black shadow-xs ring-1 ring-[#012d1d]'
+                    : 'border-white/10 bg-[#15241C] text-[#717973] hover:bg-[#f9f9f9]'
                 }`}
               >
                 <Truck className="w-4 h-4 text-[#1b4332]" />
@@ -239,7 +239,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 className={`p-2.5 rounded-2xl border-2 flex flex-col items-center gap-1 transition-all text-center cursor-pointer ${
                   movementType === 'salida_venta'
                     ? 'border-[#2563eb] bg-[#dbeafe] text-[#1e40af] font-black shadow-xs ring-1 ring-[#2563eb]'
-                    : 'border-[#c1c8c2] bg-white text-[#717973] hover:bg-[#f9f9f9]'
+                    : 'border-white/10 bg-[#15241C] text-[#717973] hover:bg-[#f9f9f9]'
                 }`}
               >
                 <ShoppingBag className="w-4 h-4 text-[#2563eb]" />
@@ -256,7 +256,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 className={`p-2.5 rounded-2xl border-2 flex flex-col items-center gap-1 transition-all text-center cursor-pointer ${
                   movementType === 'salida_muerte'
                     ? 'border-[#dc2626] bg-[#fee2e2] text-[#991b1b] font-black shadow-xs ring-1 ring-[#dc2626]'
-                    : 'border-[#c1c8c2] bg-white text-[#717973] hover:bg-[#f9f9f9]'
+                    : 'border-white/10 bg-[#15241C] text-[#717973] hover:bg-[#f9f9f9]'
                 }`}
               >
                 <Skull className="w-4 h-4 text-[#dc2626]" />
@@ -273,7 +273,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 className={`p-2.5 rounded-2xl border-2 flex flex-col items-center gap-1 transition-all text-center cursor-pointer ${
                   movementType === 'salida_sacrificio'
                     ? 'border-[#d97706] bg-[#fef3c7] text-[#92400e] font-black shadow-xs ring-1 ring-[#d97706]'
-                    : 'border-[#c1c8c2] bg-white text-[#717973] hover:bg-[#f9f9f9]'
+                    : 'border-white/10 bg-[#15241C] text-[#717973] hover:bg-[#f9f9f9]'
                 }`}
               >
                 <Building className="w-4 h-4 text-[#d97706]" />
@@ -284,8 +284,8 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
           </div>
 
           {/* SECTION: Source Selection (Predio & Lote Origen) */}
-          <div className="p-3.5 bg-white border border-[#c1c8c2] rounded-2xl space-y-3">
-            <h4 className="font-black text-[#012d1d] text-xs flex items-center justify-between border-b border-[#eeeeee] pb-2">
+          <div className="p-3.5 bg-[#15241C] border border-white/10 rounded-2xl space-y-3">
+            <h4 className="font-black text-white text-xs flex items-center justify-between border-b border-[#eeeeee] pb-2">
               <span className="flex items-center gap-1.5">
                 <Building2 className="w-4 h-4 text-[#1b4332]" /> Predio y Lote de Origen
               </span>
@@ -308,7 +308,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                       handleLotSelect(lotsInNewFarm[0].id);
                     }
                   }}
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                 >
                   {farms.map((farm) => (
                     <option key={farm.profile.id} value={farm.profile.id}>
@@ -325,7 +325,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 <select
                   value={selectedLotId}
                   onChange={(e) => handleLotSelect(e.target.value)}
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-2 font-black text-[#012d1d]"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-2 font-black text-white"
                 >
                   {sourceLots.map((lot) => (
                     <option key={lot.id} value={lot.id}>
@@ -360,7 +360,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   min="1"
                   value={headsToMove}
                   onChange={(e) => setHeadsToMove(e.target.value)}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono font-black text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono font-black text-white text-xs"
                   required
                 />
               </div>
@@ -374,7 +374,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   step="0.1"
                   value={avgWeightKg}
                   onChange={(e) => setAvgWeightKg(e.target.value)}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono font-black text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono font-black text-white text-xs"
                   required
                 />
               </div>
@@ -386,7 +386,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 <select
                   value={lotCategory}
                   onChange={(e) => setLotCategory(e.target.value as LotCategory)}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2 py-1.5 font-semibold text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2 py-1.5 font-semibold text-white text-xs"
                 >
                   <option value="ceba">Ceba Intensiva (Engorde)</option>
                   <option value="cria">Cría / Levante</option>
@@ -402,7 +402,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 <select
                   value={sexLabel}
                   onChange={(e) => setSexLabel(e.target.value)}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2 py-1.5 font-semibold text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2 py-1.5 font-semibold text-white text-xs"
                 >
                   <option value="Machos de Ceba">Machos (Ceba / Levante)</option>
                   <option value="Hembras de Cría / Vientres">Hembras (Cría / Vientre)</option>
@@ -421,7 +421,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={breed}
                   onChange={(e) => setBreed(e.target.value)}
                   placeholder="Ej. Brahman Blanco / Cebú"
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-medium text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-medium text-white text-xs"
                 />
               </div>
 
@@ -434,7 +434,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={ageRange}
                   onChange={(e) => setAgeRange(e.target.value)}
                   placeholder="Ej. 20-28 Meses"
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-medium text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-medium text-white text-xs"
                 />
               </div>
 
@@ -447,7 +447,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={brandIron}
                   onChange={(e) => setBrandIron(e.target.value)}
                   placeholder="Ej. Hierro Corona / San Juan"
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-medium text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-medium text-white text-xs"
                 />
               </div>
 
@@ -460,7 +460,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={commercialPurpose}
                   onChange={(e) => setCommercialPurpose(e.target.value)}
                   placeholder="Ej. Ceba / Engorde"
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-medium text-[#012d1d] text-xs"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-medium text-white text-xs"
                 />
               </div>
             </div>
@@ -501,7 +501,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   <select
                     value={targetFarmId}
                     onChange={(e) => setTargetFarmId(e.target.value)}
-                    className="w-full bg-white border border-[#a5d6a7] rounded-xl px-3 py-2 font-black text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#a5d6a7] rounded-xl px-3 py-2 font-black text-white"
                   >
                     {farms.map((farm) => (
                       <option key={farm.profile.id} value={farm.profile.id}>
@@ -518,7 +518,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   <select
                     value={targetPaddockId}
                     onChange={(e) => setTargetPaddockId(e.target.value)}
-                    className="w-full bg-white border border-[#a5d6a7] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#a5d6a7] rounded-xl px-3 py-2 font-bold text-white"
                   >
                     <option value="">-- Asignar más tarde --</option>
                     {targetFarm?.paddocks?.map((pad) => (
@@ -539,7 +539,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                 <h4 className="font-black text-[#1e40af] text-xs flex items-center gap-1.5">
                   <ShoppingBag className="w-4 h-4 text-[#2563eb]" /> Comercialización y Venta
                 </h4>
-                <div className="flex items-center gap-1 bg-white p-0.5 rounded-lg border border-[#93c5fd]">
+                <div className="flex items-center gap-1 bg-[#15241C] p-0.5 rounded-lg border border-[#93c5fd]">
                   <button
                     type="button"
                     onClick={() => setSalePriceType('kilo')}
@@ -571,7 +571,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                     value={buyerOrDestination}
                     onChange={(e) => setBuyerOrDestination(e.target.value)}
                     placeholder="Ej. Frigorífico del Sinú / Subastar"
-                    className="w-full bg-white border border-[#93c5fd] rounded-xl px-3 py-1.5 font-bold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#93c5fd] rounded-xl px-3 py-1.5 font-bold text-white"
                     required
                   />
                 </div>
@@ -585,7 +585,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                     value={buyerDoc}
                     onChange={(e) => setBuyerDoc(e.target.value)}
                     placeholder="Ej. 900.123.456-7"
-                    className="w-full bg-white border border-[#93c5fd] rounded-xl px-3 py-1.5 font-mono text-xs"
+                    className="w-full bg-[#15241C] border border-[#93c5fd] rounded-xl px-3 py-1.5 font-mono text-xs"
                   />
                 </div>
 
@@ -598,7 +598,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                     value={buyerPhone}
                     onChange={(e) => setBuyerPhone(e.target.value)}
                     placeholder="Ej. 310 555 1234"
-                    className="w-full bg-white border border-[#93c5fd] rounded-xl px-3 py-1.5 text-xs"
+                    className="w-full bg-[#15241C] border border-[#93c5fd] rounded-xl px-3 py-1.5 text-xs"
                   />
                 </div>
               </div>
@@ -613,7 +613,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                       type="number"
                       value={salePricePerKg}
                       onChange={(e) => setSalePricePerKg(Number(e.target.value))}
-                      className="w-full bg-white border border-[#2563eb] rounded-xl px-3 py-1.5 font-mono font-black text-[#1e40af]"
+                      className="w-full bg-[#15241C] border border-[#2563eb] rounded-xl px-3 py-1.5 font-mono font-black text-[#1e40af]"
                       required
                     />
                   </div>
@@ -626,13 +626,13 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                       type="number"
                       value={salePriceTotalCustom}
                       onChange={(e) => setSalePriceTotalCustom(Number(e.target.value))}
-                      className="w-full bg-white border border-[#2563eb] rounded-xl px-3 py-1.5 font-mono font-black text-[#1e40af]"
+                      className="w-full bg-[#15241C] border border-[#2563eb] rounded-xl px-3 py-1.5 font-mono font-black text-[#1e40af]"
                       required
                     />
                   </div>
                 )}
 
-                <div className="sm:col-span-2 bg-white p-2.5 rounded-xl border border-[#93c5fd] flex items-center justify-between">
+                <div className="sm:col-span-2 bg-[#15241C] p-2.5 rounded-xl border border-[#93c5fd] flex items-center justify-between">
                   <span className="text-[10px] font-bold text-[#1e40af] uppercase">
                     Liquidación Total Estimada ({totalBiomassKg.toLocaleString('es-CO')} kg)
                   </span>
@@ -661,7 +661,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                     value={bajaSpecificCause}
                     onChange={(e) => setBajaSpecificCause(e.target.value)}
                     placeholder="Ej. Timpanismo, Fiebre de Garrapata..."
-                    className="w-full bg-white border border-[#fca5a5] rounded-xl px-3 py-1.5 font-bold text-[#991b1b]"
+                    className="w-full bg-[#15241C] border border-[#fca5a5] rounded-xl px-3 py-1.5 font-bold text-[#991b1b]"
                   />
                 </div>
 
@@ -672,7 +672,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   <select
                     value={disposalMethod}
                     onChange={(e) => setDisposalMethod(e.target.value)}
-                    className="w-full bg-white border border-[#fca5a5] rounded-xl px-3 py-1.5 font-semibold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#fca5a5] rounded-xl px-3 py-1.5 font-semibold text-white"
                   >
                     <option value="enterramiento_cal">Enterramiento Profundo con Cal Viva</option>
                     <option value="cremacion">Cremación Sanitaria</option>
@@ -688,7 +688,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                     type="number"
                     value={estimatedLossCop}
                     onChange={(e) => setEstimatedLossCop(Number(e.target.value))}
-                    className="w-full bg-white border border-[#fca5a5] rounded-xl px-3 py-1.5 font-mono font-bold text-[#991b1b]"
+                    className="w-full bg-[#15241C] border border-[#fca5a5] rounded-xl px-3 py-1.5 font-mono font-bold text-[#991b1b]"
                   />
                 </div>
               </div>
@@ -696,8 +696,8 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
           )}
 
           {/* Guía Sanitaria ICA, Trazabilidad & Transporte */}
-          <div className="p-3.5 bg-white border border-[#c1c8c2] rounded-2xl space-y-3">
-            <h4 className="font-black text-[#012d1d] text-xs flex items-center justify-between border-b border-[#eeeeee] pb-2">
+          <div className="p-3.5 bg-[#15241C] border border-white/10 rounded-2xl space-y-3">
+            <h4 className="font-black text-white text-xs flex items-center justify-between border-b border-[#eeeeee] pb-2">
               <span className="flex items-center gap-1.5">
                 <FileText className="w-4 h-4 text-[#1b4332]" /> Guía Sanitaria ICA, Transporte & Despacho
               </span>
@@ -717,7 +717,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={invoiceOrGuideNumber}
                   onChange={(e) => setInvoiceOrGuideNumber(e.target.value)}
                   placeholder="GUI-ICA-2026-901"
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-mono font-bold text-white"
                   required
                 />
               </div>
@@ -730,7 +730,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   type="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-bold"
                 />
               </div>
 
@@ -743,7 +743,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={truckPlate}
                   onChange={(e) => setTruckPlate(e.target.value)}
                   placeholder="Ej. WNK-452"
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-mono font-bold text-[#012d1d]"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 font-mono font-bold text-white"
                 />
               </div>
             </div>
@@ -758,7 +758,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={transporterName}
                   onChange={(e) => setTransporterName(e.target.value)}
                   placeholder="Nombre del transportador"
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 text-xs"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 text-xs"
                 />
               </div>
 
@@ -771,7 +771,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={dispatcherName}
                   onChange={(e) => setDispatcherName(e.target.value)}
                   placeholder="Ej. Mayordomo Carlos"
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 text-xs"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 text-xs"
                 />
               </div>
 
@@ -784,7 +784,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
                   value={receiverName}
                   onChange={(e) => setReceiverName(e.target.value)}
                   placeholder="Ej. Administrador Luis"
-                  className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl px-3 py-1.5 text-xs"
+                  className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl px-3 py-1.5 text-xs"
                 />
               </div>
             </div>
@@ -814,7 +814,7 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Detalles adicionales del pesaje, precintos de seguridad del camión, condiciones de carga..."
-              className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl p-2.5 text-xs text-[#012d1d]"
+              className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl p-2.5 text-xs text-white"
             />
           </div>
 
@@ -823,15 +823,15 @@ export const RegisterLivestockMovementModal: React.FC<RegisterLivestockMovementM
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl border border-[#c1c8c2] text-[#414844] font-bold text-xs hover:bg-[#f0f0f0] transition-colors cursor-pointer"
+              className="px-4 py-2.5 rounded-xl border border-white/10 text-[#414844] font-bold text-xs hover:bg-[#f0f0f0] transition-colors cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-6 py-2.5 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
             >
-              <CheckCircle2 className="w-4 h-4 text-[#c1ecd4]" />
+              <CheckCircle2 className="w-4 h-4 text-[#A5B8AC]" />
               Confirmar y Registrar Movimiento
             </button>
           </div>

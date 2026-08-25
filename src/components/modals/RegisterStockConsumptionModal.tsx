@@ -69,11 +69,11 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl border-2 border-[#012d1d] shadow-2xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden flex flex-col my-6">
+      <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] shadow-2xl max-w-3xl lg:max-w-5xl lg:max-w-6xl w-full overflow-hidden flex flex-col my-6">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white p-5 flex items-center justify-between border-b-2 border-[#ffba38]">
+        <div className="bg-[#0D1A13] text-white p-5 flex items-center justify-between border-b-2 border-[#ffba38]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#1b4332] rounded-2xl text-[#ffba38] border border-[#2d6a4f]">
+            <div className="p-2.5 bg-[#123F2A] rounded-2xl text-[#ffba38] border border-[#2d6a4f]">
               <PackageMinus className="w-6 h-6 text-[#ffba38]" />
             </div>
             <div>
@@ -88,7 +88,7 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-white/10 text-[#c1ecd4] transition-colors cursor-pointer"
+            className="p-2 rounded-full hover:bg-white/10 text-[#A5B8AC] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -97,13 +97,13 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
         <form onSubmit={handleSubmit} className="p-5 space-y-4">
           {/* Select Item */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1">
+            <label className="block text-xs font-bold text-white uppercase mb-1">
               Producto a Descontar del Inventario:
             </label>
             <select
               value={selectedItemId}
               onChange={(e) => setSelectedItemId(e.target.value)}
-              className="w-full p-2.5 bg-[#f8fbf9] border-2 border-[#c1c8c2] rounded-2xl text-xs font-bold text-[#012d1d]"
+              className="w-full p-2.5 bg-[#15241C] border-2 border-white/10 rounded-2xl text-xs font-bold text-white"
             >
               {items.map((i) => (
                 <option key={i.id} value={i.id}>
@@ -163,7 +163,7 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
               <select
                 value={movementType}
                 onChange={(e) => setMovementType(e.target.value as MovementType)}
-                className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-bold text-[#1a1c1c]"
+                className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-bold text-white"
               >
                 <option value="salida">Salida / Consumo Normal</option>
                 <option value="baja">Baja por Daño / Vencimiento</option>
@@ -183,7 +183,7 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
 
           {/* Reason or Destination */}
           <div>
-            <label className="block text-xs font-bold text-[#012d1d] uppercase mb-1 flex items-center gap-1.5">
+            <label className="block text-xs font-bold text-white uppercase mb-1 flex items-center gap-1.5">
               <MapPin className="w-4 h-4 text-[#2d6a4f]" />
               Destino / Aplicación en Campo:
             </label>
@@ -192,7 +192,7 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
               value={reasonOrDestination}
               onChange={(e) => setReasonOrDestination(e.target.value)}
               placeholder="Ej. Saladeros Potrero 4, Bañado de Lote Ceba, Fertilización Potrero B"
-              className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs font-medium text-[#1a1c1c]"
+              className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs font-medium text-white"
               required
             />
           </div>
@@ -208,7 +208,7 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
               value={registeredBy}
               onChange={(e) => setRegisteredBy(e.target.value)}
               placeholder="Ej. Carlos Mendoza (Mayordomo)"
-              className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs text-[#1a1c1c]"
+              className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs text-white"
               required
             />
           </div>
@@ -223,7 +223,7 @@ export const RegisterStockConsumptionModal: React.FC<RegisterStockConsumptionMod
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Ej. Se llenaron 3 canoas con sal mineralizada"
-              className="w-full p-2.5 bg-white border border-[#c1c8c2] rounded-xl text-xs text-[#1a1c1c]"
+              className="w-full p-2.5 bg-[#15241C] border border-white/10 rounded-xl text-xs text-white"
             />
           </div>
 

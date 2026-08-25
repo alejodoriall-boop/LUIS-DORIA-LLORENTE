@@ -160,7 +160,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
       case 'financiero_contador':
         return 'bg-purple-500/15 text-purple-300 border-purple-500/30';
       default:
-        return 'bg-neutral-500/15 text-neutral-300 border-neutral-500/30';
+        return 'bg-[#0D1A13]0/15 text-[#A5B8AC] border-neutral-500/30';
     }
   };
 

@@ -282,10 +282,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
     <div className="space-y-6 pb-24 text-[#1a231e]">
       {/* HEADER SECTION */}
       <div className="bg-gradient-to-r from-[#012d1d] via-[#02402a] to-[#012d1d] rounded-3xl p-6 lg:p-8 text-white shadow-xl relative overflow-hidden border border-[#02402a]">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#ffba38]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4A94E]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffba38]/20 border border-[#ffba38]/40 text-[#ffba38] text-xs font-extrabold uppercase tracking-widest mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A94E]/20 border border-[#ffba38]/40 text-[#ffba38] text-xs font-extrabold uppercase tracking-widest mb-3">
               <DollarSign className="w-3.5 h-3.5" /> MÓDULO FINANCIERO
             </div>
             <div className="flex items-center gap-2.5">
@@ -300,7 +300,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                 >
                   <Info className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-72 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                   Indicadores clave de rentabilidad, margen operativo ($/Ha, $/Ha/mes, $/Ha/año) y estados financieros consolidados multipredio.
                 </div>
               </div>
@@ -313,13 +313,13 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               <select
                 value={selectedFarmId}
                 onChange={(e) => onSelectFarm(e.target.value)}
-                className="bg-[#012d1d]/90 text-white text-xs lg:text-sm font-bold py-2.5 px-4 pr-9 rounded-2xl border border-[#ffba38]/40 hover:border-[#ffba38] focus:outline-none focus:ring-2 focus:ring-[#ffba38] cursor-pointer backdrop-blur-md shadow-sm appearance-none"
+                className="bg-[#0D1A13]/90 text-white text-xs lg:text-sm font-bold py-2.5 px-4 pr-9 rounded-2xl border border-[#ffba38]/40 hover:border-[#ffba38] focus:outline-none focus:ring-2 focus:ring-[#ffba38] cursor-pointer backdrop-blur-md shadow-sm appearance-none"
               >
-                <option value="all" className="bg-[#012d1d] text-white font-bold">
+                <option value="all" className="bg-[#0D1A13] text-white font-bold">
                   🌐 Todas las Fincas (Consolidado)
                 </option>
                 {farms.map((f) => (
-                  <option key={f.profile.id} value={f.profile.id} className="bg-[#012d1d] text-white">
+                  <option key={f.profile.id} value={f.profile.id} className="bg-[#0D1A13] text-white">
                     🏡 {f.profile.name} ({f.profile.totalAreaHa} Ha)
                   </option>
                 ))}
@@ -332,13 +332,13 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               <select
                 value={selectedBusinessUnit}
                 onChange={(e) => setSelectedBusinessUnit(e.target.value as BusinessUnitId | 'all')}
-                className="bg-[#012d1d]/90 text-white text-xs lg:text-sm font-bold py-2.5 px-4 pr-9 rounded-2xl border border-[#ffba38]/40 hover:border-[#ffba38] focus:outline-none focus:ring-2 focus:ring-[#ffba38] cursor-pointer backdrop-blur-md shadow-sm appearance-none"
+                className="bg-[#0D1A13]/90 text-white text-xs lg:text-sm font-bold py-2.5 px-4 pr-9 rounded-2xl border border-[#ffba38]/40 hover:border-[#ffba38] focus:outline-none focus:ring-2 focus:ring-[#ffba38] cursor-pointer backdrop-blur-md shadow-sm appearance-none"
               >
-                <option value="all" className="bg-[#012d1d] text-white font-bold">
+                <option value="all" className="bg-[#0D1A13] text-white font-bold">
                   📊 Todas las Unidades (Consolidado)
                 </option>
                 {Object.values(BUSINESS_UNITS_CATALOG).map((bu) => (
-                  <option key={bu.id} value={bu.id} className="bg-[#012d1d] text-white font-semibold">
+                  <option key={bu.id} value={bu.id} className="bg-[#0D1A13] text-white font-semibold">
                     {bu.label}
                   </option>
                 ))}
@@ -351,11 +351,11 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(Number(e.target.value))}
-                className="bg-[#012d1d]/90 text-white text-xs lg:text-sm font-bold py-2.5 px-4 pr-8 rounded-2xl border border-[#ffba38]/40 hover:border-[#ffba38] focus:outline-none focus:ring-2 focus:ring-[#ffba38] cursor-pointer backdrop-blur-md shadow-sm appearance-none"
+                className="bg-[#0D1A13]/90 text-white text-xs lg:text-sm font-bold py-2.5 px-4 pr-8 rounded-2xl border border-[#ffba38]/40 hover:border-[#ffba38] focus:outline-none focus:ring-2 focus:ring-[#ffba38] cursor-pointer backdrop-blur-md shadow-sm appearance-none"
               >
-                <option value={2026} className="bg-[#012d1d] text-white">Año 2026 (Proyectado)</option>
-                <option value={2025} className="bg-[#012d1d] text-white">Año 2025 (Cierre Real)</option>
-                <option value={2024} className="bg-[#012d1d] text-white">Año 2024 (Histórico)</option>
+                <option value={2026} className="bg-[#0D1A13] text-white">Año 2026 (Proyectado)</option>
+                <option value={2025} className="bg-[#0D1A13] text-white">Año 2025 (Cierre Real)</option>
+                <option value={2024} className="bg-[#0D1A13] text-white">Año 2024 (Histórico)</option>
               </select>
               <Calendar className="w-4 h-4 text-[#ffba38] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
@@ -363,7 +363,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
             {/* Register Transaction Button */}
             <button
               onClick={onOpenRegisterTransactionModal}
-              className="flex items-center gap-2 bg-[#ffba38] hover:bg-[#ffa90a] text-[#012d1d] font-black text-xs lg:text-sm py-2.5 px-4 rounded-2xl shadow-lg hover:shadow-xl transition-all cursor-pointer active:scale-95"
+              className="flex items-center gap-2 bg-[#D4A94E] hover:bg-[#ffa90a] text-white font-black text-xs lg:text-sm py-2.5 px-4 rounded-2xl shadow-lg hover:shadow-xl transition-all cursor-pointer active:scale-95"
             >
               <Plus className="w-4 h-4" /> Nuevo Movimiento
             </button>
@@ -373,7 +373,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
         {/* TOP KPI CARDS OVERVIEW */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-4 mt-6 pt-6 border-t border-white/10">
           <div className="bg-white/10 backdrop-blur-md p-3.5 lg:p-4 rounded-2xl border border-white/15">
-            <div className="text-[10px] lg:text-xs font-bold text-[#c1ecd4] uppercase tracking-wider">
+            <div className="text-[10px] lg:text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">
               Ingreso Promedio / Ha / Año
             </div>
             <div className="text-lg lg:text-2xl font-black text-white mt-1">
@@ -386,7 +386,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3.5 lg:p-4 rounded-2xl border border-white/15">
-            <div className="text-[10px] lg:text-xs font-bold text-[#c1ecd4] uppercase tracking-wider">
+            <div className="text-[10px] lg:text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">
               Costo Operativo / Ha / Año
             </div>
             <div className="text-lg lg:text-2xl font-black text-white mt-1">
@@ -398,7 +398,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
             </div>
           </div>
 
-          <div className="bg-[#ffba38]/20 backdrop-blur-md p-3.5 lg:p-4 rounded-2xl border border-[#ffba38]/40">
+          <div className="bg-[#D4A94E]/20 backdrop-blur-md p-3.5 lg:p-4 rounded-2xl border border-[#ffba38]/40">
             <div className="text-[10px] lg:text-xs font-extrabold text-[#ffba38] uppercase tracking-wider">
               Utilidad Neta / Ha / Año
             </div>
@@ -411,14 +411,14 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-3.5 lg:p-4 rounded-2xl border border-white/15">
-            <div className="text-[10px] lg:text-xs font-bold text-[#c1ecd4] uppercase tracking-wider">
+            <div className="text-[10px] lg:text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">
               Margen Neto & ROI
             </div>
             <div className="text-lg lg:text-2xl font-black text-white mt-1 flex items-baseline gap-2">
               <span>{activeAnnualSummary.operatingMarginPercentage}%</span>
               <span className="text-xs font-semibold text-[#ffba38]">ROI {activeAnnualSummary.roiPercentage}%</span>
             </div>
-            <div className="text-[11px] text-[#c1ecd4]/80 font-semibold mt-0.5">
+            <div className="text-[11px] text-[#A5B8AC]/80 font-semibold mt-0.5">
               Área Evaluada: {currentAreaHa} Ha
             </div>
           </div>
@@ -431,8 +431,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           onClick={() => setActiveSubTab('dashboard')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
             activeSubTab === 'dashboard'
-              ? 'bg-[#012d1d] text-white shadow-md'
-              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-md'
+              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-white'
           }`}
         >
           <BarChart3 className="w-4 h-4 text-[#ffba38]" /> Resumen General
@@ -442,8 +442,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           onClick={() => setActiveSubTab('business_units')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
             activeSubTab === 'business_units'
-              ? 'bg-[#012d1d] text-white shadow-md'
-              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-md'
+              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-white'
           }`}
         >
           <Layers3 className="w-4 h-4 text-[#ffba38]" /> Unidades de Negocio
@@ -453,8 +453,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           onClick={() => setActiveSubTab('monthly')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
             activeSubTab === 'monthly'
-              ? 'bg-[#012d1d] text-white shadow-md'
-              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-md'
+              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-white'
           }`}
         >
           <Calendar className="w-4 h-4 text-[#ffba38]" /> Análisis Mensual ($/Ha/mes)
@@ -464,8 +464,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           onClick={() => setActiveSubTab('annual')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
             activeSubTab === 'annual'
-              ? 'bg-[#012d1d] text-white shadow-md'
-              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-md'
+              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-white'
           }`}
         >
           <TrendingUp className="w-4 h-4 text-[#ffba38]" /> Análisis Anual ($/Ha/año)
@@ -475,8 +475,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           onClick={() => setActiveSubTab('consolidated')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
             activeSubTab === 'consolidated'
-              ? 'bg-[#012d1d] text-white shadow-md'
-              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-md'
+              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-white'
           }`}
         >
           <Layers className="w-4 h-4 text-[#ffba38]" /> Consolidado Multi-Predio
@@ -486,8 +486,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           onClick={() => setActiveSubTab('simulator')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
             activeSubTab === 'simulator'
-              ? 'bg-[#012d1d] text-white shadow-md'
-              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-md'
+              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-white'
           }`}
         >
           <Calculator className="w-4 h-4 text-[#ffba38]" /> Simulador de Rentabilidad
@@ -497,8 +497,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           onClick={() => setActiveSubTab('ledger')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer whitespace-nowrap ${
             activeSubTab === 'ledger'
-              ? 'bg-[#012d1d] text-white shadow-md'
-              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-[#012d1d]'
+              ? 'bg-[#0D1A13] text-white shadow-md'
+              : 'text-[#414844] hover:bg-[#fff3bf] hover:text-white'
           }`}
         >
           <DollarSign className="w-4 h-4 text-[#ffba38]" /> Libro Transaccional ({filteredTransactions.length})
@@ -513,10 +513,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           {/* Main Charts Row */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Monthly Trend $/Ha Chart */}
-            <div className="lg:col-span-2 bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+            <div className="lg:col-span-2 bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="font-black text-lg text-[#012d1d] flex items-center gap-2">
+                  <h3 className="font-black text-lg text-white flex items-center gap-2">
                     <BarChart3 className="w-5 h-5 text-[#ffba38]" />
                     Evolución Mensual del Margen Neto por Hectárea
                   </h3>
@@ -524,7 +524,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                     Comportamiento de Ingresos vs Costos ($/Ha/mes) durante el año {selectedYear}
                   </p>
                 </div>
-                <span className="text-xs font-bold px-2.5 py-1 bg-[#fffde7] text-[#012d1d] rounded-lg border border-[#ffe066]">
+                <span className="text-xs font-bold px-2.5 py-1 bg-[#fffde7] text-white rounded-lg border border-[#ffe066]">
                   {currentAreaHa} Hectáreas
                 </span>
               </div>
@@ -560,8 +560,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
             </div>
 
             {/* Cost Breakdown Pie Chart */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
-              <h3 className="font-black text-lg text-[#012d1d] flex items-center gap-2 mb-1">
+            <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+              <h3 className="font-black text-lg text-white flex items-center gap-2 mb-1">
                 <PieIcon className="w-5 h-5 text-[#e03131]" />
                 Estructura de Egresos por Hectárea
               </h3>
@@ -600,7 +600,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                       <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: cat.color }} />
                       <span className="font-bold text-[#334139] truncate max-w-[150px]">{cat.name}</span>
                     </div>
-                    <span className="font-extrabold text-[#012d1d]">{formatCOP(cat.perHa)}/Ha</span>
+                    <span className="font-extrabold text-white">{formatCOP(cat.perHa)}/Ha</span>
                   </div>
                 ))}
               </div>
@@ -611,36 +611,36 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-[#fffde7] rounded-3xl p-5 border border-[#ffe066] shadow-2xs">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#012d1d] uppercase tracking-wider">Costo por Kilo Producido</span>
+                <span className="text-xs font-black text-white uppercase tracking-wider">Costo por Kilo Producido</span>
                 <Scale className="w-4 h-4 text-[#2b8a3e]" />
               </div>
-              <div className="text-2xl font-black text-[#012d1d] mt-2">
+              <div className="text-2xl font-black text-white mt-2">
                 {formatCOP(activeAnnualSummary.costPerKgAvg)} <span className="text-xs font-semibold text-[#717973]">/ kg carne</span>
               </div>
               <p className="text-xs text-[#717973] font-medium mt-1">
-                Kilos Totales Producidos: <strong className="text-[#012d1d]">{activeAnnualSummary.producedKgAnnual.toLocaleString('es-CO')} kg</strong>
+                Kilos Totales Producidos: <strong className="text-white">{activeAnnualSummary.producedKgAnnual.toLocaleString('es-CO')} kg</strong>
               </p>
             </div>
 
             <div className="bg-[#fffde7] rounded-3xl p-5 border border-[#ffe066] shadow-2xs">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#012d1d] uppercase tracking-wider">Carga Animal Promedio</span>
+                <span className="text-xs font-black text-white uppercase tracking-wider">Carga Animal Promedio</span>
                 <Layers className="w-4 h-4 text-[#ffba38]" />
               </div>
-              <div className="text-2xl font-black text-[#012d1d] mt-2">
+              <div className="text-2xl font-black text-white mt-2">
                 {activeAnnualSummary.avgCarryingCapacityUaHa} <span className="text-xs font-semibold text-[#717973]">UA / Hectárea</span>
               </div>
               <p className="text-xs text-[#717973] font-medium mt-1">
-                Equivalente a <strong className="text-[#012d1d]">{(activeAnnualSummary.avgCarryingCapacityUaHa * 450).toFixed(0)} kg</strong> de biomasa ganadera/Ha.
+                Equivalente a <strong className="text-white">{(activeAnnualSummary.avgCarryingCapacityUaHa * 450).toFixed(0)} kg</strong> de biomasa ganadera/Ha.
               </p>
             </div>
 
             <div className="bg-[#fffde7] rounded-3xl p-5 border border-[#ffe066] shadow-2xs">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#012d1d] uppercase tracking-wider">Productividad en Carne</span>
+                <span className="text-xs font-black text-white uppercase tracking-wider">Productividad en Carne</span>
                 <TrendingUp className="w-4 h-4 text-[#0077b6]" />
               </div>
-              <div className="text-2xl font-black text-[#012d1d] mt-2">
+              <div className="text-2xl font-black text-white mt-2">
                 {Math.round(activeAnnualSummary.producedKgAnnual / currentAreaHa)} <span className="text-xs font-semibold text-[#717973]">kg / Ha / año</span>
               </div>
               <p className="text-xs text-[#717973] font-medium mt-1">
@@ -657,13 +657,13 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
       {activeSubTab === 'business_units' && (
         <div className="space-y-6">
           {/* Header Banner */}
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+          <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7e22ce]/10 text-[#7e22ce] text-xs font-black uppercase mb-2">
                   <Layers3 className="w-3.5 h-3.5" /> SEGMENTACIÓN POR UNIDADES DE NEGOCIO
                 </div>
-                <h3 className="font-black text-2xl text-[#012d1d]">
+                <h3 className="font-black text-2xl text-white">
                   Rendimiento Comparativo por Línea de Negocio
                 </h3>
                 <p className="text-xs text-[#717973] font-medium mt-1 max-w-3xl">
@@ -674,7 +674,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               <div className="flex items-center gap-2 bg-[#fffde7] p-2.5 rounded-2xl border border-[#ffe066]">
                 <Sparkles className="w-5 h-5 text-[#ffba38]" />
                 <div className="text-xs">
-                  <span className="font-extrabold text-[#012d1d] block">Finca Evaluada:</span>
+                  <span className="font-extrabold text-white block">Finca Evaluada:</span>
                   <span className="font-bold text-[#2b8a3e]">
                     {selectedFarmId === 'all' ? 'Consolidado General Multi-Predio' : currentFarm?.profile.name} ({currentAreaHa} Ha)
                   </span>
@@ -692,8 +692,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                     key={bu.id}
                     className={`rounded-3xl p-5 border transition-all relative overflow-hidden flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-[#012d1d] text-white border-[#ffba38] shadow-xl ring-2 ring-[#ffba38]/50'
-                        : 'bg-white text-[#1a231e] border-slate-200 hover:border-[#ffba38]/60 hover:shadow-md'
+                        ? 'bg-[#0D1A13] text-white border-[#ffba38] shadow-xl ring-2 ring-[#ffba38]/50'
+                        : 'bg-[#15241C] text-[#1a231e] border-white/10 hover:border-[#ffba38]/60 hover:shadow-md'
                     }`}
                   >
                     <div>
@@ -710,10 +710,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                             {renderBUIcon(bu.iconName, 'w-5 h-5')}
                           </div>
                           <div>
-                            <h4 className={`font-black text-sm ${isSelected ? 'text-white' : 'text-[#012d1d]'}`}>
+                            <h4 className={`font-black text-sm ${isSelected ? 'text-white' : 'text-white'}`}>
                               {bu.label}
                             </h4>
-                            <p className={`text-[11px] font-semibold ${isSelected ? 'text-[#c1ecd4]' : 'text-slate-500'}`}>
+                            <p className={`text-[11px] font-semibold ${isSelected ? 'text-[#A5B8AC]' : 'text-[#A5B8AC]'}`}>
                               {bu.txCount} transacciones registradas
                             </p>
                           </div>
@@ -730,32 +730,32 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                         </span>
                       </div>
 
-                      <p className={`text-xs font-medium mb-4 line-clamp-2 ${isSelected ? 'text-white/80' : 'text-slate-600'}`}>
+                      <p className={`text-xs font-medium mb-4 line-clamp-2 ${isSelected ? 'text-white/80' : 'text-[#A5B8AC]'}`}>
                         {bu.description}
                       </p>
 
                       {/* Main Financial Metrics */}
-                      <div className="grid grid-cols-2 gap-2 p-3 rounded-2xl mb-4 bg-slate-50/80 border border-slate-100 dark:bg-black/20 dark:border-white/10">
+                      <div className="grid grid-cols-2 gap-2 p-3 rounded-2xl mb-4 bg-slate-50/80 border border-white/10 dark:bg-black/20 dark:border-white/10">
                         <div>
-                          <span className={`text-[10px] font-bold uppercase ${isSelected ? 'text-[#c1ecd4]' : 'text-slate-500'}`}>
+                          <span className={`text-[10px] font-bold uppercase ${isSelected ? 'text-[#A5B8AC]' : 'text-[#A5B8AC]'}`}>
                             Ingreso Total ($)
                           </span>
                           <div className={`text-sm font-black ${isSelected ? 'text-emerald-400' : 'text-emerald-700'}`}>
                             {formatCOP(bu.income)}
                           </div>
-                          <span className={`text-[10px] font-semibold ${isSelected ? 'text-white/70' : 'text-slate-600'}`}>
+                          <span className={`text-[10px] font-semibold ${isSelected ? 'text-white/70' : 'text-[#A5B8AC]'}`}>
                             {formatCOP(bu.incomePerHa)} / Ha
                           </span>
                         </div>
 
                         <div>
-                          <span className={`text-[10px] font-bold uppercase ${isSelected ? 'text-[#c1ecd4]' : 'text-slate-500'}`}>
+                          <span className={`text-[10px] font-bold uppercase ${isSelected ? 'text-[#A5B8AC]' : 'text-[#A5B8AC]'}`}>
                             Utilidad Neta ($)
                           </span>
-                          <div className={`text-sm font-black ${isSelected ? 'text-[#ffba38]' : bu.netProfit >= 0 ? 'text-[#012d1d]' : 'text-rose-600'}`}>
+                          <div className={`text-sm font-black ${isSelected ? 'text-[#ffba38]' : bu.netProfit >= 0 ? 'text-white' : 'text-rose-600'}`}>
                             {formatCOP(bu.netProfit)}
                           </div>
-                          <span className={`text-[10px] font-semibold ${isSelected ? 'text-white/70' : 'text-slate-600'}`}>
+                          <span className={`text-[10px] font-semibold ${isSelected ? 'text-white/70' : 'text-[#A5B8AC]'}`}>
                             {formatCOP(bu.profitPerHa)} / Ha
                           </span>
                         </div>
@@ -764,7 +764,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                       {/* Volumetric / Additional Details */}
                       {(bu.totalHeadcount > 0 || bu.totalKgOrLiters > 0) && (
                         <div className={`text-xs font-semibold px-3 py-1.5 rounded-xl mb-4 flex items-center justify-between ${
-                          isSelected ? 'bg-white/10 text-white' : 'bg-[#fffde7] text-[#012d1d] border border-[#ffe066]'
+                          isSelected ? 'bg-white/10 text-white' : 'bg-[#fffde7] text-white border border-[#ffe066]'
                         }`}>
                           {bu.totalHeadcount > 0 && <span>🐮 {bu.totalHeadcount} cabezas</span>}
                           {bu.totalKgOrLiters > 0 && <span>⚖️ {bu.totalKgOrLiters.toLocaleString('es-CO')} Kg/L</span>}
@@ -777,8 +777,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                       onClick={() => setSelectedBusinessUnit(isSelected ? 'all' : bu.id)}
                       className={`w-full py-2 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                         isSelected
-                          ? 'bg-[#ffba38] text-[#012d1d] hover:bg-[#ffa90a]'
-                          : 'bg-[#012d1d] text-white hover:bg-[#02402a]'
+                          ? 'bg-[#D4A94E] text-white hover:bg-[#ffa90a]'
+                          : 'bg-[#0D1A13] text-white hover:bg-[#02402a]'
                       }`}
                     >
                       {isSelected ? '✓ Filtrando esta Unidad (Click para desfiltrar)' : 'Ver Detalle Transaccional'}
@@ -793,10 +793,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           {/* Comparative Charts Section */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Bar Chart comparing Income vs Direct Costs vs Net Profit across Business Units */}
-            <div className="lg:col-span-2 bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+            <div className="lg:col-span-2 bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="font-black text-lg text-[#012d1d] flex items-center gap-2">
+                  <h3 className="font-black text-lg text-white flex items-center gap-2">
                     <BarChart3 className="w-5 h-5 text-[#ffba38]" />
                     Comparativo de Ingresos vs Costos Directos por Unidad
                   </h3>
@@ -842,9 +842,9 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
             </div>
 
             {/* Income Share Pie Chart */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60 flex flex-col justify-between">
+            <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60 flex flex-col justify-between">
               <div>
-                <h3 className="font-black text-lg text-[#012d1d] flex items-center gap-2 mb-1">
+                <h3 className="font-black text-lg text-white flex items-center gap-2 mb-1">
                   <PieIcon className="w-5 h-5 text-[#7e22ce]" />
                   Participación en Ingresos
                 </h3>
@@ -879,14 +879,14 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               </div>
 
               {/* Legend list */}
-              <div className="space-y-1.5 pt-4 border-t border-slate-100 max-h-36 overflow-y-auto">
+              <div className="space-y-1.5 pt-4 border-t border-white/10 max-h-36 overflow-y-auto">
                 {businessUnitMetrics.map((bu) => (
-                  <div key={bu.id} className="flex items-center justify-between text-xs font-semibold text-slate-700">
+                  <div key={bu.id} className="flex items-center justify-between text-xs font-semibold text-white">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: bu.color }} />
                       <span>{bu.shortLabel}</span>
                     </div>
-                    <span className="font-black text-[#012d1d]">{bu.shareOfTotalIncome.toFixed(1)}%</span>
+                    <span className="font-black text-white">{bu.shareOfTotalIncome.toFixed(1)}%</span>
                   </div>
                 ))}
               </div>
@@ -894,15 +894,15 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           </div>
 
           {/* Segmented Detail Table */}
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
-            <h3 className="font-black text-xl text-[#012d1d] mb-4">
+          <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+            <h3 className="font-black text-xl text-white mb-4">
               Consolidado de Unidades de Negocio ($/Ha y % Margen)
             </h3>
 
-            <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-white text-xs font-black uppercase">
+                  <tr className="bg-[#0D1A13] text-white text-xs font-black uppercase">
                     <th className="p-3.5">Unidad de Negocio</th>
                     <th className="p-3.5 text-right">Ingresos ($)</th>
                     <th className="p-3.5 text-right">Ingreso $/Ha</th>
@@ -916,7 +916,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                 <tbody className="divide-y divide-slate-100 text-xs font-semibold text-[#334139]">
                   {businessUnitMetrics.map((bu) => (
                     <tr key={bu.id} className="hover:bg-[#fffde7]/60 transition-colors">
-                      <td className="p-3.5 font-black text-[#012d1d]">
+                      <td className="p-3.5 font-black text-white">
                         <div className="flex items-center gap-2">
                           <div
                             className="p-1.5 rounded-lg"
@@ -931,10 +931,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                       <td className="p-3.5 text-right font-bold text-emerald-800">{formatCOP(bu.incomePerHa)}</td>
                       <td className="p-3.5 text-right font-black text-rose-700">{formatCOP(bu.directCosts)}</td>
                       <td className="p-3.5 text-right font-bold text-rose-800">{formatCOP(bu.costsPerHa)}</td>
-                      <td className="p-3.5 text-right font-black text-[#012d1d] bg-[#fffde7]">{formatCOP(bu.netProfit)}</td>
-                      <td className="p-3.5 text-right font-black text-emerald-900 bg-emerald-50">{formatCOP(bu.profitPerHa)}</td>
+                      <td className="p-3.5 text-right font-black text-white bg-[#fffde7]">{formatCOP(bu.netProfit)}</td>
+                      <td className="p-3.5 text-right font-black text-emerald-900 bg-emerald-950/30">{formatCOP(bu.profitPerHa)}</td>
                       <td className="p-3.5 text-center font-black">
-                        <span className="px-2.5 py-1 rounded-md bg-[#012d1d] text-[#ffba38]">
+                        <span className="px-2.5 py-1 rounded-md bg-[#0D1A13] text-[#ffba38]">
                           {bu.marginPercent.toFixed(1)}%
                         </span>
                       </td>
@@ -952,10 +952,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
       {/* ------------------------------------------------------------- */}
       {activeSubTab === 'monthly' && (
         <div className="space-y-6">
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+          <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
               <div>
-                <h3 className="font-black text-xl text-[#012d1d]">
+                <h3 className="font-black text-xl text-white">
                   Matriz Mensual de Desglose Financiero por Hectárea ({selectedYear})
                 </h3>
                 <p className="text-xs text-[#717973] font-medium mt-0.5">
@@ -964,52 +964,52 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="text-xs font-extrabold text-[#012d1d] bg-[#fffde7] px-3 py-1.5 rounded-xl border border-[#ffe066]">
+                <span className="text-xs font-extrabold text-white bg-[#fffde7] px-3 py-1.5 rounded-xl border border-[#ffe066]">
                   Área Finca: {currentAreaHa} Ha
                 </span>
               </div>
             </div>
 
             {/* Monthly Table */}
-            <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-white text-xs font-black uppercase tracking-wider">
+                  <tr className="bg-[#0D1A13] text-white text-xs font-black uppercase tracking-wider">
                     <th className="p-3.5">Mes</th>
                     <th className="p-3.5 text-right">Ingreso Total ($)</th>
                     <th className="p-3.5 text-right text-[#ffba38]">Ingreso $/Ha</th>
                     <th className="p-3.5 text-right">Costo Directo ($)</th>
                     <th className="p-3.5 text-right text-red-300">Costo $/Ha</th>
                     <th className="p-3.5 text-right">Margen Bruto ($)</th>
-                    <th className="p-3.5 text-right text-[#c1ecd4]">Utilidad $/Ha</th>
+                    <th className="p-3.5 text-right text-[#A5B8AC]">Utilidad $/Ha</th>
                     <th className="p-3.5 text-center">Costo/Kg</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-xs font-semibold text-[#334139]">
                   {monthlyData.map((m, idx) => (
                     <tr key={idx} className="hover:bg-[#fffde7]/60 transition-colors">
-                      <td className="p-3.5 font-black text-[#012d1d]">{m.monthName} {selectedYear}</td>
+                      <td className="p-3.5 font-black text-white">{m.monthName} {selectedYear}</td>
                       <td className="p-3.5 text-right font-extrabold text-emerald-700">{formatCOP(m.totalIncome)}</td>
-                      <td className="p-3.5 text-right font-black text-[#012d1d] bg-emerald-50/50">{formatCOP(m.totalIncomePerHa)}</td>
+                      <td className="p-3.5 text-right font-black text-white bg-emerald-50/50">{formatCOP(m.totalIncomePerHa)}</td>
                       <td className="p-3.5 text-right text-rose-700 font-bold">{formatCOP(m.totalDirectCosts)}</td>
                       <td className="p-3.5 text-right font-bold text-rose-800 bg-rose-50/50">{formatCOP(m.totalDirectCostsPerHa)}</td>
-                      <td className="p-3.5 text-right font-black text-[#012d1d]">{formatCOP(m.grossMargin)}</td>
-                      <td className="p-3.5 text-right font-black text-[#012d1d] bg-[#fffde7]">{formatCOP(m.netProfitPerHa)}</td>
-                      <td className="p-3.5 text-center font-bold text-slate-600">
+                      <td className="p-3.5 text-right font-black text-white">{formatCOP(m.grossMargin)}</td>
+                      <td className="p-3.5 text-right font-black text-white bg-[#fffde7]">{formatCOP(m.netProfitPerHa)}</td>
+                      <td className="p-3.5 text-center font-bold text-[#A5B8AC]">
                         {m.costPerKgProduced > 0 ? formatCOP(m.costPerKgProduced) : '-'}
                       </td>
                     </tr>
                   ))}
                 </tbody>
                 <tfoot>
-                  <tr className="bg-[#012d1d]/10 text-[#012d1d] font-black text-xs uppercase border-t-2 border-[#012d1d]">
+                  <tr className="bg-[#0D1A13]/10 text-white font-black text-xs uppercase border-t-2 border-[#012d1d]">
                     <td className="p-3.5">PROMEDIO / TOTAL ANUAL</td>
                     <td className="p-3.5 text-right">{formatCOP(activeAnnualSummary.totalIncomeAnnual)}</td>
-                    <td className="p-3.5 text-right text-[#012d1d] bg-[#ffba38]/20">{formatCOP(activeAnnualSummary.totalIncomePerHaMonthlyAvg)}/mes</td>
+                    <td className="p-3.5 text-right text-white bg-[#D4A94E]/20">{formatCOP(activeAnnualSummary.totalIncomePerHaMonthlyAvg)}/mes</td>
                     <td className="p-3.5 text-right">{formatCOP(activeAnnualSummary.totalCostsAnnual)}</td>
                     <td className="p-3.5 text-right text-rose-800">{formatCOP(activeAnnualSummary.totalCostsPerHaMonthlyAvg)}/mes</td>
                     <td className="p-3.5 text-right">{formatCOP(activeAnnualSummary.netProfitAnnual)}</td>
-                    <td className="p-3.5 text-right bg-[#ffba38] text-[#012d1d]">{formatCOP(activeAnnualSummary.netProfitPerHaMonthlyAvg)}/mes</td>
+                    <td className="p-3.5 text-right bg-[#D4A94E] text-white">{formatCOP(activeAnnualSummary.netProfitPerHaMonthlyAvg)}/mes</td>
                     <td className="p-3.5 text-center">{formatCOP(activeAnnualSummary.costPerKgAvg)}</td>
                   </tr>
                 </tfoot>
@@ -1024,8 +1024,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
       {/* ------------------------------------------------------------- */}
       {activeSubTab === 'annual' && (
         <div className="space-y-6">
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
-            <h3 className="font-black text-xl text-[#012d1d] mb-1">
+          <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+            <h3 className="font-black text-xl text-white mb-1">
               Comparativo Interanual ($/Ha/año y $/Ha/mes)
             </h3>
             <p className="text-xs text-[#717973] font-medium mb-6">
@@ -1047,7 +1047,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                       <span className="text-2xl font-black">{s.year}</span>
                       <span className="block text-xs opacity-80 font-semibold">{s.farmName}</span>
                     </div>
-                    <span className={`text-xs font-black px-2.5 py-1 rounded-full ${s.year === selectedYear ? 'bg-[#ffba38] text-[#012d1d]' : 'bg-[#012d1d] text-white'}`}>
+                    <span className={`text-xs font-black px-2.5 py-1 rounded-full ${s.year === selectedYear ? 'bg-[#D4A94E] text-white' : 'bg-[#0D1A13] text-white'}`}>
                       {s.totalAreaHa} Ha
                     </span>
                   </div>
@@ -1092,10 +1092,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
       {/* ------------------------------------------------------------- */}
       {activeSubTab === 'consolidated' && (
         <div className="space-y-6">
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+          <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="font-black text-xl text-[#012d1d] flex items-center gap-2">
+                <h3 className="font-black text-xl text-white flex items-center gap-2">
                   <Layers className="w-6 h-6 text-[#ffba38]" />
                   Informe Consolidado Multi-Predio ({INITIAL_CONSOLIDATED_REPORT.combinedAreaHa} Ha Totales)
                 </h3>
@@ -1103,7 +1103,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                   Análisis comparativo de desempeño económico por Hectárea entre diferentes fincas del grupo
                 </p>
               </div>
-              <span className="text-xs font-black px-3 py-1.5 bg-[#012d1d] text-white rounded-xl shadow-xs">
+              <span className="text-xs font-black px-3 py-1.5 bg-[#0D1A13] text-white rounded-xl shadow-xs">
                 {INITIAL_CONSOLIDATED_REPORT.totalFarmsCount} Fincas Evaluadas
               </span>
             </div>
@@ -1111,9 +1111,9 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
             {/* Consolidated Summary Banner */}
             <div className="bg-gradient-to-r from-[#012d1d] to-[#02402a] text-white p-6 rounded-2xl mb-6 grid grid-cols-1 md:grid-cols-3 gap-6 border border-[#012d1d]">
               <div>
-                <span className="text-xs font-bold text-[#c1ecd4] uppercase tracking-wider">Ingreso Consolidado / Ha</span>
+                <span className="text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">Ingreso Consolidado / Ha</span>
                 <div className="text-2xl font-black text-white mt-1">
-                  {formatCOP(INITIAL_CONSOLIDATED_REPORT.totalIncomePerHaAnnualAvg)} <span className="text-xs text-[#c1ecd4]">/ Ha / año</span>
+                  {formatCOP(INITIAL_CONSOLIDATED_REPORT.totalIncomePerHaAnnualAvg)} <span className="text-xs text-[#A5B8AC]">/ Ha / año</span>
                 </div>
                 <span className="text-xs font-semibold text-[#ffba38]">
                   {formatCOP(INITIAL_CONSOLIDATED_REPORT.totalIncomePerHaMonthlyAvg)} / Ha / mes
@@ -1121,9 +1121,9 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               </div>
 
               <div>
-                <span className="text-xs font-bold text-[#c1ecd4] uppercase tracking-wider">Costo Consolidado / Ha</span>
+                <span className="text-xs font-bold text-[#A5B8AC] uppercase tracking-wider">Costo Consolidado / Ha</span>
                 <div className="text-2xl font-black text-white mt-1">
-                  {formatCOP(INITIAL_CONSOLIDATED_REPORT.totalCostsPerHaAnnualAvg)} <span className="text-xs text-[#c1ecd4]">/ Ha / año</span>
+                  {formatCOP(INITIAL_CONSOLIDATED_REPORT.totalCostsPerHaAnnualAvg)} <span className="text-xs text-[#A5B8AC]">/ Ha / año</span>
                 </div>
                 <span className="text-xs font-semibold text-rose-300">
                   {formatCOP(INITIAL_CONSOLIDATED_REPORT.totalCostsPerHaMonthlyAvg)} / Ha / mes
@@ -1142,35 +1142,35 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
             </div>
 
             {/* Multi-Farm Comparison Table */}
-            <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-white text-xs font-black uppercase">
+                  <tr className="bg-[#0D1A13] text-white text-xs font-black uppercase">
                     <th className="p-3.5">Finca / Predio</th>
                     <th className="p-3.5">Sistema Productivo</th>
                     <th className="p-3.5 text-center">Área (Ha)</th>
                     <th className="p-3.5 text-right">Ingreso $/Ha/año</th>
                     <th className="p-3.5 text-right">Costo $/Ha/año</th>
                     <th className="p-3.5 text-right text-[#ffba38]">Utilidad $/Ha/año</th>
-                    <th className="p-3.5 text-right text-[#c1ecd4]">Utilidad $/Ha/mes</th>
+                    <th className="p-3.5 text-right text-[#A5B8AC]">Utilidad $/Ha/mes</th>
                     <th className="p-3.5 text-center">Margen %</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-xs font-semibold text-[#334139]">
                   {INITIAL_CONSOLIDATED_REPORT.farmComparisons.map((fc, idx) => (
                     <tr key={idx} className="hover:bg-[#fffde7]/60 transition-colors">
-                      <td className="p-3.5 font-black text-[#012d1d] flex items-center gap-2">
+                      <td className="p-3.5 font-black text-white flex items-center gap-2">
                         <Building2 className="w-4 h-4 text-[#2b8a3e]" />
                         {fc.farmName}
                       </td>
-                      <td className="p-3.5 font-bold text-slate-700">{fc.productionType}</td>
-                      <td className="p-3.5 text-center font-extrabold text-[#012d1d]">{fc.areaHa} Ha</td>
+                      <td className="p-3.5 font-bold text-white">{fc.productionType}</td>
+                      <td className="p-3.5 text-center font-extrabold text-white">{fc.areaHa} Ha</td>
                       <td className="p-3.5 text-right font-bold text-emerald-700">{formatCOP(fc.incomePerHaAnnual)}</td>
                       <td className="p-3.5 text-right font-bold text-rose-700">{formatCOP(fc.costsPerHaAnnual)}</td>
-                      <td className="p-3.5 text-right font-black text-[#012d1d] bg-[#fffde7]">{formatCOP(fc.netProfitPerHaAnnual)}</td>
-                      <td className="p-3.5 text-right font-black text-emerald-800 bg-emerald-50">{formatCOP(fc.netProfitPerHaMonthly)}</td>
-                      <td className="p-3.5 text-center font-black text-[#012d1d]">
-                        <span className="px-2 py-0.5 rounded-md bg-[#012d1d] text-[#ffba38]">
+                      <td className="p-3.5 text-right font-black text-white bg-[#fffde7]">{formatCOP(fc.netProfitPerHaAnnual)}</td>
+                      <td className="p-3.5 text-right font-black text-emerald-800 bg-emerald-950/30">{formatCOP(fc.netProfitPerHaMonthly)}</td>
+                      <td className="p-3.5 text-center font-black text-white">
+                        <span className="px-2 py-0.5 rounded-md bg-[#0D1A13] text-[#ffba38]">
                           {fc.profitMarginPercent}%
                         </span>
                       </td>
@@ -1187,12 +1187,12 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
       {/* SUBTAB 5: SIMULADOR DE RENTABILIDAD Y SENSIBILIDAD */}
       {/* ------------------------------------------------------------- */}
       {activeSubTab === 'simulator' && (
-        <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60 space-y-6">
+        <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60 space-y-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ffba38]/20 text-[#012d1d] font-black text-xs uppercase mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A94E]/20 text-white font-black text-xs uppercase mb-2">
               <Sparkles className="w-3.5 h-3.5 text-[#ffba38]" /> SIMULADOR "WHAT-IF" SENSIBILIDAD FINANCIERA
             </div>
-            <h3 className="font-black text-2xl text-[#012d1d]">
+            <h3 className="font-black text-2xl text-white">
               Proyección de Impacto por Hectárea
             </h3>
             <p className="text-xs text-[#717973] font-medium mt-1">
@@ -1203,14 +1203,14 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Controls Side */}
             <div className="space-y-5 bg-[#fffde7] p-6 rounded-3xl border border-[#ffe066]">
-              <h4 className="font-black text-sm text-[#012d1d] uppercase tracking-wider flex items-center gap-2">
+              <h4 className="font-black text-sm text-white uppercase tracking-wider flex items-center gap-2">
                 <Calculator className="w-4 h-4 text-[#2b8a3e]" />
                 Parámetros de Entrada
               </h4>
 
               {/* Slider 1: Precio Kilo Carne */}
               <div>
-                <div className="flex justify-between items-center mb-1 text-xs font-bold text-[#012d1d]">
+                <div className="flex justify-between items-center mb-1 text-xs font-bold text-white">
                   <span>Precio de Venta ($ / kg carne en pie):</span>
                   <span className="font-black text-sm text-[#2b8a3e]">{formatCOP(simBeefPriceKg)} / kg</span>
                 </div>
@@ -1221,7 +1221,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                   step={100}
                   value={simBeefPriceKg}
                   onChange={(e) => setSimBeefPriceKg(Number(e.target.value))}
-                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-slate-200 rounded-lg"
+                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-[#202E25] rounded-lg"
                 />
                 <div className="flex justify-between text-[10px] text-[#717973] font-semibold mt-1">
                   <span>$7,000/kg</span>
@@ -1232,9 +1232,9 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
 
               {/* Slider 2: Carga Animal UA/Ha */}
               <div>
-                <div className="flex justify-between items-center mb-1 text-xs font-bold text-[#012d1d]">
+                <div className="flex justify-between items-center mb-1 text-xs font-bold text-white">
                   <span>Carga Animal Soportada (UA / Ha):</span>
-                  <span className="font-black text-sm text-[#012d1d]">{simCarryingCapacityUa} UA / Ha</span>
+                  <span className="font-black text-sm text-white">{simCarryingCapacityUa} UA / Ha</span>
                 </div>
                 <input
                   type="range"
@@ -1243,7 +1243,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                   step={0.1}
                   value={simCarryingCapacityUa}
                   onChange={(e) => setSimCarryingCapacityUa(Number(e.target.value))}
-                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-slate-200 rounded-lg"
+                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-[#202E25] rounded-lg"
                 />
                 <div className="flex justify-between text-[10px] text-[#717973] font-semibold mt-1">
                   <span>1.0 UA (Extensivo)</span>
@@ -1254,7 +1254,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
 
               {/* Slider 3: Ganancia Diaria de Peso (GDP) */}
               <div>
-                <div className="flex justify-between items-center mb-1 text-xs font-bold text-[#012d1d]">
+                <div className="flex justify-between items-center mb-1 text-xs font-bold text-white">
                   <span>Ganancia Diaria de Peso (GDP):</span>
                   <span className="font-black text-sm text-[#0077b6]">{simDailyGainGrams} g / animal / día</span>
                 </div>
@@ -1265,7 +1265,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                   step={25}
                   value={simDailyGainGrams}
                   onChange={(e) => setSimDailyGainGrams(Number(e.target.value))}
-                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-slate-200 rounded-lg"
+                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-[#202E25] rounded-lg"
                 />
                 <div className="flex justify-between text-[10px] text-[#717973] font-semibold mt-1">
                   <span>300 g/día</span>
@@ -1276,7 +1276,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
 
               {/* Slider 4: Costo Directo por Animal/Mes */}
               <div>
-                <div className="flex justify-between items-center mb-1 text-xs font-bold text-[#012d1d]">
+                <div className="flex justify-between items-center mb-1 text-xs font-bold text-white">
                   <span>Inversión Directa por Animal (Sales, Sanidad, Suplemento/mes):</span>
                   <span className="font-black text-sm text-rose-700">{formatCOP(simDirectCostPerAnimalMonth)}</span>
                 </div>
@@ -1287,7 +1287,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                   step={5000}
                   value={simDirectCostPerAnimalMonth}
                   onChange={(e) => setSimDirectCostPerAnimalMonth(Number(e.target.value))}
-                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-slate-200 rounded-lg"
+                  className="w-full accent-[#012d1d] cursor-pointer h-2 bg-[#202E25] rounded-lg"
                 />
                 <div className="flex justify-between text-[10px] text-[#717973] font-semibold mt-1">
                   <span>$30,000/mes</span>
@@ -1310,28 +1310,28 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/10 p-4 rounded-2xl border border-white/10">
-                  <span className="text-[10px] font-bold text-[#c1ecd4] uppercase">Producción de Carne</span>
+                  <span className="text-[10px] font-bold text-[#A5B8AC] uppercase">Producción de Carne</span>
                   <div className="text-xl font-black text-white mt-1">
-                    {simResults.totalGainedKgPerHaAnnual} <span className="text-xs text-[#c1ecd4]">kg / Ha / año</span>
+                    {simResults.totalGainedKgPerHaAnnual} <span className="text-xs text-[#A5B8AC]">kg / Ha / año</span>
                   </div>
                 </div>
 
                 <div className="bg-white/10 p-4 rounded-2xl border border-white/10">
-                  <span className="text-[10px] font-bold text-[#c1ecd4] uppercase">Ingreso Bruto / Ha</span>
+                  <span className="text-[10px] font-bold text-[#A5B8AC] uppercase">Ingreso Bruto / Ha</span>
                   <div className="text-xl font-black text-emerald-400 mt-1">
                     {formatCOP(simResults.grossIncomePerHaAnnual)}
                   </div>
                 </div>
 
                 <div className="bg-white/10 p-4 rounded-2xl border border-white/10">
-                  <span className="text-[10px] font-bold text-[#c1ecd4] uppercase">Costos Totales / Ha</span>
+                  <span className="text-[10px] font-bold text-[#A5B8AC] uppercase">Costos Totales / Ha</span>
                   <div className="text-xl font-black text-rose-300 mt-1">
                     {formatCOP(simResults.totalCostPerHaAnnual)}
                   </div>
                 </div>
 
                 <div className="bg-white/10 p-4 rounded-2xl border border-white/10">
-                  <span className="text-[10px] font-bold text-[#c1ecd4] uppercase">Margen de Ganancia</span>
+                  <span className="text-[10px] font-bold text-[#A5B8AC] uppercase">Margen de Ganancia</span>
                   <div className="text-xl font-black text-[#ffba38] mt-1">
                     {simResults.profitMargin}%
                   </div>
@@ -1339,14 +1339,14 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
               </div>
 
               {/* Big Highlighted Monthly Utility */}
-              <div className="bg-[#ffba38] text-[#012d1d] p-5 rounded-2xl shadow-lg">
+              <div className="bg-[#D4A94E] text-white p-5 rounded-2xl shadow-lg">
                 <div className="text-xs font-black uppercase tracking-wider opacity-90">
                   UTILIDAD NETA RESULTANTE POR HECTÁREA / MES
                 </div>
                 <div className="text-3xl font-black mt-1">
                   {formatCOP(simResults.netProfitPerHaMonthly)} <span className="text-sm font-extrabold">/ Ha / mes</span>
                 </div>
-                <div className="text-xs font-extrabold mt-1 text-[#012d1d]/80">
+                <div className="text-xs font-extrabold mt-1 text-white/80">
                   Equivalente a {formatCOP(simResults.netProfitPerHaAnnual)} / Ha / año
                 </div>
               </div>
@@ -1360,10 +1360,10 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
       {/* ------------------------------------------------------------- */}
       {activeSubTab === 'ledger' && (
         <div className="space-y-6">
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
+          <div className="bg-[#15241C] rounded-3xl p-6 shadow-sm border border-[#ffe066]/60">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
               <div>
-                <h3 className="font-black text-xl text-[#012d1d]">
+                <h3 className="font-black text-xl text-white">
                   Historial de Movimientos Financieros
                 </h3>
                 <p className="text-xs text-[#717973] font-medium mt-0.5">
@@ -1373,17 +1373,17 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
 
               <button
                 onClick={onOpenRegisterTransactionModal}
-                className="flex items-center gap-2 bg-[#012d1d] text-white hover:bg-[#02402a] font-bold text-xs py-2.5 px-4 rounded-2xl shadow-sm transition-all cursor-pointer"
+                className="flex items-center gap-2 bg-[#0D1A13] text-white hover:bg-[#02402a] font-bold text-xs py-2.5 px-4 rounded-2xl shadow-sm transition-all cursor-pointer"
               >
                 <Plus className="w-4 h-4 text-[#ffba38]" /> Registrar Nuevo Movimiento
               </button>
             </div>
 
             {/* Transactions Table */}
-            <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-white text-xs font-black uppercase">
+                  <tr className="bg-[#0D1A13] text-white text-xs font-black uppercase">
                     <th className="p-3.5">Fecha</th>
                     <th className="p-3.5">Finca</th>
                     <th className="p-3.5">Unidad de Negocio</th>
@@ -1405,8 +1405,8 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
 
                     return (
                       <tr key={t.id} className="hover:bg-[#fffde7]/60 transition-colors">
-                        <td className="p-3.5 font-bold text-slate-600 whitespace-nowrap">{t.date}</td>
-                        <td className="p-3.5 font-extrabold text-[#012d1d]">{t.farmName}</td>
+                        <td className="p-3.5 font-bold text-[#A5B8AC] whitespace-nowrap">{t.date}</td>
+                        <td className="p-3.5 font-extrabold text-white">{t.farmName}</td>
                         <td className="p-3.5 whitespace-nowrap">
                           {buObj && (
                             <span
@@ -1427,16 +1427,16 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                             {t.type}
                           </span>
                         </td>
-                        <td className="p-3.5 font-bold text-slate-800">
+                        <td className="p-3.5 font-bold text-white">
                           {isIncome
                             ? INCOME_CATEGORY_LABELS[t.category as IncomeCategory]?.label || t.category
                             : EXPENSE_CATEGORY_LABELS[t.category as ExpenseCategory]?.label || t.category}
                         </td>
-                        <td className="p-3.5 text-slate-700 font-medium max-w-xs truncate">{t.description}</td>
+                        <td className="p-3.5 text-white font-medium max-w-xs truncate">{t.description}</td>
                         <td className={`p-3.5 text-right font-black ${isIncome ? 'text-emerald-700' : 'text-rose-700'}`}>
                           {isIncome ? '+' : '-'}{formatCOP(t.amount)}
                         </td>
-                        <td className="p-3.5 text-right font-extrabold text-[#012d1d]">
+                        <td className="p-3.5 text-right font-extrabold text-white">
                           {formatCOP(perHa)} / Ha
                         </td>
                         <td className="p-3.5 text-center">
@@ -1453,7 +1453,7 @@ export const FinanceView: React.FC<FinanceViewProps> = ({
                   })}
                   {filteredTransactions.length === 0 && (
                     <tr>
-                      <td colSpan={9} className="p-8 text-center text-slate-500 text-xs font-semibold">
+                      <td colSpan={9} className="p-8 text-center text-[#A5B8AC] text-xs font-semibold">
                         No hay movimientos registrados para el filtro seleccionado.
                       </td>
                     </tr>

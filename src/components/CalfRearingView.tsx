@@ -432,39 +432,39 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {toastMessage && (
         <div className="p-4 bg-[#c1ecd4] border-2 border-[#012d1d] text-[#002114] rounded-2xl flex items-center justify-between shadow-lg">
           <div className="flex items-center gap-3">
-            <CheckCircle2 className="w-5 h-5 text-[#012d1d] shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
             <p className="text-xs font-black">{toastMessage}</p>
           </div>
-          <button onClick={() => setToastMessage(null)} className="text-[#012d1d] hover:text-black cursor-pointer">
+          <button onClick={() => setToastMessage(null)} className="text-white hover:text-black cursor-pointer">
             <X className="w-4 h-4" />
           </button>
         </div>
       )}
 
       {/* Main Module Banner Header */}
-      <div className="bg-white rounded-3xl p-5 md:p-6 border-2 border-[#012d1d] card-shadow space-y-5">
+      <div className="bg-[#15241C] rounded-3xl p-5 md:p-6 border-2 border-[#012d1d] card-shadow space-y-5">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-[#e2e2e2] pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
+            <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center shrink-0 shadow-md">
               <Baby className="w-6 h-6" />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <h2 className="text-xl md:text-2xl font-black text-[#012d1d]">
+                <h2 className="text-xl md:text-2xl font-black text-white">
                   Sala de Crianza Artificial de Terneros
                 </h2>
-                <span className="bg-[#ffba38] text-[#523700] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase shadow-xs">
+                <span className="bg-[#D4A94E] text-[#0D1A13] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase shadow-xs">
                   Sustituto / Calostrado & Desmante
                 </span>
                 <div className="group relative inline-flex items-center">
                   <button
                     type="button"
-                    className="text-[#717973] hover:text-[#012d1d] transition-colors p-0.5 rounded cursor-pointer"
+                    className="text-[#717973] hover:text-white transition-colors p-0.5 rounded cursor-pointer"
                     title="Control zootécnico integral de terneros en cunas/jaulas: calidad de calostrado (% Brix), curva de lactancia artificial, ración de inicio y ganancia diaria de peso pre-destete."
                   >
                     <Info className="w-4 h-4" />
                   </button>
-                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#012d1d] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
+                  <div className="absolute left-0 bottom-full mb-1.5 hidden group-hover:block z-40 w-80 bg-[#0D1A13] text-white text-[11px] font-medium p-2.5 rounded-xl shadow-xl border border-[#2d6a4f] pointer-events-none animate-in fade-in zoom-in-95">
                     Control zootécnico integral de terneros en cunas/jaulas: calidad de calostrado (% Brix), curva de lactancia artificial, ración de inicio y ganancia diaria de peso pre-destete.
                   </div>
                 </div>
@@ -475,7 +475,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
           <div className="flex flex-wrap items-center gap-2 shrink-0">
             <button
               onClick={() => setIsAddCalfModalOpen(true)}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] px-4 py-2.5 rounded-2xl text-xs font-black flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
+              className="bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] px-4 py-2.5 rounded-2xl text-xs font-black flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
             >
               <PlusCircle className="w-4 h-4 text-[#ffba38]" />
               Ingresar Ternero/a a Crianza
@@ -485,11 +485,11 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
         {/* 5 KPI Cards Row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          <div className="p-3.5 bg-[#f8fbf9] border border-[#a2cfb8] rounded-2xl space-y-1 shadow-2xs">
+          <div className="p-3.5 bg-[#15241C] border border-[#a2cfb8] rounded-2xl space-y-1 shadow-2xs">
             <span className="text-[10px] font-black uppercase text-[#717973] block flex items-center gap-1">
-              <Baby className="w-3.5 h-3.5 text-[#012d1d]" /> Terneros Activos
+              <Baby className="w-3.5 h-3.5 text-white" /> Terneros Activos
             </span>
-            <span className="text-2xl font-mono font-black text-[#012d1d] block">
+            <span className="text-2xl font-mono font-black text-white block">
               {totalActiveCalves} <span className="text-xs font-sans text-[#717973]">/ {calves.length}</span>
             </span>
             <span className="text-[10px] text-emerald-800 font-bold block">En cunas & jaulas</span>
@@ -534,8 +534,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             onClick={() => setActiveSubTab('terneros_activos')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'terneros_activos'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-                : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+                : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
             }`}
           >
             <Baby className="w-4 h-4 text-[#ffba38]" />
@@ -546,8 +546,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             onClick={() => setActiveSubTab('modelos_crianza')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'modelos_crianza'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-                : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+                : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
             }`}
           >
             <Layers className="w-4 h-4 text-purple-600" />
@@ -558,8 +558,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             onClick={() => setActiveSubTab('calostrado_neonatal')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'calostrado_neonatal'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-                : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+                : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
             }`}
           >
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -570,8 +570,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             onClick={() => setActiveSubTab('plan_alimentacion_curva')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'plan_alimentacion_curva'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-                : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+                : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
             }`}
           >
             <Milk className="w-4 h-4 text-blue-600" />
@@ -582,8 +582,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             onClick={() => setActiveSubTab('controles_peso')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'controles_peso'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-                : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+                : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
             }`}
           >
             <Scale className="w-4 h-4 text-amber-600" />
@@ -594,8 +594,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             onClick={() => setActiveSubTab('historial_sanitario')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
               activeSubTab === 'historial_sanitario'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md'
-                : 'bg-[#f0f4f1] text-[#012d1d] hover:bg-[#e2efe8]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md'
+                : 'bg-[#123F2A]/60 text-white hover:bg-[#e2efe8]'
             }`}
           >
             <Stethoscope className="w-4 h-4 text-rose-600" />
@@ -610,7 +610,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {activeSubTab === 'terneros_activos' && (
         <div className="space-y-6">
           {/* Search & Filters Toolbar */}
-          <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-xs">
+          <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-xs">
             <div className="relative flex-1">
               <Search className="w-4 h-4 absolute left-3.5 top-3 text-[#717973]" />
               <input
@@ -618,17 +618,17 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 placeholder="Buscar por Arete (Ej: TER-101), Nombre, Madre o Cuna..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl pl-10 pr-4 py-2 text-xs font-bold text-[#012d1d] focus:bg-white focus:border-[#012d1d] focus:outline-none"
+                className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl pl-10 pr-4 py-2 text-xs font-bold text-white focus:bg-[#15241C] focus:border-[#012d1d] focus:outline-none"
               />
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <div className="flex items-center gap-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-2.5 py-1">
+              <div className="flex items-center gap-1 bg-[#f8f9f8] border border-white/10 rounded-xl px-2.5 py-1">
                 <Filter className="w-3.5 h-3.5 text-[#717973]" />
                 <select
                   value={housingFilter}
                   onChange={(e) => setHousingFilter(e.target.value as any)}
-                  className="bg-transparent text-xs font-extrabold text-[#012d1d] focus:outline-none cursor-pointer py-1"
+                  className="bg-transparent text-xs font-extrabold text-white focus:outline-none cursor-pointer py-1"
                 >
                   <option value="all">Todas las Instalaciones</option>
                   <option value="cuna_individual">🏠 Cuna Individual</option>
@@ -638,12 +638,12 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 </select>
               </div>
 
-              <div className="flex items-center gap-1 bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-2.5 py-1">
+              <div className="flex items-center gap-1 bg-[#f8f9f8] border border-white/10 rounded-xl px-2.5 py-1">
                 <Sliders className="w-3.5 h-3.5 text-[#717973]" />
                 <select
                   value={healthFilter}
                   onChange={(e) => setHealthFilter(e.target.value as any)}
-                  className="bg-transparent text-xs font-extrabold text-[#012d1d] focus:outline-none cursor-pointer py-1"
+                  className="bg-transparent text-xs font-extrabold text-white focus:outline-none cursor-pointer py-1"
                 >
                   <option value="all">Todos los Estados Salud</option>
                   <option value="excelente">⭐ Excelente</option>
@@ -666,19 +666,19 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 <div
                   key={calf.id}
                   onClick={() => setSelectedCalfId(calf.id)}
-                  className={`bg-white rounded-3xl border-2 p-5 transition-all cursor-pointer card-shadow flex flex-col justify-between space-y-4 ${
+                  className={`bg-[#15241C] rounded-3xl border-2 p-5 transition-all cursor-pointer card-shadow flex flex-col justify-between space-y-4 ${
                     isSelected ? 'border-[#012d1d] ring-2 ring-[#012d1d]/20 bg-[#fbfdfc]' : 'border-[#e2e2e2] hover:border-[#a2cfb8]'
                   }`}
                 >
                   {/* Top Bar */}
                   <div className="flex items-start justify-between gap-2 border-b border-[#eeeeee] pb-3">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-mono font-black text-xs shrink-0 shadow-xs">
+                      <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-mono font-black text-xs shrink-0 shadow-xs">
                         {calf.earTag.substring(0, 7)}
                       </div>
                       <div>
                         <div className="flex items-center gap-1.5">
-                          <h4 className="font-black text-sm text-[#012d1d]">{calf.earTag}</h4>
+                          <h4 className="font-black text-sm text-white">{calf.earTag}</h4>
                           <span className={`text-[9.5px] font-black px-2 py-0.2 rounded-full ${
                             calf.sex === 'Hembra' ? 'bg-pink-100 text-pink-800' : 'bg-blue-100 text-blue-800'
                           }`}>
@@ -690,7 +690,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                     </div>
 
                     <div className="text-right">
-                      <span className="text-[10px] font-bold bg-[#f0f4f1] text-[#012d1d] px-2 py-0.5 rounded border border-[#c1c8c2] block">
+                      <span className="text-[10px] font-bold bg-[#123F2A]/60 text-white px-2 py-0.5 rounded border border-white/10 block">
                         {calf.housingNumber}
                       </span>
                       {calf.weaned ? (
@@ -707,25 +707,25 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
                   {/* Body Metrics Grid */}
                   <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="p-2 bg-[#f8fbf9] rounded-xl border border-[#eeeeee]">
+                    <div className="p-2 bg-[#15241C] rounded-xl border border-[#eeeeee]">
                       <span className="text-[9.5px] text-[#717973] font-bold uppercase block">Raza / Genética</span>
-                      <span className="font-bold text-[#012d1d] block truncate">{calf.breed}</span>
+                      <span className="font-bold text-white block truncate">{calf.breed}</span>
                     </div>
 
-                    <div className="p-2 bg-[#f8fbf9] rounded-xl border border-[#eeeeee]">
+                    <div className="p-2 bg-[#15241C] rounded-xl border border-[#eeeeee]">
                       <span className="text-[9.5px] text-[#717973] font-bold uppercase block">Madre</span>
-                      <span className="font-bold text-[#012d1d] block truncate">{calf.damTag}</span>
+                      <span className="font-bold text-white block truncate">{calf.damTag}</span>
                     </div>
 
-                    <div className="p-2 bg-[#f8fbf9] rounded-xl border border-[#eeeeee]">
+                    <div className="p-2 bg-[#15241C] rounded-xl border border-[#eeeeee]">
                       <span className="text-[9.5px] text-[#717973] font-bold uppercase block">Peso Actual</span>
-                      <span className="font-mono font-black text-[#012d1d] text-sm block">
+                      <span className="font-mono font-black text-white text-sm block">
                         {calf.currentWeightKg} kg
                       </span>
                       <span className="text-[9px] text-[#717973]">Nacer: {calf.birthWeightKg} kg</span>
                     </div>
 
-                    <div className="p-2 bg-[#f8fbf9] rounded-xl border border-[#eeeeee]">
+                    <div className="p-2 bg-[#15241C] rounded-xl border border-[#eeeeee]">
                       <span className="text-[9.5px] text-[#717973] font-bold uppercase block">GDP Pre-destete</span>
                       <span className="font-mono font-black text-emerald-800 text-sm block">
                         +{lastGrowth?.dailyGainGrams || 800} g/d
@@ -761,7 +761,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                           setIsFeedModalOpen(true);
                         }}
                         disabled={calf.weaned}
-                        className="p-1.5 bg-[#f0f7f4] hover:bg-[#e2efe8] text-[#012d1d] rounded-xl text-xs font-bold transition-all cursor-pointer disabled:opacity-40"
+                        className="p-1.5 bg-[#f0f7f4] hover:bg-[#e2efe8] text-white rounded-xl text-xs font-bold transition-all cursor-pointer disabled:opacity-40"
                         title="Registrar Toma de Leche"
                       >
                         <Milk className="w-4 h-4 text-blue-700" />
@@ -773,7 +773,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                           setModalTargetCalf(calf);
                           setIsWeightModalOpen(true);
                         }}
-                        className="p-1.5 bg-[#f0f7f4] hover:bg-[#e2efe8] text-[#012d1d] rounded-xl text-xs font-bold transition-all cursor-pointer"
+                        className="p-1.5 bg-[#f0f7f4] hover:bg-[#e2efe8] text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
                         title="Registrar Pesaje"
                       >
                         <Scale className="w-4 h-4 text-amber-700" />
@@ -785,7 +785,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                           setModalTargetCalf(calf);
                           setIsHealthModalOpen(true);
                         }}
-                        className="p-1.5 bg-[#f0f7f4] hover:bg-[#e2efe8] text-[#012d1d] rounded-xl text-xs font-bold transition-all cursor-pointer"
+                        className="p-1.5 bg-[#f0f7f4] hover:bg-[#e2efe8] text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
                         title="Registrar Sanidad"
                       >
                         <Stethoscope className="w-4 h-4 text-rose-700" />
@@ -809,7 +809,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                           e.stopPropagation();
                           handleGraduateCalf(calf.id);
                         }}
-                        className="bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1 cursor-pointer shadow-xs"
+                        className="bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1 cursor-pointer shadow-xs"
                       >
                         <span>Graduar</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -827,14 +827,14 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
           {/* Selected Calf Detailed Card */}
           {selectedCalf && (
-            <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 animate-in fade-in">
+            <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-5 animate-in fade-in">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#eeeeee] pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-mono font-black text-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-mono font-black text-sm">
                     {selectedCalf.earTag}
                   </div>
                   <div>
-                    <h3 className="font-black text-lg text-[#012d1d] flex items-center gap-2">
+                    <h3 className="font-black text-lg text-white flex items-center gap-2">
                       Ficha Zootécnica Completa: {selectedCalf.earTag} - {selectedCalf.name}
                     </h3>
                     <p className="text-xs text-[#717973] font-medium">
@@ -844,7 +844,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs bg-[#f0f4f1] border border-[#c1c8c2] text-[#012d1d] px-3 py-1 rounded-xl font-bold">
+                  <span className="font-mono text-xs bg-[#123F2A]/60 border border-white/10 text-white px-3 py-1 rounded-xl font-bold">
                     Target Destete: {selectedCalf.targetWeaningDate}
                   </span>
                 </div>
@@ -853,12 +853,12 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
               {/* Detail Cards Row */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Card 1: Calostrado */}
-                <div className="p-4 bg-[#f8fbf9] border border-[#a2cfb8] rounded-2xl space-y-2 text-xs">
-                  <h5 className="font-black text-[#012d1d] uppercase tracking-wider flex items-center gap-1.5">
+                <div className="p-4 bg-[#15241C] border border-[#a2cfb8] rounded-2xl space-y-2 text-xs">
+                  <h5 className="font-black text-white uppercase tracking-wider flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-emerald-700" /> Registro de Calostrado
                   </h5>
                   {selectedCalf.colostrumRecord ? (
-                    <div className="space-y-1 font-medium text-[#012d1d]">
+                    <div className="space-y-1 font-medium text-white">
                       <p>• Volumen Suministrado: <b>{selectedCalf.colostrumRecord.litersFed} L</b></p>
                       <p>• Calidad Refractómetro Brix: <b className="font-mono text-emerald-800">{selectedCalf.colostrumRecord.brixQualityPercent}% Brix</b></p>
                       <p>• Tiempo Post-parto: <b>{selectedCalf.colostrumRecord.timePostBirthHours} Horas</b></p>
@@ -911,14 +911,14 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {activeSubTab === 'modelos_crianza' && (
         <div className="space-y-6 animate-in fade-in">
           {/* Header Banner */}
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold shrink-0 shadow-md">
+                <div className="w-11 h-11 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold shrink-0 shadow-md">
                   <Layers className="w-6 h-6 text-[#ffba38]" />
                 </div>
                 <div>
-                  <h3 className="font-black text-lg md:text-xl text-[#012d1d] flex items-center gap-2">
+                  <h3 className="font-black text-lg md:text-xl text-white flex items-center gap-2">
                     Modelos & Sistemas Zootécnicos de Crianza
                   </h3>
                   <p className="text-xs text-[#717973] max-w-2xl">
@@ -927,15 +927,15 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 bg-[#f0f4f1] p-1.5 rounded-2xl border border-[#c1c8c2] overflow-x-auto">
+              <div className="flex items-center gap-2 bg-[#123F2A]/60 p-1.5 rounded-2xl border border-white/10 overflow-x-auto">
                 {['all', 'Lechería Especializada', 'Doble Propósito', 'Tecnificada / Estabulada', 'Cría a Campo', 'Tradicional'].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setSelectedModelCategory(cat)}
                     className={`px-3 py-1.5 rounded-xl text-[11px] font-black transition-all cursor-pointer whitespace-nowrap ${
                       selectedModelCategory === cat
-                        ? 'bg-[#012d1d] text-[#ffba38] shadow-xs'
-                        : 'text-[#012d1d] hover:bg-white'
+                        ? 'bg-[#0D1A13] text-[#ffba38] shadow-xs'
+                        : 'text-white hover:bg-[#15241C]'
                     }`}
                   >
                     {cat === 'all' ? 'Todos los Modelos' : cat}
@@ -956,7 +956,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                   <div className="space-y-3">
                     {/* Header badges */}
                     <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e2efe8] pb-2.5">
-                      <span className="bg-[#012d1d] text-[#ffba38] text-[10px] font-mono font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                      <span className="bg-[#0D1A13] text-[#ffba38] text-[10px] font-mono font-black px-3 py-1 rounded-full uppercase tracking-wider">
                         {model.category}
                       </span>
                       <span className="bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-mono font-black px-2.5 py-0.5 rounded-xl flex items-center gap-1">
@@ -964,7 +964,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                       </span>
                     </div>
 
-                    <h4 className="font-black text-base text-[#012d1d] leading-snug">
+                    <h4 className="font-black text-base text-white leading-snug">
                       {model.name}
                     </h4>
 
@@ -973,10 +973,10 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                     </p>
 
                     {/* Key Metrics Strip */}
-                    <div className="grid grid-cols-3 gap-2 bg-white p-3 rounded-xl border border-[#c1c8c2] text-center">
+                    <div className="grid grid-cols-3 gap-2 bg-[#15241C] p-3 rounded-xl border border-white/10 text-center">
                       <div>
                         <span className="text-[10px] uppercase font-bold text-[#717973] block">Duración</span>
-                        <span className="text-sm font-mono font-black text-[#012d1d]">{model.durationDays} días</span>
+                        <span className="text-sm font-mono font-black text-white">{model.durationDays} días</span>
                       </div>
                       <div>
                         <span className="text-[10px] uppercase font-bold text-[#717973] block">Costo Est.</span>
@@ -1034,7 +1034,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                       {model.recommendedBreeds.map((breed) => (
                         <span
                           key={breed}
-                          className="bg-[#012d1d]/10 text-[#012d1d] font-bold px-2 py-0.5 rounded-md"
+                          className="bg-[#0D1A13]/10 text-white font-bold px-2 py-0.5 rounded-md"
                         >
                           {breed}
                         </span>
@@ -1046,7 +1046,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                         setSelectedModelForDetail(model);
                         showToast(`💡 Modelo "${model.name}" seleccionado para análisis detallado.`);
                       }}
-                      className="w-full bg-[#012d1d] hover:bg-[#1b4332] text-[#ffba38] py-2 rounded-xl text-xs font-black flex items-center justify-center gap-2 cursor-pointer transition-all shadow-sm"
+                      className="w-full bg-[#0D1A13] hover:bg-[#123F2A] text-[#ffba38] py-2 rounded-xl text-xs font-black flex items-center justify-center gap-2 cursor-pointer transition-all shadow-sm"
                     >
                       <Sparkles className="w-4 h-4 text-[#ffba38]" />
                       Ver Ficha Técnica Completa & Guias
@@ -1058,10 +1058,10 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
           </div>
 
           {/* Comparative Matrix Table */}
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex items-center gap-3 border-b border-[#eeeeee] pb-3">
-              <ClipboardList className="w-5 h-5 text-[#012d1d]" />
-              <h4 className="font-black text-base text-[#012d1d]">
+              <ClipboardList className="w-5 h-5 text-white" />
+              <h4 className="font-black text-base text-white">
                 Matriz Comparativa de Modelos de Crianza Bovina
               </h4>
             </div>
@@ -1069,7 +1069,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#012d1d] text-[#ffba38] font-black uppercase text-[10px]">
+                  <tr className="bg-[#0D1A13] text-[#ffba38] font-black uppercase text-[10px]">
                     <th className="p-3 rounded-tl-xl">Modelo de Crianza</th>
                     <th className="p-3">Categoría</th>
                     <th className="p-3 text-center">Duración (Días)</th>
@@ -1081,16 +1081,16 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 </thead>
                 <tbody className="divide-y divide-[#e2e2e2]">
                   {REARING_MODELS.map((m) => (
-                    <tr key={m.id} className="hover:bg-[#f8fdfa] transition-colors font-medium text-[#012d1d]">
-                      <td className="p-3 font-bold text-[#012d1d] max-w-[220px]">
+                    <tr key={m.id} className="hover:bg-[#f8fdfa] transition-colors font-medium text-white">
+                      <td className="p-3 font-bold text-white max-w-[220px]">
                         {m.name}
                       </td>
                       <td className="p-3">
-                        <span className="bg-[#012d1d]/10 text-[#012d1d] font-bold px-2 py-0.5 rounded-md text-[10px]">
+                        <span className="bg-[#0D1A13]/10 text-white font-bold px-2 py-0.5 rounded-md text-[10px]">
                           {m.category}
                         </span>
                       </td>
-                      <td className="p-3 text-center font-mono font-bold text-[#012d1d]">
+                      <td className="p-3 text-center font-mono font-bold text-white">
                         {m.durationDays}d
                       </td>
                       <td className="p-3 text-center font-mono font-black text-emerald-800">
@@ -1116,7 +1116,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
           <div className="bg-gradient-to-br from-[#012d1d] to-[#0d4731] text-white rounded-3xl p-6 border-2 border-[#012d1d] card-shadow space-y-6">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-[#1b5e43] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#ffba38] text-[#012d1d] flex items-center justify-center font-bold shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-[#D4A94E] text-white flex items-center justify-center font-bold shrink-0 shadow-md">
                   <Compass className="w-6 h-6" />
                 </div>
                 <div>
@@ -1191,7 +1191,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 <div className="bg-[#03402a] rounded-2xl p-5 border border-[#1b5e43] space-y-4">
                   <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 border-b border-[#1b5e43] pb-3">
                     <div>
-                      <span className="text-[10px] font-mono font-black uppercase text-[#ffba38] bg-[#012d1d] px-2.5 py-0.5 rounded-full">
+                      <span className="text-[10px] font-mono font-black uppercase text-[#ffba38] bg-[#0D1A13] px-2.5 py-0.5 rounded-full">
                         RECOMENDACIÓN TÉCNICA SUGERIDA
                       </span>
                       <h5 className="font-black text-lg text-white mt-1">
@@ -1206,17 +1206,17 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs">
-                    <div className="p-3 bg-[#012d1d] rounded-xl border border-[#1b5e43]">
+                    <div className="p-3 bg-[#0D1A13] rounded-xl border border-[#1b5e43]">
                       <span className="text-[10px] text-emerald-200 uppercase block font-bold">Leche Liberada/Mes</span>
                       <span className="text-lg font-mono font-black text-white">{totalMilkSavedLiters.toLocaleString()} Litros</span>
                     </div>
 
-                    <div className="p-3 bg-[#012d1d] rounded-xl border border-[#1b5e43]">
+                    <div className="p-3 bg-[#0D1A13] rounded-xl border border-[#1b5e43]">
                       <span className="text-[10px] text-emerald-200 uppercase block font-bold">Ingreso por Leche Com.</span>
                       <span className="text-lg font-mono font-black text-emerald-300">${grossMilkRevenue.toFixed(0)} USD</span>
                     </div>
 
-                    <div className="p-3 bg-[#012d1d] rounded-xl border border-[#1b5e43]">
+                    <div className="p-3 bg-[#0D1A13] rounded-xl border border-[#1b5e43]">
                       <span className="text-[10px] text-emerald-200 uppercase block font-bold">Retorno Neto Estimado</span>
                       <span className={`text-lg font-mono font-black ${netBenefit >= 0 ? 'text-[#ffba38]' : 'text-rose-300'}`}>
                         ${netBenefit.toFixed(0)} USD
@@ -1237,14 +1237,14 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
       {activeSubTab === 'calostrado_neonatal' && (
         <div className="space-y-5 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                   <ShieldCheck className="w-5 h-5 text-emerald-400" />
                 </div>
                 <div>
-                  <h3 className="font-black text-base md:text-lg text-[#012d1d]">
+                  <h3 className="font-black text-base md:text-lg text-white">
                     Monitoreo de Calostrado y Transmisión de Inmunidad Pasiva (IgG)
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -1255,7 +1255,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             </div>
 
             {/* Colostrum Rule Banner */}
-            <div className="p-4 bg-emerald-50 border border-emerald-300 rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-emerald-950">
+            <div className="p-4 bg-emerald-950/30 border border-emerald-300 rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-emerald-950">
               <div className="space-y-1">
                 <span className="font-black uppercase block text-emerald-800">1. Tiempo de Oro (&lt; 2 Horas)</span>
                 <p>Suministrar el 1er volumen de calostro dentro de las primeras 2 horas post-parto (máxima absorción de inmunoglobulinas IgG).</p>
@@ -1273,10 +1273,10 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             </div>
 
             {/* Table of Colostrum Records */}
-            <div className="overflow-x-auto rounded-2xl border border-[#c1c8c2]">
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#f0f4f1] text-[#012d1d] font-black uppercase text-[10.5px] border-b border-[#c1c8c2]">
+                  <tr className="bg-[#123F2A]/60 text-white font-black uppercase text-[10.5px] border-b border-white/10">
                     <th className="p-3">Ternero / Arete</th>
                     <th className="p-3">Madre</th>
                     <th className="p-3 text-center">Fecha Nacimiento</th>
@@ -1291,14 +1291,14 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                   {calves.map((calf) => {
                     const col = calf.colostrumRecord;
                     return (
-                      <tr key={calf.id} className="hover:bg-[#f8fbf9]">
+                      <tr key={calf.id} className="hover:bg-[#15241C]">
                         <td className="p-3 font-sans">
-                          <span className="font-black text-[#012d1d] block">{calf.earTag}</span>
+                          <span className="font-black text-white block">{calf.earTag}</span>
                           <span className="text-[10px] text-[#717973]">{calf.name}</span>
                         </td>
-                        <td className="p-3 font-sans font-bold text-[#012d1d]">{calf.damTag}</td>
+                        <td className="p-3 font-sans font-bold text-white">{calf.damTag}</td>
                         <td className="p-3 text-center">{calf.birthDate}</td>
-                        <td className="p-3 text-right font-black text-[#012d1d]">
+                        <td className="p-3 text-right font-black text-white">
                           {col ? `${col.litersFed} L` : '-'}
                         </td>
                         <td className="p-3 text-right font-black text-emerald-800">
@@ -1344,13 +1344,13 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'plan_alimentacion_curva' && (
         <div className="space-y-5 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex items-center gap-3 border-b border-[#eeeeee] pb-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                 <Milk className="w-5 h-5 text-blue-400" />
               </div>
               <div>
-                <h3 className="font-black text-base md:text-lg text-[#012d1d]">
+                <h3 className="font-black text-base md:text-lg text-white">
                   Curva Estándar de Alimentación Láctea y Desmante Precoz (8 Semanas)
                 </h3>
                 <p className="text-xs text-[#717973]">
@@ -1360,10 +1360,10 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             </div>
 
             {/* Weekly Feeding Protocol Table */}
-            <div className="overflow-x-auto rounded-2xl border border-[#c1c8c2]">
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#f0f4f1] text-[#012d1d] font-black uppercase text-[10.5px] border-b border-[#c1c8c2]">
+                  <tr className="bg-[#123F2A]/60 text-white font-black uppercase text-[10.5px] border-b border-white/10">
                     <th className="p-3">Semana de Crianza</th>
                     <th className="p-3">Dieta Láctea (L/día)</th>
                     <th className="p-3">Distribución Tomas</th>
@@ -1373,8 +1373,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#eeeeee] font-medium">
-                  <tr className="hover:bg-[#f8fbf9]">
-                    <td className="p-3 font-black text-[#012d1d]">Semana 1 (Días 1 - 7)</td>
+                  <tr className="hover:bg-[#15241C]">
+                    <td className="p-3 font-black text-white">Semana 1 (Días 1 - 7)</td>
                     <td className="p-3 font-mono font-bold text-blue-900">4.0 - 5.0 L / día</td>
                     <td className="p-3">2 tomas (2.5 L Mañana / 2.5 L Tarde)</td>
                     <td className="p-3 font-mono">100 - 200 g / día</td>
@@ -1382,8 +1382,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                     <td className="p-3 font-mono font-bold text-emerald-800">500 - 650 g/día</td>
                   </tr>
 
-                  <tr className="hover:bg-[#f8fbf9]">
-                    <td className="p-3 font-black text-[#012d1d]">Semana 2 - 4 (Días 8 - 28)</td>
+                  <tr className="hover:bg-[#15241C]">
+                    <td className="p-3 font-black text-white">Semana 2 - 4 (Días 8 - 28)</td>
                     <td className="p-3 font-mono font-bold text-blue-900">6.0 L / día</td>
                     <td className="p-3">2 tomas (3.0 L Mañana / 3.0 L Tarde)</td>
                     <td className="p-3 font-mono">300 - 600 g / día</td>
@@ -1391,8 +1391,8 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                     <td className="p-3 font-mono font-bold text-emerald-800">750 - 850 g/día</td>
                   </tr>
 
-                  <tr className="hover:bg-[#f8fbf9]">
-                    <td className="p-3 font-black text-[#012d1d]">Semana 5 - 6 (Días 29 - 42)</td>
+                  <tr className="hover:bg-[#15241C]">
+                    <td className="p-3 font-black text-white">Semana 5 - 6 (Días 29 - 42)</td>
                     <td className="p-3 font-mono font-bold text-blue-900">5.0 - 6.0 L / día</td>
                     <td className="p-3">2 tomas (Pico de apetito)</td>
                     <td className="p-3 font-mono">800 - 1,200 g / día</td>
@@ -1400,7 +1400,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                     <td className="p-3 font-mono font-bold text-emerald-800">850 - 950 g/día</td>
                   </tr>
 
-                  <tr className="hover:bg-[#f8fbf9] bg-amber-50/50">
+                  <tr className="hover:bg-[#15241C] bg-amber-50/50">
                     <td className="p-3 font-black text-amber-950">Semana 7 (Reducción Desmante)</td>
                     <td className="p-3 font-mono font-bold text-amber-900">3.0 L / día</td>
                     <td className="p-3 font-bold text-amber-900">1 toma única (Mañana)</td>
@@ -1409,7 +1409,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                     <td className="p-3 font-mono font-bold text-amber-900">900 g/día</td>
                   </tr>
 
-                  <tr className="hover:bg-[#f8fbf9] bg-emerald-50/60">
+                  <tr className="hover:bg-[#15241C] bg-emerald-50/60">
                     <td className="p-3 font-black text-emerald-950">Semana 8 (Destete Definitivo)</td>
                     <td className="p-3 font-mono font-bold text-emerald-900">0.0 L (Destetado)</td>
                     <td className="p-3 font-bold text-emerald-900">Pasaje a Potrero Levante</td>
@@ -1429,14 +1429,14 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'controles_peso' && (
         <div className="space-y-5 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                   <Scale className="w-5 h-5 text-amber-400" />
                 </div>
                 <div>
-                  <h3 className="font-black text-base md:text-lg text-[#012d1d]">
+                  <h3 className="font-black text-base md:text-lg text-white">
                     Historial de Pesajes & Ganancia Diaria de Peso (GDP)
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -1449,9 +1449,9 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             {/* Weights Log */}
             <div className="space-y-3">
               {calves.map((calf) => (
-                <div key={calf.id} className="p-4 bg-[#f8fbf9] border border-[#a2cfb8] rounded-2xl space-y-2 text-xs">
-                  <div className="flex items-center justify-between border-b border-[#c1c8c2] pb-2">
-                    <span className="font-black text-sm text-[#012d1d]">
+                <div key={calf.id} className="p-4 bg-[#15241C] border border-[#a2cfb8] rounded-2xl space-y-2 text-xs">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                    <span className="font-black text-sm text-white">
                       {calf.earTag} - {calf.name} ({calf.breed})
                     </span>
                     <span className="font-mono text-xs font-bold bg-[#e2efe8] text-[#15803d] px-2.5 py-0.5 rounded-full">
@@ -1461,9 +1461,9 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {calf.growthHistory.map((gro) => (
-                      <div key={gro.id} className="p-2.5 bg-white rounded-xl border border-[#eeeeee] space-y-0.5">
+                      <div key={gro.id} className="p-2.5 bg-[#15241C] rounded-xl border border-[#eeeeee] space-y-0.5">
                         <span className="text-[10px] text-[#717973] font-bold block">Fecha: {gro.date} ({gro.ageDays} días)</span>
-                        <span className="font-mono font-black text-sm text-[#012d1d] block">{gro.weightKg} kg</span>
+                        <span className="font-mono font-black text-sm text-white block">{gro.weightKg} kg</span>
                         <span className="text-[10px] font-bold text-emerald-800 block">GDP: +{gro.dailyGainGrams} g/día</span>
                       </div>
                     ))}
@@ -1480,14 +1480,14 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {activeSubTab === 'historial_sanitario' && (
         <div className="space-y-5 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] p-5 md:p-6 card-shadow space-y-4">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                   <Stethoscope className="w-5 h-5 text-rose-400" />
                 </div>
                 <div>
-                  <h3 className="font-black text-base md:text-lg text-[#012d1d]">
+                  <h3 className="font-black text-base md:text-lg text-white">
                     Registro Sanitario, Vacunación Neonatal & Descorne
                   </h3>
                   <p className="text-xs text-[#717973]">
@@ -1515,7 +1515,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                       <div className="divide-y divide-rose-200">
                         {calf.healthHistory.map((h) => (
                           <div key={h.id} className="py-2 space-y-1">
-                            <div className="flex items-center justify-between font-bold text-[#012d1d]">
+                            <div className="flex items-center justify-between font-bold text-white">
                               <span>[{h.date}] <span className="uppercase text-rose-900">{h.eventType.replace('_', ' ')}</span></span>
                               <span className="text-[10px] bg-rose-100 text-rose-900 px-2 py-0.5 rounded-full">
                                 {h.vetInCharge}
@@ -1544,14 +1544,14 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {isAddCalfModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-5 md:p-6 space-y-5 shadow-2xl my-8">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-5 md:p-6 space-y-5 shadow-2xl my-8">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold">
                   <Baby className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-black text-lg text-[#012d1d]">Ingresar Ternero/a a Crianza Artificial</h3>
+                  <h3 className="font-black text-lg text-white">Ingresar Ternero/a a Crianza Artificial</h3>
                   <p className="text-xs text-[#717973]">Registro neonatal, calostrado inicial y asignación de cuna/jaula</p>
                 </div>
               </div>
@@ -1567,34 +1567,34 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             <form onSubmit={handleCreateCalf} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Arete Ternero/a *:</label>
+                  <label className="font-bold text-white block mb-1">Arete Ternero/a *:</label>
                   <input
                     type="text"
                     required
                     placeholder="Ej: TER-105"
                     value={newEarTag}
                     onChange={(e) => setNewEarTag(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Nombre / Identificación:</label>
+                  <label className="font-bold text-white block mb-1">Nombre / Identificación:</label>
                   <input
                     type="text"
                     placeholder="Ej: Lucero 105"
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Sexo:</label>
+                  <label className="font-bold text-white block mb-1">Sexo:</label>
                   <select
                     value={newSex}
                     onChange={(e) => setNewSex(e.target.value as any)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   >
                     <option value="Hembra">♀ Hembra</option>
                     <option value="Macho">♂ Macho</option>
@@ -1602,53 +1602,53 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Raza / Cruce Genético:</label>
+                  <label className="font-bold text-white block mb-1">Raza / Cruce Genético:</label>
                   <input
                     type="text"
                     value={newBreed}
                     onChange={(e) => setNewBreed(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Fecha de Nacimiento:</label>
+                  <label className="font-bold text-white block mb-1">Fecha de Nacimiento:</label>
                   <input
                     type="date"
                     value={newBirthDate}
                     onChange={(e) => setNewBirthDate(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Peso al Nacer (kg):</label>
+                  <label className="font-bold text-white block mb-1">Peso al Nacer (kg):</label>
                   <input
                     type="number"
                     step="0.5"
                     value={newBirthWeight}
                     onChange={(e) => setNewBirthWeight(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Vaca Madre (Arete):</label>
+                  <label className="font-bold text-white block mb-1">Vaca Madre (Arete):</label>
                   <input
                     type="text"
                     placeholder="Ej: V-504"
                     value={newDamTag}
                     onChange={(e) => setNewDamTag(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Instalación Asignada:</label>
+                  <label className="font-bold text-white block mb-1">Instalación Asignada:</label>
                   <select
                     value={newHousingType}
                     onChange={(e) => setNewHousingType(e.target.value as any)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   >
                     <option value="cuna_individual">🏠 Cuna Individual</option>
                     <option value="jaula_elevada">🪜 Jaula Elevada</option>
@@ -1657,24 +1657,24 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">N° Cuna / Jaula:</label>
+                  <label className="font-bold text-white block mb-1">N° Cuna / Jaula:</label>
                   <input
                     type="text"
                     placeholder="Ej: Cuna A-05"
                     value={newHousingNumber}
                     onChange={(e) => setNewHousingNumber(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                   />
                 </div>
               </div>
 
               {/* Rearing Model Selection */}
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Modelo de Crianza Asignado *:</label>
+                <label className="font-bold text-white block mb-1">Modelo de Crianza Asignado *:</label>
                 <select
                   value={newRearingModelId}
                   onChange={(e) => setNewRearingModelId(e.target.value as CalfRearingModelId)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold text-white"
                 >
                   {REARING_MODELS.map((m) => (
                     <option key={m.id} value={m.id}>
@@ -1698,7 +1698,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                       step="0.5"
                       value={newColostrumLiters}
                       onChange={(e) => setNewColostrumLiters(Number(e.target.value))}
-                      className="w-full bg-white border border-emerald-300 rounded-xl px-2.5 py-1.5 font-mono font-bold"
+                      className="w-full bg-[#15241C] border border-emerald-300 rounded-xl px-2.5 py-1.5 font-mono font-bold"
                     />
                   </div>
 
@@ -1709,7 +1709,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                       step="0.5"
                       value={newBrixPercent}
                       onChange={(e) => setNewBrixPercent(Number(e.target.value))}
-                      className="w-full bg-white border border-emerald-300 rounded-xl px-2.5 py-1.5 font-mono font-bold"
+                      className="w-full bg-[#15241C] border border-emerald-300 rounded-xl px-2.5 py-1.5 font-mono font-bold"
                     />
                   </div>
 
@@ -1720,7 +1720,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                       step="0.5"
                       value={newHoursPostBirth}
                       onChange={(e) => setNewHoursPostBirth(Number(e.target.value))}
-                      className="w-full bg-white border border-emerald-300 rounded-xl px-2.5 py-1.5 font-mono font-bold"
+                      className="w-full bg-[#15241C] border border-emerald-300 rounded-xl px-2.5 py-1.5 font-mono font-bold"
                     />
                   </div>
                 </div>
@@ -1730,13 +1730,13 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsAddCalfModalOpen(false)}
-                  className="px-4 py-2 bg-[#f0f4f1] text-[#012d1d] rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
+                  className="px-4 py-2 bg-[#123F2A]/60 text-white rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Guardar Ternero/a
                 </button>
@@ -1751,11 +1751,11 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {isFeedModalOpen && modalTargetCalf && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-5 space-y-4 shadow-2xl">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-lg w-full p-5 space-y-4 shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-2.5">
                 <Milk className="w-5 h-5 text-blue-700" />
-                <h3 className="font-black text-base text-[#012d1d]">
+                <h3 className="font-black text-base text-white">
                   Registrar Toma Láctea: {modalTargetCalf.earTag}
                 </h3>
               </div>
@@ -1767,34 +1767,34 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
             <form onSubmit={handleAddFeeding} className="space-y-3 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Litros Mañana (AM):</label>
+                  <label className="font-bold text-white block mb-1">Litros Mañana (AM):</label>
                   <input
                     type="number"
                     step="0.25"
                     value={feedMorningLiters}
                     onChange={(e) => setFeedMorningLiters(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Litros Tarde (PM):</label>
+                  <label className="font-bold text-white block mb-1">Litros Tarde (PM):</label>
                   <input
                     type="number"
                     step="0.25"
                     value={feedAfternoonLiters}
                     onChange={(e) => setFeedAfternoonLiters(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Tipo de Dieta Láctea:</label>
+                <label className="font-bold text-white block mb-1">Tipo de Dieta Láctea:</label>
                 <select
                   value={feedLiquidType}
                   onChange={(e) => setFeedLiquidType(e.target.value as any)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold"
                 >
                   <option value="Sustituto Lácteo Premium">Sustituto Lácteo Premium (22% Proteína)</option>
                   <option value="Leche Entera">Leche Entera de Ordeño</option>
@@ -1804,22 +1804,22 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Concentrado Starter (Gramos):</label>
+                  <label className="font-bold text-white block mb-1">Concentrado Starter (Gramos):</label>
                   <input
                     type="number"
                     step="50"
                     value={feedStarterGrams}
                     onChange={(e) => setFeedStarterGrams(Number(e.target.value))}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Puntaje de Apetito (1 a 5):</label>
+                  <label className="font-bold text-white block mb-1">Puntaje de Apetito (1 a 5):</label>
                   <select
                     value={feedAppetite}
                     onChange={(e) => setFeedAppetite(Number(e.target.value) as any)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold"
                   >
                     <option value={5}>5 - Vigoroso / Consume todo en &lt; 3min</option>
                     <option value={4}>4 - Normal / Apetito Bueno</option>
@@ -1831,13 +1831,13 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Observaciones:</label>
+                <label className="font-bold text-white block mb-1">Observaciones:</label>
                 <input
                   type="text"
                   placeholder="Ej: Buena hidratación y reflejo de succión."
                   value={feedNotes}
                   onChange={(e) => setFeedNotes(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-medium"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-medium"
                 />
               </div>
 
@@ -1845,13 +1845,13 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsFeedModalOpen(false)}
-                  className="px-4 py-2 bg-[#f0f4f1] text-[#012d1d] rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
+                  className="px-4 py-2 bg-[#123F2A]/60 text-white rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Guardar Toma
                 </button>
@@ -1866,11 +1866,11 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {isWeightModalOpen && modalTargetCalf && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-5 space-y-4 shadow-2xl">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-5 space-y-4 shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-2.5">
                 <Scale className="w-5 h-5 text-amber-700" />
-                <h3 className="font-black text-base text-[#012d1d]">
+                <h3 className="font-black text-base text-white">
                   Registrar Pesaje: {modalTargetCalf.earTag}
                 </h3>
               </div>
@@ -1881,24 +1881,24 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
             <form onSubmit={handleAddWeight} className="space-y-3 text-xs">
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Peso Medido (kg) *:</label>
+                <label className="font-bold text-white block mb-1">Peso Medido (kg) *:</label>
                 <input
                   type="number"
                   step="0.5"
                   required
                   value={weightKg}
                   onChange={(e) => setWeightKg(Number(e.target.value))}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-black text-lg text-[#012d1d]"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-black text-lg text-white"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Perímetro Torácico (cm):</label>
+                <label className="font-bold text-white block mb-1">Perímetro Torácico (cm):</label>
                 <input
                   type="number"
                   value={heartGirthCm}
                   onChange={(e) => setHeartGirthCm(Number(e.target.value))}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold"
                 />
               </div>
 
@@ -1906,13 +1906,13 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsWeightModalOpen(false)}
-                  className="px-4 py-2 bg-[#f0f4f1] text-[#012d1d] rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
+                  className="px-4 py-2 bg-[#123F2A]/60 text-white rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Guardar Pesaje
                 </button>
@@ -1927,11 +1927,11 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {isHealthModalOpen && modalTargetCalf && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-5 space-y-4 shadow-2xl">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-md w-full p-5 space-y-4 shadow-2xl">
             <div className="flex items-center justify-between border-b border-[#eeeeee] pb-3">
               <div className="flex items-center gap-2.5">
                 <Stethoscope className="w-5 h-5 text-rose-700" />
-                <h3 className="font-black text-base text-[#012d1d]">
+                <h3 className="font-black text-base text-white">
                   Registrar Evento Sanitario: {modalTargetCalf.earTag}
                 </h3>
               </div>
@@ -1942,11 +1942,11 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
             <form onSubmit={handleAddHealthEvent} className="space-y-3 text-xs">
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Tipo de Evento *:</label>
+                <label className="font-bold text-white block mb-1">Tipo de Evento *:</label>
                 <select
                   value={healthEventType}
                   onChange={(e) => setHealthEventType(e.target.value as any)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold"
                 >
                   <option value="vacunacion">💉 Vacunación Profiláctica</option>
                   <option value="descorne">🔥 Descorne Térmico / Químico</option>
@@ -1959,48 +1959,48 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Descripción / Hallazgos:</label>
+                <label className="font-bold text-white block mb-1">Descripción / Hallazgos:</label>
                 <input
                   type="text"
                   required
                   placeholder="Ej: Descorne químico con analgésico local"
                   value={healthDescription}
                   onChange={(e) => setHealthDescription(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-medium"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-medium"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Medicamento / Producto:</label>
+                  <label className="font-bold text-white block mb-1">Medicamento / Producto:</label>
                   <input
                     type="text"
                     placeholder="Ej: Scourguard / Meloxicam"
                     value={healthMedication}
                     onChange={(e) => setHealthMedication(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-[#012d1d] block mb-1">Dosis Suministrada:</label>
+                  <label className="font-bold text-white block mb-1">Dosis Suministrada:</label>
                   <input
                     type="text"
                     placeholder="Ej: 2 ml IM"
                     value={healthDose}
                     onChange={(e) => setHealthDose(e.target.value)}
-                    className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold"
+                    className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-bold text-[#012d1d] block mb-1">Veterinario / Encargado:</label>
+                <label className="font-bold text-white block mb-1">Veterinario / Encargado:</label>
                 <input
                   type="text"
                   value={healthVet}
                   onChange={(e) => setHealthVet(e.target.value)}
-                  className="w-full bg-[#f8f9f8] border border-[#c1c8c2] rounded-xl px-3 py-2 font-bold"
+                  className="w-full bg-[#f8f9f8] border border-white/10 rounded-xl px-3 py-2 font-bold"
                 />
               </div>
 
@@ -2008,13 +2008,13 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsHealthModalOpen(false)}
-                  className="px-4 py-2 bg-[#f0f4f1] text-[#012d1d] rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
+                  className="px-4 py-2 bg-[#123F2A]/60 text-white rounded-xl font-bold hover:bg-[#e2efe8] cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Guardar Evento
                 </button>
@@ -2029,17 +2029,17 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
       {/* ========================================================================= */}
       {selectedModelForDetail && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
-          <div className="bg-white rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 space-y-5 shadow-2xl max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#15241C] rounded-3xl border-2 border-[#012d1d] max-w-2xl w-full p-6 space-y-5 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-start justify-between border-b border-[#eeeeee] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#012d1d] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
+                <div className="w-10 h-10 rounded-2xl bg-[#0D1A13] text-[#ffba38] flex items-center justify-center font-bold shrink-0">
                   <Layers className="w-5 h-5 text-[#ffba38]" />
                 </div>
                 <div>
-                  <span className="bg-[#012d1d] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
+                  <span className="bg-[#0D1A13] text-[#ffba38] text-[10px] font-mono font-black px-2.5 py-0.5 rounded-full uppercase">
                     {selectedModelForDetail.category}
                   </span>
-                  <h3 className="font-black text-lg text-[#012d1d] mt-1">
+                  <h3 className="font-black text-lg text-white mt-1">
                     {selectedModelForDetail.name}
                   </h3>
                 </div>
@@ -2057,10 +2057,10 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 {selectedModelForDetail.description}
               </p>
 
-              <div className="grid grid-cols-3 gap-3 bg-[#f0f4f1] p-3 rounded-2xl text-center border border-[#c1c8c2]">
+              <div className="grid grid-cols-3 gap-3 bg-[#123F2A]/60 p-3 rounded-2xl text-center border border-white/10">
                 <div>
                   <span className="text-[10px] font-bold text-[#717973] uppercase block">Duración Estimada</span>
-                  <span className="text-base font-mono font-black text-[#012d1d]">{selectedModelForDetail.durationDays} Días</span>
+                  <span className="text-base font-mono font-black text-white">{selectedModelForDetail.durationDays} Días</span>
                 </div>
                 <div>
                   <span className="text-[10px] font-bold text-[#717973] uppercase block">Ganancia Diaria (GDP)</span>
@@ -2073,25 +2073,25 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
               </div>
 
               <div className="space-y-2">
-                <h5 className="font-black text-[#012d1d] uppercase text-[11px] flex items-center gap-1.5">
+                <h5 className="font-black text-white uppercase text-[11px] flex items-center gap-1.5">
                   <Milk className="w-4 h-4 text-blue-600" /> Esquema de Nutrición Láctea:
                 </h5>
-                <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl font-medium text-[#1e293b]">
+                <div className="p-3 bg-blue-950/30 border border-blue-200 rounded-xl font-medium text-[#1e293b]">
                   {selectedModelForDetail.feedingProtocol}
                 </div>
               </div>
 
               <div className="space-y-2">
-                <h5 className="font-black text-[#012d1d] uppercase text-[11px] flex items-center gap-1.5">
+                <h5 className="font-black text-white uppercase text-[11px] flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-amber-600" /> Regla de Oro para el Destete Definitivo:
                 </h5>
-                <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl font-medium text-[#451a03]">
+                <div className="p-3 bg-amber-950/30 border border-amber-200 rounded-xl font-medium text-[#451a03]">
                   {selectedModelForDetail.weaningCriteria}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1.5">
+                <div className="p-3 bg-emerald-950/30 border border-emerald-200 rounded-xl space-y-1.5">
                   <h6 className="font-black text-emerald-950 uppercase text-[10.5px]">Ventajas Principales:</h6>
                   <ul className="space-y-1 text-emerald-900">
                     {selectedModelForDetail.pros.map((p, idx) => (
@@ -2102,7 +2102,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                   </ul>
                 </div>
 
-                <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl space-y-1.5">
+                <div className="p-3 bg-rose-950/30 border border-rose-200 rounded-xl space-y-1.5">
                   <h6 className="font-black text-rose-950 uppercase text-[10.5px]">Consideraciones de Manejo:</h6>
                   <ul className="space-y-1 text-rose-900">
                     {selectedModelForDetail.cons.map((c, idx) => (
@@ -2118,7 +2118,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
                 <div className="flex items-center gap-1">
                   <span className="font-bold text-[#717973]">Razas Ideales:</span>
                   {selectedModelForDetail.recommendedBreeds.map((b) => (
-                    <span key={b} className="bg-[#012d1d] text-[#ffba38] text-[10px] font-bold px-2 py-0.5 rounded-md">
+                    <span key={b} className="bg-[#0D1A13] text-[#ffba38] text-[10px] font-bold px-2 py-0.5 rounded-md">
                       {b}
                     </span>
                   ))}
@@ -2126,7 +2126,7 @@ export const CalfRearingView: React.FC<CalfRearingViewProps> = ({
 
                 <button
                   onClick={() => setSelectedModelForDetail(null)}
-                  className="px-5 py-2 bg-[#012d1d] text-[#ffba38] rounded-xl font-black hover:bg-[#1b4332] shadow-md cursor-pointer"
+                  className="px-5 py-2 bg-[#0D1A13] text-[#ffba38] rounded-xl font-black hover:bg-[#123F2A] shadow-md cursor-pointer"
                 >
                   Cerrar Ficha
                 </button>

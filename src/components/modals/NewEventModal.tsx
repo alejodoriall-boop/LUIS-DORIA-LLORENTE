@@ -1212,7 +1212,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
           title: 'COMPRA DE GANADO & INGRESO DE LOTE',
           description: 'Ingreso de nuevo lote de ganado por compra particular o en subasta comercial.',
           icon: <Coins className="w-4 h-4 text-amber-300" />,
-          bgColor: 'bg-[#012d1d] text-emerald-300',
+          bgColor: 'bg-[#0D1A13] text-emerald-300',
         };
       case 'venta':
         return {
@@ -1254,7 +1254,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
           title: 'NUEVO EVENTO GANADERO',
           description: 'Registro técnico de actividades y novedades del hato.',
           icon: <ClipboardList className="w-4 h-4 text-emerald-300" />,
-          bgColor: 'bg-[#012d1d] text-emerald-300',
+          bgColor: 'bg-[#0D1A13] text-emerald-300',
         };
     }
   };
@@ -1366,7 +1366,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-5xl lg:max-w-6xl w-full p-5 md:p-7 border-2 border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[94vh] flex flex-col">
+      <div className="bg-[#15241C] rounded-3xl max-w-5xl lg:max-w-6xl w-full p-5 md:p-7 border-2 border-white/10 shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[94vh] flex flex-col">
         {/* Dynamic Header */}
         <div className="flex items-center justify-between pb-3 border-b border-[#eeeeee] shrink-0">
           <div>
@@ -1374,7 +1374,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
               <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-bold ${headerDetails.bgColor}`}>
                 {headerDetails.icon}
               </div>
-              <h3 className="text-lg md:text-xl font-bold text-[#012d1d]">{headerDetails.title}</h3>
+              <h3 className="text-lg md:text-xl font-bold text-white">{headerDetails.title}</h3>
             </div>
             <p className="text-xs text-[#717973] mt-0.5">
               {headerDetails.description}
@@ -1396,8 +1396,8 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             onClick={() => setEventType('compra')}
             className={`px-3 py-2 rounded-xl font-extrabold text-xs flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
               eventType === 'compra' || eventType === 'auction'
-                ? 'bg-[#012d1d] text-white shadow-xs ring-1 ring-[#001b10]'
-                : 'bg-white hover:bg-emerald-50 text-[#314a3e] border border-[#c8d9cf]'
+                ? 'bg-[#0D1A13] text-white shadow-xs ring-1 ring-[#001b10]'
+                : 'bg-[#15241C] hover:bg-emerald-950/30 text-[#314a3e] border border-[#c8d9cf]'
             }`}
           >
             <Coins className="w-3.5 h-3.5 text-[#ffba38]" />
@@ -1410,10 +1410,10 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             className={`px-3 py-2 rounded-xl font-extrabold text-xs flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
               eventType === 'venta'
                 ? 'bg-emerald-800 text-white shadow-xs ring-1 ring-emerald-950'
-                : 'bg-white hover:bg-emerald-50 text-[#314a3e] border border-[#c8d9cf]'
+                : 'bg-[#15241C] hover:bg-emerald-950/30 text-[#314a3e] border border-[#c8d9cf]'
             }`}
           >
-            <DollarSign className="w-3.5 h-3.5 text-[#c1ecd4]" />
+            <DollarSign className="w-3.5 h-3.5 text-[#A5B8AC]" />
             <span>Venta</span>
           </button>
 
@@ -1423,7 +1423,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             className={`px-3 py-2 rounded-xl font-extrabold text-xs flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
               eventType === 'birth'
                 ? 'bg-cyan-800 text-white shadow-xs ring-1 ring-cyan-950'
-                : 'bg-white hover:bg-cyan-50 text-[#314a3e] border border-[#c8d9cf]'
+                : 'bg-[#15241C] hover:bg-cyan-50 text-[#314a3e] border border-[#c8d9cf]'
             }`}
           >
             <Baby className="w-3.5 h-3.5 text-cyan-300" />
@@ -1436,7 +1436,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             className={`px-3 py-2 rounded-xl font-extrabold text-xs flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
               eventType === 'pasaje'
                 ? 'bg-blue-800 text-white shadow-xs ring-1 ring-blue-950'
-                : 'bg-white hover:bg-blue-50 text-[#314a3e] border border-[#c8d9cf]'
+                : 'bg-[#15241C] hover:bg-blue-950/30 text-[#314a3e] border border-[#c8d9cf]'
             }`}
           >
             <Truck className="w-3.5 h-3.5 text-blue-300" />
@@ -1449,7 +1449,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             className={`px-3 py-2 rounded-xl font-extrabold text-xs flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
               eventType === 'sociedad'
                 ? 'bg-teal-800 text-white shadow-xs ring-1 ring-teal-950'
-                : 'bg-white hover:bg-teal-50 text-[#314a3e] border border-[#c8d9cf]'
+                : 'bg-[#15241C] hover:bg-teal-50 text-[#314a3e] border border-[#c8d9cf]'
             }`}
           >
             <Handshake className="w-3.5 h-3.5 text-teal-300" />
@@ -1462,7 +1462,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             className={`px-3 py-2 rounded-xl font-extrabold text-xs flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
               eventType === 'baja'
                 ? 'bg-rose-900 text-white shadow-xs ring-1 ring-rose-950'
-                : 'bg-white hover:bg-rose-50 text-[#7f1d1d] border border-[#fecaca]'
+                : 'bg-[#15241C] hover:bg-rose-950/30 text-[#7f1d1d] border border-[#fecaca]'
             }`}
           >
             <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />
@@ -1483,7 +1483,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                   <span className="text-[10px] font-bold text-[#717973] uppercase tracking-wide">
                     {getFarmRoleDetails().title}
                   </span>
-                  <span className="font-extrabold text-xs text-[#012d1d] truncate">
+                  <span className="font-extrabold text-xs text-white truncate">
                     {targetFarm?.profile?.name || 'Predio Principal'}
                   </span>
                   <span className="text-[9px] bg-[#e8f5e9] text-[#1b5e20] border border-[#c8e6c9] font-bold px-2 py-0.5 rounded-full">
@@ -1497,12 +1497,12 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             </div>
 
             {/* Lista menos visible para cambiar de predio con confirmación */}
-            <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-auto bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 shadow-2xs">
+            <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-auto bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 shadow-2xs">
               <span className="text-[10px] font-semibold text-[#717973]">Cambiar predio:</span>
               <select
                 value={selectedFarmId}
                 onChange={(e) => handleInitiateFarmChange(e.target.value)}
-                className="bg-transparent text-[11px] font-bold text-[#012d1d] focus:outline-none cursor-pointer pr-1 max-w-[190px] truncate"
+                className="bg-transparent text-[11px] font-bold text-white focus:outline-none cursor-pointer pr-1 max-w-[190px] truncate"
               >
                 {farms.map((f) => (
                   <option key={f.profile.id} value={f.profile.id}>
@@ -1520,7 +1520,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             <div className="space-y-4 pt-1">
               <div className="bg-[#fbfbfb] border border-[#d6e2db] rounded-2xl p-3.5 space-y-3">
                 <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2">
-                  <p className="text-xs font-bold text-[#012d1d] flex items-center gap-1.5">
+                  <p className="text-xs font-bold text-white flex items-center gap-1.5">
                     <Coins className="w-4 h-4 text-[#dc9a00]" />
                     Información de la Compra & Origen del Ganado
                   </p>
@@ -1538,7 +1538,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     <select
                       value={sellerType}
                       onChange={(e) => setSellerType(e.target.value as any)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-2 font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-2 font-bold text-xs text-white"
                     >
                       <option value="subasta">🏛️ Subasta Comercial (Subastar, Cogasucre, etc)</option>
                       <option value="particular">👤 Particular / Ganadero Directo</option>
@@ -1556,7 +1556,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={auctionEntity}
                         onChange={(e) => setAuctionEntity(e.target.value)}
-                        className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-2 font-semibold text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-2 font-semibold text-xs"
                       >
                         <option value="Subastar S.A. (Montería / Planeta Rica)">Subastar S.A. (Córdoba)</option>
                         <option value="Subacasanare (Yopal / Aguazul)">Subacasanare (Casanare / Meta)</option>
@@ -1577,7 +1577,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sellerName}
                         onChange={(e) => setSellerName(e.target.value)}
                         placeholder="Ej. Don Carlos Mendoza - Finca El Recuerdo"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-2 text-xs font-bold"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-2 text-xs font-bold"
                         required
                       />
                     </div>
@@ -1591,7 +1591,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="text"
                       value={invoiceNumber}
                       onChange={(e) => setInvoiceNumber(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-2 font-mono font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-2 font-mono font-bold text-xs text-white"
                       required
                     />
                   </div>
@@ -1600,7 +1600,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 {/* Campos Detallados de Información del Vendedor */}
                 <div className="bg-[#f2f7f4] border border-[#c1ecd4] rounded-xl p-3 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10.5px] font-black text-[#012d1d] uppercase flex items-center gap-1">
+                    <span className="text-[10.5px] font-black text-white uppercase flex items-center gap-1">
                       <UserCheck className="w-3.5 h-3.5 text-[#2d6a4f]" />
                       Información Detallada del Vendedor / Proveedor
                     </span>
@@ -1618,7 +1618,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={sellerName}
                           onChange={(e) => setSellerName(e.target.value)}
                           placeholder="Nombre del criadero o dueño"
-                          className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs"
                         />
                       </div>
                     )}
@@ -1632,7 +1632,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sellerDoc}
                         onChange={(e) => setSellerDoc(e.target.value)}
                         placeholder="Ej. 91.234.567-8"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs font-mono"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs font-mono"
                       />
                     </div>
 
@@ -1645,7 +1645,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sellerPhone}
                         onChange={(e) => setSellerPhone(e.target.value)}
                         placeholder="Ej. 310 555 1234"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -1658,7 +1658,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sellerLocation}
                         onChange={(e) => setSellerLocation(e.target.value)}
                         placeholder="Ej. Montería, Córdoba"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -1671,7 +1671,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sellerSanitaryStatus}
                         onChange={(e) => setSellerSanitaryStatus(e.target.value)}
                         placeholder="Hato libre, vacunas al día..."
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
                   </div>
@@ -1687,7 +1687,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="text"
                       value={lotName}
                       onChange={(e) => setLotName(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold text-xs"
                       required
                     />
                   </div>
@@ -1699,7 +1699,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     <select
                       value={lotCategory}
                       onChange={(e) => setLotCategory(e.target.value as LotCategory)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-semibold text-xs"
                     >
                       <option value="ceba">Ceba Intensiva (Engorde)</option>
                       <option value="cria">Cría / Levante</option>
@@ -1715,7 +1715,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     <select
                       value={selectedPaddockId}
                       onChange={(e) => setSelectedPaddockId(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs font-semibold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-semibold text-white"
                     >
                       <option value="">-- Asignar más tarde --</option>
                       {targetPaddocks.map((pad) => (
@@ -1735,7 +1735,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={pricePerKg}
                       onChange={(e) => setPricePerKg(e.target.value)}
                       placeholder="8750"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
                     />
                   </div>
                 </div>
@@ -1752,7 +1752,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="button"
                       onClick={() => setAuctionEntryMode('quick')}
                       className={`px-3 py-1 rounded-lg font-bold text-[11px] flex items-center gap-1.5 transition-all ${
-                        auctionEntryMode === 'quick' ? 'bg-[#012d1d] text-white shadow-xs' : 'text-[#414844]'
+                        auctionEntryMode === 'quick' ? 'bg-[#0D1A13] text-white shadow-xs' : 'text-[#414844]'
                       }`}
                     >
                       <Scale className="w-3.5 h-3.5" />
@@ -1762,7 +1762,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="button"
                       onClick={() => setAuctionEntryMode('excel')}
                       className={`px-3 py-1 rounded-lg font-bold text-[11px] flex items-center gap-1.5 transition-all ${
-                        auctionEntryMode === 'excel' ? 'bg-[#012d1d] text-white shadow-xs' : 'text-[#414844]'
+                        auctionEntryMode === 'excel' ? 'bg-[#0D1A13] text-white shadow-xs' : 'text-[#414844]'
                       }`}
                     >
                       <FileSpreadsheet className="w-3.5 h-3.5" />
@@ -1788,7 +1788,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           type="number"
                           value={quickHeads}
                           onChange={(e) => setQuickHeads(e.target.value)}
-                          className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-extrabold text-sm text-[#012d1d]"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-extrabold text-sm text-white"
                           required
                         />
                       </div>
@@ -1814,7 +1814,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           step="0.1"
                           value={quickAvgWeight}
                           onChange={(e) => setQuickAvgWeight(e.target.value)}
-                          className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 font-mono font-bold text-sm text-[#012d1d]"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 font-mono font-bold text-sm text-white"
                           required
                         />
                       </div>
@@ -1826,7 +1826,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         <select
                           value={quickSex}
                           onChange={(e) => setQuickSex(e.target.value as any)}
-                          className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs font-semibold"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs font-semibold"
                         >
                           <option value="Machos">Machos (Ceba / Levante)</option>
                           <option value="Hembras">Hembras</option>
@@ -1843,7 +1843,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={quickBreed}
                           onChange={(e) => setQuickBreed(e.target.value)}
                           placeholder="Ej. Brahman Blanco / Cebú"
-                          className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs"
                         />
                       </div>
                     </div>
@@ -1856,7 +1856,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         <select
                           value={quickColor}
                           onChange={(e) => setQuickColor(e.target.value)}
-                          className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs"
                         >
                           <option value="Blanco / Gris">⚪ Blanco / Gris</option>
                           <option value="Rojo / Sardo">🔴 Rojo / Sardo</option>
@@ -1876,7 +1876,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={quickAgeRange}
                           onChange={(e) => setQuickAgeRange(e.target.value)}
                           placeholder="Ej. 18-24 Meses"
-                          className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-2 text-xs"
+                          className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-2 text-xs"
                         />
                       </div>
 
@@ -1907,7 +1907,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           {((parseInt(quickHeads, 10) || 0) * (parseFloat(quickAvgWeight) || 0)).toLocaleString('es-CO')} kg
                         </strong>
                       </span>
-                      <span className="font-mono font-bold text-[#012d1d]">
+                      <span className="font-mono font-bold text-white">
                         ${(
                           ((parseInt(quickHeads, 10) || 0) *
                             (parseFloat(quickAvgWeight) || 0) *
@@ -1930,7 +1930,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             <div className="space-y-4 pt-1">
               <div className="bg-[#f2f9f5] border-2 border-[#a7d7be] rounded-2xl p-4 space-y-3.5 shadow-2xs">
                 <div className="flex items-center justify-between border-b border-[#a7d7be] pb-2.5">
-                  <p className="text-xs font-bold text-[#012d1d] flex items-center gap-1.5">
+                  <p className="text-xs font-bold text-white flex items-center gap-1.5">
                     <DollarSign className="w-4 h-4 text-emerald-700" />
                     Información del Comprador & Destino Comercial
                   </p>
@@ -1950,7 +1950,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 )}
 
                 {/* 1. SELECCIÓN DE ANIMALES / IDENTIFICACIÓN (PRIMERO) */}
-                <div className="bg-white p-3.5 rounded-2xl border-2 border-emerald-500/80 shadow-xs space-y-3">
+                <div className="bg-[#15241C] p-3.5 rounded-2xl border-2 border-emerald-500/80 shadow-xs space-y-3">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-center gap-1.5">
                       <span className="text-xs font-black text-emerald-950 flex items-center gap-1.5 uppercase">
@@ -2013,12 +2013,12 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                             setSaleError(null);
                           }}
                           placeholder="Ej: GLO-001, GLO-002, GLO-003... o seleccione del catálogo abajo"
-                          className={`w-full bg-white border-2 rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#012d1d] focus:ring-2 focus:ring-emerald-500 shadow-inner ${
+                          className={`w-full bg-[#15241C] border-2 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white focus:ring-2 focus:ring-emerald-500 shadow-inner ${
                             saleTagValidation.missingTags.length > 0
                               ? 'border-red-500 bg-red-50/30 text-red-950'
                               : saleTagValidation.isValid
                               ? 'border-emerald-600'
-                              : 'border-slate-300'
+                              : 'border-white/15'
                           }`}
                           required
                         />
@@ -2071,15 +2071,15 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         </div>
 
                         {showHerdAnimalPicker && (
-                          <div className="bg-white p-2.5 rounded-xl border border-emerald-300 shadow-sm space-y-2 max-h-48 overflow-y-auto">
+                          <div className="bg-[#15241C] p-2.5 rounded-xl border border-emerald-300 shadow-sm space-y-2 max-h-48 overflow-y-auto">
                             <div className="relative">
-                              <Search className="w-3 h-3 text-slate-400 absolute left-2.5 top-2.5" />
+                              <Search className="w-3 h-3 text-[#A5B8AC] absolute left-2.5 top-2.5" />
                               <input
                                 type="text"
                                 placeholder="Filtrar por chapeta, lote o raza..."
                                 value={saleSearchHerdTerm}
                                 onChange={(e) => setSaleSearchHerdTerm(e.target.value)}
-                                className="w-full pl-7 pr-2 py-1 text-[11px] bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden"
+                                className="w-full pl-7 pr-2 py-1 text-[11px] bg-[#0D1A13] border border-white/10 rounded-lg focus:outline-hidden"
                               />
                             </div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
@@ -2121,19 +2121,19 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                                       className={`p-1.5 rounded-lg border text-left text-[11px] font-mono transition-all flex items-center justify-between cursor-pointer ${
                                         isSelected
                                           ? 'bg-emerald-700 text-white border-emerald-800 shadow-xs'
-                                          : 'bg-slate-50 hover:bg-emerald-50 text-slate-800 border-slate-200'
+                                          : 'bg-[#0D1A13] hover:bg-emerald-950/30 text-white border-white/10'
                                       }`}
                                     >
                                       <div>
                                         <span className="font-bold block">{a.tag}</span>
-                                        <span className={`text-[9px] block ${isSelected ? 'text-emerald-200' : 'text-slate-500'}`}>
+                                        <span className={`text-[9px] block ${isSelected ? 'text-emerald-200' : 'text-[#A5B8AC]'}`}>
                                           {a.weightKg || 450} kg • {a.breed || 'Cebú'}
                                         </span>
                                       </div>
                                       {isSelected ? (
                                         <Check className="w-3.5 h-3.5 text-white shrink-0" />
                                       ) : (
-                                        <Plus className="w-3 h-3 text-slate-400 shrink-0" />
+                                        <Plus className="w-3 h-3 text-[#A5B8AC] shrink-0" />
                                       )}
                                     </button>
                                   );
@@ -2172,7 +2172,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                                 setSaleAnimalTags(tagsList);
                               }
                             }}
-                            className="w-full bg-white border-2 border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-[#012d1d]"
+                            className="w-full bg-[#15241C] border-2 border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                           >
                             <option value="">-- Seleccionar Lote del Hato --</option>
                             {activeFarmLots.map((lot) => (
@@ -2196,7 +2196,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                                 setSaleError(null);
                               }}
                               placeholder="Ej: GLO-001, GLO-002, GLO-003..."
-                              className={`w-full bg-white border-2 rounded-xl px-2.5 py-1.5 text-xs font-mono font-bold text-[#012d1d] focus:ring-2 focus:ring-emerald-500 ${
+                              className={`w-full bg-[#15241C] border-2 rounded-xl px-2.5 py-1.5 text-xs font-mono font-bold text-white focus:ring-2 focus:ring-emerald-500 ${
                                 saleTagValidation.missingTags.length > 0 ? 'border-red-500 bg-red-50 text-red-950' : 'border-emerald-600'
                               }`}
                               required
@@ -2228,7 +2228,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={saleLotName}
                         onChange={(e) => setSaleLotName(e.target.value)}
                         placeholder={isLotsEnabled ? "Nombre o identificación del lote..." : "Ej: Despacho novillos gordos a frigorífico..."}
-                        className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs font-bold text-[#012d1d]"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-bold text-white"
                         required
                       />
                     </div>
@@ -2239,7 +2239,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={salePaddockId}
                         onChange={(e) => setSalePaddockId(e.target.value)}
-                        className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs font-semibold"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-semibold"
                       >
                         <option value="">-- Potrero de Salida --</option>
                         {targetPaddocks.map((p) => (
@@ -2252,7 +2252,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                   </div>
 
                   {/* Datos Básicos del Ganado Vendido */}
-                  <div className="grid grid-cols-2 sm:grid-cols-6 gap-2 pt-1 border-t border-slate-200">
+                  <div className="grid grid-cols-2 sm:grid-cols-6 gap-2 pt-1 border-t border-white/10">
                     <div>
                       <label className="block text-[9px] font-bold text-[#717973] uppercase mb-0.5">
                         Categoría
@@ -2260,7 +2260,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={saleCategory}
                         onChange={(e) => setSaleCategory(e.target.value as LotCategory)}
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs font-semibold"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs font-semibold"
                       >
                         <option value="ceba">Ceba</option>
                         <option value="cria">Cría / Levante</option>
@@ -2278,7 +2278,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={saleBreed}
                         onChange={(e) => setSaleBreed(e.target.value)}
                         placeholder="Ej. Brahman Blanco"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -2289,7 +2289,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={saleColor}
                         onChange={(e) => setSaleColor(e.target.value)}
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs"
                       >
                         <option value="Blanco / Gris">⚪ Blanco / Gris</option>
                         <option value="Rojo / Sardo">🔴 Rojo / Sardo</option>
@@ -2307,7 +2307,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={saleSex}
                         onChange={(e) => setSaleSex(e.target.value)}
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs font-semibold"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs font-semibold"
                       >
                         <option value="Machos de Ceba">Machos de Ceba</option>
                         <option value="Machos de Levante">Machos de Levante</option>
@@ -2327,7 +2327,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={saleAgeRange}
                         onChange={(e) => setSaleAgeRange(e.target.value)}
                         placeholder="24-30 Meses"
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -2338,7 +2338,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={saleBrandingIronId}
                         onChange={(e) => setSaleBrandingIronId(e.target.value)}
-                        className="w-full bg-white border border-[#c1c8c2] rounded-lg px-2 py-1 text-xs font-bold"
+                        className="w-full bg-[#15241C] border border-white/10 rounded-lg px-2 py-1 text-xs font-bold"
                       >
                         <option value="">-- Sin Hierro --</option>
                         {brandingIrons.map((iron) => (
@@ -2361,7 +2361,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={saleBuyer}
                       onChange={(e) => setSaleBuyer(e.target.value)}
                       placeholder="Ej. Frigorífico del Sinú / Particular"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       required
                     />
                   </div>
@@ -2374,7 +2374,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={saleBuyerDoc}
                       onChange={(e) => setSaleBuyerDoc(e.target.value)}
                       placeholder="Ej. 900.123.456-7"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono text-xs"
                     />
                   </div>
                   <div>
@@ -2386,7 +2386,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={saleBuyerPhone}
                       onChange={(e) => setSaleBuyerPhone(e.target.value)}
                       placeholder="Ej. 310 123 4567"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs"
                     />
                   </div>
                 </div>
@@ -2401,7 +2401,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={saleDestination}
                       onChange={(e) => setSaleDestination(e.target.value)}
                       placeholder="Ej. Planta Frigorífica Montería / Finca La Cabaña"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs font-medium"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-medium"
                     />
                   </div>
                   <div>
@@ -2412,7 +2412,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="text"
                       value={saleInvoiceNumber}
                       onChange={(e) => setSaleInvoiceNumber(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono text-xs"
                     />
                   </div>
                   <div>
@@ -2423,27 +2423,27 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="text"
                       value={saleIcaGuideNumber}
                       onChange={(e) => setSaleIcaGuideNumber(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono text-xs"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono text-xs"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Liquidación de Pesos y Precios */}
-              <div className="bg-[#fbfbfb] border border-[#c1c8c2] rounded-2xl p-4 space-y-3">
+              <div className="bg-[#fbfbfb] border border-white/10 rounded-2xl p-4 space-y-3">
                 <div className="flex items-center justify-between border-b border-[#eeeeee] pb-2 flex-wrap gap-2">
-                  <p className="text-xs font-bold text-[#012d1d] flex items-center gap-1.5">
+                  <p className="text-xs font-bold text-white flex items-center gap-1.5">
                     <Scale className="w-4 h-4 text-[#2d6a4f]" />
                     Liquidación de Báscula & Valores Comerciales
                   </p>
-                  <div className="flex items-center gap-1.5 bg-gray-100 p-0.5 rounded-lg">
+                  <div className="flex items-center gap-1.5 bg-[#1F3327] p-0.5 rounded-lg">
                     <button
                       type="button"
                       onClick={() => setSalePricingType('kilo')}
                       className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all cursor-pointer ${
                         salePricingType === 'kilo'
-                          ? 'bg-[#012d1d] text-white shadow-2xs'
-                          : 'text-gray-700 hover:bg-gray-200'
+                          ? 'bg-[#0D1A13] text-white shadow-2xs'
+                          : 'text-white hover:bg-gray-200'
                       }`}
                     >
                       Por Kilo en Báscula ($/kg)
@@ -2453,8 +2453,8 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       onClick={() => setSalePricingType('total')}
                       className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all cursor-pointer ${
                         salePricingType === 'total'
-                          ? 'bg-[#012d1d] text-white shadow-2xs'
-                          : 'text-gray-700 hover:bg-gray-200'
+                          ? 'bg-[#0D1A13] text-white shadow-2xs'
+                          : 'text-white hover:bg-gray-200'
                       }`}
                     >
                       Valor Global Cerrado ($)
@@ -2471,7 +2471,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="number"
                       value={saleHeads}
                       onChange={(e) => setSaleHeads(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-white"
                       required
                     />
                   </div>
@@ -2484,7 +2484,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       step="0.1"
                       value={saleAvgWeight}
                       onChange={(e) => setSaleAvgWeight(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-white"
                       required
                     />
                   </div>
@@ -2497,7 +2497,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         type="number"
                         value={salePricePerKg}
                         onChange={(e) => setSalePricePerKg(e.target.value)}
-                        className="w-full bg-white border border-[#2d6a4f] rounded-xl px-2.5 py-1.5 font-black font-mono text-xs text-emerald-800"
+                        className="w-full bg-[#15241C] border border-[#2d6a4f] rounded-xl px-2.5 py-1.5 font-black font-mono text-xs text-emerald-800"
                         required
                       />
                     </div>
@@ -2510,7 +2510,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         type="number"
                         value={salePriceTotalCustom}
                         onChange={(e) => setSalePriceTotalCustom(e.target.value)}
-                        className="w-full bg-white border border-[#2d6a4f] rounded-xl px-2.5 py-1.5 font-black font-mono text-xs text-emerald-800"
+                        className="w-full bg-[#15241C] border border-[#2d6a4f] rounded-xl px-2.5 py-1.5 font-black font-mono text-xs text-emerald-800"
                         required
                       />
                     </div>
@@ -2538,7 +2538,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={saleIcaGuideNumber}
                       onChange={(e) => setSaleIcaGuideNumber(e.target.value)}
                       placeholder="Ej. ICA-VTA-98124"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-white"
                     />
                   </div>
                   <div>
@@ -2550,7 +2550,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={saleInvoiceNumber}
                       onChange={(e) => setSaleInvoiceNumber(e.target.value)}
                       placeholder="Ej. FAC-VTA-2026-01"
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-[#012d1d]"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-white"
                     />
                   </div>
                   <div>
@@ -2560,7 +2560,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     <select
                       value={salePaddockId}
                       onChange={(e) => setSalePaddockId(e.target.value)}
-                      className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs font-semibold"
+                      className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs font-semibold"
                     >
                       <option value="">-- Seleccionar Potrero --</option>
                       {targetPaddocks.map((pad) => (
@@ -2581,7 +2581,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     value={saleNotes}
                     onChange={(e) => setSaleNotes(e.target.value)}
                     placeholder="Condiciones de pago, transporte, pesaje en finca o en planta..."
-                    className="w-full bg-white border border-[#c1c8c2] rounded-xl px-2.5 py-1.5 text-xs"
+                    className="w-full bg-[#15241C] border border-white/10 rounded-xl px-2.5 py-1.5 text-xs"
                   />
                 </div>
               </div>
@@ -2593,17 +2593,17 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
           {/* ========================================== */}
           {eventType === 'birth' && (
             <div className="space-y-4 pt-1">
-              <div className="p-4 bg-white border-2 border-emerald-500/50 rounded-2xl space-y-4 shadow-sm">
+              <div className="p-4 bg-[#15241C] border-2 border-emerald-500/50 rounded-2xl space-y-4 shadow-sm">
                 <div className="flex items-center justify-between border-b border-emerald-200 pb-2">
                   <div className="flex items-center gap-2">
                     <div className="p-2 bg-emerald-700 text-white rounded-xl shadow-xs">
                       <Baby className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-black text-slate-900">
+                      <h4 className="text-sm font-black text-white">
                         Registro de Parto & Nacimiento de Ternero
                       </h4>
-                      <p className="text-[11px] text-slate-500 font-medium">
+                      <p className="text-[11px] text-[#A5B8AC] font-medium">
                         Identificación, datos del parto, genealogía y manejo inicial neonatal
                       </p>
                     </div>
@@ -2623,20 +2623,20 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 {/* ========================================================= */}
                 {/* 1. IDENTIFICACIÓN Y DATOS BÁSICOS */}
                 {/* ========================================================= */}
-                <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-3">
+                <div className="bg-[#0D1A13] p-3.5 rounded-2xl border border-white/10 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-slate-900 flex items-center gap-1.5 uppercase">
+                    <span className="text-xs font-black text-white flex items-center gap-1.5 uppercase">
                       <Tag className="w-4 h-4 text-emerald-700" />
                       1. Identificación y Datos Básicos
                     </span>
-                    <span className="text-[10px] text-slate-500 font-bold bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                    <span className="text-[10px] text-[#A5B8AC] font-bold bg-[#15241C] px-2 py-0.5 rounded-md border border-white/10">
                       ID Único & Fenotipo
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         ID / Chapeta (Arete / SINIGAN / ICA) *
                       </label>
                       <input
@@ -2644,13 +2644,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={tag}
                         onChange={(e) => setTag(e.target.value)}
                         placeholder="Ej. #9084 o SINIGAN-10482"
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono font-bold text-xs text-white"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Chip RFID / Botón Electrónico
                       </label>
                       <input
@@ -2658,45 +2658,45 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={birthRfid}
                         onChange={(e) => setBirthRfid(e.target.value)}
                         placeholder="982 000 412..."
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono text-xs text-slate-800"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono text-xs text-white"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Fecha del Parto *
                       </label>
                       <input
                         type="date"
                         value={birthDate}
                         onChange={(e) => setBirthDate(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-bold text-xs text-white"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Hora del Parto
                       </label>
                       <input
                         type="time"
                         value={birthTime}
                         onChange={(e) => setBirthTime(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono font-bold text-xs text-white"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Sexo *
                       </label>
                       <select
                         value={birthSex}
                         onChange={(e) => setBirthSex(e.target.value as 'macho' | 'hembra')}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="hembra">♀ Hembra</option>
                         <option value="macho">♂ Macho</option>
@@ -2704,13 +2704,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Raza / Composición *
                       </label>
                       <select
                         value={birthBreed}
                         onChange={(e) => setBirthBreed(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-semibold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-semibold text-xs text-white"
                       >
                         <option value="Brahman Blanco">Brahman Blanco</option>
                         <option value="Brahman Rojo">Brahman Rojo</option>
@@ -2729,13 +2729,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Pureza / % Cruce *
                       </label>
                       <select
                         value={birthPurityPct}
                         onChange={(e) => setBirthPurityPct(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-semibold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-semibold text-xs text-white"
                       >
                         <option value="100% Puro (Registro)">100% Puro (Registro)</option>
                         <option value="Puro Comercial">Puro Comercial</option>
@@ -2747,13 +2747,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Color / Pelaje *
                       </label>
                       <select
                         value={birthColor}
                         onChange={(e) => setBirthColor(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-semibold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-semibold text-xs text-white"
                       >
                         <option value="Blanco / Gris">⚪ Blanco / Gris</option>
                         <option value="Rojo / Sardo">🔴 Rojo / Sardo</option>
@@ -2768,14 +2768,14 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1 flex items-center gap-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1 flex items-center gap-1">
                         <Flame className="w-3.5 h-3.5 text-amber-600" />
                         Hierro / Número de Marca (Opcional en nacimiento)
                       </label>
                       <select
                         value={selectedBrandingIronId}
                         onChange={(e) => setSelectedBrandingIronId(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-amber-500 rounded-xl px-2.5 py-1.5 text-xs font-bold text-slate-800"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-amber-500 rounded-xl px-2.5 py-1.5 text-xs font-bold text-white"
                       >
                         <option value="">-- Sin Hierro Marcado Aún (Se marca al destete) --</option>
                         {brandingIrons.map((iron) => (
@@ -2787,13 +2787,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Tipo de Destino Zootécnico
                       </label>
                       <select
                         value={birthCattleType}
                         onChange={(e) => setBirthCattleType(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="comercial">🐮 Cría y Levante Comercial</option>
                         <option value="puro_comercial">🐄 Hato Genético Puro Comercial</option>
@@ -2806,13 +2806,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 {/* ========================================================= */}
                 {/* 2. DATOS DEL PARTO Y TERNERO */}
                 {/* ========================================================= */}
-                <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-3">
+                <div className="bg-[#0D1A13] p-3.5 rounded-2xl border border-white/10 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-slate-900 flex items-center gap-1.5 uppercase">
+                    <span className="text-xs font-black text-white flex items-center gap-1.5 uppercase">
                       <Scale className="w-4 h-4 text-emerald-700" />
                       2. Datos del Parto y Ternero
                     </span>
-                    <span className="text-[10px] text-slate-500 font-bold bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                    <span className="text-[10px] text-[#A5B8AC] font-bold bg-[#15241C] px-2 py-0.5 rounded-md border border-white/10">
                       Biometría & Vitalidad
                     </span>
                   </div>
@@ -2820,7 +2820,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <label className="block text-[10px] font-bold text-slate-600 uppercase">
+                        <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase">
                           Peso al Nacer (kg) *
                         </label>
                         {liveScaleWeight && (
@@ -2840,19 +2840,19 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={individualWeight}
                         onChange={(e) => setIndividualWeight(e.target.value)}
                         placeholder="35.0"
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono font-black text-xs text-emerald-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-3 py-1.5 font-mono font-black text-xs text-emerald-900"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Tipo de Parto *
                       </label>
                       <select
                         value={deliveryType}
                         onChange={(e) => setDeliveryType(e.target.value as any)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="eutocico">🟢 Eutócico (Normal / Sin ayuda)</option>
                         <option value="distocico_asistido">🟡 Asistido (Tracción manual / Mecánica)</option>
@@ -2862,13 +2862,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Condición del Parto *
                       </label>
                       <select
                         value={calvingCondition}
                         onChange={(e) => setCalvingCondition(e.target.value as any)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="simple">👤 Cría Simple (1 Cría)</option>
                         <option value="multiple">👥 Cría Múltiple (Mellizos / Gemelos)</option>
@@ -2876,14 +2876,14 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Vigor / Vitalidad (Escala 1 a 5) *
                       </label>
                       <div className="flex items-center gap-1.5">
                         <select
                           value={vigorScore}
                           onChange={(e) => setVigorScore(Number(e.target.value))}
-                          className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                          className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                         >
                           <option value={5}>⭐ 5 - Excelente (Se para & mama de inmediato)</option>
                           <option value={4}>⭐ 4 - Bueno (Alerta, se levanta pronto)</option>
@@ -2899,22 +2899,22 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 {/* ========================================================= */}
                 {/* 3. GENEALOGÍA */}
                 {/* ========================================================= */}
-                <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-3">
+                <div className="bg-[#0D1A13] p-3.5 rounded-2xl border border-white/10 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-slate-900 flex items-center gap-1.5 uppercase">
+                    <span className="text-xs font-black text-white flex items-center gap-1.5 uppercase">
                       <Dna className="w-4 h-4 text-emerald-700" />
                       3. Genealogía & Método de Concepción
                     </span>
-                    <span className="text-[10px] text-slate-500 font-bold bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                    <span className="text-[10px] text-[#A5B8AC] font-bold bg-[#15241C] px-2 py-0.5 rounded-md border border-white/10">
                       Trazabilidad Parental
                     </span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {/* Madre Biológica */}
-                    <div className="bg-white p-3 rounded-xl border border-slate-300 space-y-1.5">
+                    <div className="bg-[#15241C] p-3 rounded-xl border border-white/15 space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <label className="block text-[10px] font-black text-slate-900 uppercase flex items-center gap-1">
+                        <label className="block text-[10px] font-black text-white uppercase flex items-center gap-1">
                           <Dna className="w-3.5 h-3.5 text-emerald-700" />
                           ID Madre Biológica (Chapeta) *
                         </label>
@@ -2925,7 +2925,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           setParentTag(e.target.value);
                           setBirthError(null);
                         }}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#0D1A13] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="">-- Seleccionar Madre del Hato --</option>
                         {systemCows.length > 0 && (
@@ -2953,26 +2953,26 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           setBirthError(null);
                         }}
                         placeholder="O digite arete de la madre biológica..."
-                        className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1 text-xs font-semibold text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1 text-xs font-semibold text-white"
                         required
                       />
                     </div>
 
                     {/* Padre (Toro o Pajilla) */}
-                    <div className="bg-white p-3 rounded-xl border border-slate-300 space-y-1.5">
+                    <div className="bg-[#15241C] p-3 rounded-xl border border-white/15 space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <label className="block text-[10px] font-black text-slate-900 uppercase flex items-center gap-1">
+                        <label className="block text-[10px] font-black text-white uppercase flex items-center gap-1">
                           <Award className="w-3.5 h-3.5 text-amber-600" />
                           ID Padre (Toro de Monta / Pajilla IA)
                         </label>
-                        <span className="text-[9px] bg-slate-200 text-slate-700 font-extrabold px-2 py-0.5 rounded uppercase">
+                        <span className="text-[9px] bg-[#202E25] text-white font-extrabold px-2 py-0.5 rounded uppercase">
                           Opcional
                         </span>
                       </div>
                       <select
                         value={birthSireTag}
                         onChange={(e) => setBirthSireTag(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#0D1A13] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="Sin padre registrado (Desconocido)">
                           ❓ Sin padre registrado (Desconocido / Sin trazabilidad)
@@ -2999,20 +2999,20 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={birthSireTag}
                         onChange={(e) => setBirthSireTag(e.target.value)}
                         placeholder="O digite el toro o código de pajilla..."
-                        className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1 text-xs font-semibold text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1 text-xs font-semibold text-white"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                         Método de Concepción *
                       </label>
                       <select
                         value={conceptionMethod}
                         onChange={(e) => setConceptionMethod(e.target.value as any)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="monta_natural">🐂 Monta Natural (Toro en Potrero)</option>
                         <option value="ia">🔬 Inseminación Artificial Convencional (IA)</option>
@@ -3022,7 +3022,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1 flex items-center justify-between">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1 flex items-center justify-between">
                         <span>ID Madre Receptora (Solo si aplica para TE / FIV)</span>
                         {conceptionMethod === 'te_fiv' && (
                           <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.2 rounded">
@@ -3035,7 +3035,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={surrogateDamTag}
                         onChange={(e) => setSurrogateDamTag(e.target.value)}
                         placeholder="Ej. Vaca Receptora #REC-204 (Solo para TE / FIV)"
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 text-xs text-white"
                       />
                     </div>
                   </div>
@@ -3044,22 +3044,22 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 {/* ========================================================= */}
                 {/* 4. MANEJO INICIAL Y UBICACIÓN */}
                 {/* ========================================================= */}
-                <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-3">
+                <div className="bg-[#0D1A13] p-3.5 rounded-2xl border border-white/10 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-slate-900 flex items-center gap-1.5 uppercase">
+                    <span className="text-xs font-black text-white flex items-center gap-1.5 uppercase">
                       <Stethoscope className="w-4 h-4 text-emerald-700" />
                       4. Manejo Inicial y Ubicación
                     </span>
-                    <span className="text-[10px] text-slate-500 font-bold bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                    <span className="text-[10px] text-[#A5B8AC] font-bold bg-[#15241C] px-2 py-0.5 rounded-md border border-white/10">
                       Sanidad Neonatal & Custodia
                     </span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {/* Calostro */}
-                    <div className="bg-white p-3 rounded-xl border border-slate-300 space-y-2">
+                    <div className="bg-[#15241C] p-3 rounded-xl border border-white/15 space-y-2">
                       <div className="flex items-center justify-between">
-                        <label className="text-[10px] font-bold text-slate-700 uppercase">
+                        <label className="text-[10px] font-bold text-white uppercase">
                           Consumo de Calostro Suministrado *
                         </label>
                         <div className="flex items-center gap-1">
@@ -3067,7 +3067,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                             type="button"
                             onClick={() => setColostrumFed(true)}
                             className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                              colostrumFed ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                              colostrumFed ? 'bg-emerald-700 text-white' : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-[#202E25]'
                             }`}
                           >
                             ✓ Sí
@@ -3076,7 +3076,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                             type="button"
                             onClick={() => setColostrumFed(false)}
                             className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                              !colostrumFed ? 'bg-red-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                              !colostrumFed ? 'bg-red-600 text-white' : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-[#202E25]'
                             }`}
                           >
                             ✗ No
@@ -3086,7 +3086,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
 
                       {colostrumFed && (
                         <div>
-                          <label className="block text-[9.5px] font-bold text-slate-500 uppercase mb-0.5">
+                          <label className="block text-[9.5px] font-bold text-[#A5B8AC] uppercase mb-0.5">
                             Tiempo Posparto de Toma (Horas)
                           </label>
                           <div className="flex items-center gap-2">
@@ -3096,9 +3096,9 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                               value={colostrumHoursPostCalving}
                               onChange={(e) => setColostrumHoursPostCalving(e.target.value)}
                               placeholder="2"
-                              className="w-24 bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs font-mono font-bold text-slate-900"
+                              className="w-24 bg-[#0D1A13] border border-white/15 rounded-lg px-2.5 py-1 text-xs font-mono font-bold text-white"
                             />
-                            <span className="text-[10px] text-slate-500">
+                            <span className="text-[10px] text-[#A5B8AC]">
                               horas posparto (óptimo antes de 6 horas)
                             </span>
                           </div>
@@ -3107,9 +3107,9 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     {/* Curación de Ombligo */}
-                    <div className="bg-white p-3 rounded-xl border border-slate-300 space-y-2">
+                    <div className="bg-[#15241C] p-3 rounded-xl border border-white/15 space-y-2">
                       <div className="flex items-center justify-between">
-                        <label className="text-[10px] font-bold text-slate-700 uppercase">
+                        <label className="text-[10px] font-bold text-white uppercase">
                           Curación de Ombligo Realizada *
                         </label>
                         <div className="flex items-center gap-1">
@@ -3117,7 +3117,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                             type="button"
                             onClick={() => setNavelDisinfected(true)}
                             className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                              navelDisinfected ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                              navelDisinfected ? 'bg-emerald-700 text-white' : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-[#202E25]'
                             }`}
                           >
                             ✓ Realizada
@@ -3126,14 +3126,14 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                             type="button"
                             onClick={() => setNavelDisinfected(false)}
                             className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                              !navelDisinfected ? 'bg-red-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                              !navelDisinfected ? 'bg-red-600 text-white' : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-[#202E25]'
                             }`}
                           >
                             ✗ Pendiente
                           </button>
                         </div>
                       </div>
-                      <p className="text-[10px] text-slate-500">
+                      <p className="text-[10px] text-[#A5B8AC]">
                         Inmersión completa del cordón en tintura de yodo al 7% o clorhexidina.
                       </p>
                     </div>
@@ -3141,7 +3141,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
 
                   {/* Tratamientos Neonatales */}
                   <div>
-                    <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                    <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                       Tratamientos / Medicamentos Aplicados (Vitaminas, Hierro, Selenio)
                     </label>
                     <input
@@ -3149,14 +3149,14 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={initialTreatments}
                       onChange={(e) => setInitialTreatments(e.target.value)}
                       placeholder="Ej. Hierro dextrano 2ml + Complejo B + Selenio / Probiótico oral..."
-                      className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-3 py-1.5 text-xs font-semibold text-slate-900"
+                      className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-3 py-1.5 text-xs font-semibold text-white"
                     />
                   </div>
 
                   {/* Ubicación (Finca, Potrero) & Operario */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1 flex items-center gap-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1 flex items-center gap-1">
                         <Building2 className="w-3.5 h-3.5 text-emerald-700" />
                         Finca / Predio *
                       </label>
@@ -3166,7 +3166,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           setBirthOriginFarmId(e.target.value);
                           setBirthError(null);
                         }}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         {farms.map((f) => (
                           <option key={f.profile.id} value={f.profile.id}>
@@ -3181,20 +3181,20 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={customOriginFarmName}
                           onChange={(e) => setCustomOriginFarmName(e.target.value)}
                           placeholder="Nombre del predio..."
-                          className="w-full bg-white border border-slate-300 rounded-xl px-2.5 py-1 mt-1 text-xs"
+                          className="w-full bg-[#15241C] border border-white/15 rounded-xl px-2.5 py-1 mt-1 text-xs"
                         />
                       )}
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1 flex items-center gap-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1 flex items-center gap-1">
                         <MapPin className="w-3.5 h-3.5 text-emerald-700" />
                         Potrero / Lote Maternidad
                       </label>
                       <select
                         value={birthMaternityPaddockId}
                         onChange={(e) => setBirthMaternityPaddockId(e.target.value)}
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                       >
                         <option value="">-- Asignar Potrero Maternidad --</option>
                         {targetPaddocks.map((p) => (
@@ -3206,7 +3206,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1 flex items-center gap-1">
+                      <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1 flex items-center gap-1">
                         <UserCheck className="w-3.5 h-3.5 text-emerald-700" />
                         Operario Responsable *
                       </label>
@@ -3215,7 +3215,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={operatorResponsible}
                         onChange={(e) => setOperatorResponsible(e.target.value)}
                         placeholder="Nombre de quien atendió el parto"
-                        className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-slate-900"
+                        className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-2.5 py-1.5 font-bold text-xs text-white"
                         required
                       />
                     </div>
@@ -3223,7 +3223,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
 
                   {/* Notas */}
                   <div>
-                    <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">
+                    <label className="block text-[10px] font-bold text-[#A5B8AC] uppercase mb-1">
                       Observaciones Generales del Nacimiento
                     </label>
                     <input
@@ -3231,7 +3231,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Comportamiento materno, vigor de succión, tiempo de expulsión de placenta..."
-                      className="w-full bg-white border border-slate-300 focus:border-emerald-600 rounded-xl px-3 py-1.5 text-xs text-slate-800"
+                      className="w-full bg-[#15241C] border border-white/15 focus:border-emerald-600 rounded-xl px-3 py-1.5 text-xs text-white"
                     />
                   </div>
                 </div>
@@ -3266,7 +3266,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={partnerName}
                       onChange={(e) => setPartnerName(e.target.value)}
                       placeholder="Ej. Don Gabriel Gómez"
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-bold text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-bold text-xs"
                       required
                     />
                   </div>
@@ -3280,7 +3280,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={partnerDoc}
                       onChange={(e) => setPartnerDoc(e.target.value)}
                       placeholder="Ej. 80.123.456"
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono text-xs"
                     />
                   </div>
 
@@ -3293,13 +3293,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={partnerPhone}
                       onChange={(e) => setPartnerPhone(e.target.value)}
                       placeholder="Ej. 311 890 1234"
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 text-xs"
                     />
                   </div>
                 </div>
 
                 {/* Información Básica del Lote en Sociedad */}
-                <div className="bg-white p-3 rounded-xl border border-amber-200 space-y-2">
+                <div className="bg-[#15241C] p-3 rounded-xl border border-amber-200 space-y-2">
                   <span className="text-[10px] font-black text-amber-900 uppercase block">
                     🏷️ Información Básica del Ganado en Sociedad
                   </span>
@@ -3313,7 +3313,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sociedadLotName}
                         onChange={(e) => setSociedadLotName(e.target.value)}
                         placeholder="Ej. Lote Sociedad Gómez - Machos Ceba"
-                        className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-bold text-xs"
+                        className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-bold text-xs"
                         required
                       />
                     </div>
@@ -3325,7 +3325,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={sociedadCategory}
                         onChange={(e) => setSociedadCategory(e.target.value as LotCategory)}
-                        className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
+                        className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
                       >
                         <option value="ceba">Ceba (Engorde)</option>
                         <option value="cria">Cría / Levante</option>
@@ -3345,7 +3345,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sociedadBreed}
                         onChange={(e) => setSociedadBreed(e.target.value)}
                         placeholder="Ej. Brahman / Cebú Comercial"
-                        className="w-full bg-white border border-[#ffe082] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-[#ffe082] rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -3356,7 +3356,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={sociedadColor}
                         onChange={(e) => setSociedadColor(e.target.value)}
-                        className="w-full bg-white border border-[#ffe082] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-[#ffe082] rounded-lg px-2 py-1 text-xs"
                       >
                         <option value="Blanco / Gris">⚪ Blanco / Gris</option>
                         <option value="Rojo / Sardo">🔴 Rojo / Sardo</option>
@@ -3374,7 +3374,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={sociedadSex}
                         onChange={(e) => setSociedadSex(e.target.value)}
-                        className="w-full bg-white border border-[#ffe082] rounded-lg px-2 py-1 text-xs font-semibold"
+                        className="w-full bg-[#15241C] border border-[#ffe082] rounded-lg px-2 py-1 text-xs font-semibold"
                       >
                         <option value="Machos">Machos</option>
                         <option value="Hembras">Hembras</option>
@@ -3391,7 +3391,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={sociedadAgeRange}
                         onChange={(e) => setSociedadAgeRange(e.target.value)}
                         placeholder="Ej. 18-24 Meses"
-                        className="w-full bg-white border border-[#ffe082] rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-[#ffe082] rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -3402,7 +3402,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={sociedadBrandingIronId}
                         onChange={(e) => setSociedadBrandingIronId(e.target.value)}
-                        className="w-full bg-white border border-[#ffe082] rounded-lg px-2 py-1 text-xs font-bold"
+                        className="w-full bg-[#15241C] border border-[#ffe082] rounded-lg px-2 py-1 text-xs font-bold"
                       >
                         <option value="">-- Sin Hierro --</option>
                         {brandingIrons.map((iron) => (
@@ -3423,7 +3423,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={sociedadAnimalTags}
                       onChange={(e) => setSociedadAnimalTags(e.target.value)}
                       placeholder="Ej: #SOC-01, #SOC-02, #SOC-03..."
-                      className="w-full bg-white border border-[#ffe082] rounded-lg px-2.5 py-1 text-xs font-mono"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-lg px-2.5 py-1 text-xs font-mono"
                     />
                   </div>
                 </div>
@@ -3437,7 +3437,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     <select
                       value={shareScheme}
                       onChange={(e) => setShareScheme(e.target.value)}
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-semibold text-xs"
                     >
                       <option value="50% Socio / 50% Finca (En Aumento)">50% Socio / 50% Finca (Aumento)</option>
                       <option value="60% Finca / 40% Socio">60% Finca / 40% Socio</option>
@@ -3455,7 +3455,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="number"
                       value={sociedadHeads}
                       onChange={(e) => setSociedadHeads(e.target.value)}
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
                       required
                     />
                   </div>
@@ -3469,7 +3469,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       step="0.1"
                       value={sociedadAvgWeight}
                       onChange={(e) => setSociedadAvgWeight(e.target.value)}
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs"
                       required
                     />
                   </div>
@@ -3482,7 +3482,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="number"
                       value={sociedadPricePerKg}
                       onChange={(e) => setSociedadPricePerKg(e.target.value)}
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 font-mono text-xs"
                     />
                   </div>
                 </div>
@@ -3496,7 +3496,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     <select
                       value={sociedadPaddockId}
                       onChange={(e) => setSociedadPaddockId(e.target.value)}
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 text-xs font-semibold"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 text-xs font-semibold"
                     >
                       <option value="">-- Seleccionar Potrero --</option>
                       {targetPaddocks.map((pad) => (
@@ -3516,7 +3516,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={sociedadNotes}
                       onChange={(e) => setSociedadNotes(e.target.value)}
                       placeholder="Plazo de liquidación, condiciones sanitarias..."
-                      className="w-full bg-white border border-[#ffe082] rounded-xl px-2.5 py-1.5 text-xs"
+                      className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-2.5 py-1.5 text-xs"
                     />
                   </div>
                 </div>
@@ -3597,7 +3597,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
 
                 {/* KPI Metrics Summary Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  <div className="bg-white p-3 rounded-xl border border-[#bae6fd] space-y-1">
+                  <div className="bg-[#15241C] p-3 rounded-xl border border-[#bae6fd] space-y-1">
                     <span className="text-[10px] font-bold text-[#0284c7] uppercase block">
                       Cabezas a Mover
                     </span>
@@ -3606,7 +3606,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </span>
                   </div>
 
-                  <div className="bg-white p-3 rounded-xl border border-[#bae6fd] space-y-1">
+                  <div className="bg-[#15241C] p-3 rounded-xl border border-[#bae6fd] space-y-1">
                     <span className="text-[10px] font-bold text-[#0284c7] uppercase block">
                       Peso Promedio
                     </span>
@@ -3615,7 +3615,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </span>
                   </div>
 
-                  <div className="bg-white p-3 rounded-xl border border-[#bae6fd] space-y-1">
+                  <div className="bg-[#15241C] p-3 rounded-xl border border-[#bae6fd] space-y-1">
                     <span className="text-[10px] font-bold text-[#0284c7] uppercase block">
                       Biomasa Total Lote
                     </span>
@@ -3627,7 +3627,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     </span>
                   </div>
 
-                  <div className="bg-white p-3 rounded-xl border border-[#bae6fd] space-y-1">
+                  <div className="bg-[#15241C] p-3 rounded-xl border border-[#bae6fd] space-y-1">
                     <span className="text-[10px] font-bold text-[#0284c7] uppercase block">
                       Carga Animal Estimada
                     </span>
@@ -3642,7 +3642,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 </div>
 
                 {/* Section 1: Bovine Lot / Group & Weight Information */}
-                <div className="bg-white p-3.5 rounded-xl border border-[#bae6fd] space-y-3">
+                <div className="bg-[#15241C] p-3.5 rounded-xl border border-[#bae6fd] space-y-3">
                   <div className="flex items-center justify-between border-b border-[#e0f2fe] pb-2">
                     <span className="text-xs font-bold text-[#0369a1] flex items-center gap-1.5">
                       <Scale className="w-4 h-4 text-[#0284c7]" />
@@ -3836,7 +3836,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 </div>
 
                 {/* Section 2: Origin and Destination Mapping */}
-                <div className="bg-white p-3.5 rounded-xl border border-[#bae6fd] space-y-3">
+                <div className="bg-[#15241C] p-3.5 rounded-xl border border-[#bae6fd] space-y-3">
                   <span className="text-xs font-bold text-[#0369a1] flex items-center gap-1.5 border-b border-[#e0f2fe] pb-2">
                     <Route className="w-4 h-4 text-[#0284c7]" />
                     Puntos de Origen y Destino del Ganado
@@ -3892,7 +3892,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           <span className="text-[10px] font-bold text-[#475569] uppercase flex items-center gap-1">
                             <span>🏡</span> Predio de Origen (Salida)
                           </span>
-                          <div className="text-xs font-black text-[#0f172a] bg-white p-2 rounded-lg border border-[#e2e8f0]">
+                          <div className="text-xs font-black text-[#0f172a] bg-[#15241C] p-2 rounded-lg border border-[#e2e8f0]">
                             {targetFarm?.profile?.name || 'Predio Principal'}
                           </div>
                           <div>
@@ -3902,7 +3902,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                             <select
                               value={pasajeOriginPaddockId}
                               onChange={(e) => setPasajeOriginPaddockId(e.target.value)}
-                              className="w-full bg-white border border-[#cbd5e1] rounded-lg px-2 py-1.5 text-xs font-semibold"
+                              className="w-full bg-[#15241C] border border-[#cbd5e1] rounded-lg px-2 py-1.5 text-xs font-semibold"
                             >
                               <option value="">-- Potrero de Salida --</option>
                               {targetPaddocks.map((pad) => (
@@ -3925,7 +3925,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                               setPasajeTargetFarmId(e.target.value);
                               setPasajeDestinationPaddockId('');
                             }}
-                            className="w-full bg-white border border-[#7dd3fc] rounded-lg px-2 py-1.5 text-xs font-bold text-[#0369a1]"
+                            className="w-full bg-[#15241C] border border-[#7dd3fc] rounded-lg px-2 py-1.5 text-xs font-bold text-[#0369a1]"
                           >
                             <option value="">-- Seleccionar Predio Destino --</option>
                             {farms
@@ -3943,7 +3943,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                             <select
                               value={pasajeDestinationPaddockId}
                               onChange={(e) => setPasajeDestinationPaddockId(e.target.value)}
-                              className="w-full bg-white border border-[#bae6fd] rounded-lg px-2 py-1.5 text-xs font-semibold"
+                              className="w-full bg-[#15241C] border border-[#bae6fd] rounded-lg px-2 py-1.5 text-xs font-semibold"
                             >
                               <option value="">-- Potrero de Recepción --</option>
                               {farms
@@ -3964,7 +3964,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 {/* Section 3: Rotation Reason & Logistics */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* Reason for Rotation / Transfer */}
-                  <div className="bg-white p-3.5 rounded-xl border border-[#bae6fd] space-y-2.5">
+                  <div className="bg-[#15241C] p-3.5 rounded-xl border border-[#bae6fd] space-y-2.5">
                     <span className="text-xs font-bold text-[#0369a1] flex items-center gap-1.5">
                       <Clock className="w-4 h-4 text-[#0284c7]" />
                       Motivo de la Rotación / Movilización
@@ -4003,7 +4003,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                   </div>
 
                   {/* Operational Details (Date, Time, Handlers) */}
-                  <div className="bg-white p-3.5 rounded-xl border border-[#bae6fd] space-y-2.5">
+                  <div className="bg-[#15241C] p-3.5 rounded-xl border border-[#bae6fd] space-y-2.5">
                     <span className="text-xs font-bold text-[#0369a1] flex items-center gap-1.5">
                       <UserCheck className="w-4 h-4 text-[#0284c7]" />
                       Responsables y Horario del Movimiento
@@ -4081,7 +4081,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={pasajeIcaGuideNumber}
                           onChange={(e) => setPasajeIcaGuideNumber(e.target.value)}
                           placeholder="Ej. GSMI-2026-48901"
-                          className="w-full bg-white border border-[#7dd3fc] rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-[#0369a1]"
+                          className="w-full bg-[#15241C] border border-[#7dd3fc] rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-[#0369a1]"
                         />
                       </div>
 
@@ -4094,7 +4094,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={pasajeRemisionNumber}
                           onChange={(e) => setPasajeRemisionNumber(e.target.value)}
                           placeholder="Ej. REM-2026-104"
-                          className="w-full bg-white border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 font-mono text-xs font-semibold"
+                          className="w-full bg-[#15241C] border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 font-mono text-xs font-semibold"
                         />
                       </div>
 
@@ -4107,7 +4107,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={pasajeFreightCost}
                           onChange={(e) => setPasajeFreightCost(e.target.value)}
                           placeholder="350000"
-                          className="w-full bg-white border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 font-mono text-xs font-semibold"
+                          className="w-full bg-[#15241C] border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 font-mono text-xs font-semibold"
                         />
                       </div>
                     </div>
@@ -4124,7 +4124,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                               e.target.value as 'a_pie' | 'camion_sencillo' | 'doble_troque' | 'tractomula'
                             )
                           }
-                          className="w-full bg-white border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 text-xs font-semibold"
+                          className="w-full bg-[#15241C] border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 text-xs font-semibold"
                         >
                           <option value="a_pie">Arreo a Pie / Vaquería</option>
                           <option value="camion_sencillo">Camión Sencillo Ganadero</option>
@@ -4142,7 +4142,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={pasajeTransporterName}
                           onChange={(e) => setPasajeTransporterName(e.target.value)}
                           placeholder="Nombre y empresa"
-                          className="w-full bg-white border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 text-xs"
+                          className="w-full bg-[#15241C] border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 text-xs"
                         />
                       </div>
 
@@ -4155,7 +4155,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                           value={pasajeTruckPlate}
                           onChange={(e) => setPasajeTruckPlate(e.target.value.toUpperCase())}
                           placeholder="Ej. WNK-452"
-                          className="w-full bg-white border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs text-[#0f172a]"
+                          className="w-full bg-[#15241C] border border-[#cbd5e1] rounded-xl px-2.5 py-1.5 font-mono font-bold text-xs text-[#0f172a]"
                         />
                       </div>
                     </div>
@@ -4188,7 +4188,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     value={pasajeNotes}
                     onChange={(e) => setPasajeNotes(e.target.value)}
                     placeholder="Condición de las pasturas, estado corporal de los animales, hora estimada de llegada..."
-                    className="w-full bg-white border border-[#7dd3fc] rounded-xl px-3 py-2 text-xs text-[#0f172a]"
+                    className="w-full bg-[#15241C] border border-[#7dd3fc] rounded-xl px-3 py-2 text-xs text-[#0f172a]"
                   />
                 </div>
               </div>
@@ -4223,7 +4223,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       className={`p-2.5 rounded-xl border text-left flex flex-col gap-1 transition-all cursor-pointer ${
                         bajaReason === 'muerte'
                           ? 'bg-red-800 text-white border-red-950 ring-2 ring-red-700 shadow-xs'
-                          : 'bg-white text-gray-700 border-red-200 hover:bg-red-50'
+                          : 'bg-[#15241C] text-white border-red-200 hover:bg-red-50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -4240,7 +4240,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       className={`p-2.5 rounded-xl border text-left flex flex-col gap-1 transition-all cursor-pointer ${
                         bajaReason === 'perdida'
                           ? 'bg-amber-800 text-white border-amber-950 ring-2 ring-amber-700 shadow-xs'
-                          : 'bg-white text-gray-700 border-amber-200 hover:bg-amber-50'
+                          : 'bg-[#15241C] text-white border-amber-200 hover:bg-amber-950/30'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -4257,7 +4257,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       className={`p-2.5 rounded-xl border text-left flex flex-col gap-1 transition-all cursor-pointer ${
                         bajaReason === 'sacrificio'
                           ? 'bg-orange-800 text-white border-orange-950 ring-2 ring-orange-700 shadow-xs'
-                          : 'bg-white text-gray-700 border-orange-200 hover:bg-orange-50'
+                          : 'bg-[#15241C] text-white border-orange-200 hover:bg-orange-50'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -4274,7 +4274,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       className={`p-2.5 rounded-xl border text-left flex flex-col gap-1 transition-all cursor-pointer ${
                         bajaReason === 'enfermedad'
                           ? 'bg-rose-900 text-white border-rose-950 ring-2 ring-rose-800 shadow-xs'
-                          : 'bg-white text-gray-700 border-rose-200 hover:bg-rose-50'
+                          : 'bg-[#15241C] text-white border-rose-200 hover:bg-rose-950/30'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -4288,7 +4288,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                 </div>
 
                 {/* Selección de Lote o Animal Afectado */}
-                <div className="bg-white p-3 rounded-xl border border-rose-200 space-y-2">
+                <div className="bg-[#15241C] p-3 rounded-xl border border-rose-200 space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="block text-[10px] font-black text-rose-900 uppercase">
                       {isLotsEnabled ? '🏷️ Seleccionar Lote o Animal Afectado' : '🏷️ Identificación del Animal Afectado *'}
@@ -4331,7 +4331,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={bajaAnimalTagOrLot}
                       onChange={(e) => setBajaAnimalTagOrLot(e.target.value)}
                       placeholder={isLotsEnabled ? "Arete / ID individual o nombre de lote..." : "Arete o identificación del animal (Ej: GLO-001)..."}
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-[#991b1b]"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-[#991b1b]"
                       required
                     />
                   </div>
@@ -4345,7 +4345,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={bajaCategory}
                         onChange={(e) => setBajaCategory(e.target.value as LotCategory)}
-                        className="w-full bg-white border border-rose-200 rounded-lg px-2 py-1 text-xs font-semibold"
+                        className="w-full bg-[#15241C] border border-rose-200 rounded-lg px-2 py-1 text-xs font-semibold"
                       >
                         <option value="ceba">Ceba</option>
                         <option value="cria">Cría / Levante</option>
@@ -4363,7 +4363,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={bajaBreed}
                         onChange={(e) => setBajaBreed(e.target.value)}
                         placeholder="Ej. Brahman Blanco"
-                        className="w-full bg-white border border-rose-200 rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-rose-200 rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -4374,7 +4374,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={bajaColor}
                         onChange={(e) => setBajaColor(e.target.value)}
-                        className="w-full bg-white border border-rose-200 rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-rose-200 rounded-lg px-2 py-1 text-xs"
                       >
                         <option value="Blanco / Gris">⚪ Blanco / Gris</option>
                         <option value="Rojo / Sardo">🔴 Rojo / Sardo</option>
@@ -4392,7 +4392,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={bajaSex}
                         onChange={(e) => setBajaSex(e.target.value)}
-                        className="w-full bg-white border border-rose-200 rounded-lg px-2 py-1 text-xs font-semibold"
+                        className="w-full bg-[#15241C] border border-rose-200 rounded-lg px-2 py-1 text-xs font-semibold"
                       >
                         <option value="Machos">Machos</option>
                         <option value="Hembras">Hembras</option>
@@ -4409,7 +4409,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                         value={bajaAgeRange}
                         onChange={(e) => setBajaAgeRange(e.target.value)}
                         placeholder="Ej. 18-24 Meses"
-                        className="w-full bg-white border border-rose-200 rounded-lg px-2 py-1 text-xs"
+                        className="w-full bg-[#15241C] border border-rose-200 rounded-lg px-2 py-1 text-xs"
                       />
                     </div>
 
@@ -4420,7 +4420,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       <select
                         value={bajaBrandingIronId}
                         onChange={(e) => setBajaBrandingIronId(e.target.value)}
-                        className="w-full bg-white border border-rose-200 rounded-lg px-2 py-1 text-xs font-bold"
+                        className="w-full bg-[#15241C] border border-rose-200 rounded-lg px-2 py-1 text-xs font-bold"
                       >
                         <option value="">-- Sin Hierro --</option>
                         {brandingIrons.map((iron) => (
@@ -4442,7 +4442,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="number"
                       value={bajaHeads}
                       onChange={(e) => setBajaHeads(e.target.value)}
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-[#991b1b]"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 font-bold font-mono text-xs text-[#991b1b]"
                       required
                     />
                   </div>
@@ -4455,7 +4455,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       step="0.1"
                       value={bajaAvgWeight}
                       onChange={(e) => setBajaAvgWeight(e.target.value)}
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-[#991b1b]"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-[#991b1b]"
                     />
                   </div>
                   <div>
@@ -4466,7 +4466,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       type="date"
                       value={bajaDate}
                       onChange={(e) => setBajaDate(e.target.value)}
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs font-semibold"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs font-semibold"
                       required
                     />
                   </div>
@@ -4482,7 +4482,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={bajaSpecificCause}
                       onChange={(e) => setBajaSpecificCause(e.target.value)}
                       placeholder="Ej. Timpanismo agudo / Fractura de fémur / Anaplasmosis / Abigeato..."
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs font-bold text-[#991b1b]"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs font-bold text-[#991b1b]"
                       required
                     />
                   </div>
@@ -4495,7 +4495,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={bajaEstimatedLoss}
                       onChange={(e) => setBajaEstimatedLoss(e.target.value)}
                       placeholder="Ej. 3500000"
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-rose-900"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 font-mono text-xs font-bold text-rose-900"
                     />
                   </div>
                 </div>
@@ -4510,7 +4510,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={bajaWitnessOrVet}
                       onChange={(e) => setBajaWitnessOrVet(e.target.value)}
                       placeholder="Ej. Dr. Mario Restrepo (TP: 1892)"
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs"
                     />
                   </div>
                   <div>
@@ -4522,7 +4522,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                       value={bajaDocumentRef}
                       onChange={(e) => setBajaDocumentRef(e.target.value)}
                       placeholder="Ej. ACTA-NEC-042 / DENUNCIA-POL-99"
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 font-mono text-xs"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 font-mono text-xs"
                     />
                   </div>
                   <div>
@@ -4532,7 +4532,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     <select
                       value={bajaPaddockId}
                       onChange={(e) => setBajaPaddockId(e.target.value)}
-                      className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs font-semibold"
+                      className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs font-semibold"
                     >
                       <option value="">-- Seleccionar Potrero --</option>
                       {targetPaddocks.map((pad) => (
@@ -4553,7 +4553,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
                     value={bajaNotes}
                     onChange={(e) => setBajaNotes(e.target.value)}
                     placeholder="Ej. Enterrado en fosa con cal viva / Notificado a la aseguradora ganadera..."
-                    className="w-full bg-white border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs"
+                    className="w-full bg-[#15241C] border border-rose-300 rounded-xl px-2.5 py-1.5 text-xs"
                   />
                 </div>
               </div>
@@ -4575,9 +4575,9 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
 
             <button
               type="submit"
-              className="flex-1 bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-extrabold py-3.5 rounded-2xl text-xs sm:text-sm flex items-center justify-center gap-2 tactical-shadow transition-all active:scale-[0.98]"
+              className="flex-1 bg-[#D4A94E] hover:bg-[#ffdeac] text-[#0D1A13] font-extrabold py-3.5 rounded-2xl text-xs sm:text-sm flex items-center justify-center gap-2 tactical-shadow transition-all active:scale-[0.98]"
             >
-              <CheckCircle2 className="w-5 h-5 text-[#523700]" />
+              <CheckCircle2 className="w-5 h-5 text-[#0D1A13]" />
               <span>
                 Cargar e Ingresar a Inventario de{' '}
                 <strong className="underline">{targetFarm?.profile?.name || 'Predio'}</strong>
@@ -4603,13 +4603,13 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             if (e.target === e.currentTarget) handleCancelFarmChange();
           }}
         >
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 border-2 border-emerald-300 shadow-2xl space-y-4 text-left">
+          <div className="bg-[#15241C] rounded-3xl max-w-md w-full p-6 border-2 border-emerald-300 shadow-2xl space-y-4 text-left">
             <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-950/30 border border-emerald-200 flex items-center justify-center text-emerald-800 shrink-0">
                 <Building2 className="w-6 h-6 text-emerald-700" />
               </div>
               <div>
-                <h3 className="font-extrabold text-base text-[#012d1d]">
+                <h3 className="font-extrabold text-base text-white">
                   {getFarmChangeConfirmDetails().title}
                 </h3>
                 <p className="text-xs text-[#525e57] font-medium mt-0.5 leading-relaxed">
@@ -4624,7 +4624,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
             <div className="bg-[#f7faf8] p-3.5 rounded-2xl border border-[#d2ded7] text-xs space-y-2.5">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-[#717973] font-semibold">Predio Actual:</span>
-                <span className="font-bold text-[#012d1d]">
+                <span className="font-bold text-white">
                   {targetFarm?.profile.name} ({targetFarm?.profile.municipality})
                 </span>
               </div>
@@ -4654,7 +4654,7 @@ export const NewEventModal: React.FC<NewEventModalProps> = ({
               <button
                 type="button"
                 onClick={handleConfirmFarmChange}
-                className="px-4 py-2.5 bg-[#012d1d] hover:bg-[#024029] text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer active:scale-95"
+                className="px-4 py-2.5 bg-[#0D1A13] hover:bg-[#024029] text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer active:scale-95"
               >
                 <Check className="w-4 h-4 text-emerald-300" />
                 <span>{getFarmChangeConfirmDetails().btnText}</span>

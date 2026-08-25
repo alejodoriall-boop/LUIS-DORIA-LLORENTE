@@ -465,13 +465,13 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col shadow-2xl border-2 border-[#012d1d] overflow-hidden my-auto animate-in fade-in zoom-in duration-200">
+      <div className="bg-[#15241C] rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col shadow-2xl border-2 border-[#012d1d] overflow-hidden my-auto animate-in fade-in zoom-in duration-200">
         
         {/* Modal Header */}
         <div className="bg-gradient-to-r from-[#012d1d] via-[#023e2a] to-[#012d1d] text-white p-5 flex items-start justify-between shrink-0 border-b border-emerald-900">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="bg-[#ffba38] text-[#012d1d] font-black text-[10px] uppercase px-3 py-0.5 rounded-full shadow">
+              <span className="bg-[#D4A94E] text-white font-black text-[10px] uppercase px-3 py-0.5 rounded-full shadow">
                 📋 Plantillas Automatizadas de Nómina & PILA
               </span>
               <span className="bg-white/20 text-white font-mono text-xs px-2.5 py-0.5 rounded-lg border border-white/20">
@@ -482,7 +482,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
               <Sparkles className="w-6 h-6 text-[#ffba38]" />
               Plantillas de Liquidación: Vacaciones, Bonificaciones & Cesantías
             </h2>
-            <p className="text-xs text-[#c1ecd4]">
+            <p className="text-xs text-[#A5B8AC]">
               {farmName} — Genera liquidaciones exactas con fórmulas legales, cálculos de IBC y borrador PILA precargado
             </p>
           </div>
@@ -496,13 +496,13 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="bg-[#f1f4f2] px-6 py-3 border-b border-[#c1c8c2] flex items-center gap-3 overflow-x-auto custom-scrollbar">
+        <div className="bg-[#f1f4f2] px-6 py-3 border-b border-white/10 flex items-center gap-3 overflow-x-auto custom-scrollbar">
           <button
             onClick={() => setActiveTab('vacaciones')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'vacaciones'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md border border-[#012d1d]'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md border border-[#012d1d]'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Palmtree className="w-4 h-4 text-emerald-600" />
@@ -513,8 +513,8 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
             onClick={() => setActiveTab('bonificaciones')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'bonificaciones'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md border border-[#012d1d]'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md border border-[#012d1d]'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Gift className="w-4 h-4 text-amber-500" />
@@ -525,8 +525,8 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
             onClick={() => setActiveTab('cesantias')}
             className={`px-4 py-2.5 rounded-2xl font-black text-xs transition-all flex items-center gap-2 cursor-pointer shrink-0 ${
               activeTab === 'cesantias'
-                ? 'bg-[#012d1d] text-[#ffba38] shadow-md border border-[#012d1d]'
-                : 'bg-white text-[#717973] hover:bg-slate-100 border border-[#c1c8c2]'
+                ? 'bg-[#0D1A13] text-[#ffba38] shadow-md border border-[#012d1d]'
+                : 'bg-[#15241C] text-[#717973] hover:bg-[#1F3327] border border-white/10'
             }`}
           >
             <Landmark className="w-4 h-4 text-sky-600" />
@@ -535,7 +535,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
         </div>
 
         {/* Body Content according to Active Tab */}
-        <div className="p-5 overflow-y-auto grow bg-[#f8fbf9] space-y-5">
+        <div className="p-5 overflow-y-auto grow bg-[#15241C] space-y-5">
 
           {/* ========================================================================= */}
           {/* TAB 1: VACACIONES */}
@@ -543,7 +543,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
           {activeTab === 'vacaciones' && (
             <div className="space-y-5 animate-in fade-in duration-150">
               {/* Information Banner */}
-              <div className="bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-4 flex items-start gap-3">
+              <div className="bg-emerald-950/30 border-2 border-emerald-300 rounded-2xl p-4 flex items-start gap-3">
                 <Palmtree className="w-6 h-6 text-emerald-800 shrink-0 mt-0.5" />
                 <div className="text-xs text-emerald-950 space-y-1">
                   <p className="font-black text-sm">🏖️ Liquidación de Vacaciones y Novedad PILA Code VAC</p>
@@ -555,15 +555,15 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
               </div>
 
               {/* Configuration Controls */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-white p-4 rounded-3xl border-2 border-[#c1c8c2] shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-[#15241C] p-4 rounded-3xl border-2 border-white/10 shadow-sm">
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Modalidad de Vacaciones
                   </label>
                   <select
                     value={vacType}
                     onChange={(e) => setVacType(e.target.value as any)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="disfrutadas">Disfrutadas en Tiempo (Descanso efectivo)</option>
                     <option value="compensadas">Compensadas en Dinero (Sin suspensión de trabajo)</option>
@@ -571,7 +571,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Días a Liquidar
                   </label>
                   <input
@@ -580,28 +580,28 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                     max={30}
                     value={vacDays}
                     onChange={(e) => setVacDays(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   />
                   <p className="text-[10px] text-[#717973] mt-1">Estándar 15 días / año completo</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Fecha Inicio de Vacaciones
                   </label>
                   <input
                     type="date"
                     value={vacStartDate}
                     onChange={(e) => setVacStartDate(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   />
                 </div>
               </div>
 
               {/* Employee Selector Table */}
-              <div className="bg-white rounded-3xl border-2 border-[#c1c8c2] overflow-hidden p-4 space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <h3 className="text-xs font-black text-[#012d1d] uppercase tracking-wider">
+              <div className="bg-[#15241C] rounded-3xl border-2 border-white/10 overflow-hidden p-4 space-y-3">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                  <h3 className="text-xs font-black text-white uppercase tracking-wider">
                     Selecciona Trabajadores para Vacaciones ({selectedVacEmpIds.length} / {activeEmps.length})
                   </h3>
 
@@ -623,7 +623,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse min-w-[600px]">
                     <thead>
-                      <tr className="bg-[#f1f4f2] text-[11px] font-black text-[#012d1d] uppercase tracking-wider border-b border-[#c1c8c2]">
+                      <tr className="bg-[#f1f4f2] text-[11px] font-black text-white uppercase tracking-wider border-b border-white/10">
                         <th className="p-2.5 text-center">Incluir</th>
                         <th className="p-2.5">Trabajador</th>
                         <th className="p-2.5">Salario Base</th>
@@ -639,7 +639,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                         const vacTotal = Math.round(dailyRate * vacDays);
 
                         return (
-                          <tr key={emp.id} className={isSelected ? 'bg-emerald-50/50' : 'hover:bg-slate-50'}>
+                          <tr key={emp.id} className={isSelected ? 'bg-emerald-50/50' : 'hover:bg-[#0D1A13]'}>
                             <td className="p-2.5 text-center">
                               <input
                                 type="checkbox"
@@ -650,11 +650,11 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                             </td>
 
                             <td className="p-2.5">
-                              <p className="font-black text-[#012d1d]">{emp.fullName}</p>
+                              <p className="font-black text-white">{emp.fullName}</p>
                               <p className="text-[10px] text-[#717973]">{emp.role} (C.C. {emp.documentId})</p>
                             </td>
 
-                            <td className="p-2.5 font-mono font-bold text-[#012d1d]">
+                            <td className="p-2.5 font-mono font-bold text-white">
                               ${emp.baseRate.toLocaleString('es-CO')}
                             </td>
 
@@ -684,7 +684,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 <button
                   type="button"
                   onClick={handleGenerateVacationPayroll}
-                  className="bg-[#012d1d] hover:bg-[#02402a] text-white font-black text-xs py-3.5 px-6 rounded-2xl shadow-xl transition-all flex items-center gap-2 cursor-pointer"
+                  className="bg-[#0D1A13] hover:bg-[#02402a] text-white font-black text-xs py-3.5 px-6 rounded-2xl shadow-xl transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#ffba38]" />
                   Generar Liquidación de Vacaciones & Borrador PILA
@@ -699,7 +699,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
           {activeTab === 'bonificaciones' && (
             <div className="space-y-5 animate-in fade-in duration-150">
               {/* Information Banner */}
-              <div className="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 flex items-start gap-3">
+              <div className="bg-amber-950/30 border-2 border-amber-300 rounded-2xl p-4 flex items-start gap-3">
                 <Gift className="w-6 h-6 text-amber-700 shrink-0 mt-0.5" />
                 <div className="text-xs text-amber-950 space-y-1">
                   <p className="font-black text-sm">🎁 Bonificaciones, Primas de Ordeño y Ley 1393 de 2010</p>
@@ -711,15 +711,15 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
               </div>
 
               {/* Category & Reason Controls */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-white p-4 rounded-3xl border-2 border-[#c1c8c2] shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-[#15241C] p-4 rounded-3xl border-2 border-white/10 shadow-sm">
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Tipo de Bonificación
                   </label>
                   <select
                     value={bonusCategory}
                     onChange={(e) => setBonusCategory(e.target.value as any)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="constitutiva">Constitutiva de Salario (100% IBC PILA)</option>
                     <option value="no_constitutiva">No Constitutiva de Salario (Art. 128 CST / Sujeta a Tope 40%)</option>
@@ -728,21 +728,21 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Concepto / Motivo de la Bonificación
                   </label>
                   <input
                     type="text"
                     value={bonusReason}
                     onChange={(e) => setBonusReason(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                     placeholder="Ej. Bonificación por Meta de Kilos de Leche y Cero Mastitis"
                   />
                 </div>
               </div>
 
               {/* Quick Bulk Bonus Setter */}
-              <div className="bg-emerald-50 p-3.5 rounded-2xl border border-emerald-300 flex items-center justify-between gap-3">
+              <div className="bg-emerald-950/30 p-3.5 rounded-2xl border border-emerald-300 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <Calculator className="w-4 h-4 text-emerald-800" />
                   <span className="text-xs font-bold text-emerald-950">Asignar Monto General a Todos:</span>
@@ -753,7 +753,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                     step={10000}
                     value={bonusApplyAll}
                     onChange={(e) => setBonusApplyAll(Number(e.target.value))}
-                    className="p-1.5 rounded-xl border border-emerald-400 bg-white text-xs font-mono font-bold w-32 text-emerald-950"
+                    className="p-1.5 rounded-xl border border-emerald-400 bg-[#15241C] text-xs font-mono font-bold w-32 text-emerald-950"
                   />
                   <button
                     type="button"
@@ -764,7 +764,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                       });
                       setBonusAmounts(updated);
                     }}
-                    className="bg-[#012d1d] text-white text-xs font-bold px-3 py-1.5 rounded-xl cursor-pointer"
+                    className="bg-[#0D1A13] text-white text-xs font-bold px-3 py-1.5 rounded-xl cursor-pointer"
                   >
                     Aplicar a Todos
                   </button>
@@ -772,15 +772,15 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
               </div>
 
               {/* Employee Bonus Matrix */}
-              <div className="bg-white rounded-3xl border-2 border-[#c1c8c2] overflow-hidden p-4 space-y-3">
-                <h3 className="text-xs font-black text-[#012d1d] uppercase tracking-wider">
+              <div className="bg-[#15241C] rounded-3xl border-2 border-white/10 overflow-hidden p-4 space-y-3">
+                <h3 className="text-xs font-black text-white uppercase tracking-wider">
                   Matriz de Bonificaciones por Trabajador ({activeEmps.length} Empleados)
                 </h3>
 
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse min-w-[650px]">
                     <thead>
-                      <tr className="bg-[#f1f4f2] text-[11px] font-black text-[#012d1d] uppercase tracking-wider border-b border-[#c1c8c2]">
+                      <tr className="bg-[#f1f4f2] text-[11px] font-black text-white uppercase tracking-wider border-b border-white/10">
                         <th className="p-2.5">Trabajador</th>
                         <th className="p-2.5 text-right">Salario Ordinario</th>
                         <th className="p-2.5 text-center">Monto Bonificación ($)</th>
@@ -799,13 +799,13 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                         const ibcPila = bonusCategory === 'constitutiva' ? totalDevengado : emp.baseRate + excess;
 
                         return (
-                          <tr key={emp.id} className="hover:bg-slate-50">
+                          <tr key={emp.id} className="hover:bg-[#0D1A13]">
                             <td className="p-2.5">
-                              <p className="font-black text-[#012d1d]">{emp.fullName}</p>
+                              <p className="font-black text-white">{emp.fullName}</p>
                               <p className="text-[10px] text-[#717973]">{emp.role}</p>
                             </td>
 
-                            <td className="p-2.5 text-right font-mono font-bold text-[#012d1d]">
+                            <td className="p-2.5 text-right font-mono font-bold text-white">
                               ${emp.baseRate.toLocaleString('es-CO')}
                             </td>
 
@@ -820,7 +820,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                                     [emp.id]: Number(e.target.value),
                                   })
                                 }
-                                className="p-1.5 rounded-xl border border-[#c1c8c2] bg-white text-xs font-mono font-bold text-[#012d1d] w-32 text-center"
+                                className="p-1.5 rounded-xl border border-white/10 bg-[#15241C] text-xs font-mono font-bold text-white w-32 text-center"
                               />
                             </td>
 
@@ -840,7 +840,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                                   </span>
                                 )
                               ) : (
-                                <span className="text-[10px] text-slate-400 font-bold">100% Salarial</span>
+                                <span className="text-[10px] text-[#A5B8AC] font-bold">100% Salarial</span>
                               )}
                             </td>
 
@@ -860,7 +860,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 <button
                   type="button"
                   onClick={handleGenerateBonusPayroll}
-                  className="bg-[#012d1d] hover:bg-[#02402a] text-white font-black text-xs py-3.5 px-6 rounded-2xl shadow-xl transition-all flex items-center gap-2 cursor-pointer"
+                  className="bg-[#0D1A13] hover:bg-[#02402a] text-white font-black text-xs py-3.5 px-6 rounded-2xl shadow-xl transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#ffba38]" />
                   Generar Nómina Especial de Bonificaciones & Borrador PILA (Ley 1393)
@@ -875,7 +875,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
           {activeTab === 'cesantias' && (
             <div className="space-y-5 animate-in fade-in duration-150">
               {/* Information Banner */}
-              <div className="bg-sky-50 border-2 border-sky-300 rounded-2xl p-4 flex items-start gap-3">
+              <div className="bg-sky-950/30 border-2 border-sky-300 rounded-2xl p-4 flex items-start gap-3">
                 <Landmark className="w-6 h-6 text-sky-800 shrink-0 mt-0.5" />
                 <div className="text-xs text-sky-950 space-y-1">
                   <p className="font-black text-sm">🏦 Cesantías e Intereses sobre Cesantías (Ley 50 / CST)</p>
@@ -888,15 +888,15 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
               </div>
 
               {/* Configuration Controls */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-white p-4 rounded-3xl border-2 border-[#c1c8c2] shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-[#15241C] p-4 rounded-3xl border-2 border-white/10 shadow-sm">
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Tipo de Liquidación
                   </label>
                   <select
                     value={cesantiasMode}
                     onChange={(e) => setCesantiasMode(e.target.value as any)}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   >
                     <option value="intereses_directos">Pago Directo de Intereses de Cesantías (12% Anual)</option>
                     <option value="consignacion_fondo">Consignación Anual a Fondo de Cesantías (Porvenir / Protección / FNA)</option>
@@ -905,7 +905,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-black text-[#012d1d] mb-1">
+                  <label className="block text-xs font-black text-white mb-1">
                     Días Laborados a Liquidar
                   </label>
                   <input
@@ -914,30 +914,30 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                     max={360}
                     value={cesantiasDays}
                     onChange={(e) => setCesantiasDays(Number(e.target.value))}
-                    className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                   />
                   <p className="text-[10px] text-[#717973] mt-1">360 días = Año completo laboral</p>
                 </div>
 
                 {cesantiasMode === 'liquidacion_parcial' && (
                   <div>
-                    <label className="block text-xs font-black text-[#012d1d] mb-1">
+                    <label className="block text-xs font-black text-white mb-1">
                       Destino de Liquidación Parcial
                     </label>
                     <input
                       type="text"
                       value={partialReason}
                       onChange={(e) => setPartialReason(e.target.value)}
-                      className="w-full p-2.5 rounded-xl border-2 border-[#c1c8c2] bg-white text-xs font-bold text-[#012d1d] focus:border-[#012d1d] focus:outline-none"
+                      className="w-full p-2.5 rounded-xl border-2 border-white/10 bg-[#15241C] text-xs font-bold text-white focus:border-[#012d1d] focus:outline-none"
                     />
                   </div>
                 )}
               </div>
 
               {/* Employee Selector Table */}
-              <div className="bg-white rounded-3xl border-2 border-[#c1c8c2] overflow-hidden p-4 space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <h3 className="text-xs font-black text-[#012d1d] uppercase tracking-wider">
+              <div className="bg-[#15241C] rounded-3xl border-2 border-white/10 overflow-hidden p-4 space-y-3">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                  <h3 className="text-xs font-black text-white uppercase tracking-wider">
                     Trabajadores para Cesantías ({selectedCesEmpIds.length} / {activeEmps.length})
                   </h3>
 
@@ -959,7 +959,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse min-w-[650px]">
                     <thead>
-                      <tr className="bg-[#f1f4f2] text-[11px] font-black text-[#012d1d] uppercase tracking-wider border-b border-[#c1c8c2]">
+                      <tr className="bg-[#f1f4f2] text-[11px] font-black text-white uppercase tracking-wider border-b border-white/10">
                         <th className="p-2.5 text-center">Incluir</th>
                         <th className="p-2.5">Trabajador / Fondo</th>
                         <th className="p-2.5 text-right">Base (Salario + Aux)</th>
@@ -981,7 +981,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                         else netToPay = cesantiasAmount + interesesAmount;
 
                         return (
-                          <tr key={emp.id} className={isSelected ? 'bg-sky-50/50' : 'hover:bg-slate-50'}>
+                          <tr key={emp.id} className={isSelected ? 'bg-sky-50/50' : 'hover:bg-[#0D1A13]'}>
                             <td className="p-2.5 text-center">
                               <input
                                 type="checkbox"
@@ -992,11 +992,11 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                             </td>
 
                             <td className="p-2.5">
-                              <p className="font-black text-[#012d1d]">{emp.fullName}</p>
+                              <p className="font-black text-white">{emp.fullName}</p>
                               <p className="text-[10px] text-sky-900 font-bold">Fondo: {emp.pensionFund || 'Porvenir'}</p>
                             </td>
 
-                            <td className="p-2.5 text-right font-mono font-bold text-[#012d1d]">
+                            <td className="p-2.5 text-right font-mono font-bold text-white">
                               ${baseSalary.toLocaleString('es-CO')}
                             </td>
 
@@ -1024,7 +1024,7 @@ export const PayrollTemplatesModal: React.FC<PayrollTemplatesModalProps> = ({
                 <button
                   type="button"
                   onClick={handleGenerateCesantiasPayroll}
-                  className="bg-[#012d1d] hover:bg-[#02402a] text-white font-black text-xs py-3.5 px-6 rounded-2xl shadow-xl transition-all flex items-center gap-2 cursor-pointer"
+                  className="bg-[#0D1A13] hover:bg-[#02402a] text-white font-black text-xs py-3.5 px-6 rounded-2xl shadow-xl transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#ffba38]" />
                   Generar Liquidación de Cesantías / Intereses

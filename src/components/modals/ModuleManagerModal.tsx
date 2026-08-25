@@ -198,11 +198,11 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-3 md:p-6 overflow-y-auto">
-      <div className="bg-white border-2 border-[#012d1d] rounded-3xl max-w-4xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
+      <div className="bg-[#15241C] border-2 border-[#012d1d] rounded-3xl max-w-4xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white p-5 flex items-center justify-between border-b border-[#1b4332]">
+        <div className="bg-[#0D1A13] text-white p-5 flex items-center justify-between border-b border-[#1b4332]">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-[#1b4332] text-[#ffba38] rounded-2xl border border-[#ffba38]/30">
+            <div className="p-3 bg-[#123F2A] text-[#ffba38] rounded-2xl border border-[#ffba38]/30">
               <Layers className="w-6 h-6" />
             </div>
             <div>
@@ -210,18 +210,18 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 <h2 className="text-xl font-black tracking-tight text-white uppercase font-mono">
                   GESTOR DE MÓDULOS DE GESTIÓN
                 </h2>
-                <span className="bg-[#ffba38] text-[#012d1d] text-xs font-black px-2 py-0.5 rounded-full font-mono">
+                <span className="bg-[#D4A94E] text-white text-xs font-black px-2 py-0.5 rounded-full font-mono">
                   {activeCount}/{modulesList.length} ACTIVOS
                 </span>
               </div>
-              <p className="text-xs text-[#c1ecd4]/80 mt-0.5">
+              <p className="text-xs text-[#A5B8AC]/80 mt-0.5">
                 Configura los módulos activos según el modelo productivo de tu ganadería.
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-[#1b4332] text-[#c1ecd4] hover:text-white hover:bg-rose-900 transition-colors cursor-pointer"
+            className="p-2 rounded-xl bg-[#123F2A] text-[#A5B8AC] hover:text-white hover:bg-rose-900 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -231,7 +231,7 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
         <div className="p-5 overflow-y-auto space-y-5 flex-1 custom-scrollbar bg-[#fcfdfc]">
           {/* Quick Preset Selector */}
           <div className="bg-[#eaf4ee] border border-[#c1ecd4] p-4 rounded-2xl space-y-2">
-            <p className="text-xs font-extrabold text-[#012d1d] uppercase font-mono flex items-center gap-1.5">
+            <p className="text-xs font-extrabold text-white uppercase font-mono flex items-center gap-1.5">
               <SlidersHorizontal className="w-4 h-4 text-[#ffba38]" />
               PERFILES PRODUCTIVOS PRECONFIGURADOS:
             </p>
@@ -240,8 +240,8 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => handlePresetApply('dairy')}
                 className={`p-2.5 rounded-xl border text-left cursor-pointer transition-all flex items-center gap-2.5 ${
                   isDairyEnabled
-                    ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-sm'
-                    : 'bg-white text-[#012d1d] border-[#c1ecd4] hover:bg-[#d8ece0]'
+                    ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-sm'
+                    : 'bg-[#15241C] text-white border-[#c1ecd4] hover:bg-[#d8ece0]'
                 }`}
               >
                 <Milk className="w-5 h-5 text-[#ffba38] shrink-0" />
@@ -255,8 +255,8 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => handlePresetApply('beef')}
                 className={`p-2.5 rounded-xl border text-left cursor-pointer transition-all flex items-center gap-2.5 ${
                   !isDairyEnabled
-                    ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-sm'
-                    : 'bg-white text-[#012d1d] border-[#c1ecd4] hover:bg-[#d8ece0]'
+                    ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-sm'
+                    : 'bg-[#15241C] text-white border-[#c1ecd4] hover:bg-[#d8ece0]'
                 }`}
               >
                 <CowIcon className="w-5 h-5 text-[#ffba38] shrink-0" />
@@ -268,7 +268,7 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
 
               <button
                 onClick={() => handlePresetApply('all')}
-                className="p-2.5 rounded-xl border bg-white text-[#012d1d] border-[#c1ecd4] hover:bg-[#d8ece0] text-left cursor-pointer transition-all flex items-center gap-2.5"
+                className="p-2.5 rounded-xl border bg-[#15241C] text-white border-[#c1ecd4] hover:bg-[#d8ece0] text-left cursor-pointer transition-all flex items-center gap-2.5"
               >
                 <Sparkles className="w-5 h-5 text-[#ffba38] shrink-0" />
                 <div>
@@ -280,16 +280,16 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
           </div>
 
           {/* Organizational Structure Selector: PREDIOS (DEFAULT) VS LOTES */}
-          <div className="bg-white border-2 border-[#012d1d]/20 p-4 rounded-2xl space-y-3 shadow-2xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-2">
+          <div className="bg-[#15241C] border-2 border-[#012d1d]/20 p-4 rounded-2xl space-y-3 shadow-2xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-2">
               <div className="flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-[#012d1d]" />
+                <Building2 className="w-5 h-5 text-white" />
                 <div>
-                  <h3 className="text-xs font-black text-[#012d1d] uppercase font-mono">
+                  <h3 className="text-xs font-black text-white uppercase font-mono">
                     ESTRUCTURA DE ORGANIZACIÓN DEL HATO
                   </h3>
-                  <p className="text-[11px] text-gray-600">
-                    Por defecto el sistema gestiona el inventario por <strong className="text-[#012d1d]">Predios</strong>. Para subdividir por <strong className="text-[#012d1d]">Lotes</strong> de rotación, debes habilitarlo.
+                  <p className="text-[11px] text-[#A5B8AC]">
+                    Por defecto el sistema gestiona el inventario por <strong className="text-white">Predios</strong>. Para subdividir por <strong className="text-white">Lotes</strong> de rotación, debes habilitarlo.
                   </p>
                 </div>
               </div>
@@ -307,11 +307,11 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => onToggleLotsModule?.(false)}
                 className={`p-3 rounded-xl border-2 text-left cursor-pointer transition-all flex items-start gap-3 ${
                   !isLotsEnabled
-                    ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-sm'
-                    : 'bg-gray-50 text-[#012d1d] border-gray-200 hover:border-[#012d1d]'
+                    ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-sm'
+                    : 'bg-[#0D1A13] text-white border-white/10 hover:border-[#012d1d]'
                 }`}
               >
-                <div className={`p-2 rounded-lg shrink-0 ${!isLotsEnabled ? 'bg-[#1b4332] text-[#ffba38]' : 'bg-gray-200 text-gray-600'}`}>
+                <div className={`p-2 rounded-lg shrink-0 ${!isLotsEnabled ? 'bg-[#123F2A] text-[#ffba38]' : 'bg-gray-200 text-[#A5B8AC]'}`}>
                   <Building2 className="w-5 h-5" />
                 </div>
                 <div>
@@ -332,11 +332,11 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => onToggleLotsModule?.(true)}
                 className={`p-3 rounded-xl border-2 text-left cursor-pointer transition-all flex items-start gap-3 ${
                   isLotsEnabled
-                    ? 'bg-[#012d1d] text-white border-[#012d1d] shadow-sm'
-                    : 'bg-gray-50 text-[#012d1d] border-gray-200 hover:border-[#012d1d]'
+                    ? 'bg-[#0D1A13] text-white border-[#012d1d] shadow-sm'
+                    : 'bg-[#0D1A13] text-white border-white/10 hover:border-[#012d1d]'
                 }`}
               >
-                <div className={`p-2 rounded-lg shrink-0 ${isLotsEnabled ? 'bg-[#1b4332] text-[#ffba38]' : 'bg-gray-200 text-gray-600'}`}>
+                <div className={`p-2 rounded-lg shrink-0 ${isLotsEnabled ? 'bg-[#123F2A] text-[#ffba38]' : 'bg-gray-200 text-[#A5B8AC]'}`}>
                   <Layers className="w-5 h-5" />
                 </div>
                 <div>
@@ -357,13 +357,13 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
           {/* Search and Filters */}
           <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
             <div className="relative w-full sm:w-72">
-              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
+              <Search className="w-4 h-4 text-[#A5B8AC] absolute left-3 top-3" />
               <input
                 type="text"
                 placeholder="Buscar módulo por nombre..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#012d1d] outline-none"
+                className="w-full pl-9 pr-3 py-2 bg-[#15241C] border border-white/15 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#012d1d] outline-none"
               />
             </div>
 
@@ -372,8 +372,8 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => setFilterCategory('all')}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition-colors cursor-pointer ${
                   filterCategory === 'all'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-gray-200'
                 }`}
               >
                 Todos
@@ -382,8 +382,8 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => setFilterCategory('productivo')}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition-colors cursor-pointer ${
                   filterCategory === 'productivo'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-gray-200'
                 }`}
               >
                 Productivos
@@ -392,8 +392,8 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => setFilterCategory('tecnico')}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition-colors cursor-pointer ${
                   filterCategory === 'tecnico'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-gray-200'
                 }`}
               >
                 Técnicos & SIG
@@ -402,8 +402,8 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                 onClick={() => setFilterCategory('administrativo')}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono transition-colors cursor-pointer ${
                   filterCategory === 'administrativo'
-                    ? 'bg-[#012d1d] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-[#0D1A13] text-white'
+                    : 'bg-[#1F3327] text-[#A5B8AC] hover:bg-gray-200'
                 }`}
               >
                 Gestión & Finanzas
@@ -422,8 +422,8 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                   key={mod.id}
                   className={`p-4 rounded-2xl border-2 transition-all flex flex-col justify-between gap-3 ${
                     isActive
-                      ? 'bg-white border-[#012d1d]/20 shadow-xs hover:border-[#012d1d]'
-                      : 'bg-gray-50 border-gray-200 opacity-60'
+                      ? 'bg-[#15241C] border-[#012d1d]/20 shadow-xs hover:border-[#012d1d]'
+                      : 'bg-[#0D1A13] border-white/10 opacity-60'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -431,29 +431,29 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                       <div
                         className={`p-2.5 rounded-xl shrink-0 ${
                           isActive
-                            ? 'bg-[#012d1d] text-[#ffba38]'
-                            : 'bg-gray-200 text-gray-500'
+                            ? 'bg-[#0D1A13] text-[#ffba38]'
+                            : 'bg-gray-200 text-[#A5B8AC]'
                         }`}
                       >
                         <IconComp className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <h3 className="font-extrabold text-xs text-[#012d1d] uppercase font-mono">
+                          <h3 className="font-extrabold text-xs text-white uppercase font-mono">
                             {mod.name}
                           </h3>
-                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-gray-100 text-gray-600 border border-gray-200 uppercase">
+                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-[#1F3327] text-[#A5B8AC] border border-white/10 uppercase">
                             {mod.category}
                           </span>
                         </div>
-                        <p className="text-[11px] text-gray-600 mt-1 leading-snug">
+                        <p className="text-[11px] text-[#A5B8AC] mt-1 leading-snug">
                           {mod.description}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+                  <div className="flex items-center justify-between pt-2 border-t border-white/10">
                     <span
                       className={`text-[10px] font-mono font-bold flex items-center gap-1 ${
                         isActive ? 'text-emerald-700' : 'text-rose-600'
@@ -469,7 +469,7 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                           onClick={onToggleDairyModule}
                           className={`px-3 py-1 rounded-xl text-xs font-mono font-black uppercase cursor-pointer transition-all ${
                             isDairyEnabled
-                              ? 'bg-[#ffba38] text-[#012d1d] hover:bg-amber-400'
+                              ? 'bg-[#D4A94E] text-white hover:bg-amber-400'
                               : 'bg-rose-800 text-white hover:bg-rose-900'
                           }`}
                         >
@@ -483,7 +483,7 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
                               onClose();
                             }
                           }}
-                          className="px-3 py-1 rounded-xl text-xs font-mono font-bold bg-[#012d1d] text-white hover:bg-[#1b4332] cursor-pointer transition-colors flex items-center gap-1"
+                          className="px-3 py-1 rounded-xl text-xs font-mono font-bold bg-[#0D1A13] text-white hover:bg-[#123F2A] cursor-pointer transition-colors flex items-center gap-1"
                         >
                           <span>IR AL MÓDULO</span>
                           <ArrowRight className="w-3 h-3" />
@@ -498,14 +498,14 @@ export const ModuleManagerModal: React.FC<ModuleManagerModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 border-t border-gray-200 p-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs text-gray-600 font-medium">
+        <div className="bg-[#0D1A13] border-t border-white/10 p-4 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-xs text-[#A5B8AC] font-medium">
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
             <span>Configuración guardada automáticamente en tu sesión local.</span>
           </div>
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-bold rounded-xl cursor-pointer transition-colors"
+            className="px-5 py-2 bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-bold rounded-xl cursor-pointer transition-colors"
           >
             Listo / Cerrar
           </button>

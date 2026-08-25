@@ -108,11 +108,11 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-5xl lg:max-w-6xl w-full border border-[#012d1d]/20 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="bg-[#15241C] rounded-3xl max-w-5xl lg:max-w-6xl w-full border border-[#012d1d]/20 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* Header */}
-        <div className="bg-[#012d1d] text-white p-4 sm:p-5 flex items-center justify-between border-b border-[#1b4332]">
+        <div className="bg-[#0D1A13] text-white p-4 sm:p-5 flex items-center justify-between border-b border-[#1b4332]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#ffba38] text-[#523700] rounded-2xl shadow-md">
+            <div className="p-2.5 bg-[#D4A94E] text-[#0D1A13] rounded-2xl shadow-md">
               <Zap className="w-6 h-6" />
             </div>
             <div>
@@ -160,14 +160,14 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
               onClick={() => setActiveTab('pending')}
               className={`pb-3 px-3.5 font-extrabold text-xs transition-all flex items-center gap-2 border-b-2 cursor-pointer ${
                 activeTab === 'pending'
-                  ? 'border-[#012d1d] text-[#012d1d]'
-                  : 'border-transparent text-[#717973] hover:text-[#012d1d]'
+                  ? 'border-[#012d1d] text-white'
+                  : 'border-transparent text-[#717973] hover:text-white'
               }`}
             >
               <Zap className="w-4 h-4 text-[#ffba38]" />
               <span>Solicitudes Pendientes</span>
               {pendingAlerts.length > 0 && (
-                <span className="bg-[#012d1d] text-white text-[10px] font-mono px-1.5 py-0.2 rounded-full">
+                <span className="bg-[#0D1A13] text-white text-[10px] font-mono px-1.5 py-0.2 rounded-full">
                   {pendingAlerts.length}
                 </span>
               )}
@@ -177,8 +177,8 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
               onClick={() => setActiveTab('rules')}
               className={`pb-3 px-3.5 font-extrabold text-xs transition-all flex items-center gap-2 border-b-2 cursor-pointer ${
                 activeTab === 'rules'
-                  ? 'border-[#012d1d] text-[#012d1d]'
-                  : 'border-transparent text-[#717973] hover:text-[#012d1d]'
+                  ? 'border-[#012d1d] text-white'
+                  : 'border-transparent text-[#717973] hover:text-white'
               }`}
             >
               <Sliders className="w-4 h-4 text-[#1b4332]" />
@@ -189,8 +189,8 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
               onClick={() => setActiveTab('history')}
               className={`pb-3 px-3.5 font-extrabold text-xs transition-all flex items-center gap-2 border-b-2 cursor-pointer ${
                 activeTab === 'history'
-                  ? 'border-[#012d1d] text-[#012d1d]'
-                  : 'border-transparent text-[#717973] hover:text-[#012d1d]'
+                  ? 'border-[#012d1d] text-white'
+                  : 'border-transparent text-[#717973] hover:text-white'
               }`}
             >
               <ShieldCheck className="w-4 h-4 text-[#2d6a4f]" />
@@ -202,9 +202,9 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
           {activeTab === 'pending' && pendingAlerts.length > 1 && (
             <button
               onClick={handleApproveAll}
-              className="mb-2 bg-[#1b4332] hover:bg-[#2d6a4f] text-white text-xs font-black px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer shrink-0"
+              className="mb-2 bg-[#123F2A] hover:bg-[#1F6547] text-white text-xs font-black px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer shrink-0"
             >
-              <CheckCheck className="w-4 h-4 text-[#c1ecd4]" />
+              <CheckCheck className="w-4 h-4 text-[#A5B8AC]" />
               <span>Aprobar Todos ({pendingAlerts.length})</span>
             </button>
           )}
@@ -221,7 +221,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                     <CheckCircle2 className="w-6 h-6 text-[#2d6a4f]" />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-[#012d1d] text-sm">
+                    <h4 className="font-extrabold text-white text-sm">
                       ¡Inventario Ganadero al Día!
                     </h4>
                     <p className="text-xs text-[#717973] max-w-md mx-auto mt-1">
@@ -231,11 +231,11 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <div className="bg-[#fff8e7] p-3 rounded-2xl border border-[#ffe082] text-xs text-[#523700] flex items-center justify-between">
+                  <div className="bg-[#fff8e7] p-3 rounded-2xl border border-[#ffe082] text-xs text-[#0D1A13] flex items-center justify-between">
                     <span className="font-medium">
                       💡 Revise el cumplimiento de peso o edad y apruebe el paso de categoría (ej. Levante ➔ Ceba).
                     </span>
-                    <span className="font-mono font-bold text-[10px] bg-[#ffba38] px-2 py-0.5 rounded">
+                    <span className="font-mono font-bold text-[10px] bg-[#D4A94E] px-2 py-0.5 rounded">
                       REGLA AUTOMÁTICA OCURRIDA
                     </span>
                   </div>
@@ -249,16 +249,16 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                     return (
                       <div
                         key={alert.id}
-                        className="bg-white p-4 rounded-2xl border-2 border-[#1b4332]/30 shadow-xs hover:border-[#1b4332] transition-all space-y-3"
+                        className="bg-[#15241C] p-4 rounded-2xl border-2 border-[#1b4332]/30 shadow-xs hover:border-[#1b4332] transition-all space-y-3"
                       >
                         {/* Top info bar */}
                         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e0e4e0] pb-2.5">
                           <div className="flex items-center gap-2.5">
-                            <span className="bg-[#012d1d] text-white font-mono font-black text-xs px-2.5 py-1 rounded-xl shadow-2xs">
+                            <span className="bg-[#0D1A13] text-white font-mono font-black text-xs px-2.5 py-1 rounded-xl shadow-2xs">
                               #{alert.animalTag}
                             </span>
                             <div>
-                              <span className="font-extrabold text-[#012d1d] text-sm block">
+                              <span className="font-extrabold text-white text-sm block">
                                 {alert.animalName || `Ejemplar #${alert.animalTag}`} ({alert.breed || 'Bovino'}, {alert.sex})
                               </span>
                               <span className="text-[10.5px] text-[#717973]">
@@ -289,9 +289,9 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                         {/* Transition visual arrow */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center bg-[#f8fdf9] p-3 rounded-xl border border-[#c1ecd4]">
                           {/* Current Category */}
-                          <div className="bg-white p-2.5 rounded-xl border border-[#c1c8c2] text-center">
+                          <div className="bg-[#15241C] p-2.5 rounded-xl border border-white/10 text-center">
                             <span className="text-[9.5px] font-bold text-[#717973] uppercase block">Categoría Actual</span>
-                            <span className="font-extrabold text-[#012d1d] text-xs capitalize mt-0.5 block">
+                            <span className="font-extrabold text-white text-xs capitalize mt-0.5 block">
                               {alert.currentCategory}
                             </span>
                           </div>
@@ -303,8 +303,8 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                           </div>
 
                           {/* Target Proposed Category */}
-                          <div className="bg-[#1b4332] text-white p-2.5 rounded-xl text-center shadow-xs">
-                            <span className="text-[9.5px] font-bold text-[#c1ecd4] uppercase block">Nueva Categoría Propuesta</span>
+                          <div className="bg-[#123F2A] text-white p-2.5 rounded-xl text-center shadow-xs">
+                            <span className="text-[9.5px] font-bold text-[#A5B8AC] uppercase block">Nueva Categoría Propuesta</span>
                             <span className="font-extrabold text-sm text-white mt-0.5 block">
                               {alert.targetCategoryLabel}
                             </span>
@@ -312,7 +312,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                         </div>
 
                         {/* Reason detailed description */}
-                        <div className="bg-[#f4f6f4] p-2.5 rounded-xl border border-[#e0e4e0] text-xs text-[#012d1d] font-medium flex items-center justify-between">
+                        <div className="bg-[#f4f6f4] p-2.5 rounded-xl border border-[#e0e4e0] text-xs text-white font-medium flex items-center justify-between">
                           <span>{alert.triggerReason}</span>
                           <span className="text-[10px] text-[#717973] font-mono">Detención: {alert.detectedDate}</span>
                         </div>
@@ -326,7 +326,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                               onChange={(e) =>
                                 setSelectedTargetLots((prev) => ({ ...prev, [alert.id]: e.target.value }))
                               }
-                              className="bg-white border border-[#c1c8c2] rounded-lg px-2.5 py-1 text-xs font-bold text-[#012d1d]"
+                              className="bg-[#15241C] border border-white/10 rounded-lg px-2.5 py-1 text-xs font-bold text-white"
                             >
                               <option value="">Mantener Lote Actual ({alert.lotCode || 'Sin Lote'})</option>
                               {matchingLots.map((l) => (
@@ -348,9 +348,9 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
 
                             <button
                               onClick={() => handleApprove(alert)}
-                              className="px-4 py-1.5 bg-[#012d1d] hover:bg-[#1b4332] text-white font-extrabold text-xs rounded-xl border border-[#012d1d] shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+                              className="px-4 py-1.5 bg-[#0D1A13] hover:bg-[#123F2A] text-white font-extrabold text-xs rounded-xl border border-[#012d1d] shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
                             >
-                              <CheckCircle2 className="w-4 h-4 text-[#c1ecd4]" />
+                              <CheckCircle2 className="w-4 h-4 text-[#A5B8AC]" />
                               <span>Aprobar Cambio de Categoría</span>
                             </button>
                           </div>
@@ -367,7 +367,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
           {activeTab === 'rules' && (
             <div className="space-y-4">
               <div className="bg-[#e8f5ec] p-3.5 rounded-2xl border border-[#c1ecd4] text-xs text-[#002114] space-y-1">
-                <h4 className="font-extrabold flex items-center gap-2 text-[#012d1d]">
+                <h4 className="font-extrabold flex items-center gap-2 text-white">
                   <Sliders className="w-4 h-4 text-[#1b4332]" /> Configuración de Umbrales por Categoria
                 </h4>
                 <p className="text-[11.5px] text-[#2d6a4f]">
@@ -381,7 +381,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                     key={rule.id}
                     className={`p-4 rounded-2xl border-2 transition-all space-y-3 ${
                       rule.isActive
-                        ? 'bg-white border-[#1b4332]/40 shadow-2xs'
+                        ? 'bg-[#15241C] border-[#1b4332]/40 shadow-2xs'
                         : 'bg-[#fafafa] border-[#e0e0e0] opacity-60'
                     }`}
                   >
@@ -395,9 +395,9 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                           }
                           className="w-4 h-4 accent-[#012d1d] rounded cursor-pointer"
                         />
-                        <span className="font-black text-xs text-[#012d1d]">{rule.ruleName}</span>
+                        <span className="font-black text-xs text-white">{rule.ruleName}</span>
                       </div>
-                      <span className="text-[10px] font-mono font-extrabold bg-[#f0f4f1] text-[#012d1d] px-2 py-0.5 rounded border border-[#c1c8c2]">
+                      <span className="text-[10px] font-mono font-extrabold bg-[#123F2A]/60 text-white px-2 py-0.5 rounded border border-white/10">
                         Aplica a Sexo: {rule.sexFilter?.toUpperCase() || 'TODOS'}
                       </span>
                     </div>
@@ -406,7 +406,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                       <div className="bg-[#f4f6f4] p-3 rounded-xl border border-[#e0e4e0]">
-                        <label className="block text-[10px] font-extrabold text-[#012d1d] uppercase mb-1 flex items-center gap-1">
+                        <label className="block text-[10px] font-extrabold text-white uppercase mb-1 flex items-center gap-1">
                           <Scale className="w-3.5 h-3.5 text-[#1b4332]" /> Peso Mínimo Requerido (kg) *
                         </label>
                         <div className="relative">
@@ -420,14 +420,14 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                                 parseFloat(e.target.value) || 0,
                               )
                             }
-                            className="w-full bg-white border border-[#012d1d] rounded-lg px-3 py-1.5 font-mono font-extrabold text-sm text-[#012d1d]"
+                            className="w-full bg-[#15241C] border border-[#012d1d] rounded-lg px-3 py-1.5 font-mono font-extrabold text-sm text-white"
                           />
                           <span className="absolute right-3 top-2 text-xs font-bold text-[#717973]">kg</span>
                         </div>
                       </div>
 
                       <div className="bg-[#f4f6f4] p-3 rounded-xl border border-[#e0e4e0]">
-                        <label className="block text-[10px] font-extrabold text-[#012d1d] uppercase mb-1 flex items-center gap-1">
+                        <label className="block text-[10px] font-extrabold text-white uppercase mb-1 flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5 text-[#1b4332]" /> Edad Mínima Requerida (Meses) *
                         </label>
                         <div className="relative">
@@ -441,7 +441,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                                 parseInt(e.target.value, 10) || 0,
                               )
                             }
-                            className="w-full bg-white border border-[#012d1d] rounded-lg px-3 py-1.5 font-mono font-extrabold text-sm text-[#012d1d]"
+                            className="w-full bg-[#15241C] border border-[#012d1d] rounded-lg px-3 py-1.5 font-mono font-extrabold text-sm text-white"
                           />
                           <span className="absolute right-3 top-2 text-xs font-bold text-[#717973]">meses</span>
                         </div>
@@ -454,9 +454,9 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
               <div className="flex justify-end pt-2">
                 <button
                   onClick={handleSaveRuleChanges}
-                  className="bg-[#012d1d] hover:bg-[#1b4332] text-white text-xs font-extrabold px-5 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                  className="bg-[#0D1A13] hover:bg-[#123F2A] text-white text-xs font-extrabold px-5 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-[#c1ecd4]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#A5B8AC]" />
                   <span>Guardar Cambios de Parámetros</span>
                 </button>
               </div>
@@ -474,14 +474,14 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
                 processedAlerts.map((a) => (
                   <div
                     key={a.id}
-                    className="p-3.5 bg-white rounded-xl border border-[#e0e4e0] text-xs flex flex-wrap items-center justify-between gap-2"
+                    className="p-3.5 bg-[#15241C] rounded-xl border border-[#e0e4e0] text-xs flex flex-wrap items-center justify-between gap-2"
                   >
                     <div className="flex items-center gap-2.5">
-                      <span className="font-mono font-extrabold bg-[#012d1d] text-white px-2 py-0.5 rounded">
+                      <span className="font-mono font-extrabold bg-[#0D1A13] text-white px-2 py-0.5 rounded">
                         #{a.animalTag}
                       </span>
                       <div>
-                        <span className="font-bold text-[#012d1d]">
+                        <span className="font-bold text-white">
                           {a.animalName || `Animal #${a.animalTag}`} ➔ {a.targetCategoryLabel}
                         </span>
                         <span className="text-[10.5px] text-[#717973] block">
@@ -516,7 +516,7 @@ export const CategoryTransitionApprovalModal: React.FC<CategoryTransitionApprova
           </span>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-white border border-[#c1c8c2] text-[#012d1d] font-bold rounded-xl hover:bg-[#e0e4e0] transition-colors cursor-pointer"
+            className="px-4 py-2 bg-[#15241C] border border-white/10 text-white font-bold rounded-xl hover:bg-[#e0e4e0] transition-colors cursor-pointer"
           >
             Cerrar Modal
           </button>

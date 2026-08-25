@@ -204,19 +204,19 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 md:p-4 overflow-y-auto" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="bg-white rounded-3xl max-w-5xl lg:max-w-6xl w-full p-5 md:p-6 border border-[#c1c8c2] shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[94vh] flex flex-col">
+      <div className="bg-[#15241C] rounded-3xl max-w-5xl lg:max-w-6xl w-full p-5 md:p-6 border border-white/10 shadow-2xl animate-in fade-in zoom-in-95 my-auto max-h-[94vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-[#eeeeee] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-[#ffba38] text-[#523700] rounded-2xl shadow-sm">
+            <div className="p-2.5 bg-[#D4A94E] text-[#0D1A13] rounded-2xl shadow-sm">
               <Flame className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-black text-[#012d1d]">
+                <h3 className="text-lg font-black text-white">
                   Módulo & Proceso de Destete Bovino
                 </h3>
-                <span className="text-[10px] font-mono font-extrabold bg-[#012d1d] text-[#c1ecd4] px-2 py-0.5 rounded">
+                <span className="text-[10px] font-mono font-extrabold bg-[#0D1A13] text-[#A5B8AC] px-2 py-0.5 rounded">
                   Etapa Cría ➔ Levante
                 </span>
               </div>
@@ -237,18 +237,18 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
         <form onSubmit={handleSubmit} className="overflow-y-auto flex-1 pr-1 py-4 space-y-4 text-xs">
           {/* Step 1: Farm & Animal Selection with Automatic Birth Record Lookup */}
           <div className="p-3.5 bg-[#f4f6f4] border-2 border-[#a5d6a7] rounded-2xl space-y-3">
-            <h4 className="font-bold text-[#012d1d] text-xs flex items-center justify-between border-b border-[#c1c8c2] pb-2">
+            <h4 className="font-bold text-white text-xs flex items-center justify-between border-b border-white/10 pb-2">
               <span className="flex items-center gap-1.5">
                 <Building2 className="w-4 h-4 text-[#1b4332]" /> 1. Búsqueda y Carga del Registro de Nacimiento
               </span>
-              <span className="text-[10px] bg-[#1b4332] text-[#c1ecd4] font-mono font-bold px-2 py-0.5 rounded">
+              <span className="text-[10px] bg-[#123F2A] text-[#A5B8AC] font-mono font-bold px-2 py-0.5 rounded">
                 ⚡ Auto-Carga Activada
               </span>
             </h4>
 
             {/* Live Animal Tag / Number Search Box */}
             <div>
-              <label className="block text-[10.5px] font-extrabold text-[#012d1d] uppercase mb-1 flex items-center gap-1.5">
+              <label className="block text-[10.5px] font-extrabold text-white uppercase mb-1 flex items-center gap-1.5">
                 <Search className="w-3.5 h-3.5 text-[#1b5e20]" />
                 <span>Coloque / Digite el Número del Animal o Arete de Nacimiento *</span>
               </label>
@@ -258,7 +258,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                   value={searchTagOrNumber}
                   onChange={(e) => setSearchTagOrNumber(e.target.value)}
                   placeholder="Ej. 308, CHP-ORE-308, TAT-308, 01 (Digite el número para autocargar datos)..."
-                  className="w-full bg-white border-2 border-[#1b5e20] rounded-2xl px-3.5 py-2 font-mono font-black text-sm text-[#012d1d] shadow-xs focus:ring-2 focus:ring-[#2e7d32] placeholder:font-normal placeholder:text-xs"
+                  className="w-full bg-[#15241C] border-2 border-[#1b5e20] rounded-2xl px-3.5 py-2 font-mono font-black text-sm text-white shadow-xs focus:ring-2 focus:ring-[#2e7d32] placeholder:font-normal placeholder:text-xs"
                 />
                 {matchedAnimal && (
                   <span className="absolute right-2.5 top-2 bg-[#e8f5e9] text-[#1b5e20] text-[10px] font-bold font-mono px-2 py-0.5 rounded-lg border border-[#a5d6a7] flex items-center gap-1">
@@ -276,7 +276,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                 <select
                   value={selectedFarmId}
                   onChange={(e) => setSelectedFarmId(e.target.value)}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-white"
                 >
                   {farms.map((farm) => (
                     <option key={farm.profile.id} value={farm.profile.id}>
@@ -300,7 +300,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                         setSearchTagOrNumber(anim.tag);
                       }
                     }}
-                    className="w-full bg-white border border-[#012d1d] rounded-xl px-3 py-1.5 font-bold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-[#012d1d] rounded-xl px-3 py-1.5 font-bold text-white"
                   >
                     {eligibleCalves.map((a) => (
                       <option key={a.id} value={a.id}>
@@ -314,7 +314,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                     value={customTag}
                     onChange={(e) => setCustomTag(e.target.value)}
                     placeholder="Ej. ARE-9021 (Ingreso manual)"
-                    className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-[#012d1d]"
+                    className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-white"
                   />
                 )}
               </div>
@@ -336,30 +336,30 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                  <div className="bg-white p-2 rounded-xl border border-[#a5d6a7]">
+                  <div className="bg-[#15241C] p-2 rounded-xl border border-[#a5d6a7]">
                     <span className="text-[9.5px] font-bold uppercase text-[#2e7d32] block">🎂 Fecha Nacimiento</span>
-                    <span className="font-mono font-black text-[#012d1d] block mt-0.5">
+                    <span className="font-mono font-black text-white block mt-0.5">
                       {matchedAnimal.bornInfo?.birthDate || '2024-05-12'}
                     </span>
                   </div>
 
-                  <div className="bg-white p-2 rounded-xl border border-[#a5d6a7]">
+                  <div className="bg-[#15241C] p-2 rounded-xl border border-[#a5d6a7]">
                     <span className="text-[9.5px] font-bold uppercase text-[#2e7d32] block">⚖️ Peso al Nacer</span>
                     <span className="font-mono font-black text-[#1b5e20] block mt-0.5">
                       {matchedAnimal.bornInfo?.birthWeightKg || birthWeightKg || 35} kg
                     </span>
                   </div>
 
-                  <div className="bg-white p-2 rounded-xl border border-[#a5d6a7]">
+                  <div className="bg-[#15241C] p-2 rounded-xl border border-[#a5d6a7]">
                     <span className="text-[9.5px] font-bold uppercase text-[#2e7d32] block">🏷️ Marca Oreja Inicial</span>
-                    <span className="font-mono font-black text-[#012d1d] block mt-0.5">
+                    <span className="font-mono font-black text-white block mt-0.5">
                       {matchedAnimal.bornInfo?.earTagInitial || `CHP-ORE-${matchedAnimal.tag}`}
                     </span>
                   </div>
 
-                  <div className="bg-white p-2 rounded-xl border border-[#a5d6a7]">
+                  <div className="bg-[#15241C] p-2 rounded-xl border border-[#a5d6a7]">
                     <span className="text-[9.5px] font-bold uppercase text-[#2e7d32] block">🖋️ Tatuaje Oreja</span>
-                    <span className="font-mono font-black text-[#012d1d] block mt-0.5">
+                    <span className="font-mono font-black text-white block mt-0.5">
                       {matchedAnimal.bornInfo?.tattooNumber || `TAT-${matchedAnimal.tag}`}
                     </span>
                   </div>
@@ -377,12 +377,12 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                     <span>Raza: <strong>{matchedAnimal.breed}</strong> ({matchedAnimal.sex})</span>
                   </div>
                   <div>
-                    <span>Peso Actual: <strong className="font-mono text-[#012d1d] bg-white px-1.5 py-0.2 rounded border border-[#a5d6a7]">{matchedAnimal.weightKg} kg</strong></span>
+                    <span>Peso Actual: <strong className="font-mono text-white bg-[#15241C] px-1.5 py-0.2 rounded border border-[#a5d6a7]">{matchedAnimal.weightKg} kg</strong></span>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="bg-[#fff8e7] p-3 rounded-2xl border border-[#ffe082] text-xs text-[#523700] flex items-center justify-between">
+              <div className="bg-[#fff8e7] p-3 rounded-2xl border border-[#ffe082] text-xs text-[#0D1A13] flex items-center justify-between">
                 <span>💡 Digite el número o arete de nacimiento arriba para cargar los datos del registro.</span>
               </div>
             )}
@@ -391,23 +391,23 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
           {/* Step 2: Marcación Definitiva al Destete (Hierro Caliente / Chapeta) */}
           <div className="p-3.5 bg-[#fff8e7] border-2 border-[#ffe082] rounded-2xl space-y-3">
             <div className="flex items-center justify-between border-b border-[#ffe082] pb-2">
-              <h4 className="font-bold text-[#523700] text-xs flex items-center gap-1.5">
+              <h4 className="font-bold text-[#0D1A13] text-xs flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-[#ff8f00]" /> 2. Marcación Definitiva al Destete (Hierro Caliente / Chapeta)
               </h4>
-              <span className="text-[10px] font-mono font-bold bg-[#ffba38] text-[#523700] px-2 py-0.5 rounded">
+              <span className="text-[10px] font-mono font-bold bg-[#D4A94E] text-[#0D1A13] px-2 py-0.5 rounded">
                 Protocolo de Hierro
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
-                <label className="block text-[10px] font-bold text-[#523700] uppercase mb-1">
+                <label className="block text-[10px] font-bold text-[#0D1A13] uppercase mb-1">
                   Tipo de Marcación *
                 </label>
                 <select
                   value={brandType}
                   onChange={(e: any) => setBrandType(e.target.value)}
-                  className="w-full bg-white border border-[#ffe082] text-[#523700] rounded-xl px-3 py-1.5 font-bold"
+                  className="w-full bg-[#15241C] border border-[#ffe082] text-[#0D1A13] rounded-xl px-3 py-1.5 font-bold"
                 >
                   <option value="hierro_caliente">🔥 Hierro Caliente (Fuego en Muslo/Paleta)</option>
                   <option value="chapeta_definitiva">🏷️ Chapeta Definitiva Metal / Plástica Asocebú</option>
@@ -417,7 +417,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-[#523700] uppercase mb-1">
+                <label className="block text-[10px] font-bold text-[#0D1A13] uppercase mb-1">
                   Código de Hierro / Chapeta *
                 </label>
                 <input
@@ -425,13 +425,13 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                   value={brandCode}
                   onChange={(e) => setBrandCode(e.target.value)}
                   placeholder="Ej. H-882-SJ"
-                  className="w-full bg-white border border-[#ffe082] rounded-xl px-3 py-1.5 font-mono font-black text-[#523700]"
+                  className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-3 py-1.5 font-mono font-black text-[#0D1A13]"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-[#523700] uppercase mb-1">
+                <label className="block text-[10px] font-bold text-[#0D1A13] uppercase mb-1">
                   Ubicación de la Marca
                 </label>
                 <input
@@ -439,7 +439,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                   value={brandLocation}
                   onChange={(e) => setBrandLocation(e.target.value)}
                   placeholder="Ej. Muslo Izquierdo / Paleta Derecha"
-                  className="w-full bg-white border border-[#ffe082] rounded-xl px-3 py-1.5 font-bold text-[#523700]"
+                  className="w-full bg-[#15241C] border border-[#ffe082] rounded-xl px-3 py-1.5 font-bold text-[#0D1A13]"
                 />
               </div>
             </div>
@@ -448,29 +448,29 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
           {/* Step 3: Control de Pesaje de Destete y GDP */}
           <div className="p-3.5 bg-[#e8f5ec] border-2 border-[#c1ecd4] rounded-2xl space-y-3">
             <div className="flex items-center justify-between border-b border-[#c1ecd4] pb-2">
-              <h4 className="font-bold text-[#012d1d] text-xs flex items-center gap-1.5">
+              <h4 className="font-bold text-white text-xs flex items-center gap-1.5">
                 <Scale className="w-4 h-4 text-[#2d6a4f]" /> 3. Control de Pesaje Oficial al Destete
               </h4>
-              <span className="text-[10px] font-mono font-bold bg-[#012d1d] text-[#c1ecd4] px-2 py-0.5 rounded">
+              <span className="text-[10px] font-mono font-bold bg-[#0D1A13] text-[#A5B8AC] px-2 py-0.5 rounded">
                 Control de Peso
               </span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div>
-                <label className="block text-[10px] font-bold text-[#012d1d] uppercase mb-1">
+                <label className="block text-[10px] font-bold text-white uppercase mb-1">
                   Fecha de Destete
                 </label>
                 <input
                   type="date"
                   value={weaningDate}
                   onChange={(e) => setWeaningDate(e.target.value)}
-                  className="w-full bg-white border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-bold text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-bold text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-[#012d1d] uppercase mb-1">
+                <label className="block text-[10px] font-bold text-white uppercase mb-1">
                   ⚖️ Peso Destete (kg) *
                 </label>
                 <input
@@ -478,13 +478,13 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                   value={weaningWeightKg}
                   onChange={(e) => setWeaningWeightKg(Number(e.target.value))}
                   placeholder="215"
-                  className="w-full bg-white border border-[#012d1d] rounded-xl px-3 py-1.5 font-mono font-black text-[#012d1d] text-sm"
+                  className="w-full bg-[#15241C] border border-[#012d1d] rounded-xl px-3 py-1.5 font-mono font-black text-white text-sm"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-[#012d1d] uppercase mb-1">
+                <label className="block text-[10px] font-bold text-white uppercase mb-1">
                   Edad al Destete (Meses)
                 </label>
                 <input
@@ -492,29 +492,29 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                   value={weaningAgeMonths}
                   onChange={(e) => setWeaningAgeMonths(Number(e.target.value))}
                   placeholder="8"
-                  className="w-full bg-white border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-bold"
+                  className="w-full bg-[#15241C] border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-bold"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-[#012d1d] uppercase mb-1">
+                <label className="block text-[10px] font-bold text-white uppercase mb-1">
                   Peso al Nacer Ref. (kg)
                 </label>
                 <input
                   type="number"
                   value={birthWeight}
                   onChange={(e) => setBirthWeightKg(Number(e.target.value))}
-                  className="w-full bg-white border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-mono font-bold text-[#717973]"
+                  className="w-full bg-[#15241C] border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-mono font-bold text-[#717973]"
                 />
               </div>
             </div>
 
             {/* Calculated GDP Box */}
-            <div className="bg-white p-3 rounded-xl border border-[#c1ecd4] flex items-center justify-between gap-3 text-xs">
+            <div className="bg-[#15241C] p-3 rounded-xl border border-[#c1ecd4] flex items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-[#2d6a4f]" />
                 <div>
-                  <span className="font-black text-[#012d1d] block">
+                  <span className="font-black text-white block">
                     Ganancia Diaria de Peso Predestete (GDP): {calculatedDailyGainKg} kg/día
                   </span>
                   <span className="text-[10.5px] text-[#717973]">
@@ -523,7 +523,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                 </div>
               </div>
 
-              <span className="bg-[#e8f5ec] text-[#012d1d] border border-[#c1ecd4] text-[10px] font-mono font-black px-2.5 py-1 rounded-lg">
+              <span className="bg-[#e8f5ec] text-white border border-[#c1ecd4] text-[10px] font-mono font-black px-2.5 py-1 rounded-lg">
                 Rendimiento: {calculatedDailyGainKg > 0.7 ? '🟢 Excelente' : '🟡 Aceptable'}
               </span>
             </div>
@@ -561,7 +561,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                     value={asocebuRegisterNumber}
                     onChange={(e) => setAsocebuRegisterNumber(e.target.value)}
                     placeholder="Ej. REG-ASOC-2026-8812"
-                    className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1.5 font-mono font-bold text-[#4a148c]"
+                    className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1.5 font-mono font-bold text-[#4a148c]"
                   />
                 </div>
 
@@ -572,7 +572,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                   <select
                     value={asocebuBook}
                     onChange={(e) => setAsocebuBook(e.target.value)}
-                    className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1.5 font-semibold text-[#4a148c]"
+                    className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1.5 font-semibold text-[#4a148c]"
                   >
                     <option value="Brahman Blanco Puro">Brahman Blanco Puro (Libro Cerrado)</option>
                     <option value="Brahman Rojo Puro">Brahman Rojo Puro</option>
@@ -591,7 +591,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                     value={registeredNameAsocebu}
                     onChange={(e) => setRegisteredNameAsocebu(e.target.value)}
                     placeholder="Ej. Don Gabriel F.R. 882/11"
-                    className="w-full bg-white border border-[#ce93d8] rounded-xl px-3 py-1.5 font-semibold text-[#4a148c]"
+                    className="w-full bg-[#15241C] border border-[#ce93d8] rounded-xl px-3 py-1.5 font-semibold text-[#4a148c]"
                   />
                 </div>
               </div>
@@ -599,8 +599,8 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
           </div>
 
           {/* Step 5: Destination Category & Lot */}
-          <div className="p-3.5 bg-white border border-[#c1c8c2] rounded-2xl space-y-3">
-            <h4 className="font-bold text-[#012d1d] text-xs flex items-center gap-1.5 border-b border-[#eeeeee] pb-2">
+          <div className="p-3.5 bg-[#15241C] border border-white/10 rounded-2xl space-y-3">
+            <h4 className="font-bold text-white text-xs flex items-center gap-1.5 border-b border-[#eeeeee] pb-2">
               <Layers className="w-4 h-4 text-[#1b4332]" /> 5. Reclasificación & Lote Destino de Levante
             </h4>
 
@@ -612,7 +612,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                 <select
                   value={targetCategory}
                   onChange={(e) => setTargetCategory(e.target.value)}
-                  className="w-full bg-[#e8f5ec] border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-black text-[#012d1d]"
+                  className="w-full bg-[#e8f5ec] border border-[#c1ecd4] rounded-xl px-3 py-1.5 font-black text-white"
                 >
                   <option value="ceba">🌿 Levante / Machos de Ceba</option>
                   <option value="cria">🍼 Cría / Reemplazo de Hato</option>
@@ -628,7 +628,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                 <select
                   value={targetLotId}
                   onChange={(e) => setTargetLotId(e.target.value)}
-                  className="w-full bg-white border border-[#c1c8c2] rounded-xl px-3 py-1.5 font-bold text-[#012d1d]"
+                  className="w-full bg-[#15241C] border border-white/10 rounded-xl px-3 py-1.5 font-bold text-white"
                 >
                   {activeFarmLots.map((lot) => (
                     <option key={lot.id} value={lot.id}>
@@ -647,7 +647,7 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
                 value={weaningNotes}
                 onChange={(e) => setWeaningNotes(e.target.value)}
                 rows={2}
-                className="w-full bg-[#f9f9f9] border border-[#c1c8c2] rounded-xl p-2.5 text-xs text-[#012d1d]"
+                className="w-full bg-[#f9f9f9] border border-white/10 rounded-xl p-2.5 text-xs text-white"
               />
             </div>
           </div>
@@ -657,15 +657,15 @@ export const WeaningProcessModal: React.FC<WeaningProcessModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 rounded-xl border border-[#c1c8c2] font-bold text-xs text-[#414844] hover:bg-[#f3f3f3] transition-colors cursor-pointer"
+              className="px-4 py-2.5 rounded-xl border border-white/10 font-bold text-xs text-[#414844] hover:bg-[#f3f3f3] transition-colors cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="px-5 py-2.5 rounded-xl bg-[#012d1d] hover:bg-[#1b4332] text-white font-black text-xs transition-all flex items-center gap-2 shadow-md cursor-pointer active:scale-98"
+              className="px-5 py-2.5 rounded-xl bg-[#0D1A13] hover:bg-[#123F2A] text-white font-black text-xs transition-all flex items-center gap-2 shadow-md cursor-pointer active:scale-98"
             >
-              <ShieldCheck className="w-4 h-4 text-[#c1ecd4]" />
+              <ShieldCheck className="w-4 h-4 text-[#A5B8AC]" />
               <span>Registrar Destete Oficial</span>
             </button>
           </div>
