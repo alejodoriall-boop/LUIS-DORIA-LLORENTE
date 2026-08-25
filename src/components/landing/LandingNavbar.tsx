@@ -74,8 +74,8 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[72px] ${
           isScrolled
-            ? 'bg-[#101713]/95 backdrop-blur-md border-b border-white/[0.08] shadow-md'
-            : 'bg-[#101713]/90 backdrop-blur-sm border-b border-white/[0.05]'
+            ? 'bg-[#0D1A13]/95 backdrop-blur-md border-b border-white/[0.08] shadow-md'
+            : 'bg-[#0D1A13]/90 backdrop-blur-sm border-b border-white/[0.05]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
@@ -91,10 +91,10 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
             <GanaderIALogo variant="icon" size="md" />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="text-xl font-bold tracking-tight text-[#F5F2E9]">
-                  Ganader<span className="text-[#C9A35A]">IA</span>
+                <span className="text-xl font-bold tracking-tight text-[#FFFFFF]">
+                  Ganader<span className="text-[#D4A94E]">IA</span>
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#043825] text-emerald-300 border border-emerald-500/30">
+                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#123F2A] text-emerald-300 border border-emerald-500/30">
                   Oficial
                 </span>
               </div>
@@ -111,7 +111,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
                 key={link.label}
                 type="button"
                 onClick={() => handleNavClick(link.href)}
-                className="px-3.5 py-2 text-sm font-medium text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] rounded-lg transition-colors cursor-pointer"
+                className="px-3.5 py-2 text-sm font-medium text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.04] rounded-lg transition-colors cursor-pointer"
               >
                 {link.label}
               </button>
@@ -123,7 +123,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
             <button
               type="button"
               onClick={onLoginClick}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-[#F5F2E9] hover:text-white bg-transparent hover:bg-white/[0.06] rounded-xl transition-all border border-white/15 cursor-pointer active:scale-98"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-[#FFFFFF] hover:text-white bg-transparent hover:bg-white/[0.06] rounded-xl transition-all border border-white/15 cursor-pointer active:scale-98"
             >
               <LogIn className="w-4 h-4 text-[#A5B8AC]" />
               <span>Iniciar Sesión</span>
@@ -132,10 +132,10 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
             <button
               type="button"
               onClick={onDemoClick}
-              className="inline-flex items-center gap-2 px-5 py-2 text-sm font-bold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] rounded-xl border border-white/10 transition-all shadow-sm cursor-pointer active:scale-98"
+              className="inline-flex items-center gap-2 px-5 py-2 text-sm font-bold text-[#FFFFFF] bg-[#1F3327] hover:bg-[#28372e] rounded-xl border border-white/10 transition-all shadow-sm cursor-pointer active:scale-98"
             >
               <span>Acceder a GanaderIA</span>
-              <ArrowRight className="w-4 h-4 text-[#C9A35A]" />
+              <ArrowRight className="w-4 h-4 text-[#D4A94E]" />
             </button>
           </div>
 
@@ -144,14 +144,14 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
             <button
               type="button"
               onClick={onLoginClick}
-              className="px-3 py-1.5 text-xs font-semibold text-[#F5F2E9] border border-white/15 rounded-lg bg-white/[0.04]"
+              className="px-3 py-1.5 text-xs font-semibold text-[#FFFFFF] border border-white/15 rounded-lg bg-white/[0.04]"
             >
               Entrar
             </button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.06] rounded-lg transition-colors"
+              className="p-2 text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.06] rounded-lg transition-colors"
               aria-label="Abrir menú"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -177,13 +177,13 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#101713] text-[#F5F2E9] z-50 p-6 flex flex-col justify-between shadow-2xl border-l border-white/10 md:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#0D1A13] text-[#FFFFFF] z-50 p-6 flex flex-col justify-between shadow-2xl border-l border-white/10 md:hidden overflow-y-auto"
             >
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-white/10">
                   <div className="flex items-center gap-2.5">
                     <GanaderIALogo variant="icon" size="md" />
-                    <span className="text-lg font-bold text-[#F5F2E9]">GanaderIA</span>
+                    <span className="text-lg font-bold text-[#FFFFFF]">GanaderIA</span>
                   </div>
                   <button
                     type="button"
@@ -200,7 +200,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
                       key={link.label}
                       type="button"
                       onClick={() => handleNavClick(link.href)}
-                      className="flex items-center justify-between w-full px-4 py-3 text-base font-semibold text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] rounded-xl transition-colors text-left"
+                      className="flex items-center justify-between w-full px-4 py-3 text-base font-semibold text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.04] rounded-xl transition-colors text-left"
                     >
                       <span>{link.label}</span>
                       <ChevronRight className="w-4 h-4 text-[#A5B8AC]/40" />
@@ -216,7 +216,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
                     setMobileMenuOpen(false);
                     onLoginClick();
                   }}
-                  className="w-full py-3 px-4 text-center text-sm font-semibold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] border border-white/10 rounded-xl transition-colors"
+                  className="w-full py-3 px-4 text-center text-sm font-semibold text-[#FFFFFF] bg-[#1F3327] hover:bg-[#28372e] border border-white/10 rounded-xl transition-colors"
                 >
                   Iniciar Sesión
                 </button>
@@ -226,10 +226,10 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
                     setMobileMenuOpen(false);
                     onDemoClick();
                   }}
-                  className="w-full py-3.5 px-4 text-center text-sm font-bold text-[#F5F2E9] bg-[#043825] hover:bg-[#064e3b] border border-emerald-500/30 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 text-center text-sm font-bold text-[#FFFFFF] bg-[#123F2A] hover:bg-[#064e3b] border border-emerald-500/30 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2"
                 >
                   <span>Acceder a GanaderIA</span>
-                  <ArrowRight className="w-4 h-4 text-[#C9A35A]" />
+                  <ArrowRight className="w-4 h-4 text-[#D4A94E]" />
                 </button>
                 {onGoToSuperadmin && (
                   <button
@@ -238,7 +238,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({
                       setMobileMenuOpen(false);
                       onGoToSuperadmin();
                     }}
-                    className="w-full py-2 text-center text-xs font-semibold text-[#C9A35A] hover:underline"
+                    className="w-full py-2 text-center text-xs font-semibold text-[#D4A94E] hover:underline"
                   >
                     🛡️ Acceso Superadmin Plataforma
                   </button>

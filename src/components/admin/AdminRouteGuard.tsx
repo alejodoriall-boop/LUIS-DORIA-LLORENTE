@@ -66,8 +66,8 @@ export const AdminRouteGuard: React.FC<AdminRouteGuardProps> = ({
 
   if (isVerifying) {
     return (
-      <div className="min-h-screen w-full bg-[#0D1410] flex flex-col items-center justify-center text-[#F5F2E9] space-y-3">
-        <Loader2 className="w-8 h-8 animate-spin text-[#C9A35A]" />
+      <div className="min-h-screen w-full bg-[#0D1A13] flex flex-col items-center justify-center text-[#FFFFFF] space-y-3">
+        <Loader2 className="w-8 h-8 animate-spin text-[#D4A94E]" />
         <p className="text-xs text-[#A5B8AC]">Verificando credenciales de administración global...</p>
       </div>
     );
@@ -83,7 +83,7 @@ export const AdminRouteGuard: React.FC<AdminRouteGuardProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-[#0D1410] text-[#F5F2E9] p-3 sm:p-6 selection:bg-[#C9A35A]/30 selection:text-[#F5F2E9]">
+    <div className="min-h-screen bg-[#0D1A13] text-[#FFFFFF] p-3 sm:p-6 selection:bg-[#D4A94E]/30 selection:text-[#FFFFFF]">
       <SuperadminDashboardView
         onStartImpersonation={handleStartImpersonationAndNavigate}
         onExitToMyFarms={onExitToOperationalApp}

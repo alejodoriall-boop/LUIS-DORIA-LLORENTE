@@ -374,10 +374,10 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
       )}
 
       {/* Top Banner & Action Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-5 md:p-6 rounded-3xl border border-[#c1c8c2] card-shadow">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-[#15241C] p-5 md:p-6 rounded-3xl border border-white/10 shadow-xl">
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-1.5">
-            <span className="bg-[#1b4332] text-[#c1ecd4] font-mono text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+            <span className="bg-[#123F2A] text-[#D4A94E] border border-[#D4A94E]/30 font-mono text-[10px] font-bold px-2 py-0.5 rounded uppercase">
               Módulo Georreferenciado SIG & PRV
             </span>
 
@@ -386,20 +386,20 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
               <div className="relative">
                 <button
                   onClick={() => setShowFarmDropdown(!showFarmDropdown)}
-                  className="bg-[#eafaf1] hover:bg-[#c1ecd4]/50 text-[#012d1d] border border-[#c1ecd4] text-xs font-bold px-2.5 py-1 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
+                  className="bg-[#202E25] hover:bg-[#2A3C31] text-white border border-white/10 text-xs font-bold px-2.5 py-1 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
                 >
-                  <Building className="w-3.5 h-3.5 text-[#2d6a4f]" />
+                  <Building className="w-3.5 h-3.5 text-[#D4A94E]" />
                   <span>Cambiar Finca ({filteredGisFarms.length}/{farms.length})</span>
-                  <ChevronDown className="w-3 h-3 text-[#2d6a4f]" />
+                  <ChevronDown className="w-3 h-3 text-[#D4A94E]" />
                 </button>
 
                 {showFarmDropdown && (
-                  <div className="absolute top-full left-0 mt-1.5 w-72 bg-white rounded-2xl border-2 border-[#c1c8c2] shadow-2xl p-2.5 z-50 animate-in fade-in zoom-in-95">
-                    <div className="flex items-center justify-between px-1 py-1 mb-1 border-b border-[#eeeeee]">
-                      <p className="text-[10px] font-bold text-[#79564b] uppercase tracking-wider">
+                  <div className="absolute top-full left-0 mt-1.5 w-72 bg-[#15241C] rounded-2xl border border-white/15 shadow-2xl p-2.5 z-50 animate-in fade-in zoom-in-95">
+                    <div className="flex items-center justify-between px-1 py-1 mb-1 border-b border-white/10">
+                      <p className="text-[10px] font-bold text-[#A5B8AC] uppercase tracking-wider">
                         Fincas Registradas
                       </p>
-                      <span className="text-[10px] font-mono text-[#717973] font-bold">
+                      <span className="text-[10px] font-mono text-[#D4A94E] font-bold">
                         {CATEGORY_DEFINITIONS[gisCategoryFilter].shortLabel}
                       </span>
                     </div>
@@ -418,8 +418,8 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                             }}
                             className={`text-[9px] font-bold px-2 py-0.5 rounded-md transition-all whitespace-nowrap cursor-pointer ${
                               isSelected
-                                ? 'bg-[#012d1d] text-white'
-                                : 'bg-[#f0f4f1] text-[#414844] hover:bg-[#e2eae5]'
+                                ? 'bg-[#D4A94E] text-[#0D1A13]'
+                                : 'bg-[#202E25] text-[#A5B8AC] hover:bg-[#2A3C31]'
                             }`}
                           >
                             {def.shortLabel}
@@ -430,7 +430,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
 
                     <div className="max-h-52 overflow-y-auto space-y-1">
                       {filteredGisFarms.length === 0 ? (
-                        <p className="text-xs text-[#717973] text-center py-3">
+                        <p className="text-xs text-[#A5B8AC] text-center py-3">
                           No hay fincas con inventario de {CATEGORY_DEFINITIONS[gisCategoryFilter].shortLabel}.
                         </p>
                       ) : (
@@ -446,13 +446,13 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                               }}
                               className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs flex items-center justify-between transition-colors ${
                                 isCur
-                                  ? 'bg-[#012d1d] text-white font-bold'
-                                  : 'hover:bg-[#eeeeee] text-[#1a1c1c]'
+                                  ? 'bg-[#123F2A] text-white font-bold border border-[#D4A94E]/40'
+                                  : 'hover:bg-white/5 text-[#A5B8AC] hover:text-white'
                               }`}
                             >
                               <div className="truncate mr-1">
-                                <p className="truncate">{f.profile.name}</p>
-                                <p className="text-[9.5px] opacity-75 font-mono">
+                                <p className="truncate text-white font-semibold">{f.profile.name}</p>
+                                <p className="text-[9.5px] text-[#A5B8AC] font-mono">
                                   {f.profile.department} • {f.profile.totalAreaHa} Ha
                                 </p>
                                 <div className="flex items-center gap-0.5 mt-0.5 flex-wrap">
@@ -460,7 +460,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                                     <span
                                       key={cat}
                                       className={`text-[8px] font-bold px-1 py-0.2 rounded uppercase ${
-                                        isCur ? 'bg-white/20 text-white' : 'bg-[#e2ede6] text-[#012d1d]'
+                                        isCur ? 'bg-[#D4A94E]/20 text-[#D4A94E]' : 'bg-[#202E25] text-[#A5B8AC]'
                                       }`}
                                     >
                                       {CATEGORY_DEFINITIONS[cat]?.shortLabel || cat}
@@ -468,7 +468,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
                                   ))}
                                 </div>
                               </div>
-                              {isCur && <Check className="w-3.5 h-3.5 text-[#ffba38] shrink-0" />}
+                              {isCur && <Check className="w-3.5 h-3.5 text-[#D4A94E] shrink-0" />}
                             </button>
                           );
                         })
@@ -482,7 +482,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
             {onOpenEditFarmModal && (
               <button
                 onClick={() => onOpenEditFarmModal(farm.id)}
-                className="text-[11px] text-[#414844] hover:text-[#012d1d] flex items-center gap-1 font-semibold hover:underline"
+                className="text-[11px] text-[#A5B8AC] hover:text-white flex items-center gap-1 font-semibold hover:underline"
               >
                 <Edit3 className="w-3 h-3" />
                 <span>Editar Predio</span>
@@ -492,7 +492,7 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
             {onOpenFarmManagerModal && (
               <button
                 onClick={onOpenFarmManagerModal}
-                className="text-[11px] text-[#2d6a4f] hover:text-[#012d1d] flex items-center gap-1 font-semibold hover:underline"
+                className="text-[11px] text-[#D4A94E] hover:text-[#E4C477] flex items-center gap-1 font-semibold hover:underline"
               >
                 <Settings className="w-3 h-3" />
                 <span>Gestionar Predios</span>
@@ -500,16 +500,16 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
             )}
           </div>
 
-          <h1 className="text-2xl md:text-3xl font-extrabold text-[#012d1d] tracking-tight flex items-center gap-2">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2">
             <span>{farm.name}</span>
-            <span className="text-xs font-bold text-[#717973] font-normal">
+            <span className="text-xs font-bold text-[#A5B8AC] font-normal">
               • {farm.municipality}, {farm.department} ({farm.vereda})
             </span>
           </h1>
-          <p className="text-xs text-[#717973] mt-0.5">
-            Área Registrada: <span className="font-bold text-[#012d1d]">{farm.totalAreaHa} Ha</span> • Catastro:{' '}
-            <span className="font-mono text-[#012d1d]">{farm.cadastralCode}</span> • Matrícula:{' '}
-            <span className="font-mono text-[#012d1d]">{farm.registrationNumber}</span>
+          <p className="text-xs text-[#A5B8AC] mt-0.5">
+            Área Registrada: <span className="font-bold text-white">{farm.totalAreaHa} Ha</span> • Catastro:{' '}
+            <span className="font-mono text-white">{farm.cadastralCode}</span> • Matrícula:{' '}
+            <span className="font-mono text-white">{farm.registrationNumber}</span>
           </p>
         </div>
 
@@ -518,26 +518,26 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
           {onOpenCreateFarmModal && (
             <button
               onClick={onOpenCreateFarmModal}
-              className="bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs px-3.5 py-2.5 rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+              className="bg-[#123F2A] hover:bg-[#1F6547] text-white font-bold text-xs px-3.5 py-2.5 rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer border border-[#1F6547]"
             >
-              <PlusCircle className="w-4 h-4 text-[#ffba38]" />
+              <PlusCircle className="w-4 h-4 text-[#D4A94E]" />
               <span>+ Nueva Finca</span>
             </button>
           )}
 
           <button
             onClick={() => setIsSatelliteLoaderOpen(true)}
-            className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2 border border-[#ffba38]/80 cursor-pointer active:scale-98"
+            className="bg-[#D4A94E] hover:bg-[#E4C477] text-[#0D1A13] font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2 border border-[#D4A94E]/80 cursor-pointer active:scale-98"
           >
-            <Globe className="w-4 h-4 text-[#012d1d]" />
+            <Globe className="w-4 h-4 text-[#0D1A13]" />
             <span>Delimitar por Satélite (GPS)</span>
           </button>
 
           <button
             onClick={() => setIsImportModalOpen(true)}
-            className="bg-[#f3f3f3] hover:bg-[#c1ecd4]/30 text-[#012d1d] border border-[#c1c8c2] font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5"
+            className="bg-[#202E25] hover:bg-[#2A3C31] text-white border border-white/10 font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
           >
-            <Upload className="w-4 h-4 text-[#1b4332]" />
+            <Upload className="w-4 h-4 text-[#D4A94E]" />
             <span>Cargar KML / GeoJSON</span>
           </button>
 
@@ -546,9 +546,9 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
               setEditingPaddock(null);
               setIsEditorModalOpen(true);
             }}
-            className="bg-[#f3f3f3] hover:bg-[#c1ecd4]/30 text-[#012d1d] border border-[#c1c8c2] font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5"
+            className="bg-[#202E25] hover:bg-[#2A3C31] text-white border border-white/10 font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
           >
-            <Plus className="w-4 h-4 text-[#1b4332]" />
+            <Plus className="w-4 h-4 text-[#D4A94E]" />
             <span>Crear Potrero</span>
           </button>
 
@@ -557,28 +557,28 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
               setAforoInitialPaddockId(paddocks[0]?.id);
               setIsAforoModalOpen(true);
             }}
-            className="bg-[#1b4332] hover:bg-[#2d6a4f] text-white font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5"
+            className="bg-[#123F2A] hover:bg-[#1F6547] text-white font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all flex items-center gap-1.5 border border-[#1F6547] cursor-pointer"
           >
-            <GrassIcon className="w-4 h-4 text-[#ffba38]" />
+            <GrassIcon className="w-4 h-4 text-[#D4A94E]" />
             <span>Calculadora Aforos</span>
           </button>
 
           {/* Export Dropdown / Buttons */}
-          <div className="flex items-center gap-1 bg-[#f3f3f3] p-1 rounded-xl border border-[#c1c8c2]">
+          <div className="flex items-center gap-1 bg-[#202E25] p-1 rounded-xl border border-white/10">
             <button
               onClick={handleExportKml}
-              className="p-1.5 text-[#012d1d] hover:bg-white rounded-lg text-xs font-bold transition-colors flex items-center gap-1"
+              className="p-1.5 text-white hover:bg-white/10 rounded-lg text-xs font-bold transition-colors flex items-center gap-1"
               title="Descargar KML para Google Earth"
             >
-              <Download className="w-3.5 h-3.5 text-[#1b4332]" />
+              <Download className="w-3.5 h-3.5 text-[#D4A94E]" />
               <span className="text-[11px]">KML</span>
             </button>
             <button
               onClick={handleExportGeoJson}
-              className="p-1.5 text-[#012d1d] hover:bg-white rounded-lg text-xs font-bold transition-colors flex items-center gap-1"
+              className="p-1.5 text-white hover:bg-white/10 rounded-lg text-xs font-bold transition-colors flex items-center gap-1"
               title="Descargar GeoJSON para QGIS/ArcGIS"
             >
-              <FileCode className="w-3.5 h-3.5 text-[#1b4332]" />
+              <FileCode className="w-3.5 h-3.5 text-[#D4A94E]" />
               <span className="text-[11px]">GeoJSON</span>
             </button>
           </div>
@@ -587,66 +587,66 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
 
       {/* KPI Global Stat Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
-          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Área Potreros</p>
-          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC] truncate">Área Potreros</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-white truncate mt-1">
             {totalPaddocksAreaHa.toFixed(1)}{' '}
-            <span className="text-xs font-medium text-slate-500">Ha</span>
+            <span className="text-xs font-medium text-[#A5B8AC]">Ha</span>
           </p>
-          <p className="text-[10px] text-slate-400 truncate mt-0.5">{paddocks.length} potreros SIG</p>
+          <p className="text-[10px] text-[#A5B8AC] truncate mt-0.5">{paddocks.length} potreros SIG</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
-          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Capacidad Carga</p>
-          <p className="text-lg sm:text-xl font-mono font-bold text-amber-800 truncate mt-1">
-            {totalUGG.toFixed(0)} <span className="text-xs font-medium text-slate-500">UGG</span>
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC] truncate">Capacidad Carga</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-[#D4A94E] truncate mt-1">
+            {totalUGG.toFixed(0)} <span className="text-xs font-medium text-[#A5B8AC]">UGG</span>
           </p>
-          <p className="text-[10px] text-emerald-700 font-semibold font-mono truncate mt-0.5">{globalUggPerHa} UGG/Ha</p>
+          <p className="text-[10px] text-emerald-400 font-semibold font-mono truncate mt-0.5">{globalUggPerHa} UGG/Ha</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
-          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Ganado Pastoreo</p>
-          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">{totalHeadsAssigned}</p>
-          <p className="text-[10px] text-slate-400 truncate mt-0.5">Cabezas en rotación</p>
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC] truncate">Ganado Pastoreo</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-white truncate mt-1">{totalHeadsAssigned}</p>
+          <p className="text-[10px] text-[#A5B8AC] truncate mt-0.5">Cabezas en rotación</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
-          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Biomasa Total</p>
-          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC] truncate">Biomasa Total</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-white truncate mt-1">
             {(totalBiomassTon / 1000).toFixed(1)}{' '}
-            <span className="text-xs font-medium text-slate-500">kTon</span>
+            <span className="text-xs font-medium text-[#A5B8AC]">kTon</span>
           </p>
-          <p className="text-[10px] text-slate-400 truncate mt-0.5">{totalBiomassTon.toLocaleString()} Ton MV</p>
+          <p className="text-[10px] text-[#A5B8AC] truncate mt-0.5">{totalBiomassTon.toLocaleString()} Ton MV</p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
-          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Red Hídrica</p>
-          <p className="text-lg sm:text-xl font-mono font-bold text-sky-800 truncate mt-1">
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC] truncate">Red Hídrica</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-sky-400 truncate mt-1">
             {waterInfra.troughs.length}{' '}
-            <span className="text-xs font-medium text-slate-500">Bebederos</span>
+            <span className="text-xs font-medium text-[#A5B8AC]">Bebederos</span>
           </p>
-          <p className="text-[10px] text-slate-400 truncate mt-0.5">
+          <p className="text-[10px] text-[#A5B8AC] truncate mt-0.5">
             {(waterInfra.pipelines.reduce((s, p) => s + p.lengthM, 0) / 1000).toFixed(1)} km tubería
           </p>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs min-w-0 overflow-hidden">
-          <p className="text-[10px] uppercase font-bold text-slate-500 truncate">Cota Finca</p>
-          <p className="text-lg sm:text-xl font-mono font-bold text-slate-900 truncate mt-1">
-            {farm.elevationMsnm} <span className="text-xs font-medium text-slate-500">msnm</span>
+        <div className="bg-[#15241C] p-3.5 rounded-2xl border border-white/10 shadow-xs min-w-0 overflow-hidden">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC] truncate">Cota Finca</p>
+          <p className="text-lg sm:text-xl font-mono font-bold text-white truncate mt-1">
+            {farm.elevationMsnm} <span className="text-xs font-medium text-[#A5B8AC]">msnm</span>
           </p>
-          <p className="text-[10px] text-slate-400 truncate mt-0.5">6 curvas de nivel</p>
+          <p className="text-[10px] text-[#A5B8AC] truncate mt-0.5">6 curvas de nivel</p>
         </div>
       </div>
 
       {/* Sub-Tab Navigation Bar */}
-      <div className="flex items-center gap-2 bg-[#f3f3f3] p-1.5 rounded-2xl border border-[#c1c8c2] overflow-x-auto">
+      <div className="flex items-center gap-2 bg-[#15241C] p-1.5 rounded-2xl border border-white/10 overflow-x-auto">
         <button
           onClick={() => setActiveGisTab('map')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeGisTab === 'map'
-              ? 'bg-[#1b4332] text-white tactical-shadow'
-              : 'text-[#414844] hover:bg-white/60'
+              ? 'bg-[#123F2A] text-white border border-[#D4A94E]/40 shadow-xs'
+              : 'text-[#A5B8AC] hover:text-white hover:bg-white/5'
           }`}
         >
           <Map className="w-4 h-4" />
@@ -657,13 +657,13 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
           onClick={() => setActiveGisTab('segmentation')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeGisTab === 'segmentation'
-              ? 'bg-[#1b4332] text-white tactical-shadow'
-              : 'text-[#414844] hover:bg-white/60'
+              ? 'bg-[#123F2A] text-white border border-[#D4A94E]/40 shadow-xs'
+              : 'text-[#A5B8AC] hover:text-white hover:bg-white/5'
           }`}
         >
-          <Building className="w-4 h-4 text-[#ffba38]" />
+          <Building className="w-4 h-4 text-[#D4A94E]" />
           <span>Potreros por Predio</span>
-          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-white/20 text-white">
+          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-white/10 text-white">
             {segmentedGisPaddocks.reduce((sum, s) => sum + s.paddocks.length, 0)}
           </span>
         </button>
@@ -672,8 +672,8 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
           onClick={() => setActiveGisTab('rotation')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeGisTab === 'rotation'
-              ? 'bg-[#1b4332] text-white tactical-shadow'
-              : 'text-[#414844] hover:bg-white/60'
+              ? 'bg-[#123F2A] text-white border border-[#D4A94E]/40 shadow-xs'
+              : 'text-[#A5B8AC] hover:text-white hover:bg-white/5'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -684,11 +684,11 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
           onClick={() => setActiveGisTab('soil_topo')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeGisTab === 'soil_topo'
-              ? 'bg-[#1b4332] text-white tactical-shadow'
-              : 'text-[#414844] hover:bg-white/60'
+              ? 'bg-[#123F2A] text-white border border-[#D4A94E]/40 shadow-xs'
+              : 'text-[#A5B8AC] hover:text-white hover:bg-white/5'
           }`}
         >
-          <FlaskConical className="w-4 h-4" />
+          <FlaskConical className="w-4 h-4 text-[#D4A94E]" />
           <span>Matriz de Suelos & Topografía</span>
         </button>
 
@@ -696,11 +696,11 @@ export const FarmGisView: React.FC<FarmGisViewProps> = ({
           onClick={() => setActiveGisTab('water_infra')}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeGisTab === 'water_infra'
-              ? 'bg-[#1b4332] text-white tactical-shadow'
-              : 'text-[#414844] hover:bg-white/60'
+              ? 'bg-[#123F2A] text-white border border-[#D4A94E]/40 shadow-xs'
+              : 'text-[#A5B8AC] hover:text-white hover:bg-white/5'
           }`}
         >
-          <Droplets className="w-4 h-4" />
+          <Droplets className="w-4 h-4 text-sky-400" />
           <span>Red de Acueductos Ganaderos</span>
         </button>
       </div>

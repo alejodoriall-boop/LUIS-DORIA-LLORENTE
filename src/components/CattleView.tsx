@@ -1400,7 +1400,7 @@ export const CattleView: React.FC<CattleViewProps> = ({
               <p className="text-[10px] text-emerald-700 font-medium mt-1 truncate">kg / animal / día</p>
             </div>
 
-            <div className="bg-[#043825] text-white rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
+            <div className="bg-[#123F2A] text-white rounded-2xl p-4 shadow-xs flex flex-col justify-between min-w-0 overflow-hidden">
               <div className="flex items-center justify-between text-[#facc15] gap-1 min-w-0">
                 <span className="text-[10px] font-bold uppercase truncate">Valor Est. Hato</span>
                 <DollarSign className="w-4 h-4 text-[#facc15] shrink-0" />

@@ -391,7 +391,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
             onClick={() => setActiveMainTab('tenants')}
             className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center gap-2 ${
               activeMainTab === 'tenants'
-                ? 'bg-[#043825] text-white shadow-xs'
+                ? 'bg-[#123F2A] text-white shadow-xs'
                 : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
             }`}
           >
@@ -404,7 +404,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
             onClick={() => setActiveMainTab('audit')}
             className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center gap-2 ${
               activeMainTab === 'audit'
-                ? 'bg-[#043825] text-white shadow-xs'
+                ? 'bg-[#123F2A] text-white shadow-xs'
                 : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
             }`}
           >
@@ -537,7 +537,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
                         {/* Farm & Tenant Code */}
                         <td className="py-3.5 px-4">
                           <div className="flex items-center gap-2.5">
-                            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#043825] dark:bg-emerald-950/60 dark:text-emerald-300 flex items-center justify-center font-bold text-xs shrink-0 border border-emerald-100 dark:border-emerald-800/40">
+                            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#123F2A] dark:bg-emerald-950/60 dark:text-emerald-300 flex items-center justify-center font-bold text-xs shrink-0 border border-emerald-100 dark:border-emerald-800/40">
                               <Building2 className="w-4 h-4" />
                             </div>
                             <div>
@@ -650,7 +650,7 @@ export const SuperadminDashboardView: React.FC<SuperadminDashboardViewProps> = (
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#043825] flex items-center justify-center font-bold shrink-0 border border-emerald-100">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#123F2A] flex items-center justify-center font-bold shrink-0 border border-emerald-100">
                       <Building2 className="w-5 h-5" />
                     </div>
                     <div>

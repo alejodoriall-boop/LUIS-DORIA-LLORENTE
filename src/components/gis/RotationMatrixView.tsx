@@ -44,58 +44,58 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
     <div className="space-y-6 animate-in fade-in duration-150">
       {/* Top Grazing Rhythm Summary Bar */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Presión de Pastoreo</p>
-          <p className="text-xl font-mono font-extrabold text-[#012d1d]">
-            {instantaneousStockingRate} <span className="text-xs text-[#717973]">Cab/Ha</span>
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC]">Presión de Pastoreo</p>
+          <p className="text-xl font-mono font-extrabold text-white">
+            {instantaneousStockingRate} <span className="text-xs text-[#A5B8AC]">Cab/Ha</span>
           </p>
-          <p className="text-[10px] text-[#717973]">
+          <p className="text-[10px] text-[#A5B8AC]">
             {totalOccupiedHeads} cabezas en {totalOccupiedHa.toFixed(1)} Ha activas
           </p>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">Potreros Listos (Óptimo)</p>
-          <p className="text-xl font-mono font-extrabold text-emerald-800">
-            {readyPaddocks.length} <span className="text-xs text-[#717973]">potreros</span>
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC]">Potreros Listos (Óptimo)</p>
+          <p className="text-xl font-mono font-extrabold text-emerald-400">
+            {readyPaddocks.length} <span className="text-xs text-[#A5B8AC]">potreros</span>
           </p>
-          <p className="text-[10px] text-emerald-700 font-bold">
+          <p className="text-[10px] text-emerald-400 font-bold">
             {readyPaddocks.reduce((sum, p) => sum + p.areaHa, 0).toFixed(1)} Ha con descanso cumplido
           </p>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">En Pastoreo Activo</p>
-          <p className="text-xl font-mono font-extrabold text-[#ba1a1a]">
-            {occupiedPaddocks.length} <span className="text-xs text-[#717973]">potreros</span>
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC]">En Pastoreo Activo</p>
+          <p className="text-xl font-mono font-extrabold text-rose-400">
+            {occupiedPaddocks.length} <span className="text-xs text-[#A5B8AC]">potreros</span>
           </p>
-          <p className="text-[10px] text-[#717973]">
+          <p className="text-[10px] text-[#A5B8AC]">
             {occupiedPaddocks.reduce((sum, p) => sum + p.areaHa, 0).toFixed(1)} Ha ocupadas hoy
           </p>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow">
-          <p className="text-[10px] uppercase font-bold text-[#717973]">En Reposo Vegetativo</p>
-          <p className="text-xl font-mono font-extrabold text-[#523700]">
-            {restingPaddocks.length} <span className="text-xs text-[#717973]">potreros</span>
+        <div className="bg-[#15241C] p-4 rounded-2xl border border-white/10 shadow-xs">
+          <p className="text-[10px] uppercase font-bold text-[#A5B8AC]">En Reposo Vegetativo</p>
+          <p className="text-xl font-mono font-extrabold text-[#D4A94E]">
+            {restingPaddocks.length} <span className="text-xs text-[#A5B8AC]">potreros</span>
           </p>
-          <p className="text-[10px] text-[#717973]">Acumulando biomasa y carbohidratos</p>
+          <p className="text-[10px] text-[#A5B8AC]">Acumulando biomasa y carbohidratos</p>
         </div>
       </div>
 
       {/* Kanban / Visual Rotation Columns */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* Column 1: Ocupados Actualmente */}
-        <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow overflow-hidden flex flex-col">
-          <div className="bg-[#ffdad6] border-b border-[#ba1a1a]/20 p-4 flex items-center justify-between">
-            <h3 className="font-bold text-xs text-[#ba1a1a] uppercase tracking-wider flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ba1a1a] animate-pulse" />
+        <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-xl overflow-hidden flex flex-col">
+          <div className="bg-rose-950/40 border-b border-rose-500/20 p-4 flex items-center justify-between">
+            <h3 className="font-bold text-xs text-rose-300 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-400 animate-pulse" />
               Ocupados con Ganado ({occupiedPaddocks.length})
             </h3>
-            <span className="text-[11px] font-mono font-bold text-[#ba1a1a]">Pastoreo Activo</span>
+            <span className="text-[11px] font-mono font-bold text-rose-300">Pastoreo Activo</span>
           </div>
 
-          <div className="p-4 space-y-3 flex-1 overflow-y-auto max-h-[600px] bg-[#fdfdfd]">
+          <div className="p-4 space-y-3 flex-1 overflow-y-auto max-h-[600px] bg-[#121E17]">
             {occupiedPaddocks.map((p) => {
               const occupancyPct = Math.min(
                 100,
@@ -105,30 +105,30 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
               return (
                 <div
                   key={p.id}
-                  className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-3 hover:border-[#1b4332] transition-all cursor-pointer"
+                  className="bg-[#1A2C22] p-4 rounded-2xl border border-white/10 space-y-3 hover:border-[#D4A94E]/50 transition-all cursor-pointer"
                   onClick={() => onSelectPaddock(p)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono bg-[#012d1d] text-[#ffba38] text-xs font-bold px-2 py-0.5 rounded">
+                      <span className="font-mono bg-[#0D1A13] text-[#D4A94E] border border-[#D4A94E]/30 text-xs font-bold px-2 py-0.5 rounded">
                         {p.code}
                       </span>
-                      <h4 className="font-bold text-sm text-[#012d1d]">{p.name}</h4>
+                      <h4 className="font-bold text-sm text-white">{p.name}</h4>
                     </div>
-                    <span className="text-xs font-mono font-bold text-[#717973]">{p.areaHa} Ha</span>
+                    <span className="text-xs font-mono font-bold text-[#A5B8AC]">{p.areaHa} Ha</span>
                   </div>
 
                   {/* Assigned Lot Badge */}
-                  <div className="bg-[#f3f3f3] p-2.5 rounded-xl border border-[#c1c8c2] space-y-1.5">
+                  <div className="bg-[#15241C] p-2.5 rounded-xl border border-white/10 space-y-1.5">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-[#012d1d]">
+                      <span className="font-bold text-white">
                         🐄 {p.assignedLotName || 'Lote Activo'}
                       </span>
-                      <span className="font-mono font-bold text-[#523700]">
+                      <span className="font-mono font-bold text-[#D4A94E]">
                         {p.currentHeads || 45} cabezas
                       </span>
                     </div>
-                    <div className="flex items-center justify-between text-[10px] text-[#717973]">
+                    <div className="flex items-center justify-between text-[10px] text-[#A5B8AC]">
                       <span>
                         Día {p.daysInOccupancy || 1} de {p.occupancyDaysTarget} objetivo
                       </span>
@@ -136,10 +136,10 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
                     </div>
 
                     {/* Progress Bar of Occupancy */}
-                    <div className="w-full bg-[#e0e0e0] h-2 rounded-full overflow-hidden">
+                    <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all ${
-                          occupancyPct >= 100 ? 'bg-[#ba1a1a]' : 'bg-[#ffba38]'
+                          occupancyPct >= 100 ? 'bg-rose-500' : 'bg-[#D4A94E]'
                         }`}
                         style={{ width: `${occupancyPct}%` }}
                       />
@@ -152,7 +152,7 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
                         e.stopPropagation();
                         onOpenAforoCalculator(p);
                       }}
-                      className="text-xs font-bold text-[#523700] hover:underline flex items-center gap-1"
+                      className="text-xs font-bold text-[#D4A94E] hover:underline flex items-center gap-1"
                     >
                       <Scale className="w-3.5 h-3.5" />
                       Aforo: {p.forageYieldKgM2} kg/m²
@@ -163,7 +163,7 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
                         e.stopPropagation();
                         onAssignLot(p.id, undefined);
                       }}
-                      className="text-[11px] font-bold text-[#ba1a1a] hover:bg-[#ffdad6] px-2 py-1 rounded-lg border border-[#ba1a1a]/30 transition-colors"
+                      className="text-[11px] font-bold text-rose-300 hover:bg-rose-900/40 px-2 py-1 rounded-lg border border-rose-500/30 transition-colors"
                     >
                       Mover Lote
                     </button>
@@ -175,54 +175,54 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
         </div>
 
         {/* Column 2: Listos para Pastoreo */}
-        <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow overflow-hidden flex flex-col">
-          <div className="bg-[#c1ecd4] border-b border-[#1b4332]/20 p-4 flex items-center justify-between">
-            <h3 className="font-bold text-xs text-[#002114] uppercase tracking-wider flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-800" />
+        <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-xl overflow-hidden flex flex-col">
+          <div className="bg-[#123F2A]/60 border-b border-emerald-500/20 p-4 flex items-center justify-between">
+            <h3 className="font-bold text-xs text-emerald-300 uppercase tracking-wider flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
               Listos para Pastoreo ({readyPaddocks.length})
             </h3>
-            <span className="text-[11px] font-mono font-bold text-[#002114]">Punto Óptimo</span>
+            <span className="text-[11px] font-mono font-bold text-emerald-300">Punto Óptimo</span>
           </div>
 
-          <div className="p-4 space-y-3 flex-1 overflow-y-auto max-h-[600px] bg-[#fdfdfd]">
+          <div className="p-4 space-y-3 flex-1 overflow-y-auto max-h-[600px] bg-[#121E17]">
             {readyPaddocks.length === 0 ? (
-              <p className="text-xs text-[#717973] text-center py-6">
+              <p className="text-xs text-[#A5B8AC] text-center py-6">
                 No hay potreros con descanso completo en este momento.
               </p>
             ) : (
               readyPaddocks.map((p) => (
                 <div
                   key={p.id}
-                  className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-3 hover:border-[#1b4332] transition-all cursor-pointer"
+                  className="bg-[#1A2C22] p-4 rounded-2xl border border-white/10 space-y-3 hover:border-emerald-400/50 transition-all cursor-pointer"
                   onClick={() => onSelectPaddock(p)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono bg-[#012d1d] text-[#c1ecd4] text-xs font-bold px-2 py-0.5 rounded">
+                      <span className="font-mono bg-[#0D1A13] text-emerald-300 border border-emerald-500/30 text-xs font-bold px-2 py-0.5 rounded">
                         {p.code}
                       </span>
-                      <h4 className="font-bold text-sm text-[#012d1d]">{p.name}</h4>
+                      <h4 className="font-bold text-sm text-white">{p.name}</h4>
                     </div>
-                    <span className="text-xs font-mono font-bold text-[#717973]">{p.areaHa} Ha</span>
+                    <span className="text-xs font-mono font-bold text-[#A5B8AC]">{p.areaHa} Ha</span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 text-xs bg-[#f3f3f3] p-2.5 rounded-xl border border-[#c1c8c2]">
+                  <div className="grid grid-cols-2 gap-2 text-xs bg-[#15241C] p-2.5 rounded-xl border border-white/10">
                     <div>
-                      <span className="text-[10px] text-[#717973] block">Capacidad</span>
-                      <span className="font-mono font-bold text-[#012d1d]">
+                      <span className="text-[10px] text-[#A5B8AC] block">Capacidad</span>
+                      <span className="font-mono font-bold text-white">
                         {p.carryingCapacityUGG} UGG ({p.maxHeadsRecommended} cab)
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#717973] block">Días Reposo</span>
-                      <span className="font-mono font-bold text-emerald-800">
+                      <span className="text-[10px] text-[#A5B8AC] block">Días Reposo</span>
+                      <span className="font-mono font-bold text-emerald-400">
                         {p.daysInRest} días cumplidos
                       </span>
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between text-xs pt-1">
-                    <span className="text-[11px] text-[#717973] truncate max-w-[140px]">
+                    <span className="text-[11px] text-[#A5B8AC] truncate max-w-[140px]">
                       {p.pastureType}
                     </span>
 
@@ -234,7 +234,7 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
                         }
                       }}
                       defaultValue=""
-                      className="bg-[#ffba38] hover:bg-[#ffdeac] text-[#523700] font-bold text-xs px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                      className="bg-[#D4A94E] hover:bg-[#E4C477] text-[#0D1A13] font-bold text-xs px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
                     >
                       <option value="" disabled>
                         Meter Lote aquí...
@@ -253,54 +253,54 @@ export const RotationMatrixView: React.FC<RotationMatrixViewProps> = ({
         </div>
 
         {/* Column 3: En Descanso & Recuperación */}
-        <div className="bg-white rounded-3xl border border-[#c1c8c2] card-shadow overflow-hidden flex flex-col">
-          <div className="bg-[#ffdeac] border-b border-[#ffba38]/20 p-4 flex items-center justify-between">
-            <h3 className="font-bold text-xs text-[#523700] uppercase tracking-wider flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#523700]" />
+        <div className="bg-[#15241C] rounded-3xl border border-white/10 shadow-xl overflow-hidden flex flex-col">
+          <div className="bg-[#202E25] border-b border-[#D4A94E]/20 p-4 flex items-center justify-between">
+            <h3 className="font-bold text-xs text-[#D4A94E] uppercase tracking-wider flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#D4A94E]" />
               En Descanso Vegetativo ({restingPaddocks.length})
             </h3>
-            <span className="text-[11px] font-mono font-bold text-[#523700]">Recuperación</span>
+            <span className="text-[11px] font-mono font-bold text-[#D4A94E]">Recuperación</span>
           </div>
 
-          <div className="p-4 space-y-3 flex-1 overflow-y-auto max-h-[600px] bg-[#fdfdfd]">
+          <div className="p-4 space-y-3 flex-1 overflow-y-auto max-h-[600px] bg-[#121E17]">
             {restingPaddocks.map((p) => {
               const recoveryPct = Math.min(100, Math.round((p.daysInRest / p.restDaysTarget) * 100));
 
               return (
                 <div
                   key={p.id}
-                  className="bg-white p-4 rounded-2xl border border-[#c1c8c2] card-shadow space-y-3 hover:border-[#1b4332] transition-all cursor-pointer"
+                  className="bg-[#1A2C22] p-4 rounded-2xl border border-white/10 space-y-3 hover:border-[#D4A94E]/50 transition-all cursor-pointer"
                   onClick={() => onSelectPaddock(p)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono bg-[#012d1d] text-[#86af99] text-xs font-bold px-2 py-0.5 rounded">
+                      <span className="font-mono bg-[#0D1A13] text-[#A5B8AC] border border-white/10 text-xs font-bold px-2 py-0.5 rounded">
                         {p.code}
                       </span>
-                      <h4 className="font-bold text-sm text-[#012d1d]">{p.name}</h4>
+                      <h4 className="font-bold text-sm text-white">{p.name}</h4>
                     </div>
-                    <span className="text-xs font-mono font-bold text-[#717973]">{p.areaHa} Ha</span>
+                    <span className="text-xs font-mono font-bold text-[#A5B8AC]">{p.areaHa} Ha</span>
                   </div>
 
                   {/* Progress of Rest Period */}
                   <div className="space-y-1">
-                    <div className="flex justify-between text-xs text-[#717973]">
+                    <div className="flex justify-between text-xs text-[#A5B8AC]">
                       <span>Progreso de reposo:</span>
-                      <span className="font-mono font-bold text-[#012d1d]">
+                      <span className="font-mono font-bold text-white">
                         {p.daysInRest} de {p.restDaysTarget} días ({recoveryPct}%)
                       </span>
                     </div>
-                    <div className="w-full bg-[#e0e0e0] h-2 rounded-full overflow-hidden">
+                    <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
                       <div
-                        className="bg-emerald-600 h-full rounded-full transition-all"
+                        className="bg-emerald-500 h-full rounded-full transition-all"
                         style={{ width: `${recoveryPct}%` }}
                       />
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] text-[#717973]">
+                  <div className="flex items-center justify-between text-[11px] text-[#A5B8AC]">
                     <span>Faltan: {Math.max(0, p.restDaysTarget - p.daysInRest)} días</span>
-                    <span className="font-mono font-bold text-[#012d1d]">
+                    <span className="font-mono font-bold text-white">
                       {p.forageYieldKgM2} kg/m²
                     </span>
                   </div>

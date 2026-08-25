@@ -19,12 +19,12 @@ export const AppCard: React.FC<AppCardProps> = ({
 }) => {
   return (
     <div
-      className={`bg-[#202B24] border ${
-        highlighted ? 'border-[#C9A35A]/50 shadow-lg shadow-[#C9A35A]/5' : 'border-white/10'
+      className={`bg-[#1F3327] border ${
+        highlighted ? 'border-[#D4A94E]/50 shadow-lg shadow-[#D4A94E]/5' : 'border-white/10'
       } ${
         compact ? 'p-3.5 rounded-xl' : 'p-4 sm:p-5 rounded-2xl'
-      } text-[#F5F2E9] shadow-md transition-all duration-200 ${
-        hoverEffect ? 'hover:bg-[#26332B] hover:border-white/20' : ''
+      } text-[#FFFFFF] shadow-md transition-all duration-200 ${
+        hoverEffect ? 'hover:bg-[#1F3327] hover:border-white/20' : ''
       } ${className}`}
       {...props}
     >
@@ -53,7 +53,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   className = '',
 }) => {
   const badgeStyles = {
-    gold: 'bg-[#C9A35A]/15 text-[#C9A35A] border-[#C9A35A]/30',
+    gold: 'bg-[#D4A94E]/15 text-[#D4A94E] border-[#D4A94E]/30',
     success: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
     warning: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
     error: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
@@ -64,13 +64,13 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${className}`}>
       <div className="flex items-center gap-3">
         {Icon && (
-          <div className="w-10 h-10 rounded-xl bg-[#152019] border border-white/10 flex items-center justify-center text-[#C9A35A] shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#15241C] border border-white/10 flex items-center justify-center text-[#D4A94E] shrink-0">
             <Icon className="w-5 h-5" />
           </div>
         )}
         <div>
           <div className="flex items-center gap-2 flex-wrap">
-            <h2 className="text-lg sm:text-xl font-bold text-[#F5F2E9] tracking-tight">{title}</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-[#FFFFFF] tracking-tight">{title}</h2>
             {badge && (
               <span
                 className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${badgeStyles[badgeType]}`}
@@ -101,7 +101,7 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
   className = '',
 }) => {
   const styles = {
-    gold: 'bg-[#C9A35A]/15 text-[#C9A35A] border-[#C9A35A]/30',
+    gold: 'bg-[#D4A94E]/15 text-[#D4A94E] border-[#D4A94E]/30',
     success: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
     warning: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
     error: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
@@ -144,13 +144,13 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`bg-[#C9A35A] hover:bg-[#b89249] active:scale-95 disabled:bg-[#1A251E] disabled:text-[#A5B8AC]/40 disabled:border-white/5 disabled:cursor-not-allowed text-[#101713] font-bold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${sizeStyles[size]} ${className}`}
+      className={`bg-[#D4A94E] hover:bg-[#b89249] active:scale-95 disabled:bg-[#1A251E] disabled:text-[#A5B8AC]/40 disabled:border-white/5 disabled:cursor-not-allowed text-[#0D1A13] font-bold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${sizeStyles[size]} ${className}`}
       {...props}
     >
       {loading ? (
-        <Loader2 className="w-4 h-4 animate-spin text-[#101713]" />
+        <Loader2 className="w-4 h-4 animate-spin text-[#0D1A13]" />
       ) : (
-        Icon && <Icon className="w-4 h-4 shrink-0 text-[#101713]" />
+        Icon && <Icon className="w-4 h-4 shrink-0 text-[#0D1A13]" />
       )}
       <span>{children}</span>
     </button>
@@ -180,7 +180,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   return (
     <button
       disabled={disabled}
-      className={`bg-[#1A251E] hover:bg-[#202B24] active:scale-95 text-[#F5F2E9] border border-white/10 hover:border-white/20 font-semibold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed ${sizeStyles[size]} ${className}`}
+      className={`bg-[#1A251E] hover:bg-[#1F3327] active:scale-95 text-[#FFFFFF] border border-white/10 hover:border-white/20 font-semibold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed ${sizeStyles[size]} ${className}`}
       {...props}
     >
       {Icon && <Icon className="w-4 h-4 shrink-0 text-[#A5B8AC]" />}
@@ -206,14 +206,14 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   return (
     <div
-      className={`bg-[#152019] border border-dashed border-white/15 rounded-2xl p-8 sm:p-12 text-center flex flex-col items-center justify-center text-[#F5F2E9] ${className}`}
+      className={`bg-[#15241C] border border-dashed border-white/15 rounded-2xl p-8 sm:p-12 text-center flex flex-col items-center justify-center text-[#FFFFFF] ${className}`}
     >
       {Icon && (
-        <div className="w-14 h-14 rounded-2xl bg-[#202B24] border border-white/10 flex items-center justify-center text-[#C9A35A] mb-4">
+        <div className="w-14 h-14 rounded-2xl bg-[#1F3327] border border-white/10 flex items-center justify-center text-[#D4A94E] mb-4">
           <Icon className="w-7 h-7" />
         </div>
       )}
-      <h3 className="text-base sm:text-lg font-bold text-[#F5F2E9] mb-1">{title}</h3>
+      <h3 className="text-base sm:text-lg font-bold text-[#FFFFFF] mb-1">{title}</h3>
       <p className="text-xs sm:text-sm text-[#A5B8AC] max-w-md mx-auto mb-5 leading-relaxed">
         {description}
       </p>

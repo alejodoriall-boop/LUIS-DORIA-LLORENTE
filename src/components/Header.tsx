@@ -150,14 +150,14 @@ export const Header: React.FC<HeaderProps> = ({
   }, [farms, headerCategoryFilter]);
 
   return (
-    <header className="sticky top-0 z-40 flex items-center justify-between px-2.5 sm:px-4 md:px-6 h-14 md:h-16 w-full max-w-full bg-[#101713]/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300 gap-1.5 select-none text-[#F5F2E9]">
+    <header className="sticky top-0 z-40 flex items-center justify-between px-2.5 sm:px-4 md:px-6 h-14 md:h-16 w-full max-w-full bg-[#0D1A13]/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300 gap-1.5 select-none text-white">
       {/* Left: Mobile Drawer Trigger + Farm Selector + Context Switcher */}
       <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
         {onOpenMobileMenu && (
           <motion.button
             whileTap={{ scale: 0.94 }}
             onClick={onOpenMobileMenu}
-            className="md:hidden p-2 rounded-xl bg-[#152019] text-[#C9A35A] border border-white/10 hover:bg-[#1A251E] active:scale-95 transition-all cursor-pointer shrink-0"
+            className="md:hidden p-2 rounded-xl bg-[#15241C] text-[#D4A94E] border border-white/10 hover:bg-[#1F3327] active:scale-95 transition-all cursor-pointer shrink-0"
             title="Abrir menú de navegación de módulos"
           >
             <Menu className="w-4 h-4" />
@@ -185,31 +185,31 @@ export const Header: React.FC<HeaderProps> = ({
             aria-expanded={showOperationsMenu}
             aria-haspopup="true"
             aria-controls="centro-operativo-dropdown"
-            className={`flex items-center gap-1.5 sm:gap-2.5 h-8 sm:h-9 px-2.5 sm:px-3.5 rounded-full font-bold text-xs transition-all cursor-pointer border whitespace-nowrap shrink-0 shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A35A] ${
+            className={`flex items-center gap-1.5 sm:gap-2.5 h-8 sm:h-9 px-2.5 sm:px-3.5 rounded-full font-bold text-xs transition-all cursor-pointer border whitespace-nowrap shrink-0 shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A94E] ${
               showOperationsMenu
-                ? 'bg-[#1F2C23] border-[#C9A35A] text-[#C9A35A] shadow-[0_0_14px_rgba(201,163,90,0.25)]'
-                : 'bg-[#152019] hover:bg-[#1A251E] border-white/10 hover:border-[#C9A35A]/50 text-[#F5F2E9]'
+                ? 'bg-[#123F2A] border-[#D4A94E] text-[#D4A94E] shadow-[0_0_14px_rgba(212,169,78,0.25)]'
+                : 'bg-[#15241C] hover:bg-[#1F3327] border-white/10 hover:border-[#D4A94E]/50 text-white'
             }`}
             title="Abrir Centro Operativo: Integraciones y Alertas Activas"
           >
             <div className="relative flex items-center justify-center shrink-0">
-              <Activity className="w-3.5 h-3.5 text-[#C9A35A]" />
+              <Activity className="w-3.5 h-3.5 text-[#D4A94E]" />
               {totalActiveAlerts > 0 && (
-                <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-rose-500 animate-pulse border border-[#101713]" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#C83E4D] animate-pulse border border-[#0D1A13]" />
               )}
             </div>
 
-            <span className="font-bold text-xs text-[#F5F2E9] tracking-tight">Centro Operativo</span>
+            <span className="font-bold text-xs text-white tracking-tight">Centro Operativo</span>
 
             {totalActiveAlerts > 0 && (
-              <span className="bg-[#C9A35A] text-[#101713] text-[10px] font-black px-1.5 py-0.2 rounded-full font-mono shadow-2xs">
+              <span className="bg-[#D4A94E] text-[#0D1A13] text-[10px] font-black px-1.5 py-0.2 rounded-full font-mono shadow-2xs">
                 {totalActiveAlerts}
               </span>
             )}
 
             <ChevronDown
               className={`w-3.5 h-3.5 text-[#A5B8AC] transition-transform duration-200 shrink-0 ${
-                showOperationsMenu ? 'rotate-180 text-[#C9A35A]' : ''
+                showOperationsMenu ? 'rotate-180 text-[#D4A94E]' : ''
               }`}
             />
           </motion.button>
@@ -230,16 +230,16 @@ export const Header: React.FC<HeaderProps> = ({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 4, scale: 0.97 }}
                   transition={{ duration: 0.2, ease: 'easeOut' }}
-                  className="absolute right-0 top-full mt-2 w-[340px] sm:w-[400px] max-w-[calc(100vw-24px)] bg-[#152019]/98 backdrop-blur-2xl rounded-[14px] border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.65)] p-3.5 z-50 space-y-3.5 text-[#F5F2E9] focus:outline-none"
+                  className="absolute right-0 top-full mt-2 w-[340px] sm:w-[400px] max-w-[calc(100vw-24px)] bg-[#0D1A13]/98 backdrop-blur-2xl rounded-[14px] border border-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.65)] p-3.5 z-50 space-y-3.5 text-white focus:outline-none"
                 >
                   {/* Encabezado del desplegable */}
                   <div className="flex items-center justify-between pb-2.5 border-b border-white/10 px-0.5">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-[#C9A35A]/15 text-[#C9A35A] flex items-center justify-center border border-[#C9A35A]/30 shrink-0">
-                        <Activity className="w-4 h-4 text-[#C9A35A]" />
+                      <div className="w-7 h-7 rounded-lg bg-[#D4A94E]/15 text-[#D4A94E] flex items-center justify-center border border-[#D4A94E]/30 shrink-0">
+                        <Activity className="w-4 h-4 text-[#D4A94E]" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-xs sm:text-sm text-[#F5F2E9] leading-tight">
+                        <h3 className="font-bold text-xs sm:text-sm text-white leading-tight">
                           Centro Operativo
                         </h3>
                         <p className="text-[10px] text-[#A5B8AC]">
@@ -247,7 +247,7 @@ export const Header: React.FC<HeaderProps> = ({
                         </p>
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono font-bold bg-[#C9A35A]/20 text-[#C9A35A] px-2 py-0.5 rounded-full border border-[#C9A35A]/30">
+                    <span className="text-[10px] font-mono font-bold bg-[#D4A94E]/20 text-[#D4A94E] px-2 py-0.5 rounded-full border border-[#D4A94E]/30">
                       {totalActiveAlerts} alertas
                     </span>
                   </div>
@@ -255,7 +255,7 @@ export const Header: React.FC<HeaderProps> = ({
                   {/* SECCIÓN 1: INTEGRACIONES Y ESTADO */}
                   <div className="space-y-1.5">
                     <div className="px-1 flex items-center justify-between">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#7F8C83]">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#A5B8AC]">
                         1. Integraciones y Estado
                       </span>
                       <span className="text-[9px] font-mono text-[#A5B8AC]">Módulos & Hardware</span>
@@ -269,20 +269,20 @@ export const Header: React.FC<HeaderProps> = ({
                         onClick={() => {
                           onToggleDairyModule?.();
                         }}
-                        className="w-full p-2.5 rounded-xl bg-[#1A251E] hover:bg-[#202E25] border border-white/5 hover:border-white/15 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A35A]"
+                        className="w-full p-2.5 rounded-xl bg-[#15241C] hover:bg-[#1F3327] border border-white/5 hover:border-white/15 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A94E]"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div
                             className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border ${
                               isDairyEnabled
-                                ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
-                                : 'bg-white/5 text-[#7F8C83] border-white/10'
+                                ? 'bg-[#397DB5]/20 text-[#397DB5] border-[#397DB5]/30'
+                                : 'bg-white/5 text-[#A5B8AC] border-white/10'
                             }`}
                           >
                             <Milk className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-semibold text-[#F5F2E9] group-hover:text-blue-200 transition-colors">
+                            <p className="text-xs font-semibold text-white group-hover:text-blue-200 transition-colors">
                               Lechería Especializada
                             </p>
                             <p className="text-[10px] text-[#A5B8AC] truncate">
@@ -293,8 +293,8 @@ export const Header: React.FC<HeaderProps> = ({
                         <span
                           className={`px-2 py-0.5 rounded-full text-[10px] font-bold font-mono transition-colors shrink-0 ${
                             isDairyEnabled
-                              ? 'bg-blue-500/25 text-blue-300 border border-blue-500/40 shadow-xs'
-                              : 'bg-white/10 text-[#7F8C83] border border-white/10'
+                              ? 'bg-[#397DB5]/25 text-blue-300 border border-[#397DB5]/40 shadow-xs'
+                              : 'bg-white/10 text-[#A5B8AC] border border-white/10'
                           }`}
                         >
                           {isDairyEnabled ? 'ON' : 'OFF'}
@@ -309,14 +309,14 @@ export const Header: React.FC<HeaderProps> = ({
                           setShowOperationsMenu(false);
                           if (onOpenScaleModal) onOpenScaleModal();
                         }}
-                        className="w-full p-2.5 rounded-xl bg-[#1A251E] hover:bg-[#202E25] border border-white/5 hover:border-white/15 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A35A]"
+                        className="w-full p-2.5 rounded-xl bg-[#15241C] hover:bg-[#1F3327] border border-white/5 hover:border-white/15 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A94E]"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center shrink-0 border border-blue-500/30">
+                          <div className="w-7 h-7 rounded-lg bg-[#397DB5]/20 text-blue-300 flex items-center justify-center shrink-0 border border-[#397DB5]/30">
                             <Bluetooth className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-semibold text-[#F5F2E9] group-hover:text-blue-200 transition-colors">
+                            <p className="text-xs font-semibold text-white group-hover:text-blue-200 transition-colors">
                               Báscula Tru-Test
                             </p>
                             <p className="text-[10px] text-[#A5B8AC] truncate">
@@ -324,7 +324,7 @@ export const Header: React.FC<HeaderProps> = ({
                             </p>
                           </div>
                         </div>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-blue-500/20 text-blue-300 border border-blue-500/30 shrink-0">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#397DB5]/20 text-blue-300 border border-[#397DB5]/30 shrink-0">
                           {scaleWeight ? `${scaleWeight} kg` : '442.5 kg'}
                         </span>
                       </button>
@@ -337,14 +337,14 @@ export const Header: React.FC<HeaderProps> = ({
                           setShowOperationsMenu(false);
                           if (onOpenWhatsAppModal) onOpenWhatsAppModal();
                         }}
-                        className="w-full p-2.5 rounded-xl bg-[#1A251E] hover:bg-[#202E25] border border-white/5 hover:border-white/15 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A35A]"
+                        className="w-full p-2.5 rounded-xl bg-[#15241C] hover:bg-[#1F3327] border border-white/5 hover:border-white/15 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A94E]"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-lg bg-[#25D366]/20 text-[#25D366] flex items-center justify-center shrink-0 border border-[#25D366]/30">
+                          <div className="w-7 h-7 rounded-lg bg-[#27885D]/20 text-[#27885D] flex items-center justify-center shrink-0 border border-[#27885D]/30">
                             <Smartphone className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-semibold text-[#F5F2E9] group-hover:text-[#25D366] transition-colors">
+                            <p className="text-xs font-semibold text-white group-hover:text-emerald-300 transition-colors">
                               WhatsApp Bot de Campo
                             </p>
                             <p className="text-[10px] text-[#A5B8AC] truncate">
@@ -352,8 +352,8 @@ export const Header: React.FC<HeaderProps> = ({
                             </p>
                           </div>
                         </div>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/40 flex items-center gap-1 shrink-0">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#27885D]/20 text-emerald-300 border border-[#27885D]/40 flex items-center gap-1 shrink-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#27885D] animate-pulse" />
                           IA Conectado
                         </span>
                       </button>
@@ -363,14 +363,14 @@ export const Header: React.FC<HeaderProps> = ({
                   {/* SECCIÓN 2: ALERTAS OPERATIVAS */}
                   <div className="space-y-1.5 pt-2 border-t border-white/10">
                     <div className="px-1 flex items-center justify-between">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#7F8C83]">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#A5B8AC]">
                         2. Alertas Operativas
                       </span>
                       <span className="text-[9px] font-mono text-[#A5B8AC]">Sanidad & Tareas</span>
                     </div>
 
                     <div className="space-y-1">
-                      {/* 2.1 Pendientes (Amarillo/Dorado) */}
+                      {/* 2.1 Pendientes (Dorado) */}
                       <button
                         type="button"
                         role="menuitem"
@@ -378,14 +378,14 @@ export const Header: React.FC<HeaderProps> = ({
                           setShowOperationsMenu(false);
                           if (onOpenPendingActivitiesModal) onOpenPendingActivitiesModal();
                         }}
-                        className="w-full p-2.5 rounded-xl bg-[#1A251E] hover:bg-[#202E25] border border-white/5 hover:border-[#C9A35A]/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A35A]"
+                        className="w-full p-2.5 rounded-xl bg-[#15241C] hover:bg-[#1F3327] border border-white/5 hover:border-[#D4A94E]/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A94E]"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-lg bg-[#C9A35A]/15 text-[#C9A35A] flex items-center justify-center shrink-0 border border-[#C9A35A]/30">
+                          <div className="w-7 h-7 rounded-lg bg-[#D4A94E]/15 text-[#D4A94E] flex items-center justify-center shrink-0 border border-[#D4A94E]/30">
                             <CalendarDays className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-semibold text-[#F5F2E9] group-hover:text-[#C9A35A] transition-colors">
+                            <p className="text-xs font-semibold text-white group-hover:text-[#D4A94E] transition-colors">
                               Tareas Pendientes
                             </p>
                             <p className="text-[10px] text-[#A5B8AC] truncate">
@@ -393,7 +393,7 @@ export const Header: React.FC<HeaderProps> = ({
                             </p>
                           </div>
                         </div>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#C9A35A]/20 text-[#C9A35A] border border-[#C9A35A]/30 shrink-0">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#D4A94E]/20 text-[#D4A94E] border border-[#D4A94E]/30 shrink-0">
                           {pendingActivitiesCount}
                         </span>
                       </button>
@@ -406,14 +406,14 @@ export const Header: React.FC<HeaderProps> = ({
                           setShowOperationsMenu(false);
                           if (onOpenMastitisModal) onOpenMastitisModal();
                         }}
-                        className="w-full p-2.5 rounded-xl bg-[#1A251E] hover:bg-[#202E25] border border-white/5 hover:border-rose-500/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+                        className="w-full p-2.5 rounded-xl bg-[#15241C] hover:bg-[#1F3327] border border-white/5 hover:border-[#C83E4D]/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C83E4D]"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-lg bg-rose-500/15 text-rose-400 flex items-center justify-center shrink-0 border border-rose-500/30">
+                          <div className="w-7 h-7 rounded-lg bg-[#C83E4D]/15 text-rose-400 flex items-center justify-center shrink-0 border border-[#C83E4D]/30">
                             <FlaskConical className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-semibold text-[#F5F2E9] group-hover:text-rose-300 transition-colors">
+                            <p className="text-xs font-semibold text-white group-hover:text-rose-300 transition-colors">
                               Mastitis (CMT)
                             </p>
                             <p className="text-[10px] text-[#A5B8AC] truncate">
@@ -423,12 +423,12 @@ export const Header: React.FC<HeaderProps> = ({
                             </p>
                           </div>
                         </div>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-rose-500/20 text-rose-300 border border-rose-500/30 shrink-0">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#C83E4D]/20 text-rose-300 border border-[#C83E4D]/30 shrink-0">
                           {activeMastitisCount}
                         </span>
                       </button>
 
-                      {/* 2.3 Retiros Sanitarios (Naranja) */}
+                      {/* 2.3 Retiros Sanitarios (Dorado/Advertencia) */}
                       <button
                         type="button"
                         role="menuitem"
@@ -436,14 +436,14 @@ export const Header: React.FC<HeaderProps> = ({
                           setShowOperationsMenu(false);
                           onOpenWithdrawalModal();
                         }}
-                        className="w-full p-2.5 rounded-xl bg-[#1A251E] hover:bg-[#202E25] border border-white/5 hover:border-orange-500/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+                        className="w-full p-2.5 rounded-xl bg-[#15241C] hover:bg-[#1F3327] border border-white/5 hover:border-[#D99A28]/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D99A28]"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-lg bg-orange-500/15 text-orange-400 flex items-center justify-center shrink-0 border border-orange-500/30">
+                          <div className="w-7 h-7 rounded-lg bg-[#D99A28]/15 text-[#D99A28] flex items-center justify-center shrink-0 border border-[#D99A28]/30">
                             <Zap className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-semibold text-[#F5F2E9] group-hover:text-orange-300 transition-colors">
+                            <p className="text-xs font-semibold text-white group-hover:text-[#D99A28] transition-colors">
                               Tiempos de Retiro
                             </p>
                             <p className="text-[10px] text-[#A5B8AC] truncate">
@@ -451,12 +451,12 @@ export const Header: React.FC<HeaderProps> = ({
                             </p>
                           </div>
                         </div>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-orange-500/20 text-orange-300 border border-orange-500/30 shrink-0">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#D99A28]/20 text-[#D99A28] border border-[#D99A28]/30 shrink-0">
                           {retirosCount}
                         </span>
                       </button>
 
-                      {/* 2.4 Operación y Avisos (Verde / General) */}
+                      {/* 2.4 Operación y Avisos (Verde) */}
                       <button
                         type="button"
                         role="menuitem"
@@ -464,14 +464,14 @@ export const Header: React.FC<HeaderProps> = ({
                           setShowOperationsMenu(false);
                           handleOpenDrawer();
                         }}
-                        className="w-full p-2.5 rounded-xl bg-[#1A251E] hover:bg-[#202E25] border border-white/5 hover:border-emerald-500/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                        className="w-full p-2.5 rounded-xl bg-[#15241C] hover:bg-[#1F3327] border border-white/5 hover:border-[#27885D]/30 flex items-center justify-between gap-2.5 transition-all text-left group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#27885D]"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
+                          <div className="w-7 h-7 rounded-lg bg-[#27885D]/15 text-emerald-400 flex items-center justify-center shrink-0 border border-[#27885D]/30">
                             <Activity className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-semibold text-[#F5F2E9] group-hover:text-emerald-300 transition-colors">
+                            <p className="text-xs font-semibold text-white group-hover:text-emerald-300 transition-colors">
                               Operación & Avisos
                             </p>
                             <p className="text-[10px] text-[#A5B8AC] truncate">
@@ -479,7 +479,7 @@ export const Header: React.FC<HeaderProps> = ({
                             </p>
                           </div>
                         </div>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-[#27885D]/20 text-emerald-300 border border-[#27885D]/30 shrink-0">
                           {unreadAlertsCount > 0 ? unreadAlertsCount : 4}
                         </span>
                       </button>
@@ -487,7 +487,7 @@ export const Header: React.FC<HeaderProps> = ({
                   </div>
 
                   {/* Pie de página del desplegable */}
-                  <div className="pt-2 border-t border-white/10 px-1 flex items-center justify-between text-[10px] text-[#7F8C83]">
+                  <div className="pt-2.5 border-t border-white/10 px-1 flex items-center justify-between text-[10px] text-[#A5B8AC]">
                     <span className="font-mono">GanaderIA • Operaciones</span>
                     <button
                       type="button"
@@ -495,10 +495,11 @@ export const Header: React.FC<HeaderProps> = ({
                         setShowOperationsMenu(false);
                         handleOpenDrawer();
                       }}
-                      className="text-[#C9A35A] hover:text-[#D8B66C] font-bold flex items-center gap-1 cursor-pointer transition-colors"
+                      className="px-2.5 py-1 rounded-lg bg-[#D4A94E]/15 hover:bg-[#D4A94E]/25 text-[#D4A94E] hover:text-[#E4C477] border border-[#D4A94E]/30 font-bold flex items-center gap-1.5 cursor-pointer transition-all shadow-xs"
                     >
-                      <span>Abrir panel lateral</span>
-                      <ArrowRight className="w-3 h-3" />
+                      <Bell className="w-3 h-3 text-[#D4A94E]" />
+                      <span>Abrir panel de avisos</span>
+                      <ArrowRight className="w-3 h-3 ml-0.5" />
                     </button>
                   </div>
                 </motion.div>
@@ -516,12 +517,12 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center gap-2 p-1 rounded-full hover:bg-white/5 transition-colors cursor-pointer"
             title="Gestión de Sesión & Usuario"
           >
-            <div className="w-8 h-8 rounded-full bg-[#1A251E] text-[#C9A35A] flex items-center justify-center font-bold text-xs shadow-xs border border-[#C9A35A]/40 shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#15241C] text-[#D4A94E] flex items-center justify-center font-bold text-xs shadow-xs border border-[#D4A94E]/40 shrink-0">
               {activeUser ? activeUser.fullName.charAt(0) : <User className="w-4 h-4" />}
             </div>
 
             <div className="hidden lg:block text-left pr-1">
-              <span className="font-semibold text-xs text-[#F5F2E9] block leading-tight truncate max-w-[110px]">
+              <span className="font-semibold text-xs text-white block leading-tight truncate max-w-[110px]">
                 {activeUser ? activeUser.fullName : 'Iniciar Sesión'}
               </span>
               <span className="text-[10px] text-[#A5B8AC] font-medium block leading-none capitalize truncate max-w-[110px]">
@@ -529,7 +530,7 @@ export const Header: React.FC<HeaderProps> = ({
               </span>
             </div>
 
-            <ChevronDown className="w-3 h-3 text-[#7F8C83] hidden lg:block" />
+            <ChevronDown className="w-3 h-3 text-[#A5B8AC] hidden lg:block" />
           </motion.button>
 
           {/* User Session Dropdown */}
@@ -545,18 +546,18 @@ export const Header: React.FC<HeaderProps> = ({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 4, scale: 0.96 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-                  className="absolute right-0 top-full mt-2 w-72 bg-[#152019] backdrop-blur-2xl rounded-2xl border border-white/15 shadow-[0_16px_48px_rgba(0,0,0,0.6)] p-4 z-50 space-y-3 text-[#F5F2E9]"
+                  className="absolute right-0 top-full mt-2 w-72 bg-[#0D1A13] backdrop-blur-2xl rounded-2xl border border-white/15 shadow-[0_16px_48px_rgba(0,0,0,0.6)] p-4 z-50 space-y-3 text-white"
                 >
                   {activeUser ? (
                     <>
-                      <div className="p-3 bg-[#202B24] rounded-xl border border-white/10">
+                      <div className="p-3 bg-[#15241C] rounded-xl border border-white/10">
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-[#27885D]/20 border border-[#27885D]/30 px-2 py-0.5 rounded-full">
                             ● Sesión Activa
                           </span>
-                          <span className="text-[10px] font-mono text-[#7F8C83]">PIN ••••</span>
+                          <span className="text-[10px] font-mono text-[#A5B8AC]">PIN ••••</span>
                         </div>
-                        <h4 className="font-bold text-sm text-[#F5F2E9] mt-1">{activeUser.fullName}</h4>
+                        <h4 className="font-bold text-sm text-white mt-1">{activeUser.fullName}</h4>
                         <p className="text-xs text-[#A5B8AC] font-medium">
                           {activeUser.customRoleTitle || activeUser.roleType}
                         </p>
@@ -568,9 +569,9 @@ export const Header: React.FC<HeaderProps> = ({
                             setShowUserMenu(false);
                             setActiveTab('admin');
                           }}
-                          className="w-full text-left p-2.5 hover:bg-white/5 rounded-xl font-semibold text-[#F5F2E9] flex items-center gap-2.5 cursor-pointer transition-colors"
+                          className="w-full text-left p-2.5 hover:bg-white/5 rounded-xl font-semibold text-white flex items-center gap-2.5 cursor-pointer transition-colors"
                         >
-                          <Shield className="w-4 h-4 text-[#C9A35A]" />
+                          <Shield className="w-4 h-4 text-[#D4A94E]" />
                           <span>Módulo Administrativo & Roles</span>
                         </button>
 
@@ -579,9 +580,9 @@ export const Header: React.FC<HeaderProps> = ({
                             setShowUserMenu(false);
                             if (onOpenAuthModal) onOpenAuthModal();
                           }}
-                          className="w-full text-left p-2.5 hover:bg-white/5 rounded-xl font-semibold text-[#F5F2E9] flex items-center gap-2.5 cursor-pointer transition-colors"
+                          className="w-full text-left p-2.5 hover:bg-white/5 rounded-xl font-semibold text-white flex items-center gap-2.5 cursor-pointer transition-colors"
                         >
-                          <KeyRound className="w-4 h-4 text-[#C9A35A]" />
+                          <KeyRound className="w-4 h-4 text-[#D4A94E]" />
                           <span>Cambiar de Usuario / PIN</span>
                         </button>
 
@@ -591,9 +592,9 @@ export const Header: React.FC<HeaderProps> = ({
                               setShowUserMenu(false);
                               onGoToLanding();
                             }}
-                            className="w-full text-left p-2.5 hover:bg-[#C9A35A]/10 text-[#C9A35A] rounded-xl font-semibold flex items-center gap-2.5 cursor-pointer transition-colors"
+                            className="w-full text-left p-2.5 hover:bg-[#D4A94E]/10 text-[#D4A94E] rounded-xl font-semibold flex items-center gap-2.5 cursor-pointer transition-colors"
                           >
-                            <Sparkles className="w-4 h-4 text-[#C9A35A]" />
+                            <Sparkles className="w-4 h-4 text-[#D4A94E]" />
                             <span>Ver Home Page Pública</span>
                           </button>
                         )}
@@ -603,9 +604,9 @@ export const Header: React.FC<HeaderProps> = ({
                             setShowUserMenu(false);
                             if (onLogoutUser) onLogoutUser();
                           }}
-                          className="w-full text-left p-2.5 hover:bg-rose-500/15 text-rose-300 rounded-xl font-bold flex items-center gap-2.5 transition-colors mt-2 cursor-pointer border border-rose-500/20"
+                          className="w-full text-left p-2.5 hover:bg-[#C83E4D]/20 text-rose-300 rounded-xl font-bold flex items-center gap-2.5 transition-colors mt-2 cursor-pointer border border-[#C83E4D]/30"
                         >
-                          <LogOut className="w-4 h-4 text-rose-400" />
+                          <LogOut className="w-4 h-4 text-[#C83E4D]" />
                           <span>Cerrar Sesión</span>
                         </button>
                       </div>
@@ -613,8 +614,8 @@ export const Header: React.FC<HeaderProps> = ({
                   ) : (
                     <div className="space-y-3">
                       <div className="text-center p-2">
-                        <User className="w-8 h-8 text-[#7F8C83] mx-auto mb-1" />
-                        <h4 className="font-bold text-sm text-[#F5F2E9]">Sin Sesión de Usuario</h4>
+                        <User className="w-8 h-8 text-[#A5B8AC] mx-auto mb-1" />
+                        <h4 className="font-bold text-sm text-white">Sin Sesión de Usuario</h4>
                         <p className="text-xs text-[#A5B8AC]">Seleccione su perfil de usuario e ingrese su PIN.</p>
                       </div>
 
@@ -623,9 +624,9 @@ export const Header: React.FC<HeaderProps> = ({
                           setShowUserMenu(false);
                           if (onOpenAuthModal) onOpenAuthModal();
                         }}
-                        className="w-full py-2.5 bg-[#C9A35A] text-[#101713] hover:bg-[#D8B66C] text-xs font-bold rounded-xl shadow-sm flex items-center justify-center gap-2 cursor-pointer transition-all"
+                        className="w-full py-2.5 bg-[#D4A94E] text-[#0D1A13] hover:bg-[#E4C477] text-xs font-bold rounded-xl shadow-sm flex items-center justify-center gap-2 cursor-pointer transition-all"
                       >
-                        <KeyRound className="w-4 h-4 text-[#101713]" />
+                        <KeyRound className="w-4 h-4 text-[#0D1A13]" />
                         <span>Iniciar Sesión</span>
                       </button>
                     </div>

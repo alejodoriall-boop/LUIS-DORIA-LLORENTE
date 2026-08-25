@@ -150,7 +150,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
   const getRoleBadgeStyle = (role: SystemRoleType): string => {
     switch (role) {
       case 'propietario':
-        return 'bg-[#C9A35A]/15 text-[#C9A35A] border-[#C9A35A]/30';
+        return 'bg-[#D4A94E]/15 text-[#D4A94E] border-[#D4A94E]/30';
       case 'administrador':
         return 'bg-blue-500/15 text-blue-300 border-blue-500/30';
       case 'veterinario':
@@ -241,18 +241,18 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 10 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
-        className="w-full max-w-[460px] bg-[#101713] border border-white/10 rounded-[22px] shadow-2xl overflow-hidden relative flex flex-col text-[#F5F2E9] my-auto"
+        className="w-full max-w-[460px] bg-[#0D1A13] border border-white/10 rounded-[22px] shadow-2xl overflow-hidden relative flex flex-col text-[#FFFFFF] my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Subtle Top Glow Accent */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C9A35A]/60 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A94E]/60 to-transparent" />
 
         {/* Modal Close Button */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Cerrar ventana de acceso"
-          className="absolute top-4 right-4 p-2 text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.06] rounded-xl transition-colors cursor-pointer z-10"
+          className="absolute top-4 right-4 p-2 text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.06] rounded-xl transition-colors cursor-pointer z-10"
         >
           <X className="w-5 h-5" />
         </button>
@@ -261,9 +261,9 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
         <div className="px-6 sm:px-7 pt-7 pb-4 text-left">
           <div className="flex items-center gap-3 mb-3">
             <GanaderIALogo variant="icon" size="sm" />
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#043825] border border-emerald-500/25">
-              <ShieldCheck className="w-3 h-3 text-[#C9A35A]" />
-              <span className="text-[10px] font-bold tracking-widest text-[#C9A35A] uppercase font-mono">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#123F2A] border border-emerald-500/25">
+              <ShieldCheck className="w-3 h-3 text-[#D4A94E]" />
+              <span className="text-[10px] font-bold tracking-widest text-[#D4A94E] uppercase font-mono">
                 Acceso Seguro
               </span>
             </div>
@@ -271,7 +271,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
 
           <h2
             id="auth-modal-title"
-            className="font-serif text-2xl sm:text-[26px] font-bold text-[#F5F2E9] tracking-tight leading-tight"
+            className="font-serif text-2xl sm:text-[26px] font-bold text-[#FFFFFF] tracking-tight leading-tight"
           >
             {activeUser ? 'Cambiar perfil' : 'Bienvenido de nuevo'}
           </h2>
@@ -293,15 +293,15 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
 
             {/* If a user is selected and dropdown is closed, show selected card with "Cambiar" */}
             {selectedUserToLogin && !isDropdownOpen ? (
-              <div className="p-3 bg-[#202B24] border border-white/10 hover:border-white/20 rounded-xl transition-all flex items-center justify-between gap-3">
+              <div className="p-3 bg-[#1F3327] border border-white/10 hover:border-white/20 rounded-xl transition-all flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 overflow-hidden">
                   {/* Initials Avatar */}
-                  <div className="w-10 h-10 rounded-xl bg-[#043825] border border-[#C9A35A]/30 text-[#C9A35A] flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
+                  <div className="w-10 h-10 rounded-xl bg-[#123F2A] border border-[#D4A94E]/30 text-[#D4A94E] flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
                     {getInitials(selectedUserToLogin.fullName)}
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <h4 className="font-bold text-sm text-[#F5F2E9] truncate leading-tight">
+                      <h4 className="font-bold text-sm text-[#FFFFFF] truncate leading-tight">
                         {selectedUserToLogin.fullName}
                       </h4>
                       {isCurrentlyActiveUser && (
@@ -327,7 +327,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsDropdownOpen(true)}
-                    className="px-2.5 py-1 text-xs font-semibold text-[#C9A35A] hover:text-[#d6b56f] bg-white/[0.04] hover:bg-white/[0.08] rounded-lg border border-white/10 transition-colors cursor-pointer"
+                    className="px-2.5 py-1 text-xs font-semibold text-[#D4A94E] hover:text-[#d6b56f] bg-white/[0.04] hover:bg-white/[0.08] rounded-lg border border-white/10 transition-colors cursor-pointer"
                     aria-label="Cambiar perfil seleccionado"
                   >
                     Cambiar
@@ -342,17 +342,17 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   aria-expanded={isDropdownOpen}
                   aria-haspopup="listbox"
-                  className="w-full px-3.5 py-2.5 bg-[#202B24] border border-white/10 hover:border-white/20 rounded-xl text-left text-sm flex items-center justify-between text-[#F5F2E9] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C9A35A]/50"
+                  className="w-full px-3.5 py-2.5 bg-[#1F3327] border border-white/10 hover:border-white/20 rounded-xl text-left text-sm flex items-center justify-between text-[#FFFFFF] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#D4A94E]/50"
                 >
                   <div className="flex items-center gap-2.5 text-[#A5B8AC]">
-                    <User className="w-4 h-4 text-[#C9A35A]" />
-                    <span className={selectedUserToLogin ? 'text-[#F5F2E9] font-medium' : 'text-[#A5B8AC]'}>
+                    <User className="w-4 h-4 text-[#D4A94E]" />
+                    <span className={selectedUserToLogin ? 'text-[#FFFFFF] font-medium' : 'text-[#A5B8AC]'}>
                       {selectedUserToLogin ? selectedUserToLogin.fullName : 'Seleccionar perfil de ingreso...'}
                     </span>
                   </div>
                   <ChevronDown
                     className={`w-4 h-4 text-[#A5B8AC] transition-transform duration-200 ${
-                      isDropdownOpen ? 'rotate-180 text-[#C9A35A]' : ''
+                      isDropdownOpen ? 'rotate-180 text-[#D4A94E]' : ''
                     }`}
                   />
                 </button>
@@ -365,11 +365,11 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -4 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 right-0 mt-1.5 bg-[#152019] border border-white/15 rounded-xl shadow-2xl z-30 overflow-hidden max-h-60 flex flex-col"
+                      className="absolute top-full left-0 right-0 mt-1.5 bg-[#15241C] border border-white/15 rounded-xl shadow-2xl z-30 overflow-hidden max-h-60 flex flex-col"
                     >
                       {/* Search Bar if > 4 users */}
                       {users.length > 4 && (
-                        <div className="p-2 border-b border-white/10 sticky top-0 bg-[#152019]">
+                        <div className="p-2 border-b border-white/10 sticky top-0 bg-[#15241C]">
                           <div className="relative flex items-center">
                             <Search className="w-3.5 h-3.5 text-[#A5B8AC] absolute left-3 pointer-events-none" />
                             <input
@@ -378,7 +378,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                               placeholder="Buscar colaborador..."
                               value={searchQuery}
                               onChange={(e) => setSearchQuery(e.target.value)}
-                              className="w-full pl-8 pr-3 py-1.5 text-xs bg-[#202B24] border border-white/10 rounded-lg text-[#F5F2E9] placeholder-[#A5B8AC]/60 focus:outline-none focus:border-[#C9A35A]"
+                              className="w-full pl-8 pr-3 py-1.5 text-xs bg-[#1F3327] border border-white/10 rounded-lg text-[#FFFFFF] placeholder-[#A5B8AC]/60 focus:outline-none focus:border-[#D4A94E]"
                             />
                           </div>
                         </div>
@@ -401,23 +401,23 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                                 onClick={() => handleSelectUser(u)}
                                 className={`w-full p-2.5 rounded-lg flex items-center justify-between gap-3 text-left transition-colors cursor-pointer ${
                                   isSelected
-                                    ? 'bg-[#043825] border border-emerald-500/40 text-white'
-                                    : 'hover:bg-white/[0.05] text-[#F5F2E9]'
+                                    ? 'bg-[#123F2A] border border-emerald-500/40 text-white'
+                                    : 'hover:bg-white/[0.05] text-[#FFFFFF]'
                                 }`}
                               >
                                 <div className="flex items-center gap-2.5 min-w-0">
                                   <div
                                     className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${
                                       isSelected
-                                        ? 'bg-[#C9A35A] text-[#101713]'
-                                        : 'bg-[#202B24] text-[#A5B8AC] border border-white/10'
+                                        ? 'bg-[#D4A94E] text-[#0D1A13]'
+                                        : 'bg-[#1F3327] text-[#A5B8AC] border border-white/10'
                                     }`}
                                   >
                                     {getInitials(u.fullName)}
                                   </div>
                                   <div className="min-w-0">
                                     <div className="flex items-center gap-1.5">
-                                      <span className="font-semibold text-xs text-[#F5F2E9] truncate">
+                                      <span className="font-semibold text-xs text-[#FFFFFF] truncate">
                                         {u.fullName}
                                       </span>
                                       {isActive && (
@@ -458,7 +458,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                 htmlFor="security-pin-input"
                 className="text-xs font-semibold text-[#A5B8AC] flex items-center gap-1.5"
               >
-                <KeyRound className="w-3.5 h-3.5 text-[#C9A35A]" />
+                <KeyRound className="w-3.5 h-3.5 text-[#D4A94E]" />
                 <span>PIN de seguridad</span>
               </label>
               {selectedUserToLogin && (
@@ -470,7 +470,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
 
             <div className="relative flex items-center">
               <div className="absolute left-3.5 text-[#A5B8AC] pointer-events-none">
-                <Lock className="w-4 h-4 text-[#C9A35A]" />
+                <Lock className="w-4 h-4 text-[#D4A94E]" />
               </div>
 
               <input
@@ -487,14 +487,14 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
                   setPinInput(e.target.value);
                   if (loginError) setLoginError(null);
                 }}
-                className="w-full pl-10 pr-11 py-3 bg-[#202B24] border border-white/10 focus:border-[#C9A35A] focus:ring-1 focus:ring-[#C9A35A] rounded-xl text-[#F5F2E9] placeholder-[#A5B8AC]/50 text-sm font-mono tracking-widest transition-all outline-none"
+                className="w-full pl-10 pr-11 py-3 bg-[#1F3327] border border-white/10 focus:border-[#D4A94E] focus:ring-1 focus:ring-[#D4A94E] rounded-xl text-[#FFFFFF] placeholder-[#A5B8AC]/50 text-sm font-mono tracking-widest transition-all outline-none"
               />
 
               <button
                 type="button"
                 onClick={() => setShowPin(!showPin)}
                 aria-label={showPin ? 'Ocultar PIN' : 'Mostrar PIN'}
-                className="absolute right-3 p-1.5 text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.06] rounded-lg transition-colors cursor-pointer"
+                className="absolute right-3 p-1.5 text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.06] rounded-lg transition-colors cursor-pointer"
               >
                 {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -503,14 +503,14 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
             {/* Quick Demo PIN Helper */}
             {selectedUserToLogin && selectedUserToLogin.securityPin && (
               <div className="flex items-center justify-between text-[11px] px-1 pt-0.5 text-[#A5B8AC]">
-                <span>PIN por defecto: <strong className="font-mono text-[#C9A35A]">{selectedUserToLogin.securityPin}</strong></span>
+                <span>PIN por defecto: <strong className="font-mono text-[#D4A94E]">{selectedUserToLogin.securityPin}</strong></span>
                 <button
                   type="button"
                   onClick={() => {
                     setPinInput(selectedUserToLogin.securityPin);
                     if (loginError) setLoginError(null);
                   }}
-                  className="text-[#C9A35A] hover:underline font-semibold cursor-pointer"
+                  className="text-[#D4A94E] hover:underline font-semibold cursor-pointer"
                 >
                   Autocompletar PIN
                 </button>
@@ -557,10 +557,10 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting || !selectedUserToLogin || !pinInput.trim()}
-              className="w-full py-3.5 px-4 bg-[#C9A35A] hover:bg-[#b89249] disabled:bg-[#202B24] disabled:text-[#A5B8AC]/40 disabled:border-white/5 disabled:cursor-not-allowed text-[#101713] font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+              className="w-full py-3.5 px-4 bg-[#D4A94E] hover:bg-[#b89249] disabled:bg-[#1F3327] disabled:text-[#A5B8AC]/40 disabled:border-white/5 disabled:cursor-not-allowed text-[#0D1A13] font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
             >
               {isSubmitting ? (
-                <div className="w-5 h-5 border-2 border-[#101713] border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-[#0D1A13] border-t-transparent rounded-full animate-spin" />
               ) : (
                 <>
                   <span>
@@ -575,7 +575,7 @@ export const AuthSessionModal: React.FC<AuthSessionModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="text-xs font-semibold text-[#A5B8AC] hover:text-[#F5F2E9] py-1.5 px-2 rounded-lg hover:bg-white/[0.04] transition-colors cursor-pointer"
+                className="text-xs font-semibold text-[#A5B8AC] hover:text-[#FFFFFF] py-1.5 px-2 rounded-lg hover:bg-white/[0.04] transition-colors cursor-pointer"
               >
                 Cancelar
               </button>

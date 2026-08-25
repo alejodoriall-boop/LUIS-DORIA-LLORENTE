@@ -21,7 +21,7 @@ export const OperationalCard: React.FC<OperationalCardProps> = ({
 }) => {
   const baseClasses = 'rounded-2xl transition-all duration-150 border';
   const selectedClasses = selected
-    ? 'bg-[#F4F8F5] border-[#043825] shadow-sm ring-1 ring-[#043825]/20'
+    ? 'bg-[#F4F8F5] border-[#123F2A] shadow-sm ring-1 ring-[#123F2A]/20'
     : 'bg-white border-[#D6DED7] hover:border-[#C3CEC5] shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(4,56,37,0.06)]';
   const paddingClass = noPadding ? '' : 'p-4 sm:p-5';
 
@@ -125,7 +125,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[#D6DED7] ${className}`}>
       <div className="flex items-center gap-3">
         {icon && (
-          <div className="w-10 h-10 rounded-xl bg-[#DDEBE3] text-[#043825] flex items-center justify-center shrink-0 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-[#DDEBE3] text-[#123F2A] flex items-center justify-center shrink-0 shadow-xs">
             {icon}
           </div>
         )}
@@ -158,8 +158,8 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
 }) => {
   const bgClass =
     variant === 'green'
-      ? 'bg-[#043825] hover:bg-[#075239] text-white shadow-[0_2px_8px_rgba(4,56,37,0.25)] active:scale-[0.98]'
-      : 'bg-[#C9A35A] hover:bg-[#B78F42] text-[#0D1410] font-black shadow-[0_2px_8px_rgba(201,163,90,0.3)] active:scale-[0.98]';
+      ? 'bg-[#123F2A] hover:bg-[#1F6547] text-white shadow-[0_2px_8px_rgba(4,56,37,0.25)] active:scale-[0.98]'
+      : 'bg-[#D4A94E] hover:bg-[#C5993F] text-[#0D1A13] font-black shadow-[0_2px_8px_rgba(201,163,90,0.3)] active:scale-[0.98]';
 
   return (
     <button
@@ -186,7 +186,7 @@ export const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   return (
     <button
       type="button"
-      className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-[#043825] bg-white hover:bg-[#EEF2ED] border border-[#D6DED7] hover:border-[#C3CEC5] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs active:scale-[0.98] ${className}`}
+      className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-[#123F2A] bg-white hover:bg-[#EEF2ED] border border-[#D6DED7] hover:border-[#C3CEC5] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs active:scale-[0.98] ${className}`}
       {...props}
     >
       {icon && <span className="shrink-0">{icon}</span>}
@@ -226,22 +226,22 @@ export const LightModalBody: React.FC<LightModalProps> = ({
   return (
     <div className={`w-full ${widthClasses[maxWidth]} bg-[#F5F7F3] rounded-3xl overflow-hidden shadow-2xl border border-[#D6DED7] flex flex-col text-[#18241D]`}>
       {/* Dark Institutional Green Header */}
-      <div className="bg-[#043825] px-5 py-4 flex items-center justify-between text-white shrink-0 border-b border-[#075239]">
+      <div className="bg-[#123F2A] px-5 py-4 flex items-center justify-between text-white shrink-0 border-b border-[#1F6547]">
         <div className="flex items-center gap-3">
           {icon && (
-            <div className="w-9 h-9 rounded-xl bg-white/10 text-[#C9A35A] flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-white/10 text-[#D4A94E] flex items-center justify-center shrink-0">
               {icon}
             </div>
           )}
           <div>
-            <h3 className="font-extrabold text-base sm:text-lg text-[#F5F2E9] tracking-tight">{title}</h3>
-            {subtitle && <p className="text-xs text-[#B9C3BB] font-medium">{subtitle}</p>}
+            <h3 className="font-extrabold text-base sm:text-lg text-[#FFFFFF] tracking-tight">{title}</h3>
+            {subtitle && <p className="text-xs text-[#A5B8AC] font-medium">{subtitle}</p>}
           </div>
         </div>
         <button
           type="button"
           onClick={onClose}
-          className="p-1.5 text-[#B9C3BB] hover:text-white rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+          className="p-1.5 text-[#A5B8AC] hover:text-white rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
           title="Cerrar"
         >
           ✕

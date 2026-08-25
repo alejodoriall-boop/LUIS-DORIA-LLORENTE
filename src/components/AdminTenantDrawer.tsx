@@ -146,7 +146,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
               <div className="p-4 sm:p-6 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/70 shrink-0">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-2xl bg-[#043825] text-amber-400 flex items-center justify-center font-bold text-lg shadow-sm border border-emerald-800/40 shrink-0">
+                    <div className="w-11 h-11 rounded-2xl bg-[#123F2A] text-amber-400 flex items-center justify-center font-bold text-lg shadow-sm border border-emerald-800/40 shrink-0">
                       <Building2 className="w-6 h-6" />
                     </div>
                     <div>
@@ -323,7 +323,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableBuffaloModule')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#043825]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
@@ -344,7 +344,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableWhatsAppAIAssistant')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#043825]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
@@ -365,7 +365,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableAdvancedSanitaryPlan')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#043825]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
@@ -386,7 +386,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableSupplementationMRP')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#043825]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
@@ -407,7 +407,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableInventoryApprovalFlow')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#043825]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
 
@@ -428,7 +428,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                             onChange={() => handleToggleFeature('enableGisAdvancedMapping')}
                             className="sr-only peer"
                           />
-                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#043825]" />
+                          <div className="w-10 h-5 bg-neutral-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#123F2A]" />
                         </label>
                       </div>
                     </div>
@@ -736,7 +736,7 @@ export const AdminTenantDrawer: React.FC<AdminTenantDrawerProps> = ({
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleSave}
-                    className="px-5 py-2.5 bg-[#043825] hover:bg-[#064e3b] text-white text-xs font-extrabold rounded-xl transition-all shadow-md flex items-center gap-1.5 cursor-pointer"
+                    className="px-5 py-2.5 bg-[#123F2A] hover:bg-[#064e3b] text-white text-xs font-extrabold rounded-xl transition-all shadow-md flex items-center gap-1.5 cursor-pointer"
                   >
                     <Save className="w-4 h-4 text-amber-400" />
                     <span>Guardar Cambios</span>

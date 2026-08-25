@@ -96,6 +96,7 @@ import { SalesManagementView } from './components/SalesManagementView';
 import { AdminManagementView } from './components/AdminManagementView';
 import { PublicHomePage } from './components/PublicHomePage';
 import { RightNotificationSidebar } from './components/RightNotificationSidebar';
+import { FloatingNotificationBell } from './components/FloatingNotificationBell';
 import { AuthSessionModal } from './components/modals/AuthSessionModal';
 import { INITIAL_ADMIN_USERS } from './data/mockAdminData';
 import { INITIAL_EQUINES_MOCK } from './data/mockEquinesData';
@@ -1846,7 +1847,7 @@ function AppContent() {
         <Route
           path="/app/*"
           element={
-            <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#0D1410] text-[#F5F2E9] flex flex-col md:flex-row font-sans antialiased selection:bg-[#C9A35A]/30 selection:text-[#F5F2E9]">
+            <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#0D1A13] text-[#FFFFFF] flex flex-col md:flex-row font-sans antialiased selection:bg-[#D4A94E]/30 selection:text-[#FFFFFF]">
               {/* Left Vertical Sidebar Navigation */}
               <Sidebar
                 activeTab={activeTab}
@@ -1865,7 +1866,7 @@ function AppContent() {
               />
 
               {/* Main App Content Column */}
-              <div className="flex-1 flex flex-col min-w-0 max-w-full w-full min-h-screen overflow-x-hidden">
+              <div className="flex-1 flex flex-col min-w-0 max-w-full w-full min-h-screen overflow-x-hidden md:ml-64 lg:ml-72">
                 {/* Support Impersonation Persistent Banner */}
                 {adminContextMode === 'support_impersonation' && impersonatedTenant && (
                   <div className="sticky top-0 z-50 bg-amber-400 text-neutral-950 px-3 sm:px-5 py-2 text-xs font-extrabold flex items-center justify-between shadow-md border-b border-amber-500 gap-2 animate-in slide-in-from-top duration-300">
@@ -1927,8 +1928,8 @@ function AppContent() {
                 />
 
                 {/* Main Content Workspace - 100% Full Width */}
-                <div className="flex-1 flex flex-col min-w-0 max-w-full w-full bg-[#E9EEE8] text-[#18241D]">
-                  <main className="operational-workspace flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden bg-[#E9EEE8] text-[#18241D]">
+                <div className="flex-1 flex flex-col min-w-0 max-w-full w-full bg-[#0D1A13] text-white">
+                  <main className="operational-workspace flex-1 px-3 sm:px-4 md:px-5 lg:px-6 py-3.5 md:py-6 w-full max-w-full pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10 min-w-0 overflow-x-hidden bg-[#0D1A13] text-white">
                     {activeTab === 'home' && (
                       <HomeView
             setActiveTab={setActiveTab}
@@ -2190,6 +2191,18 @@ function AppContent() {
         )}
       </main>
     </div>
+
+                {/* Persistent Floating Notification Bell (Campana Flotante) */}
+                <FloatingNotificationBell
+                  unreadCount={
+                    alerts.length +
+                    pendingActivities.filter((a) => a.status === 'pendiente' || a.status === 'vencida').length +
+                    mastitisRecords.filter((r) => r.status !== 'curado').length +
+                    5 // withdrawal animals
+                  }
+                  isOpen={isRightSidebarOpen}
+                  onToggle={() => setIsRightSidebarOpen(!isRightSidebarOpen)}
+                />
 
                 {/* Fixed Bottom Navigation Bar for Mobile (< 768px) */}
                 <BottomNav
@@ -2548,8 +2561,8 @@ function AppContent() {
 
       {/* Toast Floating Banner */}
       {toastMessage && (
-        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-[120] bg-[#152019] text-[#F5F2E9] px-5 py-3 rounded-2xl shadow-2xl border border-[#C9A35A]/50 text-xs font-bold font-mono animate-in fade-in slide-in-from-bottom-5 flex items-center gap-2.5">
-          <Sparkles className="w-4 h-4 text-[#C9A35A] shrink-0" />
+        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-[120] bg-[#15241C] text-[#FFFFFF] px-5 py-3 rounded-2xl shadow-2xl border border-[#D4A94E]/50 text-xs font-bold font-mono animate-in fade-in slide-in-from-bottom-5 flex items-center gap-2.5">
+          <Sparkles className="w-4 h-4 text-[#D4A94E] shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -2557,27 +2570,27 @@ function AppContent() {
       {/* Global Confirmation Modal for Farm Switch */}
       {pendingFarmSwitch && (
         <div className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in zoom-in-95" onClick={(e) => { if (e.target === e.currentTarget) setPendingFarmSwitch(null); }}>
-          <div className="bg-[#152019] text-[#F5F2E9] rounded-3xl max-w-md w-full p-6 border border-white/15 shadow-2xl space-y-4 text-left">
+          <div className="bg-[#15241C] text-[#FFFFFF] rounded-3xl max-w-md w-full p-6 border border-white/15 shadow-2xl space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#202B24] text-[#C9A35A] flex items-center justify-center border border-white/10 shrink-0">
-                <Building2 className="w-6 h-6 text-[#C9A35A]" />
+              <div className="w-12 h-12 rounded-2xl bg-[#1F3327] text-[#D4A94E] flex items-center justify-center border border-white/10 shrink-0">
+                <Building2 className="w-6 h-6 text-[#D4A94E]" />
               </div>
               <div>
-                <h3 className="font-extrabold text-base text-[#F5F2E9]">¿Confirmar Cambio de Predio?</h3>
+                <h3 className="font-extrabold text-base text-[#FFFFFF]">¿Confirmar Cambio de Predio?</h3>
                 <p className="text-xs text-[#A5B8AC] font-medium mt-0.5">
                   Estás a punto de cambiar el predio activo en el sistema.
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#202B24] p-3.5 rounded-2xl border border-white/10 text-xs space-y-2">
+            <div className="bg-[#1F3327] p-3.5 rounded-2xl border border-white/10 text-xs space-y-2">
               <div className="flex items-center justify-between text-[#A5B8AC]">
                 <span>Predio Actual:</span>
-                <span className="font-bold text-[#F5F2E9]">{currentFarm?.profile?.name || 'Todos los Predios'}</span>
+                <span className="font-bold text-[#FFFFFF]">{currentFarm?.profile?.name || 'Todos los Predios'}</span>
               </div>
-              <div className="flex items-center justify-between text-[#C9A35A] pt-1.5 border-t border-white/10">
+              <div className="flex items-center justify-between text-[#D4A94E] pt-1.5 border-t border-white/10">
                 <span className="font-semibold">Nuevo Predio:</span>
-                <span className="font-extrabold text-[#F5F2E9] underline">
+                <span className="font-extrabold text-[#FFFFFF] underline">
                   {pendingFarmSwitch === 'all'
                     ? 'Consolidado General (Todos los Predios)'
                     : farms.find((f) => f.profile.id === pendingFarmSwitch)?.profile?.name || 'Predio Seleccionado'}
@@ -2589,16 +2602,16 @@ function AppContent() {
               <button
                 type="button"
                 onClick={() => setPendingFarmSwitch(null)}
-                className="px-4 py-2.5 bg-[#202B24] hover:bg-[#26332B] text-[#F5F2E9] font-extrabold rounded-xl text-xs transition-colors cursor-pointer border border-white/10"
+                className="px-4 py-2.5 bg-[#1F3327] hover:bg-[#1F3327] text-[#FFFFFF] font-extrabold rounded-xl text-xs transition-colors cursor-pointer border border-white/10"
               >
                 Cancelar
               </button>
               <button
                 type="button"
                 onClick={() => doSelectFarm(pendingFarmSwitch)}
-                className="px-4 py-2.5 bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer active:scale-95"
+                className="px-4 py-2.5 bg-[#D4A94E] hover:bg-[#D8B66C] text-[#0D1A13] font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer active:scale-95"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#101713]" />
+                <CheckCircle2 className="w-4 h-4 text-[#0D1A13]" />
                 <span>Sí, Cambiar de Predio</span>
               </button>
             </div>

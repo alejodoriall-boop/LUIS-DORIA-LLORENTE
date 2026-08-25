@@ -221,11 +221,11 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
 
   // 5 Key capabilities cards row
   const capabilityCards = [
-    { title: '19 módulos especializados', icon: Layers, accent: 'text-[#C9A35A]' },
+    { title: '19 módulos especializados', icon: Layers, accent: 'text-[#D4A94E]' },
     { title: 'Gestión multifincas', icon: Building2, accent: 'text-[#10B981]' },
-    { title: 'Control de usuarios y permisos', icon: ShieldCheck, accent: 'text-[#C9A35A]' },
+    { title: 'Control de usuarios y permisos', icon: ShieldCheck, accent: 'text-[#D4A94E]' },
     { title: 'Integración con básculas', icon: Scale, accent: 'text-[#10B981]' },
-    { title: 'Reportes y analítica', icon: TrendingUp, accent: 'text-[#C9A35A]' },
+    { title: 'Reportes y analítica', icon: TrendingUp, accent: 'text-[#D4A94E]' },
   ];
 
   // Benefits
@@ -383,10 +383,10 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#101713] text-[#F5F2E9] font-sans antialiased selection:bg-[#043825] selection:text-[#C9A35A] flex flex-col">
+    <div className="min-h-screen bg-[#0D1A13] text-[#FFFFFF] font-sans antialiased selection:bg-[#123F2A] selection:text-[#D4A94E] flex flex-col">
       
       {/* 1. Encabezado Fijo (Sticky Dark Navbar - 72px) */}
-      <header className="sticky top-0 z-50 h-[72px] bg-[#101713]/95 backdrop-blur-md border-b border-white/[0.07] transition-all">
+      <header className="sticky top-0 z-50 h-[72px] bg-[#0D1A13]/95 backdrop-blur-md border-b border-white/[0.07] transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
           
           {/* Brand Logo (Left) */}
@@ -400,8 +400,8 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           >
             <GanaderIALogo variant="icon" size="md" />
             <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-[#F5F2E9]">
-                Ganader<span className="text-[#C9A35A]">IA</span>
+              <span className="text-xl font-bold tracking-tight text-[#FFFFFF]">
+                Ganader<span className="text-[#D4A94E]">IA</span>
               </span>
               <span className="text-[10px] font-medium text-[#A5B8AC] tracking-wider uppercase hidden sm:inline">
                 Software Ganadero
@@ -423,7 +423,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 key={link.id}
                 type="button"
                 onClick={() => scrollToSection(link.id)}
-                className="px-3.5 py-1.5 text-xs xl:text-sm font-medium text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] rounded-lg transition-colors cursor-pointer"
+                className="px-3.5 py-1.5 text-xs xl:text-sm font-medium text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.04] rounded-lg transition-colors cursor-pointer"
               >
                 {link.label}
               </button>
@@ -435,7 +435,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
             <button
               type="button"
               onClick={onOpenAuthModal}
-              className="px-4 py-2 text-xs xl:text-sm font-semibold text-[#F5F2E9] hover:text-white bg-transparent hover:bg-white/[0.06] rounded-xl border border-white/15 transition-all cursor-pointer active:scale-98"
+              className="px-4 py-2 text-xs xl:text-sm font-semibold text-[#FFFFFF] hover:text-white bg-transparent hover:bg-white/[0.06] rounded-xl border border-white/15 transition-all cursor-pointer active:scale-98"
             >
               Iniciar sesión
             </button>
@@ -443,10 +443,10 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
             <button
               type="button"
               onClick={onOpenAuthModal}
-              className="inline-flex items-center gap-2 px-4.5 py-2 text-xs xl:text-sm font-bold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] rounded-xl border border-white/10 shadow-xs hover:border-white/20 transition-all cursor-pointer active:scale-98"
+              className="inline-flex items-center gap-2 px-4.5 py-2 text-xs xl:text-sm font-bold text-[#FFFFFF] bg-[#1F3327] hover:bg-[#28372e] rounded-xl border border-white/10 shadow-xs hover:border-white/20 transition-all cursor-pointer active:scale-98"
             >
               <span>Acceder a GanaderIA</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#C9A35A]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#D4A94E]" />
             </button>
           </div>
 
@@ -455,14 +455,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
             <button
               type="button"
               onClick={onOpenAuthModal}
-              className="px-3 py-1.5 text-xs font-semibold text-[#F5F2E9] border border-white/15 rounded-lg bg-white/[0.04]"
+              className="px-3 py-1.5 text-xs font-semibold text-[#FFFFFF] border border-white/15 rounded-lg bg-white/[0.04]"
             >
               Acceder
             </button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.06] rounded-lg transition-colors"
+              className="p-2 text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.06] rounded-lg transition-colors"
               aria-label="Abrir menú de navegación"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
@@ -488,13 +488,13 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#101713] z-50 p-6 flex flex-col justify-between shadow-2xl border-l border-white/10 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#0D1A13] z-50 p-6 flex flex-col justify-between shadow-2xl border-l border-white/10 lg:hidden overflow-y-auto"
             >
               <div>
                 <div className="flex items-center justify-between pb-5 border-b border-white/10">
                   <div className="flex items-center gap-2.5">
                     <GanaderIALogo variant="icon" size="md" />
-                    <span className="text-lg font-bold text-[#F5F2E9]">GanaderIA</span>
+                    <span className="text-lg font-bold text-[#FFFFFF]">GanaderIA</span>
                   </div>
                   <button
                     type="button"
@@ -519,7 +519,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                       key={item.id}
                       type="button"
                       onClick={() => scrollToSection(item.id)}
-                      className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] rounded-xl text-left"
+                      className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.04] rounded-xl text-left"
                     >
                       <span>{item.label}</span>
                       <ChevronRight className="w-4 h-4 text-[#A5B8AC]/40" />
@@ -535,7 +535,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                     setMobileMenuOpen(false);
                     onOpenAuthModal();
                   }}
-                  className="w-full py-3 px-4 text-center text-sm font-semibold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] border border-white/10 rounded-xl"
+                  className="w-full py-3 px-4 text-center text-sm font-semibold text-[#FFFFFF] bg-[#1F3327] hover:bg-[#28372e] border border-white/10 rounded-xl"
                 >
                   Iniciar sesión
                 </button>
@@ -545,10 +545,10 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                     setMobileMenuOpen(false);
                     onOpenAuthModal();
                   }}
-                  className="w-full py-3.5 px-4 text-center text-sm font-bold text-[#F5F2E9] bg-[#043825] hover:bg-[#064e3b] border border-emerald-500/30 rounded-xl shadow-md flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 text-center text-sm font-bold text-[#FFFFFF] bg-[#123F2A] hover:bg-[#064e3b] border border-emerald-500/30 rounded-xl shadow-md flex items-center justify-center gap-2"
                 >
                   <span>Acceder a GanaderIA</span>
-                  <ArrowRight className="w-4 h-4 text-[#C9A35A]" />
+                  <ArrowRight className="w-4 h-4 text-[#D4A94E]" />
                 </button>
               </div>
             </motion.div>
@@ -557,7 +557,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </AnimatePresence>
 
       {/* 2. Sección Principal (Hero) - Dos Columnas + Tarjetas de Capacidades + Tarjeta Tecnológica */}
-      <section id="inicio" className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-[#101713] border-b border-white/[0.07]">
+      <section id="inicio" className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-[#0D1A13] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Main Two-Column Hero Row */}
@@ -571,9 +571,9 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               className="lg:col-span-5 flex flex-col justify-center"
             >
               {/* Main Headline in Serif Typography with Golden "control." */}
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] text-[#F5F2E9] font-bold tracking-tight leading-[1.12]">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] text-[#FFFFFF] font-bold tracking-tight leading-[1.12]">
                 Tu ganadería,<br />
-                bajo <span className="text-[#C9A35A] underline decoration-[#C9A35A]/40 decoration-2 underline-offset-4">control.</span>
+                bajo <span className="text-[#D4A94E] underline decoration-[#D4A94E]/40 decoration-2 underline-offset-4">control.</span>
               </h1>
 
               {/* Exact Descriptive Subtitle in greenish-gray */}
@@ -586,16 +586,16 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 <button
                   type="button"
                   onClick={onOpenAuthModal}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm sm:text-base font-bold text-[#F5F2E9] bg-[#202B24] hover:bg-[#28372e] border border-white/15 hover:border-white/30 rounded-xl shadow-md transition-all cursor-pointer group active:scale-98"
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm sm:text-base font-bold text-[#FFFFFF] bg-[#1F3327] hover:bg-[#28372e] border border-white/15 hover:border-white/30 rounded-xl shadow-md transition-all cursor-pointer group active:scale-98"
                 >
                   <span>Acceder a GanaderIA</span>
-                  <ArrowRight className="w-4 h-4 text-[#C9A35A] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#D4A94E] group-hover:translate-x-1 transition-transform" />
                 </button>
 
                 <button
                   type="button"
                   onClick={() => scrollToSection('modulos')}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm sm:text-base font-semibold text-[#A5B8AC] hover:text-[#F5F2E9] bg-transparent hover:bg-white/[0.04] rounded-xl border border-white/10 transition-all cursor-pointer active:scale-98"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm sm:text-base font-semibold text-[#A5B8AC] hover:text-[#FFFFFF] bg-transparent hover:bg-white/[0.04] rounded-xl border border-white/10 transition-all cursor-pointer active:scale-98"
                 >
                   <span>Explorar módulos</span>
                   <ChevronDown className="w-4 h-4 text-[#A5B8AC]" />
@@ -610,7 +610,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               transition={{ duration: 0.35, delay: 0.1 }}
               className="lg:col-span-7"
             >
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#152019]">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#15241C]">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/4/41/Cow%2C_breed_Gir_in_Balacan%2C_Mexico.jpg"
                   alt="Vaca de raza Gyr lechero en potrero verde bajo luz natural"
@@ -639,12 +639,12 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   key={idx}
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-[#202B24] border border-white/[0.08] hover:border-white/20 rounded-xl p-5 flex flex-col items-center justify-center text-center h-32 sm:h-36 shadow-xs group transition-colors"
+                  className="bg-[#1F3327] border border-white/[0.08] hover:border-white/20 rounded-xl p-5 flex flex-col items-center justify-center text-center h-32 sm:h-36 shadow-xs group transition-colors"
                 >
                   <div className="mb-3">
                     <IconComp className={`w-7 h-7 ${card.accent} group-hover:scale-110 transition-transform`} />
                   </div>
-                  <span className="text-sm font-semibold text-[#F5F2E9] tracking-tight leading-snug">
+                  <span className="text-sm font-semibold text-[#FFFFFF] tracking-tight leading-snug">
                     {card.title}
                   </span>
                 </motion.div>
@@ -653,7 +653,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           </div>
 
           {/* 4. Tarjeta Tecnológica Inferior Integrada */}
-          <div className="mt-6 bg-[#152019] border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+          <div className="mt-6 bg-[#15241C] border border-white/10 rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
             
             {/* Subtle background glow */}
             <div className="absolute top-0 right-0 w-80 h-32 bg-emerald-500/5 blur-3xl pointer-events-none" />
@@ -666,10 +666,10 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   <GanaderIALogo variant="icon" size="sm" />
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm sm:text-base font-bold text-[#F5F2E9]">
+                      <span className="text-sm sm:text-base font-bold text-[#FFFFFF]">
                         GanaderIA · Tablero General
                       </span>
-                      <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#043825] text-emerald-300 border border-emerald-500/30">
+                      <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#123F2A] text-emerald-300 border border-emerald-500/30">
                         SISTEMA OFICIAL
                       </span>
                     </div>
@@ -693,7 +693,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                   <div className="text-[11px] text-[#A5B8AC] uppercase font-semibold tracking-wider">
                     Báscula Tru-Test
                   </div>
-                  <div className="text-base sm:text-lg font-black text-[#C9A35A] tracking-tight">
+                  <div className="text-base sm:text-lg font-black text-[#D4A94E] tracking-tight">
                     442.5 kg <span className="text-xs font-normal text-[#A5B8AC]">(+0.88 kg/d)</span>
                   </div>
                 </div>
@@ -701,14 +701,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 {/* Mini Golden Trend Line Chart (SVG) */}
                 <div className="flex flex-col items-end">
                   <div className="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
-                    <TrendingUp className="w-3 h-3 text-[#C9A35A]" />
+                    <TrendingUp className="w-3 h-3 text-[#D4A94E]" />
                     <span>Curva de Ganancia</span>
                   </div>
                   <svg className="w-28 sm:w-36 h-8 mt-1 overflow-visible" viewBox="0 0 120 30" fill="none">
                     <defs>
                       <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#C9A35A" stopOpacity="0.4" />
-                        <stop offset="100%" stopColor="#C9A35A" stopOpacity="0" />
+                        <stop offset="0%" stopColor="#D4A94E" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="#D4A94E" stopOpacity="0" />
                       </linearGradient>
                     </defs>
                     <path
@@ -717,11 +717,11 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                     />
                     <path
                       d="M0,24 Q20,22 40,16 T80,10 T120,4"
-                      stroke="#C9A35A"
+                      stroke="#D4A94E"
                       strokeWidth="2.5"
                       strokeLinecap="round"
                     />
-                    <circle cx="120" cy="4" r="3.5" fill="#C9A35A" className="animate-pulse" />
+                    <circle cx="120" cy="4" r="3.5" fill="#D4A94E" className="animate-pulse" />
                   </svg>
                 </div>
 
@@ -734,14 +734,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 5. Presentación de la Plataforma (Procesos) */}
-      <section id="plataforma" className="py-20 bg-[#152019] border-b border-white/[0.07]">
+      <section id="plataforma" className="py-20 bg-[#15241C] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123F2A] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
               Ecosistema Unificado
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FFFFFF] tracking-tight">
               Todos los procesos de tu ganadería en un solo sistema
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
@@ -755,12 +755,12 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] hover:border-white/20 transition-all group"
+                  className="p-6 rounded-xl bg-[#1F3327] border border-white/[0.08] hover:border-white/20 transition-all group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-[#043825] text-[#C9A35A] flex items-center justify-center mb-4 border border-emerald-500/20 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-lg bg-[#123F2A] text-[#D4A94E] flex items-center justify-center mb-4 border border-emerald-500/20 group-hover:scale-105 transition-transform">
                     <IconComp className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base font-bold text-[#F5F2E9] tracking-tight">
+                  <h3 className="text-base font-bold text-[#FFFFFF] tracking-tight">
                     Procesos {proc.title}
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
@@ -775,14 +775,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 6. Beneficios */}
-      <section id="beneficios" className="py-20 bg-[#101713] border-b border-white/[0.07]">
+      <section id="beneficios" className="py-20 bg-[#0D1A13] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123F2A] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
               Ventajas Comprobadas
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FFFFFF] tracking-tight">
               Beneficios estratégicos para el productor ganadero
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
@@ -796,13 +796,13 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] hover:border-white/20 transition-all flex flex-col justify-between"
+                  className="p-6 rounded-xl bg-[#1F3327] border border-white/[0.08] hover:border-white/20 transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-lg bg-[#043825] text-[#C9A35A] border border-emerald-500/20 flex items-center justify-center mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#123F2A] text-[#D4A94E] border border-emerald-500/20 flex items-center justify-center mb-4">
                       <IconComp className="w-5 h-5" />
                     </div>
-                    <h3 className="text-base font-bold text-[#F5F2E9] tracking-tight">
+                    <h3 className="text-base font-bold text-[#FFFFFF] tracking-tight">
                       {b.title}
                     </h3>
                     <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
@@ -818,14 +818,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 7. Módulos Especializados (Los 19 reales) */}
-      <section id="modulos" className="py-20 bg-[#152019] border-b border-white/[0.07]">
+      <section id="modulos" className="py-20 bg-[#15241C] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123F2A] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
               19 Módulos Especializados
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FFFFFF] tracking-tight">
               Estructura modular completa de GanaderIA
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
@@ -840,11 +840,11 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 <div
                   key={mod.id}
                   onClick={() => onEnterPlatform(mod.id)}
-                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] hover:border-white/20 transition-all cursor-pointer group flex flex-col justify-between"
+                  className="p-6 rounded-xl bg-[#1F3327] border border-white/[0.08] hover:border-white/20 transition-all cursor-pointer group flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-11 h-11 rounded-lg bg-[#043825] text-[#C9A35A] border border-emerald-500/20 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <div className="w-11 h-11 rounded-lg bg-[#123F2A] text-[#D4A94E] border border-emerald-500/20 flex items-center justify-center group-hover:scale-105 transition-transform">
                         <IconComp className="w-5 h-5" />
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/[0.06] text-[#A5B8AC]">
@@ -852,7 +852,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                       </span>
                     </div>
 
-                    <h3 className="text-base font-bold text-[#F5F2E9] group-hover:text-[#C9A35A] transition-colors">
+                    <h3 className="text-base font-bold text-[#FFFFFF] group-hover:text-[#D4A94E] transition-colors">
                       {mod.name}
                     </h3>
                     <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
@@ -860,7 +860,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-semibold text-[#C9A35A] group-hover:underline">
+                  <div className="mt-5 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-semibold text-[#D4A94E] group-hover:underline">
                     <span>Acceder al módulo</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -873,10 +873,10 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
             <button
               type="button"
               onClick={onOpenAuthModal}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] font-bold text-sm border border-white/15 cursor-pointer shadow-md transition-all active:scale-98"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#1F3327] hover:bg-[#28372e] text-[#FFFFFF] font-bold text-sm border border-white/15 cursor-pointer shadow-md transition-all active:scale-98"
             >
               <span>Ingresar con tu PIN a los módulos</span>
-              <ArrowRight className="w-4 h-4 text-[#C9A35A]" />
+              <ArrowRight className="w-4 h-4 text-[#D4A94E]" />
             </button>
           </div>
 
@@ -884,14 +884,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 8. Gestión Multifincas */}
-      <section id="multifincas" className="py-20 bg-[#101713] border-b border-white/[0.07]">
+      <section id="multifincas" className="py-20 bg-[#0D1A13] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123F2A] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
               Arquitectura Multi-Predio
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FFFFFF] tracking-tight">
               Gestión centralizada de múltiples fincas
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
@@ -911,11 +911,11 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
             ].map((p, idx) => {
               const IconC = p.icon;
               return (
-                <div key={idx} className="p-4.5 bg-[#202B24] rounded-xl border border-white/[0.08]">
-                  <div className="w-9 h-9 rounded-lg bg-[#043825] text-[#C9A35A] mx-auto flex items-center justify-center mb-3">
+                <div key={idx} className="p-4.5 bg-[#1F3327] rounded-xl border border-white/[0.08]">
+                  <div className="w-9 h-9 rounded-lg bg-[#123F2A] text-[#D4A94E] mx-auto flex items-center justify-center mb-3">
                     <IconC className="w-4.5 h-4.5" />
                   </div>
-                  <div className="font-bold text-xs sm:text-sm text-[#F5F2E9]">{p.title}</div>
+                  <div className="font-bold text-xs sm:text-sm text-[#FFFFFF]">{p.title}</div>
                   <div className="text-[11px] text-[#A5B8AC] mt-1 leading-relaxed">{p.desc}</div>
                 </div>
               );
@@ -923,16 +923,16 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           </div>
 
           {/* Live Farm Directory Preview */}
-          <div className="bg-[#152019] rounded-2xl border border-white/10 p-6 sm:p-8 shadow-xl max-w-5xl mx-auto">
+          <div className="bg-[#15241C] rounded-2xl border border-white/10 p-6 sm:p-8 shadow-xl max-w-5xl mx-auto">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-white/10 gap-4">
               <div>
                 <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Directorio de Predios</span>
-                <h3 className="text-lg sm:text-xl font-bold text-[#F5F2E9] mt-0.5">Tus Fincas en Operación</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-[#FFFFFF] mt-0.5">Tus Fincas en Operación</h3>
               </div>
               <button
                 type="button"
                 onClick={onOpenAuthModal}
-                className="px-4 py-2 bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] font-bold text-xs rounded-xl border border-white/10 transition-colors self-start sm:self-auto"
+                className="px-4 py-2 bg-[#1F3327] hover:bg-[#28372e] text-[#FFFFFF] font-bold text-xs rounded-xl border border-white/10 transition-colors self-start sm:self-auto"
               >
                 + Registrar Nueva Finca
               </button>
@@ -957,19 +957,19 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                     onClick={() => setSelectedFarmPreviewId(farm.profile.id)}
                     className={`p-4 rounded-xl border transition-all cursor-pointer ${
                       selectedFarmPreviewId === farm.profile.id
-                        ? 'bg-[#202B24] border-emerald-500/50 ring-1 ring-emerald-500/30'
-                        : 'bg-[#202B24]/60 border-white/[0.08] hover:bg-[#202B24]'
+                        ? 'bg-[#1F3327] border-emerald-500/50 ring-1 ring-emerald-500/30'
+                        : 'bg-[#1F3327]/60 border-white/[0.08] hover:bg-[#1F3327]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-sm text-[#F5F2E9]">{farm.profile.name}</span>
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#043825] text-emerald-300 border border-emerald-500/20">
+                      <span className="font-bold text-sm text-[#FFFFFF]">{farm.profile.name}</span>
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#123F2A] text-emerald-300 border border-emerald-500/20">
                         {farm.profile.department}
                       </span>
                     </div>
                     <div className="text-xs text-[#A5B8AC] mt-1">{farm.profile.municipality} • {totalHa} HA</div>
                     
-                    <div className="mt-3 pt-3 border-t border-white/[0.08] grid grid-cols-2 gap-2 text-xs font-semibold text-[#F5F2E9]">
+                    <div className="mt-3 pt-3 border-t border-white/[0.08] grid grid-cols-2 gap-2 text-xs font-semibold text-[#FFFFFF]">
                       <div>
                         <span className="text-[10px] text-[#A5B8AC] block">Cabezas</span>
                         <span>{totalBovinos} bovinos</span>
@@ -989,14 +989,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 9. Roles y Permisos (Interactivo) */}
-      <section id="roles" className="py-20 bg-[#152019] border-b border-white/[0.07]">
+      <section id="roles" className="py-20 bg-[#15241C] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123F2A] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
               Perfiles y Alcance
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FFFFFF] tracking-tight">
               Roles y permisos diseñados para cada perfil
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
@@ -1013,8 +1013,8 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
                 onClick={() => setSelectedRoleIndex(idx)}
                 className={`px-4.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   selectedRoleIndex === idx
-                    ? 'bg-[#202B24] text-[#F5F2E9] border border-white/20 shadow-md'
-                    : 'bg-transparent text-[#A5B8AC] hover:text-[#F5F2E9] hover:bg-white/[0.04] border border-transparent'
+                    ? 'bg-[#1F3327] text-[#FFFFFF] border border-white/20 shadow-md'
+                    : 'bg-transparent text-[#A5B8AC] hover:text-[#FFFFFF] hover:bg-white/[0.04] border border-transparent'
                 }`}
               >
                 {r.title}
@@ -1023,20 +1023,20 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
           </div>
 
           {/* Active Role Card Detail */}
-          <div className="max-w-4xl mx-auto bg-[#202B24] rounded-2xl border border-white/10 p-7 sm:p-9 shadow-xl">
+          <div className="max-w-4xl mx-auto bg-[#1F3327] rounded-2xl border border-white/10 p-7 sm:p-9 shadow-xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-white/10 gap-4">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#043825] text-emerald-300 border border-emerald-500/30">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#123F2A] text-emerald-300 border border-emerald-500/30">
                   {roles[selectedRoleIndex].badge}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#F5F2E9] mt-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#FFFFFF] mt-2">
                   Perfil de {roles[selectedRoleIndex].title}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={onOpenAuthModal}
-                className="px-4 py-2 bg-[#043825] hover:bg-[#064e3b] text-[#F5F2E9] text-xs font-bold rounded-xl border border-emerald-500/30 self-start sm:self-auto"
+                className="px-4 py-2 bg-[#123F2A] hover:bg-[#064e3b] text-[#FFFFFF] text-xs font-bold rounded-xl border border-emerald-500/30 self-start sm:self-auto"
               >
                 Iniciar sesión con este rol
               </button>
@@ -1052,8 +1052,8 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {roles[selectedRoleIndex].permissions.map((perm, i) => (
-                  <div key={i} className="flex items-start gap-2.5 p-3 bg-[#152019] rounded-xl border border-white/[0.06] text-xs sm:text-sm font-medium text-[#F5F2E9]">
-                    <CheckCircle2 className="w-4 h-4 text-[#C9A35A] shrink-0 mt-0.5" />
+                  <div key={i} className="flex items-start gap-2.5 p-3 bg-[#15241C] rounded-xl border border-white/[0.06] text-xs sm:text-sm font-medium text-[#FFFFFF]">
+                    <CheckCircle2 className="w-4 h-4 text-[#D4A94E] shrink-0 mt-0.5" />
                     <span>{perm}</span>
                   </div>
                 ))}
@@ -1065,14 +1065,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 10. Seguridad */}
-      <section id="seguridad" className="py-20 bg-[#101713] border-b border-white/[0.07]">
+      <section id="seguridad" className="py-20 bg-[#0D1A13] border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#043825] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123F2A] text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
               Protección y Confianza
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2E9] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FFFFFF] tracking-tight">
               Seguridad y control de tu información
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#A5B8AC]">
@@ -1086,13 +1086,13 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-[#202B24] border border-white/[0.08] flex flex-col justify-between"
+                  className="p-6 rounded-xl bg-[#1F3327] border border-white/[0.08] flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-10 h-10 rounded-lg bg-[#043825] text-[#C9A35A] flex items-center justify-center mb-4 border border-emerald-500/20">
+                    <div className="w-10 h-10 rounded-lg bg-[#123F2A] text-[#D4A94E] flex items-center justify-center mb-4 border border-emerald-500/20">
                       <IconC className="w-5 h-5" />
                     </div>
-                    <h3 className="text-base font-bold text-[#F5F2E9]">
+                    <h3 className="text-base font-bold text-[#FFFFFF]">
                       {sec.title}
                     </h3>
                     <p className="mt-2 text-xs sm:text-sm text-[#A5B8AC] leading-relaxed">
@@ -1108,14 +1108,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 11. Llamado a la Acción (Final CTA) */}
-      <section className="py-20 bg-[#152019] text-white relative overflow-hidden">
+      <section className="py-20 bg-[#15241C] text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           
           <div className="mx-auto mb-6 flex items-center justify-center">
             <GanaderIALogo variant="icon" size="xl" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-[#F5F2E9]">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-[#FFFFFF]">
             Transforma la información de tu finca en mejores decisiones.
           </h2>
 
@@ -1127,14 +1127,14 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
             <button
               type="button"
               onClick={onOpenAuthModal}
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] font-bold text-sm rounded-xl border border-white/15 shadow-xl transition-all cursor-pointer active:scale-98"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#1F3327] hover:bg-[#28372e] text-[#FFFFFF] font-bold text-sm rounded-xl border border-white/15 shadow-xl transition-all cursor-pointer active:scale-98"
             >
               Ingresar a GanaderIA
             </button>
             <button
               type="button"
               onClick={() => scrollToSection('modulos')}
-              className="w-full sm:w-auto px-7 py-3.5 bg-transparent hover:bg-white/[0.04] text-[#A5B8AC] hover:text-[#F5F2E9] font-semibold text-sm rounded-xl border border-white/10 transition-all cursor-pointer active:scale-98"
+              className="w-full sm:w-auto px-7 py-3.5 bg-transparent hover:bg-white/[0.04] text-[#A5B8AC] hover:text-[#FFFFFF] font-semibold text-sm rounded-xl border border-white/10 transition-all cursor-pointer active:scale-98"
             >
               Ver los 19 módulos
             </button>
@@ -1144,7 +1144,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       </section>
 
       {/* 12. Pie de Página (Footer) */}
-      <footer className="bg-[#101713] text-[#A5B8AC] py-14 border-t border-white/[0.07] text-xs">
+      <footer className="bg-[#0D1A13] text-[#A5B8AC] py-14 border-t border-white/[0.07] text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-white/[0.07]">
@@ -1152,7 +1152,7 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
             <div className="space-y-3">
               <div className="flex items-center gap-2.5">
                 <GanaderIALogo variant="icon" size="md" />
-                <span className="text-lg font-bold text-[#F5F2E9]">GanaderIA</span>
+                <span className="text-lg font-bold text-[#FFFFFF]">GanaderIA</span>
               </div>
               <p className="text-xs text-[#A5B8AC] leading-relaxed max-w-xs">
                 Plataforma integral para la administración ganadera, control zootécnico, sanidad, pesaje e inventarios multi-finca.
@@ -1161,37 +1161,37 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
 
             {/* Column 2: Navigation Links */}
             <div>
-              <div className="font-bold text-[#F5F2E9] text-xs uppercase tracking-wider mb-3">Navegación</div>
+              <div className="font-bold text-[#FFFFFF] text-xs uppercase tracking-wider mb-3">Navegación</div>
               <div className="flex flex-col gap-2">
-                <button type="button" onClick={() => scrollToSection('inicio')} className="hover:text-[#F5F2E9] text-left transition-colors">Inicio</button>
-                <button type="button" onClick={() => scrollToSection('plataforma')} className="hover:text-[#F5F2E9] text-left transition-colors">Plataforma</button>
-                <button type="button" onClick={() => scrollToSection('modulos')} className="hover:text-[#F5F2E9] text-left transition-colors">Módulos</button>
-                <button type="button" onClick={() => scrollToSection('beneficios')} className="hover:text-[#F5F2E9] text-left transition-colors">Beneficios</button>
-                <button type="button" onClick={() => scrollToSection('multifincas')} className="hover:text-[#F5F2E9] text-left transition-colors">Gestión multifincas</button>
-                <button type="button" onClick={() => scrollToSection('roles')} className="hover:text-[#F5F2E9] text-left transition-colors">Roles y permisos</button>
+                <button type="button" onClick={() => scrollToSection('inicio')} className="hover:text-[#FFFFFF] text-left transition-colors">Inicio</button>
+                <button type="button" onClick={() => scrollToSection('plataforma')} className="hover:text-[#FFFFFF] text-left transition-colors">Plataforma</button>
+                <button type="button" onClick={() => scrollToSection('modulos')} className="hover:text-[#FFFFFF] text-left transition-colors">Módulos</button>
+                <button type="button" onClick={() => scrollToSection('beneficios')} className="hover:text-[#FFFFFF] text-left transition-colors">Beneficios</button>
+                <button type="button" onClick={() => scrollToSection('multifincas')} className="hover:text-[#FFFFFF] text-left transition-colors">Gestión multifincas</button>
+                <button type="button" onClick={() => scrollToSection('roles')} className="hover:text-[#FFFFFF] text-left transition-colors">Roles y permisos</button>
               </div>
             </div>
 
             {/* Column 3: Legal & Security */}
             <div>
-              <div className="font-bold text-[#F5F2E9] text-xs uppercase tracking-wider mb-3">Legal y Seguridad</div>
+              <div className="font-bold text-[#FFFFFF] text-xs uppercase tracking-wider mb-3">Legal y Seguridad</div>
               <div className="flex flex-col gap-2">
-                <button type="button" onClick={() => setIsPrivacyModalOpen(true)} className="hover:text-[#F5F2E9] text-left transition-colors">Política de privacidad</button>
-                <button type="button" onClick={() => setIsTermsModalOpen(true)} className="hover:text-[#F5F2E9] text-left transition-colors">Términos y condiciones</button>
-                <button type="button" onClick={() => scrollToSection('seguridad')} className="hover:text-[#F5F2E9] text-left transition-colors">Seguridad de datos</button>
+                <button type="button" onClick={() => setIsPrivacyModalOpen(true)} className="hover:text-[#FFFFFF] text-left transition-colors">Política de privacidad</button>
+                <button type="button" onClick={() => setIsTermsModalOpen(true)} className="hover:text-[#FFFFFF] text-left transition-colors">Términos y condiciones</button>
+                <button type="button" onClick={() => scrollToSection('seguridad')} className="hover:text-[#FFFFFF] text-left transition-colors">Seguridad de datos</button>
               </div>
             </div>
 
             {/* Column 4: Access */}
             <div>
-              <div className="font-bold text-[#F5F2E9] text-xs uppercase tracking-wider mb-3">Acceso al Software</div>
+              <div className="font-bold text-[#FFFFFF] text-xs uppercase tracking-wider mb-3">Acceso al Software</div>
               <p className="text-xs text-[#A5B8AC] mb-3">
                 Ingresa con tu usuario y PIN de seguridad para gestionar tus hatos.
               </p>
               <button
                 type="button"
                 onClick={onOpenAuthModal}
-                className="w-full py-2.5 px-4 bg-[#202B24] hover:bg-[#28372e] text-[#F5F2E9] border border-white/10 font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                className="w-full py-2.5 px-4 bg-[#1F3327] hover:bg-[#28372e] text-[#FFFFFF] border border-white/10 font-bold text-xs rounded-xl transition-colors cursor-pointer"
               >
                 Iniciar sesión ahora
               </button>
@@ -1213,20 +1213,20 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       {/* Privacy Policy Modal */}
       {isPrivacyModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-[#202B24] text-[#F5F2E9] rounded-2xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl border border-white/10">
+          <div className="bg-[#1F3327] text-[#FFFFFF] rounded-2xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl border border-white/10">
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
-              <h3 className="font-bold text-lg text-[#F5F2E9]">Política de Privacidad</h3>
+              <h3 className="font-bold text-lg text-[#FFFFFF]">Política de Privacidad</h3>
               <button type="button" onClick={() => setIsPrivacyModalOpen(false)} className="p-1 rounded-lg text-[#A5B8AC] hover:bg-white/10 hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
             <div className="mt-4 text-xs text-[#A5B8AC] space-y-3 leading-relaxed">
-              <p>En <strong className="text-[#F5F2E9]">GanaderIA</strong>, la privacidad y seguridad de la información zootécnica, comercial y patrimonial de nuestros clientes es una prioridad institucional.</p>
+              <p>En <strong className="text-[#FFFFFF]">GanaderIA</strong>, la privacidad y seguridad de la información zootécnica, comercial y patrimonial de nuestros clientes es una prioridad institucional.</p>
               <p>Los datos registrados sobre inventarios animales, pesajes, sanidad y finanzas pertenecen exclusivamente al propietario de la cuenta y no son compartidos con terceros sin autorización expresa.</p>
               <p>La autenticación se realiza mediante PIN individual y las sesiones se protegen mediante protocolos cifrados en la nube.</p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10 text-right">
-              <button type="button" onClick={() => setIsPrivacyModalOpen(false)} className="px-4 py-2 bg-[#043825] text-white text-xs font-bold rounded-xl border border-emerald-500/30">
+              <button type="button" onClick={() => setIsPrivacyModalOpen(false)} className="px-4 py-2 bg-[#123F2A] text-white text-xs font-bold rounded-xl border border-emerald-500/30">
                 Cerrar
               </button>
             </div>
@@ -1237,20 +1237,20 @@ export const PublicHomePage: React.FC<PublicHomePageProps> = ({
       {/* Terms & Conditions Modal */}
       {isTermsModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-[#202B24] text-[#F5F2E9] rounded-2xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl border border-white/10">
+          <div className="bg-[#1F3327] text-[#FFFFFF] rounded-2xl max-w-lg w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl border border-white/10">
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
-              <h3 className="font-bold text-lg text-[#F5F2E9]">Términos y Condiciones</h3>
+              <h3 className="font-bold text-lg text-[#FFFFFF]">Términos y Condiciones</h3>
               <button type="button" onClick={() => setIsTermsModalOpen(false)} className="p-1 rounded-lg text-[#A5B8AC] hover:bg-white/10 hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
             <div className="mt-4 text-xs text-[#A5B8AC] space-y-3 leading-relaxed">
-              <p>El uso del software <strong className="text-[#F5F2E9]">GanaderIA</strong> implica la aceptación de los presentes términos de servicio.</p>
+              <p>El uso del software <strong className="text-[#FFFFFF]">GanaderIA</strong> implica la aceptación de los presentes términos de servicio.</p>
               <p>El usuario es responsable de mantener la confidencialidad de su PIN de acceso y de verificar la veracidad de los datos sanitarios y de pesaje ingresados en la plataforma.</p>
               <p>GanaderIA provee herramientas de cálculo zootécnico y alertas de tiempo de retiro que deben ser supervisadas por médicos veterinarios acreditados.</p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10 text-right">
-              <button type="button" onClick={() => setIsTermsModalOpen(false)} className="px-4 py-2 bg-[#043825] text-white text-xs font-bold rounded-xl border border-emerald-500/30">
+              <button type="button" onClick={() => setIsTermsModalOpen(false)} className="px-4 py-2 bg-[#123F2A] text-white text-xs font-bold rounded-xl border border-emerald-500/30">
                 Cerrar
               </button>
             </div>

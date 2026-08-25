@@ -324,7 +324,7 @@ export const RainfallView: React.FC<RainfallViewProps> = ({
         </div>
 
         {/* Card 6: Hydric Status Indicator */}
-        <div className="bg-[#043825] text-white border border-[#043825] rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
+        <div className="bg-[#123F2A] text-white border border-[#123F2A] rounded-2xl p-4 shadow-xs min-w-0 overflow-hidden flex flex-col justify-between">
           <div className="flex items-center justify-between text-[#facc15] gap-1 min-w-0">
             <span className="text-[10px] font-bold uppercase truncate">Estado Hídrico</span>
             <Sparkles className="w-4 h-4 text-[#facc15] shrink-0" />

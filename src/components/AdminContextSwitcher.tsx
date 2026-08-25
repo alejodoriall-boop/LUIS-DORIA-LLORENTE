@@ -47,23 +47,23 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all border shadow-xs cursor-pointer select-none ${
           currentMode === 'global_platform'
-            ? 'bg-[#152019] text-[#C9A35A] border-[#C9A35A]/40 hover:bg-[#1A251E]'
+            ? 'bg-[#15241C] text-[#D4A94E] border-[#D4A94E]/40 hover:bg-[#1A251E]'
             : currentMode === 'support_impersonation'
-            ? 'bg-[#C9A35A] text-[#101713] border-[#C9A35A] font-extrabold hover:bg-[#D8B66C]'
-            : 'bg-[#152019] text-[#F5F2E9] border-white/10 hover:bg-[#1A251E]'
+            ? 'bg-[#D4A94E] text-[#0D1A13] border-[#D4A94E] font-extrabold hover:bg-[#D8B66C]'
+            : 'bg-[#15241C] text-[#FFFFFF] border-white/10 hover:bg-[#1A251E]'
         }`}
         title="Conmutador de Contexto Administrativo"
       >
         {currentMode === 'global_platform' && (
           <>
-            <Globe className="w-3.5 h-3.5 text-[#C9A35A] shrink-0" />
+            <Globe className="w-3.5 h-3.5 text-[#D4A94E] shrink-0" />
             <span className="truncate max-w-[120px] sm:max-w-[170px]">Global Superadmin</span>
           </>
         )}
 
         {currentMode === 'support_impersonation' && (
           <>
-            <LifeBuoy className="w-3.5 h-3.5 text-[#101713] shrink-0" />
+            <LifeBuoy className="w-3.5 h-3.5 text-[#0D1A13] shrink-0" />
             <span className="truncate max-w-[120px] sm:max-w-[170px]">
               Soporte: {impersonatedTenant?.farmName || 'Cliente'}
             </span>
@@ -99,7 +99,7 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 4, scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 450, damping: 28 }}
-              className="fixed sm:absolute right-3 sm:right-0 sm:left-auto top-16 sm:top-full mt-2 w-auto sm:w-80 max-w-sm bg-[#152019] rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-3.5 z-50 space-y-2 text-left text-[#F5F2E9]"
+              className="fixed sm:absolute right-3 sm:right-0 sm:left-auto top-16 sm:top-full mt-2 w-auto sm:w-80 max-w-sm bg-[#15241C] rounded-2xl border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-3.5 z-50 space-y-2 text-left text-[#FFFFFF]"
             >
               {/* Header */}
               <div className="px-2 py-1.5 border-b border-white/10 flex items-center justify-between">
@@ -107,11 +107,11 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                   <span className="text-[10px] font-bold text-[#7F8C83] uppercase tracking-wider block">
                     Espacio de Trabajo
                   </span>
-                  <p className="text-xs font-semibold text-[#F5F2E9] truncate">
+                  <p className="text-xs font-semibold text-[#FFFFFF] truncate">
                     {userEmail}
                   </p>
                 </div>
-                <span className="text-[9px] font-mono font-bold bg-[#C9A35A]/15 text-[#C9A35A] px-2 py-0.5 rounded-md border border-[#C9A35A]/30">
+                <span className="text-[9px] font-mono font-bold bg-[#D4A94E]/15 text-[#D4A94E] px-2 py-0.5 rounded-md border border-[#D4A94E]/30">
                   SUPERADMIN
                 </span>
               </div>
@@ -127,23 +127,23 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                   }}
                   className={`w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between transition-all cursor-pointer ${
                     currentMode === 'global_platform'
-                      ? 'bg-[#202B24] text-[#C9A35A] font-bold border border-[#C9A35A]/30 shadow-xs'
-                      : 'hover:bg-white/5 text-[#B9C3BB]'
+                      ? 'bg-[#1F3327] text-[#D4A94E] font-bold border border-[#D4A94E]/30 shadow-xs'
+                      : 'hover:bg-white/5 text-[#A5B8AC]'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-[#C9A35A]/15 text-[#C9A35A] flex items-center justify-center shrink-0 border border-[#C9A35A]/30">
+                    <div className="w-7 h-7 rounded-lg bg-[#D4A94E]/15 text-[#D4A94E] flex items-center justify-center shrink-0 border border-[#D4A94E]/30">
                       <Globe className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="font-bold leading-tight text-[#F5F2E9]">🌐 Panel Plataforma Global</p>
+                      <p className="font-bold leading-tight text-[#FFFFFF]">🌐 Panel Plataforma Global</p>
                       <p className="text-[10px] text-[#A5B8AC]">
                         KPIs SaaS, Tenants, Storage & Audit
                       </p>
                     </div>
                   </div>
                   {currentMode === 'global_platform' && (
-                    <Check className="w-4 h-4 text-[#C9A35A] shrink-0" />
+                    <Check className="w-4 h-4 text-[#D4A94E] shrink-0" />
                   )}
                 </button>
 
@@ -156,8 +156,8 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                   }}
                   className={`w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between transition-all cursor-pointer ${
                     currentMode === 'my_farms'
-                      ? 'bg-[#202B24] text-[#F5F2E9] font-bold border border-white/20 shadow-xs'
-                      : 'hover:bg-white/5 text-[#B9C3BB]'
+                      ? 'bg-[#1F3327] text-[#FFFFFF] font-bold border border-white/20 shadow-xs'
+                      : 'hover:bg-white/5 text-[#A5B8AC]'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
@@ -165,7 +165,7 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                       <Building2 className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="font-bold leading-tight text-[#F5F2E9]">🐄 Mis Fincas Propias</p>
+                      <p className="font-bold leading-tight text-[#FFFFFF]">🐄 Mis Fincas Propias</p>
                       <p className="text-[10px] text-[#A5B8AC]">
                         Vista operativa de ganadería estándar
                       </p>
@@ -184,14 +184,14 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                       onGoToLanding();
                       setIsOpen(false);
                     }}
-                    className="w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between transition-all cursor-pointer hover:bg-[#C9A35A]/10 text-[#C9A35A] border-t border-white/10 pt-2"
+                    className="w-full text-left px-3 py-2.5 rounded-xl text-xs flex items-center justify-between transition-all cursor-pointer hover:bg-[#D4A94E]/10 text-[#D4A94E] border-t border-white/10 pt-2"
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-[#C9A35A]/15 text-[#C9A35A] flex items-center justify-center shrink-0 border border-[#C9A35A]/30">
+                      <div className="w-7 h-7 rounded-lg bg-[#D4A94E]/15 text-[#D4A94E] flex items-center justify-center shrink-0 border border-[#D4A94E]/30">
                         <Sparkles className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="font-bold leading-tight text-[#C9A35A]">🏠 Home Page Pública</p>
+                        <p className="font-bold leading-tight text-[#D4A94E]">🏠 Home Page Pública</p>
                         <p className="text-[10px] text-[#A5B8AC]">
                           Presentación oficial y portal público
                         </p>
@@ -209,12 +209,12 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                           <LifeBuoy className="w-3.5 h-3.5 text-amber-400" />
                           <span className="text-[11px] font-bold">Modo Soporte Activo</span>
                         </div>
-                        <span className="text-[9px] font-mono font-bold bg-[#C9A35A] text-[#101713] px-1.5 py-0.2 rounded">
+                        <span className="text-[9px] font-mono font-bold bg-[#D4A94E] text-[#0D1A13] px-1.5 py-0.2 rounded">
                           {impersonatedTenant.tenantCode}
                         </span>
                       </div>
                       <p className="text-[11px] text-[#A5B8AC] truncate">
-                        Finca: <span className="font-bold text-[#F5F2E9]">{impersonatedTenant.farmName}</span>
+                        Finca: <span className="font-bold text-[#FFFFFF]">{impersonatedTenant.farmName}</span>
                       </p>
                       <button
                         type="button"
@@ -222,9 +222,9 @@ export const AdminContextSwitcher: React.FC<AdminContextSwitcherProps> = ({
                           onExitImpersonation();
                           setIsOpen(false);
                         }}
-                        className="w-full py-1.5 bg-[#C9A35A] hover:bg-[#D8B66C] text-[#101713] text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                        className="w-full py-1.5 bg-[#D4A94E] hover:bg-[#D8B66C] text-[#0D1A13] text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1 cursor-pointer"
                       >
-                        <LogOut className="w-3 h-3 text-[#101713]" />
+                        <LogOut className="w-3 h-3 text-[#0D1A13]" />
                         <span>Salir de Impersonación</span>
                       </button>
                     </div>

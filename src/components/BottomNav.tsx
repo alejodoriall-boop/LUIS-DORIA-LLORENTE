@@ -39,7 +39,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#101713]/95 backdrop-blur-2xl border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.6)] px-1.5 py-1.5 pb-[calc(0.5rem+env(safe-area-inset-bottom))] flex items-center justify-around select-none">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0D1A13]/95 backdrop-blur-2xl border-t border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.6)] px-1.5 py-1.5 pb-[calc(0.5rem+env(safe-area-inset-bottom))] flex items-center justify-around select-none">
       {primaryTabs.map((item) => {
         const isActive = activeTab === item.id;
         const Icon = item.icon;
@@ -51,14 +51,14 @@ export const BottomNav: React.FC<BottomNavProps> = ({
             onClick={() => setActiveTab(item.id)}
             className={`relative flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl transition-all duration-200 cursor-pointer ${
               isActive
-                ? 'bg-[#C9A35A]/15 text-[#F5F2E9] border border-[#C9A35A]/40 shadow-xs'
-                : 'text-[#A5B8AC] hover:text-[#F5F2E9] active:bg-white/5'
+                ? 'bg-[#D4A94E]/15 text-white border border-[#D4A94E]/40 shadow-xs'
+                : 'text-[#A5B8AC] hover:text-white active:bg-white/5'
             }`}
           >
-            <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-[#C9A35A]' : 'text-[#A5B8AC]'}`} />
+            <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-[#D4A94E]' : 'text-[#A5B8AC]'}`} />
             <span
               className={`text-[10px] tracking-tight mt-0.5 whitespace-nowrap ${
-                isActive ? 'font-bold text-[#F5F2E9]' : 'font-semibold text-[#A5B8AC]'
+                isActive ? 'font-bold text-white' : 'font-semibold text-[#A5B8AC]'
               }`}
             >
               {item.label}
@@ -77,12 +77,12 @@ export const BottomNav: React.FC<BottomNavProps> = ({
             setActiveTab('menu');
           }
         }}
-        className="relative flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl text-[#A5B8AC] hover:text-[#F5F2E9] active:bg-white/5 transition-all duration-200 cursor-pointer"
+        className="relative flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl text-[#A5B8AC] hover:text-white active:bg-white/5 transition-all duration-200 cursor-pointer"
       >
         <div className="relative">
-          <Menu className="w-4 h-4 text-[#C9A35A] shrink-0" />
+          <Menu className="w-4 h-4 text-[#D4A94E] shrink-0" />
           {effectiveUnread > 0 && (
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-rose-500 rounded-full ring-2 ring-[#101713]" />
+            <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#C83E4D] rounded-full ring-2 ring-[#0D1A13]" />
           )}
         </div>
         <span className="text-[10px] font-semibold text-[#A5B8AC] tracking-tight mt-0.5 whitespace-nowrap">
